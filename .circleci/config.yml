@@ -1,19 +1,39 @@
-# RealPython Materials config file
+# Python CircleCI 2.0 configuration file
+#
+# Check https://circleci.com/docs/2.0/language-python/ for more details
+#
 version: 2
 jobs:
   build:
-    machine:
-       image: circleci/classic:latest
+    docker:
+      - image: circleci/python:3.6.1
 
     working_directory: ~/repo
 
     steps:
       - checkout
 
+      # Download and cache dependencies
+      - restore_cache:
+          keys:
+          - v1-dependencies-{{ checksum ".circleci/requirements.txt" }}
+          # fallback to using the latest cache if no exact match is found
+          - v1-dependencies-
+
       - run:
           name: install dependencies
-          command: pip install flake8
+          command: |
+            python3 -m venv venv
+            . venv/bin/activate
+            pip install -r .circleci/requirements.txt
+
+      - save_cache:
+          paths:
+            - ./venv
+          key: v1-dependencies-{{ checksum ".circleci/requirements.txt" }}
 
       - run:
           name: flake8
-          command: flake8
+          command: |
+            . venv/bin/activate
+            flake8
