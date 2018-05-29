@@ -36,4 +36,4 @@ jobs:
           name: flake8
           command: |
             . venv/bin/activate
-            flake8
+            flake8 --exclude=venv
