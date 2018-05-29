@@ -1,0 +1,19 @@
+# RealPython Materials config file
+version: 2
+jobs:
+  build:
+    machine:
+       image: circleci/classic:latest
+
+    working_directory: ~/repo
+
+    steps:
+      - checkout
+
+      - run:
+          name: install dependencies
+          command: pip install flake8
+
+      - run:
+          name: flake8
+          command: flake8
