@@ -1,6 +1,6 @@
 """
-This is the people module and supports all the ReST actions for the PEOPLE collection
-
+This is the people module and supports all the ReST actions for the
+PEOPLE collection
 """
 
 # System modules
