@@ -1,8 +1,8 @@
 # Itertools in Python 3, By Example
 
-> Supplemental materials for the [Itertools in Python 3, By Example](https://realpython.com/itertools-in-python3) article on [Real Python](https://realpython.com).
+> Supplemental materials for the [Itertools in Python 3, By Example](https://realpython.com/python-itertools/) article on [Real Python](https://realpython.com).
 
-This folder contains content for two examples from the article: [Analyzing the S&P500](https://realpython.com/python3-itertools/#analyzing-the-sp500) and [Building Relay Teams from Swimmer Data](https://realpython.com/python3-itertools/#building-relay-teams-from-swimmer-data).
+This folder contains content for two examples from the article: [Analyzing the S&P500](https://realpython.com/python-itertools/#analyzing-the-sp500) and [Building Relay Teams from Swimmer Data](https://realpython.com/python-itertools/#building-relay-teams-from-swimmer-data).
 
 ## Downloading the Files
 
