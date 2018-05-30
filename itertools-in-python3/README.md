@@ -2,7 +2,7 @@
 
 > Supplemental materials for the [Itertools in Python 3, By Example](https://realpython.com/itertools-in-python3) article on [Real Python](https://realpython.com).
 
-This folder contains content for two example from the article: [Analyzing the S&P500](https://realpython.com/python3-itertools/#analyzing-the-sp500) and [Building Relay Teams from Swimmer Data](https://realpython.com/python3-itertools/#building-relay-teams-from-swimmer-data).
+This folder contains content for two examples from the article: [Analyzing the S&P500](https://realpython.com/python3-itertools/#analyzing-the-sp500) and [Building Relay Teams from Swimmer Data](https://realpython.com/python3-itertools/#building-relay-teams-from-swimmer-data).
 
 ## Downloading the Files
 
@@ -11,13 +11,13 @@ This folder contains content for two example from the article: [Analyzing the S&
 If you have `git` installed, the easiest way to access these files is to clone the repository to the directory of your choice:
 
 ```console
-git clone https://github.com/realpython/materials.git
+$ git clone https://github.com/realpython/materials.git
 ```
 
 Then `cd` into the `itertools-in-python3` directory:
 
 ```console
-cd itertools-in-python3
+$ cd materials/itertools-in-python3
 ```
 
 ### Without `git`
@@ -39,6 +39,8 @@ Max loss: -20.47% on 1987-10-19
 Longest growth streak: 14 days (1971-03-26 to 1971-04-15)
 ```
 
+> **Note:** Depending on your installation, you may need to type `python3.6` or `python36` to run the examples. If you follow the [Python 3 Installation & Setup Guide](https://realpython.com/installing-python/), you should have no problem.
+
 Similarly, for `swimmers.py`:
 
 ```console
@@ -52,5 +54,3 @@ Butterfly B: Alexa, Zoey, Emma, Madison
 Freestyle A: Aubrey, Emma, Olivia, Evelyn
 Freestyle B: Elizabeth, Zoe, Addison, Madison
 ```
-
-> **Note:** Depending on your installation, you may need to type `python3.6` or `python36` to run the examples. If you follow the [Python 3 Installation & Setup Guide](https://realpython.com/installing-python/), you should have no problem.
