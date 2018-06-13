@@ -10,7 +10,7 @@ produces:
 
 basePath: /api
 
-# Pßaths supported by the server application
+# Paths supported by the server application
 paths:
   /people:
     get:
