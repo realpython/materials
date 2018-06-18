@@ -1,7 +1,7 @@
 Real Python Sockets Tutorial
 ============================
 
-This is the source code for the `Real Python Sockets Tutorial <https://realpython.com/python-sockets-tutorial/>`_.
+TODO: Add link to tutorial on realpython.com.
 
 Requirements
 ------------
@@ -11,4 +11,4 @@ Requirements
 License
 -------
 
-The MIT License. See the file LICENSE.
+The MIT License. See the file LICENSE in this repository's base directory.

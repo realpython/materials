@@ -25,7 +25,7 @@ class Message:
         self.response_created = False
 
     def _set_selector_events_mask(self, mode):
-        """Set selector to listen for events where mode is 'r', 'w', or 'rw'."""
+        """Set selector to listen for events: mode is 'r', 'w', or 'rw'."""
         if mode == 'r':
             events = selectors.EVENT_READ
         elif mode == 'w':
@@ -52,7 +52,8 @@ class Message:
         if self._send_buffer:
             print('sending', repr(self._send_buffer), 'to', self.addr)
             try:
-                sent = self.sock.send(self._send_buffer)  # Should be ready to write.
+                # Should be ready to write.
+                sent = self.sock.send(self._send_buffer)
             except BlockingIOError:
                 # Resource temporarily unavailable (Errno 35, EWOULDBLOCK).
                 pass
@@ -66,12 +67,14 @@ class Message:
         return json.dumps(obj, ensure_ascii=False).encode(encoding)
 
     def _json_decode(self, json_bytes, encoding):
-        tiow = io.TextIOWrapper(io.BytesIO(json_bytes), encoding=encoding, newline='')
+        tiow = io.TextIOWrapper(io.BytesIO(json_bytes), encoding=encoding,
+                                newline='')
         obj = json.load(tiow)
         tiow.close()
         return obj
 
-    def _create_message(self, *, content_bytes, content_type, content_encoding):
+    def _create_message(self, *, content_bytes, content_type,
+                        content_encoding):
         jsonheader = {
             'byteorder': sys.byteorder,
             'content-type': content_type,
@@ -87,7 +90,7 @@ class Message:
         action = self.request.get('action')
         if action == 'search':
             query = self.request.get('value')
-            answer = request_search.get(query) or f'No match for "{query}". \U0001f627'
+            answer = request_search.get(query) or f'No match for "{query}".'
             content = {'result': answer}
         else:
             content = {'result': f'Error: invalid action "{action}".'}
@@ -101,7 +104,8 @@ class Message:
 
     def _create_response_binary_content(self):
         response = {
-            'content_bytes': b'First 10 bytes of request: ' + self.request[:10],
+            'content_bytes': b'First 10 bytes of request: ' +
+                             self.request[:10],
             'content_type': 'binary/custom-server-binary-type',
             'content_encoding': 'binary'
         }
@@ -139,12 +143,14 @@ class Message:
         try:
             self.selector.unregister(self.sock)
         except Exception as e:
-            print(f'error: selector.unregister() exception for {self.addr}: {repr(e)}')
+            print(f'error: selector.unregister() exception for',
+                  f'{self.addr}: {repr(e)}')
 
         try:
             self.sock.close()
         except OSError as e:
-            print(f'error: socket.close() exception for {self.addr}: {repr(e)}')
+            print(f'error: socket.close() exception for',
+                  f'{self.addr}: {repr(e)}')
         finally:
             # Delete reference to socket object for garbage collection.
             self.sock = None
@@ -152,15 +158,18 @@ class Message:
     def process_protoheader(self):
         hdrlen = 2
         if len(self._recv_buffer) >= hdrlen:
-            self._jsonheader_len = struct.unpack('>H', self._recv_buffer[:hdrlen])[0]
+            self._jsonheader_len = struct.unpack('>H',
+                                                 self._recv_buffer[:hdrlen])[0]
             self._recv_buffer = self._recv_buffer[hdrlen:]
 
     def process_jsonheader(self):
         hdrlen = self._jsonheader_len
         if len(self._recv_buffer) >= hdrlen:
-            self.jsonheader = self._json_decode(self._recv_buffer[:hdrlen], 'utf-8')
+            self.jsonheader = self._json_decode(self._recv_buffer[:hdrlen],
+                                                'utf-8')
             self._recv_buffer = self._recv_buffer[hdrlen:]
-            for reqhdr in ('byteorder', 'content-length', 'content-type', 'content-encoding'):
+            for reqhdr in ('byteorder', 'content-length', 'content-type',
+                           'content-encoding'):
                 if reqhdr not in self.jsonheader:
                     raise ValueError(f'Missing required header "{reqhdr}".')
 
@@ -177,7 +186,8 @@ class Message:
         else:
             # Binary or unknown content-type.
             self.request = data
-            print(f'received {self.jsonheader["content-type"]} request from', self.addr)
+            print(f'received {self.jsonheader["content-type"]} request from',
+                  self.addr)
         # Set selector to listen for write events, we're done reading.
         self._set_selector_events_mask('w')
 

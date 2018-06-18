@@ -35,6 +35,7 @@ def start_connection(host, port, request):
     message = libclient.Message(sel, sock, addr, request)
     sel.register(sock, events, data=message)
 
+
 if len(sys.argv) != 5:
     print('usage:', sys.argv[0], '<host> <port> <action> <value>')
     sys.exit(1)
