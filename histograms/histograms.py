@@ -11,22 +11,18 @@ or
 $ python3 -i ./histograms.py
 """
 
-print(__doc__)
-
 from collections import Counter
 import random
 import sys
 import warnings
 
-try:
-    import matplotlib.pyplot as plt
-    import numpy as np
-    import pandas as pd
-    from scipy import stats
-    import seaborn as sns
-except ImportError as e:
-    print("{0} could not be imported.\nAre you sure you've installed it"
-          " with `pip install {0}` or `conda install {0}`?".format(e.name))
+import matplotlib.pyplot as plt
+import numpy as np
+import pandas as pd
+from scipy import stats
+import seaborn as sns
+    
+print(__doc__)
 
 
 random.seed(1)
@@ -37,6 +33,7 @@ plt.ioff()
 # ---------------------------------------------------------------------
 # Histograms in Pure Python
 # ---------------------------------------------------------------------
+
 
 def count_elements(seq) -> dict:
     """Tally elements from `seq`."""
