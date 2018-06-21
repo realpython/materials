@@ -3,12 +3,10 @@ Real Python Sockets Tutorial
 
 TODO: Add link to tutorial on realpython.com.
 
-Requirements
-------------
+## Requirements
 
-- `Python <https://www.python.org/>`_ 3.6 or later.
+- [Python](https://www.python.org/) 3.6 or later.
 
-License
--------
+## License
 
 The MIT License. See the file LICENSE in this repository's base directory.
