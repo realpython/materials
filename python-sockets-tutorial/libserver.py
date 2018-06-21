@@ -38,9 +38,10 @@ class Message:
 
     def _read(self):
         try:
-            data = self.sock.recv(4096)  # Should be ready to read.
+            # Should be ready to read
+            data = self.sock.recv(4096)
         except BlockingIOError:
-            # Resource temporarily unavailable (Errno 35, EWOULDBLOCK).
+            # Resource temporarily unavailable (errno EWOULDBLOCK)
             pass
         else:
             if data:
@@ -52,14 +53,14 @@ class Message:
         if self._send_buffer:
             print('sending', repr(self._send_buffer), 'to', self.addr)
             try:
-                # Should be ready to write.
+                # Should be ready to write
                 sent = self.sock.send(self._send_buffer)
             except BlockingIOError:
-                # Resource temporarily unavailable (Errno 35, EWOULDBLOCK).
+                # Resource temporarily unavailable (errno EWOULDBLOCK)
                 pass
             else:
                 self._send_buffer = self._send_buffer[sent:]
-                # Close when buffer is drained. Response has been sent.
+                # Close when the buffer is drained. The response has been sent.
                 if sent and not self._send_buffer:
                     self.close()
 
@@ -152,7 +153,7 @@ class Message:
             print(f'error: socket.close() exception for',
                   f'{self.addr}: {repr(e)}')
         finally:
-            # Delete reference to socket object for garbage collection.
+            # Delete reference to socket object for garbage collection
             self.sock = None
 
     def process_protoheader(self):
@@ -184,7 +185,7 @@ class Message:
             self.request = self._json_decode(data, encoding)
             print('received request', repr(self.request), 'from', self.addr)
         else:
-            # Binary or unknown content-type.
+            # Binary or unknown content-type
             self.request = data
             print(f'received {self.jsonheader["content-type"]} request from',
                   self.addr)
@@ -195,7 +196,7 @@ class Message:
         if self.jsonheader['content-type'] == 'text/json':
             response = self._create_response_json_content()
         else:
-            # Binary or unknown content-type.
+            # Binary or unknown content-type
             response = self._create_response_binary_content()
         message = self._create_message(**response)
         self.response_created = True

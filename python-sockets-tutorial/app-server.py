@@ -11,7 +11,7 @@ sel = selectors.DefaultSelector()
 
 
 def accept(sock):
-    conn, addr = sock.accept()  # Should be ready to read.
+    conn, addr = sock.accept()  # Should be ready to read
     print('accepted connection from', addr)
     conn.setblocking(False)
     message = libserver.Message(sel, conn, addr)
