@@ -10,7 +10,7 @@ import libserver
 sel = selectors.DefaultSelector()
 
 
-def accept(sock):
+def accept_wrapper(sock):
     conn, addr = sock.accept()  # Should be ready to read
     print('accepted connection from', addr)
     conn.setblocking(False)
@@ -37,7 +37,7 @@ try:
         events = sel.select(timeout=None)
         for key, mask in events:
             if key.data is None:
-                accept(key.fileobj)
+                accept_wrapper(key.fileobj)
             else:
                 message = key.data
                 try:
