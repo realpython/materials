@@ -11,7 +11,7 @@ def prng() -> None:
 def csprng() -> None:
     _sysrand.randint(0, 95)
 
-    
+
 setup = 'import random; from __main__ import prng, csprng'
 
 if __name__ == '__main__':
