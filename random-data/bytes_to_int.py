@@ -1,6 +1,7 @@
 """
 Demonstration of how `int.from_bytes()` converts a Python bytes obj to int.
-Used in random module's `SystemRandom.random()` to generate a float in [0.0, 1.0) from `os.urandom()`
+Used in random module's `SystemRandom.random()` to generate a float in
+[0.0, 1.0) from `os.urandom()`:
 https://github.com/python/cpython/blob/c6040638aa1537709add895d24cdbbb9ee310fde/Lib/random.py#L676
 
 An example: the number 1984 can be "decomposed" in the decimal system (base 10)
@@ -21,7 +22,6 @@ And the int is then
 """
 
 
-
 def bytes_to_int(b: bytes, byteorder: str='big') -> int:
     if byteorder == 'big':
         return sum(j * 256 ** i for i, j in enumerate(b[::-1]))
@@ -38,7 +38,7 @@ def test(seed=None):
         assert bytes_to_int(b, 'little') == int.from_bytes(b, 'little'), b
 
 
-if __name__ == '__main__'
+if __name__ == '__main__':
     import os
     import random
     import sys
