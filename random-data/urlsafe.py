@@ -25,7 +25,7 @@ def tok_to_trans(length):
     return math.ceil(length * 8 / 6)
 
 
-if __name__ =='__main__':
+if __name__ == '__main__':
     for nbytes in range(10):
         d = dict(zip(('tok', 'enc', 'trans', 'res'), token_urlsafe(nbytes)))
         print(d)
