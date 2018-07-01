@@ -58,7 +58,7 @@ def timeit(_func=None, *, repeat=3, number=1000):
                 # higher values in the result vector are typically not
                 # caused by variability in Python’s speed, but by other
                 # processes interfering with your timing accuracy."
-                best = min(trials)  # / number
+                best = min(trials) / number
                 print('Best of {} trials with {} function'
                       ' calls per trial:'.format(repeat, number))
                 print('Function `{}` ran in average'
