@@ -119,8 +119,8 @@ commutes = pd.Series(np.random.gamma(scale, size=size) ** 1.5)
 commutes.plot.hist(bins=15, rwidth=0.9,
                    color='#607c8e')
 plt.title('Commute Times for 1,000 Commuters')
-plt.xlabel('Counts')
-plt.ylabel('Commute Time')
+plt.xlabel('Commute Time (min)')
+plt.ylabel('Counts')
 plt.grid(axis='y', alpha=0.75)
 plt.show()
 
