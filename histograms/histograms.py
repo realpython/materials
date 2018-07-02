@@ -3,7 +3,7 @@
 """
 Code for "Python Histogram Plotting: NumPy, Matplotlib, Pandas & Seaborn".
 
-https://realpython.com/histograms/.
+https://realpython.com/python-histograms/
 
 To run this script interactively:
 $ ipython ./histograms.py -i
