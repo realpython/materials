@@ -21,6 +21,9 @@ And the int is then
  + (0   * 256 ** 0) == 3859021824
 """
 
+import os
+import random
+
 
 def bytes_to_int(b: bytes, byteorder: str='big') -> int:
     if byteorder == 'big':
@@ -39,7 +42,5 @@ def test(seed=None):
 
 
 if __name__ == '__main__':
-    import os
-    import random
     import sys
     sys.exit(test())
