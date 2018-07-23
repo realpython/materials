@@ -1,10 +1,11 @@
 import functools
 import gc
 import itertools
+import sys
 from timeit import default_timer as _timer
 
 
-def timeit(_func=None, *, repeat=3, number=1000):
+def timeit(_func=None, *, repeat=3, number=1000, file=sys.stdout):
     """Decorator: prints time from best of `repeat` trials.
 
     Mimics `timeit.repeat()`, but avg. time is printed.
@@ -12,6 +13,8 @@ def timeit(_func=None, *, repeat=3, number=1000):
 
     You can decorate with or without parentheses, as in
     Python's @dataclass class decorator.
+
+    kwargs are passed to `print()`.
 
     >>> @timeit
     ... def f():
@@ -60,7 +63,8 @@ def timeit(_func=None, *, repeat=3, number=1000):
                 print('Best of {} trials with {} function'
                       ' calls per trial:'.format(repeat, number))
                 print('Function `{}` ran in average'
-                      ' of {:0.3f} seconds.'.format(func.__name__, best))
+                      ' of {:0.3f} seconds.'.format(func.__name__, best),
+                      end='\n\n', file=file)
             finally:
                 if gcold:
                     gc.enable()
