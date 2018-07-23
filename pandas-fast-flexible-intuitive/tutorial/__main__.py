@@ -11,6 +11,7 @@ import pandas as pd
 
 from .timer import timeit
 
+
 # Two functions for conversion of object dtype to datetime
 # Note that you could also specify `parse_dates` within `pd.read_csv()`
 @timeit(repeat=3, number=10)
@@ -84,8 +85,8 @@ def apply_tariff_isin(df):
 
     # Apply tariffs to hour ranges
     df.loc[peak_hours, 'cost_cents'] = df.loc[peak_hours, 'energy_kwh'] * 28
-    df.loc[shoulder_hours,'cost_cents'] = df.loc[shoulder_hours, 'energy_kwh'] * 20
-    df.loc[off_peak_hours,'cost_cents'] = df.loc[off_peak_hours, 'energy_kwh'] * 12
+    df.loc[shoulder_hours, 'cost_cents'] = df.loc[shoulder_hours, 'energy_kwh'] * 20  # noqa
+    df.loc[off_peak_hours, 'cost_cents'] = df.loc[off_peak_hours, 'energy_kwh'] * 12  # noqa
 
 
 @timeit(repeat=3, number=1000)
@@ -139,7 +140,7 @@ if __name__ == '__main__':
     pd.set_option('compute.use_numexpr', True)
 
     print(__doc__)
-    print('Python version:', platform.python_version()
+    print('Python version:', platform.python_version())
     print('Pandas version:', pd.__version__, end='\n\n')
     print('Timing code ...', end='\n\n')
 
