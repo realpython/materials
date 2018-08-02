@@ -1,6 +1,6 @@
-# Real Python Sockets Tutorial
+# Socket Programming in Python (Guide)
 
-TODO: Add link to tutorial on realpython.com.
+This is the source code for [Socket Programming in Python (Guide)](https://realpython.com/python-sockets/).
 
 ## Requirements
 
