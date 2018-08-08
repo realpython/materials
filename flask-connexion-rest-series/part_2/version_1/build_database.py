@@ -6,7 +6,7 @@ from models import Person
 PEOPLE = [
     {'fname': 'Doug', 'lname': 'Farrell'},
     {'fname': 'Kent', 'lname': 'Brockman'},
-    {'fname': 'Bunny','lname': 'Easter'}
+    {'fname': 'Bunny','lname': 'Easter'},
 ]
 
 # Delete database file if it exists currently
@@ -22,7 +22,3 @@ for person in PEOPLE:
     db.session.add(p)
 
 db.session.commit()
-
-
-
-

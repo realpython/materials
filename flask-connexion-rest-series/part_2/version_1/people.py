@@ -13,6 +13,7 @@ from models import (
     PersonSchema,
 )
 
+
 def read_all():
     """
     This function responds to a request for /api/people
@@ -29,6 +30,7 @@ def read_all():
     person_schema = PersonSchema(many=True)
     data = person_schema.dump(people).data
     return data
+
 
 def read_one(person_id):
     """
@@ -53,7 +55,9 @@ def read_one(person_id):
 
     # Otherwise, nope, didn't find that person
     else:
-        abort(404, 'Person not found for Id: {person_id}'.format(person_id=person_id))
+        abort(404, 'Person not found for Id: {person_id}'
+              .format(person_id=person_id))
+
 
 def create(person):
     """
@@ -89,7 +93,9 @@ def create(person):
 
     # Otherwise, nope, person exists already
     else:
-        abort(409, 'Person {fname} {lname} exists already'.format(fname=fname, lname=lname))
+        abort(409, 'Person {fname} {lname} exists already'
+              .format(fname=fname, lname=lname))
+
 
 def update(person_id, person):
     """
@@ -125,7 +131,9 @@ def update(person_id, person):
 
     # Otherwise, nope, didn't find that person
     else:
-        abort(404, 'Person not found for Id: {person_id}'.format(person_id=person_id))
+        abort(404, 'Person not found for Id: {person_id}'
+              .format(person_id=person_id))
+
 
 def delete(person_id):
     """
@@ -147,4 +155,5 @@ def delete(person_id):
 
     # Otherwise, nope, didn't find that person
     else:
-        abort(404, 'Person not found for Id: {person_id}'.format(person_id=person_id))
+        abort(404, 'Person not found for Id: {person_id}'
+              .format(person_id=person_id))
