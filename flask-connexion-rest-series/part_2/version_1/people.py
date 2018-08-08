@@ -151,7 +151,8 @@ def delete(person_id):
     if person is not None:
         db.session.delete(person)
         db.session.commit()
-        return make_response('Person {person_id} deleted'.format(person_id=person_id), 200)
+        return make_response('Person {person_id} deleted'
+                             .format(person_id=person_id), 200)
 
     # Otherwise, nope, didn't find that person
     else:
