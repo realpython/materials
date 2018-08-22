@@ -9,3 +9,9 @@ As noted in the article, most decorators are stored in the file [`decorators.py`
 ## Examples
 
 Most of the code examples from the article are available in the [`examples.py`](https://github.com/realpython/materials/blob/master/primer-on-python-decorators/examples.py) file.
+
+## Cheat Sheet
+
+We’ve put together a short & sweet Python decorators cheat sheet for you that summarizes the techniques explained in this tutorial:
+
+[Get the decorators cheat sheet »](https://realpython.com/optins/view/decorators-cheatsheet/)
