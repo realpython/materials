@@ -47,7 +47,7 @@ paths:
     post:
       operationId: people.create
       tags:
-        - people
+        - People
       summary: Create a person and add it to the people list
       description: Create a new person in the people list
       parameters:
@@ -72,7 +72,7 @@ paths:
     get:
       operationId: people.read_one
       tags:
-        - people
+        - People
       summary: Read one person from the people list
       description: Read one person from the people list
       parameters:
@@ -96,7 +96,7 @@ paths:
     put:
       operationId: people.update
       tags:
-        - people
+        - People
       summary: Update a person in the people list
       description: Update a person in the people list
       parameters:
@@ -121,7 +121,7 @@ paths:
     delete:
       operationId: people.delete
       tags:
-        - people
+        - People
       summary: Delete a person from the people list
       description: Delete a person
       parameters:
