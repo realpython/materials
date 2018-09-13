@@ -10,7 +10,7 @@ import matplotlib.pyplot as plt
 from matplotlib import colors
 
 from mpl_toolkits.mplot3d import Axes3D
-from matplotlib.colors import rgb_to_hsv, hsv_to_rgb
+from matplotlib.colors import hsv_to_rgb
 
 # To get a list of all the possible colour conversions
 
@@ -39,7 +39,7 @@ r, g, b = cv2.split(nemo)
 fig = plt.figure()
 axis = fig.add_subplot(1, 1, 1, projection="3d")
 pixel_colors = nemo.reshape((np.shape(nemo)[0]*np.shape(nemo)[1], 3))
-norm = colors.Normalize(vmin=-1.,vmax=1.)
+norm = colors.Normalize(vmin=-1., vmax=1.)
 norm.autoscale(pixel_colors)
 pixel_colors = norm(pixel_colors).tolist()
 
@@ -67,7 +67,7 @@ dark_orange = (18, 255, 255)
 
 # Normalise to 0 - 1 range for viewing
 
-lo_square = np.full((10, 10, 3), light_orange, dtype=np.uint8)  / 255.0
+lo_square = np.full((10, 10, 3), light_orange, dtype=np.uint8) / 255.0
 do_square = np.full((10, 10, 3), dark_orange, dtype=np.uint8) / 255.0
 
 plt.subplot(1, 2, 1)
@@ -134,8 +134,9 @@ path = "./images/nemo"
 
 nemos_friends = []
 for i in range(6):
-   friend = cv2.cvtColor(cv2.imread(path + str(i) + ".jpg"), cv2.COLOR_BGR2RGB)
-   nemos_friends.append(friend)
+    friend = cv2.cvtColor(cv2.imread(path + str(i) + ".jpg"), cv2.COLOR_BGR2RGB)
+    nemos_friends.append(friend)
+
 
 def segment_fish(image):
     ''' Attempts to segment the clown fish out of the provided image. '''
@@ -148,8 +149,9 @@ def segment_fish(image):
     mask_white = cv2.inRange(hsv_image, light_white, dark_white)
     final_mask = mask + mask_white
     result = cv2.bitwise_and(image, image, mask=final_mask)
-    blur = cv2.GaussianBlur(result, (7, 7), 0)
+    result = cv2.GaussianBlur(result, (7, 7), 0)
     return result
+
 
 results = [segment_fish(friend) for friend in nemos_friends]
 
