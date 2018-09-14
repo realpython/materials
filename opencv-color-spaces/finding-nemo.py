@@ -44,7 +44,7 @@ norm.autoscale(pixel_colors)
 pixel_colors = norm(pixel_colors).tolist()
 
 axis.scatter(r.flatten(), g.flatten(), b.flatten(),
-                facecolors=pixel_colors, marker=".")
+    facecolors=pixel_colors, marker=".")
 axis.set_xlabel("Red")
 axis.set_ylabel("Green")
 axis.set_zlabel("Blue")
@@ -58,7 +58,7 @@ fig = plt.figure()
 axis = fig.add_subplot(1, 1, 1, projection="3d")
 
 axis.scatter(h.flatten(), s.flatten(), v.flatten(),
-                facecolors=pixel_colors, marker=".")
+    facecolors=pixel_colors, marker=".")
 axis.set_xlabel("Hue")
 axis.set_ylabel("Saturation")
 axis.set_zlabel("Value")
@@ -137,7 +137,7 @@ path = "./images/nemo"
 nemos_friends = []
 for i in range(6):
     friend = cv2.cvtColor(cv2.imread(path + str(i) + ".jpg"),
-                            cv2.COLOR_BGR2RGB)
+        cv2.COLOR_BGR2RGB)
     nemos_friends.append(friend)
 
 
