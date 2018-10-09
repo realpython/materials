@@ -1,7 +1,7 @@
-'''
+"""
 Code link for RealPython article with minimal commentary.
 Author: Rebecca Stone @ysbecca
-'''
+"""
 
 import cv2
 import numpy as np
@@ -14,14 +14,14 @@ from matplotlib.colors import hsv_to_rgb
 
 # To get a list of all the possible colour conversions
 
-flags = [i for i in dir(cv2) if i.startswith('COLOR_')]
+flags = [i for i in dir(cv2) if i.startswith("COLOR_")]
 print(len(flags), "flags total:")
 
 print(flags[40])
 
 # Let's look at our fish image
 
-nemo = cv2.imread('./images/nemo0.jpg')
+nemo = cv2.imread("./images/nemo0.jpg")
 plt.imshow(nemo)
 plt.show()
 
@@ -38,13 +38,14 @@ r, g, b = cv2.split(nemo)
 
 fig = plt.figure()
 axis = fig.add_subplot(1, 1, 1, projection="3d")
-pixel_colors = nemo.reshape((np.shape(nemo)[0]*np.shape(nemo)[1], 3))
-norm = colors.Normalize(vmin=-1., vmax=1.)
+pixel_colors = nemo.reshape((np.shape(nemo)[0] * np.shape(nemo)[1], 3))
+norm = colors.Normalize(vmin=-1.0, vmax=1.0)
 norm.autoscale(pixel_colors)
 pixel_colors = norm(pixel_colors).tolist()
 
-axis.scatter(r.flatten(), g.flatten(), b.flatten(),
-             facecolors=pixel_colors, marker=".")
+axis.scatter(
+    r.flatten(), g.flatten(), b.flatten(), facecolors=pixel_colors, marker="."
+)
 axis.set_xlabel("Red")
 axis.set_ylabel("Green")
 axis.set_zlabel("Blue")
@@ -57,8 +58,9 @@ h, s, v = cv2.split(hsv_nemo)
 fig = plt.figure()
 axis = fig.add_subplot(1, 1, 1, projection="3d")
 
-axis.scatter(h.flatten(), s.flatten(), v.flatten(),
-             facecolors=pixel_colors, marker=".")
+axis.scatter(
+    h.flatten(), s.flatten(), v.flatten(), facecolors=pixel_colors, marker="."
+)
 axis.set_xlabel("Hue")
 axis.set_ylabel("Saturation")
 axis.set_zlabel("Value")
@@ -136,13 +138,14 @@ path = "./images/nemo"
 
 nemos_friends = []
 for i in range(6):
-    friend = cv2.cvtColor(cv2.imread(path + str(i) + ".jpg"),
-                          cv2.COLOR_BGR2RGB)
+    friend = cv2.cvtColor(
+        cv2.imread(path + str(i) + ".jpg"), cv2.COLOR_BGR2RGB
+    )
     nemos_friends.append(friend)
 
 
 def segment_fish(image):
-    ''' Attempts to segment the clown fish out of the provided image. '''
+    """ Attempts to segment the clown fish out of the provided image. """
     hsv_image = cv2.cvtColor(image, cv2.COLOR_RGB2HSV)
     light_orange = (1, 190, 200)
     dark_orange = (18, 255, 255)

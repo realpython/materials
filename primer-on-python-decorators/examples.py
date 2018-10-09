@@ -40,7 +40,6 @@ def greet_bob(greeter_func):
 
 # Returning Functions From Functions
 def parent(num):
-
     def first_child():
         return "Hi, I am Emma"
 
@@ -55,7 +54,6 @@ def parent(num):
 
 # Simple Decorators
 def not_during_the_night(func):
-
     def wrapper():
         if 7 <= datetime.now().hour < 22:
             func()
@@ -67,7 +65,6 @@ def not_during_the_night(func):
 
 # Syntactic Sugar!
 def my_decorator(func):
-
     def wrapper():
         print("Something is happening before the function is called.")
         func()
@@ -96,7 +93,6 @@ def return_greeting(name):
 
 # A Few Real World Examples
 def decorator(func):
-
     @functools.wraps(func)
     def wrapper_decorator(*args, **kwargs):
         # Do something before.
@@ -163,7 +159,6 @@ def randomly_greet(name):
 
 # Example Using Built-in Class Decorators
 class Circle:
-
     def __init__(self, radius):
         self._radius = radius
 
@@ -197,12 +192,11 @@ class Circle:
     @staticmethod
     def pi():
         """Value of π, could use math.pi instead though"""
-        return 3.1415926535
+        return 3.141_592_653_5
 
 
 # Decorating Classes
 class TimeWaster:
-
     @debug
     def __init__(self, max_num):
         self.max_num = max_num

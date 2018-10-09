@@ -29,7 +29,6 @@ def validate_json(*expected_args):
     """Validate that a json-request contains the expected parameters"""
 
     def decorator_validate_json(func):
-
         @functools.wraps(func)
         def wrapper_validate_json(*args, **kwargs):
             json_object = request.get_json()

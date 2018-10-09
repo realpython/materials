@@ -3,15 +3,9 @@ This is the people module and supports all the REST actions for the
 people data
 """
 
-from flask import (
-    make_response,
-    abort,
-)
+from flask import make_response, abort
 from config import db
-from models import (
-    Person,
-    PersonSchema,
-)
+from models import Person, PersonSchema
 
 
 def read_all():
@@ -22,9 +16,7 @@ def read_all():
     :return:        json string of list of people
     """
     # Create the list of people from our data
-    people = Person.query \
-        .order_by(Person.lname) \
-        .all()
+    people = Person.query.order_by(Person.lname).all()
 
     # Serialize the data for the response
     person_schema = PersonSchema(many=True)
@@ -41,9 +33,7 @@ def read_one(person_id):
     :return:            person matching id
     """
     # Get the person requested
-    person = Person.query \
-        .filter(Person.person_id == person_id) \
-        .one_or_none()
+    person = Person.query.filter(Person.person_id == person_id).one_or_none()
 
     # Did we find a person?
     if person is not None:
@@ -55,8 +45,10 @@ def read_one(person_id):
 
     # Otherwise, nope, didn't find that person
     else:
-        abort(404, 'Person not found for Id: {person_id}'
-              .format(person_id=person_id))
+        abort(
+            404,
+            "Person not found for Id: {person_id}".format(person_id=person_id),
+        )
 
 
 def create(person):
@@ -67,13 +59,14 @@ def create(person):
     :param person:  person to create in people structure
     :return:        201 on success, 406 on person exists
     """
-    fname = person.get('fname')
-    lname = person.get('lname')
+    fname = person.get("fname")
+    lname = person.get("lname")
 
-    existing_person = Person.query \
-        .filter(Person.fname == fname) \
-        .filter(Person.lname == lname) \
+    existing_person = (
+        Person.query.filter(Person.fname == fname)
+        .filter(Person.lname == lname)
         .one_or_none()
+    )
 
     # Can we insert this person?
     if existing_person is None:
@@ -93,8 +86,12 @@ def create(person):
 
     # Otherwise, nope, person exists already
     else:
-        abort(409, 'Person {fname} {lname} exists already'
-              .format(fname=fname, lname=lname))
+        abort(
+            409,
+            "Person {fname} {lname} exists already".format(
+                fname=fname, lname=lname
+            ),
+        )
 
 
 def update(person_id, person):
@@ -106,9 +103,9 @@ def update(person_id, person):
     :return:            updated person structure
     """
     # Get the person requested from the db into session
-    update_person = Person.query \
-        .filter(Person.person_id == person_id) \
-        .one_or_none()
+    update_person = Person.query.filter(
+        Person.person_id == person_id
+    ).one_or_none()
 
     # Did we find a person?
     if update_person is not None:
@@ -131,8 +128,10 @@ def update(person_id, person):
 
     # Otherwise, nope, didn't find that person
     else:
-        abort(404, 'Person not found for Id: {person_id}'
-              .format(person_id=person_id))
+        abort(
+            404,
+            "Person not found for Id: {person_id}".format(person_id=person_id),
+        )
 
 
 def delete(person_id):
@@ -143,18 +142,19 @@ def delete(person_id):
     :return:            200 on successful delete, 404 if not found
     """
     # Get the person requested
-    person = Person.query \
-        .filter(Person.person_id == person_id) \
-        .one_or_none()
+    person = Person.query.filter(Person.person_id == person_id).one_or_none()
 
     # Did we find a person?
     if person is not None:
         db.session.delete(person)
         db.session.commit()
-        return make_response('Person {person_id} deleted'
-                             .format(person_id=person_id), 200)
+        return make_response(
+            "Person {person_id} deleted".format(person_id=person_id), 200
+        )
 
     # Otherwise, nope, didn't find that person
     else:
-        abort(404, 'Person not found for Id: {person_id}'
-              .format(person_id=person_id))
+        abort(
+            404,
+            "Person not found for Id: {person_id}".format(person_id=person_id),
+        )

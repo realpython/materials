@@ -76,7 +76,6 @@ def repeat(_func=None, *, num_times=2):
     """Run the decorated function the given number of times"""
 
     def decorator_repeat(func):
-
         @functools.wraps(func)
         def wrapper_repeat(*args, **kwargs):
             for _ in range(num_times):
@@ -122,7 +121,6 @@ def slow_down(_func=None, *, rate=1):
     """Sleep given amount of seconds before calling the function"""
 
     def decorator_slow_down(func):
-
         @functools.wraps(func)
         def wrapper_slow_down(*args, **kwargs):
             time.sleep(rate)
