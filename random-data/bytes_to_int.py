@@ -25,10 +25,10 @@ import os
 import random
 
 
-def bytes_to_int(b: bytes, byteorder: str='big') -> int:
-    if byteorder == 'big':
+def bytes_to_int(b: bytes, byteorder: str = "big") -> int:
+    if byteorder == "big":
         return sum(j * 256 ** i for i, j in enumerate(b[::-1]))
-    elif byteorder == 'little':
+    elif byteorder == "little":
         return sum(j * 256 ** i for i, j in enumerate(b))
     else:
         raise ValueError("byteorder must be either 'little' or 'big'.")
@@ -37,10 +37,11 @@ def bytes_to_int(b: bytes, byteorder: str='big') -> int:
 def test(seed=None):
     for _ in range(10):
         b = os.urandom(random.randint(0, 100))
-        assert bytes_to_int(b, 'big') == int.from_bytes(b, 'big'), b
-        assert bytes_to_int(b, 'little') == int.from_bytes(b, 'little'), b
+        assert bytes_to_int(b, "big") == int.from_bytes(b, "big"), b
+        assert bytes_to_int(b, "little") == int.from_bytes(b, "little"), b
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     import sys
+
     sys.exit(test())

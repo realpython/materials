@@ -13,11 +13,11 @@ import config
 connex_app = config.connex_app
 
 # Read the swagger.yml file to configure the endpoints
-connex_app.add_api('swagger.yml')
+connex_app.add_api("swagger.yml")
 
 
 # create a URL route in our application for "/"
-@connex_app.route('/')
+@connex_app.route("/")
 def home():
     """
     This function just responds to the browser URL
@@ -28,5 +28,5 @@ def home():
     return render_template("home.html")
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     connex_app.run(debug=True)

@@ -6,7 +6,7 @@ version: 2
 jobs:
   build:
     docker:
-      - image: circleci/python:3.6.1
+      - image: circleci/python:3.6
 
     working_directory: ~/repo
 
@@ -25,6 +25,7 @@ jobs:
           command: |
             python3 -m venv venv
             . venv/bin/activate
+            pip install --upgrade pip
             pip install -r .circleci/requirements.txt
 
       - save_cache:
@@ -33,7 +34,8 @@ jobs:
           key: v1-dependencies-{{ checksum ".circleci/requirements.txt" }}
 
       - run:
-          name: flake8
+          name: Code style check
           command: |
             . venv/bin/activate
-            flake8 --exclude=venv
+            flake8
+            black --check .

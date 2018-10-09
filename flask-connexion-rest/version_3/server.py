@@ -8,14 +8,14 @@ import connexion
 
 
 # create the application instance
-app = connexion.App(__name__, specification_dir='./')
+app = connexion.App(__name__, specification_dir="./")
 
 # Cead the swagger.yml file to configure the endpoints
-app.add_api('swagger.yml')
+app.add_api("swagger.yml")
 
 
 # Create a URL route in our application for "/"
-@app.route('/')
+@app.route("/")
 def home():
     """
     This function just responds to the browser URL
@@ -26,5 +26,5 @@ def home():
     return render_template("home.html")
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     app.run(debug=True)
