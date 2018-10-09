@@ -5,29 +5,29 @@ import asyncio
 import random
 
 # colors
-c = {
-    1:     '\033[36m',  # cyan
-    2:     '\033[91m',  # red
-    3:     '\033[35m',  # magenta
-    'end': '\033[0m'    # end of color
-}
+c = (
+    '\033[0m',   # end of color
+    '\033[36m',  # cyan
+    '\033[91m',  # red
+    '\033[35m',  # magenta
+)
 
 async def randint(a, b):
     return random.randint(a, b)
 
 async def makerandom(idx, threshold=6, seed=444):
     random.seed(seed)
-    print(c[idx] + f'Initiated makerandom({idx}).')
+    print(c[idx + 1] + f'Initiated makerandom({idx}).')
     i = await randint(0, 10)
     while i <= threshold:
-        print(c[idx] + f'makerandom({idx}) == {i} too low; retrying.')
-        await asyncio.sleep(idx)
+        print(c[idx + 1] + f'makerandom({idx}) == {i} too low; retrying.')
+        await asyncio.sleep(idx + 1)
         i = await randint(0, 10)
-    print(c[idx] + f'---> Finished: makerandom({idx}) == {i}' + c['end'])
+    print(c[idx+1] + f'---> Finished: makerandom({idx}) == {i}' + c[0])
     return i
 
 async def main():
-    res = await asyncio.gather(*(makerandom(i, 10-i) for i in range(1, 4)))
+    res = await asyncio.gather(*(makerandom(i, 10-i-1) for i in range(3)))
     return res
 
 if __name__ == '__main__':
