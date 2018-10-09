@@ -1,0 +1,11 @@
+[tool.black]
+line-length = 79
+py36 = true
+exclude = '''
+/(
+  \.git
+  | venv
+  | migrations
+  | node_modules
+)/
+'''
