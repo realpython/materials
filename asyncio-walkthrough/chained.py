@@ -29,10 +29,10 @@ async def part2(n, arg):
 
 
 async def chain(n):
-    start = time.monotonic()
+    start = time.perf_counter()
     p1 = await part1(n)
     p2 = await part2(n, p1)
-    end = time.monotonic() - start
+    end = time.perf_counter() - start
     print(f"-->Chained result{n} => {p2} (took {end:0.2f} seconds).")
 
 
@@ -45,7 +45,7 @@ if __name__ == "__main__":
 
     random.seed(444)
     ns = [1, 2, 3] if len(sys.argv) == 1 else map(int, sys.argv[1:])
-    start = time.monotonic()
+    start = time.perf_counter()
     asyncio.run(main(*ns))
-    end = time.monotonic() - start
+    end = time.perf_counter() - start
     print(f"Program finished in {end:0.2f} seconds.")

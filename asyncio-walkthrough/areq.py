@@ -6,10 +6,10 @@
 import asyncio
 import logging
 import re
-import urllib.error
-import urllib.parse
 import sys
 from typing import List, Tuple
+import urllib.error
+import urllib.parse
 
 import aiofiles
 import aiohttp

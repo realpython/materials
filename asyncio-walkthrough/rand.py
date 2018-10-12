@@ -17,8 +17,7 @@ async def randint(a, b):
     return random.randint(a, b)
 
 
-async def makerandom(idx, threshold=6, seed=444):
-    random.seed(seed)
+async def makerandom(idx, threshold=6):
     print(c[idx + 1] + f"Initiated makerandom({idx}).")
     i = await randint(0, 10)
     while i <= threshold:

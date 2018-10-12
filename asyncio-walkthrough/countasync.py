@@ -4,14 +4,14 @@
 import asyncio
 
 
-async def us():
+async def count():
     print("One")
     await asyncio.sleep(1)
     print("Two")
 
 
 async def main():
-    await asyncio.gather(us(), us(), us())
+    await asyncio.gather(count(), count(), count())
 
 
 if __name__ == "__main__":

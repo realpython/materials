@@ -4,7 +4,7 @@
 import time
 
 
-def us():
+def count():
     print("One")
     time.sleep(1)
     print("Two")
@@ -12,7 +12,7 @@ def us():
 
 def main():
     for _ in range(3):
-        us()
+        count()
 
 
 if __name__ == "__main__":
