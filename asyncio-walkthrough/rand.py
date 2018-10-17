@@ -13,11 +13,11 @@ c = (
 )
 
 
-async def randint(a, b):
+async def randint(a: int, b: int) -> int:
     return random.randint(a, b)
 
 
-async def makerandom(idx, threshold=6):
+async def makerandom(idx: int, threshold: int = 6) -> int:
     print(c[idx + 1] + f"Initiated makerandom({idx}).")
     i = await randint(0, 10)
     while i <= threshold:
