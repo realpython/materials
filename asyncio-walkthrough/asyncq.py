@@ -16,7 +16,7 @@ async def seconds() -> float:
     return time.perf_counter()
 
 
-async def randint(a: int, b" int) -> int:
+async def randint(a: int, b: int) -> int:
     return random.randint(a, b)
 
 
