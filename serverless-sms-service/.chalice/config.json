@@ -3,7 +3,13 @@
   "app_name": "serverless-sms-service",
   "stages": {
     "dev": {
-      "api_gateway_stage": "api"
+      "api_gateway_stage": "api",
+      "environment_variables": {
+          "ACCOUNT_SID": "<your-account-sid>",
+          "AUTH_TOKEN": "<your-auth-token>",
+          "FROM_NUMBER": "<from-number>",
+          "TO_NUMBER": "<to-number>"
+      }
     }
   }
 }
