@@ -7,7 +7,7 @@ import asyncio
 import logging
 import re
 import sys
-from typing import BinaryIO
+from typing import IO
 import urllib.error
 import urllib.parse
 
@@ -83,7 +83,7 @@ async def parse(url: str, session: ClientSession, **kwargs) -> set:
         return found
 
 
-async def write_one(file: BinaryIO, url: str, **kwargs) -> None:
+async def write_one(file: IO, url: str, **kwargs) -> None:
     """Write the found HREFs from `url` to `file`."""
     res = await parse(url=url, **kwargs)
     if not res:
@@ -94,7 +94,7 @@ async def write_one(file: BinaryIO, url: str, **kwargs) -> None:
         logger.info("Wrote results for source URL: %s", url)
 
 
-async def bulk_crawl_and_write(file: BinaryIO, urls: set, **kwargs) -> None:
+async def bulk_crawl_and_write(file: IO, urls: set, **kwargs) -> None:
     """Crawl & write concurrently to `file` for multiple `urls`."""
     async with ClientSession() as session:
         tasks = []
