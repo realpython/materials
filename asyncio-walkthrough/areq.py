@@ -7,14 +7,13 @@ import asyncio
 import logging
 import re
 import sys
-from typing import BinaryIO, Union
+from typing import BinaryIO
 import urllib.error
 import urllib.parse
 
 import aiofiles
 import aiohttp
 from aiohttp import ClientSession
-from aiohttp.helpers import sentinel
 
 logging.basicConfig(
     format="%(asctime)s %(levelname)s:%(name)s: %(message)s",
