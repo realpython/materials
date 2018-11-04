@@ -36,10 +36,7 @@ DEFAULT_GET_TIMEOUT = ClientTimeout(total=8)  # seconds
 
 
 async def fetch_html(
-    url: str,
-    session: ClientSession,
-    timeout: ClientTimeout,
-    **kwargs,
+    url: str, session: ClientSession, timeout: ClientTimeout, **kwargs
 ) -> str:
     """GET request wrapper to fetch page HTML.
 
@@ -63,27 +60,31 @@ async def parse(
     url: str,
     session: ClientSession,
     timeout: ClientTimeout = DEFAULT_GET_TIMEOUT,
-    **kwargs,
+    **kwargs
 ) -> set:
     """Find HREFs in the HTML of `url`."""
     found = set()
     try:
-        html = await fetch_html(url=url, session=session, timeout=timeout,
-                                **kwargs)
+        html = await fetch_html(
+            url=url, session=session, timeout=timeout, **kwargs
+        )
     except (
         aiohttp.ClientError,
-        aiohttp.http_exceptions.HttpProcessingError
+        aiohttp.http_exceptions.HttpProcessingError,
     ) as e:
         logger.error(
-            'aiohttp exception for %s [%s]: %s',
-            url, getattr(e, 'status', None), getattr(e, 'message', None)
+            "aiohttp exception for %s [%s]: %s",
+            url,
+            getattr(e, "status", None),
+            getattr(e, "message", None),
         )
         return found
     except Exception as e:
         # May be raised from other libraries, such as chardet or yarl.
         # logger.exception will show the full traceback.
-        logger.exception('Non-aiohttp exception occured:  %s',
-                         getattr(e, '__dict__', {}))
+        logger.exception(
+            "Non-aiohttp exception occured:  %s", getattr(e, "__dict__", {})
+        )
         return found
     else:
         # This portion is not really async, but it is the request/response
@@ -116,7 +117,7 @@ async def bulk_crawl_and_write(
     file: BinaryIO,
     urls: set,
     timeout: Union[object, ClientTimeout] = sentinel,
-    **kwargs
+    **kwargs,
 ) -> None:
     """Crawl & write concurrently to `file` for multiple `urls`."""
     async with ClientSession() as session:
