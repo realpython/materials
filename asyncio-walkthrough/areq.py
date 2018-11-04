@@ -13,9 +13,8 @@ import urllib.parse
 
 import aiofiles
 import aiohttp
-from aiohttp import ClientSession, ClientTimeout
+from aiohttp import ClientSession
 from aiohttp.helpers import sentinel
-
 
 logging.basicConfig(
     format="%(asctime)s %(levelname)s:%(name)s: %(message)s",
@@ -28,16 +27,8 @@ logging.getLogger("chardet.charsetprober").disabled = True
 
 HREF_RE = re.compile(r'href="(.*?)"')
 
-# You can specify timeouts for both the session as a whole and
-# for individual requests.
-#
-# https://aiohttp.readthedocs.io/en/stable/client_quickstart.html#timeouts
-DEFAULT_GET_TIMEOUT = ClientTimeout(total=8)  # seconds
 
-
-async def fetch_html(
-    url: str, session: ClientSession, timeout: ClientTimeout, **kwargs
-) -> str:
+async def fetch_html(url: str, session: ClientSession, **kwargs) -> str:
     """GET request wrapper to fetch page HTML.
 
     kwargs are passed to `session.request()`.
@@ -45,9 +36,7 @@ async def fetch_html(
 
     # Don't do any try/except here.  If either the request or reading
     # of bytes raises, let that be handled by caller.
-    resp = await session.request(
-        method="GET", url=url, timeout=timeout, **kwargs
-    )
+    resp = await session.request(method="GET", url=url, **kwargs)
     resp.raise_for_status()  # raise if status >= 400
     logger.info("Got response [%s] for URL: %s", resp.status, url)
     html = await resp.text()  # For bytes: resp.read()
@@ -56,18 +45,11 @@ async def fetch_html(
     return html
 
 
-async def parse(
-    url: str,
-    session: ClientSession,
-    timeout: ClientTimeout = DEFAULT_GET_TIMEOUT,
-    **kwargs,
-) -> set:
+async def parse(url: str, session: ClientSession, **kwargs) -> set:
     """Find HREFs in the HTML of `url`."""
     found = set()
     try:
-        html = await fetch_html(
-            url=url, session=session, timeout=timeout, **kwargs
-        )
+        html = await fetch_html(url=url, session=session, **kwargs)
     except (
         aiohttp.ClientError,
         aiohttp.http_exceptions.HttpProcessingError,
@@ -113,12 +95,7 @@ async def write_one(file: BinaryIO, url: str, **kwargs) -> None:
         logger.info("Wrote results for source URL: %s", url)
 
 
-async def bulk_crawl_and_write(
-    file: BinaryIO,
-    urls: set,
-    timeout: Union[object, ClientTimeout] = sentinel,
-    **kwargs,
-) -> None:
+async def bulk_crawl_and_write(file: BinaryIO, urls: set, **kwargs) -> None:
     """Crawl & write concurrently to `file` for multiple `urls`."""
     async with ClientSession() as session:
         tasks = []
