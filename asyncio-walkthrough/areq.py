@@ -7,13 +7,15 @@ import asyncio
 import logging
 import re
 import sys
-from typing import List, Tuple
+from typing import BinaryIO, Union
 import urllib.error
 import urllib.parse
 
 import aiofiles
 import aiohttp
+from aiohttp import ClientSession, ClientTimeout
 from aiohttp.helpers import sentinel
+
 
 logging.basicConfig(
     format="%(asctime)s %(levelname)s:%(name)s: %(message)s",
@@ -25,118 +27,120 @@ logger = logging.getLogger("areq")
 logging.getLogger("chardet.charsetprober").disabled = True
 
 HREF_RE = re.compile(r'href="(.*?)"')
-DEFAULT_GET_TIMEOUT = aiohttp.ClientTimeout(total=10)  # seconds
+
+# You can specify timeouts for both the session as a whole and
+# for individual requests.
+#
+# https://aiohttp.readthedocs.io/en/stable/client_quickstart.html#timeouts
+DEFAULT_GET_TIMEOUT = ClientTimeout(total=8)  # seconds
 
 
-class BadURLError(Exception):
-    """Blanket exception for a bad page."""
-
-    pass
-
-
-async def get(
+async def fetch_html(
     url: str,
-    session: aiohttp.ClientSession,
-    timeout: aiohttp.ClientTimeout = DEFAULT_GET_TIMEOUT,
+    session: ClientSession,
+    timeout: ClientTimeout,
     **kwargs,
-) -> aiohttp.ClientResponse:
-    """GET request; return only valid responses.
+) -> str:
+    """GET request wrapper to fetch page HTML.
 
     kwargs are passed to `session.request()`.
     """
 
-    # We only want to return valid responses.  This means the request
-    # itself was made successfully *and* status code is good.
-    try:
-        resp = await session.request(
-            method="GET", url=url, timeout=timeout, **kwargs
-        )
-    except Exception as e:
-        logger.exception("Problem getting response for URL: %s", url)
-        raise BadURLError("Failed request") from e
-    try:
-        resp.raise_for_status()
-    except Exception as e:
-        logger.error("Bad status [%s] for URL: %s", resp.status, url)
-        raise BadURLError("Bad status") from e
-    else:
-        logger.info("Got response [%s] for URL: %s", resp.status, url)
-        # Dont close session; let caller decide when to do that.
-        return resp
+    # Don't do any try/except here.  If either the request or reading
+    # of bytes raises, let that be handled by caller.
+    resp = await session.request(
+        method="GET", url=url, timeout=timeout, **kwargs
+    )
+    resp.raise_for_status()  # raise if status >= 400
+    logger.info("Got response [%s] for URL: %s", resp.status, url)
+    html = await resp.text()  # For bytes: resp.read()
+
+    # Dont close session; let caller decide when to do that.
+    return html
 
 
 async def parse(
     url: str,
-    session: aiohttp.ClientSession,
-    timeout: aiohttp.ClientTimeout = DEFAULT_GET_TIMEOUT,
+    session: ClientSession,
+    timeout: ClientTimeout = DEFAULT_GET_TIMEOUT,
     **kwargs,
-) -> Tuple[str, set]:
-    # Pass through the URL so that the end caller knows which URLs map
-    # to which.
-    res = set()
+) -> set:
+    """Find HREFs in the HTML of `url`."""
+    found = set()
     try:
-        resp = await get(url=url, session=session, timeout=timeout, **kwargs)
-    except BadURLError as e:
-        return url, res
-    try:
-        # This effectively functions like a "try-except-else"
-        html = await resp.text()
-    except:  # noqa
-        logger.exception("Problem getting text for URL: %s", url)
-        return url, res
+        html = await fetch_html(url=url, session=session, timeout=timeout,
+                                **kwargs)
+    except (
+        aiohttp.ClientError,
+        aiohttp.http_exceptions.HttpProcessingError
+    ) as e:
+        logger.error(
+            'aiohttp exception for %s [%s]: %s',
+            url, getattr(e, 'status', None), getattr(e, 'message', None)
+        )
+        return found
+    except Exception as e:
+        # May be raised from other libraries, such as chardet or yarl.
+        # logger.exception will show the full traceback.
+        logger.exception('Non-aiohttp exception occured:  %s',
+                         getattr(e, '__dict__', {}))
+        return found
     else:
-        if not html:
-            return url, res
-
-    # This portion is not really async, but it is the request/response
-    # IO cycle that eats the largest portion of time.
-    for link in HREF_RE.findall(html):
-        try:
-            # Ensure we return an absolute path.
-            abslink = urllib.parse.urljoin(url, link)
-        except (urllib.error.URLError, ValueError):
-            logger.exception("Error parsing URL: %s", link)
-            pass
-        else:
-            res.add(abslink)
-    logger.info("Found %d links for %s", len(res), url)
-    return url, res
+        # This portion is not really async, but it is the request/response
+        # IO cycle that eats the largest portion of time.
+        for link in HREF_RE.findall(html):
+            try:
+                # Ensure we return an absolute path.
+                abslink = urllib.parse.urljoin(url, link)
+            except (urllib.error.URLError, ValueError):
+                logger.exception("Error parsing URL: %s", link)
+                pass
+            else:
+                found.add(abslink)
+        logger.info("Found %d links for %s", len(found), url)
+        return found
 
 
-async def write(file, url: str, **kwargs) -> None:
-    _, res = await parse(url=url, **kwargs)
+async def write_one(file: BinaryIO, url: str, **kwargs) -> None:
+    """Write the found HREFs from `url` to `file`."""
+    res = await parse(url=url, **kwargs)
+    if not res:
+        return None
     async with aiofiles.open(file, "a") as f:
         for p in res:
             await f.write(f"{url}\t{p}\n")
         logger.info("Wrote results for source URL: %s", url)
 
 
-async def bulk_get_and_write(
-    file, urls: set, session_timeout=None, **kwargs
-) -> List[Tuple[str, set]]:
-    if session_timeout is not sentinel:
-        # A conservative timeout estimate is 10 seconds per URL.
-        session_timeout = aiohttp.ClientTimeout(total=10 * len(urls))
-    async with aiohttp.ClientSession(timeout=session_timeout) as session:
+async def bulk_crawl_and_write(
+    file: BinaryIO,
+    urls: set,
+    timeout: Union[object, ClientTimeout] = sentinel,
+    **kwargs
+) -> None:
+    """Crawl & write concurrently to `file` for multiple `urls`."""
+    async with ClientSession() as session:
         tasks = []
         for url in urls:
-            tasks.append(write(file=file, url=url, session=session, **kwargs))
-        await asyncio.gather(*tasks, return_exceptions=True)
+            tasks.append(
+                write_one(file=file, url=url, session=session, **kwargs)
+            )
+        await asyncio.gather(*tasks)  # see also: return_exceptions=True
 
 
 if __name__ == "__main__":
     import pathlib
+    import sys
 
+    assert sys.version_info >= (3, 7), "Script requires Python 3.7+."
     here = pathlib.Path(__file__).parent
 
-    urls = set()
     with open(here.joinpath("urls.txt")) as infile:
-        for i in infile:
-            urls.add(i.strip())
+        urls = set(map(str.strip, infile))
 
-    # Header - just a single row-write
+    # Header - just a single, initial row-write
     outpath = here.joinpath("foundurls.txt")
     with open(outpath, "w") as outfile:
         outfile.write("source_url\tparsed_url\n")
 
-    asyncio.run(bulk_get_and_write(file=outpath, urls=urls))
+    asyncio.run(bulk_crawl_and_write(file=outpath, urls=urls))
