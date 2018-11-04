@@ -60,7 +60,7 @@ async def parse(
     url: str,
     session: ClientSession,
     timeout: ClientTimeout = DEFAULT_GET_TIMEOUT,
-    **kwargs
+    **kwargs,
 ) -> set:
     """Find HREFs in the HTML of `url`."""
     found = set()
