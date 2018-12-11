@@ -1,14 +1,7 @@
-from rest_framework import generics
-from rest_framework_gis.pagination import GeoJsonPagination
-from django.contrib.gis.geos import fromstr
-from django.contrib.gis.measure import D
-from django.contrib.gis.db.models.functions import Distance
-from django.contrib.gis.geos import GEOSGeometry
-
-from django.views.generic.base import View
-from django.shortcuts import render
-from .models import *
 from django.views import generic
+from django.contrib.gis.geos import fromstr
+from django.contrib.gis.db.models.functions import Distance
+from .models import Shop
 
 longitude  = -80.191788
 latitude = 25.761681
