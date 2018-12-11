@@ -38,14 +38,10 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django.contrib.gis',
-    'corsheaders',
-    'rest_framework',
-    'rest_framework_gis',
     'shops'
 ]
 
 MIDDLEWARE = [
-    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -55,15 +51,8 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-CORS_ORIGIN_WHITELIST = (
-    'http//:localhost:8000',
-    'http//:localhost:8001'
-)
 
-REST_FRAMEWORK = {
-    'DEFAULT_PERMISSION_CLASSES': [],
-    'DEFAULT_AUTHENTICATION_CLASSES': [],
-}
+
 
 
 
@@ -88,16 +77,11 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'nearbyshops.wsgi.application'
 
-SPATIALITE_LIBRARY_PATH = 'mod_spatialite'
 
 # Database
 # https://docs.djangoproject.com/en/2.1/ref/settings/#databases
 
 DATABASES = {
-    #'default': {
-    #    'ENGINE': 'django.contrib.gis.db.backends.spatialite',
-    #    'NAME': os.path.join(BASE_DIR, 'db.sqlite3')      
-    #}
     'default': {
         'ENGINE': 'django.contrib.gis.db.backends.postgis',
         'NAME': 'gis',
