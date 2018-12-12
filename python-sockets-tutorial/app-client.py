@@ -52,7 +52,7 @@ try:
             message = key.data
             try:
                 message.process_events(mask)
-            except Exception as e:
+            except Exception:
                 print(
                     "main: error: exception for",
                     f"{message.addr}:\n{traceback.format_exc()}",
