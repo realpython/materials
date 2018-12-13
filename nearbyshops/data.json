@@ -1,0 +1,5035 @@
+{
+  "version": 0.6,
+  "generator": "Overpass API 0.7.55.4 3079d8ea",
+  "osm3s": {
+    "timestamp_osm_base": "2018-11-09T22:06:02Z",
+    "timestamp_areas_base": "2018-11-09T21:26:02Z",
+    "copyright": "The data included in this document is from www.openstreetmap.org. The data is made available under ODbL."
+  },
+  "elements": [
+    {
+      "type": "node",
+      "id": 358728152,
+      "lat": 25.8478742,
+      "lon": -80.1958809,
+      "tags": {
+        "ele": "2",
+        "gnis:county_id": "086",
+        "gnis:created": "08/28/1987",
+        "gnis:feature_id": "303619",
+        "gnis:state_id": "12",
+        "name": "Autozone",
+        "shop": "car_parts"
+      }
+    },
+    {
+      "type": "node",
+      "id": 1025635627,
+      "lat": 25.7741593,
+      "lon": -80.1888305,
+      "tags": {
+        "amenity": "pharmacy",
+        "name": "Walgreens",
+        "shop": "chemist"
+      }
+    },
+    {
+      "type": "node",
+      "id": 1247956546,
+      "lat": 25.7722321,
+      "lon": -80.2550422,
+      "tags": {
+        "name": "CVS",
+        "shop": "convenience"
+      }
+    },
+    {
+      "type": "node",
+      "id": 1327333409,
+      "lat": 25.7853013,
+      "lon": -80.1740071,
+      "tags": {
+        "name": "Gift Shop",
+        "shop": "gift"
+      }
+    },
+    {
+      "type": "node",
+      "id": 2294769837,
+      "lat": 25.7753719,
+      "lon": -80.188012,
+      "tags": {
+        "addr:city": "Miami",
+        "addr:housename": "New World Tower",
+        "addr:housenumber": "100",
+        "addr:postcode": "33132",
+        "addr:street": "North Biscayne Boulevard",
+        "name": "7 Eleven",
+        "shop": "convenience"
+      }
+    },
+    {
+      "type": "node",
+      "id": 2313131461,
+      "lat": 25.8327549,
+      "lon": -80.1871658,
+      "tags": {
+        "description": "Haitian-Latin American",
+        "name": "Kwik Shop",
+        "shop": "supermarket"
+      }
+    },
+    {
+      "type": "node",
+      "id": 2419116024,
+      "lat": 25.7750632,
+      "lon": -80.1925459,
+      "tags": {
+        "addr:city": "Miami",
+        "addr:country": "US",
+        "addr:housename": "International Jewelry Center",
+        "addr:housenumber": "58",
+        "addr:postcode": "33132",
+        "addr:state": "FL",
+        "addr:street": "NE 1st St",
+        "name": "CRM Jewelers",
+        "opening_hours": "Mo-Fr 10:00-18:00",
+        "shop": "jewelry",
+        "source": "local_knowledge",
+        "website": "https://www.crmjewelers.com"
+      }
+    },
+    {
+      "type": "node",
+      "id": 2475873703,
+      "lat": 25.7639185,
+      "lon": -80.2854811,
+      "tags": {
+        "addr:city": "Miami",
+        "addr:housenumber": "5545",
+        "addr:postcode": "33134",
+        "addr:street": "Southwest 8th Street",
+        "name": "El Shaddai Skincare Day Spa",
+        "shop": "beauty",
+        "website": "http://www.elshaddaiskincaredayspa.com/"
+      }
+    },
+    {
+      "type": "node",
+      "id": 2498529919,
+      "lat": 25.7286438,
+      "lon": -80.2420384,
+      "tags": {
+        "addr:city": "Coconut Grove",
+        "addr:housenumber": "3015",
+        "addr:postcode": "33133",
+        "addr:street": "Grand Avenue",
+        "name": "CocoWalk",
+        "name:zh": "CocoWalk",
+        "shop": "mall",
+        "website": "http://www.cocowalk.net/"
+      }
+    },
+    {
+      "type": "node",
+      "id": 2577477846,
+      "lat": 25.7901905,
+      "lon": -80.1857491,
+      "tags": {
+        "addr:housename": "555 NE 15th St., Miami, Florida 33132, Estados Unidos",
+        "name": "PYDOT - Web hosting",
+        "phone": "1-305-517-1770",
+        "shop": "computer",
+        "website": "http://www.pydot.com/"
+      }
+    },
+    {
+      "type": "node",
+      "id": 2682816687,
+      "lat": 25.7710807,
+      "lon": -80.2733076,
+      "tags": {
+        "addr:city": "Miami",
+        "addr:housenumber": "4746",
+        "addr:postcode": "33134",
+        "addr:street": "West Flagler Street",
+        "name": "Vapor Addicts",
+        "payment:bitcoin": "yes",
+        "shop": "e-cigarette",
+        "source": "http://www.openstreetmap.org/note/108756",
+        "website": "http://www.vaporaddicts.com"
+      }
+    },
+    {
+      "type": "node",
+      "id": 2836498262,
+      "lat": 25.7737038,
+      "lon": -80.21447,
+      "tags": {
+        "addr:city": "Miami",
+        "addr:housenumber": "1199",
+        "addr:postcode": "33130",
+        "addr:street": "West Flagler Street",
+        "name": "Payless Shoe Source",
+        "shop": "shoes"
+      }
+    },
+    {
+      "type": "node",
+      "id": 2941412395,
+      "lat": 25.7788087,
+      "lon": -80.1864492,
+      "tags": {
+        "name": "Gap",
+        "shop": "clothes"
+      }
+    },
+    {
+      "type": "node",
+      "id": 2941428106,
+      "lat": 25.8490498,
+      "lon": -80.1860765,
+      "tags": {
+        "addr:city": "Miami",
+        "addr:housenumber": "541",
+        "addr:postcode": "33138",
+        "addr:street": "Northeast 81st Street",
+        "name": "Family Dollar",
+        "shop": "variety_store"
+      }
+    },
+    {
+      "type": "node",
+      "id": 3015246860,
+      "lat": 25.7651979,
+      "lon": -80.1974636,
+      "tags": {
+        "name": "Brickell Ace Hardware",
+        "shop": "hardware"
+      }
+    },
+    {
+      "type": "node",
+      "id": 3018898194,
+      "lat": 25.8474159,
+      "lon": -80.19095,
+      "tags": {
+        "name": "Sykes Ace Hardware",
+        "shop": "doityourself"
+      }
+    },
+    {
+      "type": "node",
+      "id": 3090505794,
+      "lat": 25.8482005,
+      "lon": -80.1870647,
+      "tags": {
+        "name": "Tropical Supermarket",
+        "shop": "supermarket"
+      }
+    },
+    {
+      "type": "node",
+      "id": 3151917231,
+      "lat": 25.8475619,
+      "lon": -80.2063952,
+      "tags": {
+        "name": "Midas",
+        "shop": "car_repair"
+      }
+    },
+    {
+      "type": "node",
+      "id": 3157382520,
+      "lat": 25.8014809,
+      "lon": -80.2020516,
+      "tags": {
+        "addr:city": "Miami",
+        "addr:housenumber": "405",
+        "addr:postcode": "33127",
+        "addr:state": "FL",
+        "addr:street": "Northwest 26th Street",
+        "name": "Zak the Baker",
+        "opening_hours": "Su-Fr 9:00-16:00",
+        "phone": "+1 786 347 7100",
+        "shop": "bakery",
+        "website": "http://zakthebaker.com/"
+      }
+    },
+    {
+      "type": "node",
+      "id": 3158788988,
+      "lat": 25.802275,
+      "lon": -80.2012607,
+      "tags": {
+        "addr:city": "Miami",
+        "addr:housenumber": "2750",
+        "addr:postcode": "33127",
+        "addr:state": "FL",
+        "addr:street": "Northwest 3rd Avenue",
+        "name": "Junior & Hatter",
+        "shop": "hairdresser",
+        "website": "http://www.juniorandhatter.com"
+      }
+    },
+    {
+      "type": "node",
+      "id": 3180220428,
+      "lat": 25.8388943,
+      "lon": -80.1841088,
+      "tags": {
+        "addr:city": "Miami",
+        "addr:housenumber": "6901",
+        "addr:state": "FL",
+        "addr:street": "Biscayne Boulevard",
+        "name": "Clean Start Total Body Cleansing",
+        "shop": "massage"
+      }
+    },
+    {
+      "type": "node",
+      "id": 3205089361,
+      "lat": 25.8101674,
+      "lon": -80.1940194,
+      "tags": {
+        "addr:city": "Miami",
+        "addr:housenumber": "3401",
+        "addr:postcode": "33127",
+        "addr:state": "FL",
+        "addr:street": "North Miami Avenue",
+        "name": "Target",
+        "shop": "department_store",
+        "website": "http://www.target.com/sl/Miami-Central--Target-Store/2188"
+      }
+    },
+    {
+      "type": "node",
+      "id": 3213534391,
+      "lat": 25.8014765,
+      "lon": -80.2021694,
+      "tags": {
+        "addr:street": "Northwest 26th Street",
+        "name": "House of Art",
+        "shop": "art",
+        "website": "http://www.houseofart.co/"
+      }
+    },
+    {
+      "type": "node",
+      "id": 3219583553,
+      "lat": 25.8301759,
+      "lon": -80.1919272,
+      "tags": {
+        "addr:city": "Miami",
+        "addr:housenumber": "5919",
+        "addr:state": "FL",
+        "addr:street": "Northeast 2nd Avenue",
+        "name": "Libreri Mapou Bookstore",
+        "shop": "books"
+      }
+    },
+    {
+      "type": "node",
+      "id": 3219625111,
+      "lat": 25.8076067,
+      "lon": -80.1949957,
+      "tags": {
+        "name": "West Elm",
+        "shop": "furniture"
+      }
+    },
+    {
+      "type": "node",
+      "id": 3219625112,
+      "lat": 25.8059936,
+      "lon": -80.1949421,
+      "tags": {
+        "name": "PetSmart",
+        "shop": "pet"
+      }
+    },
+    {
+      "type": "node",
+      "id": 3219625113,
+      "lat": 25.8100708,
+      "lon": -80.1949206,
+      "tags": {
+        "name": "Ross Dress For Less",
+        "shop": "clothes"
+      }
+    },
+    {
+      "type": "node",
+      "id": 3219714536,
+      "lat": 25.8421153,
+      "lon": -80.1841039,
+      "tags": {
+        "addr:city": "Miami",
+        "addr:housenumber": "7283",
+        "addr:state": "FL",
+        "addr:street": "Biscayne Boulevard",
+        "name": "Flavorish Market",
+        "shop": "convenience"
+      }
+    },
+    {
+      "type": "node",
+      "id": 3243599200,
+      "lat": 25.8037089,
+      "lon": -80.199074,
+      "tags": {
+        "addr:city": "Miami",
+        "addr:housenumber": "2825",
+        "addr:state": "FL",
+        "addr:street": "Northwest 2nd Avenue",
+        "name": "Ducati Miami",
+        "shop": "motorcycle"
+      }
+    },
+    {
+      "type": "node",
+      "id": 3261312006,
+      "lat": 25.7722489,
+      "lon": -80.257724,
+      "tags": {
+        "addr:city": "Miami",
+        "addr:housenumber": "3801",
+        "addr:postcode": "33134",
+        "addr:state": "FL",
+        "addr:street": "West Flagler Street",
+        "name": "Sedano's Supermarket",
+        "shop": "supermarket"
+      }
+    },
+    {
+      "type": "node",
+      "id": 3358237759,
+      "lat": 25.7744306,
+      "lon": -80.1888075,
+      "tags": {
+        "addr:city": "Miami",
+        "addr:housenumber": "259",
+        "addr:postcode": "FL 33131",
+        "addr:state": "FL",
+        "addr:street": "East Flagler Street",
+        "name": "Electric Avenue - Camera/Electronics Superstore",
+        "opening_hours": "09:00-20:00",
+        "phone": "305-579-5998",
+        "shop": "photo"
+      }
+    },
+    {
+      "type": "node",
+      "id": 3561275393,
+      "lat": 25.757981,
+      "lon": -80.199047,
+      "tags": {
+        "name": "Publix",
+        "shop": "supermarket"
+      }
+    },
+    {
+      "type": "node",
+      "id": 3561275395,
+      "lat": 25.757976,
+      "lon": -80.199026,
+      "tags": {
+        "shop": "supermarket"
+      }
+    },
+    {
+      "type": "node",
+      "id": 3575838333,
+      "lat": 25.7796054,
+      "lon": -80.2549666,
+      "tags": {
+        "addr:city": "Miami",
+        "addr:housenumber": "771",
+        "addr:postcode": "33125",
+        "addr:state": "FL",
+        "addr:street": "Northwest 37th Avenue",
+        "name": "Marazul Charters",
+        "operator": "Marazul Charters",
+        "phone": "(305)559-7114",
+        "shop": "travel_agency"
+      }
+    },
+    {
+      "type": "node",
+      "id": 3575884406,
+      "lat": 25.7791059,
+      "lon": -80.2432485,
+      "tags": {
+        "addr:city": "Miami",
+        "addr:housenumber": "2994",
+        "addr:postcode": "33125",
+        "addr:state": "FL",
+        "addr:street": "Northwest 7th Street",
+        "name": "VaCuba",
+        "phone": "(305) 649-3491",
+        "shop": "travel_agency",
+        "website": "http://www.vacuba.com/"
+      }
+    },
+    {
+      "type": "node",
+      "id": 3575884417,
+      "lat": 25.7791267,
+      "lon": -80.243065,
+      "tags": {
+        "name": "Los Amigos Supermarket",
+        "shop": "supermarket"
+      }
+    },
+    {
+      "type": "node",
+      "id": 3623650210,
+      "lat": 25.7790606,
+      "lon": -80.2440132,
+      "tags": {
+        "addr:city": "Miami",
+        "addr:housenumber": "3026",
+        "addr:postcode": "33125",
+        "addr:state": "FL",
+        "addr:street": "Northwest 7th Street",
+        "name": "Gran Paris Bakery",
+        "operator": "Gran Paris Bakery",
+        "shop": "bakery"
+      }
+    },
+    {
+      "type": "node",
+      "id": 3623682226,
+      "lat": 25.7813822,
+      "lon": -80.2563035,
+      "tags": {
+        "addr:city": "Miami",
+        "addr:housenumber": "3701",
+        "addr:postcode": "33125",
+        "addr:state": "FL",
+        "addr:street": "Northwest 7th Street",
+        "name": "Winn Dixie",
+        "shop": "supermarket",
+        "website": "https://www.winndixie.com/"
+      }
+    },
+    {
+      "type": "node",
+      "id": 3623691582,
+      "lat": 25.7813658,
+      "lon": -80.2570203,
+      "tags": {
+        "addr:city": "Miami",
+        "addr:housenumber": "3709",
+        "addr:postcode": "33126",
+        "addr:state": "FL",
+        "addr:street": "Northwest 7th Street",
+        "name": "Government Discount",
+        "operator": "Government Discount",
+        "shop": "variety_store"
+      }
+    },
+    {
+      "type": "node",
+      "id": 3793660494,
+      "lat": 25.8479849,
+      "lon": -80.1835992,
+      "tags": {
+        "name": "Loud Girl Exchange",
+        "shop": "second_hand"
+      }
+    },
+    {
+      "type": "node",
+      "id": 3815562835,
+      "lat": 25.812643,
+      "lon": -80.1911515,
+      "tags": {
+        "addr:city": "Miami",
+        "addr:housenumber": "3841",
+        "addr:postcode": "33137",
+        "addr:state": "FL",
+        "addr:street": "Northeast 2nd Avenue",
+        "addr:unit": "101",
+        "name": "Internum",
+        "phone": "305-576-1135",
+        "shop": "furniture",
+        "source": "https://plus.google.com/113410444560324190339/about",
+        "website": "http://internum.com/miami/index.html"
+      }
+    },
+    {
+      "type": "node",
+      "id": 3834322166,
+      "lat": 25.8029387,
+      "lon": -80.1932649,
+      "tags": {
+        "name": "Miami Lashes",
+        "shop": "beauty"
+      }
+    },
+    {
+      "type": "node",
+      "id": 3839882545,
+      "lat": 25.7951981,
+      "lon": -80.190493,
+      "tags": {
+        "name": "Advance Auto Parts",
+        "shop": "car_parts"
+      }
+    },
+    {
+      "type": "node",
+      "id": 3839885167,
+      "lat": 25.8010346,
+      "lon": -80.1992294,
+      "tags": {
+        "name": "Frangipani Design Shop",
+        "phone": "+1 305-573-1480",
+        "shop": "gift",
+        "website": "http://frangipanimiami.com/store/"
+      }
+    },
+    {
+      "type": "node",
+      "id": 3839885172,
+      "lat": 25.8012975,
+      "lon": -80.2009924,
+      "tags": {
+        "name": "Lbk Shoes Corp",
+        "shop": "shoes"
+      }
+    },
+    {
+      "type": "node",
+      "id": 3839885752,
+      "lat": 25.802032,
+      "lon": -80.1986827,
+      "tags": {
+        "addr:city": "Miami",
+        "addr:housenumber": "187",
+        "addr:state": "FL",
+        "addr:street": "Northwest 27th Street",
+        "name": "Dot Fiftyone Gallery",
+        "phone": "+1 305-573-9994",
+        "shop": "art",
+        "website": "http://www.dotfiftyone.com/"
+      }
+    },
+    {
+      "type": "node",
+      "id": 4114887298,
+      "lat": 25.8013196,
+      "lon": -80.201448,
+      "tags": {
+        "addr:city": "Miami",
+        "addr:housenumber": "310",
+        "addr:postcode": "33127",
+        "addr:state": "FL",
+        "addr:street": "Northwest 26th Street",
+        "description": "Interior Design",
+        "name": "Britto Charette",
+        "opening_hours": "Mo-Fr 10:0-16:00",
+        "phone": "+1 305 640 5005",
+        "shop": "interior_decoration",
+        "website": "https://www.brittocharette.com/"
+      }
+    },
+    {
+      "type": "node",
+      "id": 4119559322,
+      "lat": 25.8011439,
+      "lon": -80.2034596,
+      "tags": {
+        "addr:city": "Miami",
+        "addr:housenumber": "2600",
+        "addr:postcode": "33127",
+        "addr:state": "FL",
+        "addr:street": "Northwest 5th Avenue",
+        "name": "Hannah Bella",
+        "shop": "clothes"
+      }
+    },
+    {
+      "type": "node",
+      "id": 4154559259,
+      "lat": 25.8007995,
+      "lon": -80.202969,
+      "tags": {
+        "addr:city": "Miami",
+        "addr:housenumber": "2503",
+        "addr:postcode": "33127",
+        "addr:state": "FL",
+        "addr:street": "Northwest 5th Avenue",
+        "name": "Bethel Fashion",
+        "phone": "+1 305 573 2122",
+        "shop": "clothes"
+      }
+    },
+    {
+      "type": "node",
+      "id": 4154559260,
+      "lat": 25.8008712,
+      "lon": -80.2029711,
+      "tags": {
+        "addr:city": "Miami",
+        "addr:housenumber": "2505",
+        "addr:postcode": "33127",
+        "addr:state": "FL",
+        "addr:street": "Northwest 5th Avenue",
+        "name": "ENT Summit Inc",
+        "phone": "+1 305 576 2721",
+        "shop": "clothes"
+      }
+    },
+    {
+      "type": "node",
+      "id": 4154559261,
+      "lat": 25.8007089,
+      "lon": -80.2029586,
+      "tags": {
+        "addr:city": "Miami",
+        "addr:housenumber": "2501",
+        "addr:postcode": "33127",
+        "addr:state": "FL",
+        "addr:street": "Northwest 5th Avenue",
+        "name": "D&M Wholesale Linen and Beauty",
+        "phone": "+1 305 576 3554",
+        "shop": "clothes"
+      }
+    },
+    {
+      "type": "node",
+      "id": 4154585236,
+      "lat": 25.8276004,
+      "lon": -80.1871559,
+      "tags": {
+        "name": "Divergent Ink",
+        "shop": "tattoo",
+        "website": "http://www.divergent.ink/"
+      }
+    },
+    {
+      "type": "node",
+      "id": 4231908198,
+      "lat": 25.7743529,
+      "lon": -80.1886845,
+      "tags": {
+        "name": "Marshalls",
+        "shop": "clothes"
+      }
+    },
+    {
+      "type": "node",
+      "id": 4232501817,
+      "lat": 25.8477843,
+      "lon": -80.1789511,
+      "tags": {
+        "name": "Le Cafe de louison",
+        "shop": "bakery"
+      }
+    },
+    {
+      "type": "node",
+      "id": 4235831896,
+      "lat": 25.77697,
+      "lon": -80.190611,
+      "tags": {
+        "name": "7 Eleven",
+        "shop": "convenience"
+      }
+    },
+    {
+      "type": "node",
+      "id": 4270019167,
+      "lat": 25.8020328,
+      "lon": -80.199027,
+      "tags": {
+        "addr:city": "Miami",
+        "addr:housenumber": "2699",
+        "addr:postcode": "33127",
+        "addr:state": "FL",
+        "addr:street": "Northwest 2nd Avenue",
+        "name": "Illimit",
+        "opening_hours": "Monday-Friday 10:00 am-06:00 pm Saturday 11:00 am-06:00 pm",
+        "phone": "+1 786-558-7176",
+        "shop": "interior_decoration",
+        "website": "http://www.illim.it/"
+      }
+    },
+    {
+      "type": "node",
+      "id": 4274006811,
+      "lat": 25.8020118,
+      "lon": -80.1990265,
+      "tags": {
+        "addr:city": "Miami",
+        "addr:housenumber": "2679",
+        "addr:postcode": "33127",
+        "addr:state": "FL",
+        "addr:street": "Northwest 2nd Avenue",
+        "name": "Tattoo & Co",
+        "opening_hours": "Mon - Thurs 12:00AM - 8:30PM  Fri - Sat 12:00PM - 12:00AM  Sundays 12:00AM - 6:30PM",
+        "phone": "305.485.0770",
+        "shop": "tattoo"
+      }
+    },
+    {
+      "type": "node",
+      "id": 4342875992,
+      "lat": 25.8088201,
+      "lon": -80.246843,
+      "tags": {
+        "addr:housenumber": "3100",
+        "addr:postcode": "33142",
+        "addr:street": "Northwest 36th Street",
+        "name": "Master Electronics",
+        "opening_hours": "Mo-Fr 07:30-17:30",
+        "phone": "3056382000",
+        "shop": "electronics",
+        "website": "http://masterelectronics.com"
+      }
+    },
+    {
+      "type": "node",
+      "id": 4384958745,
+      "lat": 25.764493,
+      "lon": -80.287636,
+      "tags": {
+        "name": "JC Nails",
+        "shop": "beauty"
+      }
+    },
+    {
+      "type": "node",
+      "id": 4384958746,
+      "lat": 25.7648301,
+      "lon": -80.287746,
+      "tags": {
+        "name": "Orlando Optical",
+        "shop": "optician"
+      }
+    },
+    {
+      "type": "node",
+      "id": 4451740089,
+      "lat": 25.7898046,
+      "lon": -80.1906962,
+      "tags": {
+        "name": "VA LA",
+        "name:en": "VA LA",
+        "shop": "photo"
+      }
+    },
+    {
+      "type": "node",
+      "id": 4454912674,
+      "lat": 25.7633339,
+      "lon": -80.3048146,
+      "tags": {
+        "addr:city": "Miami",
+        "addr:housenumber": "6747",
+        "addr:postcode": "33144",
+        "addr:state": "FL",
+        "addr:street": "Southwest 8th Street",
+        "name": "Mercantile Europarts, Inc.",
+        "phone": "+1 305 2660507",
+        "shop": "car_parts",
+        "website": "http://meuroparts.com"
+      }
+    },
+    {
+      "type": "node",
+      "id": 4462356806,
+      "lat": 25.7671616,
+      "lon": -80.1931376,
+      "tags": {
+        "addr:city": "Miami",
+        "addr:housenumber": "701",
+        "addr:postcode": "33131",
+        "addr:state": "FL",
+        "addr:street": "South Miami Avenue",
+        "name": "Brickell City Centre",
+        "shop": "mall"
+      }
+    },
+    {
+      "type": "node",
+      "id": 4467350774,
+      "lat": 25.7994099,
+      "lon": -80.1893725,
+      "tags": {
+        "addr:city": "Miami",
+        "addr:housenumber": "2300",
+        "addr:postcode": "33137",
+        "addr:state": "FL",
+        "addr:street": "Biscayne Boulevard",
+        "name": "SB Design",
+        "owner": "Anthony Harris",
+        "phone": "+1-305-573-1117",
+        "shop": "furniture",
+        "website": "http://sbdsign.com"
+      }
+    },
+    {
+      "type": "node",
+      "id": 4498915692,
+      "lat": 25.7776618,
+      "lon": -80.1839867,
+      "tags": {
+        "name": "Biscayne Bay Boat Tours - Miami Aqua Tours",
+        "name:en": "Biscayne Bay Boat Tours - Miami Aqua Tours",
+        "shop": "travel_agency"
+      }
+    },
+    {
+      "type": "node",
+      "id": 4498982289,
+      "lat": 25.7653032,
+      "lon": -80.2358541,
+      "tags": {
+        "name": "Calle Ocho",
+        "name:en": "Calle Ocho",
+        "shop": "convenience"
+      }
+    },
+    {
+      "type": "node",
+      "id": 4499056993,
+      "lat": 25.8086502,
+      "lon": -80.1938582,
+      "tags": {
+        "name": "Carter's",
+        "name:en": "Carter's",
+        "shop": "clothes"
+      }
+    },
+    {
+      "type": "node",
+      "id": 4499074391,
+      "lat": 25.8097116,
+      "lon": -80.1936529,
+      "tags": {
+        "name": "Marshalls",
+        "name:en": "Marshalls",
+        "shop": "clothes"
+      }
+    },
+    {
+      "type": "node",
+      "id": 4569149689,
+      "lat": 25.7716694,
+      "lon": -80.2730814,
+      "tags": {
+        "addr:housenumber": "4751",
+        "addr:postcode": "33134",
+        "addr:street": "West Flagler Street",
+        "name": "Triple Triumph Miami",
+        "name:pt": "Triple Triumph Miami",
+        "opening_hours": "Tu-Th 10:00-19:00; Fr 09:00-19:00; Sa 09:00-17:00",
+        "phone": "+1 (786) 621-1105",
+        "shop": "car"
+      }
+    },
+    {
+      "type": "node",
+      "id": 4587214217,
+      "lat": 25.7657744,
+      "lon": -80.2108923,
+      "tags": {
+        "name": "Goodwill",
+        "shop": "donation"
+      }
+    },
+    {
+      "type": "node",
+      "id": 4587214221,
+      "lat": 25.7657719,
+      "lon": -80.2105943,
+      "tags": {
+        "name": "Dollar Tree",
+        "shop": "dollar"
+      }
+    },
+    {
+      "type": "node",
+      "id": 4587446892,
+      "lat": 25.7637462,
+      "lon": -80.2887656,
+      "tags": {
+        "name": "Dollar Tree",
+        "name:en": "Dollar Tree",
+        "shop": "department_store"
+      }
+    },
+    {
+      "type": "node",
+      "id": 4604869790,
+      "lat": 25.7729326,
+      "lon": -80.187885,
+      "tags": {
+        "name": "Ross",
+        "name:en": "Ross",
+        "shop": "clothes"
+      }
+    },
+    {
+      "type": "node",
+      "id": 4773221378,
+      "lat": 25.7722816,
+      "lon": -80.1895294,
+      "tags": {
+        "addr:housenumber": "299",
+        "addr:street": "Southeast 3rd Avenue",
+        "name": "Whole Foods Market",
+        "shop": "supermarket"
+      }
+    },
+    {
+      "type": "node",
+      "id": 4773376558,
+      "lat": 25.7858777,
+      "lon": -80.1861548,
+      "tags": {
+        "name": "Museum Shop",
+        "shop": "gift"
+      }
+    },
+    {
+      "type": "node",
+      "id": 4953853228,
+      "lat": 25.7645617,
+      "lon": -80.2753826,
+      "tags": {
+        "addr:city": "Miami",
+        "addr:housenumber": "4897",
+        "addr:postcode": "33134",
+        "addr:state": "Florida",
+        "addr:street": "Southwest 8th Street",
+        "name": "Roma Bakery",
+        "shop": "bakery"
+      }
+    },
+    {
+      "type": "node",
+      "id": 4953853229,
+      "lat": 25.7645081,
+      "lon": -80.2740266,
+      "tags": {
+        "addr:city": "Miami",
+        "addr:housenumber": "4801",
+        "addr:postcode": "33134",
+        "addr:state": "Florida",
+        "addr:street": "Southwest 8th Street",
+        "name": "Sedano's",
+        "shop": "supermarket"
+      }
+    },
+    {
+      "type": "node",
+      "id": 4953857721,
+      "lat": 25.7649146,
+      "lon": -80.252406,
+      "tags": {
+        "addr:city": "Miami",
+        "addr:housenumber": "3501",
+        "addr:postcode": "33135",
+        "addr:state": "FL",
+        "addr:street": "Southwest 8th Street",
+        "name": "Versailles Bakery",
+        "shop": "bakery"
+      }
+    },
+    {
+      "type": "node",
+      "id": 5001792234,
+      "lat": 25.7796288,
+      "lon": -80.290008,
+      "tags": {
+        "name": "Burlington",
+        "shop": "clothes"
+      }
+    },
+    {
+      "type": "node",
+      "id": 5111900625,
+      "lat": 25.774066,
+      "lon": -80.1917748,
+      "tags": {
+        "name": "Stop n shop",
+        "shop": "convenience"
+      }
+    },
+    {
+      "type": "node",
+      "id": 5315598121,
+      "lat": 25.76493,
+      "lon": -80.308812,
+      "tags": {
+        "addr:city": "Miami",
+        "addr:country": "US",
+        "addr:full": "6991 Sw 8Th St",
+        "addr:housenumber": "6991",
+        "addr:postcode": "33144",
+        "addr:state": "FL",
+        "addr:street": "Southwest 8th Street",
+        "name": "Walmart Neighborhood Market",
+        "opening_hours": "24/7",
+        "operator": "Walmart",
+        "phone": "+1-786-257-4094",
+        "ref:walmart": "4140",
+        "shop": "supermarket",
+        "website": "https://www.walmart.com/store/4140/miami-fl/whats-new"
+      }
+    },
+    {
+      "type": "node",
+      "id": 5327820423,
+      "lat": 25.7996746,
+      "lon": -80.1992419,
+      "tags": {
+        "name": "Scotch & Soda",
+        "shop": "clothes"
+      }
+    },
+    {
+      "type": "node",
+      "id": 5486787425,
+      "lat": 25.7280228,
+      "lon": -80.2415728,
+      "tags": {
+        "addr:housenumber": "3030",
+        "addr:postcode": "33133",
+        "addr:street": "Grand Avenue",
+        "name": "Soles Inc",
+        "shop": "clothes"
+      }
+    },
+    {
+      "type": "node",
+      "id": 5486850523,
+      "lat": 25.8013479,
+      "lon": -80.1908344,
+      "tags": {
+        "addr:housenumber": "2519",
+        "addr:postcode": "33137",
+        "addr:street": "Northeast 2nd Avenue",
+        "name": "Sneak Attack Miami",
+        "shop": "clothes"
+      }
+    },
+    {
+      "type": "node",
+      "id": 5553211922,
+      "lat": 25.7277332,
+      "lon": -80.2469666,
+      "tags": {
+        "name": "Coconut Grove Farmers Market",
+        "shop": "farm"
+      }
+    },
+    {
+      "type": "node",
+      "id": 5584571924,
+      "lat": 25.7723793,
+      "lon": -80.2556472,
+      "tags": {
+        "addr:housenumber": "3701",
+        "addr:postcode": "33134",
+        "addr:street": "West Flagler Street",
+        "name": "T-Mobile",
+        "shop": "mobile_phone"
+      }
+    },
+    {
+      "type": "node",
+      "id": 5646545127,
+      "lat": 25.8133975,
+      "lon": -80.192102,
+      "tags": {
+        "addr:housenumber": "172",
+        "addr:postcode": "33137",
+        "addr:street": "Northeast 40th Street",
+        "name": "Deciem",
+        "opening_hours": "Mo-Sa 11:00-20:00; Su 12:00-18:00",
+        "phone": "(760)870-4893",
+        "shop": "gift"
+      }
+    },
+    {
+      "type": "node",
+      "id": 5646552621,
+      "lat": 25.8127712,
+      "lon": -80.1909071,
+      "tags": {
+        "addr:housenumber": "3481",
+        "addr:postcode": "33137",
+        "addr:street": "NE 2nd Ave",
+        "name": "Miami Design District Shopping Center",
+        "shop": "department_store",
+        "website": "http://miamidesigndistrict.net"
+      }
+    },
+    {
+      "type": "node",
+      "id": 5651894521,
+      "lat": 25.8024988,
+      "lon": -80.1912227,
+      "tags": {
+        "name": "Miami Motostop",
+        "shop": "motorcycle"
+      }
+    },
+    {
+      "type": "node",
+      "id": 5653574208,
+      "lat": 25.8041931,
+      "lon": -80.2394322,
+      "tags": {
+        "addr:city": "Miami",
+        "addr:housenumber": "2614",
+        "addr:postcode": "33142",
+        "addr:state": "FL",
+        "addr:street": "Northwest 31 Street",
+        "facebook": "https://www.facebook.com/RickysMeats/",
+        "name": "Ricky's Meats & Deli",
+        "opening_hours": "Mo-Fr 07:00-17:00; Sa 07:00-19:00; Su 15:00-20:00",
+        "phone": "+1-305-634-0661",
+        "shop": "supermarket",
+        "website": "http://www.rickysmeats.com"
+      }
+    },
+    {
+      "type": "node",
+      "id": 5681821126,
+      "lat": 25.7724836,
+      "lon": -80.1894895,
+      "tags": {
+        "name": "Whole foods",
+        "shop": "supermarket"
+      }
+    },
+    {
+      "type": "node",
+      "id": 5760287044,
+      "lat": 25.770811,
+      "lon": -80.2808484,
+      "tags": {
+        "shop": "alcohol"
+      }
+    },
+    {
+      "type": "node",
+      "id": 5838371202,
+      "lat": 25.7792495,
+      "lon": -80.2583483,
+      "tags": {
+        "name": "GNC",
+        "shop": "supermarket"
+      }
+    },
+    {
+      "type": "node",
+      "id": 5841269768,
+      "lat": 25.7358688,
+      "lon": -80.2284969,
+      "tags": {
+        "shop": "kiosk"
+      }
+    },
+    {
+      "type": "node",
+      "id": 5848695085,
+      "lat": 25.7659209,
+      "lon": -80.2188683,
+      "tags": {
+        "addr:city": "Miami",
+        "addr:housenumber": "1465",
+        "addr:postcode": "33135",
+        "addr:state": "FL",
+        "addr:street": "Southwest 8th Street",
+        "addr:unit": "105",
+        "amenity": "cafe",
+        "name": "Guantanamera Cigars & Cafe",
+        "phone": "+1-786-618-5142",
+        "shop": "tobacco",
+        "website": "http://www.guantanameracigars.com"
+      }
+    },
+    {
+      "type": "node",
+      "id": 5901201236,
+      "lat": 25.7272859,
+      "lon": -80.2435747,
+      "tags": {
+        "addr:city": "Miami",
+        "addr:housenumber": "3444",
+        "addr:postcode": "33133",
+        "addr:state": "FL",
+        "addr:street": "Main Highway",
+        "addr:unit": "5",
+        "contact:facebook": "https://www.facebook.com/OsoleBoutique/",
+        "name": "O'sole Boutique",
+        "opening_hours": "Mo-Fr 11:00-19:00; Sa 11:00-20:00; Su 11:00-19:00",
+        "phone": "+1-786-615-6171",
+        "shop": "boutique",
+        "website": "http://www.osoleboutique.com/"
+      }
+    },
+    {
+      "type": "node",
+      "id": 5910676085,
+      "lat": 25.7504642,
+      "lon": -80.2501864,
+      "tags": {
+        "name": "bed bath  beyond",
+        "shop": "department_store"
+      }
+    },
+    {
+      "type": "node",
+      "id": 5912968820,
+      "lat": 25.7740443,
+      "lon": -80.2639902,
+      "tags": {
+        "addr:city": "Miami",
+        "addr:housenumber": "246",
+        "addr:postcode": "33126",
+        "addr:street": "Northwest 42nd Avenue",
+        "name": "El Gladiolo Florist",
+        "shop": "florist"
+      }
+    },
+    {
+      "type": "node",
+      "id": 5985366499,
+      "lat": 25.8468261,
+      "lon": -80.2086708,
+      "tags": {
+        "name": "7 eleven",
+        "shop": "gas"
+      }
+    },
+    {
+      "type": "node",
+      "id": 6008824786,
+      "lat": 25.796773,
+      "lon": -80.1890705,
+      "tags": {
+        "name": "concesionaria",
+        "shop": "car"
+      }
+    },
+    {
+      "type": "way",
+      "id": 94907568,
+      "nodes": [
+        1101798841,
+        1101800189,
+        1101799762,
+        1101799469,
+        1101798841
+      ],
+      "tags": {
+        "building": "yes",
+        "name": "Fresh Market",
+        "shop": "supermarket"
+      }
+    },
+    {
+      "type": "way",
+      "id": 255191911,
+      "nodes": [
+        2609134332,
+        2609134186,
+        2609134609,
+        2609134599,
+        2609134332
+      ],
+      "tags": {
+        "addr:city": "Miami",
+        "addr:housenumber": "4870",
+        "addr:postcode": "33137",
+        "addr:street": "Biscayne Boulevard",
+        "building": "yes",
+        "name": "Publix Super Market at Baypoint",
+        "shop": "supermarket"
+      }
+    },
+    {
+      "type": "way",
+      "id": 278823410,
+      "nodes": [
+        2831267843,
+        2831268011,
+        2831268028,
+        2831268015,
+        2831267843
+      ],
+      "tags": {
+        "building": "yes",
+        "name": "Advance Auto Parts",
+        "shop": "car_repair",
+        "source": "Bing"
+      }
+    },
+    {
+      "type": "way",
+      "id": 301295332,
+      "nodes": [
+        3053727110,
+        3053727111,
+        3053727120,
+        3053727112,
+        3053727113,
+        3053727110
+      ],
+      "tags": {
+        "building": "yes",
+        "name": "Milam's Market",
+        "shop": "supermarket"
+      }
+    },
+    {
+      "type": "way",
+      "id": 301295333,
+      "nodes": [
+        3053727114,
+        3053727115,
+        3053727116,
+        3053727117,
+        3053727119,
+        3053727118,
+        3053727114
+      ],
+      "tags": {
+        "building": "yes",
+        "name": "Home Depot",
+        "shop": "doityourself"
+      }
+    },
+    {
+      "type": "way",
+      "id": 301295334,
+      "nodes": [
+        3053727111,
+        3053727118,
+        3053727119,
+        3053727120,
+        3053727111
+      ],
+      "tags": {
+        "building": "yes",
+        "shop": "alcohol"
+      }
+    },
+    {
+      "type": "way",
+      "id": 301827431,
+      "nodes": [
+        3059794101,
+        3059794102,
+        3059794107,
+        3059794118,
+        3059794103,
+        3059794104,
+        3059794105,
+        3059794106,
+        3059794101
+      ],
+      "tags": {
+        "building": "yes",
+        "name": "Winn Dixie",
+        "shop": "supermarket"
+      }
+    },
+    {
+      "type": "way",
+      "id": 301827434,
+      "nodes": [
+        3059794119,
+        3059794120,
+        3059794121,
+        3059794122,
+        3059794123,
+        3059794124,
+        3059794125,
+        3059794126,
+        3059794127,
+        3059794128,
+        3059794119
+      ],
+      "tags": {
+        "addr:housenumber": "3301",
+        "addr:postcode": "33145",
+        "addr:street": "Coral way",
+        "building": "yes",
+        "name": "Nordstrom Rack",
+        "opening_hours": "Mo-Su 10:00-21:00",
+        "shop": "mall"
+      }
+    },
+    {
+      "type": "way",
+      "id": 301827437,
+      "nodes": [
+        3059794433,
+        3059794434,
+        3059794435,
+        3059794436,
+        3059794437,
+        3059794438,
+        3059794439,
+        3059794440,
+        3059794433
+      ],
+      "tags": {
+        "building": "yes",
+        "name": "Sears",
+        "shop": "department_store"
+      }
+    },
+    {
+      "type": "way",
+      "id": 301828284,
+      "nodes": [
+        3059802368,
+        3059802369,
+        3059802370,
+        3059802371,
+        3059802372,
+        3156218076,
+        3059802373,
+        3059802374,
+        3059802375,
+        3059802376,
+        3059802377,
+        3059802378,
+        3156218077,
+        3059802389,
+        3059802383,
+        3059802368
+      ],
+      "tags": {
+        "building": "yes",
+        "name": "Office Depot",
+        "shop": "stationery"
+      }
+    },
+    {
+      "type": "way",
+      "id": 304502448,
+      "nodes": [
+        3090505823,
+        3090505824,
+        3090505825,
+        3090505826,
+        3090505827,
+        3090505823
+      ],
+      "tags": {
+        "addr:city": "Miami",
+        "addr:housenumber": "7701",
+        "addr:postcode": "33138",
+        "addr:street": "Biscayne Boulevard",
+        "building": "yes",
+        "name": "Advance Auto Parts",
+        "shop": "car_repair"
+      }
+    },
+    {
+      "type": "way",
+      "id": 310319091,
+      "nodes": [
+        3157363842,
+        3157363843,
+        3157363849,
+        3157363844,
+        3157363845,
+        3157363842
+      ],
+      "tags": {
+        "addr:city": "Miami",
+        "addr:housenumber": "450",
+        "addr:state": "FL",
+        "addr:street": "Northwest 27th Street",
+        "building": "yes",
+        "name": "Wynwood Warehouse Project",
+        "shop": "art"
+      }
+    },
+    {
+      "type": "way",
+      "id": 311489890,
+      "nodes": [
+        3171558368,
+        3171558373,
+        3171558374,
+        3171558375,
+        3171558372,
+        3171558368
+      ],
+      "tags": {
+        "addr:city": "Miami",
+        "addr:housenumber": "5505",
+        "addr:postcode": "33137",
+        "addr:state": "FL",
+        "addr:street": "Northeast 2nd Avenue",
+        "building": "yes",
+        "name": "Sweat Records",
+        "shop": "music",
+        "website": "http://www.sweatrecordsmiami.com/"
+      }
+    },
+    {
+      "type": "way",
+      "id": 311838835,
+      "nodes": [
+        3175759534,
+        3175759535,
+        3175759536,
+        3175759537,
+        3175759534
+      ],
+      "tags": {
+        "addr:city": "Miami",
+        "addr:housenumber": "380",
+        "addr:postcode": "33127",
+        "addr:state": "FL",
+        "addr:street": "Northwest 26th Street",
+        "building": "yes",
+        "building:levels": "1",
+        "fax": "+1 305 576 1813",
+        "name": "SAWAT inc",
+        "note": "Wholesale shoes Zapatos por Mayor",
+        "phone": "+1 305 576 1722",
+        "shop": "shoes"
+      }
+    },
+    {
+      "type": "way",
+      "id": 314060514,
+      "nodes": [
+        3200978065,
+        3200978066,
+        3200978067,
+        3200978068,
+        3200978069,
+        3200978070,
+        3200978071,
+        3200978072,
+        3200978073,
+        3200978074,
+        3200978075,
+        3200978076,
+        3200978077,
+        3200978065
+      ],
+      "tags": {
+        "addr:city": "Miami",
+        "addr:housenumber": "3852",
+        "addr:postcode": "33127",
+        "addr:state": "FL",
+        "addr:street": "North Miami Avenue",
+        "building": "yes",
+        "name": "Locust Projects",
+        "phone": "(305) 576-8570",
+        "shop": "art"
+      }
+    },
+    {
+      "type": "way",
+      "id": 314060697,
+      "nodes": [
+        3200972309,
+        3200972310,
+        3200972311,
+        3200972312,
+        3200972313,
+        3200972314,
+        3200972315,
+        3200972316,
+        3200972317,
+        3200972318,
+        3200972309
+      ],
+      "tags": {
+        "addr:city": "Miami",
+        "addr:housenumber": "294",
+        "addr:postcode": "33127",
+        "addr:state": "FL",
+        "addr:street": "Northwest 54th Street",
+        "building": "yes",
+        "name": "Yeelen Gallery",
+        "shop": "art"
+      }
+    },
+    {
+      "type": "way",
+      "id": 314473370,
+      "nodes": [
+        3205211880,
+        3205211881,
+        3205211882,
+        3205211883,
+        3205211880
+      ],
+      "tags": {
+        "addr:city": "Miami",
+        "addr:housenumber": "300",
+        "addr:postcode": "33127",
+        "addr:state": "FL",
+        "addr:street": "Northwest 29th Street",
+        "building": "yes",
+        "name": "NAPA Auto Parts",
+        "shop": "car_parts"
+      }
+    },
+    {
+      "type": "way",
+      "id": 314808056,
+      "nodes": [
+        3208532555,
+        3208532556,
+        3208532557,
+        3208532558,
+        3208532555
+      ],
+      "tags": {
+        "addr:city": "Miami",
+        "addr:housenumber": "320",
+        "addr:postcode": "33127",
+        "addr:state": "FL",
+        "addr:street": "Northwest 26th Street",
+        "building": "yes",
+        "building:levels": "1",
+        "name": "Nice Walk Inc",
+        "opening_hours": "Mo-Fr 09:00-17:00",
+        "shop": "shoes"
+      }
+    },
+    {
+      "type": "way",
+      "id": 315245781,
+      "nodes": [
+        3213520795,
+        3213520796,
+        3213520797,
+        3213520798,
+        3213520799,
+        3213520800,
+        3213520801,
+        3213520802,
+        3213520803,
+        3213520804,
+        3213520805,
+        3213520795
+      ],
+      "tags": {
+        "addr:street": "Biscayne Boulevard",
+        "building": "yes",
+        "name": "Out of the Closet Thrift Store",
+        "shop": "second_hand"
+      }
+    },
+    {
+      "type": "way",
+      "id": 316480076,
+      "nodes": [
+        3226036205,
+        3226036206,
+        3226036207,
+        3226036208,
+        3226036209,
+        3226036210,
+        3226036211,
+        3226036212,
+        3226036213,
+        3226036214,
+        3226036215,
+        3226036216,
+        3226036217,
+        3226036218,
+        3226036219,
+        3226036220,
+        3226036221,
+        3226036222,
+        3226036223,
+        3226036205
+      ],
+      "tags": {
+        "building": "yes",
+        "name": "Sabal Palm Shopping Center",
+        "shop": "mall"
+      }
+    },
+    {
+      "type": "way",
+      "id": 316609806,
+      "nodes": [
+        3227423765,
+        4151676810,
+        3227423766,
+        3227423767,
+        3227423768,
+        3227423769,
+        3227423770,
+        3227423771,
+        3227423784,
+        3227423772,
+        3227423765
+      ],
+      "tags": {
+        "addr:city": "Miami",
+        "addr:housenumber": "343",
+        "addr:postcode": "33127",
+        "addr:state": "FL",
+        "addr:street": "Northwest 25th Street",
+        "building": "yes",
+        "fax": "305-438-3791",
+        "name": "Ralph Pucci",
+        "phone": "+1 305 438 3771",
+        "shop": "furniture"
+      }
+    },
+    {
+      "type": "way",
+      "id": 316609809,
+      "nodes": [
+        3227423784,
+        3227423785,
+        3227423782,
+        3227423771,
+        3227423784
+      ],
+      "tags": {
+        "addr:city": "Miami",
+        "addr:housenumber": "337",
+        "addr:postcode": "33127",
+        "addr:state": "FL",
+        "addr:street": "Northwest 25th Street",
+        "building": "yes",
+        "name": "Now Contemporary Art",
+        "opening_hours": "Tu-Sa 10:00-18:00; Mo",
+        "phone": "+1 305 571 8181",
+        "shop": "art"
+      }
+    },
+    {
+      "type": "way",
+      "id": 316609810,
+      "nodes": [
+        4190467534,
+        4190467535,
+        4190467536,
+        4190467537,
+        4190467538,
+        3227423791,
+        3227423792,
+        5834114497,
+        3227423793,
+        5834114498,
+        4190467534
+      ],
+      "tags": {
+        "addr:city": "Miami",
+        "addr:housenumber": "318",
+        "addr:postcode": "33127",
+        "addr:state": "FL",
+        "addr:street": "Northwest 25th Street",
+        "building": "yes",
+        "name": "Cash & Carry Shoes",
+        "phone": "(305) 576-9383",
+        "shop": "shoes"
+      }
+    },
+    {
+      "type": "way",
+      "id": 316621086,
+      "nodes": [
+        3227562902,
+        3227562903,
+        3227562904,
+        3227562905,
+        3227562902
+      ],
+      "tags": {
+        "addr:city": "Miami",
+        "addr:housenumber": "2818",
+        "addr:state": "FL",
+        "addr:street": "North Miami Avenue",
+        "building": "yes",
+        "name": "Fireman Derek's World Famous Pies",
+        "shop": "bakery"
+      }
+    },
+    {
+      "type": "way",
+      "id": 316621087,
+      "nodes": [
+        3227562906,
+        3227562907,
+        3227562908,
+        3227562909,
+        3227562910,
+        3227562911,
+        3227562906
+      ],
+      "tags": {
+        "addr:city": "Miami",
+        "addr:housenumber": "2814",
+        "addr:state": "FL",
+        "addr:street": "North Miami Avenue",
+        "building": "yes",
+        "name": "RazzleDazzle",
+        "shop": "hairdresser"
+      }
+    },
+    {
+      "type": "way",
+      "id": 319425175,
+      "nodes": [
+        3258473777,
+        3258473778,
+        3258473779,
+        3258473780,
+        3258473781,
+        3258473782,
+        3258473783,
+        3258473784,
+        5086505163,
+        3258473785,
+        3258473786,
+        3258473787,
+        3258473788,
+        5086505164,
+        3258473789,
+        3258473790,
+        3258473791,
+        3258473792,
+        3258473777
+      ],
+      "tags": {
+        "building": "yes",
+        "name": "Publix",
+        "shop": "supermarket"
+      }
+    },
+    {
+      "type": "way",
+      "id": 319426353,
+      "nodes": [
+        3258497166,
+        3258497167,
+        3258495658,
+        3258497168,
+        3258497166
+      ],
+      "tags": {
+        "building": "yes",
+        "name": "Publix",
+        "shop": "supermarket"
+      }
+    },
+    {
+      "type": "way",
+      "id": 322994111,
+      "nodes": [
+        3297937867,
+        3297937868,
+        3297937869,
+        3297937870,
+        3297937867
+      ],
+      "tags": {
+        "addr:city": "Miami",
+        "addr:housenumber": "3800",
+        "addr:postcode": "33146",
+        "addr:state": "Florida",
+        "addr:street": "Southwest 40th Street",
+        "building": "yes",
+        "name": "Formula One Sports Cars",
+        "opening_hours": "Mo-We 09:00-18:30; Fr 09:00-18:30; Sa 10:00-16:00",
+        "phone": "+1 (305) 443 1515",
+        "shop": "car",
+        "website": "http://formula-1-sport-cars.ebizautos.com/"
+      }
+    },
+    {
+      "type": "way",
+      "id": 356969837,
+      "nodes": [
+        3623699148,
+        3623699149,
+        3623699150,
+        3623699151,
+        3623699148
+      ],
+      "tags": {
+        "building": "yes",
+        "shop": "florist"
+      }
+    },
+    {
+      "type": "way",
+      "id": 359450819,
+      "nodes": [
+        3641751006,
+        3641751007,
+        3641751010,
+        3641751009,
+        3641751011,
+        3641751008,
+        3641751006
+      ],
+      "tags": {
+        "addr:city": "Miami",
+        "addr:housenumber": "7400",
+        "addr:postcode": "33138",
+        "addr:state": "FL",
+        "addr:street": "Biscayne Boulevard",
+        "building": "yes",
+        "name": "Rafiul Food Store",
+        "shop": "convenience"
+      }
+    },
+    {
+      "type": "way",
+      "id": 375788325,
+      "nodes": [
+        3791318531,
+        3791318532,
+        3791318533,
+        3791318534,
+        3791318537,
+        3791318531
+      ],
+      "tags": {
+        "building": "yes",
+        "name": "Mindy Solomon Gallery",
+        "shop": "art"
+      }
+    },
+    {
+      "type": "way",
+      "id": 375788351,
+      "nodes": [
+        3791323195,
+        3791323197,
+        3791323198,
+        3791323196,
+        3791323195
+      ],
+      "tags": {
+        "building": "yes",
+        "level": "2",
+        "name": "fu",
+        "shop": "art"
+      }
+    },
+    {
+      "type": "way",
+      "id": 375788359,
+      "nodes": [
+        3791323208,
+        3791323209,
+        3791323210,
+        3791323211,
+        3791323212,
+        3791323213,
+        3791323208
+      ],
+      "tags": {
+        "building": "yes",
+        "shop": "yes"
+      }
+    },
+    {
+      "type": "way",
+      "id": 375788360,
+      "nodes": [
+        3791323214,
+        3791323215,
+        3791323216,
+        3791323217,
+        3791323218,
+        3791323219,
+        3791323220,
+        3791323221,
+        3791323214
+      ],
+      "tags": {
+        "building": "yes",
+        "shop": "yes"
+      }
+    },
+    {
+      "type": "way",
+      "id": 375884161,
+      "nodes": [
+        3792235678,
+        3792235679,
+        3792235680,
+        3792235677,
+        3792235678
+      ],
+      "tags": {
+        "building": "yes",
+        "name": "WIC",
+        "shop": "yes"
+      }
+    },
+    {
+      "type": "way",
+      "id": 375884163,
+      "nodes": [
+        3792235682,
+        3792235683,
+        3792235684,
+        3792235681,
+        3792235682
+      ],
+      "tags": {
+        "building": "yes",
+        "name": "Jean Simmon Brutus Botanica",
+        "shop": "religion"
+      }
+    },
+    {
+      "type": "way",
+      "id": 375884164,
+      "nodes": [
+        3792235683,
+        3792235685,
+        3792235686,
+        3792235684,
+        3792235683
+      ],
+      "tags": {
+        "building": "yes",
+        "shop": "vacant"
+      }
+    },
+    {
+      "type": "way",
+      "id": 375884165,
+      "nodes": [
+        3792235685,
+        3792235687,
+        3792235691,
+        3792235686,
+        3792235685
+      ],
+      "tags": {
+        "building": "yes",
+        "name": "It's Me Hair Boutique",
+        "shop": "hairdresser"
+      }
+    },
+    {
+      "type": "way",
+      "id": 375884167,
+      "nodes": [
+        3792235692,
+        3792235693,
+        3792235694,
+        3792235695,
+        3792235696,
+        3792235692
+      ],
+      "tags": {
+        "building": "yes",
+        "name": "Airline Ticketing Center",
+        "shop": "travel_agency"
+      }
+    },
+    {
+      "type": "way",
+      "id": 375884168,
+      "nodes": [
+        3792235697,
+        3792235698,
+        3792235696,
+        3792235699,
+        3792235697
+      ],
+      "tags": {
+        "building": "yes",
+        "shop": "vacant"
+      }
+    },
+    {
+      "type": "way",
+      "id": 375884169,
+      "nodes": [
+        3792235697,
+        3792235703,
+        3792235702,
+        3792235698,
+        3792235697
+      ],
+      "tags": {
+        "building": "yes",
+        "name": "Virgile's Tuxedo",
+        "shop": "clothes"
+      }
+    },
+    {
+      "type": "way",
+      "id": 375884171,
+      "nodes": [
+        3792235703,
+        3792235704,
+        3792235705,
+        3792235702,
+        3792235703
+      ],
+      "tags": {
+        "building": "yes",
+        "name": "Unique Photo Studio",
+        "shop": "photo"
+      }
+    },
+    {
+      "type": "way",
+      "id": 406214632,
+      "nodes": [
+        4083170512,
+        4083170514,
+        4083170515,
+        4083170516,
+        4083170517,
+        4083170524,
+        4083170518,
+        4083170513,
+        4083170512
+      ],
+      "tags": {
+        "amenity": "atm",
+        "building": "commercial",
+        "name": "Publix",
+        "name:es": "juegos play 3",
+        "shop": "supermarket"
+      }
+    },
+    {
+      "type": "way",
+      "id": 419275831,
+      "nodes": [
+        4193810239,
+        4193810240,
+        4193810241,
+        4193810242,
+        4193810243,
+        4193810244,
+        4193810239
+      ],
+      "tags": {
+        "building": "yes",
+        "name": "Don Bailey Carpets",
+        "shop": "carpet"
+      }
+    },
+    {
+      "type": "way",
+      "id": 427119367,
+      "nodes": [
+        4260967628,
+        4263542475,
+        4263542476,
+        4263542477,
+        4260967628
+      ],
+      "tags": {
+        "addr:city": "Miami",
+        "addr:housenumber": "219",
+        "addr:postcode": "33127",
+        "addr:state": "FL",
+        "addr:street": "Northwest 26th Street",
+        "building": "yes",
+        "fixme": "305 438 3713",
+        "name": "glottman",
+        "opening_hours": "m-f 11:00 – 7:00, sat. 12:00 – 8:00",
+        "phone": "305.438.3711",
+        "shop": "interior_decoration",
+        "website": "http://glottman.com/"
+      }
+    },
+    {
+      "type": "way",
+      "id": 434839505,
+      "nodes": [
+        4327587314,
+        4327587315,
+        4327587316,
+        4327587317,
+        4327587318,
+        4327587314
+      ],
+      "tags": {
+        "building": "yes",
+        "shop": "antiques"
+      }
+    },
+    {
+      "type": "way",
+      "id": 434839506,
+      "nodes": [
+        4327587319,
+        4327587320,
+        4327587321,
+        4327587322,
+        4327587319
+      ],
+      "tags": {
+        "building": "yes",
+        "shop": "antiques"
+      }
+    },
+    {
+      "type": "way",
+      "id": 434839507,
+      "nodes": [
+        4327587323,
+        4327587324,
+        4327587325,
+        4327587326,
+        4327587327,
+        4327587328,
+        4327587329,
+        4327587330,
+        4327587323
+      ],
+      "tags": {
+        "building": "yes",
+        "shop": "antiques"
+      }
+    },
+    {
+      "type": "way",
+      "id": 435729295,
+      "nodes": [
+        4427778172,
+        4336301532,
+        4336301533,
+        4336301527,
+        4336301528,
+        4427778172
+      ],
+      "tags": {
+        "addr:city": "Miami",
+        "addr:housenumber": "675",
+        "addr:postcode": "33126",
+        "addr:street": "Northwest 42nd Avenue",
+        "building": "yes",
+        "height": "7.6",
+        "ref:miabldg": "46504",
+        "shop": "convenience"
+      }
+    },
+    {
+      "type": "way",
+      "id": 441835976,
+      "nodes": [
+        259416727,
+        4395340410,
+        239862717,
+        1326280666,
+        358691357,
+        3053303346,
+        1738845563,
+        1326280600,
+        1326280601,
+        1326280688,
+        2095388201,
+        4395340478,
+        4395340479,
+        4395340480,
+        4395340483,
+        4395340487,
+        4395340491,
+        4395340492,
+        4395340493,
+        4395340494,
+        259416733,
+        4024771091,
+        4024771119,
+        4024771118,
+        4024771092,
+        4024771093,
+        4024771117,
+        4024771116,
+        4024771115,
+        4024771094,
+        4024771095,
+        4024771096,
+        4024771097,
+        4024771098,
+        4024771099,
+        4024771100,
+        259416732,
+        4024771101,
+        4024771102,
+        4024771103,
+        4024771104,
+        4024771105,
+        4024771106,
+        259416731,
+        4024771107,
+        4024771108,
+        4024771109,
+        4773128147,
+        4773128146,
+        4773128145,
+        259416730,
+        259416729,
+        2688613519,
+        259416728,
+        259416727
+      ],
+      "tags": {
+        "addr:housenumber": "401",
+        "addr:street": "Biscayne Boulevard",
+        "landuse": "retail",
+        "name": "Bayside Marketplace",
+        "shop": "mall",
+        "wikidata": "Q4874837",
+        "wikipedia": "en:Bayside Marketplace"
+      }
+    },
+    {
+      "type": "way",
+      "id": 454144062,
+      "nodes": [
+        4507577913,
+        4507577912,
+        4507577918,
+        4507577919,
+        4507577917,
+        4507577916,
+        4507577913
+      ],
+      "tags": {
+        "addr:housenumber": "1930",
+        "addr:postcode": "33132",
+        "addr:street": "Northeast 2nd Avenue",
+        "building": "yes",
+        "height": "11.9",
+        "name": "Braman Kia",
+        "ref:miaaddr": "273910",
+        "ref:miabldg": "88768",
+        "shop": "car"
+      }
+    },
+    {
+      "type": "way",
+      "id": 454144108,
+      "nodes": [
+        4507577879,
+        4507577878,
+        4507577889,
+        4507577890,
+        4507577879
+      ],
+      "tags": {
+        "addr:city": "Miami",
+        "addr:housenumber": "1851",
+        "addr:postcode": "33132",
+        "addr:street": "Northeast 2nd Avenue",
+        "building": "yes",
+        "height": "11.7",
+        "name": "Price Choice",
+        "ref:miaaddr": "489089",
+        "ref:miabldg": "15061",
+        "shop": "supermarket",
+        "source": "Bing"
+      }
+    },
+    {
+      "type": "way",
+      "id": 454144113,
+      "nodes": [
+        4507577834,
+        4507577833,
+        4507577832,
+        4507577831,
+        4507577830,
+        4507577829,
+        4507577828,
+        4507577827,
+        4507577825,
+        4507577826,
+        4507577823,
+        4507577824,
+        4507577820,
+        4507577819,
+        4507577815,
+        4507577814,
+        4507577812,
+        4507577811,
+        4507577810,
+        4507577809,
+        4507577808,
+        4507577805,
+        4507577804,
+        4507577801,
+        4507577800,
+        4507577803,
+        5834114428,
+        4507577802,
+        4507577843,
+        4507577849,
+        4507577852,
+        4507577854,
+        4507577853,
+        4507577851,
+        4507577850,
+        4507577848,
+        4507577847,
+        4507577846,
+        4507577845,
+        4507577844,
+        4507577842,
+        4507577841,
+        4507577840,
+        4507577837,
+        4507577836,
+        4507577835,
+        4507577834
+      ],
+      "tags": {
+        "addr:housenumber": "1776",
+        "addr:postcode": "33132",
+        "addr:street": "Biscayne Boulevard",
+        "building": "yes",
+        "height": "20.3",
+        "name": "Publix",
+        "parking": "multi-storey",
+        "ref:miaaddr": "295032",
+        "ref:miabldg": "84824",
+        "shop": "supermarket"
+      }
+    },
+    {
+      "type": "way",
+      "id": 617933065,
+      "nodes": [
+        5840906547,
+        5840906548,
+        5840906549,
+        5840906550,
+        5840906551,
+        5840906552,
+        5840906553,
+        5840906554,
+        5840906547
+      ],
+      "tags": {
+        "building": "yes",
+        "shop": "car"
+      }
+    },
+    {
+      "type": "node",
+      "id": 1101798841,
+      "lat": 25.7305116,
+      "lon": -80.2339341
+    },
+    {
+      "type": "node",
+      "id": 1101799469,
+      "lat": 25.730787,
+      "lon": -80.2338618
+    },
+    {
+      "type": "node",
+      "id": 1101799762,
+      "lat": 25.7309013,
+      "lon": -80.2343981
+    },
+    {
+      "type": "node",
+      "id": 1101800189,
+      "lat": 25.7306259,
+      "lon": -80.2344704
+    },
+    {
+      "type": "node",
+      "id": 3297937867,
+      "lat": 25.734716,
+      "lon": -80.2560946
+    },
+    {
+      "type": "node",
+      "id": 3297937868,
+      "lat": 25.7345759,
+      "lon": -80.2560852
+    },
+    {
+      "type": "node",
+      "id": 3297937869,
+      "lat": 25.7345626,
+      "lon": -80.2563682
+    },
+    {
+      "type": "node",
+      "id": 3297937870,
+      "lat": 25.7347015,
+      "lon": -80.2563776
+    },
+    {
+      "type": "node",
+      "id": 2831267843,
+      "lat": 25.7331935,
+      "lon": -80.2523398
+    },
+    {
+      "type": "node",
+      "id": 2831268011,
+      "lat": 25.7331842,
+      "lon": -80.2525329
+    },
+    {
+      "type": "node",
+      "id": 2831268015,
+      "lat": 25.7334714,
+      "lon": -80.2523563
+    },
+    {
+      "type": "node",
+      "id": 2831268028,
+      "lat": 25.7334621,
+      "lon": -80.2525494
+    },
+    {
+      "type": "node",
+      "id": 3053727110,
+      "lat": 25.7372504,
+      "lon": -80.2447289
+    },
+    {
+      "type": "node",
+      "id": 3053727111,
+      "lat": 25.7367055,
+      "lon": -80.2446126
+    },
+    {
+      "type": "node",
+      "id": 3053727112,
+      "lat": 25.7367871,
+      "lon": -80.2441425
+    },
+    {
+      "type": "node",
+      "id": 3053727113,
+      "lat": 25.7373314,
+      "lon": -80.2442578
+    },
+    {
+      "type": "node",
+      "id": 3053727114,
+      "lat": 25.7365187,
+      "lon": -80.2447396
+    },
+    {
+      "type": "node",
+      "id": 3053727115,
+      "lat": 25.7355743,
+      "lon": -80.2445411
+    },
+    {
+      "type": "node",
+      "id": 3053727116,
+      "lat": 25.7356858,
+      "lon": -80.2439083
+    },
+    {
+      "type": "node",
+      "id": 3053727117,
+      "lat": 25.7366239,
+      "lon": -80.2441138
+    },
+    {
+      "type": "node",
+      "id": 3053727118,
+      "lat": 25.7365445,
+      "lon": -80.244578
+    },
+    {
+      "type": "node",
+      "id": 3053727119,
+      "lat": 25.7366014,
+      "lon": -80.2442511
+    },
+    {
+      "type": "node",
+      "id": 3053727120,
+      "lat": 25.7367625,
+      "lon": -80.2442857
+    },
+    {
+      "type": "node",
+      "id": 3059794119,
+      "lat": 25.7501492,
+      "lon": -80.2505285
+    },
+    {
+      "type": "node",
+      "id": 3059794122,
+      "lat": 25.7506691,
+      "lon": -80.2495992
+    },
+    {
+      "type": "node",
+      "id": 3059794123,
+      "lat": 25.7506484,
+      "lon": -80.2495985
+    },
+    {
+      "type": "node",
+      "id": 3059794124,
+      "lat": 25.7506253,
+      "lon": -80.250451
+    },
+    {
+      "type": "node",
+      "id": 3059794125,
+      "lat": 25.7506762,
+      "lon": -80.2504527
+    },
+    {
+      "type": "node",
+      "id": 3059794126,
+      "lat": 25.7506746,
+      "lon": -80.2505121
+    },
+    {
+      "type": "node",
+      "id": 3059794127,
+      "lat": 25.7506399,
+      "lon": -80.2505109
+    },
+    {
+      "type": "node",
+      "id": 3059794128,
+      "lat": 25.750639,
+      "lon": -80.2505449
+    },
+    {
+      "type": "node",
+      "id": 3059794433,
+      "lat": 25.7503169,
+      "lon": -80.253807
+    },
+    {
+      "type": "node",
+      "id": 3059794434,
+      "lat": 25.7503509,
+      "lon": -80.2526593
+    },
+    {
+      "type": "node",
+      "id": 3059794435,
+      "lat": 25.7509828,
+      "lon": -80.2526824
+    },
+    {
+      "type": "node",
+      "id": 3059794436,
+      "lat": 25.7509771,
+      "lon": -80.2528728
+    },
+    {
+      "type": "node",
+      "id": 3059794437,
+      "lat": 25.7510685,
+      "lon": -80.2528761
+    },
+    {
+      "type": "node",
+      "id": 3059794438,
+      "lat": 25.7510388,
+      "lon": -80.2538813
+    },
+    {
+      "type": "node",
+      "id": 3059794439,
+      "lat": 25.7508085,
+      "lon": -80.2538729
+    },
+    {
+      "type": "node",
+      "id": 3059794440,
+      "lat": 25.7507811,
+      "lon": -80.2538239
+    },
+    {
+      "type": "node",
+      "id": 3059794101,
+      "lat": 25.7506711,
+      "lon": -80.2481954
+    },
+    {
+      "type": "node",
+      "id": 3059794102,
+      "lat": 25.7506956,
+      "lon": -80.247346
+    },
+    {
+      "type": "node",
+      "id": 3059794103,
+      "lat": 25.7513314,
+      "lon": -80.2473686
+    },
+    {
+      "type": "node",
+      "id": 3059794104,
+      "lat": 25.751119,
+      "lon": -80.2481228
+    },
+    {
+      "type": "node",
+      "id": 3059794105,
+      "lat": 25.7509472,
+      "lon": -80.2481167
+    },
+    {
+      "type": "node",
+      "id": 3059794106,
+      "lat": 25.7509446,
+      "lon": -80.2482051
+    },
+    {
+      "type": "node",
+      "id": 3059794107,
+      "lat": 25.7509523,
+      "lon": -80.2473528
+    },
+    {
+      "type": "node",
+      "id": 3059794118,
+      "lat": 25.7512388,
+      "lon": -80.2473601
+    },
+    {
+      "type": "node",
+      "id": 3059794120,
+      "lat": 25.750196,
+      "lon": -80.2488021
+    },
+    {
+      "type": "node",
+      "id": 3059794121,
+      "lat": 25.7506903,
+      "lon": -80.2488187
+    },
+    {
+      "type": "node",
+      "id": 3059802368,
+      "lat": 25.7501926,
+      "lon": -80.2375657
+    },
+    {
+      "type": "node",
+      "id": 3059802369,
+      "lat": 25.7501862,
+      "lon": -80.2379446
+    },
+    {
+      "type": "node",
+      "id": 3059802370,
+      "lat": 25.7501734,
+      "lon": -80.2379812
+    },
+    {
+      "type": "node",
+      "id": 3059802371,
+      "lat": 25.7501533,
+      "lon": -80.2380096
+    },
+    {
+      "type": "node",
+      "id": 3059802372,
+      "lat": 25.7501221,
+      "lon": -80.2380279
+    },
+    {
+      "type": "node",
+      "id": 3059802373,
+      "lat": 25.7496663,
+      "lon": -80.2380056
+    },
+    {
+      "type": "node",
+      "id": 3059802374,
+      "lat": 25.7496425,
+      "lon": -80.2379954
+    },
+    {
+      "type": "node",
+      "id": 3059802375,
+      "lat": 25.7496113,
+      "lon": -80.2379365
+    },
+    {
+      "type": "node",
+      "id": 3059802376,
+      "lat": 25.7496117,
+      "lon": -80.2379144
+    },
+    {
+      "type": "node",
+      "id": 3059802377,
+      "lat": 25.7496806,
+      "lon": -80.2379158
+    },
+    {
+      "type": "node",
+      "id": 3059802378,
+      "lat": 25.7496866,
+      "lon": -80.2375552
+    },
+    {
+      "type": "node",
+      "id": 3059802383,
+      "lat": 25.7501102,
+      "lon": -80.2375647
+    },
+    {
+      "type": "node",
+      "id": 3059802389,
+      "lat": 25.7499612,
+      "lon": -80.2375615
+    },
+    {
+      "type": "node",
+      "id": 3156218076,
+      "lat": 25.7499499,
+      "lon": -80.2380195
+    },
+    {
+      "type": "node",
+      "id": 3156218077,
+      "lat": 25.7499062,
+      "lon": -80.2375602
+    },
+    {
+      "type": "node",
+      "id": 4083170512,
+      "lat": 25.7802114,
+      "lon": -80.2890193
+    },
+    {
+      "type": "node",
+      "id": 4083170513,
+      "lat": 25.7797042,
+      "lon": -80.288912
+    },
+    {
+      "type": "node",
+      "id": 4083170514,
+      "lat": 25.7802983,
+      "lon": -80.2890408
+    },
+    {
+      "type": "node",
+      "id": 4083170515,
+      "lat": 25.7802403,
+      "lon": -80.2893305
+    },
+    {
+      "type": "node",
+      "id": 4083170516,
+      "lat": 25.7803273,
+      "lon": -80.2893466
+    },
+    {
+      "type": "node",
+      "id": 4083170517,
+      "lat": 25.7802983,
+      "lon": -80.289529
+    },
+    {
+      "type": "node",
+      "id": 4083170518,
+      "lat": 25.7796124,
+      "lon": -80.2893788
+    },
+    {
+      "type": "node",
+      "id": 4083170524,
+      "lat": 25.7796497,
+      "lon": -80.2893869
+    },
+    {
+      "type": "node",
+      "id": 4336301527,
+      "lat": 25.7784925,
+      "lon": -80.263602
+    },
+    {
+      "type": "node",
+      "id": 4336301528,
+      "lat": 25.7783037,
+      "lon": -80.2635941
+    },
+    {
+      "type": "node",
+      "id": 4336301532,
+      "lat": 25.7784812,
+      "lon": -80.2636477
+    },
+    {
+      "type": "node",
+      "id": 4336301533,
+      "lat": 25.7784909,
+      "lon": -80.2636481
+    },
+    {
+      "type": "node",
+      "id": 4427778172,
+      "lat": 25.7783021,
+      "lon": -80.2636403
+    },
+    {
+      "type": "node",
+      "id": 3623699148,
+      "lat": 25.779134,
+      "lon": -80.2558637
+    },
+    {
+      "type": "node",
+      "id": 3623699149,
+      "lat": 25.7791143,
+      "lon": -80.2558324
+    },
+    {
+      "type": "node",
+      "id": 3623699150,
+      "lat": 25.7790723,
+      "lon": -80.2558717
+    },
+    {
+      "type": "node",
+      "id": 3623699151,
+      "lat": 25.7790933,
+      "lon": -80.2559023
+    },
+    {
+      "type": "node",
+      "id": 3258495658,
+      "lat": 25.7645575,
+      "lon": -80.1946254
+    },
+    {
+      "type": "node",
+      "id": 3258497166,
+      "lat": 25.7652922,
+      "lon": -80.1951004
+    },
+    {
+      "type": "node",
+      "id": 3258497167,
+      "lat": 25.7652994,
+      "lon": -80.1946528
+    },
+    {
+      "type": "node",
+      "id": 3258497168,
+      "lat": 25.7645515,
+      "lon": -80.1950628
+    },
+    {
+      "type": "node",
+      "id": 3258473777,
+      "lat": 25.7679489,
+      "lon": -80.1996319
+    },
+    {
+      "type": "node",
+      "id": 3258473778,
+      "lat": 25.7679611,
+      "lon": -80.1993449
+    },
+    {
+      "type": "node",
+      "id": 3258473779,
+      "lat": 25.768071,
+      "lon": -80.1993506
+    },
+    {
+      "type": "node",
+      "id": 3258473780,
+      "lat": 25.7680735,
+      "lon": -80.1992917
+    },
+    {
+      "type": "node",
+      "id": 3258473781,
+      "lat": 25.7680575,
+      "lon": -80.199266
+    },
+    {
+      "type": "node",
+      "id": 3258473782,
+      "lat": 25.7680361,
+      "lon": -80.1992581
+    },
+    {
+      "type": "node",
+      "id": 3258473783,
+      "lat": 25.7673451,
+      "lon": -80.1992306
+    },
+    {
+      "type": "node",
+      "id": 3258473784,
+      "lat": 25.7673355,
+      "lon": -80.1995115
+    },
+    {
+      "type": "node",
+      "id": 3258473785,
+      "lat": 25.7673044,
+      "lon": -80.1995436
+    },
+    {
+      "type": "node",
+      "id": 3258473786,
+      "lat": 25.7672943,
+      "lon": -80.199579
+    },
+    {
+      "type": "node",
+      "id": 3258473787,
+      "lat": 25.7673001,
+      "lon": -80.1996186
+    },
+    {
+      "type": "node",
+      "id": 3258473788,
+      "lat": 25.7673234,
+      "lon": -80.1996517
+    },
+    {
+      "type": "node",
+      "id": 3258473789,
+      "lat": 25.7674173,
+      "lon": -80.1996598
+    },
+    {
+      "type": "node",
+      "id": 3258473790,
+      "lat": 25.7674379,
+      "lon": -80.1996832
+    },
+    {
+      "type": "node",
+      "id": 3258473791,
+      "lat": 25.7675107,
+      "lon": -80.199687
+    },
+    {
+      "type": "node",
+      "id": 3258473792,
+      "lat": 25.767514,
+      "lon": -80.1996091
+    },
+    {
+      "type": "node",
+      "id": 5086505163,
+      "lat": 25.7673163,
+      "lon": -80.1995266
+    },
+    {
+      "type": "node",
+      "id": 5086505164,
+      "lat": 25.7673572,
+      "lon": -80.1996677
+    },
+    {
+      "type": "node",
+      "id": 239862717,
+      "lat": 25.7770073,
+      "lon": -80.1842223
+    },
+    {
+      "type": "node",
+      "id": 259416727,
+      "lat": 25.7777826,
+      "lon": -80.1843987
+    },
+    {
+      "type": "node",
+      "id": 259416728,
+      "lat": 25.7777903,
+      "lon": -80.1845876
+    },
+    {
+      "type": "node",
+      "id": 259416729,
+      "lat": 25.7776313,
+      "lon": -80.184766
+    },
+    {
+      "type": "node",
+      "id": 259416730,
+      "lat": 25.7773855,
+      "lon": -80.1847788
+    },
+    {
+      "type": "node",
+      "id": 259416731,
+      "lat": 25.7778039,
+      "lon": -80.1860874
+    },
+    {
+      "type": "node",
+      "id": 259416732,
+      "lat": 25.7779908,
+      "lon": -80.1862229
+    },
+    {
+      "type": "node",
+      "id": 358691357,
+      "lat": 25.7770174,
+      "lon": -80.1858941
+    },
+    {
+      "type": "node",
+      "id": 1326280600,
+      "lat": 25.7774214,
+      "lon": -80.1863663
+    },
+    {
+      "type": "node",
+      "id": 1326280601,
+      "lat": 25.7776914,
+      "lon": -80.1867198
+    },
+    {
+      "type": "node",
+      "id": 1326280666,
+      "lat": 25.7764674,
+      "lon": -80.1845187
+    },
+    {
+      "type": "node",
+      "id": 1326280688,
+      "lat": 25.7780682,
+      "lon": -80.1867949
+    },
+    {
+      "type": "node",
+      "id": 1738845563,
+      "lat": 25.7772192,
+      "lon": -80.1859901
+    },
+    {
+      "type": "node",
+      "id": 2095388201,
+      "lat": 25.7780523,
+      "lon": -80.1878671
+    },
+    {
+      "type": "node",
+      "id": 2688613519,
+      "lat": 25.7776889,
+      "lon": -80.184697
+    },
+    {
+      "type": "node",
+      "id": 3053303346,
+      "lat": 25.7770347,
+      "lon": -80.1860029
+    },
+    {
+      "type": "node",
+      "id": 4024771094,
+      "lat": 25.7784351,
+      "lon": -80.1862194
+    },
+    {
+      "type": "node",
+      "id": 4024771095,
+      "lat": 25.7783339,
+      "lon": -80.1862152
+    },
+    {
+      "type": "node",
+      "id": 4024771096,
+      "lat": 25.7783326,
+      "lon": -80.1862454
+    },
+    {
+      "type": "node",
+      "id": 4024771097,
+      "lat": 25.7781404,
+      "lon": -80.1862377
+    },
+    {
+      "type": "node",
+      "id": 4024771098,
+      "lat": 25.7780841,
+      "lon": -80.1862377
+    },
+    {
+      "type": "node",
+      "id": 4024771099,
+      "lat": 25.7780446,
+      "lon": -80.1862334
+    },
+    {
+      "type": "node",
+      "id": 4024771100,
+      "lat": 25.7780155,
+      "lon": -80.1862289
+    },
+    {
+      "type": "node",
+      "id": 4024771101,
+      "lat": 25.7779706,
+      "lon": -80.1862152
+    },
+    {
+      "type": "node",
+      "id": 4024771102,
+      "lat": 25.7779412,
+      "lon": -80.1862032
+    },
+    {
+      "type": "node",
+      "id": 4024771103,
+      "lat": 25.7779133,
+      "lon": -80.1861881
+    },
+    {
+      "type": "node",
+      "id": 4024771104,
+      "lat": 25.7778858,
+      "lon": -80.1861688
+    },
+    {
+      "type": "node",
+      "id": 4024771105,
+      "lat": 25.7778552,
+      "lon": -80.1861436
+    },
+    {
+      "type": "node",
+      "id": 4024771106,
+      "lat": 25.7778299,
+      "lon": -80.1861179
+    },
+    {
+      "type": "node",
+      "id": 4024771107,
+      "lat": 25.7777771,
+      "lon": -80.186048
+    },
+    {
+      "type": "node",
+      "id": 4024771108,
+      "lat": 25.7777622,
+      "lon": -80.1860224
+    },
+    {
+      "type": "node",
+      "id": 4024771109,
+      "lat": 25.7777511,
+      "lon": -80.1859989
+    },
+    {
+      "type": "node",
+      "id": 4395340410,
+      "lat": 25.7775583,
+      "lon": -80.1839264
+    },
+    {
+      "type": "node",
+      "id": 4773128145,
+      "lat": 25.7773363,
+      "lon": -80.1848049
+    },
+    {
+      "type": "node",
+      "id": 4773128146,
+      "lat": 25.777339,
+      "lon": -80.1848887
+    },
+    {
+      "type": "node",
+      "id": 4773128147,
+      "lat": 25.7773437,
+      "lon": -80.1849023
+    },
+    {
+      "type": "node",
+      "id": 259416733,
+      "lat": 25.7796647,
+      "lon": -80.1862605
+    },
+    {
+      "type": "node",
+      "id": 4024771091,
+      "lat": 25.7793094,
+      "lon": -80.1862486
+    },
+    {
+      "type": "node",
+      "id": 4024771092,
+      "lat": 25.7791967,
+      "lon": -80.1862444
+    },
+    {
+      "type": "node",
+      "id": 4024771093,
+      "lat": 25.7787164,
+      "lon": -80.18623
+    },
+    {
+      "type": "node",
+      "id": 4024771115,
+      "lat": 25.7786023,
+      "lon": -80.1862244
+    },
+    {
+      "type": "node",
+      "id": 4024771116,
+      "lat": 25.7786028,
+      "lon": -80.1861963
+    },
+    {
+      "type": "node",
+      "id": 4024771117,
+      "lat": 25.7787169,
+      "lon": -80.1861987
+    },
+    {
+      "type": "node",
+      "id": 4024771118,
+      "lat": 25.7791978,
+      "lon": -80.1862147
+    },
+    {
+      "type": "node",
+      "id": 4024771119,
+      "lat": 25.7793104,
+      "lon": -80.1862196
+    },
+    {
+      "type": "node",
+      "id": 4395340478,
+      "lat": 25.7794342,
+      "lon": -80.1884586
+    },
+    {
+      "type": "node",
+      "id": 4395340479,
+      "lat": 25.7794801,
+      "lon": -80.1884626
+    },
+    {
+      "type": "node",
+      "id": 4395340480,
+      "lat": 25.7795199,
+      "lon": -80.1884372
+    },
+    {
+      "type": "node",
+      "id": 4395340483,
+      "lat": 25.7796286,
+      "lon": -80.1883071
+    },
+    {
+      "type": "node",
+      "id": 4395340487,
+      "lat": 25.7796757,
+      "lon": -80.1882266
+    },
+    {
+      "type": "node",
+      "id": 4395340491,
+      "lat": 25.779782,
+      "lon": -80.188
+    },
+    {
+      "type": "node",
+      "id": 4395340492,
+      "lat": 25.7798411,
+      "lon": -80.1878028
+    },
+    {
+      "type": "node",
+      "id": 4395340493,
+      "lat": 25.7798786,
+      "lon": -80.1870263
+    },
+    {
+      "type": "node",
+      "id": 4395340494,
+      "lat": 25.7798967,
+      "lon": -80.1862619
+    },
+    {
+      "type": "node",
+      "id": 4507577878,
+      "lat": 25.7941542,
+      "lon": -80.1903689
+    },
+    {
+      "type": "node",
+      "id": 4507577879,
+      "lat": 25.7941621,
+      "lon": -80.1899951
+    },
+    {
+      "type": "node",
+      "id": 4507577889,
+      "lat": 25.7945607,
+      "lon": -80.1903793
+    },
+    {
+      "type": "node",
+      "id": 4507577890,
+      "lat": 25.7945686,
+      "lon": -80.1900056
+    },
+    {
+      "type": "node",
+      "id": 4507577912,
+      "lat": 25.7953633,
+      "lon": -80.1911734
+    },
+    {
+      "type": "node",
+      "id": 4507577913,
+      "lat": 25.7953688,
+      "lon": -80.1909525
+    },
+    {
+      "type": "node",
+      "id": 4507577916,
+      "lat": 25.7954136,
+      "lon": -80.1909178
+    },
+    {
+      "type": "node",
+      "id": 4507577917,
+      "lat": 25.7956203,
+      "lon": -80.1909242
+    },
+    {
+      "type": "node",
+      "id": 4507577918,
+      "lat": 25.7956405,
+      "lon": -80.1911819
+    },
+    {
+      "type": "node",
+      "id": 4507577919,
+      "lat": 25.7956461,
+      "lon": -80.1909592
+    },
+    {
+      "type": "node",
+      "id": 3157363842,
+      "lat": 25.8014433,
+      "lon": -80.2027011
+    },
+    {
+      "type": "node",
+      "id": 3157363843,
+      "lat": 25.8014494,
+      "lon": -80.2024163
+    },
+    {
+      "type": "node",
+      "id": 3157363844,
+      "lat": 25.8016909,
+      "lon": -80.2024243
+    },
+    {
+      "type": "node",
+      "id": 3157363845,
+      "lat": 25.8016813,
+      "lon": -80.2027102
+    },
+    {
+      "type": "node",
+      "id": 3157363849,
+      "lat": 25.8016802,
+      "lon": -80.202424
+    },
+    {
+      "type": "node",
+      "id": 3175759534,
+      "lat": 25.8012089,
+      "lon": -80.2020839
+    },
+    {
+      "type": "node",
+      "id": 3175759535,
+      "lat": 25.8009579,
+      "lon": -80.2020728
+    },
+    {
+      "type": "node",
+      "id": 3175759536,
+      "lat": 25.8009654,
+      "lon": -80.2018086
+    },
+    {
+      "type": "node",
+      "id": 3175759537,
+      "lat": 25.8012177,
+      "lon": -80.2018142
+    },
+    {
+      "type": "node",
+      "id": 3205211880,
+      "lat": 25.8036758,
+      "lon": -80.2014351
+    },
+    {
+      "type": "node",
+      "id": 3205211881,
+      "lat": 25.8036855,
+      "lon": -80.2012852
+    },
+    {
+      "type": "node",
+      "id": 3205211882,
+      "lat": 25.8034669,
+      "lon": -80.2012771
+    },
+    {
+      "type": "node",
+      "id": 3205211883,
+      "lat": 25.8034597,
+      "lon": -80.2014287
+    },
+    {
+      "type": "node",
+      "id": 3208532555,
+      "lat": 25.8013313,
+      "lon": -80.2016582
+    },
+    {
+      "type": "node",
+      "id": 3208532556,
+      "lat": 25.8009998,
+      "lon": -80.2016437
+    },
+    {
+      "type": "node",
+      "id": 3208532557,
+      "lat": 25.8009975,
+      "lon": -80.2017671
+    },
+    {
+      "type": "node",
+      "id": 3208532558,
+      "lat": 25.801327,
+      "lon": -80.2017795
+    },
+    {
+      "type": "node",
+      "id": 3227423765,
+      "lat": 25.8009493,
+      "lon": -80.2021036
+    },
+    {
+      "type": "node",
+      "id": 3227423766,
+      "lat": 25.8007444,
+      "lon": -80.2020951
+    },
+    {
+      "type": "node",
+      "id": 3227423767,
+      "lat": 25.8007483,
+      "lon": -80.2020313
+    },
+    {
+      "type": "node",
+      "id": 3227423768,
+      "lat": 25.8008089,
+      "lon": -80.2020336
+    },
+    {
+      "type": "node",
+      "id": 3227423769,
+      "lat": 25.8008181,
+      "lon": -80.2018396
+    },
+    {
+      "type": "node",
+      "id": 3227423770,
+      "lat": 25.800719,
+      "lon": -80.2018379
+    },
+    {
+      "type": "node",
+      "id": 3227423771,
+      "lat": 25.8007201,
+      "lon": -80.2017729
+    },
+    {
+      "type": "node",
+      "id": 3227423772,
+      "lat": 25.800961,
+      "lon": -80.2017845
+    },
+    {
+      "type": "node",
+      "id": 3227423782,
+      "lat": 25.8007293,
+      "lon": -80.2016217
+    },
+    {
+      "type": "node",
+      "id": 3227423784,
+      "lat": 25.8009476,
+      "lon": -80.2017816
+    },
+    {
+      "type": "node",
+      "id": 3227423785,
+      "lat": 25.8009546,
+      "lon": -80.2016281
+    },
+    {
+      "type": "node",
+      "id": 3227423791,
+      "lat": 25.8005865,
+      "lon": -80.201659
+    },
+    {
+      "type": "node",
+      "id": 3227423792,
+      "lat": 25.8005948,
+      "lon": -80.2013085
+    },
+    {
+      "type": "node",
+      "id": 3227423793,
+      "lat": 25.8003611,
+      "lon": -80.2012998
+    },
+    {
+      "type": "node",
+      "id": 4151676810,
+      "lat": 25.8009273,
+      "lon": -80.2021027
+    },
+    {
+      "type": "node",
+      "id": 4190467534,
+      "lat": 25.8003432,
+      "lon": -80.2017468
+    },
+    {
+      "type": "node",
+      "id": 4190467535,
+      "lat": 25.8004879,
+      "lon": -80.2017521
+    },
+    {
+      "type": "node",
+      "id": 4190467536,
+      "lat": 25.800489,
+      "lon": -80.2016918
+    },
+    {
+      "type": "node",
+      "id": 4190467537,
+      "lat": 25.800516,
+      "lon": -80.2016928
+    },
+    {
+      "type": "node",
+      "id": 4190467538,
+      "lat": 25.8005172,
+      "lon": -80.2016554
+    },
+    {
+      "type": "node",
+      "id": 4260967628,
+      "lat": 25.8015477,
+      "lon": -80.1993692
+    },
+    {
+      "type": "node",
+      "id": 4263542475,
+      "lat": 25.8015444,
+      "lon": -80.1994903
+    },
+    {
+      "type": "node",
+      "id": 4263542476,
+      "lat": 25.8017122,
+      "lon": -80.199499
+    },
+    {
+      "type": "node",
+      "id": 4263542477,
+      "lat": 25.8017161,
+      "lon": -80.1993758
+    },
+    {
+      "type": "node",
+      "id": 5834114497,
+      "lat": 25.8003678,
+      "lon": -80.2013
+    },
+    {
+      "type": "node",
+      "id": 5834114498,
+      "lat": 25.8003488,
+      "lon": -80.201607
+    },
+    {
+      "type": "node",
+      "id": 3227562902,
+      "lat": 25.8034607,
+      "lon": -80.195204
+    },
+    {
+      "type": "node",
+      "id": 3227562903,
+      "lat": 25.8033505,
+      "lon": -80.1952011
+    },
+    {
+      "type": "node",
+      "id": 3227562904,
+      "lat": 25.8033477,
+      "lon": -80.1953329
+    },
+    {
+      "type": "node",
+      "id": 3227562905,
+      "lat": 25.8034579,
+      "lon": -80.1953358
+    },
+    {
+      "type": "node",
+      "id": 3227562906,
+      "lat": 25.8032359,
+      "lon": -80.1953846
+    },
+    {
+      "type": "node",
+      "id": 3227562907,
+      "lat": 25.8032388,
+      "lon": -80.1951936
+    },
+    {
+      "type": "node",
+      "id": 3227562908,
+      "lat": 25.8033338,
+      "lon": -80.1951954
+    },
+    {
+      "type": "node",
+      "id": 3227562909,
+      "lat": 25.803332,
+      "lon": -80.1953147
+    },
+    {
+      "type": "node",
+      "id": 3227562910,
+      "lat": 25.8033074,
+      "lon": -80.1953142
+    },
+    {
+      "type": "node",
+      "id": 3227562911,
+      "lat": 25.8033063,
+      "lon": -80.195386
+    },
+    {
+      "type": "node",
+      "id": 4507577800,
+      "lat": 25.7924419,
+      "lon": -80.1896503
+    },
+    {
+      "type": "node",
+      "id": 4507577801,
+      "lat": 25.7924528,
+      "lon": -80.1892141
+    },
+    {
+      "type": "node",
+      "id": 4507577802,
+      "lat": 25.7925027,
+      "lon": -80.1897884
+    },
+    {
+      "type": "node",
+      "id": 4507577803,
+      "lat": 25.7925047,
+      "lon": -80.189672
+    },
+    {
+      "type": "node",
+      "id": 4507577804,
+      "lat": 25.7925808,
+      "lon": -80.1892118
+    },
+    {
+      "type": "node",
+      "id": 4507577805,
+      "lat": 25.7925819,
+      "lon": -80.1891573
+    },
+    {
+      "type": "node",
+      "id": 4507577808,
+      "lat": 25.7927352,
+      "lon": -80.1891577
+    },
+    {
+      "type": "node",
+      "id": 4507577809,
+      "lat": 25.7927551,
+      "lon": -80.1891325
+    },
+    {
+      "type": "node",
+      "id": 4507577810,
+      "lat": 25.7927707,
+      "lon": -80.1891223
+    },
+    {
+      "type": "node",
+      "id": 4507577811,
+      "lat": 25.7927872,
+      "lon": -80.1891158
+    },
+    {
+      "type": "node",
+      "id": 4507577812,
+      "lat": 25.7928044,
+      "lon": -80.1891115
+    },
+    {
+      "type": "node",
+      "id": 4507577814,
+      "lat": 25.7928218,
+      "lon": -80.1891096
+    },
+    {
+      "type": "node",
+      "id": 4507577815,
+      "lat": 25.7928363,
+      "lon": -80.1891099
+    },
+    {
+      "type": "node",
+      "id": 4507577819,
+      "lat": 25.792907,
+      "lon": -80.1891123
+    },
+    {
+      "type": "node",
+      "id": 4507577820,
+      "lat": 25.7929301,
+      "lon": -80.1891199
+    },
+    {
+      "type": "node",
+      "id": 4507577823,
+      "lat": 25.7929443,
+      "lon": -80.1891856
+    },
+    {
+      "type": "node",
+      "id": 4507577824,
+      "lat": 25.7929478,
+      "lon": -80.1891424
+    },
+    {
+      "type": "node",
+      "id": 4507577825,
+      "lat": 25.7930138,
+      "lon": -80.1891501
+    },
+    {
+      "type": "node",
+      "id": 4507577826,
+      "lat": 25.7930167,
+      "lon": -80.1891916
+    },
+    {
+      "type": "node",
+      "id": 4507577827,
+      "lat": 25.7930453,
+      "lon": -80.1891261
+    },
+    {
+      "type": "node",
+      "id": 4507577828,
+      "lat": 25.7930983,
+      "lon": -80.1891215
+    },
+    {
+      "type": "node",
+      "id": 4507577829,
+      "lat": 25.7931652,
+      "lon": -80.1891245
+    },
+    {
+      "type": "node",
+      "id": 4507577830,
+      "lat": 25.7931892,
+      "lon": -80.1891317
+    },
+    {
+      "type": "node",
+      "id": 4507577831,
+      "lat": 25.7932064,
+      "lon": -80.1891397
+    },
+    {
+      "type": "node",
+      "id": 4507577832,
+      "lat": 25.7932237,
+      "lon": -80.1891553
+    },
+    {
+      "type": "node",
+      "id": 4507577833,
+      "lat": 25.793224,
+      "lon": -80.1891891
+    },
+    {
+      "type": "node",
+      "id": 4507577834,
+      "lat": 25.793288,
+      "lon": -80.189191
+    },
+    {
+      "type": "node",
+      "id": 4507577835,
+      "lat": 25.7932917,
+      "lon": -80.1891497
+    },
+    {
+      "type": "node",
+      "id": 4507577836,
+      "lat": 25.793308,
+      "lon": -80.1891402
+    },
+    {
+      "type": "node",
+      "id": 4507577837,
+      "lat": 25.7933251,
+      "lon": -80.1891328
+    },
+    {
+      "type": "node",
+      "id": 4507577840,
+      "lat": 25.7933429,
+      "lon": -80.1891278
+    },
+    {
+      "type": "node",
+      "id": 4507577841,
+      "lat": 25.7933611,
+      "lon": -80.189125
+    },
+    {
+      "type": "node",
+      "id": 4507577842,
+      "lat": 25.7933795,
+      "lon": -80.1891247
+    },
+    {
+      "type": "node",
+      "id": 4507577843,
+      "lat": 25.793383,
+      "lon": -80.1898077
+    },
+    {
+      "type": "node",
+      "id": 4507577844,
+      "lat": 25.793398,
+      "lon": -80.1891268
+    },
+    {
+      "type": "node",
+      "id": 4507577845,
+      "lat": 25.7934082,
+      "lon": -80.1891274
+    },
+    {
+      "type": "node",
+      "id": 4507577846,
+      "lat": 25.7934178,
+      "lon": -80.1891302
+    },
+    {
+      "type": "node",
+      "id": 4507577847,
+      "lat": 25.7934265,
+      "lon": -80.1891353
+    },
+    {
+      "type": "node",
+      "id": 4507577848,
+      "lat": 25.7934341,
+      "lon": -80.1891423
+    },
+    {
+      "type": "node",
+      "id": 4507577849,
+      "lat": 25.7934356,
+      "lon": -80.1897209
+    },
+    {
+      "type": "node",
+      "id": 4507577850,
+      "lat": 25.7934401,
+      "lon": -80.189151
+    },
+    {
+      "type": "node",
+      "id": 4507577851,
+      "lat": 25.7934442,
+      "lon": -80.1891609
+    },
+    {
+      "type": "node",
+      "id": 4507577852,
+      "lat": 25.7934453,
+      "lon": -80.1891884
+    },
+    {
+      "type": "node",
+      "id": 4507577853,
+      "lat": 25.7934463,
+      "lon": -80.1891716
+    },
+    {
+      "type": "node",
+      "id": 4507577854,
+      "lat": 25.7934463,
+      "lon": -80.1891825
+    },
+    {
+      "type": "node",
+      "id": 5834114428,
+      "lat": 25.7925038,
+      "lon": -80.1897231
+    },
+    {
+      "type": "node",
+      "id": 3213520795,
+      "lat": 25.8046244,
+      "lon": -80.1896879
+    },
+    {
+      "type": "node",
+      "id": 3213520796,
+      "lat": 25.8046243,
+      "lon": -80.1895185
+    },
+    {
+      "type": "node",
+      "id": 3213520797,
+      "lat": 25.8043629,
+      "lon": -80.1895078
+    },
+    {
+      "type": "node",
+      "id": 3213520798,
+      "lat": 25.8043514,
+      "lon": -80.1895112
+    },
+    {
+      "type": "node",
+      "id": 3213520799,
+      "lat": 25.8043442,
+      "lon": -80.1895212
+    },
+    {
+      "type": "node",
+      "id": 3213520800,
+      "lat": 25.8043406,
+      "lon": -80.1895313
+    },
+    {
+      "type": "node",
+      "id": 3213520801,
+      "lat": 25.804337,
+      "lon": -80.189705
+    },
+    {
+      "type": "node",
+      "id": 3213520802,
+      "lat": 25.804415,
+      "lon": -80.1897079
+    },
+    {
+      "type": "node",
+      "id": 3213520803,
+      "lat": 25.8044154,
+      "lon": -80.1896938
+    },
+    {
+      "type": "node",
+      "id": 3213520804,
+      "lat": 25.8045388,
+      "lon": -80.1896984
+    },
+    {
+      "type": "node",
+      "id": 3213520805,
+      "lat": 25.8045392,
+      "lon": -80.1896847
+    },
+    {
+      "type": "node",
+      "id": 3200978065,
+      "lat": 25.8124215,
+      "lon": -80.1958482
+    },
+    {
+      "type": "node",
+      "id": 3200978066,
+      "lat": 25.8122995,
+      "lon": -80.1958441
+    },
+    {
+      "type": "node",
+      "id": 3200978067,
+      "lat": 25.8123031,
+      "lon": -80.1956296
+    },
+    {
+      "type": "node",
+      "id": 3200978068,
+      "lat": 25.8123273,
+      "lon": -80.1956309
+    },
+    {
+      "type": "node",
+      "id": 3200978069,
+      "lat": 25.8123321,
+      "lon": -80.1955183
+    },
+    {
+      "type": "node",
+      "id": 3200978070,
+      "lat": 25.812512,
+      "lon": -80.1955183
+    },
+    {
+      "type": "node",
+      "id": 3200978071,
+      "lat": 25.8125289,
+      "lon": -80.1955263
+    },
+    {
+      "type": "node",
+      "id": 3200978072,
+      "lat": 25.8125494,
+      "lon": -80.195537
+    },
+    {
+      "type": "node",
+      "id": 3200978073,
+      "lat": 25.8125639,
+      "lon": -80.1955504
+    },
+    {
+      "type": "node",
+      "id": 3200978074,
+      "lat": 25.8125736,
+      "lon": -80.1955706
+    },
+    {
+      "type": "node",
+      "id": 3200978075,
+      "lat": 25.8125736,
+      "lon": -80.1955974
+    },
+    {
+      "type": "node",
+      "id": 3200978076,
+      "lat": 25.81257,
+      "lon": -80.1958267
+    },
+    {
+      "type": "node",
+      "id": 3200978077,
+      "lat": 25.8124227,
+      "lon": -80.1958187
+    },
+    {
+      "type": "node",
+      "id": 5840906548,
+      "lat": 25.8128378,
+      "lon": -80.1900889
+    },
+    {
+      "type": "node",
+      "id": 5840906549,
+      "lat": 25.8127509,
+      "lon": -80.1900553
+    },
+    {
+      "type": "node",
+      "id": 5840906550,
+      "lat": 25.8126217,
+      "lon": -80.1899588
+    },
+    {
+      "type": "node",
+      "id": 5840906551,
+      "lat": 25.8125722,
+      "lon": -80.1898823
+    },
+    {
+      "type": "node",
+      "id": 3226036208,
+      "lat": 25.824025,
+      "lon": -80.1913968
+    },
+    {
+      "type": "node",
+      "id": 3226036209,
+      "lat": 25.824025,
+      "lon": -80.1913619
+    },
+    {
+      "type": "node",
+      "id": 3226036210,
+      "lat": 25.8239091,
+      "lon": -80.1913592
+    },
+    {
+      "type": "node",
+      "id": 3226036211,
+      "lat": 25.8239091,
+      "lon": -80.1913378
+    },
+    {
+      "type": "node",
+      "id": 3226036212,
+      "lat": 25.8235566,
+      "lon": -80.1912734
+    },
+    {
+      "type": "node",
+      "id": 3226036213,
+      "lat": 25.8235397,
+      "lon": -80.191606
+    },
+    {
+      "type": "node",
+      "id": 3226036214,
+      "lat": 25.8233972,
+      "lon": -80.1916006
+    },
+    {
+      "type": "node",
+      "id": 3226036215,
+      "lat": 25.8234093,
+      "lon": -80.191319
+    },
+    {
+      "type": "node",
+      "id": 3226036216,
+      "lat": 25.8234359,
+      "lon": -80.1913217
+    },
+    {
+      "type": "node",
+      "id": 3226036217,
+      "lat": 25.8234407,
+      "lon": -80.1911554
+    },
+    {
+      "type": "node",
+      "id": 3226036218,
+      "lat": 25.8234649,
+      "lon": -80.1911285
+    },
+    {
+      "type": "node",
+      "id": 3200972309,
+      "lat": 25.8246887,
+      "lon": -80.2019459
+    },
+    {
+      "type": "node",
+      "id": 3200972310,
+      "lat": 25.8249966,
+      "lon": -80.2019593
+    },
+    {
+      "type": "node",
+      "id": 3200972311,
+      "lat": 25.8250231,
+      "lon": -80.2019379
+    },
+    {
+      "type": "node",
+      "id": 3200972312,
+      "lat": 25.8250304,
+      "lon": -80.2017796
+    },
+    {
+      "type": "node",
+      "id": 3200972313,
+      "lat": 25.8246996,
+      "lon": -80.2017635
+    },
+    {
+      "type": "node",
+      "id": 3200972314,
+      "lat": 25.8246936,
+      "lon": -80.2018534
+    },
+    {
+      "type": "node",
+      "id": 3200972315,
+      "lat": 25.8246936,
+      "lon": -80.2018708
+    },
+    {
+      "type": "node",
+      "id": 3200972316,
+      "lat": 25.8246815,
+      "lon": -80.2018708
+    },
+    {
+      "type": "node",
+      "id": 3200972317,
+      "lat": 25.8246767,
+      "lon": -80.2019218
+    },
+    {
+      "type": "node",
+      "id": 3200972318,
+      "lat": 25.8246911,
+      "lon": -80.2019218
+    },
+    {
+      "type": "node",
+      "id": 3171558368,
+      "lat": 25.8263163,
+      "lon": -80.1918207
+    },
+    {
+      "type": "node",
+      "id": 3171558372,
+      "lat": 25.8263211,
+      "lon": -80.1916336
+    },
+    {
+      "type": "node",
+      "id": 3171558373,
+      "lat": 25.8264792,
+      "lon": -80.1918294
+    },
+    {
+      "type": "node",
+      "id": 3171558374,
+      "lat": 25.8264919,
+      "lon": -80.1914519
+    },
+    {
+      "type": "node",
+      "id": 3171558375,
+      "lat": 25.8263283,
+      "lon": -80.1914418
+    },
+    {
+      "type": "node",
+      "id": 3226036205,
+      "lat": 25.8252539,
+      "lon": -80.1914504
+    },
+    {
+      "type": "node",
+      "id": 3226036206,
+      "lat": 25.8247541,
+      "lon": -80.1913217
+    },
+    {
+      "type": "node",
+      "id": 3226036207,
+      "lat": 25.8247276,
+      "lon": -80.1914209
+    },
+    {
+      "type": "node",
+      "id": 3226036219,
+      "lat": 25.825307,
+      "lon": -80.191201
+    },
+    {
+      "type": "node",
+      "id": 3226036220,
+      "lat": 25.8253022,
+      "lon": -80.1913646
+    },
+    {
+      "type": "node",
+      "id": 3226036221,
+      "lat": 25.8252998,
+      "lon": -80.1913968
+    },
+    {
+      "type": "node",
+      "id": 3226036222,
+      "lat": 25.8252756,
+      "lon": -80.1914075
+    },
+    {
+      "type": "node",
+      "id": 3226036223,
+      "lat": 25.8252539,
+      "lon": -80.1914102
+    },
+    {
+      "type": "node",
+      "id": 5840906547,
+      "lat": 25.8128885,
+      "lon": -80.1893727
+    },
+    {
+      "type": "node",
+      "id": 5840906552,
+      "lat": 25.8125335,
+      "lon": -80.1897724
+    },
+    {
+      "type": "node",
+      "id": 5840906553,
+      "lat": 25.8125191,
+      "lon": -80.1896423
+    },
+    {
+      "type": "node",
+      "id": 5840906554,
+      "lat": 25.8125239,
+      "lon": -80.1894143
+    },
+    {
+      "type": "node",
+      "id": 2609134186,
+      "lat": 25.8199614,
+      "lon": -80.1880602
+    },
+    {
+      "type": "node",
+      "id": 2609134332,
+      "lat": 25.8205639,
+      "lon": -80.1879223
+    },
+    {
+      "type": "node",
+      "id": 2609134599,
+      "lat": 25.8206342,
+      "lon": -80.1883069
+    },
+    {
+      "type": "node",
+      "id": 2609134609,
+      "lat": 25.8200353,
+      "lon": -80.1884406
+    },
+    {
+      "type": "node",
+      "id": 3792235677,
+      "lat": 25.8506153,
+      "lon": -80.1931024
+    },
+    {
+      "type": "node",
+      "id": 3792235678,
+      "lat": 25.8506095,
+      "lon": -80.1933403
+    },
+    {
+      "type": "node",
+      "id": 3792235679,
+      "lat": 25.8505682,
+      "lon": -80.1933391
+    },
+    {
+      "type": "node",
+      "id": 3792235680,
+      "lat": 25.850574,
+      "lon": -80.1931012
+    },
+    {
+      "type": "node",
+      "id": 3792235681,
+      "lat": 25.8505303,
+      "lon": -80.1930999
+    },
+    {
+      "type": "node",
+      "id": 3792235682,
+      "lat": 25.8505245,
+      "lon": -80.1933378
+    },
+    {
+      "type": "node",
+      "id": 3792235683,
+      "lat": 25.850484,
+      "lon": -80.1933366
+    },
+    {
+      "type": "node",
+      "id": 3792235684,
+      "lat": 25.8504898,
+      "lon": -80.1930987
+    },
+    {
+      "type": "node",
+      "id": 3792235685,
+      "lat": 25.8504379,
+      "lon": -80.1933352
+    },
+    {
+      "type": "node",
+      "id": 3792235686,
+      "lat": 25.8504437,
+      "lon": -80.1930973
+    },
+    {
+      "type": "node",
+      "id": 3792235687,
+      "lat": 25.8503556,
+      "lon": -80.1933327
+    },
+    {
+      "type": "node",
+      "id": 3792235691,
+      "lat": 25.8503614,
+      "lon": -80.1930948
+    },
+    {
+      "type": "node",
+      "id": 3792235692,
+      "lat": 25.8499855,
+      "lon": -80.1931847
+    },
+    {
+      "type": "node",
+      "id": 3792235693,
+      "lat": 25.849908,
+      "lon": -80.1931824
+    },
+    {
+      "type": "node",
+      "id": 3792235694,
+      "lat": 25.8499105,
+      "lon": -80.19311
+    },
+    {
+      "type": "node",
+      "id": 3792235695,
+      "lat": 25.8499372,
+      "lon": -80.1930794
+    },
+    {
+      "type": "node",
+      "id": 3792235696,
+      "lat": 25.849988,
+      "lon": -80.1930836
+    },
+    {
+      "type": "node",
+      "id": 3792235697,
+      "lat": 25.8500242,
+      "lon": -80.1933228
+    },
+    {
+      "type": "node",
+      "id": 3792235698,
+      "lat": 25.8500299,
+      "lon": -80.1930849
+    },
+    {
+      "type": "node",
+      "id": 3792235699,
+      "lat": 25.8499822,
+      "lon": -80.1933215
+    },
+    {
+      "type": "node",
+      "id": 3792235702,
+      "lat": 25.850079,
+      "lon": -80.1930864
+    },
+    {
+      "type": "node",
+      "id": 3792235703,
+      "lat": 25.8500733,
+      "lon": -80.1933243
+    },
+    {
+      "type": "node",
+      "id": 3792235704,
+      "lat": 25.8501676,
+      "lon": -80.1933271
+    },
+    {
+      "type": "node",
+      "id": 3792235705,
+      "lat": 25.8501733,
+      "lon": -80.1930892
+    },
+    {
+      "type": "node",
+      "id": 3791318531,
+      "lat": 25.8524994,
+      "lon": -80.1928809
+    },
+    {
+      "type": "node",
+      "id": 3791318532,
+      "lat": 25.8523219,
+      "lon": -80.1928792
+    },
+    {
+      "type": "node",
+      "id": 3791318533,
+      "lat": 25.8523347,
+      "lon": -80.1924755
+    },
+    {
+      "type": "node",
+      "id": 3791318534,
+      "lat": 25.8525107,
+      "lon": -80.1924797
+    },
+    {
+      "type": "node",
+      "id": 3791318537,
+      "lat": 25.8525061,
+      "lon": -80.1925739
+    },
+    {
+      "type": "node",
+      "id": 3791323195,
+      "lat": 25.8521858,
+      "lon": -80.1928759
+    },
+    {
+      "type": "node",
+      "id": 3791323196,
+      "lat": 25.8521925,
+      "lon": -80.1926347
+    },
+    {
+      "type": "node",
+      "id": 3791323197,
+      "lat": 25.8521345,
+      "lon": -80.1928739
+    },
+    {
+      "type": "node",
+      "id": 3791323198,
+      "lat": 25.8521404,
+      "lon": -80.1926314
+    },
+    {
+      "type": "node",
+      "id": 3791323208,
+      "lat": 25.8514275,
+      "lon": -80.1933271
+    },
+    {
+      "type": "node",
+      "id": 3791323209,
+      "lat": 25.8514333,
+      "lon": -80.1931431
+    },
+    {
+      "type": "node",
+      "id": 3791323210,
+      "lat": 25.8511837,
+      "lon": -80.1931335
+    },
+    {
+      "type": "node",
+      "id": 3791323211,
+      "lat": 25.851179,
+      "lon": -80.1932824
+    },
+    {
+      "type": "node",
+      "id": 3791323212,
+      "lat": 25.8513491,
+      "lon": -80.193289
+    },
+    {
+      "type": "node",
+      "id": 3791323213,
+      "lat": 25.851348,
+      "lon": -80.193324
+    },
+    {
+      "type": "node",
+      "id": 3791323214,
+      "lat": 25.8533711,
+      "lon": -80.1929187
+    },
+    {
+      "type": "node",
+      "id": 3791323215,
+      "lat": 25.8533721,
+      "lon": -80.1928258
+    },
+    {
+      "type": "node",
+      "id": 3791323216,
+      "lat": 25.8533505,
+      "lon": -80.1928269
+    },
+    {
+      "type": "node",
+      "id": 3791323217,
+      "lat": 25.8533505,
+      "lon": -80.1928127
+    },
+    {
+      "type": "node",
+      "id": 3791323218,
+      "lat": 25.8533377,
+      "lon": -80.1928127
+    },
+    {
+      "type": "node",
+      "id": 3791323219,
+      "lat": 25.8533377,
+      "lon": -80.1927887
+    },
+    {
+      "type": "node",
+      "id": 3791323220,
+      "lat": 25.8532001,
+      "lon": -80.1927854
+    },
+    {
+      "type": "node",
+      "id": 3791323221,
+      "lat": 25.8531971,
+      "lon": -80.192911
+    },
+    {
+      "type": "node",
+      "id": 3641751006,
+      "lat": 25.8433172,
+      "lon": -80.1847367
+    },
+    {
+      "type": "node",
+      "id": 3641751007,
+      "lat": 25.8433203,
+      "lon": -80.1845841
+    },
+    {
+      "type": "node",
+      "id": 3641751008,
+      "lat": 25.8431799,
+      "lon": -80.1847333
+    },
+    {
+      "type": "node",
+      "id": 3641751009,
+      "lat": 25.8431895,
+      "lon": -80.1845883
+    },
+    {
+      "type": "node",
+      "id": 3641751010,
+      "lat": 25.8431983,
+      "lon": -80.1845811
+    },
+    {
+      "type": "node",
+      "id": 3641751011,
+      "lat": 25.8431828,
+      "lon": -80.1845994
+    },
+    {
+      "type": "node",
+      "id": 3090505823,
+      "lat": 25.8463624,
+      "lon": -80.1842119
+    },
+    {
+      "type": "node",
+      "id": 3090505824,
+      "lat": 25.8460488,
+      "lon": -80.1842021
+    },
+    {
+      "type": "node",
+      "id": 3090505825,
+      "lat": 25.8460074,
+      "lon": -80.1841596
+    },
+    {
+      "type": "node",
+      "id": 3090505826,
+      "lat": 25.8460151,
+      "lon": -80.183891
+    },
+    {
+      "type": "node",
+      "id": 3090505827,
+      "lat": 25.8463751,
+      "lon": -80.1839009
+    },
+    {
+      "type": "node",
+      "id": 4193810239,
+      "lat": 25.8520687,
+      "lon": -80.1853567
+    },
+    {
+      "type": "node",
+      "id": 4193810240,
+      "lat": 25.8520836,
+      "lon": -80.1849343
+    },
+    {
+      "type": "node",
+      "id": 4193810241,
+      "lat": 25.8518458,
+      "lon": -80.1849256
+    },
+    {
+      "type": "node",
+      "id": 4193810242,
+      "lat": 25.85182,
+      "lon": -80.1849352
+    },
+    {
+      "type": "node",
+      "id": 4193810243,
+      "lat": 25.8516542,
+      "lon": -80.185142
+    },
+    {
+      "type": "node",
+      "id": 4193810244,
+      "lat": 25.8516495,
+      "lon": -80.1853401
+    },
+    {
+      "type": "node",
+      "id": 4327587314,
+      "lat": 25.854709,
+      "lon": -80.1854329
+    },
+    {
+      "type": "node",
+      "id": 4327587315,
+      "lat": 25.8547203,
+      "lon": -80.1851213
+    },
+    {
+      "type": "node",
+      "id": 4327587316,
+      "lat": 25.8547226,
+      "lon": -80.1850537
+    },
+    {
+      "type": "node",
+      "id": 4327587317,
+      "lat": 25.8546054,
+      "lon": -80.18505
+    },
+    {
+      "type": "node",
+      "id": 4327587318,
+      "lat": 25.8545953,
+      "lon": -80.1854304
+    },
+    {
+      "type": "node",
+      "id": 4327587319,
+      "lat": 25.854369,
+      "lon": -80.1854191
+    },
+    {
+      "type": "node",
+      "id": 4327587320,
+      "lat": 25.854378,
+      "lon": -80.1850913
+    },
+    {
+      "type": "node",
+      "id": 4327587321,
+      "lat": 25.8542676,
+      "lon": -80.185085
+    },
+    {
+      "type": "node",
+      "id": 4327587322,
+      "lat": 25.8542552,
+      "lon": -80.1854141
+    },
+    {
+      "type": "node",
+      "id": 4327587323,
+      "lat": 25.85513,
+      "lon": -80.1854477
+    },
+    {
+      "type": "node",
+      "id": 4327587324,
+      "lat": 25.8550531,
+      "lon": -80.1854448
+    },
+    {
+      "type": "node",
+      "id": 4327587325,
+      "lat": 25.8550571,
+      "lon": -80.1853116
+    },
+    {
+      "type": "node",
+      "id": 4327587326,
+      "lat": 25.85473,
+      "lon": -80.1852994
+    },
+    {
+      "type": "node",
+      "id": 4327587327,
+      "lat": 25.8547373,
+      "lon": -80.1850552
+    },
+    {
+      "type": "node",
+      "id": 4327587328,
+      "lat": 25.8550694,
+      "lon": -80.1850676
+    },
+    {
+      "type": "node",
+      "id": 4327587329,
+      "lat": 25.8550675,
+      "lon": -80.1851322
+    },
+    {
+      "type": "node",
+      "id": 4327587330,
+      "lat": 25.8551394,
+      "lon": -80.1851349
+    }
+  ]
+}
