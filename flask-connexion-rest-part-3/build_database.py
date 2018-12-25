@@ -44,7 +44,7 @@ for person in PEOPLE:
 
     # Add the notes for the person
     for note in person.get("notes"):
-        p.notes.append(Note(note=note))
+        p.notes.append(Note(content=note))
     db.session.add(p)
 
 db.session.commit()

@@ -1,0 +1,85 @@
+/*
+ * This is the CSS stylesheet for the demo people application
+ */
+
+@import url(http://fonts.googleapis.com/css?family=Roboto:400,300,500,700);
+
+body, .ui-btn {
+    font-family: Roboto;
+}
+
+.container {
+    padding: 10px;
+}
+
+.banner {
+    text-align: center;
+}
+
+.editor {
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 5px;
+    border: 1px solid lightgrey;
+    border-radius: 3px;
+    margin-bottom: 5px;
+}
+
+label {
+    display: inline-block;
+    margin-bottom: 5px;
+}
+
+button {
+    padding: 5px;
+    margin-right: 5px;
+    border-radius: 3px;
+    background-color: #eee;
+}
+
+.people {
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 5px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+table, caption, th, td {
+    border: 1px solid lightgrey;
+}
+
+table caption {
+    height: 33px;
+    font-weight: bold;
+    padding-top: 5px;
+    border-bottom: none;
+}
+
+tr {
+    height: 33px;
+}
+
+tr:nth-child(even) {
+    background-color: #f0f0f0
+}
+
+td {
+    text-align: center;
+}
+
+.error {
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 5px;
+    border: 1px solid lightgrey;
+    border-radius: 3px;
+    background-color: #fbb;
+    visibility: hidden;
+}
