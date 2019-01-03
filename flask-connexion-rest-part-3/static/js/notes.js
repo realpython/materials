@@ -1,6 +1,6 @@
 /*
  * JavaScript file for the application to demonstrate
- * using the API
+ * using the API for creating, updating and deleting notes
  */
 
 // Create the namespace instance
@@ -14,10 +14,10 @@ ns.model = (function() {
 
     // Return the API
     return {
-        'read': function() {
+        'read': function(person_id) {
             let ajax_options = {
                 type: 'GET',
-                url: 'api/people',
+                url: `/api/people/${person_id}?get_notes=true`,
                 accepts: 'application/json',
                 dataType: 'json'
             };
@@ -32,7 +32,7 @@ ns.model = (function() {
         create: function(person) {
             let ajax_options = {
                 type: 'POST',
-                url: 'api/people',
+                url: '/api/people',
                 accepts: 'application/json',
                 contentType: 'application/json',
                 dataType: 'json',
@@ -49,7 +49,7 @@ ns.model = (function() {
         update: function(person) {
             let ajax_options = {
                 type: 'PUT',
-                url: `api/people/${person.person_id}`,
+                url: `/api/people/${person.person_id}`,
                 accepts: 'application/json',
                 contentType: 'application/json',
                 dataType: 'json',
@@ -66,7 +66,7 @@ ns.model = (function() {
         'delete': function(person_id) {
             let ajax_options = {
                 type: 'DELETE',
-                url: `api/people/${person_id}`,
+                url: `/api/people/${person_id}`,
                 accepts: 'application/json',
                 contentType: 'plain/text'
             };
@@ -87,33 +87,39 @@ ns.view = (function() {
 
     let $person_id = $('#person_id'),
         $fname = $('#fname'),
-        $lname = $('#lname');
+        $lname = $('#lname'),
+        $timestamp = $('#timestamp'),
+        $note_id = $('#note_id'),
+        $note = $('#note');
 
     // return the API
     return {
         reset: function() {
-            $person_id.val('');
-            $lname.val('');
-            $fname.val('').focus();
+            $note.val('').focus();
         },
-        update_editor: function(person) {
-            $person_id.val(person.person_id);
-            $lname.val(person.lname);
-            $fname.val(person.fname).focus();
+        update_editor: function(note) {
+            $note_id.val(note.note_id);
+            $note.val(note.content);
         },
-        build_table: function(people) {
-            let rows = ''
+        build_table: function(person) {
+            let rows = '';
+            var notes = person.notes;
+
+            // update the person data
+            $person_id.text(person.person_id);
+            $fname.text(person.fname);
+            $lname.text(person.lname);
+            $timestamp.text(person.timestamp);
 
             // clear the table
-            $('.people table > tbody').empty();
+            $('.notes table > tbody').empty();
 
-            // did we get a people array?
-            if (people) {
-                for (let i=0, l=people.length; i < l; i++) {
-                    rows += `<tr data-person-id="${people[i].person_id}">
-                        <td class="fname">${people[i].fname}</td>
-                        <td class="lname">${people[i].lname}</td>
-                        <td>${people[i].timestamp}</td>
+            // did we get a note array?
+            if (notes) {
+                for (let i=0, l=notes.length; i < l; i++) {
+                    rows += `<tr data-note-id="${notes[i].note_id}">
+                        <td class="content">${notes[i].content}</td>
+                        <td class="timestamp">${notes[i].timestamp}</td>
                     </tr>`;
                 }
                 $('table > tbody').append(rows);
@@ -137,14 +143,10 @@ ns.controller = (function(m, v) {
     let model = m,
         view = v,
         $event_pump = $('body'),
-        $person_id = $('#person_id'),
-        $fname = $('#fname'),
-        $lname = $('#lname');
+        $person_id = window.location.pathname.split('/').slice(-1)[0];
 
-    // Get the data from the model after the controller is done initializing
-    setTimeout(function() {
-        model.read();
-    }, 100)
+    // read the person data with notes
+    model.read($person_id);
 
     // Validate input
     function validate(fname, lname) {
@@ -204,37 +206,29 @@ ns.controller = (function(m, v) {
         view.reset();
     })
 
-    $('table > tbody').on('dblclick', 'tr', function(e) {
+    $('table > tbody').on('click', 'tr', function(e) {
         let $target = $(e.target),
-            person_id,
-            fname,
-            lname;
+            note_id,
+            content;
 
-        person_id = $target
+        note_id = $target
             .parent()
-            .attr('data-person-id');
+            .attr('data-note-id');
 
-        fname = $target
+        content = $target
             .parent()
-            .find('td.fname')
-            .text();
-
-        lname = $target
-            .parent()
-            .find('td.lname')
+            .find('td.content')
             .text();
 
         view.update_editor({
-            person_id: person_id,
-            fname: fname,
-            lname: lname,
+            note_id: note_id,
+            content: content,
         });
     });
 
     // Handle the model events
     $event_pump.on('model_read_success', function(e, data) {
         view.build_table(data);
-        view.reset();
     });
 
     $event_pump.on('model_create_success', function(e, data) {

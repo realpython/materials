@@ -185,7 +185,7 @@ paths:
           description: Id of person associated with note
           type: integer
           required: True
-        - name: content
+        - name: note
           in: body
           description: Text content of the note to create
           required: True
@@ -267,7 +267,7 @@ paths:
           description: Id of the note associated with a person
           type: integer
           required: True
-        - name: content
+        - name: note
           in: body
           schema:
             type: object

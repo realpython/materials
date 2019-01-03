@@ -17,7 +17,7 @@ ns.model = (function() {
         'read': function() {
             let ajax_options = {
                 type: 'GET',
-                url: 'api/people',
+                url: '/api/people',
                 accepts: 'application/json',
                 dataType: 'json'
             };
@@ -32,7 +32,7 @@ ns.model = (function() {
         create: function(person) {
             let ajax_options = {
                 type: 'POST',
-                url: 'api/people',
+                url: '/api/people',
                 accepts: 'application/json',
                 contentType: 'application/json',
                 dataType: 'json',
@@ -49,7 +49,7 @@ ns.model = (function() {
         update: function(person) {
             let ajax_options = {
                 type: 'PUT',
-                url: `api/people/${person.person_id}`,
+                url: `/api/people/${person.person_id}`,
                 accepts: 'application/json',
                 contentType: 'application/json',
                 dataType: 'json',
@@ -66,7 +66,7 @@ ns.model = (function() {
         'delete': function(person_id) {
             let ajax_options = {
                 type: 'DELETE',
-                url: `api/people/${person_id}`,
+                url: `/api/people/${person_id}`,
                 accepts: 'application/json',
                 contentType: 'plain/text'
             };
@@ -204,7 +204,7 @@ ns.controller = (function(m, v) {
         view.reset();
     })
 
-    $('table > tbody').on('dblclick', 'tr', function(e) {
+    $('table > tbody').on('click', 'tr', function(e) {
         let $target = $(e.target),
             person_id,
             fname,
@@ -229,6 +229,14 @@ ns.controller = (function(m, v) {
             fname: fname,
             lname: lname,
         });
+    });
+
+    $('table > tbody').on('dblclick', 'tr', function(e) {
+        let $target = $(e.target),
+            person_id = $target.parent().attr('data-person-id');
+
+        window.location.href = `/notes/${person_id}`;
+
     });
 
     // Handle the model events

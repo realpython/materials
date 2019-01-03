@@ -62,6 +62,7 @@ table caption {
 }
 
 tr {
+    cursor: pointer;
     height: 33px;
 }
 

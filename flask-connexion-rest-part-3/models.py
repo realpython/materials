@@ -1,5 +1,6 @@
 from datetime import datetime
 from config import db, ma
+from marshmallow import fields
 
 
 
@@ -11,7 +12,12 @@ class Person(db.Model):
     timestamp = db.Column(
         db.DateTime, default=datetime.utcnow, onupdate=datetime.utcnow
     )
-    notes = db.relationship('Note', backref='person', lazy=True)
+    notes = db.relationship('Note',
+                            backref='person',
+                            cascade='all, delete-orphan',
+                            lazy='noload',
+                            order_by='desc(Note.timestamp)')
+
 
 class Note(db.Model):
     __tablename__ = 'note'
@@ -26,4 +32,11 @@ class Note(db.Model):
 class PersonSchema(ma.ModelSchema):
     class Meta:
         model = Person
+        sqla_session = db.session
+    notes = fields.Nested('NoteSchema', default=[], many=True)
+
+
+class NoteSchema(ma.ModelSchema):
+    class Meta:
+        model = Note
         sqla_session = db.session

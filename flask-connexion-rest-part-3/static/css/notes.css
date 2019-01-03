@@ -1,11 +1,23 @@
 /*
- * This is the CSS stylesheet for the demo people application
+ * This is the CSS stylesheet for the notes creation/update/delete application
  */
 
 @import url(http://fonts.googleapis.com/css?family=Roboto:400,300,500,700);
 
 body, .ui-btn {
     font-family: Roboto;
+}
+
+.navigation {
+    border: 2px solid grey;
+    background-color: lightgrey;
+    width: 95%;
+    margin-top: 0px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 0px;
+    padding: 10px;
+    text-align: left;
 }
 
 .container {
@@ -26,6 +38,10 @@ body, .ui-btn {
     margin-bottom: 5px;
 }
 
+.editor div {
+    margin-bottom: 5px;
+}
+
 label {
     display: inline-block;
     margin-bottom: 5px;
@@ -38,8 +54,8 @@ button {
     background-color: #eee;
 }
 
-.people {
-    width: 50%;
+.notes {
+    width: 95%;
     margin-left: auto;
     margin-right: auto;
     margin-bottom: 5px;
@@ -62,6 +78,7 @@ table caption {
 }
 
 tr {
+    cursor: pointer;
     height: 33px;
 }
 
@@ -69,8 +86,21 @@ tr:nth-child(even) {
     background-color: #f0f0f0
 }
 
+tbody td.content {
+    text-align: left;
+    padding: 0 5px 0 5px;
+}
+
 td {
     text-align: center;
+}
+
+.content {
+    width: 70%;
+}
+
+.timestamp {
+    width: 30%;
 }
 
 .error {

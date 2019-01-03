@@ -5,7 +5,7 @@ Main module of the server file
 # 3rd party moudles
 from flask import render_template
 
-# local modules
+# Local modules
 import config
 
 
@@ -16,7 +16,7 @@ connex_app = config.connex_app
 connex_app.add_api("swagger.yml")
 
 
-# create a URL route in our application for "/"
+# Create a URL route in our application for "/"
 @connex_app.route("/")
 def home():
     """
@@ -26,6 +26,19 @@ def home():
     :return:        the rendered template "home.html"
     """
     return render_template("home.html")
+
+
+# Create a URL route to the notes page
+@connex_app.route("/notes/<int:person_id>")
+def notes(person_id):
+    """
+    This function responds to the browser URL
+    localhost:5000/notes/<person_id>
+
+    :param person_id:   Id of the person to show notes for
+    :return:            the rendered template "notes.html"
+    """
+    return render_template("notes.html", person_id=person_id)
 
 
 if __name__ == "__main__":

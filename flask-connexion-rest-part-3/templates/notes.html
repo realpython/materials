@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <title>Application Home Page</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.0/normalize.min.css">
-    <link rel="stylesheet" href="static/css/home.css">
+    <link rel="stylesheet" href="/static/css/notes.css">
     <script
       src="http://code.jquery.com/jquery-3.3.1.min.js"
       integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
@@ -12,16 +12,31 @@
     </script>
 </head>
 <body>
+    <h3 class="navigation">
+        <a href="/">People Home Page</a>
+    </h3>
     <div class="container">
-        <h1 class="banner">People Demo Application</h1>
+        <h1 class="banner">Person Note Create/Update/Delete</h1>
         <div class="section editor">
-            <input id="person_id" type="hidden" value="" />
-            <label for="fname">First Name
-                <input id="fname" type="text" />
-            </label>
-            <br />
-            <label for="lname">Last Name
-                <input id="lname" type="text" />
+            <input id="note_id" type="hidden" val="" />
+            <div>
+                <span>Person ID:</span>
+                <span id="person_id"></span>
+            </div>
+            <div>
+                <span>First Name:</span>
+                <span id="fname"></span>
+            </div>
+            <div>
+                <span>Last Name:</span>
+                <span id="lname"></span>
+            </div>
+            <div>
+                <span>Timestamp:</span>
+                <span id="timestamp"></span>
+            </div>
+            <label for="note">Note
+                <input id="note" type="text" />
             </label>
             <br />
             <button id="create">Create</button>
@@ -29,23 +44,22 @@
             <button id="delete">Delete</button>
             <button id="reset">Reset</button>
         </div>
-        <div class="people">
-            <table>
-                <caption>People</caption>
-                <thead>
-                    <tr>
-                        <th>First Name</th>
-                        <th>Last Name</th>
-                        <th>Update Time</th>
-                    </tr>
-                </thead>
-                <tbody>
-                </tbody>
-            </table>
-        </div>
-        <div class="error">
-        </div>
+    </div>
+    <div class="notes">
+        <table>
+            <caption>Notes</caption>
+            <thead>
+                <tr>
+                    <th class="content">Content</th>
+                    <th class="timestamp">Update Time</th>
+                </tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
+    </div>
+    <div class="error">
     </div>
 </body>
-<script src="static/js/home.js"></script>
+<script src="/static/js/notes.js"></script>
 </html>

@@ -5,7 +5,8 @@ people data
 
 from flask import make_response, abort
 from config import db
-from models import Person, PersonSchema
+from models import Person, PersonSchema, Note
+from sqlalchemy import desc
 
 
 def read_all():
@@ -24,7 +25,7 @@ def read_all():
     return data
 
 
-def read_one(person_id):
+def read_one(person_id, get_notes=None):
     """
     This function responds to a request for /api/people/{person_id}
     with one matching person from people
@@ -32,8 +33,17 @@ def read_one(person_id):
     :param person_id:   Id of person to find
     :return:            person matching id
     """
-    # Get the person requested
-    person = Person.query.filter(Person.person_id == person_id).one_or_none()
+    # Build the initial query
+    query = Person.query.filter(Person.person_id == person_id)
+
+    # Modify the query if we're getting the notes as well
+    if get_notes:
+        query = query \
+            .join(Note) \
+            .options(db.joinedload(Person.notes))
+
+    # Execute the query
+    person = query.one_or_none()
 
     # Did we find a person?
     if person is not None:
@@ -107,7 +117,7 @@ def update(person_id, person):
         Person.person_id == person_id
     ).one_or_none()
 
-    # Did we find a person?
+    # Did we find an existing person?
     if update_person is not None:
 
         # turn the passed in person into a db object
@@ -115,7 +125,7 @@ def update(person_id, person):
         update = schema.load(person, session=db.session).data
 
         # Set the id to the person we want to update
-        update.id = update_person.person_id
+        update.person_id = update_person.person_id
 
         # merge the new object into the old and commit it to the db
         db.session.merge(update)
