@@ -114,3 +114,5 @@ dmypy.json
 # Pyre type checker
 .pyre/
 
+# ignore the database
+.people.db
