@@ -28,7 +28,7 @@ body, .ui-btn {
     text-align: center;
 }
 
-.editor {
+.display, .editor {
     width: 50%;
     margin-left: auto;
     margin-right: auto;
@@ -38,7 +38,7 @@ body, .ui-btn {
     margin-bottom: 5px;
 }
 
-.editor div {
+display div, .editor div {
     margin-bottom: 5px;
 }
 
@@ -52,6 +52,10 @@ button {
     margin-right: 5px;
     border-radius: 3px;
     background-color: #eee;
+}
+
+input[type=text] {
+    width: 550px;
 }
 
 .notes {
@@ -93,6 +97,10 @@ tbody td.content {
 
 td {
     text-align: center;
+}
+
+tbody tr:hover {
+    background-color: cornsilk;
 }
 
 .content {

@@ -74,6 +74,10 @@ td {
     text-align: center;
 }
 
+tbody tr:hover {
+    background-color: cornsilk;
+}
+
 .error {
     width: 50%;
     margin-left: auto;

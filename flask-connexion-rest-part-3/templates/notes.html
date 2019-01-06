@@ -17,8 +17,7 @@
     </h3>
     <div class="container">
         <h1 class="banner">Person Note Create/Update/Delete</h1>
-        <div class="section editor">
-            <input id="note_id" type="hidden" val="" />
+        <div class="section display">
             <div>
                 <span>Person ID:</span>
                 <span id="person_id"></span>
@@ -35,8 +34,14 @@
                 <span>Timestamp:</span>
                 <span id="timestamp"></span>
             </div>
+        </div>
+        <div class="section editor">
+            <div>
+                <span>Note ID:</span>
+                <span id="note_id"></span>
+            </div>
             <label for="note">Note
-                <input id="note" type="text" />
+                <input id="note" type="text" maxlength="200"/>
             </label>
             <br />
             <button id="create">Create</button>

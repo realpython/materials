@@ -85,21 +85,41 @@ ns.model = (function() {
 ns.view = (function() {
     'use strict';
 
+    const NEW_NOTE = 0,
+          EXISTING_NOTE = 1;
+
     let $person_id = $('#person_id'),
         $fname = $('#fname'),
-        $lname = $('#lname');
+        $lname = $('#lname'),
+        $create = $('#create'),
+        $update = $('#update'),
+        $delete = $('#delete'),
+        $reset = $('#reset');
 
     // return the API
     return {
+        NEW_NOTE: NEW_NOTE,
+        EXISTING_NOTE: EXISTING_NOTE,
         reset: function() {
-            $person_id.val('');
+            $person_id.text('');
             $lname.val('');
             $fname.val('').focus();
         },
         update_editor: function(person) {
-            $person_id.val(person.person_id);
+            $person_id.text(person.person_id);
             $lname.val(person.lname);
             $fname.val(person.fname).focus();
+        },
+        set_button_states: function(state) {
+            if (state === NEW_NOTE) {
+                $create.prop('disabled', false);
+                $update.prop('disabled', true);
+                $delete.prop('disabled', true);
+            } else if (state === EXISTING_NOTE) {
+                $create.prop('disabled', true);
+                $update.prop('disabled', false);
+                $delete.prop('disabled', false);
+            }
         },
         build_table: function(people) {
             let rows = ''
@@ -145,6 +165,9 @@ ns.controller = (function(m, v) {
     setTimeout(function() {
         model.read();
     }, 100)
+
+    // initialize the button states
+    view.set_button_states(view.NEW_NOTE);
 
     // Validate input
     function validate(fname, lname) {
@@ -202,6 +225,7 @@ ns.controller = (function(m, v) {
 
     $('#reset').click(function() {
         view.reset();
+        view.set_button_states(view.NEW_NOTE);
     })
 
     $('table > tbody').on('click', 'tr', function(e) {
@@ -229,6 +253,7 @@ ns.controller = (function(m, v) {
             fname: fname,
             lname: lname,
         });
+        view.set_button_states(view.EXISTING_NOTE);
     });
 
     $('table > tbody').on('dblclick', 'tr', function(e) {
@@ -247,14 +272,17 @@ ns.controller = (function(m, v) {
 
     $event_pump.on('model_create_success', function(e, data) {
         model.read();
+        view.set_button_states(view.NEW_NOTE);
     });
 
     $event_pump.on('model_update_success', function(e, data) {
         model.read();
+        view.set_button_states(view.NEW_NOTE);
     });
 
     $event_pump.on('model_delete_success', function(e, data) {
         model.read();
+        view.set_button_states(view.NEW_NOTE);
     });
 
     $event_pump.on('model_error', function(e, xhr, textStatus, errorThrown) {
