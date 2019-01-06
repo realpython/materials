@@ -115,4 +115,4 @@ dmypy.json
 .pyre/
 
 # ignore the database
-.people.db
+people.db
