@@ -37,6 +37,7 @@ def unpickle(file):
         dict = pickle.load(fo, encoding="bytes")
     return dict
 
+
 images, labels = [], []
 for batch in data_dir.glob("data_batch_*"):
     batch_data = unpickle(batch)
@@ -66,7 +67,8 @@ hdf5_dir = Path("data/hdf5/")
 
 # Helper functions for timing
 
-class CIFAR_Image():
+
+class CIFAR_Image:
     def __init__(self, image, label):
         # Dimensions of image for reconstruction - not really necessary for this
         # dataset, but some datasets may include images of varying sizes
@@ -80,6 +82,7 @@ class CIFAR_Image():
         """ Returns the image as a numpy array. """
         image = np.frombuffer(self.image, dtype=np.uint8)
         return image.reshape(*self.size, self.channels)
+
 
 def store_single_disk(image, image_id, label):
     """ Stores a single image as a .png file on disk.
@@ -104,6 +107,7 @@ def store_single_disk(image, image_id, label):
         )
         writer.writerow([label])
 
+
 def store_single_lmdb(image, image_id, label):
     """ Stores a single image to a LMDB.
         Parameters:
@@ -127,6 +131,7 @@ def store_single_lmdb(image, image_id, label):
         key = f"{image_id:08}"
         txn.put(key.encode("ascii"), pickle.dumps(value))
     env.close()
+
 
 def store_single_hdf5(image, image_id, label):
     """ Stores a single image to an HDF5 file.
@@ -155,6 +160,7 @@ def store_single_hdf5(image, image_id, label):
     )
     file.close()
 
+
 _store_single_funcs = dict(
     disk=store_single_disk,
     lmdb=store_single_lmdb,
@@ -174,6 +180,7 @@ for method in ("disk", "lmdb", "hdf5"):
     )
     store_single_timings[method] = t
     print(f"Method: {method}, Time usage: {t}")
+
 
 def store_many_disk(images, labels):
     """ Stores an array of images to disk
@@ -203,6 +210,7 @@ def store_many_disk(images, labels):
             # value per row
             writer.writerow([label])
 
+
 def store_many_lmdb(images, labels):
     """ Stores an array of images to LMDB.
         Parameters:
@@ -230,6 +238,7 @@ def store_many_lmdb(images, labels):
                 key.encode("ascii"), pickle.dumps(value)
             )
     env.close()
+
 
 def store_many_hdf5(images, labels):
     """ Stores an array of images to HDF5.
@@ -260,6 +269,7 @@ def store_many_hdf5(images, labels):
     )
     file.close()
 
+
 _store_many_funcs = dict(
     disk=store_many_disk,
     lmdb=store_many_lmdb,
@@ -268,7 +278,7 @@ _store_many_funcs = dict(
 
 # Run the multiple images experiment now
 
-cutoffs = [10, 100, 1000, 10000, 100000]
+cutoffs = [10, 100, 1000, 10000, 100_000]
 
 # Let's double our images so that we have 100,000
 images = np.concatenate((images, images), axis=0)
@@ -293,6 +303,7 @@ for cutoff in cutoffs:
         print(f"Method: {method}, Time usage: {t}")
 
 # Let's visualise those results
+
 
 def plot_with_legend(
     x_range,
@@ -334,6 +345,7 @@ def plot_with_legend(
     plt.legend(handles=all_plots)
     plt.show()
 
+
 disk_x = store_many_timings["disk"]
 lmdb_x = store_many_timings["lmdb"]
 hdf5_x = store_many_timings["hdf5"]
@@ -360,9 +372,9 @@ plot_with_legend(
 
 # Visualise how much memory is used.
 # Memory used in KB
-disk_mem = [44, 404, 4004, 40032, 400296]
-lmdb_mem = [60, 420, 4000, 39000, 393000]
-hdf5_mem = [36, 304, 2900, 29000, 293000]
+disk_mem = [44, 404, 4004, 40032, 400_296]
+lmdb_mem = [60, 420, 4000, 39000, 393_000]
+hdf5_mem = [36, 304, 2900, 29000, 293_000]
 
 X = [disk_mem, lmdb_mem, hdf5_mem]
 
@@ -384,7 +396,7 @@ for i in range(1, len(cutoffs)):
 plt.ylabel("Memory in KB")
 plt.title("Disk memory used by method")
 plt.xticks(ind, ("PNG", "LMDB", "HDF5"))
-plt.yticks(np.arange(0, 400000, 100000))
+plt.yticks(np.arange(0, 400_000, 100_000))
 
 plt.legend(
     [plot[0] for plot in plots],
@@ -393,6 +405,7 @@ plt.legend(
 plt.show()
 
 # Read out a single image.
+
 
 def read_single_disk(image_id):
     """ Stores a single image to disk.
@@ -419,6 +432,7 @@ def read_single_disk(image_id):
         label = int(next(reader)[0])
 
     return image, label
+
 
 def read_single_lmdb(image_id):
     """ Stores a single image to LMDB.
@@ -450,6 +464,7 @@ def read_single_lmdb(image_id):
 
     return image, label
 
+
 def read_single_hdf5(image_id):
     """ Stores a single image to HDF5.
         Parameters:
@@ -470,6 +485,7 @@ def read_single_hdf5(image_id):
 
     return image, label
 
+
 _read_single_funcs = dict(
     disk=read_single_disk,
     lmdb=read_single_lmdb,
@@ -489,6 +505,7 @@ for method in ("disk", "lmdb", "hdf5"):
     print(f"Method: {method}, Time usage: {t}")
 
 # Reading in many images
+
 
 def read_many_disk(num_images):
     """ Reads image from disk.
@@ -524,6 +541,7 @@ def read_many_disk(num_images):
             labels.append(int(row[0]))
     return images, labels
 
+
 def read_many_lmdb(num_images):
     """ Reads image from LMDB.
         Parameters:
@@ -554,6 +572,7 @@ def read_many_lmdb(num_images):
     env.close()
     return images, labels
 
+
 def read_many_hdf5(num_images):
     """ Reads image from HDF5.
         Parameters:
@@ -576,6 +595,7 @@ def read_many_hdf5(num_images):
     labels = np.array(file["/meta"]).astype("uint8")
 
     return images, labels
+
 
 _read_many_funcs = dict(
     disk=read_many_disk,
