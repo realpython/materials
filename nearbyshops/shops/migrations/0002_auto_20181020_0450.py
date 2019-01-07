@@ -12,7 +12,7 @@ def load_data(apps, schema_editor):
     Shop = apps.get_model('shops', 'Shop')
     jsonfile = Path(__file__).parents[2] / DATA_FILENAME
 
-    with open(str(jsonfile)) as datafile:
+    with open(str(jsonfile), encoding="utf8") as datafile:
         objects = json.load(datafile)
         for obj in objects['elements']:
             try:
