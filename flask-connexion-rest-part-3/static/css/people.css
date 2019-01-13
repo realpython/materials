@@ -1,26 +1,18 @@
 /*
- * This is the CSS stylesheet for the notes creation/update/delete application
+ * This is the CSS stylesheet for the demo people application
  */
 
 .container {
     padding: 10px;
 }
 
-.banner {
-    text-align: center;
-}
-
-.display, .editor {
+.editor {
     width: 50%;
     margin-left: auto;
     margin-right: auto;
     padding: 5px;
     border: 1px solid lightgrey;
     border-radius: 3px;
-    margin-bottom: 5px;
-}
-
-display div, .editor div {
     margin-bottom: 5px;
 }
 
@@ -36,12 +28,8 @@ button {
     background-color: #eee;
 }
 
-input[type=text] {
-    width: 550px;
-}
-
-.notes {
-    width: 95%;
+.people {
+    width: 50%;
     margin-left: auto;
     margin-right: auto;
     margin-bottom: 5px;
@@ -72,25 +60,12 @@ tr:nth-child(even) {
     background-color: #f0f0f0
 }
 
-tbody td.content {
-    text-align: left;
-    padding: 0 5px 0 5px;
-}
-
 td {
     text-align: center;
 }
 
 tbody tr:hover {
     background-color: cornsilk;
-}
-
-.content {
-    width: 70%;
-}
-
-.timestamp {
-    width: 30%;
 }
 
 .error {

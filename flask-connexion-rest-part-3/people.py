@@ -6,7 +6,6 @@ people data
 from flask import make_response, abort
 from config import db
 from models import Person, PersonSchema, Note
-from sqlalchemy import desc
 
 
 def read_all():
@@ -25,7 +24,7 @@ def read_all():
     return data
 
 
-def read_one(person_id, get_notes=None):
+def read_one(person_id):
     """
     This function responds to a request for /api/people/{person_id}
     with one matching person from people
@@ -34,16 +33,11 @@ def read_one(person_id, get_notes=None):
     :return:            person matching id
     """
     # Build the initial query
-    query = Person.query.filter(Person.person_id == person_id)
-
-    # Modify the query if we're getting the notes as well
-    if get_notes:
-        query = query \
-            .join(Note) \
-            .options(db.joinedload(Person.notes))
-
-    # Execute the query
-    person = query.one_or_none()
+    person = Person.query \
+        .filter(Person.person_id == person_id) \
+        .join(Note) \
+        .options(db.joinedload(Person.notes)) \
+        .one_or_none()
 
     # Did we find a person?
     if person is not None:

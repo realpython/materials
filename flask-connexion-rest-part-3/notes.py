@@ -8,6 +8,22 @@ from config import db
 from models import Person, Note, NoteSchema
 
 
+def read_all():
+    """
+    This function responds to a request for /api/people/notes
+    with the complete list of notes, sorted by note timestamp
+
+    :return:                json list of all notes for all people
+    """
+    # Query the database for all the notes
+    notes = Note.query.order_by(db.desc(Note.timestamp)).all()
+
+    # Serialize the list of notes from our data
+    note_schema = NoteSchema(many=True, exclude=['person.notes'])
+    data = note_schema.dump(notes).data
+    return data
+
+
 def read_one(person_id, note_id):
     """
     This function responds to a request for /api/people/{person_id}/notes/{note_id}

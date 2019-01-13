@@ -1,0 +1,50 @@
+{% extends "parent.html" %}
+{% block title %}People{% endblock %}
+{% block head %}
+    {{ super() }}
+    <link rel="stylesheet" href="/static/css/people.css">
+{% endblock %}
+
+{% block page_name %}Person Create/Update/Delete Page{% endblock %}
+
+{% block body %}
+    <div class="container">
+        <div class="section editor">
+            <div>
+                <span>Person ID:</span>
+                <span id="person_id"></span>
+            </div>
+            <label for="fname">First Name
+                <input id="fname" type="text" />
+            </label>
+            <br />
+            <label for="lname">Last Name
+                <input id="lname" type="text" />
+            </label>
+            <br />
+            <button id="create">Create</button>
+            <button id="update">Update</button>
+            <button id="delete">Delete</button>
+            <button id="reset">Reset</button>
+        </div>
+        <div class="people">
+            <table>
+                <caption>People</caption>
+                <thead>
+                    <tr>
+                        <th>First Name</th>
+                        <th>Last Name</th>
+                        <th>Update Time</th>
+                    </tr>
+                </thead>
+                <tbody>
+                </tbody>
+            </table>
+        </div>
+        <div class="error">
+        </div>
+    </div>
+{% endblock %}
+{% block javascript %}
+<script src="/static/js/people.js"></script>
+{% endblock %}

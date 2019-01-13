@@ -37,7 +37,23 @@ paths:
                   description: Last name of the person
                 timestamp:
                   type: string
-                  description: Creation/Update timestamp of the person
+                  description: Create/Update timestamp of the person
+                notes:
+                  type: array
+                  items:
+                    properties:
+                      person_id:
+                        type: integer
+                        description: Id of person this note is associated with
+                      note_id:
+                        type: integer
+                        description: Id of this note
+                      content:
+                        type: string
+                        description: content of this note
+                      timestamp:
+                        type: string
+                        description: Create/Update timestamp of this note
 
     post:
       operationId: people.create
@@ -90,11 +106,6 @@ paths:
           description: Id of the person to get
           type: integer
           required: True
-        - name: get_notes
-          in: query
-          description: Get the notes associated with a person or not (default is not)
-          type: boolean
-          default: false
       responses:
         200:
           description: Successfully read person from people data operation
@@ -113,6 +124,22 @@ paths:
               timestamp:
                 type: string
                 description: Creation/Update timestamp of the person record
+              notes:
+                type: array
+                items:
+                  properties:
+                    person_id:
+                      type: integer
+                      description: Id of person this note is associated with
+                    note_id:
+                      type: integer
+                      description: Id of this note
+                    content:
+                      type: string
+                      description: content of this note
+                    timestamp:
+                      type: string
+                      description: Create/Update timestamp of this note
 
     put:
       operationId: people.update
@@ -170,6 +197,45 @@ paths:
       responses:
         200:
           description: Successfully deleted a person
+
+  /notes:
+    get:
+      operationId: notes.read_all
+      tags:
+        - Notes
+      summary: Read the entire set of notes for all people, sorted by timestamp
+      description: Read the entire set of notes for all people, sorted by timestamp
+      responses:
+        200:
+          description: Successfully read notes for all people operation
+          schema:
+            type: array
+            items:
+              properties:
+                note_id:
+                  type: integer
+                  description: Id of the note
+                content:
+                  type: string
+                  description: Content of the note
+                timestamp:
+                  type: string
+                  description: Create/Update timestamp of the note
+                person:
+                  type: object
+                  properties:
+                    person_id:
+                      type: integer
+                      description: Id of associated person
+                    fname:
+                      type: string
+                      description: Frist name of associated person
+                    lname:
+                      type: string
+                      description: Last name of associated person
+                    timestamp:
+                      type: string
+                      description: Create/Update timestamp of associated person
 
 
   /people/{person_id}/notes:

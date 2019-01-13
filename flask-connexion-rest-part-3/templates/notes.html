@@ -1,22 +1,14 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Application Home Page</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.0/normalize.min.css">
+{% extends "parent.html" %}
+{% block title %}Notes{% endblock %}
+{% block head %}
+    {{ super() }}
     <link rel="stylesheet" href="/static/css/notes.css">
-    <script
-      src="http://code.jquery.com/jquery-3.3.1.min.js"
-      integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
-      crossorigin="anonymous">
-    </script>
-</head>
-<body>
-    <h3 class="navigation">
-        <a href="/">People Home Page</a>
-    </h3>
+{% endblock %}
+
+{% block page_name %}Person Note Create/Update/Delete Page{% endblock %}
+
+{% block body %}
     <div class="container">
-        <h1 class="banner">Person Note Create/Update/Delete</h1>
         <div class="section display">
             <div>
                 <span>Person ID:</span>
@@ -65,6 +57,7 @@
     </div>
     <div class="error">
     </div>
-</body>
-<script src="/static/js/notes.js"></script>
-</html>
+{% endblock %}
+{% block javascript %}
+<script src="/static/js/notes_1.js"></script>
+{% endblock %}

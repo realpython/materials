@@ -13,9 +13,10 @@ class Person(db.Model):
         db.DateTime, default=datetime.utcnow, onupdate=datetime.utcnow
     )
     notes = db.relationship('Note',
-                            backref='person',
-                            cascade='all, delete-orphan',
-                            lazy='noload',
+                            backref=db.backref('person',
+                                               lazy='joined',
+                                               cascade='delete, delete-orphan',
+                                               single_parent=True),
                             order_by='desc(Note.timestamp)')
 
 
@@ -33,10 +34,31 @@ class PersonSchema(ma.ModelSchema):
     class Meta:
         model = Person
         sqla_session = db.session
-    notes = fields.Nested('NoteSchema', default=[], many=True)
+    notes = fields.Nested('PersonNotesSchema', default=[], many=True)
+
+
+class PersonNotesSchema(ma.ModelSchema):
+    """
+    This class exists to get around a recursion issue
+    """
+    note_id = fields.Int()
+    person_id = fields.Int()
+    content = fields.Str()
+    timestamp = fields.Str()
 
 
 class NoteSchema(ma.ModelSchema):
     class Meta:
         model = Note
         sqla_session = db.session
+    person = fields.Nested('NotesPersonSchema', default=None)
+
+
+class NotesPersonSchema(ma.ModelSchema):
+    """
+    This class exists to get around a recursion issue
+    """
+    person_id = fields.Int()
+    lname = fields.Str()
+    fname = fields.Str()
+    timestamp = fields.Str()
