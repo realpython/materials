@@ -8,9 +8,36 @@
 {% block page_name %}Mini-Blog Page Demo{% endblock %}
 
 {% block body %}
-    <div class="container">
-    </div>
+<div class="blog">
+    <table>
+        <caption>Blog Entries</caption>
+        <thead>
+            <tr>
+                <th>Author</th>
+                <th>Timestamp</th>
+                <th>Note</th>
+            </tr>
+        </thead>
+    </table>
+</div>
+
+<!-- Handlebars script tag entry -->
+{% raw %}
+<script id="blog-table-template" type="text/x-handlebars-template">
+    <tbody>
+        {{#each notes}}
+        <tr data-person-id="{{person.person_id}}" data-note-id="{{note_id}}">
+            <td class="name">{{person.fname}} {{person.lname}}</td>
+            <td class="timestamp">{{timestamp}}</td>
+            <td class="content">{{content}}</td>
+        </tr>
+        {{/each}}
+    </tbody>
+</script>
+{% endraw %}
+
 {% endblock %}
+
 {% block javascript %}
 <script src="/static/js/home.js"></script>
 {% endblock %}

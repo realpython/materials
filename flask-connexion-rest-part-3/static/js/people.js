@@ -22,12 +22,12 @@ ns.model = (function() {
                 dataType: 'json'
             };
             $.ajax(ajax_options)
-            .done(function(data) {
-                $event_pump.trigger('model_read_success', [data]);
-            })
-            .fail(function(xhr, textStatus, errorThrown) {
-                $event_pump.trigger('model_error', [xhr, textStatus, errorThrown]);
-            })
+                .done(function(data) {
+                    $event_pump.trigger('model_read_success', [data]);
+                })
+                .fail(function(xhr, textStatus, errorThrown) {
+                    $event_pump.trigger('model_error', [xhr, textStatus, errorThrown]);
+                });
         },
         create: function(person) {
             let ajax_options = {
@@ -39,12 +39,12 @@ ns.model = (function() {
                 data: JSON.stringify(person)
             };
             $.ajax(ajax_options)
-            .done(function(data) {
-                $event_pump.trigger('model_create_success', [data]);
-            })
-            .fail(function(xhr, textStatus, errorThrown) {
-                $event_pump.trigger('model_error', [xhr, textStatus, errorThrown]);
-            })
+                .done(function(data) {
+                    $event_pump.trigger('model_create_success', [data]);
+                })
+                .fail(function(xhr, textStatus, errorThrown) {
+                    $event_pump.trigger('model_error', [xhr, textStatus, errorThrown]);
+                });
         },
         update: function(person) {
             let ajax_options = {
@@ -56,12 +56,12 @@ ns.model = (function() {
                 data: JSON.stringify(person)
             };
             $.ajax(ajax_options)
-            .done(function(data) {
-                $event_pump.trigger('model_update_success', [data]);
-            })
-            .fail(function(xhr, textStatus, errorThrown) {
-                $event_pump.trigger('model_error', [xhr, textStatus, errorThrown]);
-            })
+                .done(function(data) {
+                    $event_pump.trigger('model_update_success', [data]);
+                })
+                .fail(function(xhr, textStatus, errorThrown) {
+                    $event_pump.trigger('model_error', [xhr, textStatus, errorThrown]);
+                });
         },
         'delete': function(person_id) {
             let ajax_options = {
@@ -71,12 +71,12 @@ ns.model = (function() {
                 contentType: 'plain/text'
             };
             $.ajax(ajax_options)
-            .done(function(data) {
-                $event_pump.trigger('model_delete_success', [data]);
-            })
-            .fail(function(xhr, textStatus, errorThrown) {
-                $event_pump.trigger('model_error', [xhr, textStatus, errorThrown]);
-            })
+                .done(function(data) {
+                    $event_pump.trigger('model_delete_success', [data]);
+                })
+                .fail(function(xhr, textStatus, errorThrown) {
+                    $event_pump.trigger('model_error', [xhr, textStatus, errorThrown]);
+                });
         }
     };
 }());
@@ -289,7 +289,7 @@ ns.controller = (function(m, v) {
         let error_msg = textStatus + ': ' + errorThrown + ' - ' + xhr.responseJSON.detail;
         view.error(error_msg);
         console.log(error_msg);
-    })
+    });
 }(ns.model, ns.view));
 
 

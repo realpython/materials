@@ -1,0 +1,55 @@
+/*
+ * CSS stylesheet for home page
+ */
+
+.blog table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+.blog table caption {
+    font-weight: bold;
+    padding: 10px 0 10px 0;
+    border-bottom: 1px solid darkgrey;
+    background-color: antiquewhite;
+}
+
+.blog table thead {
+    padding: 10px 0 10px 0;
+}
+
+.blog table thead tj {
+    border-right: 1px solid darkgrey;
+}
+
+
+th, td {
+    padding: 3px;
+    border: 1px solid darkgrey;
+}
+
+td.name {
+    text-align: center;
+    width: 175px;
+}
+
+td.timestamp {
+    text-align: center;
+    width: 230px;
+}
+
+td.content {
+    text-align: left;
+}
+
+tbody tr:nth-child(odd) {
+    background-color: lightgrey;
+}
+
+tbody tr {
+    cursor: pointer;
+}
+
+tbody tr:hover {
+    background-color: aqua;
+}
