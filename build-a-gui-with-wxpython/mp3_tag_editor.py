@@ -117,8 +117,8 @@ class Mp3Frame(wx.Frame):
         self.SetMenuBar(menu_bar)
 
     def on_open_folder(self, event):
-        dlg = wx.DirDialog(self, "Choose a directory:",
-                           style=wx.DD_DEFAULT_STYLE)
+        title = "Choose a directory:"
+        dlg = wx.DirDialog(self, title, style=wx.DD_DEFAULT_STYLE)
         if dlg.ShowModal() == wx.ID_OK:
             self.panel.update_mp3_listing(dlg.GetPath())
         dlg.Destroy()
