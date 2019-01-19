@@ -12,6 +12,7 @@
       crossorigin="anonymous">
     </script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.12/handlebars.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.23.0/moment.min.js"></script>
     {% endblock %}
 </head>
 <body>
@@ -29,6 +30,16 @@
 {% block body %}
 {% endblock %}
 </body>
+
 {% block javascript %}
+<script>
+    Handlebars.registerHelper('formatTimestamp', function(timestamp) {
+        "use strict";
+
+        let mt = moment(timestamp, moment.ISO_8601);
+        return mt.format('Y-MM-DD HH:mm:ssZ');
+    });
+</script>
 {% endblock %}
+
 </html>

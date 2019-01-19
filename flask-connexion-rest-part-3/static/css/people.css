@@ -11,8 +11,8 @@
     margin-left: auto;
     margin-right: auto;
     padding: 5px;
-    border: 1px solid lightgrey;
-    border-radius: 3px;
+    border: 2px solid darkgrey;
+    border-radius: 4px;
     margin-bottom: 5px;
 }
 
@@ -28,11 +28,9 @@ button {
     background-color: #eee;
 }
 
-.people {
-    width: 50%;
-    margin-left: auto;
-    margin-right: auto;
-    margin-bottom: 5px;
+div.people {
+    margin: 10px 30px 10px 30px;
+    border: 2px solid darkgrey;
 }
 
 table {
@@ -40,32 +38,49 @@ table {
     border-collapse: collapse;
 }
 
-table, caption, th, td {
-    border: 1px solid lightgrey;
-}
-
-table caption {
-    height: 33px;
+.people table caption {
     font-weight: bold;
-    padding-top: 5px;
-    border-bottom: none;
+    padding: 10px 0 10px 0;
+    border-bottom: 2px solid darkgrey;
+    background-color: antiquewhite;
 }
 
-tr {
-    cursor: pointer;
-    height: 33px;
+.people table thead {
+    padding: 10px 0 10px 0;
+}
+
+th:not(:last-child), td:not(:last-child) {
+    border-right: 2px solid darkgrey;
 }
 
 tr:nth-child(even) {
-    background-color: #f0f0f0
+    background-color: gainsboro;
 }
 
 td {
     text-align: center;
 }
 
+tbody td.timestamp {
+    width: 280px;
+}
+
+tbody td.name {
+    cursor: pointer;
+    height: 33px;
+}
+
+thead tr {
+    height: 33px;
+    border-bottom: 2px solid darkgrey;
+}
+
+tbody tr:not(:last-child){
+    border-bottom: 2px solid darkgrey;
+}
+
 tbody tr:hover {
-    background-color: cornsilk;
+    background-color: powderblue;
 }
 
 .error {

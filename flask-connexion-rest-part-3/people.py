@@ -35,7 +35,7 @@ def read_one(person_id):
     # Build the initial query
     person = Person.query \
         .filter(Person.person_id == person_id) \
-        .join(Note) \
+        .outerjoin(Note) \
         .options(db.joinedload(Person.notes)) \
         .one_or_none()
 

@@ -9,6 +9,7 @@
 
 {% block body %}
     <div class="container">
+        <input id="url_person_id" type="hidden" value="{{ person_id }}" />
         <div class="section editor">
             <div>
                 <span>Person ID:</span>
@@ -32,19 +33,33 @@
                 <caption>People</caption>
                 <thead>
                     <tr>
-                        <th>First Name</th>
-                        <th>Last Name</th>
-                        <th>Update Time</th>
+                        <th>Creation/Update Timestamp</th>
+                        <th>Person</th>
                     </tr>
                 </thead>
-                <tbody>
-                </tbody>
             </table>
         </div>
         <div class="error">
         </div>
     </div>
+
+<!-- Handlebars script tag entry -->
+{% raw %}
+<script id="people-table-template" type="text/x-handlebars-template">
+    <tbody>
+        {{#each people}}
+            <tr data-person_id="{{person_id}}" data-fname="{{fname}}" data-lname="{{lname}}">
+                <td class="timestamp">{{formatTimestamp timestamp}}</td>
+                <td class="name">{{fname}} {{lname}}</td>
+            </tr>
+        {{/each}}
+    </tbody>
+</script>
+{% endraw %}
+
 {% endblock %}
+
 {% block javascript %}
+{{ super() }}
 <script src="/static/js/people.js"></script>
 {% endblock %}

@@ -10,11 +10,11 @@
 {% block body %}
 <div class="blog">
     <table>
-        <caption>Blog Entries</caption>
+        <caption>People Blog Entries</caption>
         <thead>
             <tr>
-                <th>Author</th>
-                <th>Timestamp</th>
+                <th>Creation/Update Timestamp</th>
+                <th>Person</th>
                 <th>Note</th>
             </tr>
         </thead>
@@ -26,9 +26,9 @@
 <script id="blog-table-template" type="text/x-handlebars-template">
     <tbody>
         {{#each notes}}
-        <tr data-person-id="{{person.person_id}}" data-note-id="{{note_id}}">
+        <tr data-person_id="{{person.person_id}}" data-note_id="{{note_id}}">
+            <td class="timestamp">{{formatTimestamp timestamp}}</td>
             <td class="name">{{person.fname}} {{person.lname}}</td>
-            <td class="timestamp">{{timestamp}}</td>
             <td class="content">{{content}}</td>
         </tr>
         {{/each}}
@@ -39,5 +39,6 @@
 {% endblock %}
 
 {% block javascript %}
+{{ super() }}
 <script src="/static/js/home.js"></script>
 {% endblock %}

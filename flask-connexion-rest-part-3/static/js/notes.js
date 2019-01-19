@@ -14,10 +14,25 @@ ns.model = (function() {
 
     // Return the API
     return {
-        'read': function(person_id) {
+        read_one: function(person_id, note_id) {
             let ajax_options = {
                 type: 'GET',
-                url: `/api/people/${person_id}?get_notes=true`,
+                url: `/api/people/${person_id}/notes/${note_id}`,
+                accepts: 'application/json',
+                dataType: 'json'
+            };
+            $.ajax(ajax_options)
+            .done(function(data) {
+                $event_pump.trigger('model_read_one_success', [data]);
+            })
+            .fail(function(xhr, textStatus, errorThrown) {
+                $event_pump.trigger('model_error', [xhr, textStatus, errorThrown]);
+            })
+        },
+        read: function(person_id) {
+            let ajax_options = {
+                type: 'GET',
+                url: `/api/people/${person_id}`,
                 accepts: 'application/json',
                 dataType: 'json'
             };
@@ -109,7 +124,7 @@ ns.view = (function() {
         },
         update_editor: function(note) {
             $note_id.text(note.note_id);
-            $note.val(note.content);
+            $note.val(note.content).focus();
         },
         set_button_states: function(state) {
             if (state === NEW_NOTE) {
@@ -123,8 +138,9 @@ ns.view = (function() {
             }
         },
         build_table: function(person) {
-            let rows = '';
-            var notes = person.notes;
+            let source = $('#notes-table-template').html(),
+                template = Handlebars.compile(source),
+                html;
 
             // update the person data
             $person_id.text(person.person_id);
@@ -136,14 +152,13 @@ ns.view = (function() {
             $('.notes table > tbody').empty();
 
             // did we get a note array?
-            if (notes) {
-                for (let i=0, l=notes.length; i < l; i++) {
-                    rows += `<tr data-note-id="${notes[i].note_id}">
-                        <td class="content">${notes[i].content}</td>
-                        <td class="timestamp">${notes[i].timestamp}</td>
-                    </tr>`;
-                }
-                $('table > tbody').append(rows);
+            if (person.notes) {
+
+                // Create the HTML from the template and notes
+                html = template({notes: person.notes});
+
+                // Append the html to the table
+                $('table').append(html);
             }
         },
         error: function(error_msg) {
@@ -164,12 +179,19 @@ ns.controller = (function(m, v) {
     let model = m,
         view = v,
         $event_pump = $('body'),
-        person_id = window.location.pathname.split('/').slice(-1)[0],
+        $url_person_id = $('#url_person_id'),
+        $url_note_id = $('#url_note_id'),
         $note_id = $('#note_id'),
         $note = $('#note');
 
     // read the person data with notes
-    model.read(person_id);
+    setTimeout(function() {
+        view.reset();
+        model.read(parseInt($url_person_id.val()));
+        if ($url_note_id.val() !== "") {
+            model.read_one(parseInt($url_person_id.val()), parseInt($url_note_id.val()));
+        }
+    }, 100);
 
     // initialize the button states
     view.set_button_states(view.NEW_NOTE);
@@ -186,7 +208,7 @@ ns.controller = (function(m, v) {
         e.preventDefault();
 
         if (validate(note)) {
-            model.create(person_id, {
+            model.create(parseInt($('#url_person_id').val()), {
                 content: note
             });
         } else {
@@ -195,7 +217,8 @@ ns.controller = (function(m, v) {
     });
 
     $('#update').click(function(e) {
-        let note_id = parseInt($note_id.text()),
+        let person_id = parseInt($url_person_id.val()),
+            note_id = parseInt($note_id.text()),
             note = $note.val();
 
         e.preventDefault();
@@ -208,11 +231,11 @@ ns.controller = (function(m, v) {
         } else {
             alert('Problem with first or last name input');
         }
-        e.preventDefault();
     });
 
     $('#delete').click(function(e) {
-        let note_id = parseInt($note_id.text());
+        let person_id = parseInt($url_person_id.val()),
+            note_id = parseInt($note_id.text());
 
         e.preventDefault();
 
@@ -229,19 +252,10 @@ ns.controller = (function(m, v) {
         view.set_button_states(view.NEW_NOTE);
     })
 
-    $('table > tbody').on('click', 'tr', function(e) {
-        let $target = $(e.target),
-            note_id,
-            content;
-
-        note_id = $target
-            .parent()
-            .attr('data-note-id');
-
-        content = $target
-            .parent()
-            .find('td.content')
-            .text();
+    $('table').on('click', 'tbody tr', function(e) {
+        let $target = $(e.target).parent(),
+            note_id = $target.data('note_id'),
+            content = $target.data('content');
 
         view.update_editor({
             note_id: note_id,
@@ -251,25 +265,30 @@ ns.controller = (function(m, v) {
     });
 
     // Handle the model events
+    $event_pump.on('model_read_one_success', function(e, data) {
+        view.update_editor(data);
+        view.set_button_states(view.EXISTING_NOTE);
+    });
+
     $event_pump.on('model_read_success', function(e, data) {
         view.build_table(data);
-        view.reset();
     });
 
     $event_pump.on('model_create_success', function(e, data) {
-        model.read(person_id);
+        model.read(parseInt($('#url_person_id').val()));
         view.reset();
         view.set_button_states(view.NEW_NOTE);
     });
 
     $event_pump.on('model_update_success', function(e, data) {
-        model.read(person_id);
+        model.read(data.person.person_id);
         view.reset();
         view.set_button_states(view.NEW_NOTE);
     });
 
     $event_pump.on('model_delete_success', function(e, data) {
-        model.read(person_id);
+        model.read(parseInt($('#url_person_id').val()));
+        view.reset();
         view.set_button_states(view.NEW_NOTE);
     });
 

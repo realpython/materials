@@ -2,6 +2,11 @@
  * CSS stylesheet for home page
  */
 
+div.blog {
+    margin: 10px 10px 10px 10px;
+    border: 2px solid darkgrey;
+}
+
 .blog table {
     border-collapse: collapse;
     width: 100%;
@@ -10,7 +15,7 @@
 .blog table caption {
     font-weight: bold;
     padding: 10px 0 10px 0;
-    border-bottom: 1px solid darkgrey;
+    border-bottom: 2px solid darkgrey;
     background-color: antiquewhite;
 }
 
@@ -18,14 +23,8 @@
     padding: 10px 0 10px 0;
 }
 
-.blog table thead tj {
-    border-right: 1px solid darkgrey;
-}
-
-
-th, td {
-    padding: 3px;
-    border: 1px solid darkgrey;
+th:not(:last-child), td:not(:last-child) {
+    border-right: 2px solid darkgrey;
 }
 
 td.name {
@@ -35,21 +34,32 @@ td.name {
 
 td.timestamp {
     text-align: center;
-    width: 230px;
+    width: 280px;
 }
 
 td.content {
     text-align: left;
+    padding-left: 5px;
 }
 
 tbody tr:nth-child(odd) {
-    background-color: lightgrey;
+    background-color: gainsboro;
 }
 
-tbody tr {
+tbody td.name, tbody td.content {
     cursor: pointer;
+    height: 33px;
+}
+
+thead tr {
+    height: 33px;
+    border-bottom: 2px solid darkgrey;
+}
+
+tbody tr:not(:last-child){
+    border-bottom: 2px solid darkgrey;
 }
 
 tbody tr:hover {
-    background-color: aqua;
+    background-color: powderblue;
 }

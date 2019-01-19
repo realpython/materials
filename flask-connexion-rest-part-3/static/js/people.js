@@ -14,7 +14,22 @@ ns.model = (function() {
 
     // Return the API
     return {
-        'read': function() {
+        read_one: function(person_id) {
+            let ajax_options = {
+                type: 'GET',
+                url: `/api/people/${person_id}`,
+                accepts: 'application/json',
+                dataType: 'json'
+            };
+            $.ajax(ajax_options)
+                .done(function (data) {
+                    $event_pump.trigger('model_read_one_success', [data]);
+                })
+                .fail(function (xhr, textStatus, errorThrown) {
+                    $event_pump.trigger('model_error', [xhr, textStatus, errorThrown]);
+                });
+        },
+        read: function() {
             let ajax_options = {
                 type: 'GET',
                 url: '/api/people',
@@ -122,21 +137,21 @@ ns.view = (function() {
             }
         },
         build_table: function(people) {
-            let rows = ''
+            let source = $('#people-table-template').html(),
+                template = Handlebars.compile(source),
+                html;
 
             // clear the table
             $('.people table > tbody').empty();
 
             // did we get a people array?
             if (people) {
-                for (let i=0, l=people.length; i < l; i++) {
-                    rows += `<tr data-person-id="${people[i].person_id}">
-                        <td class="fname">${people[i].fname}</td>
-                        <td class="lname">${people[i].lname}</td>
-                        <td>${people[i].timestamp}</td>
-                    </tr>`;
-                }
-                $('table > tbody').append(rows);
+
+                // Create the HTML from the template and people
+                html = template({people: people})
+
+                // Append the html to the table
+                $('table').append(html);
             }
         },
         error: function(error_msg) {
@@ -157,13 +172,18 @@ ns.controller = (function(m, v) {
     let model = m,
         view = v,
         $event_pump = $('body'),
+        $url_person_id = $('#url_person_id'),
         $person_id = $('#person_id'),
         $fname = $('#fname'),
         $lname = $('#lname');
 
     // Get the data from the model after the controller is done initializing
     setTimeout(function() {
+        view.reset();
         model.read();
+        if ($url_person_id.val() !== "") {
+            model.read_one(parseInt($url_person_id.val()));
+        }
     }, 100)
 
     // initialize the button states
@@ -192,7 +212,7 @@ ns.controller = (function(m, v) {
     });
 
     $('#update').click(function(e) {
-        let person_id = $person_id.val(),
+        let person_id = parseInt($person_id.text()),
             fname = $fname.val(),
             lname = $lname.val();
 
@@ -211,7 +231,7 @@ ns.controller = (function(m, v) {
     });
 
     $('#delete').click(function(e) {
-        let person_id = $person_id.val();
+        let person_id = parseInt($person_id.text());
 
         e.preventDefault();
 
@@ -228,25 +248,11 @@ ns.controller = (function(m, v) {
         view.set_button_states(view.NEW_NOTE);
     })
 
-    $('table > tbody').on('click', 'tr', function(e) {
-        let $target = $(e.target),
-            person_id,
-            fname,
-            lname;
-
-        person_id = $target
-            .parent()
-            .attr('data-person-id');
-
-        fname = $target
-            .parent()
-            .find('td.fname')
-            .text();
-
-        lname = $target
-            .parent()
-            .find('td.lname')
-            .text();
+    $('table').on('click', 'tbody tr', function(e) {
+        let $target = $(e.target).parent(),
+            person_id = $target.data('person_id'),
+            fname = $target.data('fname'),
+            lname = $target.data('lname');
 
         view.update_editor({
             person_id: person_id,
@@ -256,18 +262,22 @@ ns.controller = (function(m, v) {
         view.set_button_states(view.EXISTING_NOTE);
     });
 
-    $('table > tbody').on('dblclick', 'tr', function(e) {
+    $('table').on('dblclick', 'tbody tr', function(e) {
         let $target = $(e.target),
-            person_id = $target.parent().attr('data-person-id');
+            person_id = $target.parent().attr('data-person_id');
 
-        window.location.href = `/notes/${person_id}`;
+        window.location.href = `/people/${person_id}/notes`;
 
     });
 
     // Handle the model events
+    $event_pump.on('model_read_one_success', function(e, data) {
+        view.update_editor(data);
+        view.set_button_states(view.EXISTING_NOTE);
+    });
+
     $event_pump.on('model_read_success', function(e, data) {
         view.build_table(data);
-        view.reset();
     });
 
     $event_pump.on('model_create_success', function(e, data) {
@@ -277,11 +287,13 @@ ns.controller = (function(m, v) {
 
     $event_pump.on('model_update_success', function(e, data) {
         model.read();
+        view.reset();
         view.set_button_states(view.NEW_NOTE);
     });
 
     $event_pump.on('model_delete_success', function(e, data) {
         model.read();
+        view.reset();
         view.set_button_states(view.NEW_NOTE);
     });
 

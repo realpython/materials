@@ -1,14 +1,18 @@
 {% extends "parent.html" %}
+
 {% block title %}Notes{% endblock %}
+
 {% block head %}
-    {{ super() }}
-    <link rel="stylesheet" href="/static/css/notes.css">
+{{ super() }}
+<link rel="stylesheet" href="/static/css/notes.css">
 {% endblock %}
 
 {% block page_name %}Person Note Create/Update/Delete Page{% endblock %}
 
 {% block body %}
     <div class="container">
+        <input id="url_person_id" type="hidden" value="{{ person_id }}" />
+        <input id="url_note_id" type="hidden" value="{{ note_id }}" />
         <div class="section display">
             <div>
                 <span>Person ID:</span>
@@ -47,8 +51,8 @@
             <caption>Notes</caption>
             <thead>
                 <tr>
-                    <th class="content">Content</th>
                     <th class="timestamp">Update Time</th>
+                    <th class="content">Content</th>
                 </tr>
             </thead>
             <tbody>
@@ -57,7 +61,23 @@
     </div>
     <div class="error">
     </div>
+
+{% raw %}
+<script id="notes-table-template" type="text/x-handlebars-template">
+    <tbody>
+        {{#each notes}}
+        <tr data-note_id="{{note_id}}" data-content="{{content}}">
+            <td class="timestamp">{{formatTimestamp timestamp}}</td>
+            <td class="content">{{content}}</td>
+        </tr>
+        {{/each}}
+    </tbody>
+</script>
+{% endraw %}
+
 {% endblock %}
+
 {% block javascript %}
-<script src="/static/js/notes_1.js"></script>
+{{ super() }}
+<script src="/static/js/notes.js"></script>
 {% endblock %}

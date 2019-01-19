@@ -41,7 +41,7 @@ ns.view = (function() {
     // Return the API
     return {
         build_table: function(data) {
-            var source = $('#blog-table-template').html(),
+            let source = $('#blog-table-template').html(),
                 template = Handlebars.compile(source),
                 html;
 
@@ -75,6 +75,23 @@ ns.controller = (function(m, v) {
     setTimeout(function() {
         model.read();
     }, 100);
+
+    // handle application events
+    $('table').on('dblclick', 'tbody td.name', function(e) {
+       let $target = $(e.target).parent(),
+           person_id = $target.data('person_id');
+
+       window.location = `/people/${person_id}`;
+
+    });
+
+    $('table').on('dblclick', 'tbody td.content', function(e) {
+       let $target = $(e.target).parent(),
+           person_id = $target.data('person_id'),
+           note_id = $target.data('note_id');
+
+       window.location = `people/${person_id}/notes/${note_id}`;
+    });
 
     // Handle the model events
     $event_pump.on('model_read_success', function(e, data) {
