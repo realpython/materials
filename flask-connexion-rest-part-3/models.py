@@ -36,10 +36,10 @@ class PersonSchema(ma.ModelSchema):
     class Meta:
         model = Person
         sqla_session = db.session
-    notes = fields.Nested('PersonNotesSchema', default=[], many=True)
+    notes = fields.Nested('PersonNoteSchema', default=[], many=True)
 
 
-class PersonNotesSchema(ma.ModelSchema):
+class PersonNoteSchema(ma.ModelSchema):
     """
     This class exists to get around a recursion issue
     """
@@ -53,10 +53,10 @@ class NoteSchema(ma.ModelSchema):
     class Meta:
         model = Note
         sqla_session = db.session
-    person = fields.Nested('NotesPersonSchema', default=None)
+    person = fields.Nested('NotePersonSchema', default=None)
 
 
-class NotesPersonSchema(ma.ModelSchema):
+class NotePersonSchema(ma.ModelSchema):
     """
     This class exists to get around a recursion issue
     """

@@ -36,10 +36,9 @@ def read_one(person_id):
     person = Person.query \
         .filter(Person.person_id == person_id) \
         .outerjoin(Note) \
-        .options(db.joinedload(Person.notes)) \
         .one_or_none()
 
-    # Did we find a person?
+        # Did we find a person?
     if person is not None:
 
         # Serialize the data for the response
