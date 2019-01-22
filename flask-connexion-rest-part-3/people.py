@@ -38,7 +38,7 @@ def read_one(person_id):
         .outerjoin(Note) \
         .one_or_none()
 
-        # Did we find a person?
+    # Did we find a person?
     if person is not None:
 
         # Serialize the data for the response

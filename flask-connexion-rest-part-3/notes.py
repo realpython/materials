@@ -26,7 +26,8 @@ def read_all():
 
 def read_one(person_id, note_id):
     """
-    This function responds to a request for /api/people/{person_id}/notes/{note_id}
+    This function responds to a request for
+    /api/people/{person_id}/notes/{note_id}
     with one matching note for the associated person
 
     :param person_id:       Id of person the note is related to
@@ -72,9 +73,6 @@ def create(person_id, note):
             "Person not found for Id: {person_id}".format(person_id=person_id),
         )
 
-    # Get the note content from the JSON body
-    content = note.get("content")
-
     # Create a note schema instance
     schema = NoteSchema()
     new_note = schema.load(note, session=db.session).data
@@ -99,8 +97,6 @@ def update(person_id, note_id, note):
     :param content:            The JSON containing the note data
     :return:                200 on success
     """
-    content = note.get("content")
-
     update_note = Note.query \
         .filter(Person.person_id == person_id) \
         .filter(Note.note_id == note_id) \

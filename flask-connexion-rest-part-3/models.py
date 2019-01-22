@@ -3,7 +3,6 @@ from config import db, ma
 from marshmallow import fields
 
 
-
 class Person(db.Model):
     __tablename__ = 'person'
     person_id = db.Column(db.Integer, primary_key=True)

@@ -18,8 +18,10 @@ PEOPLE = [
         "fname": "Kent",
         "lname": "Brockman",
         "notes": [
-            ("I'm going to make really profound observations", "2019-01-07 22:17:54"),
-            ("Maybe they'll be more obvious than I thought", "2019-02-06 22:17:54"),
+            ("I'm going to make really profound observations",
+             "2019-01-07 22:17:54"),
+            ("Maybe they'll be more obvious than I thought",
+             "2019-02-06 22:17:54"),
         ]
     },
     {
@@ -46,7 +48,10 @@ for person in PEOPLE:
     # Add the notes for the person
     for note in person.get("notes"):
         content, timestamp = note
-        p.notes.append(Note(content=content, timestamp=datetime.strptime(timestamp, "%Y-%m-%d %H:%M:%S")))
+        p.notes.append(Note(
+            content=content,
+            timestamp=datetime.strptime(timestamp, "%Y-%m-%d %H:%M:%S"))
+        )
     db.session.add(p)
 
 db.session.commit()
