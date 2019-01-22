@@ -113,7 +113,11 @@ class Mp3Frame(wx.Frame):
             wx.ID_ANY, "Open Folder", "Open a folder with MP3s"
         )
         menu_bar.Append(file_menu, "&File")
-        self.Bind(wx.EVT_MENU, self.on_open_folder, open_folder_menu_item)
+        self.Bind(
+            event=wx.EVT_MENU, 
+            handler=self.on_open_folder, 
+            source=open_folder_menu_item
+        )
         self.SetMenuBar(menu_bar)
 
     def on_open_folder(self, event):
