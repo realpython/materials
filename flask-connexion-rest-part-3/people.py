@@ -33,10 +33,11 @@ def read_one(person_id):
     :return:            person matching id
     """
     # Build the initial query
-    person = Person.query \
-        .filter(Person.person_id == person_id) \
-        .outerjoin(Note) \
+    person = (
+        Person.query.filter(Person.person_id == person_id)
+        .outerjoin(Note)
         .one_or_none()
+    )
 
     # Did we find a person?
     if person is not None:

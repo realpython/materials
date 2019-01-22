@@ -19,7 +19,7 @@ def read_all():
     notes = Note.query.order_by(db.desc(Note.timestamp)).all()
 
     # Serialize the list of notes from our data
-    note_schema = NoteSchema(many=True, exclude=['person.notes'])
+    note_schema = NoteSchema(many=True, exclude=["person.notes"])
     data = note_schema.dump(notes).data
     return data
 
@@ -35,11 +35,12 @@ def read_one(person_id, note_id):
     :return:                json string of note contents
     """
     # Query the database for the note
-    note = Note.query \
-        .join(Person, Person.person_id == Note.person_id) \
-        .filter(Person.person_id == person_id) \
-        .filter(Note.note_id == note_id) \
+    note = (
+        Note.query.join(Person, Person.person_id == Note.person_id)
+        .filter(Person.person_id == person_id)
+        .filter(Note.note_id == note_id)
         .one_or_none()
+    )
 
     # Was a note found?
     if note is not None:
@@ -49,10 +50,7 @@ def read_one(person_id, note_id):
 
     # Otherwise, nope, didn't find that note
     else:
-        abort(
-            404,
-            "Note not found for Id: {note_id}".format(note_id=note_id),
-        )
+        abort(404, "Note not found for Id: {note_id}".format(note_id=note_id))
 
 
 def create(person_id, note):
@@ -97,10 +95,11 @@ def update(person_id, note_id, note):
     :param content:            The JSON containing the note data
     :return:                200 on success
     """
-    update_note = Note.query \
-        .filter(Person.person_id == person_id) \
-        .filter(Note.note_id == note_id) \
+    update_note = (
+        Note.query.filter(Person.person_id == person_id)
+        .filter(Note.note_id == note_id)
         .one_or_none()
+    )
 
     # Did we find an existing note?
     if update_note is not None:
@@ -124,10 +123,7 @@ def update(person_id, note_id, note):
 
     # Otherwise, nope, didn't find that note
     else:
-        abort(
-            404,
-            "Note not found for Id: {note_id}".format(note_id=note_id),
-        )
+        abort(404, "Note not found for Id: {note_id}".format(note_id=note_id))
 
 
 def delete(person_id, note_id):
@@ -139,10 +135,11 @@ def delete(person_id, note_id):
     :return:            200 on successful delete, 404 if not found
     """
     # Get the note requested
-    note = Note.query \
-        .filter(Person.person_id == person_id) \
-        .filter(Note.note_id == note_id) \
+    note = (
+        Note.query.filter(Person.person_id == person_id)
+        .filter(Note.note_id == note_id)
         .one_or_none()
+    )
 
     # did we find a note?
     if note is not None:
@@ -154,7 +151,4 @@ def delete(person_id, note_id):
 
     # Otherwise, nope, didn't find that note
     else:
-        abort(
-            404,
-            "Note not found for Id: {note_id}".format(note_id=note_id),
-        )
+        abort(404, "Note not found for Id: {note_id}".format(note_id=note_id))
