@@ -8,55 +8,36 @@ class FakeDatabase():
         self.value = 0
         self._lock = threading.Lock()
 
-    def get_value(self):
-        return self.value
-
-    def set_value(self, value):
-        self.value = value
-
-    def lock_database(self):
-        self._lock.acquire()
-
-    def unlock_database(self):
-        self._lock.release()
-
-
-
-def bad_thread_function(database):
-    name = threading.current_thread().name
-    local_copy = database.get_value()
-    local_copy += 1
-    print(f"Thread {name}: starting")
-    time.sleep(0.1)
-    print(f"Thread {name}: finishing")
-    database.set_value(local_copy)
-
-
-def fixed_thread_function(database):
-    name = threading.current_thread().name
-    print(f"{name} about to lock")
-    database.lock_database()
-    print(f"{name} after lock")
-    try:
-        print(f"Thread {name}: starting")
-        local_copy = database.get_value()
+    def update(self, name):
+        local_copy = self.value
         local_copy += 1
+        print(f"Thread {name}: starting")
         time.sleep(0.1)
-        database.set_value(local_copy)
         print(f"Thread {name}: finishing")
-    finally:
-        print(f"{name} about to release")
-        database.unlock_database()
-        print(f"{name} after release")
+        self.value = local_copy
 
-
+    def locked_update(self, name):
+        print(f"Thread {name} about to lock")
+        with self._lock:
+            print(f"Thread {name} has lock")
+            self.update(name)
+            print(f"Thread {name} about to release lock")
+        print(f"Thread {name} after release")
 
 if __name__ == "__main__":
     database = FakeDatabase()
-    print(f"At the start, database has {database.get_value()}.")
+    print(f"Testing unlocked update. Starting value is {database.value}.")
     with concurrent.futures.ThreadPoolExecutor(max_workers=2) as executor:
-        for _ in range(2):
-            # executor.submit(bad_thread_function, database)
-            executor.submit(fixed_thread_function, database)
-    print(f"At the end, database has {database.get_value()}.")
+        for index in range(2):
+            executor.submit(database.update, index)
+    print(f"Testing unlocked update. Ending value is {database.value}.")
+
+    print("\nReset value in our fake database\n")
+    database.value = 0
+
+    print(f"Testing locked update. Starting value is {database.value}.")
+    with concurrent.futures.ThreadPoolExecutor(max_workers=2) as executor:
+        for index in range(2):
+            executor.submit(database.locked_update, index)
+    print(f"Testing locked update. Ending value is {database.value}.")
 

@@ -39,25 +39,33 @@ class Pipeline():
 
 
 
-def producer(pipeline):
+def producer(pipeline, event):
     '''Pretend we're getting a number from the network.'''
-    for index in range(10):
+    while not event.is_set():
         new_datapoint = random.randint(1,101)
+        # Sleep to simulate waiting for data from network
+        # time.sleep(float(new_datapoint)/100)
         logging.warning(f"Producer got data {new_datapoint}")
         pipeline.set_value(new_datapoint, "Producer")
+        # don't put sleep here as this will cause the system to stall when the
+        # consumer is active.  That will result in deadlock.
+        time.sleep(float(new_datapoint)/100)
 
-    # send a sentinel value to tell consumer we're done
-    pipeline.set_value(SENTINEL, "Producer")
+    logging.warning(f"Producer received event. Exiting")
+    pipeline.set_value(0, "Final Cleanout")
 
 
 
-def consumer(pipeline):
+def consumer(pipeline, event):
     ''' Pretend we're saving a number in the database. '''
     datapoint = 0
-    while datapoint != SENTINEL:
+    while not event.is_set():
         datapoint = pipeline.get_value("Consumer")
         if datapoint != SENTINEL:
             logging.warning(f"Consumer storing data: {datapoint}")
+
+    logging.warning(f"Consumer received event. Exiting")
+    # pipeline.get_value("Final clean out")
 
 
 if __name__ == "__main__":
@@ -67,7 +75,13 @@ if __name__ == "__main__":
     # logging.getLogger().setLevel(logging.DEBUG)
 
     pipeline = Pipeline()
+    event = threading.Event()
     with concurrent.futures.ThreadPoolExecutor(max_workers=2) as executor:
-        executor.submit(producer, pipeline)
-        executor.submit(consumer, pipeline)
+        executor.submit(producer, pipeline, event)
+        executor.submit(consumer, pipeline, event)
+
+        time.sleep(5)
+        logging.warning("Main: about to set event")
+        event.set()
+
 
