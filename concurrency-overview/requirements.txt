@@ -20,7 +20,6 @@ multidict==4.4.2
 multio==0.2.3
 outcome==0.1.0
 pathlib2==2.3.2
-pkg-resources==0.0.0
 pluggy==0.7.1
 py==1.6.0
 pycodestyle==2.3.1
