@@ -13,7 +13,7 @@ if __name__ == "__main__":
     logging.basicConfig(format='%(message)s')
 
     logging.warning("Main    : before creating thread")
-    x = threading.Thread(target=thread_function, args=[1,])
+    x = threading.Thread(target=thread_function, args=[1,], daemon=True)
     logging.warning("Main    : before running thread")
     x.start()
     logging.warning("Main    : wait for the thread to finish")
