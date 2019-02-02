@@ -7,14 +7,14 @@
 let ns = {};
 
 // Create the model instance
-ns.model = (function() {
+ns.model = (function () {
     'use strict';
 
     let $event_pump = $('body');
 
     // Return the API
     return {
-        read_one: function(person_id) {
+        read_one: function (person_id) {
             let ajax_options = {
                 type: 'GET',
                 url: `/api/people/${person_id}`,
@@ -29,7 +29,7 @@ ns.model = (function() {
                     $event_pump.trigger('model_error', [xhr, textStatus, errorThrown]);
                 });
         },
-        read: function() {
+        read: function () {
             let ajax_options = {
                 type: 'GET',
                 url: '/api/people',
@@ -37,14 +37,14 @@ ns.model = (function() {
                 dataType: 'json'
             };
             $.ajax(ajax_options)
-                .done(function(data) {
+                .done(function (data) {
                     $event_pump.trigger('model_read_success', [data]);
                 })
-                .fail(function(xhr, textStatus, errorThrown) {
+                .fail(function (xhr, textStatus, errorThrown) {
                     $event_pump.trigger('model_error', [xhr, textStatus, errorThrown]);
                 });
         },
-        create: function(person) {
+        create: function (person) {
             let ajax_options = {
                 type: 'POST',
                 url: '/api/people',
@@ -54,14 +54,14 @@ ns.model = (function() {
                 data: JSON.stringify(person)
             };
             $.ajax(ajax_options)
-                .done(function(data) {
+                .done(function (data) {
                     $event_pump.trigger('model_create_success', [data]);
                 })
-                .fail(function(xhr, textStatus, errorThrown) {
+                .fail(function (xhr, textStatus, errorThrown) {
                     $event_pump.trigger('model_error', [xhr, textStatus, errorThrown]);
                 });
         },
-        update: function(person) {
+        update: function (person) {
             let ajax_options = {
                 type: 'PUT',
                 url: `/api/people/${person.person_id}`,
@@ -71,14 +71,14 @@ ns.model = (function() {
                 data: JSON.stringify(person)
             };
             $.ajax(ajax_options)
-                .done(function(data) {
+                .done(function (data) {
                     $event_pump.trigger('model_update_success', [data]);
                 })
-                .fail(function(xhr, textStatus, errorThrown) {
+                .fail(function (xhr, textStatus, errorThrown) {
                     $event_pump.trigger('model_error', [xhr, textStatus, errorThrown]);
                 });
         },
-        'delete': function(person_id) {
+        'delete': function (person_id) {
             let ajax_options = {
                 type: 'DELETE',
                 url: `/api/people/${person_id}`,
@@ -86,10 +86,10 @@ ns.model = (function() {
                 contentType: 'plain/text'
             };
             $.ajax(ajax_options)
-                .done(function(data) {
+                .done(function (data) {
                     $event_pump.trigger('model_delete_success', [data]);
                 })
-                .fail(function(xhr, textStatus, errorThrown) {
+                .fail(function (xhr, textStatus, errorThrown) {
                     $event_pump.trigger('model_error', [xhr, textStatus, errorThrown]);
                 });
         }
@@ -97,11 +97,11 @@ ns.model = (function() {
 }());
 
 // Create the view instance
-ns.view = (function() {
+ns.view = (function () {
     'use strict';
 
     const NEW_NOTE = 0,
-          EXISTING_NOTE = 1;
+        EXISTING_NOTE = 1;
 
     let $person_id = $('#person_id'),
         $fname = $('#fname'),
@@ -115,17 +115,17 @@ ns.view = (function() {
     return {
         NEW_NOTE: NEW_NOTE,
         EXISTING_NOTE: EXISTING_NOTE,
-        reset: function() {
+        reset: function () {
             $person_id.text('');
             $lname.val('');
             $fname.val('').focus();
         },
-        update_editor: function(person) {
+        update_editor: function (person) {
             $person_id.text(person.person_id);
             $lname.val(person.lname);
             $fname.val(person.fname).focus();
         },
-        set_button_states: function(state) {
+        set_button_states: function (state) {
             if (state === NEW_NOTE) {
                 $create.prop('disabled', false);
                 $update.prop('disabled', true);
@@ -136,7 +136,7 @@ ns.view = (function() {
                 $delete.prop('disabled', false);
             }
         },
-        build_table: function(people) {
+        build_table: function (people) {
             let source = $('#people-table-template').html(),
                 template = Handlebars.compile(source),
                 html;
@@ -154,19 +154,19 @@ ns.view = (function() {
                 $('table').append(html);
             }
         },
-        error: function(error_msg) {
+        error: function (error_msg) {
             $('.error')
                 .text(error_msg)
                 .css('visibility', 'visible');
-            setTimeout(function() {
-                $('.error').css('visibility', 'hidden');
-            }, 3000)
+            setTimeout(function () {
+                $('.error').fadeOut();
+            }, 2000)
         }
     };
 }());
 
 // Create the controller
-ns.controller = (function(m, v) {
+ns.controller = (function (m, v) {
     'use strict';
 
     let model = m,
@@ -178,7 +178,7 @@ ns.controller = (function(m, v) {
         $lname = $('#lname');
 
     // Get the data from the model after the controller is done initializing
-    setTimeout(function() {
+    setTimeout(function () {
         view.reset();
         model.read();
         if ($url_person_id.val() !== "") {
@@ -195,7 +195,7 @@ ns.controller = (function(m, v) {
     }
 
     // Create our event handlers
-    $('#create').click(function(e) {
+    $('#create').click(function (e) {
         let fname = $fname.val(),
             lname = $lname.val();
 
@@ -211,7 +211,7 @@ ns.controller = (function(m, v) {
         }
     });
 
-    $('#update').click(function(e) {
+    $('#update').click(function (e) {
         let person_id = parseInt($person_id.text()),
             fname = $fname.val(),
             lname = $lname.val();
@@ -230,7 +230,7 @@ ns.controller = (function(m, v) {
         e.preventDefault();
     });
 
-    $('#delete').click(function(e) {
+    $('#delete').click(function (e) {
         let person_id = parseInt($person_id.text());
 
         e.preventDefault();
@@ -243,12 +243,12 @@ ns.controller = (function(m, v) {
         e.preventDefault();
     });
 
-    $('#reset').click(function() {
+    $('#reset').click(function () {
         view.reset();
         view.set_button_states(view.NEW_NOTE);
     })
 
-    $('table').on('click', 'tbody tr', function(e) {
+    $('table').on('click', 'tbody tr', function (e) {
         let $target = $(e.target).parent(),
             person_id = $target.data('person_id'),
             fname = $target.data('fname'),
@@ -262,7 +262,7 @@ ns.controller = (function(m, v) {
         view.set_button_states(view.EXISTING_NOTE);
     });
 
-    $('table').on('dblclick', 'tbody tr', function(e) {
+    $('table').on('dblclick', 'tbody tr', function (e) {
         let $target = $(e.target),
             person_id = $target.parent().attr('data-person_id');
 
@@ -271,33 +271,33 @@ ns.controller = (function(m, v) {
     });
 
     // Handle the model events
-    $event_pump.on('model_read_one_success', function(e, data) {
+    $event_pump.on('model_read_one_success', function (e, data) {
         view.update_editor(data);
         view.set_button_states(view.EXISTING_NOTE);
     });
 
-    $event_pump.on('model_read_success', function(e, data) {
+    $event_pump.on('model_read_success', function (e, data) {
         view.build_table(data);
     });
 
-    $event_pump.on('model_create_success', function(e, data) {
+    $event_pump.on('model_create_success', function (e, data) {
         model.read();
         view.set_button_states(view.NEW_NOTE);
     });
 
-    $event_pump.on('model_update_success', function(e, data) {
-        model.read();
-        view.reset();
-        view.set_button_states(view.NEW_NOTE);
-    });
-
-    $event_pump.on('model_delete_success', function(e, data) {
+    $event_pump.on('model_update_success', function (e, data) {
         model.read();
         view.reset();
         view.set_button_states(view.NEW_NOTE);
     });
 
-    $event_pump.on('model_error', function(e, xhr, textStatus, errorThrown) {
+    $event_pump.on('model_delete_success', function (e, data) {
+        model.read();
+        view.reset();
+        view.set_button_states(view.NEW_NOTE);
+    });
+
+    $event_pump.on('model_error', function (e, xhr, textStatus, errorThrown) {
         let error_msg = textStatus + ': ' + errorThrown + ' - ' + xhr.responseJSON.detail;
         view.error(error_msg);
         console.log(error_msg);
