@@ -108,14 +108,3 @@ tbody tr:hover {
 .timestamp {
     width: 30%;
 }
-
-.error {
-    width: 50%;
-    margin-left: auto;
-    margin-right: auto;
-    padding: 5px;
-    border: 1px solid lightgrey;
-    border-radius: 3px;
-    background-color: #fbb;
-    visibility: hidden;
-}
