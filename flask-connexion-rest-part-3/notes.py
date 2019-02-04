@@ -50,7 +50,7 @@ def read_one(person_id, note_id):
 
     # Otherwise, nope, didn't find that note
     else:
-        abort(404, "Note not found for Id: {note_id}".format(note_id=note_id))
+        abort(404, f"Note not found for Id: {note_id}")
 
 
 def create(person_id, note):
@@ -66,10 +66,7 @@ def create(person_id, note):
 
     # Was a person found?
     if person is None:
-        abort(
-            404,
-            "Person not found for Id: {person_id}".format(person_id=person_id),
-        )
+        abort(404, f"Person not found for Id: {person_id}")
 
     # Create a note schema instance
     schema = NoteSchema()
@@ -123,7 +120,7 @@ def update(person_id, note_id, note):
 
     # Otherwise, nope, didn't find that note
     else:
-        abort(404, "Note not found for Id: {note_id}".format(note_id=note_id))
+        abort(404, f"Note not found for Id: {note_id}")
 
 
 def delete(person_id, note_id):
@@ -151,4 +148,4 @@ def delete(person_id, note_id):
 
     # Otherwise, nope, didn't find that note
     else:
-        abort(404, "Note not found for Id: {note_id}".format(note_id=note_id))
+        abort(404, f"Note not found for Id: {note_id}")
