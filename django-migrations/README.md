@@ -1,0 +1,13 @@
+# Django Migrations: A Primer
+
+This directory contains the Django project created in the article [Django Migrations: A Primer](https://realpython.com/django-migrations-a-primer/).
+
+It is also used in the follow up article [Digging Deeper into Migrations](https://realpython.com/digging-deeper-into-migrations/).
+
+## Installation
+
+This Project has been tested with Python 3.6 and Django 2.1, but you should be able to run it with an Django 2.x and a compatible Python. The recommended way to install it is using `pip` and a virtualenv:
+
+    $ python3 -m venv .venv
+    $ source .venv/bin/activate
+    (.venv) $ pip install "Django==2.*"
