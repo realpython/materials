@@ -1,10 +1,10 @@
 # Getting Started with Interactive Visualization Using Bokeh
 
-Data and code snippets from tutorial.
+Data and code snippets from https://realpython.com/python-data-visualization-bokeh/
 
 ## Data
 
-Found in the [`data\`](https://github.com/LeonSD09/materials/tree/intro-to-bokeh/intro-to-bokeh/data) directory.
+Found in the [`data\`](https://github.com/realpython/materials/tree/intro-to-bokeh/intro-to-bokeh/data) directory.
 
 The tutorial utilizes the following three files:
 
@@ -24,6 +24,6 @@ This data is licensed under [**CC BY-SA 4.0**](https://creativecommons.org/licen
 
 ## Code Snippets
 
-Found in the [`code-snippets\`](https://github.com/LeonSD09/materials/tree/intro-to-bokeh/intro-to-bokeh/code-snippets) directory.
+Found in the [`code-snippets\`](https://github.com/realpython/materials/tree/intro-to-bokeh/intro-to-bokeh/code-snippets) directory.
 
 The code snippets found in the tutorial can be found here in individual files.
