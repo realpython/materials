@@ -49,10 +49,7 @@ def read_one(person_id):
 
     # Otherwise, nope, didn't find that person
     else:
-        abort(
-            404,
-            "Person not found for Id: {person_id}".format(person_id=person_id),
-        )
+        abort(404, f"Person not found for Id: {person_id}")
 
 
 def create(person):
@@ -90,12 +87,7 @@ def create(person):
 
     # Otherwise, nope, person exists already
     else:
-        abort(
-            409,
-            "Person {fname} {lname} exists already".format(
-                fname=fname, lname=lname
-            ),
-        )
+        abort(409, f"Person {fname} {lname} exists already")
 
 
 def update(person_id, person):
@@ -132,10 +124,7 @@ def update(person_id, person):
 
     # Otherwise, nope, didn't find that person
     else:
-        abort(
-            404,
-            "Person not found for Id: {person_id}".format(person_id=person_id),
-        )
+        abort(404, f"Person not found for Id: {person_id}")
 
 
 def delete(person_id):
@@ -152,13 +141,8 @@ def delete(person_id):
     if person is not None:
         db.session.delete(person)
         db.session.commit()
-        return make_response(
-            "Person {person_id} deleted".format(person_id=person_id), 200
-        )
+        return make_response(f"Person {person_id} deleted", 200)
 
     # Otherwise, nope, didn't find that person
     else:
-        abort(
-            404,
-            "Person not found for Id: {person_id}".format(person_id=person_id),
-        )
+        abort(404, f"Person not found for Id: {person_id}")

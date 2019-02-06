@@ -14,7 +14,6 @@ class Person(db.Model):
     notes = db.relationship(
         "Note",
         backref="person",
-        lazy="joined",
         cascade="all, delete, delete-orphan",
         single_parent=True,
         order_by="desc(Note.timestamp)",
