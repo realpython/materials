@@ -17,6 +17,6 @@ if __name__ == "__main__":
     logging.warning("Main    : before running thread")
     x.start()
     logging.warning("Main    : wait for the thread to finish")
-    # x.join()
+    x.join()
     logging.warning("Main    : all done")
 

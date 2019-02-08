@@ -1,22 +1,27 @@
 #!/usr/bin/env python3
 import concurrent.futures
+import logging
 import threading
 import time
 
-fake_database_access = 0
+class FakeDatabase():
+    def __init__(self):
+        self.value = 0
 
-def thread_function(name):
-    global fake_database_access
-    local_copy = fake_database_access
-    local_copy += 1
-    print(f"Thread {name}: starting")
-    time.sleep(0.1)
-    print(f"Thread {name}: finishing")
-    fake_database_access = local_copy
-
+    def update(self, name):
+        logging.warning(f"Thread {name}: starting update")
+        local_copy = self.value
+        local_copy += 1
+        time.sleep(0.1)
+        self.value = local_copy
+        logging.warning(f"Thread {name}: finishing update")
 
 if __name__ == "__main__":
-    with concurrent.futures.ThreadPoolExecutor(max_workers=5) as executor:
-        executor.map(thread_function, range(2))
-    print(f"At the end, database has {fake_database_access}.")
+    logging.basicConfig(format='%(message)s')
 
+    database = FakeDatabase()
+    logging.warning(f"Testing update. Starting value is {database.value}.")
+    with concurrent.futures.ThreadPoolExecutor(max_workers=2) as executor:
+        for index in range(2):
+            executor.submit(database.update, index)
+    logging.warning(f"Testing update. Ending value is {database.value}.")
