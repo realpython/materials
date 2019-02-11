@@ -16,23 +16,23 @@ class Pipeline():
         self._get_lock.acquire()
 
     def get_value(self, name):
-        logging.debug(f"{name}:about to acquire getlock")
+        logging.debug("%s:about to acquire getlock", name)
         self._get_lock.acquire()
-        logging.debug(f"{name}:have getlock")
+        logging.debug("%s:have getlock", name)
         value = self.value
-        logging.debug(f"{name}:about to release setlock")
+        logging.debug("%s:about to release setlock", name)
         self._set_lock.release()
-        logging.debug(f"{name}:setlock released")
+        logging.debug("%s:setlock released", name)
         return value
 
     def set_value(self, value, name):
-        logging.debug(f"{name}:about to acquire setlock")
+        logging.debug("%s:about to acquire setlock", name)
         self._set_lock.acquire()
-        logging.debug(f"{name}:have setlock")
+        logging.debug("%s:have setlock", name)
         self.value = value
-        logging.debug(f"{name}:about to release getlock")
+        logging.debug("%s:about to release getlock", name)
         self._get_lock.release()
-        logging.debug(f"{name}:getlock released")
+        logging.debug("%s:getlock released", name)
 
 def producer(pipeline, event):
     '''Pretend we're getting a number from the network.'''
@@ -40,16 +40,16 @@ def producer(pipeline, event):
         new_datapoint = random.randint(1,101)
         # Sleep to simulate waiting for data from network
         # time.sleep(float(new_datapoint)/100)
-        logging.warning(f"Producer got data {new_datapoint}")
+        logging.info("Producer got data %d", new_datapoint)
         pipeline.set_value(new_datapoint, "Producer")
         if event.is_set():
-            logging.warning(f"Producer received internal event. Exiting")
+            logging.info("Producer received internal event. Exiting")
 
         # don't put sleep here as this will cause the system to stall when the
         # consumer is active.  That will result in deadlock.
         # time.sleep(float(new_datapoint)/100)
 
-    logging.warning(f"Producer received event. Exiting")
+    logging.info("Producer received event. Exiting")
 
 
 def consumer(pipeline, event):
@@ -57,14 +57,15 @@ def consumer(pipeline, event):
     datapoint = 0
     while not event.is_set():
         datapoint = pipeline.get_value("Consumer")
-        logging.warning(f"Consumer storing data: {datapoint}")
+        logging.info("Consumer storing data: %d", datapoint)
 
-    logging.warning(f"Consumer received event. Exiting")
+    logging.info("Consumer received event. Exiting")
 
 
 if __name__ == "__main__":
-    logging.basicConfig(format='%(message)s')
-    # logging.getLogger().setLevel(logging.DEBUG)
+    format='%(asctime)s: %(message)s'
+    # logging.basicConfig(format=format, level=logging.INFO, datefmt='%H:%M:%S')
+    logging.basicConfig(format=format, level=logging.DEBUG, datefmt='%H:%M:%S')
 
     pipeline = Pipeline()
     event = threading.Event()
@@ -73,5 +74,5 @@ if __name__ == "__main__":
         executor.submit(consumer, pipeline, event)
 
         time.sleep(0.1)
-        logging.warning("Main: about to set event")
+        logging.info("Main: about to set event")
         event.set()

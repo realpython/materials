@@ -17,39 +17,40 @@ class Pipeline():
         return self.Q.qsize()
 
     def get_message(self, name):
-        logging.debug(f"{name}:about to get from queue")
+        logging.debug("%s:about to get from queue", name)
         value = self.Q.get()
-        logging.debug(f"{name}:got {value} from queue")
+        logging.debug("%s:got %d from queue", name, value)
         return value
 
     def set_message(self, value, name):
-        logging.debug(f"{name}:about to add {value} to queue")
+        logging.debug("%s:about to add %d to queue", name, value)
         self.Q.put(value)
-        logging.debug(f"{name}:added {value} to queue")
+        logging.debug("%s:added %d to queue", name, value)
 
 
 def producer(pipeline, event):
     '''Pretend we're getting a number from the network.'''
     while not event.is_set():
         message = random.randint(1,101)
-        logging.warning(f"Producer got message: {message}")
+        logging.info("Producer got message: %s", message)
         pipeline.set_message(message, "Producer")
 
-    logging.warning(f"Producer received EXIT event. Exiting")
+    logging.info("Producer received EXIT event. Exiting")
 
 def consumer(pipeline, event):
     ''' Pretend we're saving a number in the database. '''
     while not event.is_set() or not pipeline.empty():
         message = pipeline.get_message("Consumer")
-        logging.warning(f"Consumer storing message: {message}" +
-                        f" (queue size={pipeline.size()})")
+        logging.info("Consumer storing message: %s  (queue size=%s)", message,
+                     pipeline.size())
 
-    logging.warning(f"Consumer received EXIT event. Exiting")
+    logging.info("Consumer received EXIT event. Exiting")
 
 
 if __name__ == "__main__":
-    logging.basicConfig(format='%(message)s')
-    # logging.getLogger().setLevel(logging.DEBUG)
+    format='%(asctime)s: %(message)s'
+    logging.basicConfig(format=format, level=logging.INFO, datefmt='%H:%M:%S')
+    # logging.basicConfig(format=format, level=logging.DEBUG, datefmt='%H:%M:%S')
 
     pipeline = Pipeline()
     event = threading.Event()
@@ -58,5 +59,5 @@ if __name__ == "__main__":
         executor.submit(consumer, pipeline, event)
 
         time.sleep(0.1)
-        logging.warning("Main: about to set event")
+        logging.info("Main: about to set event")
         event.set()

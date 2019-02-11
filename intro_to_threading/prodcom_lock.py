@@ -17,23 +17,23 @@ class Pipeline():
         self.comsumer_lock.acquire()
 
     def get_message(self, name):
-        logging.debug(f"{name}:about to acquire getlock")
+        logging.debug("%s:about to acquire getlock", name)
         self.comsumer_lock.acquire()
-        logging.debug(f"{name}:have getlock")
+        logging.debug("%s:have getlock", name)
         message = self.message
-        logging.debug(f"{name}:about to release setlock")
+        logging.debug("%s:about to release setlock", name)
         self.producer_lock.release()
-        logging.debug(f"{name}:setlock released")
+        logging.debug("%s:setlock released", name)
         return message
 
     def set_message(self, message, name):
-        logging.debug(f"{name}:about to acquire setlock")
+        logging.debug("%s:about to acquire setlock", name)
         self.producer_lock.acquire()
-        logging.debug(f"{name}:have setlock")
+        logging.debug("%s:have setlock", name)
         self.message = message
-        logging.debug(f"{name}:about to release getlock")
+        logging.debug("%s:about to release getlock", name)
         self.comsumer_lock.release()
-        logging.debug(f"{name}:getlock released")
+        logging.debug("%s:getlock released", name)
 
 
 
@@ -41,7 +41,7 @@ def producer(pipeline):
     '''Pretend we're getting a message from the network.'''
     for index in range(10):
         message = random.randint(1,101)
-        logging.warning(f"Producer got message: {message}")
+        logging.info("Producer got message: %s", message)
         pipeline.set_message(message, "Producer")
 
     # send a sentinel message to tell consumer we're done
@@ -53,11 +53,12 @@ def consumer(pipeline):
     while message != SENTINEL:
         message = pipeline.get_message("Consumer")
         if message != SENTINEL:
-            logging.warning(f"Consumer storing message: {message}")
+            logging.info("Consumer storing message: %s", message)
 
 if __name__ == "__main__":
-    logging.basicConfig(format='%(message)s')
-    # logging.getLogger().setLevel(logging.DEBUG)
+    format='%(asctime)s: %(message)s'
+    logging.basicConfig(format=format, level=logging.INFO, datefmt='%H:%M:%S')
+    # logging.basicConfig(format=format, level=logging.DEBUG, datefmt='%H:%M:%S')
 
     pipeline = Pipeline()
     with concurrent.futures.ThreadPoolExecutor(max_workers=2) as executor:

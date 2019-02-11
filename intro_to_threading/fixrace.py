@@ -10,25 +10,26 @@ class FakeDatabase():
         self._lock = threading.Lock()
 
     def locked_update(self, name):
-        logging.warning(f"Thread {name}: starting update")
-        logging.debug(f"Thread {name} about to lock")
+        logging.info("Thread %s: starting update", name)
+        logging.debug("Thread %s about to lock", name)
         with self._lock:
-            logging.debug(f"Thread {name} has lock")
+            logging.debug("Thread %s has lock", name)
             local_copy = self.value
             local_copy += 1
             time.sleep(0.1)
             self.value = local_copy
-            logging.debug(f"Thread {name} about to release lock")
-        logging.debug(f"Thread {name} after release")
-        logging.warning(f"Thread {name}: finishing update")
+            logging.debug("Thread %s about to release lock", name)
+        logging.debug("Thread %s after release", name)
+        logging.info("Thread %s: finishing update", name)
 
 if __name__ == "__main__":
-    logging.basicConfig(format='%(message)s')
-    logging.getLogger().setLevel(logging.DEBUG)
+    format='%(asctime)s: %(message)s'
+    logging.basicConfig(format=format, level=logging.INFO, datefmt='%H:%M:%S')
+    # logging.basicConfig(format=format, level=logging.DEBUG, datefmt='%H:%M:%S')
 
     database = FakeDatabase()
-    logging.warning(f"Testing locked update. Starting value is {database.value}.")
+    logging.info("Testing locked update. Starting value is %d.", database.value)
     with concurrent.futures.ThreadPoolExecutor(max_workers=2) as executor:
         for index in range(2):
             executor.submit(database.locked_update, index)
-    logging.warning(f"Testing locked update. Ending value is {database.value}.")
+    logging.info("Testing locked update. Ending value is %d.", database.value)

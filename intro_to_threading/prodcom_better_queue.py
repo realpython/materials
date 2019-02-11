@@ -10,22 +10,23 @@ def producer(queue, event):
     '''Pretend we're getting a number from the network.'''
     while not event.is_set():
         message = random.randint(1,101)
-        logging.warning(f"Producer got message: {message}")
+        logging.info("Producer got message: %s", message)
         queue.put(message)
 
-    logging.warning(f"Producer received event. Exiting")
+    logging.info("Producer received event. Exiting")
 
 def consumer(queue, event):
     ''' Pretend we're saving a number in the database. '''
     while not event.is_set() or not pipeline.empty():
         message = queue.get()
-        logging.warning(f"Consumer storing message: {message}" +
-                        f" (size={queue.qsize()})")
+        logging.info("Consumer storing message: %s (size=%d)", message,
+                     queue.qsize())
 
-    logging.warning(f"Consumer received event. Exiting")
+    logging.info("Consumer received event. Exiting")
 
 if __name__ == "__main__":
-    logging.basicConfig(format='%(message)s')
+    format='%(asctime)s: %(message)s'
+    logging.basicConfig(format=format, level=logging.INFO, datefmt='%H:%M:%S')
 
     pipeline = queue.Queue(maxsize=10)
     event = threading.Event()
@@ -34,7 +35,7 @@ if __name__ == "__main__":
         executor.submit(consumer, pipeline, event)
 
         time.sleep(0.1)
-        logging.warning("Main: about to set event")
+        logging.info("Main: about to set event")
         event.set()
 
 

@@ -9,19 +9,20 @@ class FakeDatabase():
         self.value = 0
 
     def update(self, name):
-        logging.warning(f"Thread {name}: starting update")
+        logging.info("Thread %s: starting update", name)
         local_copy = self.value
         local_copy += 1
         time.sleep(0.1)
         self.value = local_copy
-        logging.warning(f"Thread {name}: finishing update")
+        logging.info("Thread %s: finishing update", name)
 
 if __name__ == "__main__":
-    logging.basicConfig(format='%(message)s')
+    format='%(asctime)s: %(message)s'
+    logging.basicConfig(format=format, level=logging.INFO, datefmt='%H:%M:%S')
 
     database = FakeDatabase()
-    logging.warning(f"Testing update. Starting value is {database.value}.")
+    logging.info("Testing update. Starting value is %d.", database.value)
     with concurrent.futures.ThreadPoolExecutor(max_workers=2) as executor:
         for index in range(2):
             executor.submit(database.update, index)
-    logging.warning(f"Testing update. Ending value is {database.value}.")
+    logging.info("Testing update. Ending value is %d.", database.value)

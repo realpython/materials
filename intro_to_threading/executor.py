@@ -5,13 +5,14 @@ import threading
 import time
 
 def thread_function(name):
-    logging.warning(f"Thread {name}: starting")
+    logging.info("Thread %s: starting", name)
     time.sleep(2)
-    logging.warning(f"Thread {name}: finishing")
+    logging.info("Thread %s: finishing", name)
 
 
 if __name__ == "__main__":
-    logging.basicConfig(format='%(message)s')
+    format='%(asctime)s: %(message)s'
+    logging.basicConfig(format=format, level=logging.INFO, datefmt='%H:%M:%S')
 
     with concurrent.futures.ThreadPoolExecutor(max_workers=5) as executor:
         executor.map(thread_function, range(3))
