@@ -4,7 +4,8 @@ import logging
 import threading
 import time
 
-class FakeDatabase():
+
+class FakeDatabase:
     def __init__(self):
         self.value = 0
         self._lock = threading.Lock()
@@ -22,13 +23,16 @@ class FakeDatabase():
         logging.debug("Thread %s after release", name)
         logging.info("Thread %s: finishing update", name)
 
+
 if __name__ == "__main__":
-    format='%(asctime)s: %(message)s'
-    logging.basicConfig(format=format, level=logging.INFO, datefmt='%H:%M:%S')
+    format = "%(asctime)s: %(message)s"
+    logging.basicConfig(format=format, level=logging.INFO, datefmt="%H:%M:%S")
     # logging.basicConfig(format=format, level=logging.DEBUG, datefmt='%H:%M:%S')
 
     database = FakeDatabase()
-    logging.info("Testing locked update. Starting value is %d.", database.value)
+    logging.info(
+        "Testing locked update. Starting value is %d.", database.value
+    )
     with concurrent.futures.ThreadPoolExecutor(max_workers=2) as executor:
         for index in range(2):
             executor.submit(database.locked_update, index)

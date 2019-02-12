@@ -6,9 +6,10 @@ import threading
 import time
 
 
-class Pipeline():
-    '''Class to allow a single element pipeline between producer and consumer.
-    '''
+class Pipeline:
+    """Class to allow a single element pipeline between producer and consumer.
+    """
+
     def __init__(self):
         self.value = 0
         self._set_lock = threading.Lock()
@@ -34,10 +35,11 @@ class Pipeline():
         self._get_lock.release()
         logging.debug("%s:getlock released", name)
 
+
 def producer(pipeline, event):
-    '''Pretend we're getting a number from the network.'''
+    """Pretend we're getting a number from the network."""
     while not event.is_set():
-        new_datapoint = random.randint(1,101)
+        new_datapoint = random.randint(1, 101)
         # Sleep to simulate waiting for data from network
         # time.sleep(float(new_datapoint)/100)
         logging.info("Producer got data %d", new_datapoint)
@@ -53,7 +55,7 @@ def producer(pipeline, event):
 
 
 def consumer(pipeline, event):
-    ''' Pretend we're saving a number in the database. '''
+    """ Pretend we're saving a number in the database. """
     datapoint = 0
     while not event.is_set():
         datapoint = pipeline.get_value("Consumer")
@@ -63,9 +65,9 @@ def consumer(pipeline, event):
 
 
 if __name__ == "__main__":
-    format='%(asctime)s: %(message)s'
+    format = "%(asctime)s: %(message)s"
     # logging.basicConfig(format=format, level=logging.INFO, datefmt='%H:%M:%S')
-    logging.basicConfig(format=format, level=logging.DEBUG, datefmt='%H:%M:%S')
+    logging.basicConfig(format=format, level=logging.DEBUG, datefmt="%H:%M:%S")
 
     pipeline = Pipeline()
     event = threading.Event()
