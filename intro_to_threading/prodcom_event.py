@@ -66,8 +66,8 @@ def consumer(pipeline, event):
 
 if __name__ == "__main__":
     format = "%(asctime)s: %(message)s"
-    # logging.basicConfig(format=format, level=logging.INFO, datefmt='%H:%M:%S')
-    logging.basicConfig(format=format, level=logging.DEBUG, datefmt="%H:%M:%S")
+    logging.basicConfig(format=format, level=logging.INFO, datefmt='%H:%M:%S')
+    # logging.getLogger().setLevel(logging.DEBUG)
 
     pipeline = Pipeline()
     event = threading.Event()
