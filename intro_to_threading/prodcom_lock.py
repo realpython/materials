@@ -45,7 +45,7 @@ def producer(pipeline):
         logging.info("Producer got message: %s", message)
         pipeline.set_message(message, "Producer")
 
-    # send a sentinel message to tell consumer we're done
+    # Send a sentinel message to tell consumer we're done
     pipeline.set_message(SENTINEL, "Producer")
 
 
