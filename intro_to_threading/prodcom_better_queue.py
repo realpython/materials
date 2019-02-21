@@ -30,7 +30,8 @@ def consumer(queue, event):
 
 if __name__ == "__main__":
     format = "%(asctime)s: %(message)s"
-    logging.basicConfig(format=format, level=logging.INFO, datefmt="%H:%M:%S")
+    logging.basicConfig(format=format, level=logging.INFO,
+                        datefmt="%H:%M:%S")
 
     pipeline = queue.Queue(maxsize=10)
     event = threading.Event()
