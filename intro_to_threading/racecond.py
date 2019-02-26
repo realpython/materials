@@ -1,7 +1,6 @@
 #!/usr/bin/env python3
 import concurrent.futures
 import logging
-import threading
 import time
 
 

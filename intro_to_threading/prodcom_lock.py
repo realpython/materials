@@ -3,7 +3,6 @@ import concurrent.futures
 import logging
 import random
 import threading
-import time
 
 SENTINEL = -1
 
