@@ -14,12 +14,12 @@ class Pipeline:
     def __init__(self):
         self.message = 0
         self.producer_lock = threading.Lock()
-        self.comsumer_lock = threading.Lock()
-        self.comsumer_lock.acquire()
+        self.consumer_lock = threading.Lock()
+        self.consumer_lock.acquire()
 
     def get_message(self, name):
         logging.debug("%s:about to acquire getlock", name)
-        self.comsumer_lock.acquire()
+        self.consumer_lock.acquire()
         logging.debug("%s:have getlock", name)
         message = self.message
         logging.debug("%s:about to release setlock", name)
@@ -33,7 +33,7 @@ class Pipeline:
         logging.debug("%s:have setlock", name)
         self.message = message
         logging.debug("%s:about to release getlock", name)
-        self.comsumer_lock.release()
+        self.consumer_lock.release()
         logging.debug("%s:getlock released", name)
 
 
