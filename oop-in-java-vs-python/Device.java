@@ -6,7 +6,7 @@
 public interface Device {
 
     /**
-     * getVoltage returns the current battery voltage
+     * getVoltage returns the current battery voltageS
      */
     int getVoltage();
 }
