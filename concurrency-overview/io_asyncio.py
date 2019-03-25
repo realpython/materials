@@ -20,7 +20,7 @@ async def download_all_sites(sites):
 
 if __name__ == "__main__":
     sites = [
-        "http://www.jython.org",
+        "https://www.jython.org",
         "http://olympus.realpython.org/dice",
     ] * 80
     start_time = time.time()
