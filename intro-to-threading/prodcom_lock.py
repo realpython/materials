@@ -4,7 +4,7 @@ import logging
 import random
 import threading
 
-SENTINEL = -1
+SENTINEL = object()
 
 
 class Pipeline:
@@ -51,9 +51,9 @@ def producer(pipeline):
 def consumer(pipeline):
     """ Pretend we're saving a number in the database. """
     message = 0
-    while message != SENTINEL:
+    while message is not SENTINEL:
         message = pipeline.get_message("Consumer")
-        if message != SENTINEL:
+        if message is not SENTINEL:
             logging.info("Consumer storing message: %s", message)
 
 
