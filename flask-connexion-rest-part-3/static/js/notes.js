@@ -158,7 +158,7 @@ ns.controller = (function (m, v) {
             .done(function (data) {
                 view.build_table(data);
                 view.update_editor(data);
-                view.set_button_states(view.EXISTING_NOTE);
+                view.set_button_states(view.NEW_NOTE);
             })
             .fail(function (xhr, textStatus, errorThrown) {
                 error_handler(xhr, textStatus, errorThrown);
@@ -203,7 +203,13 @@ ns.controller = (function (m, v) {
                 content: note
             })
                 .done(function (data) {
-                    model.read(parseInt($('#url_person_id').val()));
+                    model.read(parseInt($('#url_person_id').val()))
+                        .done(function(data) {
+                            view.build_table(data);
+                        })
+                        .fail(function(xhr, textStatus, errorThrown) {
+                            error_handler(xhr, textStatus, errorThrown);
+                        });
                     view.reset();
                     view.set_button_states(view.NEW_NOTE);
                 })
@@ -229,7 +235,13 @@ ns.controller = (function (m, v) {
                 content: note
             })
                 .done(function (data) {
-                    model.read(data.person.person_id);
+                    model.read(data.person.person_id)
+                        .done(function(data) {
+                            view.build_table(data);
+                        })
+                        .fail(function(xhr, textStatus, errorThrown) {
+                            error_handler(xhr, textStatus, errorThrown);
+                        });
                     view.reset();
                     view.set_button_states(view.NEW_NOTE);
                 })
@@ -251,7 +263,13 @@ ns.controller = (function (m, v) {
         if (validate('placeholder', lname)) {
             model.delete(person_id, note_id)
                 .done(function (data) {
-                    model.read(parseInt($('#url_person_id').val()));
+                    model.read(parseInt($('#url_person_id').val()))
+                        .done(function(data) {
+                            view.build_table(data);
+                        })
+                        .fail(function(xhr, textStatus, errorThrown) {
+                            error_handler(xhr, textStatus, errorThrown);
+                        });
                     view.reset();
                     view.set_button_states(view.NEW_NOTE);
                 })
@@ -262,7 +280,6 @@ ns.controller = (function (m, v) {
         } else {
             alert('Problem with first or last name input');
         }
-        e.preventDefault();
     });
 
     $('#reset').click(function () {
