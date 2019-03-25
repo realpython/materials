@@ -37,6 +37,13 @@ public class Car extends Vehicle implements Device {
     }
 
     /**
+     * setYear changes Car's year
+     */
+    public void setYear(int year) {
+        this.year = year;
+    }
+
+    /**
      * getWheels returns the number of wheels
      */
     public static int getWheels() {
