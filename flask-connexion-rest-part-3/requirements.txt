@@ -15,6 +15,7 @@ MarkupSafe==1.1.0
 marshmallow==2.18.0
 marshmallow-sqlalchemy==0.15.0
 openapi-spec-validator==0.2.4
+pathlib==1.0.1
 PyYAML==4.2b4
 requests==2.21.0
 six==1.12.0
