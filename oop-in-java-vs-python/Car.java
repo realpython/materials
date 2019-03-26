@@ -51,7 +51,7 @@ public class Car extends Vehicle implements Device {
     }
 
     /**
-     * setWheelsw sets the number wheels
+     * setWheels sets the number wheels
      */
     public static void setWheels(int count) {
         wheels = count;
