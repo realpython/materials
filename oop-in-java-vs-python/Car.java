@@ -8,7 +8,7 @@
 
 public class Car extends Vehicle implements Device {
 
-    private int year; // Year of our ccar
+    private int year; // Year of our car
     private int voltage; // Battery voltage
     private static int wheels; // How many wheels do we have
 
