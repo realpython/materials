@@ -49,7 +49,7 @@ class Car(Vehicle, Device):
 
     @voltage.deleter
     def voltage(self):
-        """Warn the user beore deleting the voltage"""
+        """Warn the user before deleting the voltage"""
         print("Warning: the radio will stop working!")
         del self._voltage
 
