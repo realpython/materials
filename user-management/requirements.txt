@@ -1,0 +1,7 @@
+appdirs==1.4.3
+attrs==19.1.0
+Click==7.0
+Django==2.2
+pytz==2019.1
+sqlparse==0.3.0
+toml==0.10.0
