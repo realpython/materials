@@ -1,0 +1,12 @@
+<h1>
+    Hey,
+    {% if user.first_name %}
+        {{ user.first_name }}
+    {% else %}
+        {{ user.username }}
+    {% endif %}
+</h1>
+
+<p><a href="{% url 'logout' %}">Log out</a></p>
+<p><a href="{% url 'password_change' %}">Change Password</a></p>
+<p><a href="{% url 'edit_profile' %}">Edit Profile</a></p>
