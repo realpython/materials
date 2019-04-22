@@ -1,0 +1,11 @@
+<h1>Log In</h1>
+
+<form method="post" action="{% url 'login' %}">
+    {% csrf_token %}
+    {{ form.as_p }}
+
+    <p><a href="{% url 'password_reset' %}">Lost password?</a></p>
+
+    <input class="btn btn-block btn-primary" type="submit" value="Login">
+    <input type="hidden" name="next" value="{{ next }}">
+</form>
