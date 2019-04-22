@@ -5,6 +5,7 @@
     {{ form.as_p }}
 
     <p><a href="{% url 'password_reset' %}">Lost password?</a></p>
+    <p>New User? Sign up <a href="{% url 'signup' %}">here</a>.</p>
 
     <input class="btn btn-block btn-primary" type="submit" value="Login">
     <input type="hidden" name="next" value="{{ next }}">
