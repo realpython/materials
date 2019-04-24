@@ -1,34 +1,43 @@
 """
-example_4.py
+example_5.py
 
 Just a short example demonstrating a simple state machine in Python
-However, this one has delays that affect it
+This version is doing actual work, downloading the contents of
+URL's it gets from a queue
 """
 
 import asyncio
+import urllib.request
 from lib.elapsed_time import ET
 
 
 async def task(name, work_queue):
     while not work_queue.empty():
-        delay = await work_queue.get()
-        total = 0
+        url = await work_queue.get()
+        print(f"Task {name} getting URL: {url}")
         et = ET()
-        print(f"Task {name} running")
-        await asyncio.sleep(delay)
+        response = urllib.request.urlopen(url)
+        html = response.read()
         print(f"Task {name} total elapsed time: {et():.1f}")
 
 
 async def main():
     """
-    This is the main entry point for the programWhen
+    This is the main entry point for the program
     """
     # create the queue of 'work'
     work_queue = asyncio.Queue()
 
     # put some 'work' in the queue
-    for work in [15, 10, 5, 2]:
-        await work_queue.put(work)
+    for url in [
+        "http://google.com",
+        "http://yahoo.com",
+        "http://linkedin.com",
+        "http://shutterfly.com",
+        "http://mypublisher.com",
+        "http://facebook.com",
+    ]:
+        await work_queue.put(url)
 
     # run the tasks
     et = ET()
@@ -36,6 +45,7 @@ async def main():
         asyncio.create_task(task("One", work_queue)),
         asyncio.create_task(task("Two", work_queue)),
     )
+
     print()
     print(f"Total elapsed time: {et():.1f}")
 

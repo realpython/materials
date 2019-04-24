@@ -12,16 +12,13 @@ from lib.elapsed_time import ET
 
 def task(name, queue):
     while not queue.empty():
-        count = queue.get()
+        delay = queue.get()
         total = 0
         et = ET()
-        for x in range(count):
-            print(f"Task {name} running")
-            time.sleep(1)
-            total += 1
-            yield
-        print(f"Task {name} total: {total}")
+        print(f"Task {name} running")
+        time.sleep(delay)
         print(f"Task {name} total elapsed time: {et():.1f}")
+        yield
 
 
 def main():
