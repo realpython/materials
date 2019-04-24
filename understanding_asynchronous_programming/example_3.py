@@ -13,7 +13,6 @@ from lib.elapsed_time import ET
 def task(name, queue):
     while not queue.empty():
         delay = queue.get()
-        total = 0
         et = ET()
         print(f"Task {name} running")
         time.sleep(delay)
@@ -33,7 +32,8 @@ def main():
         work_queue.put(work)
 
     tasks = [task("One", work_queue), task("Two", work_queue)]
-    # run the scheduler to run the tasks
+
+    # run the tasks
     et = ET()
     done = False
     while not done:
@@ -45,8 +45,7 @@ def main():
             if len(tasks) == 0:
                 done = True
 
-    print()
-    print("Total elapsed time: {}".format(et()))
+    print("\nTotal elapsed time: {}".format(et()))
 
 
 if __name__ == "__main__":

@@ -12,7 +12,6 @@ from lib.elapsed_time import ET
 async def task(name, work_queue):
     while not work_queue.empty():
         delay = await work_queue.get()
-        total = 0
         et = ET()
         print(f"Task {name} running")
         await asyncio.sleep(delay)
@@ -36,8 +35,7 @@ async def main():
         asyncio.create_task(task("One", work_queue)),
         asyncio.create_task(task("Two", work_queue)),
     )
-    print()
-    print(f"Total elapsed time: {et():.1f}")
+    print(f"\nTotal elapsed time: {et():.1f}")
 
 
 if __name__ == "__main__":

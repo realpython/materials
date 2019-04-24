@@ -34,9 +34,10 @@ async def main():
         "http://google.com",
         "http://yahoo.com",
         "http://linkedin.com",
-        "http://shutterfly.com",
-        "http://mypublisher.com",
+        "http://apple.com",
+        "http://microsoft.com",
         "http://facebook.com",
+        "http://twitter.com"
     ]:
         await work_queue.put(url)
 
@@ -46,9 +47,7 @@ async def main():
         asyncio.create_task(task("One", work_queue)),
         asyncio.create_task(task("Two", work_queue)),
     )
-
-    print()
-    print(f"Total elapsed time: {et():.1f}")
+    print(f"\nTotal elapsed time: {et():.1f}")
 
 
 if __name__ == "__main__":

@@ -25,6 +25,7 @@ def task(name, work_queue):
         print(f'Task {name} got URL: {url}')
         print(f'Task {name} total elapsed time: {et():.1f}')
 
+
 def main():
     """
     This is the main entry point for the program
@@ -50,8 +51,8 @@ def main():
         gevent.spawn(task, 'Two', work_queue)
     ]
     gevent.joinall(tasks)
-    print()
-    print(f'Total elapsed time: {et():.1f}')
+
+    print(f'\nTotal elapsed time: {et():.1f}')
 
 if __name__ == '__main__':
     main()
