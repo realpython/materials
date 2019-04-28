@@ -1,7 +1,13 @@
-<h1>Edit Profile!</h1>
+{% extends "base.html" %}
 
-<form method="post">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <input type="submit" name="" value="Update Profile">
-</form>
+{% block page_content %}
+<div class="col-md-6 offset-md-3">
+    <h1 class="mt-4 mb-4">Edit Profile!</h1>
+
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input class="btn btn-primary" type="submit" name="" value="Update Profile">
+    </form>
+</div>
+{% endblock %}

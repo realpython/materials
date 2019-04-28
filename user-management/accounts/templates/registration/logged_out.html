@@ -1,3 +1,9 @@
-<h1>You've been logged out</h1>
+{% extends "base.html" %}
 
-<p>Log in again <a href="{% url 'login' %}">here</a></p>
+{% block page_content %}
+<div class="col-md-6 offset-md-3">
+    <h1 class="mt-4 mb-4">You've been logged out</h1>
+
+    <p class="small">Log in again <a href="{% url 'login' %}">here</a></p>
+</div>
+{% endblock%}

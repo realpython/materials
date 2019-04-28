@@ -1,12 +1,16 @@
-<h1>Log In</h1>
+{% extends "base.html" %}
 
-<form method="post" action="{% url 'login' %}">
-    {% csrf_token %}
-    {{ form.as_p }}
+{% block page_content %}
+<div class="col-md-6 offset-md-3">
+    <h1 class="mt-4 mb-4">Log In</h1>
+    <form method="post" action="{% url 'login' %}">
+        {% csrf_token %}
+        {{ form.as_p }}
 
-    <p><a href="{% url 'password_reset' %}">Lost password?</a></p>
-    <p>New User? Sign up <a href="{% url 'signup' %}">here</a>.</p>
-
-    <input class="btn btn-block btn-primary" type="submit" value="Login">
-    <input type="hidden" name="next" value="{{ next }}">
-</form>
+        <p class="small mb-0"><a href="{% url 'password_reset' %}">Lost password?</a></p>
+        <p class="small">New User? Sign up <a href="{% url 'signup' %}">here</a>.</p>
+        <input class="btn btn-primary" type="submit" value="Login">
+        <input type="hidden" name="next" value="{{ next }}">
+    </form>
+</div>
+{% endblock%}

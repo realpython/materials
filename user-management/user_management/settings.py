@@ -55,7 +55,7 @@ ROOT_URLCONF = "user_management.urls"
 TEMPLATES = [
     {
         "BACKEND": "django.template.backends.django.DjangoTemplates",
-        "DIRS": [],
+        "DIRS": ["user_management/templates/"],
         "APP_DIRS": True,
         "OPTIONS": {
             "context_processors": [
