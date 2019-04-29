@@ -10,7 +10,7 @@ async def task(name, work_queue):
             print(f"Task {name} getting URL: {url}")
             et = ET()
             async with session.get(url) as response:
-                html = await response.text()
+                await response.text()
             print(f"Task {name} total elapsed time: {et():.1f}")
 
 
