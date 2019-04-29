@@ -1,9 +1,3 @@
-"""
-example_1.py
-
-Just a short example showing synchronous running of 'tasks'
-"""
-
 import queue
 
 
@@ -14,8 +8,8 @@ def task(name, work_queue):
         while not work_queue.empty():
             count = work_queue.get()
             total = 0
+            print(f"Task {name} running")
             for x in range(count):
-                print(f"Task {name} running")
                 total += 1
             print(f"Task {name} total: {total}")
 
@@ -32,7 +26,10 @@ def main():
         work_queue.put(work)
 
     # create some tasks
-    tasks = [(task, "One", work_queue), (task, "Two", work_queue)]
+    tasks = [
+        (task, "One", work_queue),
+        (task, "Two", work_queue)
+    ]
 
     # run the tasks
     for t, n, q in tasks:

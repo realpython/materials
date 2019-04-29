@@ -1,10 +1,3 @@
-"""
-example_3.py
-
-Just a short example demonstraing a simple state machine in Python
-However, this one has delays that affect it
-"""
-
 import time
 import queue
 from lib.elapsed_time import ET
@@ -31,7 +24,10 @@ def main():
     for work in [15, 10, 5, 2]:
         work_queue.put(work)
 
-    tasks = [task("One", work_queue), task("Two", work_queue)]
+    tasks = [
+        task("One", work_queue),
+        task("Two", work_queue)
+    ]
 
     # run the tasks
     et = ET()

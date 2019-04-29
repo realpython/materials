@@ -1,10 +1,3 @@
-"""
-example_4.py
-
-Just a short example demonstrating a simple state machine in Python
-However, this one has delays that affect it
-"""
-
 import asyncio
 from lib.elapsed_time import ET
 

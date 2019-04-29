@@ -1,11 +1,3 @@
-"""
-example_5.py
-
-Just a short example demonstrating a simple state machine in Python
-This version is doing actual work, downloading the contents of
-URL's it gets from a queue
-"""
-
 import queue
 import requests
 from lib.elapsed_time import ET
@@ -19,6 +11,7 @@ def task(name, work_queue):
         requests.get(url)
         print(f"Task {name} total elapsed time: {et():.1f}")
         yield
+
 
 def main():
     """
@@ -39,7 +32,10 @@ def main():
     ]:
         work_queue.put(url)
 
-    tasks = [task("One", work_queue), task("Two", work_queue)]
+    tasks = [
+        task("One", work_queue),
+        task("Two", work_queue)
+    ]
 
     # run the tasks
     et = ET()

@@ -1,11 +1,3 @@
-"""
-example_5.py
-
-Just a short example demonstrating a simple state machine in Python
-This version is doing actual work, downloading the contents of
-URL's it gets from a queue
-"""
-
 import asyncio
 import aiohttp
 from lib.elapsed_time import ET
@@ -18,7 +10,7 @@ async def task(name, work_queue):
             print(f"Task {name} getting URL: {url}")
             et = ET()
             async with session.get(url) as response:
-                await response.text()
+                html = await response.text()
             print(f"Task {name} total elapsed time: {et():.1f}")
 
 
@@ -37,7 +29,7 @@ async def main():
         "http://apple.com",
         "http://microsoft.com",
         "http://facebook.com",
-        "http://twitter.com"
+        "http://twitter.com",
     ]:
         await work_queue.put(url)
 
