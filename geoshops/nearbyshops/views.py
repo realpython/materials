@@ -9,8 +9,8 @@ from .models import Shop
 # https://docs.djangoproject.com/en/1.11/ref/contrib/gis/geoip/
 # or get user's location from HTML:
 # https://www.w3schools.com/html/html5_geolocation.asp
-latitude = 39.290440
-longitude = -76.612330
+latitude = 39.290_440
+longitude = -76.612_330
 
 user_location = Point(longitude, latitude, srid=4326)
 
