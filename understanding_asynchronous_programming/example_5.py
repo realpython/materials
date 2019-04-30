@@ -17,10 +17,10 @@ def main():
     """
     This is the main entry point for the program
     """
-    # create the queue of 'work'
+    # Create the queue of 'work'
     work_queue = queue.Queue()
 
-    # put some 'work' in the queue
+    # Put some 'work' in the queue
     for url in [
         "http://google.com",
         "http://yahoo.com",
@@ -37,7 +37,7 @@ def main():
         task("Two", work_queue)
     ]
 
-    # run the tasks
+    # Run the tasks
     et = ET()
     done = False
     while not done:

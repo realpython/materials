@@ -18,10 +18,10 @@ async def main():
     """
     This is the main entry point for the program
     """
-    # create the queue of 'work'
+    # Create the queue of 'work'
     work_queue = asyncio.Queue()
 
-    # put some 'work' in the queue
+    # Put some 'work' in the queue
     for url in [
         "http://google.com",
         "http://yahoo.com",
@@ -33,7 +33,7 @@ async def main():
     ]:
         await work_queue.put(url)
 
-    # run the tasks
+    # Run the tasks
     et = ET()
     await asyncio.gather(
         asyncio.create_task(task("One", work_queue)),

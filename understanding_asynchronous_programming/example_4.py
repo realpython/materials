@@ -15,14 +15,14 @@ async def main():
     """
     This is the main entry point for the program
     """
-    # create the queue of 'work'
+    # Create the queue of 'work'
     work_queue = asyncio.Queue()
 
-    # put some 'work' in the queue
+    # Put some 'work' in the queue
     for work in [15, 10, 5, 2]:
         await work_queue.put(work)
 
-    # run the tasks
+    # Run the tasks
     et = ET()
     await asyncio.gather(
         asyncio.create_task(task("One", work_queue)),
