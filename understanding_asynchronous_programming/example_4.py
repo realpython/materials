@@ -13,7 +13,7 @@ async def task(name, work_queue):
 
 async def main():
     """
-    This is the main entry point for the programWhen
+    This is the main entry point for the program
     """
     # create the queue of 'work'
     work_queue = asyncio.Queue()
