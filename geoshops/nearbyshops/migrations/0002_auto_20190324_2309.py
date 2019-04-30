@@ -29,7 +29,7 @@ def load_data(apps, schema_editor):
             except KeyError:
                 pass
 
-            
+
 class Migration(migrations.Migration):
 
     dependencies = [
