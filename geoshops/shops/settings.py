@@ -77,7 +77,7 @@ WSGI_APPLICATION = 'shops.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.contrib.gis.db.backends.postgis', # postgresql / postgis db
+        'ENGINE': 'django.contrib.gis.db.backends.postgis', 
         'NAME': 'shops',
         'USER': 'shopadmin',
         'PASSWORD': 'shoppass',
