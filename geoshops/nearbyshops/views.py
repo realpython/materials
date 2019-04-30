@@ -1,16 +1,19 @@
-from django.shortcuts import render
+# from django.shortcuts import render
 from django.views import generic
 from django.contrib.gis.geos import Point
 from django.contrib.gis.db.models.functions import Distance
 from .models import Shop
 
 # hardcoded user location
-# get user's location from IP https://docs.djangoproject.com/en/1.11/ref/contrib/gis/geoip/
-# or get user's location from HTML https://www.w3schools.com/html/html5_geolocation.asp
+# get user's location from IP:
+# https://docs.djangoproject.com/en/1.11/ref/contrib/gis/geoip/
+# or get user's location from HTML:
+# https://www.w3schools.com/html/html5_geolocation.asp
 latitude = 39.290440
 longitude = -76.612330
 
 user_location = Point(longitude, latitude, srid=4326)
+
 
 # Create your views here.
 class Home(generic.ListView):
