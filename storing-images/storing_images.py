@@ -1,11 +1,11 @@
 """
 
-Code running experiments for article "Three Methods of Storing and Accessing Lots
-of Images in Python"
+Code running experiments for article "Three Methods of Storing and Accessing
+Lots of Images in Python"
 
-WARNING: this code WILL use up several GB of disk space. If you don't fancy having
-millions of little images of cars, boats, trains and such stored on your disk, then
-do not run this Python script.
+WARNING: this code WILL use up several GB of disk space. If you don't fancy
+having millions of little images of cars, boats, trains and such stored on
+your disk, then do not run this Python script.
 
 Author @ysbecca
 
@@ -31,11 +31,13 @@ import h5py
 # Path to the unzipped CIFAR data
 data_dir = Path("data/cifar-10-batches-py/")
 
+
 # Unpickle function provided by the CIFAR hosts
 def unpickle(file):
     with open(file, "rb") as fo:
         dict = pickle.load(fo, encoding="bytes")
     return dict
+
 
 images, labels = [], []
 for batch in data_dir.glob("data_batch_*"):
@@ -45,7 +47,7 @@ for batch in data_dir.glob("data_batch_*"):
         # Each image is flattened, with channels in order of R, G, B
         for j in range(3):
             im_channels.append(
-                flat_im[j * 1024 : (j + 1) * 1024].reshape(
+                flat_im[j * 1024:(j + 1) * 1024].reshape(
                     (32, 32)
                 )
             )
@@ -66,10 +68,12 @@ hdf5_dir = Path("data/hdf5/")
 
 # Helper functions for timing
 
+
 class CIFAR_Image():
     def __init__(self, image, label):
-        # Dimensions of image for reconstruction - not really necessary for this
-        # dataset, but some datasets may include images of varying sizes
+        # Dimensions of image for reconstruction - not really necessary
+        # for this dataset, but some datasets may include images of 
+        # varying sizes
         self.channels = image.shape[2]
         self.size = image.shape[:2]
 
@@ -80,6 +84,7 @@ class CIFAR_Image():
         """ Returns the image as a numpy array. """
         image = np.frombuffer(self.image, dtype=np.uint8)
         return image.reshape(*self.size, self.channels)
+
 
 def store_single_disk(image, image_id, label):
     """ Stores a single image as a .png file on disk.
@@ -103,6 +108,7 @@ def store_single_disk(image, image_id, label):
             quoting=csv.QUOTE_MINIMAL,
         )
         writer.writerow([label])
+
 
 def store_single_lmdb(image, image_id, label):
     """ Stores a single image to a LMDB.
@@ -128,6 +134,7 @@ def store_single_lmdb(image, image_id, label):
         txn.put(key.encode("ascii"), pickle.dumps(value))
     env.close()
 
+
 def store_single_hdf5(image, image_id, label):
     """ Stores a single image to an HDF5 file.
         Parameters:
@@ -141,19 +148,20 @@ def store_single_hdf5(image, image_id, label):
     file = h5py.File(hdf5_dir / f"{image_id}.h5", "w")
 
     # Create a dataset in the file
-    dataset = file.create_dataset(
+    dataset = file.create_dataset( #noqa
         "image",
         np.shape(image),
         h5py.h5t.STD_U8BE,
         data=image,
     )
-    meta_set = file.create_dataset(
+    meta_set = file.create_dataset( #noqa
         "meta",
         np.shape(label),
         h5py.h5t.STD_U8BE,
         data=label,
     )
     file.close()
+
 
 _store_single_funcs = dict(
     disk=store_single_disk,
@@ -174,6 +182,7 @@ for method in ("disk", "lmdb", "hdf5"):
     )
     store_single_timings[method] = t
     print(f"Method: {method}, Time usage: {t}")
+
 
 def store_many_disk(images, labels):
     """ Stores an array of images to disk
@@ -203,6 +212,7 @@ def store_many_disk(images, labels):
             # value per row
             writer.writerow([label])
 
+
 def store_many_lmdb(images, labels):
     """ Stores an array of images to LMDB.
         Parameters:
@@ -231,6 +241,7 @@ def store_many_lmdb(images, labels):
             )
     env.close()
 
+
 def store_many_hdf5(images, labels):
     """ Stores an array of images to HDF5.
         Parameters:
@@ -246,19 +257,20 @@ def store_many_hdf5(images, labels):
     )
 
     # Create a dataset in the file
-    dataset = file.create_dataset(
+    dataset = file.create_dataset( #noqa
         "images",
         np.shape(images),
         h5py.h5t.STD_U8BE,
         data=images,
     )
-    meta_set = file.create_dataset(
+    meta_set = file.create_dataset( #noqa
         "meta",
         np.shape(labels),
         h5py.h5t.STD_U8BE,
         data=labels,
     )
     file.close()
+
 
 _store_many_funcs = dict(
     disk=store_many_disk,
@@ -292,6 +304,7 @@ for cutoff in cutoffs:
         # Print out the method, cutoff, and elapsed time
         print(f"Method: {method}, Time usage: {t}")
 
+
 # Let's visualise those results
 
 def plot_with_legend(
@@ -317,7 +330,8 @@ def plot_with_legend(
 
     if len(y_data) != len(legend_labels):
         raise TypeError(
-            "Error: the number of data sets does not match the number of labels provided."
+            "Error: the number of data sets does not match the " +
+            "number of labels provided."
         )
 
     all_plots = []
@@ -333,6 +347,7 @@ def plot_with_legend(
     plt.ylabel(y_label)
     plt.legend(handles=all_plots)
     plt.show()
+
 
 disk_x = store_many_timings["disk"]
 lmdb_x = store_many_timings["lmdb"]
@@ -392,6 +407,7 @@ plt.legend(
 )
 plt.show()
 
+
 # Read out a single image.
 
 def read_single_disk(image_id):
@@ -419,6 +435,7 @@ def read_single_disk(image_id):
         label = int(next(reader)[0])
 
     return image, label
+
 
 def read_single_lmdb(image_id):
     """ Stores a single image to LMDB.
@@ -450,6 +467,7 @@ def read_single_lmdb(image_id):
 
     return image, label
 
+
 def read_single_hdf5(image_id):
     """ Stores a single image to HDF5.
         Parameters:
@@ -470,6 +488,7 @@ def read_single_hdf5(image_id):
 
     return image, label
 
+
 _read_single_funcs = dict(
     disk=read_single_disk,
     lmdb=read_single_lmdb,
@@ -487,6 +506,7 @@ for method in ("disk", "lmdb", "hdf5"):
     )
     read_single_timings[method] = t
     print(f"Method: {method}, Time usage: {t}")
+
 
 # Reading in many images
 
@@ -524,6 +544,7 @@ def read_many_disk(num_images):
             labels.append(int(row[0]))
     return images, labels
 
+
 def read_many_lmdb(num_images):
     """ Reads image from LMDB.
         Parameters:
@@ -546,13 +567,14 @@ def read_many_lmdb(num_images):
         # We could split this up into multiple transactions if needed
         for image_id in range(num_images):
             data = txn.get(f"{image_id:08}".encode("ascii"))
-            # Remember that it's a CIFAR_Image object that is stored as the value
+            # Remember that it's a CIFAR_Image object stored as the value
             cifar_image = pickle.loads(data)
             # Retrieve the relevant bits
             images.append(cifar_image.get_image())
             labels.append(cifar_image.label)
     env.close()
     return images, labels
+
 
 def read_many_hdf5(num_images):
     """ Reads image from HDF5.
@@ -576,6 +598,7 @@ def read_many_hdf5(num_images):
     labels = np.array(file["/meta"]).astype("uint8")
 
     return images, labels
+
 
 _read_many_funcs = dict(
     disk=read_many_disk,
