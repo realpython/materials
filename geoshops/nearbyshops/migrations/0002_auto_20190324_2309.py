@@ -7,6 +7,7 @@ from pathlib import Path
 
 DATA_FILENAME = 'export.json'
 
+
 def load_data(apps, schema_editor):
     Shop = apps.get_model('nearbyshops', 'Shop')
     jsonfile = Path(__file__).parents[2] / DATA_FILENAME
@@ -28,6 +29,7 @@ def load_data(apps, schema_editor):
             except KeyError:
                 pass
 
+            
 class Migration(migrations.Migration):
 
     dependencies = [
