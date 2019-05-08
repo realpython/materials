@@ -47,9 +47,7 @@ for batch in data_dir.glob("data_batch_*"):
         # Each image is flattened, with channels in order of R, G, B
         for j in range(3):
             im_channels.append(
-                flat_im[j * 1024:(j + 1) * 1024].reshape(
-                    (32, 32)
-                )
+                flat_im[j * 1024 : (j + 1) * 1024].reshape((32, 32))
             )
         # Reconstruct the original image
         images.append(np.dstack((im_channels)))
@@ -69,7 +67,7 @@ hdf5_dir = Path("data/hdf5/")
 # Helper functions for timing
 
 
-class CIFAR_Image():
+class CIFAR_Image:
     def __init__(self, image, label):
         # Dimensions of image for reconstruction - not really necessary
         # for this dataset, but some datasets may include images of
@@ -94,18 +92,11 @@ def store_single_disk(image, image_id, label):
         image_id    integer unique ID for image
         label       image label
     """
-    Image.fromarray(image).save(
-        disk_dir / f"{image_id}.png"
-    )
+    Image.fromarray(image).save(disk_dir / f"{image_id}.png")
 
-    with open(
-        disk_dir / f"{image_id}.csv", "wt"
-    ) as csvfile:
+    with open(disk_dir / f"{image_id}.csv", "wt") as csvfile:
         writer = csv.writer(
-            csvfile,
-            delimiter=" ",
-            quotechar="|",
-            quoting=csv.QUOTE_MINIMAL,
+            csvfile, delimiter=" ", quotechar="|", quoting=csv.QUOTE_MINIMAL
         )
         writer.writerow([label])
 
@@ -122,9 +113,7 @@ def store_single_lmdb(image, image_id, label):
     map_size = image.nbytes * 10
 
     # Create a new LMDB environment
-    env = lmdb.open(
-        str(lmdb_dir / f"single_lmdb"), map_size=map_size
-    )
+    env = lmdb.open(str(lmdb_dir / f"single_lmdb"), map_size=map_size)
 
     # Start a new write transaction
     with env.begin(write=True) as txn:
@@ -148,25 +137,13 @@ def store_single_hdf5(image, image_id, label):
     file = h5py.File(hdf5_dir / f"{image_id}.h5", "w")
 
     # Create a dataset in the file
-    file.create_dataset(
-        "image",
-        np.shape(image),
-        h5py.h5t.STD_U8BE,
-        data=image,
-    )
-    file.create_dataset(
-        "meta",
-        np.shape(label),
-        h5py.h5t.STD_U8BE,
-        data=label,
-    )
+    file.create_dataset("image", np.shape(image), h5py.h5t.STD_U8BE, data=image)
+    file.create_dataset("meta", np.shape(label), h5py.h5t.STD_U8BE, data=label)
     file.close()
 
 
 _store_single_funcs = dict(
-    disk=store_single_disk,
-    lmdb=store_single_lmdb,
-    hdf5=store_single_hdf5,
+    disk=store_single_disk, lmdb=store_single_lmdb, hdf5=store_single_hdf5
 )
 
 # Run the write single image experiment
@@ -198,14 +175,9 @@ def store_many_disk(images, labels):
         Image.fromarray(image).save(disk_dir / f"{i}.png")
 
     # Save all the labels to the csv file
-    with open(
-        disk_dir / f"{num_images}.csv", "w"
-    ) as csvfile:
+    with open(disk_dir / f"{num_images}.csv", "w") as csvfile:
         writer = csv.writer(
-            csvfile,
-            delimiter=" ",
-            quotechar="|",
-            quoting=csv.QUOTE_MINIMAL,
+            csvfile, delimiter=" ", quotechar="|", quoting=csv.QUOTE_MINIMAL
         )
         for label in labels:
             # Remember that this typically would be more than just one
@@ -225,10 +197,7 @@ def store_many_lmdb(images, labels):
     map_size = num_images * images[0].nbytes * 10
 
     # Create a new LMDB DB for all the images
-    env = lmdb.open(
-        str(lmdb_dir / f"{num_images}_lmdb"),
-        map_size=map_size,
-    )
+    env = lmdb.open(str(lmdb_dir / f"{num_images}_lmdb"), map_size=map_size)
 
     # Same as before; but let's write all the images in a single transaction
     with env.begin(write=True) as txn:
@@ -236,9 +205,7 @@ def store_many_lmdb(images, labels):
             # All key-value pairs need to be Strings
             value = CIFAR_Image(images[i], labels[i])
             key = f"{i:08}"
-            txn.put(
-                key.encode("ascii"), pickle.dumps(value)
-            )
+            txn.put(key.encode("ascii"), pickle.dumps(value))
     env.close()
 
 
@@ -252,30 +219,20 @@ def store_many_hdf5(images, labels):
     num_images = len(images)
 
     # Create a new HDF5 file
-    file = h5py.File(
-        hdf5_dir / f"{num_images}_many.h5", "w"
-    )
+    file = h5py.File(hdf5_dir / f"{num_images}_many.h5", "w")
 
     # Create a dataset in the file
     file.create_dataset(
-        "images",
-        np.shape(images),
-        h5py.h5t.STD_U8BE,
-        data=images,
+        "images", np.shape(images), h5py.h5t.STD_U8BE, data=images
     )
     file.create_dataset(
-        "meta",
-        np.shape(labels),
-        h5py.h5t.STD_U8BE,
-        data=labels,
+        "meta", np.shape(labels), h5py.h5t.STD_U8BE, data=labels
     )
     file.close()
 
 
 _store_many_funcs = dict(
-    disk=store_many_disk,
-    lmdb=store_many_lmdb,
-    hdf5=store_many_hdf5,
+    disk=store_many_disk, lmdb=store_many_lmdb, hdf5=store_many_hdf5
 )
 
 # Run the multiple images experiment now
@@ -307,14 +264,9 @@ for cutoff in cutoffs:
 
 # Let's visualise those results
 
+
 def plot_with_legend(
-    x_range,
-    y_data,
-    legend_labels,
-    x_label,
-    y_label,
-    title,
-    log=False,
+    x_range, y_data, legend_labels, x_label, y_label, title, log=False
 ):
     """ Displays a single plot with multiple datasets and matching legends.
         Parameters:
@@ -330,8 +282,8 @@ def plot_with_legend(
 
     if len(y_data) != len(legend_labels):
         raise TypeError(
-            "Error: the number of data sets does not match the " +
-            "number of labels provided."
+            "Error: the number of data sets does not match the "
+            + "number of labels provided."
         )
 
     all_plots = []
@@ -389,10 +341,7 @@ plots = [plt.bar(ind, [row[0] for row in X], width)]
 for i in range(1, len(cutoffs)):
     plots.append(
         plt.bar(
-            ind,
-            [row[i] for row in X],
-            width,
-            bottom=[row[i - 1] for row in X],
+            ind, [row[i] for row in X], width, bottom=[row[i - 1] for row in X]
         )
     )
 
@@ -402,13 +351,13 @@ plt.xticks(ind, ("PNG", "LMDB", "HDF5"))
 plt.yticks(np.arange(0, 400000, 100000))
 
 plt.legend(
-    [plot[0] for plot in plots],
-    ("10", "100", "1,000", "10,000", "100,000"),
+    [plot[0] for plot in plots], ("10", "100", "1,000", "10,000", "100,000")
 )
 plt.show()
 
 
 # Read out a single image.
+
 
 def read_single_disk(image_id):
     """ Stores a single image to disk.
@@ -421,16 +370,11 @@ def read_single_disk(image_id):
         image       image array, (32, 32, 3) to be stored
         label       associated meta data, int label
     """
-    image = np.array(
-        Image.open(disk_dir / f"{image_id}.png")
-    )
+    image = np.array(Image.open(disk_dir / f"{image_id}.png"))
 
     with open(disk_dir / f"{image_id}.csv", "r") as csvfile:
         reader = csv.reader(
-            csvfile,
-            delimiter=" ",
-            quotechar="|",
-            quoting=csv.QUOTE_MINIMAL,
+            csvfile, delimiter=" ", quotechar="|", quoting=csv.QUOTE_MINIMAL
         )
         label = int(next(reader)[0])
 
@@ -450,9 +394,7 @@ def read_single_lmdb(image_id):
     """
 
     # Open the LMDB environment; see (1)
-    env = lmdb.open(
-        str(lmdb_dir / f"single_lmdb"), readonly=True
-    )
+    env = lmdb.open(str(lmdb_dir / f"single_lmdb"), readonly=True)
 
     # Start a new read transaction
     with env.begin() as txn:
@@ -490,9 +432,7 @@ def read_single_hdf5(image_id):
 
 
 _read_single_funcs = dict(
-    disk=read_single_disk,
-    lmdb=read_single_lmdb,
-    hdf5=read_single_hdf5,
+    disk=read_single_disk, lmdb=read_single_lmdb, hdf5=read_single_hdf5
 )
 
 read_single_timings = dict()
@@ -510,6 +450,7 @@ for method in ("disk", "lmdb", "hdf5"):
 
 # Reading in many images
 
+
 def read_many_disk(num_images):
     """ Reads image from disk.
         Parameters:
@@ -525,20 +466,11 @@ def read_many_disk(num_images):
 
     # Loop over all IDs and read each image in one by one
     for image_id in range(num_images):
-        images.append(
-            np.array(
-                Image.open(disk_dir / f"{image_id}.png")
-            )
-        )
+        images.append(np.array(Image.open(disk_dir / f"{image_id}.png")))
 
-    with open(
-        disk_dir / f"{num_images}.csv", "r"
-    ) as csvfile:
+    with open(disk_dir / f"{num_images}.csv", "r") as csvfile:
         reader = csv.reader(
-            csvfile,
-            delimiter=" ",
-            quotechar="|",
-            quoting=csv.QUOTE_MINIMAL,
+            csvfile, delimiter=" ", quotechar="|", quoting=csv.QUOTE_MINIMAL
         )
         for row in reader:
             labels.append(int(row[0]))
@@ -557,9 +489,7 @@ def read_many_lmdb(num_images):
         labels      associated meta data, int label (N, 1)
     """
     images, labels = [], []
-    env = lmdb.open(
-        str(lmdb_dir / f"{num_images}_lmdb"), readonly=True
-    )
+    env = lmdb.open(str(lmdb_dir / f"{num_images}_lmdb"), readonly=True)
 
     # Start a new read transaction
     with env.begin() as txn:
@@ -590,9 +520,7 @@ def read_many_hdf5(num_images):
     images, labels = [], []
 
     # Open the HDF5 file
-    file = h5py.File(
-        hdf5_dir / f"{num_images}_many.h5", "r+"
-    )
+    file = h5py.File(hdf5_dir / f"{num_images}_many.h5", "r+")
 
     images = np.array(file["/images"]).astype("uint8")
     labels = np.array(file["/meta"]).astype("uint8")
@@ -601,9 +529,7 @@ def read_many_hdf5(num_images):
 
 
 _read_many_funcs = dict(
-    disk=read_many_disk,
-    lmdb=read_many_lmdb,
-    hdf5=read_many_hdf5,
+    disk=read_many_disk, lmdb=read_many_lmdb, hdf5=read_many_hdf5
 )
 
 read_many_timings = {"disk": [], "lmdb": [], "hdf5": []}
@@ -619,9 +545,7 @@ for cutoff in cutoffs:
         read_many_timings[method].append(t)
 
         # Print out the method, cutoff, and elapsed time
-        print(
-            f"Method: {method}, No. images: {cutoff}, Time usage: {t}"
-        )
+        print(f"Method: {method}, No. images: {cutoff}, Time usage: {t}")
 
 disk_x_r = read_many_timings["disk"]
 lmdb_x_r = read_many_timings["lmdb"]
