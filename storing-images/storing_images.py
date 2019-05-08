@@ -47,7 +47,7 @@ for batch in data_dir.glob("data_batch_*"):
         # Each image is flattened, with channels in order of R, G, B
         for j in range(3):
             im_channels.append(
-                flat_im[j * 1024 : (j + 1) * 1024].reshape((32, 32))
+                flat_im[j * 1024 : (j + 1) * 1024].reshape((32, 32)) #noqa
             )
         # Reconstruct the original image
         images.append(np.dstack((im_channels)))
@@ -137,7 +137,7 @@ def store_single_hdf5(image, image_id, label):
     file = h5py.File(hdf5_dir / f"{image_id}.h5", "w")
 
     # Create a dataset in the file
-    file.create_dataset("image", np.shape(image), h5py.h5t.STD_U8BE, data=image)
+    file.create_dataset("image", np.shape(image), h5py.h5t.STD_U8BE, data=image) #noqa
     file.create_dataset("meta", np.shape(label), h5py.h5t.STD_U8BE, data=label)
     file.close()
 
