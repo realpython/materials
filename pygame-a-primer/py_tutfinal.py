@@ -8,12 +8,12 @@ import random
 # Updated to conform to flake8 standards
 # from pygame.locals import *
 from pygame.locals import (
-    K_UP, 
-    K_DOWN, 
-    K_LEFT, 
-    K_RIGHT, 
-    K_ESCAPE, 
-    KEYDOWN, 
+    K_UP,
+    K_DOWN,
+    K_LEFT,
+    K_RIGHT,
+    K_ESCAPE,
+    KEYDOWN,
     QUIT,
 )
 
