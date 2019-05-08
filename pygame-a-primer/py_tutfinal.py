@@ -7,7 +7,15 @@ import random
 # import pygame.locals for easier access to key coordinates
 # Updated to conform to flake8 standards
 # from pygame.locals import *
-from pygame.locals import K_UP, K_DOWN, K_LEFT, K_RIGHT, K_ESCAPE, KEYDOWN, QUIT
+from pygame.locals import (
+    K_UP, 
+    K_DOWN, 
+    K_LEFT, 
+    K_RIGHT, 
+    K_ESCAPE, 
+    KEYDOWN, 
+    QUIT,
+)
 
 
 class Player(pygame.sprite.Sprite):
