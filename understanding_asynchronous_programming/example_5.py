@@ -28,14 +28,11 @@ def main():
         "http://apple.com",
         "http://microsoft.com",
         "http://facebook.com",
-        "http://twitter.com"
+        "http://twitter.com",
     ]:
         work_queue.put(url)
 
-    tasks = [
-        task("One", work_queue),
-        task("Two", work_queue)
-    ]
+    tasks = [task("One", work_queue), task("Two", work_queue)]
 
     # Run the tasks
     et = ET()

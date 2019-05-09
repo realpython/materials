@@ -24,10 +24,7 @@ def main():
         work_queue.put(work)
 
     # Create some tasks
-    tasks = [
-        task("One", work_queue),
-        task("Two", work_queue)
-    ]
+    tasks = [task("One", work_queue), task("Two", work_queue)]
 
     # Run the tasks
     done = False
