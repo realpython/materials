@@ -169,9 +169,6 @@ while running:
             all_sprites.add(new_cloud)
             clouds.add(new_cloud)
 
-    # Fill the screen with sky blue
-    screen.fill((135, 206, 250))
-
     # Get the set of keys pressed and check for user input
     pressed_keys = pygame.key.get_pressed()
     player.update(pressed_keys)
@@ -180,6 +177,9 @@ while running:
     enemies.update()
     clouds.update()
 
+    # Fill the screen with sky blue
+    screen.fill((135, 206, 250))
+    
     # Draw all our sprites
     for entity in all_sprites:
         screen.blit(entity.surf, entity.rect)
