@@ -128,7 +128,7 @@ while running:
         screen.blit(entity.surf, entity.rect)
 
     # Check if any enemies have collided with the player
-    if pyga]    me.sprite.spritecollideany(player, enemies):
+    if pygame.sprite.spritecollideany(player, enemies):
         # If so, remove the player and stop the loop
         player.kill()
         running = False
