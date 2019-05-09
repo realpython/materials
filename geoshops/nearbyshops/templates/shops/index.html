@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>Nearby Shops</title>
+        <!-- Leaflet CSS -->
+        <link rel="stylesheet" href="https://unpkg.com/leaflet@1.4.0/dist/leaflet.css"
+   integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
+   crossorigin=""/>
+
+        <!-- Leaflet JS -->
+        <!-- Make sure you put this AFTER Leaflet's CSS -->
+ <script src="https://unpkg.com/leaflet@1.4.0/dist/leaflet.js"
+   integrity="sha512-QVftwZFqvtRNi0ZyCtsznlKSWOStnDORoefr1enyq5mVL4tmKB3S/EnC3rRJcxCPavG10IcrVGSmPh6Qw5lwrg=="
+   crossorigin=""></script>
+
+        <!-- Set map height -->
+        <style>
+            #mapid { height: 500px; }
+        </style>
+    </head>
+    <body>
+
+        <h1>Nearby Shops</h1>
+        {% if shops %}
+        <ul>
+        {% for shop in shops %}
+            <li>
+            {{ shop.name }}: {{shop.distance}}
+            </li>
+        {% endfor %}
+        </ul>
+        {% endif %}
+
+        <!-- map div -->
+        <div id="mapid"></div>
+        <!-- map js  -->
+        <script>
+            var map = L.map('mapid').setView([39.290440, -76.612330], 17);
+
+            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+            }).addTo(map);
+
+            L.marker([39.290440, -76.612330]).addTo(map)
+                .bindPopup('I am in Baltimore.<br> Looking for shops.')
+                .openPopup();
+
+            {% for shop in shops %}
+            var circle = L.circle([{{ shop.location.y }}, {{ shop.location.x }}], {
+                color: 'red',
+                fillColor: '#f03',
+                fillOpacity: 0.5,
+                radius: 5
+            }).addTo(map);
+            {% endfor %}
+
+        </script>
+    </body>
+</html>
+
+
