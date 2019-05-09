@@ -47,7 +47,7 @@ for batch in data_dir.glob("data_batch_*"):
         # Each image is flattened, with channels in order of R, G, B
         for j in range(3):
             im_channels.append(
-                flat_im[j * 1024 : (j + 1) * 1024].reshape((32, 32))
+                flat_im[j * 1024:(j + 1) * 1024].reshape((32, 32))
             )
         # Reconstruct the original image
         images.append(np.dstack((im_channels)))
