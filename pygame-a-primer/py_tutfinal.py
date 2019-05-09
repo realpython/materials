@@ -113,9 +113,6 @@ while running:
             enemies.add(new_enemy)
             all_sprites.add(new_enemy)
 
-    # Fill the screen with black
-    screen.fill((0, 0, 0))
-
     # Get the set of keys pressed and check for user input
     pressed_keys = pygame.key.get_pressed()
     player.update(pressed_keys)
@@ -123,6 +120,9 @@ while running:
     # Update the position of our enemies
     enemies.update()
 
+    # Fill the screen with black
+    screen.fill((0, 0, 0))
+    
     # Draw all our sprites
     for entity in all_sprites:
         screen.blit(entity.surf, entity.rect)
