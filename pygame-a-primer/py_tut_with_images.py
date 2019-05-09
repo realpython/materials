@@ -125,10 +125,13 @@ all_sprites = pygame.sprite.Group()
 all_sprites.add(player)
 
 # Load and play our background music
+# Sound source: http://ccmixter.org/files/Apoxode/59262
+# License: https://creativecommons.org/licenses/by/3.0/
 pygame.mixer.music.load("Apoxode_-_Electric_1.mp3")
 pygame.mixer.music.play(loops=-1)
 
 # Load all our sound files
+# Sound sources: Jon Fincher
 move_up_sound = pygame.mixer.Sound("Rising_putter.ogg")
 move_down_sound = pygame.mixer.Sound("Falling_putter.ogg")
 collision_sound = pygame.mixer.Sound("Collision.ogg")
@@ -166,8 +169,8 @@ while running:
         elif event.type == ADDCLOUD:
             # Create the new cloud, and add it to our sprite groups
             new_cloud = Cloud()
-            all_sprites.add(new_cloud)
             clouds.add(new_cloud)
+            all_sprites.add(new_cloud)
 
     # Get the set of keys pressed and check for user input
     pressed_keys = pygame.key.get_pressed()
@@ -179,7 +182,7 @@ while running:
 
     # Fill the screen with sky blue
     screen.fill((135, 206, 250))
-    
+
     # Draw all our sprites
     for entity in all_sprites:
         screen.blit(entity.surf, entity.rect)
