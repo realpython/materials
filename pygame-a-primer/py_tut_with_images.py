@@ -24,9 +24,9 @@ from pygame.locals import (
 class Player(pygame.sprite.Sprite):
     def __init__(self):
         super(Player, self).__init__()
-        self.image = pygame.image.load("jet.png").convert()
-        self.image.set_colorkey((255, 255, 255), RLEACCEL)
-        self.rect = self.image.get_rect()
+        self.surf = pygame.image.load("jet.png").convert()
+        self.surf.set_colorkey((255, 255, 255), RLEACCEL)
+        self.rect = self.surf.get_rect()
 
     # Move the sprite based on keypresses
     def update(self, pressed_keys):
@@ -57,10 +57,10 @@ class Player(pygame.sprite.Sprite):
 class Enemy(pygame.sprite.Sprite):
     def __init__(self):
         super(Enemy, self).__init__()
-        self.image = pygame.image.load("missile.png").convert()
-        self.image.set_colorkey((255, 255, 255), RLEACCEL)
+        self.surf = pygame.image.load("missile.png").convert()
+        self.surf.set_colorkey((255, 255, 255), RLEACCEL)
         # The starting position is randomly generated, as is the speed
-        self.rect = self.image.get_rect(
+        self.rect = self.surf.get_rect(
             center=(random.randint(820, 900), random.randint(0, 600))
         )
         self.speed = random.randint(5, 20)
@@ -78,10 +78,10 @@ class Enemy(pygame.sprite.Sprite):
 class Cloud(pygame.sprite.Sprite):
     def __init__(self):
         super(Cloud, self).__init__()
-        self.image = pygame.image.load("cloud.png").convert()
-        self.image.set_colorkey((0, 0, 0), RLEACCEL)
+        self.surf = pygame.image.load("cloud.png").convert()
+        self.surf.set_colorkey((0, 0, 0), RLEACCEL)
         # The starting position is randomly generated
-        self.rect = self.image.get_rect(
+        self.rect = self.surf.get_rect(
             center=(random.randint(820, 900), random.randint(0, 600))
         )
 
@@ -182,7 +182,7 @@ while running:
 
     # Draw all our sprites
     for entity in all_sprites:
-        screen.blit(entity.image, entity.rect)
+        screen.blit(entity.surf, entity.rect)
 
     # Check if any enemies have collided with the player
     if pygame.sprite.spritecollideany(player, enemies):
