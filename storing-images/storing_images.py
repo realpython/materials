@@ -140,9 +140,7 @@ def store_single_hdf5(image, image_id, label):
     file.create_dataset(
         "image", np.shape(image), h5py.h5t.STD_U8BE, data=image
     )
-    file.create_dataset(
-        "meta", np.shape(label), h5py.h5t.STD_U8BE, data=label
-    )
+    file.create_dataset("meta", np.shape(label), h5py.h5t.STD_U8BE, data=label)
     file.close()
 
 
@@ -345,10 +343,7 @@ plots = [plt.bar(ind, [row[0] for row in X], width)]
 for i in range(1, len(cutoffs)):
     plots.append(
         plt.bar(
-            ind,
-            [row[i] for row in X],
-            width,
-            bottom=[row[i - 1] for row in X],
+            ind, [row[i] for row in X], width, bottom=[row[i - 1] for row in X]
         )
     )
 
