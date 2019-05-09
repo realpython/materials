@@ -1,10 +1,10 @@
-# import the pygame module
+# Import the pygame module
 import pygame
 
-# import random for random numbers!
+# Import random for random numbers
 import random
 
-# import pygame.locals for easier access to key coordinates
+# Import pygame.locals for easier access to key coordinates
 # Updated to conform to flake8 and black standards
 # from pygame.locals import *
 from pygame.locals import (
@@ -29,11 +29,9 @@ class Player(pygame.sprite.Sprite):
     def update(self, pressed_keys):
         if pressed_keys[K_UP]:
             self.rect.move_ip(0, -5)
-            # if move_up_sound.get_num_channels == 0:
             move_up_sound.play()
         if pressed_keys[K_DOWN]:
             self.rect.move_ip(0, 5)
-            # if move_down_sound.get_num_channels == 0:
             move_down_sound.play()
         if pressed_keys[K_LEFT]:
             self.rect.move_ip(-5, 0)
@@ -82,7 +80,7 @@ class Cloud(pygame.sprite.Sprite):
             self.kill()
 
 
-# initialize pygame
+# Initialize pygame
 pygame.init()
 
 # Setup for sounds, defaults are good
@@ -91,8 +89,8 @@ pygame.mixer.init()
 # Setup the clock for a decent framerate
 clock = pygame.time.Clock()
 
-# create the screen object
-# here we pass it a size of 800x600
+# Create the screen object
+# Here we pass it a size of 800x600
 screen = pygame.display.set_mode((800, 600))
 
 # Create custom events for adding a new enemy and cloud
@@ -101,7 +99,7 @@ pygame.time.set_timer(ADDENEMY, 250)
 ADDCLOUD = pygame.USEREVENT + 2
 pygame.time.set_timer(ADDCLOUD, 1000)
 
-# create our 'player'
+# Create our 'player'
 player = Player()
 
 enemies = pygame.sprite.Group()

@@ -1,11 +1,11 @@
-# import the pygame module
+# Import the pygame module
 import pygame
 
-# import random for random numbers!
+# Import random for random numbers
 import random
 
-# import pygame.locals for easier access to key coordinates
-# Updated to conform to flake8 standards
+# Import pygame.locals for easier access to key coordinates
+# Updated to conform to flake8 and black standards
 # from pygame.locals import *
 from pygame.locals import (
     K_UP,
@@ -62,18 +62,18 @@ class Enemy(pygame.sprite.Sprite):
             self.kill()
 
 
-# initialize pygame
+# Initialize pygame
 pygame.init()
 
-# create the screen object
-# here we pass it a size of 800x600
+# Create the screen object
+# Here we pass it a size of 800x600
 screen = pygame.display.set_mode((800, 600))
 
 # Create a custom event for adding a new enemy.
 ADDENEMY = pygame.USEREVENT + 1
 pygame.time.set_timer(ADDENEMY, 250)
 
-# create our 'player', right now he's just a rectangle
+# Create our 'player', right now he's just a rectangle
 player = Player()
 
 background = pygame.Surface(screen.get_size())
