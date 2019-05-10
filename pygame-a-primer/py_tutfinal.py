@@ -16,6 +16,10 @@ from pygame.locals import (
     QUIT,
 )
 
+# Define constants for the screen width and height
+SCREEN_WIDTH = 800
+SCREEN_HEIGHT = 600
+
 
 # Define the Player object extending pygame.sprite.Sprite
 # The surface we draw on the screen is now a property of 'player'
@@ -40,12 +44,12 @@ class Player(pygame.sprite.Sprite):
         # Keep player on the screen
         if self.rect.left < 0:
             self.rect.left = 0
-        elif self.rect.right > 800:
-            self.rect.right = 800
+        elif self.rect.right > SCREEN_WIDTH:
+            self.rect.right = SCREEN_WIDTH
         if self.rect.top <= 0:
             self.rect.top = 0
-        elif self.rect.bottom >= 600:
-            self.rect.bottom = 600
+        elif self.rect.bottom >= SCREEN_HEIGHT:
+            self.rect.bottom = SCREEN_HEIGHT
 
 
 # Define the enemy object extending pygame.sprite.Sprite
@@ -56,7 +60,7 @@ class Enemy(pygame.sprite.Sprite):
         self.surf = pygame.Surface((20, 10))
         self.surf.fill((255, 255, 255))
         self.rect = self.surf.get_rect(
-            center=(random.randint(820, 900), random.randint(0, 600))
+            center=(random.randint(SCREEN_WIDTH+20, SCREEN_WIDTH+100), random.randint(0, SCREEN_HEIGHT))
         )
         self.speed = random.randint(5, 20)
 
@@ -72,8 +76,8 @@ class Enemy(pygame.sprite.Sprite):
 pygame.init()
 
 # Create the screen object
-# Here we pass it a size of 800x600
-screen = pygame.display.set_mode((800, 600))
+# The size is determined by the constant SCREEN_WIDTH and SCREEN_HEIGHT
+screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
 
 # Create a custom event for adding a new enemy.
 ADDENEMY = pygame.USEREVENT + 1
