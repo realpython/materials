@@ -103,11 +103,11 @@ class Cloud(pygame.sprite.Sprite):
             self.kill()
 
 
-# Initialize pygame
-pygame.init()
-
 # Setup for sounds, defaults are good
 pygame.mixer.init()
+
+# Initialize pygame
+pygame.init()
 
 # Setup the clock for a decent framerate
 clock = pygame.time.Clock()

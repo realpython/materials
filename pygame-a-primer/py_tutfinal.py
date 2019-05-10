@@ -60,7 +60,10 @@ class Enemy(pygame.sprite.Sprite):
         self.surf = pygame.Surface((20, 10))
         self.surf.fill((255, 255, 255))
         self.rect = self.surf.get_rect(
-            center=(random.randint(SCREEN_WIDTH+20, SCREEN_WIDTH+100), random.randint(0, SCREEN_HEIGHT))
+            center=(
+                random.randint(SCREEN_WIDTH + 20, SCREEN_WIDTH + 100),
+                random.randint(0, SCREEN_HEIGHT),
+            )
         )
         self.speed = random.randint(5, 20)
 
