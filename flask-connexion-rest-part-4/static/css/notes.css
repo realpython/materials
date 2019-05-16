@@ -1,0 +1,110 @@
+/*
+ * This is the CSS stylesheet for the notes creation/update/delete application
+ */
+
+.container {
+    padding: 10px;
+}
+
+.banner {
+    text-align: center;
+}
+
+.display, .editor {
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 5px;
+    border: 2px solid darkgrey;
+    border-radius: 4px;
+    margin-bottom: 5px;
+}
+
+display div, .editor div {
+    margin-bottom: 5px;
+}
+
+label {
+    display: inline-block;
+    margin-bottom: 5px;
+}
+
+button {
+    padding: 5px;
+    margin-right: 5px;
+    border-radius: 3px;
+    background-color: #eee;
+}
+
+input[type=text] {
+    width: 550px;
+}
+
+div.notes {
+    margin: 10px 10px 10px 10px;
+    border: 2px solid darkgrey;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+table caption {
+    font-weight: bold;
+    padding: 10px 0 10px 0;
+    border-bottom: 2px solid darkgrey;
+    background-color: antiquewhite;
+}
+
+.blog table thead {
+    padding: 10px 0 10px 0;
+}
+
+th:not(:last-child), td:not(:last-child) {
+    border-right: 2px solid darkgrey;
+}
+
+td.name {
+    text-align: center;
+    width: 175px;
+}
+
+td.timestamp {
+    text-align: center;
+    width: 230px;
+}
+
+td.content {
+    text-align: left;
+    padding-left: 5px;
+}
+
+tbody tr:nth-child(odd) {
+    background-color: gainsboro;
+}
+
+tbody tr {
+    cursor: pointer;
+    height: 33px;
+}
+
+thead tr {
+    height: 33px;
+    border-bottom: 2px solid darkgrey;
+}
+
+tbody tr:not(:last-child){
+    border-bottom: 2px solid darkgrey;
+}
+
+tbody tr:hover {
+    background-color: powderblue;
+}
+.content {
+    width: 70%;
+}
+
+.timestamp {
+    width: 30%;
+}

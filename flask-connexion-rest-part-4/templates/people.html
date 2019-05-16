@@ -1,0 +1,67 @@
+{% extends "parent.html" %}
+{% block title %}People{% endblock %}
+{% block head %}
+    {{ super() }}
+    <link rel="stylesheet" href="/static/css/people.css">
+{% endblock %}
+
+{% block page_name %}Person Create/Update/Delete Page{% endblock %}
+
+{% block body %}
+    <div class="container">
+        <input id="url_person_id" type="hidden" value="{{ person_id }}" />
+        <div class="section editor">
+            <div>
+                <span>Person ID:</span>
+                <span id="person_id"></span>
+            </div>
+            <label for="fname">First Name
+                <input id="fname" type="text" />
+            </label>
+            <br />
+            <label for="lname">Last Name
+                <input id="lname" type="text" />
+            </label>
+            <br />
+            <button id="create">Create</button>
+            <button id="update">Update</button>
+            <button id="delete">Delete</button>
+            <button id="reset">Reset</button>
+        </div>
+        <div class="people">
+            <table>
+                <caption>People</caption>
+                <thead>
+                    <tr>
+                        <th>Creation/Update Timestamp</th>
+                        <th>Person</th>
+                    </tr>
+                </thead>
+            </table>
+        </div>
+        <div class="error">
+        </div>
+    </div>
+    <div class="error">
+    </div>
+
+<!-- Handlebars script tag entry -->
+{% raw %}
+<script id="people-table-template" type="text/x-handlebars-template">
+    <tbody>
+        {{#each people}}
+            <tr data-person_id="{{person_id}}" data-fname="{{fname}}" data-lname="{{lname}}">
+                <td class="timestamp">{{formatTimestamp timestamp}}</td>
+                <td class="name">{{fname}} {{lname}}</td>
+            </tr>
+        {{/each}}
+    </tbody>
+</script>
+{% endraw %}
+
+{% endblock %}
+
+{% block javascript %}
+{{ super() }}
+<script src="/static/js/people.js"></script>
+{% endblock %}
