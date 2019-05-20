@@ -39,26 +39,10 @@
                 </thead>
             </table>
         </div>
-        <div class="error">
-        </div>
+        <div class="error"></div>
     </div>
     <div class="error">
     </div>
-
-<!-- Handlebars script tag entry -->
-{% raw %}
-<script id="people-table-template" type="text/x-handlebars-template">
-    <tbody>
-        {{#each people}}
-            <tr data-person_id="{{person_id}}" data-fname="{{fname}}" data-lname="{{lname}}">
-                <td class="timestamp">{{formatTimestamp timestamp}}</td>
-                <td class="name">{{fname}} {{lname}}</td>
-            </tr>
-        {{/each}}
-    </tbody>
-</script>
-{% endraw %}
-
 {% endblock %}
 
 {% block javascript %}

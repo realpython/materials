@@ -33,30 +33,6 @@ div.people {
     border: 2px solid darkgrey;
 }
 
-table {
-    width: 100%;
-    border-collapse: collapse;
-}
-
-.people table caption {
-    font-weight: bold;
-    padding: 10px 0 10px 0;
-    border-bottom: 2px solid darkgrey;
-    background-color: antiquewhite;
-}
-
-.people table thead {
-    padding: 10px 0 10px 0;
-}
-
-th:not(:last-child), td:not(:last-child) {
-    border-right: 2px solid darkgrey;
-}
-
-tr:nth-child(even) {
-    background-color: gainsboro;
-}
-
 td {
     text-align: center;
 }
@@ -68,28 +44,4 @@ tbody td.timestamp {
 tbody td.name {
     cursor: pointer;
     height: 33px;
-}
-
-thead tr {
-    height: 33px;
-    border-bottom: 2px solid darkgrey;
-}
-
-tbody tr:not(:last-child){
-    border-bottom: 2px solid darkgrey;
-}
-
-tbody tr:hover {
-    background-color: powderblue;
-}
-
-.error {
-    width: 50%;
-    margin-left: auto;
-    margin-right: auto;
-    padding: 5px;
-    border: 1px solid lightgrey;
-    border-radius: 3px;
-    background-color: #fbb;
-    visibility: hidden;
 }

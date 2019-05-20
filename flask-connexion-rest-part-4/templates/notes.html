@@ -59,21 +59,7 @@
             </tbody>
         </table>
     </div>
-    <div class="error">
-    </div>
-
-{% raw %}
-<script id="notes-table-template" type="text/x-handlebars-template">
-    <tbody>
-        {{#each notes}}
-        <tr data-note_id="{{note_id}}" data-content="{{content}}">
-            <td class="timestamp">{{formatTimestamp timestamp}}</td>
-            <td class="content">{{content}}</td>
-        </tr>
-        {{/each}}
-    </tbody>
-</script>
-{% endraw %}
+    <div class="error"></div>
 
 {% endblock %}
 

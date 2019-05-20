@@ -20,23 +20,7 @@
         </thead>
     </table>
 </div>
-<div class="error">
-</div>
-
-<!-- Handlebars script tag entry -->
-{% raw %}
-<script id="blog-table-template" type="text/x-handlebars-template">
-    <tbody>
-        {{#each notes}}
-        <tr data-person_id="{{person.person_id}}" data-note_id="{{note_id}}">
-            <td class="timestamp">{{formatTimestamp timestamp}}</td>
-            <td class="name">{{person.fname}} {{person.lname}}</td>
-            <td class="content">{{content}}</td>
-        </tr>
-        {{/each}}
-    </tbody>
-</script>
-{% endraw %}
+<div class="error hidden"></div>
 
 {% endblock %}
 

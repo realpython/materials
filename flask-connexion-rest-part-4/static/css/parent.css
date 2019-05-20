@@ -42,13 +42,62 @@ body, .ui-btn {
     padding: 10px;
 }
 
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+table caption {
+    font-weight: bold;
+    padding: 10px 0 10px 0;
+    border-bottom: 2px solid darkgrey;
+    background-color: antiquewhite;
+}
+
+th:not(:last-child), td:not(:last-child) {
+    border-right: 2px solid darkgrey;
+}
+
+
+tbody tr:nth-child(odd) {
+    background-color: gainsboro;
+}
+
+tbody tr {
+    cursor: pointer;
+    height: 33px;
+}
+
+thead tr {
+    height: 33px;
+    border-bottom: 2px solid darkgrey;
+}
+
+tbody tr:not(:last-child){
+    border-bottom: 2px solid darkgrey;
+}
+
+tbody tr:hover {
+    background-color: powderblue;
+}
+
 .error {
     width: 50%;
     margin-left: auto;
     margin-right: auto;
     padding: 5px;
+    text-align: center;
     border: 1px solid lightgrey;
     border-radius: 3px;
     background-color: #fbb;
-    visibility: hidden;
+    opacity: 0;
+}
+
+.visible {
+    opacity: 1;
+}
+
+.hidden {
+    opacity: 0;
+    transition: visibility 0s 2s, opacity 2s linear;
 }
