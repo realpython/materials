@@ -38,7 +38,7 @@ def main():
             if len(tasks) == 0:
                 done = True
 
-    print("\nTotal elapsed time: {}".format(et()))
+    print(f"\nTotal elapsed time: {et():.1f}")
 
 
 if __name__ == "__main__":
