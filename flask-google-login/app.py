@@ -69,7 +69,7 @@ def index():
             )
         )
     else:
-        return '<a class="button" href="/login">Login with Google</a>'
+        return '<a class="button" href="/login">Google Login</a>'
 
 
 @app.route("/login")
