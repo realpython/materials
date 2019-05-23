@@ -32,9 +32,12 @@ app.secret_key = os.environ.get("SECRET_KEY") or os.urandom(24)
 # https://flask-login.readthedocs.io/en/latest
 login_manager = LoginManager()
 login_manager.init_app(app)
+
+
 @login_manager.unauthorized_handler
 def unauthorized():
-    return 'You must be logged in to access this content.', 403
+    return "You must be logged in to access this content.", 403
+
 
 # Naive database setup
 try:
@@ -51,6 +54,7 @@ client = WebApplicationClient(GOOGLE_CLIENT_ID)
 def load_user(user_id):
     return User.get(user_id)
 
+
 @app.route("/")
 def index():
     if current_user.is_authenticated:
@@ -64,6 +68,7 @@ def index():
         )
     else:
         return '<a class="button" href="/login">Login with Google</a>'
+
 
 @app.route("/login")
 def login():
@@ -80,6 +85,7 @@ def login():
     )
     return redirect(request_uri)
 
+
 @app.route("/login/callback")
 def callback():
     # Get authorization code Google sent back to you
@@ -95,7 +101,7 @@ def callback():
         token_endpoint,
         authorization_response=request.url,
         redirect_url=request.base_url,
-        code=code
+        code=code,
     )
     token_response = requests.post(
         token_url,
@@ -139,14 +145,17 @@ def callback():
     # Send user back to homepage
     return redirect(url_for("index"))
 
+
 @app.route("/logout")
 @login_required
 def logout():
     logout_user()
     return redirect(url_for("index"))
 
+
 def get_google_provider_cfg():
     return requests.get(GOOGLE_DISCOVERY_URL).json()
+
 
 if __name__ == "__main__":
     app.run(ssl_context="adhoc")
