@@ -22,7 +22,9 @@ from user import User
 # Configuration
 GOOGLE_CLIENT_ID = os.environ.get("GOOGLE_CLIENT_ID", None)
 GOOGLE_CLIENT_SECRET = os.environ.get("GOOGLE_CLIENT_SECRET", None)
-GOOGLE_DISCOVERY_URL = "https://accounts.google.com/.well-known/openid-configuration"
+GOOGLE_DISCOVERY_URL = (
+    "https://accounts.google.com/.well-known/openid-configuration"
+)
 
 # Flask app setup
 app = Flask(__name__)
@@ -133,7 +135,9 @@ def callback():
 
     # Create a user in our db with the information provided
     # by Google
-    user = User(id_=unique_id, name=users_name, email=users_email, profile_pic=picture)
+    user = User(
+        id_=unique_id, name=users_name, email=users_email, profile_pic=picture
+    )
 
     # Doesn't exist? Add to database
     if not User.get(unique_id):

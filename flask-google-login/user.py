@@ -13,11 +13,15 @@ class User(UserMixin):
     @staticmethod
     def get(user_id):
         db = get_db()
-        user = db.execute("SELECT * FROM user WHERE id = ?", (user_id,)).fetchone()
+        user = db.execute(
+            "SELECT * FROM user WHERE id = ?", (user_id,)
+        ).fetchone()
         if not user:
             return None
 
-        user = User(id_=user[0], name=user[1], email=user[2], profile_pic=user[3])
+        user = User(
+            id_=user[0], name=user[1], email=user[2], profile_pic=user[3]
+        )
         return user
 
     @staticmethod
