@@ -4,13 +4,14 @@ from lib.elapsed_time import ET
 
 
 def task(name, work_queue):
-    while not work_queue.empty():
-        url = work_queue.get()
-        print(f"Task {name} getting URL: {url}")
-        et = ET()
-        requests.get(url)
-        print(f"Task {name} total elapsed time: {et():.1f}")
-        yield
+    with requests.Session() as session:
+        while not work_queue.empty():
+            url = work_queue.get()
+            print(f"Task {name} getting URL: {url}")
+            et = ET()
+            session.get(url)
+            print(f"Task {name} total elapsed time: {et():.1f}")
+            yield
 
 
 def main():
