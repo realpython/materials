@@ -47,5 +47,8 @@
 
 {% block javascript %}
 {{ super() }}
-<script src="/static/js/people.js"></script>
+<script type="module">
+    // give the imported MVC components a namespace
+    import * as namespace from "/static/js/people.js";
+</script>
 {% endblock %}

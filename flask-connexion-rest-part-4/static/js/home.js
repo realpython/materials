@@ -34,7 +34,7 @@ class View {
         this.error = document.querySelector(".error");
     }
 
-    build_table(notes) {
+    buildTable(notes) {
         let tbody = this.table.createTBody();
         let html = "";
 
@@ -50,6 +50,7 @@ class View {
         // replace the tbody with our new content
         tbody.innerHTML = html;
     }
+
     errorMessage(message) {
         this.error.innerHTML = message;
         this.error.classList.remove("hidden");
@@ -75,7 +76,7 @@ class Controller {
     async initialize() {
         try {
             let notes = await this.model.read();
-            this.view.build_table(notes);
+            this.view.buildTable(notes);
         } catch(err) {
             this.view.errorMessage(err);
         }
@@ -86,13 +87,13 @@ class Controller {
                 parent = target.parentElement;
 
             // is this the name td?
-            if (target) {
+            if (target.classList.contains("name")) {
                 let person_id = parent.getAttribute("data-person_id");
 
                 window.location = `/people/${person_id}`;
 
             // is this the content td
-            } else if (true) {
+            } else if (target.classList.contains("content")) {
                 let person_id = parent.getAttribute("data-person_id"),
                     note_id = parent.getAttribute("data-note_id");
 
@@ -102,20 +103,16 @@ class Controller {
     }
 }
 
-/**
- * Create the namespace container for the model, view and controller
- */
-const ns = (function() {
-    "use strict";
+// create the MVC components
+const model = new Model();
+const view = new View();
+const controller = new Controller(model, view);
 
-    const model = new Model();
-    const view = new View();
-    const controller = new Controller(model, view);
-    return {
-        model: model,
-        view: view,
-        controller: controller
-    };
-}());
+// export the MVC components as the default
+export default {
+    model,
+    view,
+    controller
+};
 
 

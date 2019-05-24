@@ -9,7 +9,7 @@
  * @type {{}}
  */
 class Model {
-    async read(person_id) {
+    async read(personId) {
         let options = {
             method: "GET",
             cache: "no-cache",
@@ -18,11 +18,12 @@ class Model {
             }
         };
         // Call the REST endpoint and wait for data
-        let response = await fetch(`/api/people/${person_id}`, options);
+        let response = await fetch(`/api/people/${personId}`, options);
         let data = await response.json();
         return data;
     }
-    async readOne(person_id, note_id) {
+
+    async readOne(personId, noteId) {
         let options = {
             method: "GET",
             cache: "no-cache",
@@ -32,11 +33,12 @@ class Model {
             }
         };
         // Call the REST endpoint and wait for data
-        let response = await fetch(`/api/people/${person_id}/notes/${note_id}`, options);
+        let response = await fetch(`/api/people/${personId}/notes/${noteId}`, options);
         let data = await response.json();
         return data;
     }
-    async create(person_id, note) {
+
+    async create(personId, note) {
         let options = {
             method: "POST",
             cache: "no-cache",
@@ -47,11 +49,12 @@ class Model {
             body: JSON.stringify(note)
         };
         // Call the REST endpoint and wait for data
-        let response = await fetch(`/api/people/${person_id}/notes`, options);
+        let response = await fetch(`/api/people/${personId}/notes`, options);
         let data = await response.json();
         return data;
     }
-    async update(person_id, note) {
+
+    async update(personId, note) {
         let options = {
             method: "PUT",
             cache: "no-cache",
@@ -62,11 +65,12 @@ class Model {
             body: JSON.stringify(note)
         };
         // Call the REST endpoint and wait for data
-        let response = await fetch(`/api/people/${person_id}/notes/${note.note_id}`, options);
+        let response = await fetch(`/api/people/${personId}/notes/${note.noteId}`, options);
         let data = await response.json();
         return data;
     }
-    async delete(person_id, note_id) {
+
+    async delete(personId, noteId) {
         let options = {
             method: "DELETE",
             cache: "no-cache",
@@ -76,7 +80,7 @@ class Model {
             }
         };
         // Call the REST endpoint and wait for data
-        let response = await fetch(`/api/people/${person_id}/notes/${note_id}`, options);
+        let response = await fetch(`/api/people/${personId}/notes/${noteId}`, options);
         return response;
     }
 }
@@ -91,27 +95,30 @@ class View {
         this.EXISTING_NOTE = 1;
         this.table = document.querySelector(".notes table");
         this.error = document.querySelector(".error");
-        this.person_id = document.getElementById("person_id");
+        this.personId = document.getElementById("person_id");
         this.fname = document.getElementById("fname");
         this.lname = document.getElementById("lname");
         this.timestamp = document.getElementById("timestamp");
-        this.note_id = document.getElementById("note_id");
+        this.noteId = document.getElementById("note_id");
         this.note = document.getElementById("note");
         this.createButton = document.getElementById("create");
         this.updateButton = document.getElementById("update");
         this.deleteButton = document.getElementById("delete");
         this.resetButton = document.getElementById("reset");
     }
+
     reset() {
-        this.note_id.textContent = "";
+        this.noteId.textContent = "";
         this.note.value = "";
         this.note.focus();
     }
+
     updateEditor(note) {
-        this.note_id.textContent = note.note_id;
+        this.noteId.textContent = note.noteId;
         this.note.value = note.content;
         this.note.focus();
     }
+
     setButtonState(state) {
         if (state === this.NEW_NOTE) {
             this.createButton.disabled = false;
@@ -123,12 +130,13 @@ class View {
             this.deleteButton.disabled = false;
         }
     }
+
     buildTable(person) {
         let tbody,
             html = "";
 
         // Update the person data
-        this.person_id.textContent = person.person_id;
+        this.personId.textContent = person.person_id;
         this.fname.textContent = person.fname;
         this.lname.textContent = person.lname;
         this.timestamp.textContent = person.timestamp;
@@ -149,6 +157,7 @@ class View {
         tbody = this.table.createTBody();
         tbody.innerHTML = html;
     }
+
     errorMessage(error_msg) {
         let error = document.querySelector(".error");
 
@@ -173,6 +182,7 @@ class Controller {
 
         this.initialize();
     }
+
     async initialize() {
         await this.initializeTable();
         this.initializeTableEvents();
@@ -181,17 +191,18 @@ class Controller {
         this.initializeDeleteEvent();
         this.initializeResetEvent();
     }
+
     async initializeTable() {
         try {
-            let url_person_id = parseInt(document.getElementById("url_person_id").value),
-                url_note_id = parseInt(document.getElementById("url_note_id").value),
-                person = await this.model.read(url_person_id);
+            let urlPersonId = parseInt(document.getElementById("url_person_id").value),
+                urlNoteId = parseInt(document.getElementById("url_note_id").value),
+                person = await this.model.read(urlPersonId);
 
             this.view.buildTable(person);
 
             // Did we navigate here with a note selected?
-            if (url_note_id) {
-                let note = await this.model.readOne(url_person_id, url_note_id);
+            if (urlNoteId) {
+                let note = await this.model.readOne(urlPersonId, urlNoteId);
                 this.view.updateEditor(note);
                 this.view.setButtonState(this.view.EXISTING_NOTE);
 
@@ -205,27 +216,29 @@ class Controller {
             this.view.errorMessage(err);
         }
     }
+
     initializeTableEvents() {
         document.querySelector("table tbody").addEventListener("click", (evt) => {
             let target = evt.target.parentElement,
-                note_id = target.getAttribute("data-note_id"),
+                noteId = target.getAttribute("data-note_id"),
                 content = target.getAttribute("data-content");
 
             this.view.updateEditor({
-                note_id: note_id,
+                noteId: noteId,
                 content: content
             });
             this.view.setButtonState(this.view.EXISTING_NOTE);
         });
     }
+
     initializeCreateEvent() {
         document.getElementById("create").addEventListener("click", async (evt) => {
-            let url_person_id = parseInt(document.getElementById("person_id").textContent),
+            let urlPersonId = parseInt(document.getElementById("person_id").textContent),
                 note = document.getElementById("note").value;
 
             evt.preventDefault();
             try {
-                await this.model.create(url_person_id, {
+                await this.model.create(urlPersonId, {
                     content: note
                 });
                 await this.initializeTable();
@@ -234,17 +247,18 @@ class Controller {
             }
         });
     }
+
     initializeUpdateEvent() {
         document.getElementById("update").addEventListener("click", async (evt) => {
-            let person_id = parseInt(document.getElementById("person_id").textContent),
-                note_id = parseInt(document.getElementById("note_id").textContent),
+            let personId = parseInt(document.getElementById("person_id").textContent),
+                noteId = parseInt(document.getElementById("note_id").textContent),
                 note = document.getElementById("note").value;
 
             evt.preventDefault();
             try {
-                await this.model.update(person_id, {
-                    person_id: person_id,
-                    note_id: note_id,
+                await this.model.update(personId, {
+                    personId: personId,
+                    noteId: noteId,
                     content: note
                 });
                 await this.initializeTable();
@@ -253,20 +267,22 @@ class Controller {
             }
         });
     }
+
     initializeDeleteEvent() {
         document.getElementById("delete").addEventListener("click", async (evt) => {
-            let person_id = parseInt(document.getElementById("person_id").textContent),
-                note_id = parseInt(document.getElementById("note_id").textContent);
+            let personId = parseInt(document.getElementById("person_id").textContent),
+                noteId = parseInt(document.getElementById("note_id").textContent);
 
             evt.preventDefault();
             try {
-                await this.model.delete(person_id, note_id);
+                await this.model.delete(personId, noteId);
                 await this.initializeTable();
             } catch(err) {
                 this.view.errorMessage(err);
             }
         });
     }
+
     initializeResetEvent() {
         document.getElementById("reset").addEventListener("click", async (evt) => {
             evt.preventDefault();
@@ -276,20 +292,16 @@ class Controller {
     }
 }
 
-/**
- * Create the namespace container for the model, view and controller
- */
-const ns = (function() {
-    "use strict";
+// create the MVC components
+const model = new Model();
+const view = new View();
+const controller = new Controller(model, view);
 
-    const model = new Model();
-    const view = new View();
-    const controller = new Controller(model, view);
-    return {
-        model: model,
-        view: view,
-        controller: controller
-    }
-}());
+// export the MVC components as the default
+export default {
+    model,
+    view,
+    controller
+};
 
 

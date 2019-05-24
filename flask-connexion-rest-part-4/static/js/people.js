@@ -14,15 +14,17 @@ class Model {
             method: "GET",
             cache: "no-cache",
             headers: {
-                "Content-Type": "application/json"
+                "Content-Type": "application/json",
+                "accepts": "application/json"
             }
         };
         // Call the REST endpoint and wait for data
-        let response = await fetch(`/api/people`, options);
+        let response = await fetch("/api/people", options);
         let data = await response.json();
         return data;
     }
-    async readOne(person_id) {
+
+    async readOne(personId) {
         let options = {
             method: "GET",
             cache: "no-cache",
@@ -32,10 +34,11 @@ class Model {
             }
         };
         // Call the REST endpoint and wait for data
-        let response = await fetch(`/api/people/${person_id}`, options);
+        let response = await fetch(`/api/people/${personId}`, options);
         let data = await response.json();
         return data;
     }
+
     async create(person) {
         let options = {
             method: "POST",
@@ -51,6 +54,7 @@ class Model {
         let data = await response.json();
         return data;
     }
+
     async update(person) {
         let options = {
             method: "PUT",
@@ -62,11 +66,12 @@ class Model {
             body: JSON.stringify(person)
         };
         // Call the REST endpoint and wait for data
-        let response = await fetch(`/api/people/${person.person_id}`, options);
+        let response = await fetch(`/api/people/${person.personId}`, options);
         let data = await response.json();
         return data;
     }
-    async delete(person_id) {
+
+    async delete(personId) {
         let options = {
             method: "DELETE",
             cache: "no-cache",
@@ -76,7 +81,7 @@ class Model {
             }
         };
         // Call the REST endpoint and wait for data
-        let response = await fetch(`/api/people/${person_id}`, options);
+        let response = await fetch(`/api/people/${personId}`, options);
         return response;
     }
 }
@@ -91,7 +96,7 @@ class View {
         this.EXISTING_NOTE = 1;
         this.table = document.querySelector(".people table");
         this.error = document.querySelector(".error");
-        this.person_id = document.getElementById("person_id");
+        this.personId = document.getElementById("person_id");
         this.fname = document.getElementById("fname");
         this.lname = document.getElementById("lname");
         this.createButton = document.getElementById("create");
@@ -101,17 +106,19 @@ class View {
     }
 
     reset() {
-        this.person_id.textContent = "";
+        this.personId.textContent = "";
         this.lname.value = "";
         this.fname.value = "";
         this.fname.focus();
     }
+
     updateEditor(person) {
-        this.person_id.textContent = person.person_id;
+        this.personId.textContent = person.person_id;
         this.lname.value = person.lname;
         this.fname.value = person.fname;
         this.fname.focus();
     }
+
     setButtonState(state) {
         if (state === this.NEW_NOTE) {
             this.createButton.disabled = false;
@@ -123,6 +130,7 @@ class View {
             this.deleteButton.disabled = false;
         }
     }
+
     buildTable(people) {
         let tbody,
             html = "";
@@ -143,6 +151,7 @@ class View {
         tbody = this.table.createTBody();
         tbody.innerHTML = html;
     }
+
     errorMessage(message) {
         this.error.innerHTML = message;
         this.error.classList.add("visible");
@@ -163,9 +172,9 @@ class Controller {
         this.model = model;
         this.view = view;
 
-        // initialize the system
         this.initialize();
     }
+
     async initialize() {
         await this.initializeTable();
         this.initializeTableEvents();
@@ -174,16 +183,17 @@ class Controller {
         this.initializeDeleteEvent();
         this.initializeResetEvent();
     }
+
     async initializeTable() {
         try {
-            let url_person_id = parseInt(document.getElementById("url_person_id").value),
+            let urlPersonId = parseInt(document.getElementById("url_person_id").value),
                 people = await this.model.read();
 
             this.view.buildTable(people);
 
             // Did we navigate here with a person selected?
-            if (url_person_id) {
-                let person = await this.model.readOne(url_person_id);
+            if (urlPersonId) {
+                let person = await this.model.readOne(urlPersonId);
                 this.view.updateEditor(person);
                 this.view.setButtonState(this.view.EXISTING_NOTE);
 
@@ -197,6 +207,7 @@ class Controller {
             this.view.errorMessage(err);
         }
     }
+
     initializeTableEvents() {
         document.querySelector("table tbody").addEventListener("dblclick", (evt) => {
             let target = evt.target,
@@ -206,9 +217,9 @@ class Controller {
 
             // Is this the name td?
             if (target) {
-                let person_id = parent.getAttribute("data-person_id");
+                let personId = parent.getAttribute("data-person_id");
 
-                window.location = `/people/${person_id}/notes`;
+                window.location = `/people/${personId}/notes`;
             }
         });
         document.querySelector("table tbody").addEventListener("click", (evt) => {
@@ -225,6 +236,7 @@ class Controller {
             this.view.setButtonState(this.view.EXISTING_NOTE);
         });
     }
+
     initializeCreateEvent() {
         document.getElementById("create").addEventListener("click", async (evt) => {
             let fname = document.getElementById("fname").value,
@@ -242,16 +254,17 @@ class Controller {
             }
         });
     }
+
     initializeUpdateEvent() {
         document.getElementById("update").addEventListener("click", async (evt) => {
-            let person_id = parseInt(document.getElementById("person_id").textContent),
+            let personId = parseInt(document.getElementById("person_id").textContent),
                 fname = document.getElementById("fname").value,
                 lname = document.getElementById("lname").value;
 
             evt.preventDefault();
             try {
                 await this.model.update({
-                    person_id: person_id,
+                    personId: personId,
                     fname: fname,
                     lname: lname
                 });
@@ -261,19 +274,21 @@ class Controller {
             }
         });
     }
+
     initializeDeleteEvent() {
         document.getElementById("delete").addEventListener("click", async (evt) => {
-            let person_id = parseInt(document.getElementById("person_id").textContent);
+            let personId = parseInt(document.getElementById("person_id").textContent);
 
             evt.preventDefault();
             try {
-                await this.model.delete(person_id);
+                await this.model.delete(personId);
                 await this.initializeTable();
             } catch(err) {
                 this.view.errorMessage(err);
             }
         });
     }
+
     initializeResetEvent() {
         document.getElementById("reset").addEventListener("click", async (evt) => {
             evt.preventDefault();
@@ -283,20 +298,14 @@ class Controller {
     }
 }
 
-/**
- * Create the namespace container for the model, view and controller
- */
-const ns = (function() {
-    "use strict";
+// create the MVC components
+const model = new Model();
+const view = new View();
+const controller = new Controller(model, view);
 
-    const model = new Model();
-    const view = new View();
-    const controller = new Controller(model, view);
-    return {
-        model: model,
-        view: view,
-        controller: controller
-    };
-}());
-
-
+// export the MVC components as the default
+export default {
+    model,
+    view,
+    controller
+};
