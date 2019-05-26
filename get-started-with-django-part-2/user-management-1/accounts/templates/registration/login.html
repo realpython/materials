@@ -8,6 +8,7 @@
         {{ form.as_p }}
 
         <p class="small"><a href="{% url 'password_reset' %}">Lost password?</a></p>
+        <p class="small">New user? <a href="{% url 'signup' %}">Sign up</a></p>
         <input class="btn btn-primary" type="submit" value="Login">
         <input type="hidden" name="next" value="{{ next }}">
     </form>
