@@ -45,4 +45,20 @@ urlpatterns = [
         ),
         name="password_reset_complete",
     ),
+    path("signup/", views.SignUpView.as_view(), name="signup"),
+    path(
+        "signup/done/",
+        TemplateView.as_view(template_name="registration/signup_done.html"),
+        name="signup_done",
+    ),
+    path(
+        "signup/complete/<uidb64>/<token>/",
+        views.SignUpCompleteView.as_view(),
+        name="signup_complete",
+    ),
+    path(
+        "signup/request_token/",
+        views.SignUpTokenRequestView.as_view(),
+        name="signup_token_request",
+    ),
 ]

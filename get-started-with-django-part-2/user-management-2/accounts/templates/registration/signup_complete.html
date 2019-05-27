@@ -1,0 +1,22 @@
+{% extends "base.html"%}
+
+{% block page_content %}
+<div class="col-md-6 offset-md-3">
+    {% if validlink %}
+    <h1 class="mt-4 mb-4">
+        Your account has been activated!
+    </h1>
+    <p>Log in <a href="{% url 'login' %}">here</a>.</p>
+    {% else %}
+    <h1 class="mt-4 mb-4">
+        Invalid Token
+    </h1>
+    <p>
+        Request a new token
+        <a href="{% url 'signup_token_request' %}">
+            here
+        </a>.
+    </p>
+    {% endif %}
+</div>
+{% endblock %}

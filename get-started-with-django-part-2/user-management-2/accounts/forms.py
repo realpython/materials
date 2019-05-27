@@ -1,6 +1,8 @@
 from django import forms
 from django.contrib.auth import password_validation
 
+from accounts.models import User
+
 
 class LogInForm(forms.Form):
     email = forms.EmailField(label="Email")
@@ -12,7 +14,7 @@ class SetPasswordForm(forms.Form):
         label="New password", widget=forms.PasswordInput()
     )
     password2 = forms.CharField(
-        label="New password", widget=forms.PasswordInput()
+        label="Confirm password", widget=forms.PasswordInput()
     )
 
     def clean(self):
@@ -40,3 +42,11 @@ class PasswordResetRequestForm(forms.Form):
 
 class PasswordResetForm(SetPasswordForm):
     pass
+
+
+class SignUpForm(SetPasswordForm, forms.ModelForm):
+    password1 = forms.CharField(label="Password", widget=forms.PasswordInput())
+
+    class Meta:
+        model = User
+        fields = ("username", "email")

@@ -16,6 +16,7 @@ from accounts.forms import (
     PasswordChangeForm,
     PasswordResetRequestForm,
     PasswordResetForm,
+    SignUpForm,
 )
 from accounts.models import User
 
@@ -30,7 +31,7 @@ class LogInView(FormView):
         email = form.cleaned_data["email"]
         password = form.cleaned_data["password"]
         user = self.backend.authenticate(self, email=email, password=password)
-        if user:
+        if user and user.is_active:
             login(self.request, user)
             return super().form_valid(form)
         else:
@@ -140,4 +141,107 @@ class PasswordResetConfirmView(FormView):
         password = form.cleaned_data["password1"]
         self.user.set_password(password)
         self.user.save()
+        return super().form_valid(form)
+
+
+class SignUpView(FormView):
+    form_class = SignUpForm
+    template_name = "registration/signup.html"
+    success_url = reverse_lazy("signup_done")
+    email_template_name = "registration/signup_email.html"
+    from_email = "admin@ums.io"
+    token_generator = default_token_generator
+
+    def form_valid(self, form):
+        user = form.save(commit=False)
+        user.set_password(form.cleaned_data["password1"])
+        user.save()
+
+        email = form.cleaned_data["email"]
+        current_site = get_current_site(self.request)
+        context = {
+            "email": email,
+            "domain": current_site.domain,
+            "uid": urlsafe_base64_encode(force_bytes(user.pk)),
+            "user": user,
+            "token": self.token_generator.make_token(user),
+        }
+        subject = "[UMS] Account Confirmation"
+        body = render_to_string(self.email_template_name, context)
+
+        email_message = EmailMessage(subject, body, self.from_email, [email])
+        email_message.send()
+        return super().form_valid(form)
+
+
+class SignUpCompleteView(TemplateView):
+    template_name = "registration/signup_complete.html"
+    token_generator = default_token_generator
+
+    def dispatch(self, *args, **kwargs):
+        self.validlink = False
+        try:
+            uidb64 = kwargs["uidb64"]
+            token = kwargs["token"]
+        except KeyError:
+            self.user = None
+
+        try:
+            uid = urlsafe_base64_decode(uidb64).decode()
+            self.user = User.objects.get(pk=uid)
+        except (
+            TypeError,
+            ValueError,
+            OverflowError,
+            ValidationError,
+            User.ObjectDoesNotExist,
+        ):
+            self.user = None
+
+        if self.user is not None:
+            if self.token_generator.check_token(self.user, token):
+                self.user.is_active = True
+                self.user.save()
+                self.validlink = True
+
+        return super().dispatch(*args, **kwargs)
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context["validlink"] = self.validlink
+        return context
+
+
+class SignUpTokenRequestView(FormView):
+    form_class = PasswordResetRequestForm
+    template_name = "registration/signup_token_request.html"
+    success_url = reverse_lazy("signup_done")
+    email_template_name = "registration/signup_email.html"
+    from_email = "admin@ums.io"
+    token_generator = default_token_generator
+
+    def form_valid(self, form):
+        email = form.cleaned_data["email"]
+        try:
+            user = User.objects.get(email=email)
+        except User.ObjectDoesNotExist:
+            user = None
+            return redirect(reverse_lazy("signup_token_request"))
+        else:
+            if user and user.is_active:
+                return redirect(reverse_lazy("login"))
+            current_site = get_current_site(self.request)
+            context = {
+                "email": email,
+                "domain": current_site.domain,
+                "uid": urlsafe_base64_encode(force_bytes(user.pk)),
+                "token": self.token_generator.make_token(user),
+            }
+
+            subject = "[UMS] Account Confirmation"
+            body = render_to_string(self.email_template_name, context)
+            email_message = EmailMessage(
+                subject, body, self.from_email, [email]
+            )
+            email_message.send()
         return super().form_valid(form)
