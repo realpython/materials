@@ -194,8 +194,8 @@ class Controller {
 
     async initializeTable() {
         try {
-            let urlPersonId = parseInt(document.getElementById("url_person_id").value),
-                urlNoteId = parseInt(document.getElementById("url_note_id").value),
+            let urlPersonId = +document.getElementById("url_person_id").value,
+                urlNoteId = +document.getElementById("url_note_id").value,
                 person = await this.model.read(urlPersonId);
 
             this.view.buildTable(person);
@@ -233,7 +233,7 @@ class Controller {
 
     initializeCreateEvent() {
         document.getElementById("create").addEventListener("click", async (evt) => {
-            let urlPersonId = parseInt(document.getElementById("person_id").textContent),
+            let urlPersonId = +document.getElementById("person_id").textContent,
                 note = document.getElementById("note").value;
 
             evt.preventDefault();
@@ -250,8 +250,8 @@ class Controller {
 
     initializeUpdateEvent() {
         document.getElementById("update").addEventListener("click", async (evt) => {
-            let personId = parseInt(document.getElementById("person_id").textContent),
-                noteId = parseInt(document.getElementById("note_id").textContent),
+            let personId = +document.getElementById("person_id").textContent,
+                noteId = +document.getElementById("note_id").textContent,
                 note = document.getElementById("note").value;
 
             evt.preventDefault();
@@ -270,8 +270,8 @@ class Controller {
 
     initializeDeleteEvent() {
         document.getElementById("delete").addEventListener("click", async (evt) => {
-            let personId = parseInt(document.getElementById("person_id").textContent),
-                noteId = parseInt(document.getElementById("note_id").textContent);
+            let personId = +document.getElementById("person_id").textContent,
+                noteId = +document.getElementById("note_id").textContent;
 
             evt.preventDefault();
             try {

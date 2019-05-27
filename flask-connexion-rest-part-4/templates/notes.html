@@ -67,6 +67,9 @@
 {{ super() }}
 <script type="module">
     // give the imported MVC components a namespace
-    import * as namespace from "/static/js/notes.js";
+    import * as MVC from "/static/js/notes.js";
+
+    // create an intentional global variable referencing the import
+    window.mvc = MVC;
 </script>
 {% endblock %}

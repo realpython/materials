@@ -8,17 +8,19 @@
 {% block page_name %}Mini-Blog Page Demo{% endblock %}
 
 {% block body %}
-<div class="blog">
-    <table>
-        <caption>People Blog Entries</caption>
-        <thead>
-            <tr>
-                <th>Creation/Update Timestamp</th>
-                <th>Person</th>
-                <th>Note</th>
-            </tr>
-        </thead>
-    </table>
+<div class="container">
+    <div class="blog">
+        <table>
+            <caption>People Blog Entries</caption>
+            <thead>
+                <tr>
+                    <th>Creation/Update Timestamp</th>
+                    <th>Person</th>
+                    <th>Note</th>
+                </tr>
+            </thead>
+        </table>
+    </div>
 </div>
 <div class="error hidden"></div>
 
@@ -28,6 +30,9 @@
 {{ super() }}
 <script type="module">
     // give the imported MVC components a namespace
-    import * as namespace from "/static/js/home.js";
+    import MVC from "/static/js/home.js";
+
+    // create an intentional global variable referencing the import
+    window.mvc = MVC;
 </script>
 {% endblock %}

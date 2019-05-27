@@ -186,7 +186,7 @@ class Controller {
 
     async initializeTable() {
         try {
-            let urlPersonId = parseInt(document.getElementById("url_person_id").value),
+            let urlPersonId = +document.getElementById("url_person_id").value,
                 people = await this.model.read();
 
             this.view.buildTable(people);
@@ -257,7 +257,7 @@ class Controller {
 
     initializeUpdateEvent() {
         document.getElementById("update").addEventListener("click", async (evt) => {
-            let personId = parseInt(document.getElementById("person_id").textContent),
+            let personId = +document.getElementById("person_id").textContent,
                 fname = document.getElementById("fname").value,
                 lname = document.getElementById("lname").value;
 
@@ -277,7 +277,7 @@ class Controller {
 
     initializeDeleteEvent() {
         document.getElementById("delete").addEventListener("click", async (evt) => {
-            let personId = parseInt(document.getElementById("person_id").textContent);
+            let personId = +document.getElementById("person_id").textContent;
 
             evt.preventDefault();
             try {

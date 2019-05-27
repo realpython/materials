@@ -7,26 +7,6 @@ div.blog {
     border: 2px solid darkgrey;
 }
 
-.blog table {
-    border-collapse: collapse;
-    width: 100%;
-}
-
-.blog table caption {
-    font-weight: bold;
-    padding: 10px 0 10px 0;
-    border-bottom: 2px solid darkgrey;
-    background-color: antiquewhite;
-}
-
-.blog table thead {
-    padding: 10px 0 10px 0;
-}
-
-th:not(:last-child), td:not(:last-child) {
-    border-right: 2px solid darkgrey;
-}
-
 td.name {
     text-align: center;
     width: 175px;
@@ -35,31 +15,4 @@ td.name {
 td.timestamp {
     text-align: center;
     width: 280px;
-}
-
-td.content {
-    text-align: left;
-    padding-left: 5px;
-}
-
-tbody tr:nth-child(odd) {
-    background-color: gainsboro;
-}
-
-tbody td.name, tbody td.content {
-    cursor: pointer;
-    height: 33px;
-}
-
-thead tr {
-    height: 33px;
-    border-bottom: 2px solid darkgrey;
-}
-
-tbody tr:not(:last-child){
-    border-bottom: 2px solid darkgrey;
-}
-
-tbody tr:hover {
-    background-color: powderblue;
 }

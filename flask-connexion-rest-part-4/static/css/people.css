@@ -2,10 +2,6 @@
  * This is the CSS stylesheet for the demo people application
  */
 
-.container {
-    padding: 10px;
-}
-
 .editor {
     width: 50%;
     margin-left: auto;
