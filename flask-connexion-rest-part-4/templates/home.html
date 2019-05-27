@@ -29,10 +29,10 @@
 {% block javascript %}
 {{ super() }}
 <script type="module">
-    // give the imported MVC components a namespace
+    // Give the imported MVC components a namespace
     import MVC from "/static/js/home.js";
 
-    // create an intentional global variable referencing the import
+    // Create an intentional global variable referencing the import
     window.mvc = MVC;
 </script>
 {% endblock %}
