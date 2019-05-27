@@ -31,6 +31,11 @@
                     </a>
                     <div class="dropdown-menu"
                          aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item"
+                           href="{% url 'password_change' %}">
+                            Change Password
+                        </a>
+                        <div class="dropdown-divider"></div>
                         <a style="color: red;"
                            class="dropdown-item"
                            href="{% url 'logout' %}">

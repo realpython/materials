@@ -1,10 +1,10 @@
-from django.contrib.auth import login, logout
+from django.contrib.auth import login, logout, update_session_auth_hash
 from django.shortcuts import redirect
 from django.urls import reverse_lazy
 from django.views.generic import FormView, TemplateView
 
 from accounts.backends import EmailBackend
-from accounts.forms import LogInForm
+from accounts.forms import LogInForm, PasswordChangeForm
 
 
 class LogInView(FormView):
@@ -30,3 +30,21 @@ class LogOutView(TemplateView):
     def dispatch(self, request, *args, **kwargs):
         logout(request)
         return super().dispatch(request, *args, **kwargs)
+
+
+class PasswordChangeView(FormView):
+    form_class = PasswordChangeForm
+    template_name = "registration/password_change_form.html"
+    success_url = reverse_lazy("password_change_done")
+
+    def form_valid(self, form):
+        new_password = form.cleaned_data["password1"]
+        old_password = form.cleaned_data["old_password"]
+        user = self.request.user
+        if user.check_password(old_password):
+            user.set_password(new_password)
+            user.save()
+            update_session_auth_hash(self.request, user)
+            return super().form_valid(form)
+        else:
+            return redirect(reverse_lazy("password_change"))
