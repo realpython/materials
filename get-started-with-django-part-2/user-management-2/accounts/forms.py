@@ -32,3 +32,11 @@ class PasswordChangeForm(SetPasswordForm):
         label="Old Password", widget=forms.PasswordInput()
     )
     field_order = ["old_password", "password1", "password2"]
+
+
+class PasswordResetRequestForm(forms.Form):
+    email = forms.EmailField(label="Email")
+
+
+class PasswordResetForm(SetPasswordForm):
+    pass

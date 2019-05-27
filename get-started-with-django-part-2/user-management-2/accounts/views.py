@@ -1,10 +1,23 @@
 from django.contrib.auth import login, logout, update_session_auth_hash
+from django.contrib.auth.tokens import default_token_generator
+from django.contrib.sites.shortcuts import get_current_site
+from django.core.exceptions import ValidationError
+from django.core.mail import EmailMessage
 from django.shortcuts import redirect
+from django.template.loader import render_to_string
 from django.urls import reverse_lazy
+from django.utils.encoding import force_bytes
+from django.utils.http import urlsafe_base64_encode, urlsafe_base64_decode
 from django.views.generic import FormView, TemplateView
 
 from accounts.backends import EmailBackend
-from accounts.forms import LogInForm, PasswordChangeForm
+from accounts.forms import (
+    LogInForm,
+    PasswordChangeForm,
+    PasswordResetRequestForm,
+    PasswordResetForm,
+)
+from accounts.models import User
 
 
 class LogInView(FormView):
@@ -48,3 +61,83 @@ class PasswordChangeView(FormView):
             return super().form_valid(form)
         else:
             return redirect(reverse_lazy("password_change"))
+
+
+class PasswordResetView(FormView):
+    form_class = PasswordResetRequestForm
+    template_name = "registration/password_reset_form.html"
+    success_url = reverse_lazy("password_reset_done")
+    email_template_name = "registration/password_reset_email.html"
+    from_email = "admin@ums.io"
+    token_generator = default_token_generator
+
+    def form_valid(self, form):
+        email = form.cleaned_data["email"]
+        try:
+            user = User.objects.get(email=email)
+        except User.ObjectDoesNotExist:
+            return redirect(reverse_lazy("password_reset"))
+        else:
+            current_site = get_current_site(self.request)
+            subject = "[UMS] Password Reset Request"
+            context = {
+                "email": email,
+                "uid": urlsafe_base64_encode(force_bytes(user.pk)),
+                "domain": current_site.domain,
+                "user": user,
+                "token": self.token_generator.make_token(user),
+            }
+
+            body = render_to_string(self.email_template_name, context)
+            email_message = EmailMessage(
+                subject, body, self.from_email, [email]
+            )
+            email_message.send()
+        return super().form_valid(form)
+
+
+class PasswordResetConfirmView(FormView):
+    form_class = PasswordResetForm
+    template_name = "registration/password_reset_confirm.html"
+    success_url = reverse_lazy("password_reset_complete")
+    token_generator = default_token_generator
+
+    def dispatch(self, *args, **kwargs):
+        self.validlink = False
+        try:
+            uidb64 = kwargs["uidb64"]
+            token = kwargs["token"]
+        except KeyError:
+            self.user = None
+
+        try:
+            uid = urlsafe_base64_decode(uidb64).decode()
+            self.user = User.objects.get(pk=uid)
+        except (
+            TypeError,
+            ValueError,
+            OverflowError,
+            User.ObjectDoesNotExist,
+            ValidationError,
+        ):
+            self.user = None
+
+        if self.user is not None:
+            if self.token_generator.check_token(self.user, token):
+                self.validlink = True
+        return super().dispatch(*args, **kwargs)
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        if self.validlink:
+            context["validlink"] = True
+        else:
+            context["form"] = None
+            context["validlink"] = False
+        return context
+
+    def form_valid(self, form):
+        password = form.cleaned_data["password1"]
+        self.user.set_password(password)
+        self.user.save()
+        return super().form_valid(form)
