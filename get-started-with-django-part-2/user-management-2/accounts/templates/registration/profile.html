@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+
+{% block page_content %}
+<h1>
+    Hey,
+    {% if user.first_name %}
+        {{ user.first_name }}
+    {% else %}
+        {{ user.username }}
+    {% endif %}
+</h1>
+{% endblock %}

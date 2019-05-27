@@ -61,4 +61,16 @@ urlpatterns = [
         views.SignUpTokenRequestView.as_view(),
         name="signup_token_request",
     ),
+    path(
+        "accounts/profile/",
+        login_required(
+            TemplateView.as_view(template_name="registration/profile.html")
+        ),
+        name="profile",
+    ),
+    path(
+        "accounts/edit_profile/",
+        views.EditProfileView.as_view(),
+        name="edit_profile",
+    ),
 ]

@@ -32,6 +32,14 @@
                     <div class="dropdown-menu"
                          aria-labelledby="navbarDropdown">
                         <a class="dropdown-item"
+                           href="{% url 'profile' %}">
+                            Profile
+                        </a>
+                        <a class="dropdown-item"
+                           href="{% url 'edit_profile' %}">
+                            Edit Profile
+                        </a>
+                        <a class="dropdown-item"
                            href="{% url 'password_change' %}">
                             Change Password
                         </a>

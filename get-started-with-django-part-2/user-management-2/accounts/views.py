@@ -8,7 +8,7 @@ from django.template.loader import render_to_string
 from django.urls import reverse_lazy
 from django.utils.encoding import force_bytes
 from django.utils.http import urlsafe_base64_encode, urlsafe_base64_decode
-from django.views.generic import FormView, TemplateView
+from django.views.generic import FormView, TemplateView, UpdateView
 
 from accounts.backends import EmailBackend
 from accounts.forms import (
@@ -245,3 +245,13 @@ class SignUpTokenRequestView(FormView):
             )
             email_message.send()
         return super().form_valid(form)
+
+
+class EditProfileView(UpdateView):
+    model = User
+    fields = ["username", "first_name"]
+    success_url = reverse_lazy("profile")
+    template_name = "registration/edit_profile_form.html"
+
+    def get_object(self):
+        return self.request.user
