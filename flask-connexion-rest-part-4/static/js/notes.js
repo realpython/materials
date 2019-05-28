@@ -292,7 +292,7 @@ class Controller {
     }
 }
 
-// create the MVC components
+// Create the MVC components
 const model = new Model();
 const view = new View();
 const controller = new Controller(model, view);
