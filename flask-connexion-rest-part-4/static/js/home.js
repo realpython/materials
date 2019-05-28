@@ -38,7 +38,7 @@ class View {
         let tbody = this.table.createTBody();
         let html = "";
 
-        // iterate over the notes and build the table
+        // Iterate over the notes and build the table
         notes.forEach((note) => {
             html += `
             <tr data-person_id="${note.person.person_id}" data-note_id="${note.note_id}">
@@ -47,7 +47,7 @@ class View {
                 <td class="content">${note.content}</td>
             </tr>`;
         });
-        // replace the tbody with our new content
+        // Replace the tbody with our new content
         tbody.innerHTML = html;
     }
 

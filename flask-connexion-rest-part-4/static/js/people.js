@@ -135,7 +135,7 @@ class View {
         let tbody,
             html = "";
 
-        // iterate over the people and build the table
+        // Iterate over the people and build the table
         people.forEach((person) => {
             html += `
             <tr data-person_id="${person.person_id}" data-fname="${person.fname}" data-lname="${person.lname}">
