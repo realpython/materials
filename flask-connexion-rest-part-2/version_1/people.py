@@ -97,7 +97,7 @@ def create(person):
 def update(person_id, person):
     """
     This function updates an existing person in the people structure
-    Throws an error if a person with the name we want to update to 
+    Throws an error if a person with the name we want to update to
     already exists in the database.
 
     :param person_id:   Id of the person to update in the people structure
@@ -109,7 +109,7 @@ def update(person_id, person):
         Person.person_id == person_id
     ).one_or_none()
 
-    # Try to find an existing person with the same name that we want to update to
+    # Try to find an existing person with the same name as the update
     fname = person.get("fname")
     lname = person.get("lname")
 
@@ -126,8 +126,10 @@ def update(person_id, person):
             "Person not found for Id: {person_id}".format(person_id=person_id),
         )
 
-    # But would our update create a duplicate of another person that already exists?
-    elif existing_person is not None and existing_person.person_id != person_id:
+    # Would our update create a duplicate of another person already existing?
+    elif (
+        existing_person is not None and existing_person.person_id != person_id
+    ):
         abort(
             409,
             "Person {fname} {lname} exists already".format(
