@@ -97,6 +97,8 @@ def create(person):
 def update(person_id, person):
     """
     This function updates an existing person in the people structure
+    Throws an error if a person with the name we want to update to 
+    already exists in the database.
 
     :param person_id:   Id of the person to update in the people structure
     :param person:      person to update
@@ -107,8 +109,34 @@ def update(person_id, person):
         Person.person_id == person_id
     ).one_or_none()
 
-    # Did we find a person?
-    if update_person is not None:
+    # Try to find an existing person with the same name that we want to update to
+    fname = person.get("fname")
+    lname = person.get("lname")
+
+    existing_person = (
+        Person.query.filter(Person.fname == fname)
+        .filter(Person.lname == lname)
+        .one_or_none()
+    )
+
+    # Are we trying to find a person that does not exist?
+    if update_person is None:
+        abort(
+            404,
+            "Person not found for Id: {person_id}".format(person_id=person_id),
+        )
+
+    # But would our update create a duplicate of another person that already exists?
+    elif existing_person is not None and existing_person.person_id != person_id:
+        abort(
+            409,
+            "Person {fname} {lname} exists already".format(
+                fname=fname, lname=lname
+            ),
+        )
+
+    # Otherwise go ahead and update!
+    else:
 
         # turn the passed in person into a db object
         schema = PersonSchema()
@@ -125,13 +153,6 @@ def update(person_id, person):
         data = schema.dump(update_person).data
 
         return data, 200
-
-    # Otherwise, nope, didn't find that person
-    else:
-        abort(
-            404,
-            "Person not found for Id: {person_id}".format(person_id=person_id),
-        )
 
 
 def delete(person_id):
