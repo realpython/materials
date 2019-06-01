@@ -145,7 +145,7 @@ def update(person_id, person):
         update = schema.load(person, session=db.session).data
 
         # Set the id to the person we want to update
-        update.id = update_person.person_id
+        update.person_id = update_person.person_id
 
         # merge the new object into the old and commit it to the db
         db.session.merge(update)
