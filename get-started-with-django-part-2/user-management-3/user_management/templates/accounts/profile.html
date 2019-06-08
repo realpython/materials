@@ -1,0 +1,12 @@
+{% extends "account/base.html" %}
+
+{% block content %}
+<h1 class="mt-4 mb-4">
+    Hey,
+    {% if request.user.first_name %}
+        {{ request.user.first_name }}!
+    {% else %}
+        {{ request.user.username }}!
+    {% endif %}
+</h1>
+{% endblock %}
