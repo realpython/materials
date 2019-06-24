@@ -1,0 +1,383 @@
+swagger: "2.0"
+info:
+  description: This is the swagger file that goes with our server code
+  version: "1.0.0"
+  title: Swagger Rest Article
+consumes:
+  - application/json
+produces:
+  - application/json
+
+basePath: /api
+
+# Paths supported by the server application
+paths:
+  /people:
+    get:
+      operationId: people.read_all
+      tags:
+        - People
+      summary: Read the entire set of people, sorted by last name
+      description: Read the entire set of people, sorted by last name
+      responses:
+        200:
+          description: Successfully read people set operation
+          schema:
+            type: array
+            items:
+              properties:
+                person_id:
+                  type: integer
+                  description: Id of the person
+                fname:
+                  type: string
+                  description: First name of the person
+                lname:
+                  type: string
+                  description: Last name of the person
+                timestamp:
+                  type: string
+                  description: Create/Update timestamp of the person
+                notes:
+                  type: array
+                  items:
+                    properties:
+                      person_id:
+                        type: integer
+                        description: Id of person this note is associated with
+                      note_id:
+                        type: integer
+                        description: Id of this note
+                      content:
+                        type: string
+                        description: content of this note
+                      timestamp:
+                        type: string
+                        description: Create/Update timestamp of this note
+
+    post:
+      operationId: people.create
+      tags:
+        - People
+      summary: Create a person
+      description: Create a new person
+      parameters:
+        - name: person
+          in: body
+          description: Person to create
+          required: True
+          schema:
+            type: object
+            properties:
+              fname:
+                type: string
+                description: First name of person to create
+              lname:
+                type: string
+                description: Last name of person to create
+      responses:
+        201:
+          description: Successfully created person
+          schema:
+            properties:
+              person_id:
+                type: integer
+                description: Id of the person
+              fname:
+                type: string
+                description: First name of the person
+              lname:
+                type: string
+                description: Last name of the person
+              timestamp:
+                type: string
+                description: Creation/Update timestamp of the person record
+
+  /people/{person_id}:
+    get:
+      operationId: people.read_one
+      tags:
+        - People
+      summary: Read one person
+      description: Read one person
+      parameters:
+        - name: person_id
+          in: path
+          description: Id of the person to get
+          type: integer
+          required: True
+      responses:
+        200:
+          description: Successfully read person from people data operation
+          schema:
+            type: object
+            properties:
+              person_id:
+                type: string
+                description: Id of the person
+              fname:
+                type: string
+                description: First name of the person
+              lname:
+                type: string
+                description: Last name of the person
+              timestamp:
+                type: string
+                description: Creation/Update timestamp of the person record
+              notes:
+                type: array
+                items:
+                  properties:
+                    person_id:
+                      type: integer
+                      description: Id of person this note is associated with
+                    note_id:
+                      type: integer
+                      description: Id of this note
+                    content:
+                      type: string
+                      description: content of this note
+                    timestamp:
+                      type: string
+                      description: Create/Update timestamp of this note
+
+    put:
+      operationId: people.update
+      tags:
+        - People
+      summary: Update a person
+      description: Update a person
+      parameters:
+        - name: person_id
+          in: path
+          description: Id the person to update
+          type: integer
+          required: True
+        - name: person
+          in: body
+          schema:
+            type: object
+            properties:
+              fname:
+                type: string
+                description: First name of the person
+              lname:
+                type: string
+                description: Last name of the person
+      responses:
+        200:
+          description: Successfully updated person
+          schema:
+            properties:
+              person_id:
+                type: integer
+                description: Id of the person in the database
+              fname:
+                type: string
+                description: First name of the person
+              lname:
+                type: string
+                description: Last name of the person
+              timestamp:
+                type: string
+                description: Creation/Update timestamp of the person record
+
+    delete:
+      operationId: people.delete
+      tags:
+        - People
+      summary: Delete a person from the people list
+      description: Delete a person
+      parameters:
+        - name: person_id
+          in: path
+          type: integer
+          description: Id of the person to delete
+          required: true
+      responses:
+        200:
+          description: Successfully deleted a person
+
+  /notes:
+    get:
+      operationId: notes.read_all
+      tags:
+        - Notes
+      summary: Read the entire set of notes for all people, sorted by timestamp
+      description: Read the entire set of notes for all people, sorted by timestamp
+      responses:
+        200:
+          description: Successfully read notes for all people operation
+          schema:
+            type: array
+            items:
+              properties:
+                note_id:
+                  type: integer
+                  description: Id of the note
+                content:
+                  type: string
+                  description: Content of the note
+                timestamp:
+                  type: string
+                  description: Create/Update timestamp of the note
+                person:
+                  type: object
+                  properties:
+                    person_id:
+                      type: integer
+                      description: Id of associated person
+                    fname:
+                      type: string
+                      description: Frist name of associated person
+                    lname:
+                      type: string
+                      description: Last name of associated person
+                    timestamp:
+                      type: string
+                      description: Create/Update timestamp of associated person
+
+
+  /people/{person_id}/notes:
+    post:
+      operationId: notes.create
+      tags:
+        - Notes
+      summary: Create a note associated with a person
+      description: Create a note associated with a person
+      parameters:
+        - name: person_id
+          in: path
+          description: Id of person associated with note
+          type: integer
+          required: True
+        - name: note
+          in: body
+          description: Text content of the note to create
+          required: True
+          schema:
+            type: object
+            properties:
+              content:
+                type: string
+                description: Text of the note to create
+      responses:
+        201:
+          description: Successfully created a note
+          schema:
+            properties:
+              person_id:
+                type: integer
+                description: Id of the person associated with the note
+              note_id:
+                type: integer
+                description: Id of the created note
+              content:
+                type: string
+                description: Text content of the note
+              timestamp:
+                type: string
+                description: Creation/Update timestamp of the person record
+
+  /people/{person_id}/notes/{note_id}:
+    get:
+      operationId: notes.read_one
+      tags:
+        - Notes
+      summary: Read a particular note associated with a person
+      description: Read a particular note associated with a person
+      parameters:
+        - name: person_id
+          in: path
+          description: Id of person associated with note
+          type: integer
+          required: True
+        - name: note_id
+          in: path
+          description: Id of note
+          type: integer
+          required: True
+      responses:
+        200:
+          description: Successfully read note for a person
+          schema:
+            type: object
+            properties:
+              note_id:
+                type: integer
+                description: Id of the note
+              person_id:
+                type: integer
+                description: Id of the person note associated with
+              content:
+                type: string
+                description: Text content of the note
+              timestamp:
+                type: string
+                description: Creation/Update timestamp of the note record
+
+    put:
+      operationId: notes.update
+      tags:
+        - Notes
+      summary: Update a note associated with a person
+      description: Update a note associated with a person
+      parameters:
+        - name: person_id
+          in: path
+          description: Id the person to update
+          type: integer
+          required: True
+        - name: note_id
+          in: path
+          description: Id of the note associated with a person
+          type: integer
+          required: True
+        - name: note
+          in: body
+          schema:
+            type: object
+            properties:
+              content:
+                type: string
+                description: Text content of the note to updated
+      responses:
+        200:
+          description: Successfully updated note
+          schema:
+            properties:
+              note_id:
+                type: string
+                description: Id of the note associated with a person
+              person_id:
+                type: integer
+                description: Id of the person in the database
+              content:
+                type: string
+                description: Text content of the updated note
+              timestamp:
+                type: string
+                description: Creation/Update timestamp of the note record
+
+    delete:
+      operationId: notes.delete
+      tags:
+        - Notes
+      summary: Delete a note associated with a person
+      description: Delete a note associated with a person
+      parameters:
+        - name: person_id
+          in: path
+          description: Id of person associated with note
+          type: integer
+          required: True
+        - name: note_id
+          in: path
+          description: Id of note
+          type: integer
+          required: True
+      responses:
+        200:
+          description: Successfully deleted a note
+
+

@@ -1,0 +1,38 @@
+{% extends "parent.html" %}
+{% block title %}Home Blog{% endblock %}
+{% block head %}
+    {{ super() }}
+    <link rel="stylesheet" href="/static/css/home.css">
+{% endblock %}
+
+{% block page_name %}Mini-Blog Page Demo{% endblock %}
+
+{% block body %}
+<div class="container">
+    <div class="blog">
+        <table>
+            <caption>People Blog Entries</caption>
+            <thead>
+                <tr>
+                    <th>Creation/Update Timestamp</th>
+                    <th>Person</th>
+                    <th>Note</th>
+                </tr>
+            </thead>
+        </table>
+    </div>
+</div>
+<div class="error hidden"></div>
+
+{% endblock %}
+
+{% block javascript %}
+{{ super() }}
+<script type="module">
+    // Give the imported MVC components a namespace
+    import MVC from "/static/js/home.js";
+
+    // Create an intentional global variable referencing the import
+    window.mvc = MVC;
+</script>
+{% endblock %}
