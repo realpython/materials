@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    {% block head %}
+    <title>{% block title %}{% endblock %} Page</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.0/normalize.min.css">
+    <link rel="stylesheet" href="/static/css/parent.css">
+    {% endblock %}
+</head>
+<body>
+<div class="navigation">
+    <span class="buttons">
+        <a href="/">Home</a>
+        <a href="/people">People</a>
+    </span>
+    <span class="page_name">
+        <div>{% block page_name%}{% endblock %}</div>
+    </span>
+    <span class="spacer"></span>
+</div>
+
+{% block body %}
+{% endblock %}
+</body>
+
+{% block javascript %}
+{% endblock %}
+
+</html>
