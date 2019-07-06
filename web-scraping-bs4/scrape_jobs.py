@@ -10,10 +10,8 @@ soup = BeautifulSoup(page.content, 'html.parser')
 results = soup.find(id='ResultsContainer')
 
 # Look for Python jobs
-python_jobs = results.find_all(
-                        'h2',
-                        string=lambda text: "python" in text.lower()
-                        )
+python_jobs = results.find_all('h2',
+                                string=lambda t: "python" in t.lower())
 for p_job in python_jobs:
     link = p_job.find('a')['href']
     print(p_job.text.strip())

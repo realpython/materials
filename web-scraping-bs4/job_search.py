@@ -34,7 +34,7 @@ def filter_jobs_by_keyword(results, word):
     :rtype: None
     """
     filtered_jobs = results.find_all('h2',
-                                    string=lambda text: word in text.lower())
+                                     string=lambda text: word in text.lower())
     for f_job in filtered_jobs:
         link = f_job.find('a')['href']
         print(f_job.text.strip())
