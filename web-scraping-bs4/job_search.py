@@ -4,15 +4,16 @@ import argparse
 
 
 def scrape_jobs(location=None):
-    """Scrapes Software Developer job postings from Monster, optionally by location.
+    """Scrapes Developer job postings from Monster, optionally by location.
 
     :param location: Where the job is located
     :type location: str
-    :return: all job postings from first page that match the search URL results
+    :return: all job postings from first page that match the search results
     :rtype: BeautifulSoup object
     """
     if location:
-        URL = f"https://www.monster.com/jobs/search/?q=Software-Developer&where={location}"
+        URL = f"https://www.monster.com/jobs/search/\
+                ?q=Software-Developer&where={location}"
     else:
         URL = f"https://www.monster.com/jobs/search/?q=Software-Developer"
     page = requests.get(URL)
@@ -23,7 +24,7 @@ def scrape_jobs(location=None):
 
 
 def filter_jobs_by_keyword(results, word):
-    """Filters job postings by word and prints the matching job title plus link.
+    """Filters job postings by word and prints matching job title plus link.
 
     :param results: Parsed HTML container with all job listings
     :type results: BeautifulSoup object
@@ -32,7 +33,8 @@ def filter_jobs_by_keyword(results, word):
     :return: None - just meant to print results
     :rtype: None
     """
-    filtered_jobs = results.find_all('h2', string=lambda text: word in text.lower())
+    filtered_jobs = results.find_all('h2',
+                                    string=lambda text: word in text.lower())
     for f_job in filtered_jobs:
         link = f_job.find('a')['href']
         print(f_job.text.strip())
@@ -40,7 +42,9 @@ def filter_jobs_by_keyword(results, word):
 
 
 def print_all_jobs(results):
-    """Print details (title, link, company name and location) of all jobs returned by the search.
+    """Print details of all jobs returned by the search.
+
+    The printed details are title, link, company name and location of the job.
 
     :param results: Parsed HTML container with all job listings
     :type results: BeautifulSoup object
@@ -56,7 +60,7 @@ def print_all_jobs(results):
         location_elem = job_elem.find('div', class_='location')
         if None in (title_elem, company_elem, location_elem):
             continue
-            # print(job_elem.prettify())  # to inspect the 'None' element further
+            # print(job_elem.prettify())  # to inspect the 'None' element
         print(title_elem.text.strip())
         link_elem = title_elem.find('a')
         print(link_elem['href'])
@@ -66,8 +70,9 @@ def print_all_jobs(results):
 
 
 # USE THE SCRIPT AS A COMMAND-LINE INTERFACE
-# --------------------------------------------------------------------------------
-my_parser = argparse.ArgumentParser(prog='jobs', description='Find Developer Jobs')
+# ----------------------------------------------------------------------------
+my_parser = argparse.ArgumentParser(prog='jobs',
+                                    description='Find Developer Jobs')
 my_parser.add_argument('-location',
                        metavar='location',
                        type=str,

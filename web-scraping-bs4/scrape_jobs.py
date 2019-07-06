@@ -2,14 +2,18 @@ import requests
 from bs4 import BeautifulSoup
 
 
-URL = 'https://www.monster.com/jobs/search/?q=Software-Developer&where=Australia'
+URL = 'https://www.monster.com/jobs/search/?q=Software-Developer\
+        &where=Australia'
 page = requests.get(URL)
 
 soup = BeautifulSoup(page.content, 'html.parser')
 results = soup.find(id='ResultsContainer')
 
 # Look for Python jobs
-python_jobs = results.find_all('h2', string=lambda text: "python" in text.lower())
+python_jobs = results.find_all(
+                        'h2',
+                        string=lambda text: "python" in text.lower()
+                        )
 for p_job in python_jobs:
     link = p_job.find('a')['href']
     print(p_job.text.strip())
