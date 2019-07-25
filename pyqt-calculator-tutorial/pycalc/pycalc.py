@@ -28,6 +28,8 @@ from PyQt5.QtCore import Qt
 __version__ = '0.1'
 __author__ = 'Leodanis Pozo Ramos'
 
+ERROR_MSG = 'ERROR'
+
 
 # 2. Create a subclass of QMainWindow to setup the application's GUI
 class PyCalcUi(QMainWindow):
@@ -130,6 +132,17 @@ class PyCalcCtrl:
                 btn.clicked.connect(partial(self._buildExpression, btn_text))
 
         self._view.buttons['C'].clicked.connect(self._view.clearDisplay)
+
+
+# 7. Create a Model to handle the application's data
+def evaluateExpression(expression):
+    """Evaluate an expression."""
+    try:
+        result = str(eval(expression, {}, {}))
+    except:
+        result = ERROR_MSG
+
+    return result
 
 
 # Client code
