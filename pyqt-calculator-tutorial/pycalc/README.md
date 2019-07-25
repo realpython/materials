@@ -46,7 +46,7 @@ To use PyCalc, you just need to enter a valid math expression using your mouse, 
 
 ## About the Author
 
-My name is Leodanis Pozo Ramos. I'm a **freelance Python Developer and [technical writer](https://realpython.com/team/lpozoramos/)**. If you need more information about me, and my work, then you can take a look at my [personal page](https://lpozo.github.com/).
+My name is Leodanis Pozo Ramos. I'm a **freelance Python Developer, and [author](https://realpython.com/team/lpozoramos/)**. If you need more information about me, and my work, then you can take a look at my [personal page](https://lpozo.github.com/).
 
 ## License
 
