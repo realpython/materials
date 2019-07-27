@@ -31,7 +31,7 @@ __author__ = 'Leodanis Pozo Ramos'
 ERROR_MSG = 'ERROR'
 
 
-# 2. Create a subclass of QMainWindow to setup the application's GUI
+# 2. Create a subclass of QMainWindow to setup the calculator's GUI
 class PyCalcUi(QMainWindow):
     """PyCalc's View (GUI)."""
 
@@ -109,7 +109,18 @@ class PyCalcUi(QMainWindow):
         self.setDisplayText('')
 
 
-# 6. Create a Controller class to connect the GUI and the Model
+# 3. Create a Model to handle the calculator's operation
+def evaluateExpression(expression):
+    """Evaluate an expression."""
+    try:
+        result = str(eval(expression, {}, {}))
+    except:
+        result = ERROR_MSG
+
+    return result
+
+
+# 4. Create a Controller class to connect the GUI, and the model
 class PyCalcCtrl:
     """PyCalc Controller class."""
 
@@ -145,36 +156,18 @@ class PyCalcCtrl:
         self._view.buttons['C'].clicked.connect(self._view.clearDisplay)
 
 
-# 7. Create a Model to handle the application's data
-def evaluateExpression(expression):
-    """Evaluate an expression."""
-    try:
-        result = str(eval(expression, {}, {}))
-    except:
-        result = ERROR_MSG
-
-    return result
-
-
 # Client code
 def main():
     """Main function."""
-    # 3. Create an instance of the application's GUI
+    # 5. Create an instance of `QApplication`
     pycalc = QApplication(sys.argv)
-
-    # 4. Create an instance of the application's GUI
+    # 6. Show the calculator's GUI
     view = PyCalcUi()
-
-    # 5. Run .show() on the GUI instance
     view.show()
-
-    # 8. Create an instance of the Model
+    # 7. Create an instance of the model, and the controller
     model = evaluateExpression
-
-    # 9. Create an instance of the Controller
     ctrl = PyCalcCtrl(model=model, view=view)
-
-    # 10. Execute the application's main loop
+    # 8. Execute calculator's main loop
     sys.exit(pycalc.exec_())
 
 
