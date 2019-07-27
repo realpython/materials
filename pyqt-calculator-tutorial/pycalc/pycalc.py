@@ -126,7 +126,6 @@ class PyCalcCtrl:
 
     def __init__(self, model, view):
         """Controller initializer."""
-        super(PyCalcCtrl, self).__init__()
         self._evaluate = model
         self._view = view
         # Connect signals and slots
