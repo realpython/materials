@@ -12,6 +12,7 @@ from PyQt5.QtWidgets import QVBoxLayout
 
 
 def greeting():
+    """Slot function."""
     msg.setText('Hello World!')
 
 
@@ -19,8 +20,10 @@ app = QApplication(sys.argv)
 window = QWidget()
 window.setWindowTitle('Signals, and Slots')
 layout = QVBoxLayout()
+
 btn = QPushButton('Greet')
-btn.clicked.connect(greeting)
+btn.clicked.connect(greeting)  # Connect clicked to greeting()
+
 layout.addWidget(btn)
 msg = QLabel('')
 layout.addWidget(msg)
