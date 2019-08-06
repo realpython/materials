@@ -41,7 +41,7 @@ class PyCalcUi(QMainWindow):
         # Set some main window's properties
         self.setWindowTitle('PyCalc')
         self.setFixedSize(235, 235)
-        # Create and set the central widget, and the general layout
+        # Create, and set the central widget, and the general layout
         self.generalLayout = QVBoxLayout()
         self._centralWidget = QWidget(self)
         self.setCentralWidget(self._centralWidget)
@@ -65,7 +65,7 @@ class PyCalcUi(QMainWindow):
         """Create the buttons."""
         self.buttons = {}
         buttonsLayout = QGridLayout()
-        #     btn_text | position in the QGridLayout
+        #     btn_text | position on the QGridLayout
         buttons = {'7': (0, 0),
                    '8': (0, 1),
                    '9': (0, 2),
@@ -122,13 +122,13 @@ def evaluateExpression(expression):
 
 # 4. Create a Controller class to connect the GUI, and the model
 class PyCalcCtrl:
-    """PyCalc Controller class."""
+    """PyCalc's Controller."""
 
     def __init__(self, model, view):
         """Controller initializer."""
         self._evaluate = model
         self._view = view
-        # Connect signals and slots
+        # Connect signals, and slots
         self._connectSignals()
 
     def _calculateResult(self):
@@ -145,7 +145,7 @@ class PyCalcCtrl:
         self._view.setDisplayText(expression)
 
     def _connectSignals(self):
-        """Connect signals and slots."""
+        """Connect signals, and slots."""
         for btn_text, btn in self._view.buttons.items():
             if btn_text not in {'=', 'C'}:
                 btn.clicked.connect(partial(self._buildExpression, btn_text))
