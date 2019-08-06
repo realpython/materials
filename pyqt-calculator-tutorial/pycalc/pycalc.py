@@ -114,7 +114,7 @@ def evaluateExpression(expression):
     """Evaluate an expression."""
     try:
         result = str(eval(expression, {}, {}))
-    except:
+    except Exception:
         result = ERROR_MSG
 
     return result
@@ -165,7 +165,7 @@ def main():
     view.show()
     # 7. Create an instance of the model, and the controller
     model = evaluateExpression
-    ctrl = PyCalcCtrl(model=model, view=view)
+    PyCalcCtrl(model=model, view=view)
     # 8. Execute calculator's main loop
     sys.exit(pycalc.exec_())
 
