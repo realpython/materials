@@ -27,7 +27,8 @@ class Dialog(QDialog):
         formLayout.addRow('Hobbies:', QLineEdit())
         dlgLayout.addLayout(formLayout)
         btns = QDialogButtonBox()
-        btns.setStandardButtons(QDialogButtonBox.Cancel | QDialogButtonBox.Ok)
+        btns.setStandardButtons(
+            QDialogButtonBox.Cancel | QDialogButtonBox.Ok)
         dlgLayout.addWidget(btns)
         self.setLayout(dlgLayout)
 
