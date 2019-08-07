@@ -1,4 +1,4 @@
-# filename: signals_slots.py
+# Filename: signals_slots.py
 
 """Signals, and Slots example."""
 

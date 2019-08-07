@@ -1,4 +1,4 @@
-# filename: main_window.py
+# Filename: main_window.py
 
 """Main Window-Style application."""
 

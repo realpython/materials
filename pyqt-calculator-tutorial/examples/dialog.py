@@ -1,4 +1,4 @@
-# filename: dialog.py
+# Filename: dialog.py
 
 """Dialog-Style application."""
 
@@ -19,17 +19,17 @@ class Dialog(QDialog):
         """Initializer."""
         super().__init__(parent)
         self.setWindowTitle('QDialog')
-        dlg_layout = QVBoxLayout()
+        dlgLayout = QVBoxLayout()
         formLayout = QFormLayout()
         formLayout.addRow('Name:', QLineEdit())
         formLayout.addRow('Age:', QLineEdit())
         formLayout.addRow('Job:', QLineEdit())
         formLayout.addRow('Hobbies:', QLineEdit())
-        dlg_layout.addLayout(formLayout)
+        dlgLayout.addLayout(formLayout)
         btns = QDialogButtonBox()
         btns.setStandardButtons(QDialogButtonBox.Cancel | QDialogButtonBox.Ok)
-        dlg_layout.addWidget(btns)
-        self.setLayout(dlg_layout)
+        dlgLayout.addWidget(btns)
+        self.setLayout(dlgLayout)
 
 
 if __name__ == '__main__':

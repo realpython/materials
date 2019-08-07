@@ -1,4 +1,4 @@
-# filename: h_layout.py
+# Filename: h_layout.py
 
 """Horizontal layout example."""
 

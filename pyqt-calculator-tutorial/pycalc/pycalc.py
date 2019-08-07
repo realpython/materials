@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 
-# filename: pycalc.py
+# Filename: pycalc.py
 
 # THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
 # IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
@@ -65,7 +65,7 @@ class PyCalcUi(QMainWindow):
         """Create the buttons."""
         self.buttons = {}
         buttonsLayout = QGridLayout()
-        #     btn_text | position on the QGridLayout
+        # Button text | position on the QGridLayout
         buttons = {'7': (0, 0),
                    '8': (0, 1),
                    '9': (0, 2),

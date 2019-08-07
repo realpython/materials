@@ -1,4 +1,4 @@
-# filename: hello.py
+# Filename: hello.py
 
 """Simple Hello World example with PyQt5."""
 

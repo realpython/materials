@@ -1,4 +1,4 @@
-# filename: g_layout.py
+# Filename: g_layout.py
 
 """Grid layout example."""
 
