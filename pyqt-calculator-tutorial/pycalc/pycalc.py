@@ -15,7 +15,7 @@
 import sys
 from functools import partial
 
-# 1. Import QApplication, and the required widgets from PyQt5.QtWidgets
+# Import QApplication, and the required widgets from PyQt5.QtWidgets
 from PyQt5.QtWidgets import QApplication
 from PyQt5.QtWidgets import QMainWindow
 from PyQt5.QtWidgets import QWidget
@@ -31,7 +31,7 @@ __author__ = 'Leodanis Pozo Ramos'
 ERROR_MSG = 'ERROR'
 
 
-# 2. Create a subclass of QMainWindow to setup the calculator's GUI
+# Create a subclass of QMainWindow to setup the calculator's GUI
 class PyCalcUi(QMainWindow):
     """PyCalc's View (GUI)."""
 
@@ -109,7 +109,7 @@ class PyCalcUi(QMainWindow):
         self.setDisplayText('')
 
 
-# 3. Create a Model to handle the calculator's operation
+# Create a Model to handle the calculator's operation
 def evaluateExpression(expression):
     """Evaluate an expression."""
     try:
@@ -120,7 +120,7 @@ def evaluateExpression(expression):
     return result
 
 
-# 4. Create a Controller class to connect the GUI, and the model
+# Create a Controller class to connect the GUI, and the model
 class PyCalcCtrl:
     """PyCalc's Controller."""
 
@@ -158,15 +158,15 @@ class PyCalcCtrl:
 # Client code
 def main():
     """Main function."""
-    # 5. Create an instance of `QApplication`
+    # Create an instance of `QApplication`
     pycalc = QApplication(sys.argv)
-    # 6. Show the calculator's GUI
+    # Show the calculator's GUI
     view = PyCalcUi()
     view.show()
-    # 7. Create an instance of the model, and the controller
+    # Create an instance of the model, and the controller
     model = evaluateExpression
     PyCalcCtrl(model=model, view=view)
-    # 8. Execute calculator's main loop
+    # Execute calculator's main loop
     sys.exit(pycalc.exec_())
 
 
