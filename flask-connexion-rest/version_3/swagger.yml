@@ -16,7 +16,7 @@ paths:
     get:
       operationId: people.read_all
       tags:
-        - People
+        - people
       summary: Read the entire list of people
       description: Read the list of people
       parameters:
