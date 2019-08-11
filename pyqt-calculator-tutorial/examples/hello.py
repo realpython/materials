@@ -4,7 +4,7 @@
 
 import sys
 
-# 1. Import `QApplication`, and all the required widgets
+# 1. Import `QApplication` and all the required widgets
 from PyQt5.QtWidgets import QApplication
 from PyQt5.QtWidgets import QWidget
 from PyQt5.QtWidgets import QLabel

@@ -10,12 +10,12 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 
-"""PyCalc is a simple calculator built using Python, and PyQt5."""
+"""PyCalc is a simple calculator built using Python and PyQt5."""
 
 import sys
 from functools import partial
 
-# Import QApplication, and the required widgets from PyQt5.QtWidgets
+# Import QApplication and the required widgets from PyQt5.QtWidgets
 from PyQt5.QtWidgets import QApplication
 from PyQt5.QtWidgets import QMainWindow
 from PyQt5.QtWidgets import QWidget
@@ -41,12 +41,12 @@ class PyCalcUi(QMainWindow):
         # Set some main window's properties
         self.setWindowTitle("PyCalc")
         self.setFixedSize(235, 235)
-        # Create, and set the central widget, and the general layout
+        # Create and set the central widget and the general layout
         self.generalLayout = QVBoxLayout()
         self._centralWidget = QWidget(self)
         self.setCentralWidget(self._centralWidget)
         self._centralWidget.setLayout(self.generalLayout)
-        # Create the display, and the buttons
+        # Create the display and the buttons
         self._createDisplay()
         self._createButtons()
 
@@ -88,7 +88,7 @@ class PyCalcUi(QMainWindow):
             "+": (3, 3),
             "=": (3, 4),
         }
-        # Create the buttons, and add them to the grid layout
+        # Create the buttons and add them to the grid layout
         for btn_text, pos in buttons.items():
             self.buttons[btn_text] = QPushButton(btn_text)
             self.buttons[btn_text].setFixedSize(40, 40)
@@ -121,7 +121,7 @@ def evaluateExpression(expression):
     return result
 
 
-# Create a Controller class to connect the GUI, and the model
+# Create a Controller class to connect the GUI and the model
 class PyCalcCtrl:
     """PyCalc's Controller."""
 
@@ -129,7 +129,7 @@ class PyCalcCtrl:
         """Controller initializer."""
         self._evaluate = model
         self._view = view
-        # Connect signals, and slots
+        # Connect signals and slots
         self._connectSignals()
 
     def _calculateResult(self):
@@ -146,7 +146,7 @@ class PyCalcCtrl:
         self._view.setDisplayText(expression)
 
     def _connectSignals(self):
-        """Connect signals, and slots."""
+        """Connect signals and slots."""
         for btn_text, btn in self._view.buttons.items():
             if btn_text not in {"=", "C"}:
                 btn.clicked.connect(partial(self._buildExpression, btn_text))
@@ -164,7 +164,7 @@ def main():
     # Show the calculator's GUI
     view = PyCalcUi()
     view.show()
-    # Create an instance of the model, and the controller
+    # Create an instance of the model and the controller
     model = evaluateExpression
     PyCalcCtrl(model=model, view=view)
     # Execute calculator's main loop
