@@ -1,8 +1,9 @@
-# Filename: signals_slots.py
+# Filename: signals_slots_partial.py
 
 """Signals and slots example."""
 
 import sys
+import functools
 
 from PyQt5.QtWidgets import QApplication
 from PyQt5.QtWidgets import QWidget
@@ -11,12 +12,12 @@ from PyQt5.QtWidgets import QLabel
 from PyQt5.QtWidgets import QVBoxLayout
 
 
-def greeting():
+def greeting(who):
     """Slot function."""
     if msg.text():
         msg.setText("")
     else:
-        msg.setText("Hello World!")
+        msg.setText(f"Hello {who}")
 
 
 app = QApplication(sys.argv)
@@ -25,7 +26,7 @@ window.setWindowTitle("Signals, and Slots")
 layout = QVBoxLayout()
 
 btn = QPushButton("Greet")
-btn.clicked.connect(greeting)  # Connect clicked to greeting()
+btn.clicked.connect(functools.partial(greeting, "World!"))
 
 layout.addWidget(btn)
 msg = QLabel("")

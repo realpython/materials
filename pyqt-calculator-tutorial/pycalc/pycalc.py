@@ -41,7 +41,7 @@ class PyCalcUi(QMainWindow):
         # Set some main window's properties
         self.setWindowTitle("PyCalc")
         self.setFixedSize(235, 235)
-        # Create and set the central widget and the general layout
+        # Set the central widget and the general layout
         self.generalLayout = QVBoxLayout()
         self._centralWidget = QWidget(self)
         self.setCentralWidget(self._centralWidget)
@@ -164,7 +164,7 @@ def main():
     # Show the calculator's GUI
     view = PyCalcUi()
     view.show()
-    # Create an instance of the model and the controller
+    # Create instances of the model and the controller
     model = evaluateExpression
     PyCalcCtrl(model=model, view=view)
     # Execute calculator's main loop
