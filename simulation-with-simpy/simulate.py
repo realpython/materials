@@ -82,10 +82,13 @@ def get_user_input():
     num_servers = input("Input # of servers working: ")
     num_ushers = input("Input # of ushers working: ")
     params = [num_cashiers, num_servers, num_ushers]
-    try:
+    if all(str(i).isdigit() for i in params):  # Check input is valid
         params = [int(x) for x in params]
-    except:
-        print("Could not parse input. The simulation will use default values.")
+    else:
+        print(
+            "Could not parse input. The simulation will use default values:",
+            "\n1 cashier, 1 server, 1 usher.",
+        )
         params = [1, 1, 1]
     return params
 
@@ -102,7 +105,10 @@ def main():
 
     # View the results
     mins, secs = calculate_wait_time(arrival_times, departure_times)
-    print(f"The average wait time is {mins} minutes and {secs} seconds.")
+    print(
+        "Running simulation...",
+        f"\nThe average wait time is {mins} minutes and {secs} seconds.",
+    )
 
 
 if __name__ == "__main__":
