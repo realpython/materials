@@ -9,6 +9,9 @@ SimPy version: 3.0.11
 import simpy
 import random
 
+arrival_times = []
+departure_times = []
+
 
 class Theater(object):
     def __init__(self, env, num_cashiers, num_servers, num_ushers):
@@ -18,27 +21,29 @@ class Theater(object):
         self.usher = simpy.Resource(env, num_ushers)
 
     def purchase_ticket(self, moviegoer):
-        yield self.env.timeout(random.randint(1, 2))
-
-    def sell_food(self, moviegoer):
-        yield self.env.timeout(random.randint(0, 5))
+        yield self.env.timeout(random.randint(1, 3))
 
     def check_ticket(self, moviegoer):
         yield self.env.timeout(3 / 60)
 
+    def sell_food(self, moviegoer):
+        yield self.env.timeout(random.randint(1, 5))
 
-def moviegoer(env, num, theater):
+
+def go_to_movies(env, moviegoer, theater):
     with theater.cashier.request() as request:
         yield request
-        yield env.process(theater.purchase_ticket(num))
-
-    with theater.server.request() as request:
-        yield request
-        yield env.process(theater.sell_food(num))
+        yield env.process(theater.purchase_ticket(moviegoer))
 
     with theater.usher.request() as request:
         yield request
-        yield env.process(theater.check_ticket(num))
+        yield env.process(theater.check_ticket(moviegoer))
+
+    get_food = [0, 1]
+    if random.choice(get_food) == 1:
+        with theater.server.request() as request:
+            yield request
+            yield env.process(theater.sell_food(moviegoer))
 
     departure_time = env.now
     departure_times.append(departure_time)
@@ -46,32 +51,30 @@ def moviegoer(env, num, theater):
 
 def run_theater(env, num_cashiers, num_servers, num_ushers):
     theater = Theater(env, num_cashiers, num_servers, num_ushers)
-    interarrival = 0.20
 
-    for num in range(3):
-        env.process(moviegoer(env, num, theater))
+    for moviegoer in range(3):
+        env.process(go_to_movies(env, moviegoer, theater))
         arrival_time = env.now
         arrival_times.append(arrival_time)
 
     while True:
-        # Wait a bit before generating a new person
-        yield env.timeout(interarrival)
+        yield env.timeout(0.20)  # Wait a bit before generating a new person
 
-        num += 1
-        env.process(moviegoer(env, num, theater))  # Generate the next person
+        moviegoer += 1
+        env.process(go_to_movies(env, moviegoer, theater))
         arrival_time = env.now
         arrival_times.append(arrival_time)
 
 
 def calculate_wait_time(arrival_times, departure_times):
     total_wait = []
-    num_cleared = len(departure_times)
+    total_seated = len(departure_times)
 
-    for i in range(num_cleared):
+    for i in range(total_seated):
         total_wait.append(departure_times[i] - arrival_times[i])
 
     # Pretty print the results
-    average_wait = sum(total_wait) / num_cleared
+    average_wait = sum(total_wait) / total_seated
     minutes, frac_minutes = divmod(average_wait, 1)
     seconds = frac_minutes * 60
     return round(minutes), round(seconds)
@@ -112,6 +115,4 @@ def main():
 
 
 if __name__ == "__main__":
-    arrival_times = []
-    departure_times = []
     main()
