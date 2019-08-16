@@ -13,5 +13,6 @@ $ python3 simulate.py
 Input # of cashiers working: 1
 Input # of servers working: 1
 Input # of ushers working: 1
-The average wait time is 38 minutes and 7 seconds.
+Running simulation...
+The average wait time is 42 minutes and 26 seconds.
 ```
