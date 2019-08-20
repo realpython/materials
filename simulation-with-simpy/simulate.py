@@ -8,9 +8,9 @@ SimPy version: 3.0.11
 
 import simpy
 import random
+import statistics
 
-arrival_times = []
-departure_times = []
+wait_times = []
 
 
 class Theater(object):
@@ -31,6 +31,9 @@ class Theater(object):
 
 
 def go_to_movies(env, moviegoer, theater):
+    # Moviegoer arrives at the theater
+    arrival_time = env.now
+
     with theater.cashier.request() as request:
         yield request
         yield env.process(theater.purchase_ticket(moviegoer))
@@ -39,14 +42,13 @@ def go_to_movies(env, moviegoer, theater):
         yield request
         yield env.process(theater.check_ticket(moviegoer))
 
-    get_food = [0, 1]
-    if random.choice(get_food) == 1:
+    if random.choice([True, False]):
         with theater.server.request() as request:
             yield request
             yield env.process(theater.sell_food(moviegoer))
 
-    departure_time = env.now
-    departure_times.append(departure_time)
+    # Moviegoer heads into the theater
+    wait_times.append(env.now - arrival_time)
 
 
 def run_theater(env, num_cashiers, num_servers, num_ushers):
@@ -54,27 +56,17 @@ def run_theater(env, num_cashiers, num_servers, num_ushers):
 
     for moviegoer in range(3):
         env.process(go_to_movies(env, moviegoer, theater))
-        arrival_time = env.now
-        arrival_times.append(arrival_time)
 
     while True:
         yield env.timeout(0.20)  # Wait a bit before generating a new person
 
         moviegoer += 1
         env.process(go_to_movies(env, moviegoer, theater))
-        arrival_time = env.now
-        arrival_times.append(arrival_time)
 
 
-def calculate_wait_time(arrival_times, departure_times):
-    total_wait = []
-    total_seated = len(departure_times)
-
-    for i in range(total_seated):
-        total_wait.append(departure_times[i] - arrival_times[i])
-
+def get_average_wait_time(wait_times):
+    average_wait = statistics.mean(wait_times)
     # Pretty print the results
-    average_wait = sum(total_wait) / total_seated
     minutes, frac_minutes = divmod(average_wait, 1)
     seconds = frac_minutes * 60
     return round(minutes), round(seconds)
@@ -89,7 +81,7 @@ def get_user_input():
         params = [int(x) for x in params]
     else:
         print(
-            "Could not parse input. The simulation will use default values:",
+            "Could not parse input. Simulation will use default values:",
             "\n1 cashier, 1 server, 1 usher.",
         )
         params = [1, 1, 1]
@@ -107,7 +99,7 @@ def main():
     env.run(until=90)
 
     # View the results
-    mins, secs = calculate_wait_time(arrival_times, departure_times)
+    mins, secs = get_average_wait_time(wait_times)
     print(
         "Running simulation...",
         f"\nThe average wait time is {mins} minutes and {secs} seconds.",
