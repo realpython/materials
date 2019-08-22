@@ -124,8 +124,7 @@ class Message:
 
         if self._jsonheader_len is None:
             self.process_protoheader()
-
-        if self._jsonheader_len is not None:
+        else:
             if self.jsonheader is None:
                 self.process_jsonheader()
 
