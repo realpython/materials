@@ -89,10 +89,10 @@ class PyCalcUi(QMainWindow):
             "=": (3, 4),
         }
         # Create the buttons and add them to the grid layout
-        for btn_text, pos in buttons.items():
-            self.buttons[btn_text] = QPushButton(btn_text)
-            self.buttons[btn_text].setFixedSize(40, 40)
-            buttonsLayout.addWidget(self.buttons[btn_text], pos[0], pos[1])
+        for btnText, pos in buttons.items():
+            self.buttons[btnText] = QPushButton(btnText)
+            self.buttons[btnText].setFixedSize(40, 40)
+            buttonsLayout.addWidget(self.buttons[btnText], pos[0], pos[1])
         # Add buttonsLayout to the general layout
         self.generalLayout.addLayout(buttonsLayout)
 
@@ -147,9 +147,9 @@ class PyCalcCtrl:
 
     def _connectSignals(self):
         """Connect signals and slots."""
-        for btn_text, btn in self._view.buttons.items():
-            if btn_text not in {"=", "C"}:
-                btn.clicked.connect(partial(self._buildExpression, btn_text))
+        for btnText, btn in self._view.buttons.items():
+            if btnText not in {"=", "C"}:
+                btn.clicked.connect(partial(self._buildExpression, btnText))
 
         self._view.buttons["="].clicked.connect(self._calculateResult)
         self._view.display.returnPressed.connect(self._calculateResult)
