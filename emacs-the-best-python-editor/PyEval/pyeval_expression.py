@@ -8,7 +8,8 @@ Algorithm outlined at https://en.wikipedia.org/wiki/Shunting-yard_algorithm
 
 from pyeval_operator import Operator
 
-class Expression():
+
+class Expression:
     """
     Defines and parses an infix expression string, returning
     an RPN expression string, or raising an exception if the input string
@@ -20,7 +21,7 @@ class Expression():
     # they are appended to the stack. As the input string is processed, the
     # grows as needed. In the end, it should be empty.
 
-    __operator_stack = []             # Holds the current stack of operators
+    __operator_stack = []  # Holds the current stack of operators
 
     # Store the string, and where we are in our parsing run.
     __expr_string = ""
@@ -54,7 +55,7 @@ class Expression():
     def result(self):
         """
         Returns the result of the evaluation.
-        If the expression is not yet evaluated, we attempt to parse the expression.
+        If the expression is not yet evaluated, we try to parse the expression.
           If this is unsuccessful, we raise a ValueError exception.
         Else we return the output string.
         """
@@ -75,20 +76,23 @@ class Expression():
         # Right now, every expression starts with an operand
         # This is not universally true for functions and parentheses, but we're
         # not supporting them yet
-        ## TODO: Add support for functions and parentheses
+        # TODO: Add support for functions and parentheses
         expecting_operand = True
 
         # Get the current character to inspect
         current_char = self.__expr_string[self.__current_position]
 
         # Loop until we're past the end of the string
-        while self.__current_position < len(self.__expr_string) and current_char != "$":
+        while (
+            self.__current_position < len(self.__expr_string)
+            and current_char != "$"
+        ):
 
             # Skip any leading whitespace characters
             while current_char.isspace():
                 self.__current_position += 1
                 current_char = self.__expr_string[self.__current_position]
-            
+
             # Store whatever is next in the current_token string
             current_token = ""
 
@@ -101,17 +105,29 @@ class Expression():
                     current_char = self.__expr_string[self.__current_position]
 
                 # Now we loop for as long as we have numbers
-                while current_char in ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"]:
+                while current_char in [
+                    "0",
+                    "1",
+                    "2",
+                    "3",
+                    "4",
+                    "5",
+                    "6",
+                    "7",
+                    "8",
+                    "9",
+                ]:
                     current_token += current_char
                     self.__current_position += 1
                     current_char = self.__expr_string[self.__current_position]
-                    
-                # We should have a number now - add it to the output string, space delimited
+
+                # We should have a number now - add it to the output string,
+                # space delimited
                 self.__output_string += current_token + " "
 
                 # And after every operand, we need to look for an operator
                 expecting_operand = False
-            
+
             else:
                 # Here, we just need a single operator, so
                 # Get that operator, validate it, then
@@ -132,12 +148,20 @@ class Expression():
                     self.__operator_stack.append(current_operator)
 
                 else:
-                    top_operator = self.__operator_stack[len(self.__operator_stack)-1]
-                    while len(self.__operator_stack)>0 and top_operator.precedence > current_operator.precedence:
+                    top_operator = self.__operator_stack[
+                        len(self.__operator_stack) - 1
+                    ]
+                    while (
+                        len(self.__operator_stack) > 0
+                        and top_operator.precedence
+                        > current_operator.precedence
+                    ):
                         self.__output_string += top_operator.op_string + " "
                         self.__operator_stack.pop()
-                        if len(self.__operator_stack)>0:
-                            top_operator = self.__operator_stack[len(self.__operator_stack)-1]
+                        if len(self.__operator_stack) > 0:
+                            top_operator = self.__operator_stack[
+                                len(self.__operator_stack) - 1
+                            ]
 
                     self.__operator_stack.append(current_operator)
 
@@ -162,4 +186,3 @@ class Expression():
 
         self.__evaluated = True
         return self.__output_string
-        

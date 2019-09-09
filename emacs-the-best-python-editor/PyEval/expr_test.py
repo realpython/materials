@@ -38,15 +38,21 @@ class TestPyEval(unittest.TestCase):
         )
         expr = Expression("-53+2")
         self.assertEqual(
-            "-53 2 + ", expr.result(), "ERROR: Negative/positive term expression"
+            "-53 2 + ",
+            expr.result(),
+            "ERROR: Negative/positive term expression",
         )
         expr = Expression("53+-2")
         self.assertEqual(
-            "53 -2 + ", expr.result(), "ERROR: Positive/negative term expression"
+            "53 -2 + ",
+            expr.result(),
+            "ERROR: Positive/negative term expression",
         )
         expr = Expression("-53+-2")
         self.assertEqual(
-            "-53 -2 + ", expr.result(), "ERROR: Double negative term expression"
+            "-53 -2 + ",
+            expr.result(),
+            "ERROR: Double negative term expression",
         )
 
     def test_double_term_operands(self):
@@ -54,11 +60,17 @@ class TestPyEval(unittest.TestCase):
         Tests a set of operands
         """
         expr = Expression("53+2")
-        self.assertEqual("53 2 + ", expr.result(), "ERROR: Additive expression")
+        self.assertEqual(
+            "53 2 + ", expr.result(), "ERROR: Additive expression"
+        )
         expr = Expression("53-2")
-        self.assertEqual("53 2 - ", expr.result(), "ERROR: Subtrative expression")
+        self.assertEqual(
+            "53 2 - ", expr.result(), "ERROR: Subtrative expression"
+        )
         expr = Expression("53*2")
-        self.assertEqual("53 2 * ", expr.result(), "ERROR: Multiplicative expression")
+        self.assertEqual(
+            "53 2 * ", expr.result(), "ERROR: Multiplicative expression"
+        )
         expr = Expression("53/2")
         self.assertEqual("53 2 / ", expr.result(), "ERROR: Divide expression")
 
@@ -67,7 +79,9 @@ class TestPyEval(unittest.TestCase):
         Tests a set of triple term expressions
         """
         expr = Expression("53+2+37")
-        self.assertEqual("53 2 37 + + ", expr.result(), "ERROR: Add/Add expression")
+        self.assertEqual(
+            "53 2 37 + + ", expr.result(), "ERROR: Add/Add expression"
+        )
         expr = Expression("53+2*37")
         self.assertEqual(
             "53 2 37 * + ", expr.result(), "ERROR: Add/Multiply expression"
@@ -78,7 +92,9 @@ class TestPyEval(unittest.TestCase):
         )
         expr = Expression("53*2*37")
         self.assertEqual(
-            "53 2 37 * * ", expr.result(), "ERROR: Multiply/Multiply expression"
+            "53 2 37 * * ",
+            expr.result(),
+            "ERROR: Multiply/Multiply expression",
         )
 
     def test_whitespace_expression(self):
@@ -91,11 +107,15 @@ class TestPyEval(unittest.TestCase):
         )
         expr = Expression("53 + 2 + 37")
         self.assertEqual(
-            "53 2 37 + + ", expr.result(), "ERROR: Infixed whitespace expression"
+            "53 2 37 + + ",
+            expr.result(),
+            "ERROR: Infixed whitespace expression",
         )
         expr = Expression(" 53+2+37 ")
         self.assertEqual(
-            "53 2 37 + + ", expr.result(), "ERROR: Pre/post-fixed whitespace expression"
+            "53 2 37 + + ",
+            expr.result(),
+            "ERROR: Pre/post-fixed whitespace expression",
         )
         expr = Expression(" 53 + 2 + 37 ")
         self.assertEqual(
@@ -105,10 +125,13 @@ class TestPyEval(unittest.TestCase):
         )
         expr = Expression("  53  +  2  +  37  ")
         self.assertEqual(
-            "53 2 37 + + ", expr.result(), "ERROR: Multiple whitespace expression"
+            "53 2 37 + + ",
+            expr.result(),
+            "ERROR: Multiple whitespace expression",
         )
 
-        # This test should throw an exception - spaces in between operands should give an error
+        # This test should throw an exception - spaces in between operands
+        # should give an error
         with self.assertRaises(SyntaxError):
             expr = Expression("  53  +  -  2  +  37  ")
             expr.parse()
