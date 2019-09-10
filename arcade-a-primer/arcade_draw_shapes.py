@@ -1,5 +1,5 @@
 # Basic arcade program using objects
-# Displays a white window with a blue circle in the middle
+# Draw shapes on screen
 
 # Imports
 import arcade
