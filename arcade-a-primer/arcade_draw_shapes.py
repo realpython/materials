@@ -37,7 +37,9 @@ class Welcome(arcade.Window):
         arcade.draw_arc_filled(100, 100, 40, 40, arcade.color.BLUE, 0, 125)
 
         # Draw a red ellipse
-        arcade.draw_ellipse_outline(300, 100, 60, 30, arcade.color.RED, border_width=2)
+        arcade.draw_ellipse_outline(
+            300, 100, 60, 30, arcade.color.RED, border_width=2
+        )
 
         # Draw some purple lines
         arcade.draw_line(500, 100, 550, 100, arcade.color.PURPLE)
@@ -51,16 +53,30 @@ class Welcome(arcade.Window):
         arcade.draw_point(300, 300, arcade.color.BLACK, 20)
 
         # Draw a green polygon
-        points_list = [[500, 300], [550, 300], [575, 325], [550, 350], [525, 340]]
-        arcade.draw_polygon_outline(points_list, arcade.color.GREEN, line_width=5)
+        points_list = [
+            [500, 300],
+            [550, 300],
+            [575, 325],
+            [550, 350],
+            [525, 340],
+        ]
+        arcade.draw_polygon_outline(
+            points_list, arcade.color.GREEN, line_width=5
+        )
 
         # Draw some rectangles
         arcade.draw_rectangle_filled(100, 500, 150, 75, arcade.color.AZURE)
-        arcade.draw_lrtb_rectangle_filled(150, 250, 575, 525, arcade.color.AMARANTH_PINK)
-        arcade.draw_xywh_rectangle_filled(200, 550, 150, 75, arcade.color.ASPARAGUS)
+        arcade.draw_lrtb_rectangle_filled(
+            150, 250, 575, 525, arcade.color.AMARANTH_PINK
+        )
+        arcade.draw_xywh_rectangle_filled(
+            200, 550, 150, 75, arcade.color.ASPARAGUS
+        )
 
         # Draw some triangles
-        arcade.draw_triangle_filled(400, 500, 500, 500, 450, 575, arcade.color.DEEP_RUBY)
+        arcade.draw_triangle_filled(
+            400, 500, 500, 500, 450, 575, arcade.color.DEEP_RUBY
+        )
 
 
 # Main code entry point
