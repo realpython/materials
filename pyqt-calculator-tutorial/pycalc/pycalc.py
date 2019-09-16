@@ -13,17 +13,18 @@
 """PyCalc is a simple calculator built using Python and PyQt5."""
 
 import sys
+
 from functools import partial
 
 # Import QApplication and the required widgets from PyQt5.QtWidgets
+from PyQt5.QtCore import Qt
 from PyQt5.QtWidgets import QApplication
-from PyQt5.QtWidgets import QMainWindow
-from PyQt5.QtWidgets import QWidget
-from PyQt5.QtWidgets import QVBoxLayout
 from PyQt5.QtWidgets import QGridLayout
 from PyQt5.QtWidgets import QLineEdit
+from PyQt5.QtWidgets import QMainWindow
 from PyQt5.QtWidgets import QPushButton
-from PyQt5.QtCore import Qt
+from PyQt5.QtWidgets import QVBoxLayout
+from PyQt5.QtWidgets import QWidget
 
 __version__ = "0.1"
 __author__ = "Leodanis Pozo Ramos"

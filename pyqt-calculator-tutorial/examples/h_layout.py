@@ -5,9 +5,9 @@
 import sys
 
 from PyQt5.QtWidgets import QApplication
-from PyQt5.QtWidgets import QWidget
-from PyQt5.QtWidgets import QPushButton
 from PyQt5.QtWidgets import QHBoxLayout
+from PyQt5.QtWidgets import QPushButton
+from PyQt5.QtWidgets import QWidget
 
 app = QApplication(sys.argv)
 window = QWidget()
