@@ -133,7 +133,7 @@ class Expression:
                 #     - Pop it and output it.
                 #   - Push the current operator
 
-                if len(self._operator_stack) == 0:
+                if not self._operator_stack:
                     self._operator_stack.append(current_operator)
 
                 else:
