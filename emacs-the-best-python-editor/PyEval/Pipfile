@@ -4,14 +4,11 @@ verify_ssl = true
 name = "pypi"
 
 [packages]
-pylint = "*"
-jedi = "*"
-autopep8 = "*"
-yapf = "*"
-black = "*"
-flake8 = "*"
 
 [dev-packages]
+autopep8 = "*"
+black = "*"
+jedi = "*"
 
 [requires]
 python_version = "3.6"
