@@ -10,10 +10,11 @@ class Operand:
     Common operator class used by the evaluator.
     """
 
-    op_string = ""  # String to hold the operand literal
-    op_value = 0  # Integer value of the operand
-
     def __init__(self, operand_string):
         """ Create a new operator object. """
+
+        # String to hold the operand literal
         self.op_string = operand_string
+
+        # Integer value of the operand
         self.op_value = int(operand_string)

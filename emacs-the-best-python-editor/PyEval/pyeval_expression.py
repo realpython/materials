@@ -16,20 +16,20 @@ class Expression:
     is invalid.
     """
 
-    # The __operator_stack variable uses standard Python lists to implement
+    # The _operator_stack variable uses standard Python lists to implement
     # a simple stack. As operators are parsed from the string,
     # they are appended to the stack. As the input string is processed, the
     # grows as needed. In the end, it should be empty.
 
-    __operator_stack = []  # Holds the current stack of operators
+    _operator_stack = []  # Holds the current stack of operators
 
     # Store the string, and where we are in our parsing run.
-    __expr_string = ""
-    __output_string = ""
-    __current_position = 0
+    _expr_string = ""
+    _output_string = ""
+    _current_position = 0
 
     # Have we evaluated this expressions yet?
-    __evaluated = False
+    _evaluated = False
 
     def __init__(self, expression_string):
         """
@@ -38,19 +38,19 @@ class Expression:
         """
 
         # Add '$' as an end of line marker
-        self.__expr_string = expression_string.strip() + "$"
+        self._expr_string = expression_string.strip() + "$"
 
         # Start parsing at the first character
-        self.__current_position = 0
+        self._current_position = 0
 
         # No output string yet
-        self.__output_string = ""
+        self._output_string = ""
 
         # Clear the stack
-        self.__operator_stack.clear()
+        self._operator_stack.clear()
 
         # Reset the evaluated flag
-        self.__evaluated = False
+        self._evaluated = False
 
     def result(self):
         """
@@ -59,18 +59,18 @@ class Expression:
           If this is unsuccessful, we raise a ValueError exception.
         Else we return the output string.
         """
-        if not self.__evaluated:
+        if not self._evaluated:
             self.parse()
-            if not self.__evaluated:
+            if not self._evaluated:
                 raise ValueError
-        return self.__output_string
+        return self._output_string
 
     def parse(self):
         """ Parses the current infix expression, and return the RPN version."""
 
         # If we've already evaluated, just return the result
-        if self.__evaluated:
-            return self.__output_string
+        if self._evaluated:
+            return self._output_string
 
         # Let's start evaluating
         # Right now, every expression starts with an operand
@@ -80,18 +80,18 @@ class Expression:
         expecting_operand = True
 
         # Get the current character to inspect
-        current_char = self.__expr_string[self.__current_position]
+        current_char = self._expr_string[self._current_position]
 
         # Loop until we're past the end of the string
         while (
-            self.__current_position < len(self.__expr_string)
+            self._current_position < len(self._expr_string)
             and current_char != "$"
         ):
 
             # Skip any leading whitespace characters
             while current_char.isspace():
-                self.__current_position += 1
-                current_char = self.__expr_string[self.__current_position]
+                self._current_position += 1
+                current_char = self._expr_string[self._current_position]
 
             # Store whatever is next in the current_token string
             current_token = ""
@@ -101,18 +101,18 @@ class Expression:
                 # First, we need to check for a leading '-' or '+' sign
                 if current_char == "-" or current_char == "+":
                     current_token += current_char
-                    self.__current_position += 1
-                    current_char = self.__expr_string[self.__current_position]
+                    self._current_position += 1
+                    current_char = self._expr_string[self._current_position]
 
                 # Now we loop for as long as we have numbers
                 while current_char in "0123456789":
                     current_token += current_char
-                    self.__current_position += 1
-                    current_char = self.__expr_string[self.__current_position]
+                    self._current_position += 1
+                    current_char = self._expr_string[self._current_position]
 
                 # We should have a number now - add it to the output string,
                 # space delimited
-                self.__output_string += current_token + " "
+                self._output_string += current_token + " "
 
                 # And after every operand, we need to look for an operator
                 expecting_operand = False
@@ -133,35 +133,35 @@ class Expression:
                 #     - Pop it and output it.
                 #   - Push the current operator
 
-                if len(self.__operator_stack) == 0:
-                    self.__operator_stack.append(current_operator)
+                if len(self._operator_stack) == 0:
+                    self._operator_stack.append(current_operator)
 
                 else:
-                    top_operator = self.__operator_stack[
-                        len(self.__operator_stack) - 1
+                    top_operator = self._operator_stack[
+                        len(self._operator_stack) - 1
                     ]
                     while (
-                        len(self.__operator_stack) > 0
+                        len(self._operator_stack) > 0
                         and top_operator.precedence
                         > current_operator.precedence
                     ):
-                        self.__output_string += top_operator.op_string + " "
-                        self.__operator_stack.pop()
-                        if len(self.__operator_stack) > 0:
-                            top_operator = self.__operator_stack[
-                                len(self.__operator_stack) - 1
+                        self._output_string += top_operator.op_string + " "
+                        self._operator_stack.pop()
+                        if len(self._operator_stack) > 0:
+                            top_operator = self._operator_stack[
+                                len(self._operator_stack) - 1
                             ]
 
-                    self.__operator_stack.append(current_operator)
+                    self._operator_stack.append(current_operator)
 
                 # Get the next character
-                self.__current_position += 1
-                current_char = self.__expr_string[self.__current_position]
+                self._current_position += 1
+                current_char = self._expr_string[self._current_position]
 
                 # Skip any trailing whitespace characters
                 while current_char.isspace():
-                    self.__current_position += 1
-                    current_char = self.__expr_string[self.__current_position]
+                    self._current_position += 1
+                    current_char = self._expr_string[self._current_position]
 
                 # After every operator, look for an operand
                 expecting_operand = True
@@ -169,9 +169,9 @@ class Expression:
         # At this point, we're done with the string, so we just need to pop
         # the remaining operators off the stack
 
-        while len(self.__operator_stack) > 0:
-            top_operator = self.__operator_stack.pop()
-            self.__output_string += top_operator.op_string + " "
+        while len(self._operator_stack) > 0:
+            top_operator = self._operator_stack.pop()
+            self._output_string += top_operator.op_string + " "
 
-        self.__evaluated = True
-        return self.__output_string
+        self._evaluated = True
+        return self._output_string
