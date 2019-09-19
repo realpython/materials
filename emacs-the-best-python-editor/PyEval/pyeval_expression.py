@@ -105,18 +105,7 @@ class Expression:
                     current_char = self.__expr_string[self.__current_position]
 
                 # Now we loop for as long as we have numbers
-                while current_char in [
-                    "0",
-                    "1",
-                    "2",
-                    "3",
-                    "4",
-                    "5",
-                    "6",
-                    "7",
-                    "8",
-                    "9",
-                ]:
+                while current_char in "0123456789":
                     current_token += current_char
                     self.__current_position += 1
                     current_char = self.__expr_string[self.__current_position]
@@ -132,7 +121,7 @@ class Expression:
                 # Here, we just need a single operator, so
                 # Get that operator, validate it, then
                 # Create a new operator object
-                if current_char not in ["+", "-", "*", "/", "%", "^"]:
+                if current_char not in "+-*/%^":
                     raise SyntaxError
 
                 current_operator = Operator(current_char)
