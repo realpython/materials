@@ -1,5 +1,5 @@
 """
-operand.py - implements an operand class for use by the evaluator
+pyeval_operand.py - implements an operand class for use by the evaluator
 
 AUTHOR: Jon Fincher
 """

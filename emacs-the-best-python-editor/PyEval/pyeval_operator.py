@@ -1,5 +1,5 @@
 """
-operator.py - implements an operator class for use by the evaluator
+pyeval_operator.py - implements an operator class for use by the evaluator
 
 AUTHOR: Jon Fincher
 """
