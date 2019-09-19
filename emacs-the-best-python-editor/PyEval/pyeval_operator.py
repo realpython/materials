@@ -31,15 +31,17 @@ class Operator:
     Common operator class used by the evaluator.
     """
 
-    _op_string = ""  # String to hold the operator
-    _op_prec = 0  # Integer to hold the precedence
-    _op_cnt = 0  # Integer to hold the number of operands to use
-
     def __init__(self, operator_string):
         """ Create a new operator object. """
+
+        # String to hold the operator
         self._op_string = operator_string
-        self._op_prec = PRECEDENCE[self._op_string]
-        self._op_cnt = OPERAND_COUNT[self._op_string]
+
+        # Integer to hold the precedence
+        self._op_prec = PRECEDENCE[operator_string]
+
+        # Integer to hold the number of operands to use
+        self._op_cnt = OPERAND_COUNT[operator_string]
 
     @property
     def op_string(self):
