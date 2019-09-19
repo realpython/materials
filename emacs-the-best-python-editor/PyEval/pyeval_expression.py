@@ -137,20 +137,16 @@ class Expression:
                     self._operator_stack.append(current_operator)
 
                 else:
-                    top_operator = self._operator_stack[
-                        len(self._operator_stack) - 1
-                    ]
+                    top_operator = self._operator_stack[-1]
                     while (
-                        len(self._operator_stack) > 0
+                        self._operator_stack
                         and top_operator.precedence
                         > current_operator.precedence
                     ):
                         self._output_string += top_operator.op_string + " "
                         self._operator_stack.pop()
-                        if len(self._operator_stack) > 0:
-                            top_operator = self._operator_stack[
-                                len(self._operator_stack) - 1
-                            ]
+                        if self._operator_stack:
+                            top_operator = self._operator_stack[-1]
 
                     self._operator_stack.append(current_operator)
 
@@ -169,7 +165,7 @@ class Expression:
         # At this point, we're done with the string, so we just need to pop
         # the remaining operators off the stack
 
-        while len(self._operator_stack) > 0:
+        while self._operator_stack:
             top_operator = self._operator_stack.pop()
             self._output_string += top_operator.op_string + " "
 
