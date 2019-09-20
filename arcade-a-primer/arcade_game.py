@@ -210,7 +210,7 @@ class SpaceShooter(arcade.Window):
             return
 
         # Did we hit anything? If so, end the game
-        if len(self.player.collides_with_list(self.enemies_list)) > 0:
+        if self.player.collides_with_list(self.enemies_list):
             self.collided = True
             self.collision_timer = 0.0
             arcade.play_sound(self.collision_sound)
