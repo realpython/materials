@@ -92,7 +92,7 @@ class SpaceShooter(arcade.Window):
 
     def add_enemy(self, delta_time: float):
         """Adds a new enemy to the screen
-        
+
         Arguments:
             delta_time {float} -- How much time as passed since the last call
         """
@@ -113,7 +113,7 @@ class SpaceShooter(arcade.Window):
 
     def add_cloud(self, delta_time: float):
         """Adds a new cloud to the screen
-        
+
         Arguments:
             delta_time {float} -- How much time has passed since the last call
         """
@@ -137,7 +137,7 @@ class SpaceShooter(arcade.Window):
         P: Pause the game
         I/J/K/L: Move Up, Left, Down, Right
         Arrows: Move Up, Left, Down, Right
-        
+
         Arguments:
             symbol {int} -- Which key was pressed
             modifiers {int} -- Which modifiers were pressed
@@ -165,7 +165,7 @@ class SpaceShooter(arcade.Window):
 
     def on_key_release(self, symbol: int, modifiers: int):
         """Undo movement vectors when movement keys are released
-        
+
         Arguments:
             symbol {int} -- Which key was pressed
             modifiers {int} -- Which modifiers were pressed
@@ -191,7 +191,7 @@ class SpaceShooter(arcade.Window):
         If we're paused, do nothing
         Once everything has moved, check for collisions between
         the player and the list of enemies
-        
+
         Arguments:
             delta_time {float} -- Time since the last update
         """
