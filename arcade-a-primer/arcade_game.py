@@ -94,7 +94,7 @@ class SpaceShooter(arcade.Window):
         """Adds a new enemy to the screen
 
         Arguments:
-            delta_time {float} -- How much time as passed since the last call
+            delta_time {float} -- How much time has passed since the last call
         """
 
         # First, create the new enemy sprite
