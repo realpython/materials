@@ -29,7 +29,7 @@ class FlyingSprite(arcade.Sprite):
 
         # Remove us if we're off screen
         if self.right < 0:
-            self.kill()
+            self.remove_from_sprite_lists()
 
 
 class SpaceShooter(arcade.Window):
