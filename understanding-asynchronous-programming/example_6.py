@@ -1,17 +1,19 @@
 import asyncio
 import aiohttp
-from lib.elapsed_time import ET
+from codetiming import Timer
 
 
 async def task(name, work_queue):
+    text = ''.join([f'Task {name} elapsed time: ', '{:.2f}'])
+    timer = Timer(text=text)
     async with aiohttp.ClientSession() as session:
         while not work_queue.empty():
             url = await work_queue.get()
             print(f"Task {name} getting URL: {url}")
-            et = ET()
+            timer.start()
             async with session.get(url) as response:
                 await response.text()
-            print(f"Task {name} total elapsed time: {et():.1f}")
+            timer.stop()
 
 
 async def main():
@@ -34,12 +36,11 @@ async def main():
         await work_queue.put(url)
 
     # Run the tasks
-    et = ET()
-    await asyncio.gather(
-        asyncio.create_task(task("One", work_queue)),
-        asyncio.create_task(task("Two", work_queue)),
-    )
-    print(f"\nTotal elapsed time: {et():.1f}")
+    with Timer(text='\nTotal elapsed time: {:.2f}'):
+        await asyncio.gather(
+            asyncio.create_task(task("One", work_queue)),
+            asyncio.create_task(task("Two", work_queue))
+        )
 
 
 if __name__ == "__main__":
