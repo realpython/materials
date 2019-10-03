@@ -4,8 +4,7 @@ from codetiming import Timer
 
 
 def task(name, work_queue):
-    text = ''.join([f'Task {name} elapsed time: ', '{:.2f}'])
-    timer = Timer(text=text)
+    timer = Timer(text=f"Task {name} elapsed time: {{:.1f}}")
     with requests.Session() as session:
         while not work_queue.empty():
             url = work_queue.get()
@@ -20,10 +19,10 @@ def main():
     """
     This is the main entry point for the program
     """
-    # Create the queue of 'work'
+    # Create the queue of "work"
     work_queue = queue.Queue()
 
-    # Put some 'work' in the queue
+    # Put some "work" in the queue
     for url in [
         "http://google.com",
         "http://yahoo.com",
@@ -39,7 +38,7 @@ def main():
 
     # Run the tasks
     done = False
-    with Timer(text='\nTotal elapsed time: {:.2f}'):
+    with Timer(text="\nTotal elapsed time: {:.1f}"):
         while not done:
             for t in tasks:
                 try:

@@ -4,8 +4,7 @@ from codetiming import Timer
 
 
 async def task(name, work_queue):
-    text = ''.join([f'Task {name} elapsed time: ', '{:.2f}'])
-    timer = Timer(text=text)
+    timer = Timer(text=f"Task {name} elapsed time: {{:.1f}}")
     async with aiohttp.ClientSession() as session:
         while not work_queue.empty():
             url = await work_queue.get()
@@ -36,7 +35,7 @@ async def main():
         await work_queue.put(url)
 
     # Run the tasks
-    with Timer(text='\nTotal elapsed time: {:.2f}'):
+    with Timer(text='\nTotal elapsed time: {:.1f}'):
         await asyncio.gather(
             asyncio.create_task(task("One", work_queue)),
             asyncio.create_task(task("Two", work_queue))
