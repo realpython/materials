@@ -18,7 +18,7 @@ def main():
     """
     This is the main entry point for the program
     """
-    # Create the queue of "work"
+    # Create the queue of work
     work_queue = queue.Queue()
 
     # Put some work in the queue

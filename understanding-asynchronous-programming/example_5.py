@@ -19,10 +19,10 @@ def main():
     """
     This is the main entry point for the program
     """
-    # Create the queue of "work"
+    # Create the queue of work
     work_queue = queue.Queue()
 
-    # Put some "work" in the queue
+    # Put some work in the queue
     for url in [
         "http://google.com",
         "http://yahoo.com",
