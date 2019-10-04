@@ -38,7 +38,7 @@ async def main():
     with Timer(text="\nTotal elapsed time: {:.1f}"):
         await asyncio.gather(
             asyncio.create_task(task("One", work_queue)),
-            asyncio.create_task(task("Two", work_queue))
+            asyncio.create_task(task("Two", work_queue)),
         )
 
 
