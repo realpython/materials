@@ -37,8 +37,10 @@ def main(args: argparse.Namespace) -> None:
 def parse_args() -> argparse.Namespace:
     """Parse command line arguments."""
     parser = argparse.ArgumentParser()
-    parser.add_argument("-a", choices=("handbag", "linear", "binary"))
-    parser.add_argument("-f", dest="path")
+    parser.add_argument(
+        "-a", "--algorithm", choices=("handbag", "linear", "binary")
+    )
+    parser.add_argument("-f", "--file", dest="path")
     parser.add_argument("search_term")
     return parser.parse_args()
 
