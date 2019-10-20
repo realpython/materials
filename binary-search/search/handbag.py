@@ -3,14 +3,14 @@ The handbag search algorithm.
 """
 
 import random
-from typing import Callable, Optional, Set, Sequence, Union
+from typing import Optional, Set, Sequence
 
-from search import T, S, identity
+from search import T, S, Key, identity
 
 
-def find_index(elements: Sequence[T],
-               value: S,
-               key: Callable[[T], Union[T, S]] = identity) -> Optional[int]:
+def find_index(
+    elements: Sequence[T], value: S, key: Key = identity
+) -> Optional[int]:
     """Return the index of value in elements or None."""
     visited: Set[int] = set()
     while len(visited) < len(elements):
@@ -21,16 +21,12 @@ def find_index(elements: Sequence[T],
     return None
 
 
-def find(elements: Sequence[T],
-         value: S,
-         key: Callable[[T], Union[T, S]] = identity) -> Optional[T]:
+def find(elements: Sequence[T], value: S, key: Key = identity) -> Optional[T]:
     """Return an element with matching key or None."""
     index = find_index(elements, value, key)
     return None if index is None else elements[index]
 
 
-def contains(elements: Sequence[T],
-             value: S,
-             key: Callable[[T], Union[T, S]] = identity) -> bool:
+def contains(elements: Sequence[T], value: S, key: Key = identity) -> bool:
     """Return True if value is present in elements."""
     return find_index(elements, value, key) is not None

@@ -37,7 +37,7 @@ def main(args: argparse.Namespace) -> None:
 def parse_args() -> argparse.Namespace:
     """Parse command line arguments."""
     parser = argparse.ArgumentParser()
-    parser.add_argument('path')
+    parser.add_argument("path")
     return parser.parse_args()
 
 
@@ -45,7 +45,7 @@ def draw(bbox: Rect, width: int, iterations: int) -> Image:
     """Return an image instance."""
 
     height = int(width * bbox.aspect_ratio)
-    image = Image.new('L', (width, height))
+    image = Image.new("L", (width, height))
 
     for y in range(height):
         for x in range(width):
@@ -58,14 +58,14 @@ def draw(bbox: Rect, width: int, iterations: int) -> Image:
 
 
 def divergence(number: complex, max_iterations: int, limit: int = 2) -> float:
-    """Return Mandelbrot set membership as a value between 0 and 1 inclusive."""
+    """Return Mandelbrot set membership as a value between 0 and 1."""
     z = 0j
     for _ in range(max_iterations):
-        z = z**2 + number
+        z = z ** 2 + number
         if abs(z) > limit:
             return 0
     return abs(z) / limit
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main(parse_args())

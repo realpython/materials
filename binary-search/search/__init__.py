@@ -1,7 +1,9 @@
-from typing import TypeVar, Union
+from typing import Callable, TypeVar, Union
 
-T = TypeVar('T')
-S = TypeVar('S')
+T = TypeVar("T")
+S = TypeVar("S")
+
+Key = Callable[[T], Union[T, S]]
 
 
 def identity(element: T) -> Union[T, S]:

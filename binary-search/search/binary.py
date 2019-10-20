@@ -2,14 +2,14 @@
 The binary search algorithm.
 """
 
-from typing import Callable, Optional, Set, Sequence, Union
+from typing import Optional, Set, Sequence
 
-from search import T, S, identity
+from search import T, S, Key, identity
 
 
-def find_index(elements: Sequence[T],
-               value: S,
-               key: Callable[[T], Union[T, S]] = identity) -> Optional[int]:
+def find_index(
+    elements: Sequence[T], value: S, key: Key = identity
+) -> Optional[int]:
     """Return the index of value in elements or None."""
 
     left, right = 0, len(elements) - 1
@@ -30,9 +30,9 @@ def find_index(elements: Sequence[T],
     return None
 
 
-def find_leftmost_index(elements: Sequence[T],
-                        value: S,
-                        key: Callable[[T], Union[T, S]] = identity) -> Optional[int]:
+def find_leftmost_index(
+    elements: Sequence[T], value: S, key: Key = identity
+) -> Optional[int]:
     """Return the leftmost index of value in elements or None."""
 
     index = find_index(elements, value, key)
@@ -45,9 +45,9 @@ def find_leftmost_index(elements: Sequence[T],
     return index
 
 
-def find_rightmost_index(elements: Sequence[T],
-                         value: S,
-                         key: Callable[[T], Union[T, S]] = identity) -> Optional[int]:
+def find_rightmost_index(
+    elements: Sequence[T], value: S, key: Key = identity
+) -> Optional[int]:
     """Return the rightmost index of value in elements or None."""
 
     index = find_index(elements, value, key)
@@ -60,9 +60,9 @@ def find_rightmost_index(elements: Sequence[T],
     return index
 
 
-def find_all_indices(elements: Sequence[T],
-                     value: S,
-                     key: Callable[[T], Union[T, S]] = identity) -> Set[int]:
+def find_all_indices(
+    elements: Sequence[T], value: S, key: Key = identity
+) -> Set[int]:
     """Return a set of indices of elements with matching key."""
 
     left = find_leftmost_index(elements, value, key)
@@ -74,37 +74,31 @@ def find_all_indices(elements: Sequence[T],
     return set()
 
 
-def find(elements: Sequence[T],
-         value: S,
-         key: Callable[[T], Union[T, S]] = identity) -> Optional[T]:
+def find(elements: Sequence[T], value: S, key: Key = identity) -> Optional[T]:
     """Return an element with matching key or None."""
     return _get(elements, find_index(elements, value, key))
 
 
-def find_leftmost(elements: Sequence[T],
-                  value: S,
-                  key: Callable[[T], Union[T, S]] = identity) -> Optional[T]:
+def find_leftmost(
+    elements: Sequence[T], value: S, key: Key = identity
+) -> Optional[T]:
     """Return the leftmost element or None."""
     return _get(elements, find_leftmost_index(elements, value, key))
 
 
-def find_rightmost(elements: Sequence[T],
-                   value: S,
-                   key: Callable[[T], Union[T, S]] = identity) -> Optional[T]:
+def find_rightmost(
+    elements: Sequence[T], value: S, key: Key = identity
+) -> Optional[T]:
     """Return the rightmost element or None."""
     return _get(elements, find_rightmost_index(elements, value, key))
 
 
-def find_all(elements: Sequence[T],
-             value: S,
-             key: Callable[[T], Union[T, S]] = identity) -> Set[T]:
+def find_all(elements: Sequence[T], value: S, key: Key = identity) -> Set[T]:
     """Return a set of elements with matching key."""
     return {elements[i] for i in find_all_indices(elements, value, key)}
 
 
-def contains(elements: Sequence[T],
-             value: S,
-             key: Callable[[T], Union[T, S]] = identity) -> bool:
+def contains(elements: Sequence[T], value: S, key: Key = identity) -> bool:
     """Return True if value is present in elements."""
     return find_index(elements, value, key) is not None
 
