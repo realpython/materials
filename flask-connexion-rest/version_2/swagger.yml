@@ -16,7 +16,7 @@ paths:
     get:
       operationId: people.read
       tags:
-        - People
+        - people
       summary: The people data structure supported by the server application
       description: Read the list of people
       responses:
