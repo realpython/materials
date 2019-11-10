@@ -1,5 +1,5 @@
 """
-The handbag search algorithm.
+The random search algorithm.
 """
 
 import random

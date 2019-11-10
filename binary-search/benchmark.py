@@ -5,7 +5,7 @@ Requirements:
  * Python 3.7+
 
 Usage:
-$ python benchmark.py -a handbag -f names.txt 'Arnold Schwarzenegger'
+$ python benchmark.py -a random -f names.txt 'Arnold Schwarzenegger'
 $ python benchmark.py -a linear -f names.txt 'Arnold Schwarzenegger'
 $ python benchmark.py -a binary -f sorted_names.txt 'Arnold Schwarzenegger'
 """
@@ -16,7 +16,7 @@ from statistics import median
 from typing import List
 
 from search.binary import find_index as binary_search
-from search.handbag import find_index as handbag_search
+from search.random import find_index as random_search
 from search.linear import find_index as linear_search
 
 
@@ -24,7 +24,7 @@ def main(args: argparse.Namespace) -> None:
     """Script entry point."""
 
     algorithms = {
-        "handbag": handbag_search,
+        "random": random_search,
         "linear": linear_search,
         "binary": binary_search,
     }
@@ -38,7 +38,7 @@ def parse_args() -> argparse.Namespace:
     """Parse command line arguments."""
     parser = argparse.ArgumentParser()
     parser.add_argument(
-        "-a", "--algorithm", choices=("handbag", "linear", "binary")
+        "-a", "--algorithm", choices=("random", "linear", "binary")
     )
     parser.add_argument("-f", "--file", dest="path")
     parser.add_argument("search_term")
