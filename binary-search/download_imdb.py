@@ -7,6 +7,7 @@ Usage:
 $ python download_imdb.py
 """
 
+import csv
 import gzip
 import shutil
 import tempfile
@@ -36,11 +37,12 @@ def names():
         with tempfile.NamedTemporaryFile(mode="w+b") as archive:
             shutil.copyfileobj(response, archive)
             archive.seek(0)
-            with gzip.open(archive, mode="rt") as source:
-                next(source)  # Skip the header
-                for line in source:
-                    full_name = line.split("\t")[1]
-                    yield f"{full_name}\n"
+            with gzip.open(archive, mode="rt") as tsv_file:
+                tsv = csv.reader(tsv_file, delimiter='\t')
+                next(tsv)  # Skip the header
+                for record in tsv:
+                    full_name = record[1]
+                    yield f'{full_name}\n'
 
 
 if __name__ == "__main__":
