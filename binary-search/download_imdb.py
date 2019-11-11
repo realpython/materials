@@ -19,11 +19,11 @@ def main():
 
     print("Fetching data from IMDb...")
 
-    with open("names.txt", "w") as destination:
+    with open("names.txt", "w", encoding="utf-8") as destination:
         destination.writelines(names())
 
-    with open("names.txt") as source, open(
-        "sorted_names.txt", "w"
+    with open("names.txt", encoding="utf-8") as source, open(
+        "sorted_names.txt", "w", encoding="utf-8"
     ) as destination:
         destination.writelines(sorted(source.readlines()))
 
@@ -37,12 +37,12 @@ def names():
         with tempfile.NamedTemporaryFile(mode="w+b") as archive:
             shutil.copyfileobj(response, archive)
             archive.seek(0)
-            with gzip.open(archive, mode="rt") as tsv_file:
-                tsv = csv.reader(tsv_file, delimiter='\t')
+            with gzip.open(archive, mode="rt", encoding="utf-8") as tsv_file:
+                tsv = csv.reader(tsv_file, delimiter="\t")
                 next(tsv)  # Skip the header
                 for record in tsv:
                     full_name = record[1]
-                    yield f'{full_name}\n'
+                    yield f"{full_name}\n"
 
 
 if __name__ == "__main__":
