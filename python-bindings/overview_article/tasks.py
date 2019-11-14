@@ -10,19 +10,19 @@ LINK = "gcc -shared -o libc_function.so c_function.o"
 
 
 @invoke.task
+def clean(c):
+    """ Remove any built objects. """
+    for pattern in ["*.o", "*.so", "_c_function*", ]:
+        c.run("rm -rf {}".format(pattern))
+
+@invoke.task
 def build_c_function(c):
     """ Compile and link the shared library (DLL) for the sample C++ code."""
     invoke.run(COMPILE)
     invoke.run(LINK)
 
 
-@invoke.task
-def clean(c):
-    """ Remove any built objects. """
-    for pattern in ["*.o", "*.so", "_c_function*", ]:
-        c.run("rm -rf {}".format(pattern))
-
-@invoke.task()
+@invoke.task(build_c_function)
 def test_ctypes(c):
     invoke.run("python3 ctypes_test.py", pty=True)
 
@@ -31,10 +31,9 @@ def build_cffi(c):
     ffi = cffi.FFI()
 
     this_dir = pathlib.Path().absolute()
-    libname = pathlib.Path().absolute() / "libc_function.so"
-    hname = this_dir / "c_function.h"
-    with open(hname) as f:
-        ffi.cdef(f.read())
+    h_file_name = this_dir / "c_function.h"
+    with open(h_file_name) as h_file:
+        ffi.cdef(h_file.read())
 
     ffi.set_source("_c_function",
         # Since we are calling a fully built library directly no custom source
