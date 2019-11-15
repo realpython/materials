@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
-import _c_function
+import cffi_example
 
 if __name__ == "__main__":
     # sample data for our call:
     x, y = 6, 2.3
 
-    answer = _c_function.c_function(x, y)
+    answer = cffi_example.lib.cmult(x, y)
     print(f"    In Python: int: {x} float {y:.1f} return val {answer:.1f}")
