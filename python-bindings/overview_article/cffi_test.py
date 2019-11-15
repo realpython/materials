@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 import _c_function
 
 if __name__ == "__main__":
