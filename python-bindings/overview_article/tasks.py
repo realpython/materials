@@ -57,11 +57,9 @@ def test_cffi(c):
 @invoke.task()
 def build_pybind11(c):
     """ Compile and link the shared library (DLL) for the sample C++ code."""
-    # compile and link the c++ library
-    invoke.run("g++ -O3 -Wall -Werror -shared -std=c++11 -fPIC " \
-               "-I /usr/include/python3.7 " \
-               "cppmult.cpp " \
-               "-o libcppmult.so "
+    # compile and link the cmult c++ library
+    invoke.run("g++ -O3 -Wall -Werror -shared -std=c++11 -fPIC "
+               "cppmult.cpp -o libcppmult.so "
               )
     # compile and link the pybind11 wrapper library
     invoke.run("g++ -O3 -Wall -Werror -shared -std=c++11 -fPIC "
@@ -69,8 +67,7 @@ def build_pybind11(c):
                "-I /usr/include/python3.7 -I . "
                "pybind11_wrapper.cpp "
                "-o pybind11_example`python3.7-config --extension-suffix` "
-               "-L. -lcppmult "
-               "-Wl,-rpath,. "
+               "-L. -lcppmult -Wl,-rpath,. "
               )
 
 @invoke.task()
