@@ -5,29 +5,33 @@ import invoke
 import os
 import pathlib
 
-COMPILE = "gcc -c -Wall -Werror -fpic cmult.c -I /usr/include/python3.7"
-LINK = "gcc -shared -o libcmult.so cmult.o"
-
-
 @invoke.task
 def clean(c):
     """ Remove any built objects. """
-    for pattern in ["*.o", "*.so", "cffi_example*", ]:
+    for pattern in ["*.o", "*.so", "cffi_example* cython_wrapper.cpp", ]:
         c.run("rm -rf {}".format(pattern))
+
+def print_banner(msg):
+    print("==================================================")
+    print("= {} ".format(msg))
 
 @invoke.task
 def build_cmult(c):
     """ Compile and link the shared library (DLL) for the sample C++ code."""
-    invoke.run(COMPILE)
-    invoke.run(LINK)
+    print_banner("Building C Library")
+    invoke.run("gcc -c -Wall -Werror -fpic cmult.c -I /usr/include/python3.7")
+    invoke.run("gcc -shared -o libcmult.so cmult.o")
+    print("* Complete")
 
 
 @invoke.task(build_cmult)
 def test_ctypes(c):
+    print_banner("Testing ctypes Module")
     invoke.run("python3 ctypes_test.py", pty=True)
 
 @invoke.task(build_cmult)
 def build_cffi(c):
+    print_banner("Building CFFI Module")
     ffi = cffi.FFI()
 
     this_dir = pathlib.Path().absolute()
@@ -49,19 +53,27 @@ def build_cffi(c):
     )
 
     ffi.compile()
+    print("* Complete")
 
 @invoke.task()
 def test_cffi(c):
+    print_banner("Testing CFFI Module")
     invoke.run("python3 cffi_test.py", pty=True)
 
+
 @invoke.task()
-def build_pybind11(c):
+def build_cppmult(c):
     """ Compile and link the shared library (DLL) for the sample C++ code."""
-    # compile and link the cmult c++ library
-    invoke.run("g++ -O3 -Wall -Werror -shared -std=c++11 -fPIC "
-               "cppmult.cpp -o libcppmult.so "
-              )
-    # compile and link the pybind11 wrapper library
+    print_banner("Building C++ Library")
+    invoke.run(
+        "g++ -O3 -Wall -Werror -shared -std=c++11 -fPIC cppmult.cpp -o libcppmult.so "
+    )
+    print("* Complete")
+
+@invoke.task(build_cppmult)
+def build_pybind11(c):
+    """ compile and link the pybind11 wrapper library """
+    print_banner("Building PyBind11 Module")
     invoke.run("g++ -O3 -Wall -Werror -shared -std=c++11 -fPIC "
                "`python3 -m pybind11 --includes` "
                "-I /usr/include/python3.7 -I . "
@@ -69,13 +81,36 @@ def build_pybind11(c):
                "-o pybind11_example`python3.7-config --extension-suffix` "
                "-L. -lcppmult -Wl,-rpath,. "
               )
+    print("* Complete")
 
 @invoke.task()
 def test_pybind11(c):
+    print_banner("Testing PyBind11 Module")
     invoke.run("python3 pybind11_test.py", pty=True)
 
+@invoke.task(build_cppmult)
+def build_cython(c):
+    """ build the cython extension module """
+    print_banner("Building Cython Module")
+    # run cython on the pyx file to create a .cpp file
+    invoke.run("cython --cplus -3 cython_example.pyx -o cython_wrapper.cpp")
+
+    # compile and link the cython wrapper library
+    invoke.run("g++ -O3 -Wall -Werror -shared -std=c++11 -fPIC "
+               "-I /usr/include/python3.7 -I .  "
+               "cython_wrapper.cpp "
+               "-o cython_example`python3.7-config --extension-suffix` "
+               "-L. -lcppmult -Wl,-rpath,."
+              )
+    print("* Complete")
+
+@invoke.task()
+def test_cython(c):
+    print_banner("Testing Cython Module")
+    invoke.run("python3 cython_test.py", pty=True)
+
 @invoke.task(clean, build_cmult, test_ctypes, build_cffi, test_cffi,
-             build_pybind11, test_pybind11)
+             build_pybind11, test_pybind11, build_cython, test_cython)
 def all(c):
     pass
 
