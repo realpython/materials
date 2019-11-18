@@ -70,23 +70,27 @@ def build_cppmult(c):
     )
     print("* Complete")
 
+def compile_python_module(cpp_name, extension_name):
+    invoke.run("g++ -O3 -Wall -Werror -shared -std=c++11 -fPIC "
+               "`python3 -m pybind11 --includes` "
+               "-I /usr/include/python3.7 -I .  "
+               "{0} "
+               "-o {1}`python3.7-config --extension-suffix` "
+               "-L. -lcppmult -Wl,-rpath,.".format(cpp_name, extension_name)
+              )
+
 @invoke.task(build_cppmult)
 def build_pybind11(c):
     """ compile and link the pybind11 wrapper library """
     print_banner("Building PyBind11 Module")
-    invoke.run("g++ -O3 -Wall -Werror -shared -std=c++11 -fPIC "
-               "`python3 -m pybind11 --includes` "
-               "-I /usr/include/python3.7 -I . "
-               "pybind11_wrapper.cpp "
-               "-o pybind11_example`python3.7-config --extension-suffix` "
-               "-L. -lcppmult -Wl,-rpath,. "
-              )
+    compile_python_module("pybind11_wrapper.cpp", "pybind11_example")
     print("* Complete")
 
 @invoke.task()
 def test_pybind11(c):
     print_banner("Testing PyBind11 Module")
     invoke.run("python3 pybind11_test.py", pty=True)
+
 
 @invoke.task(build_cppmult)
 def build_cython(c):
@@ -96,12 +100,7 @@ def build_cython(c):
     invoke.run("cython --cplus -3 cython_example.pyx -o cython_wrapper.cpp")
 
     # compile and link the cython wrapper library
-    invoke.run("g++ -O3 -Wall -Werror -shared -std=c++11 -fPIC "
-               "-I /usr/include/python3.7 -I .  "
-               "cython_wrapper.cpp "
-               "-o cython_example`python3.7-config --extension-suffix` "
-               "-L. -lcppmult -Wl,-rpath,."
-              )
+    compile_python_module("cython_wrapper.cpp", "cython_example")
     print("* Complete")
 
 @invoke.task()
