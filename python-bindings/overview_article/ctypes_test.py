@@ -5,11 +5,11 @@ import pathlib
 
 
 if __name__ == "__main__":
-    # load the shared library into c types.
+    # Load the shared library into c types.
     libname = pathlib.Path().absolute() / "libcmult.so"
     c_lib = ctypes.CDLL(libname)
 
-    # sample data for our call:
+    # Sample data for our call:
     x, y = 6, 2.3
 
     # This will not work:

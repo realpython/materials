@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 import cython_example
 
-# sample data for our call:
+# Sample data for our call
 x, y = 6, 2.3
 
 answer = cython_example.pymult(x, y)

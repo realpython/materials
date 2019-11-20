@@ -2,7 +2,7 @@
 import cffi_example
 
 if __name__ == "__main__":
-    # sample data for our call:
+    # Sample data for our call:
     x, y = 6, 2.3
 
     answer = cffi_example.lib.cmult(x, y)

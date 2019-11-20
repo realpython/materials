@@ -1,9 +1,8 @@
 #!/usr/bin/env python
 import pybind11_example
 
-
 if __name__ == "__main__":
-    # sample data for our call:
+    # Sample data for our call:
     x, y = 6, 2.3
 
     answer = pybind11_example.cpp_function(x, y)
