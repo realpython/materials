@@ -18,10 +18,10 @@ def main():
     """
     This is the main entry point for the program
     """
-    # Create the queue of 'work'
+    # Create the queue of work
     work_queue = queue.Queue()
 
-    # Put some 'work' in the queue
+    # Put some work in the queue
     for work in [15, 10, 5, 2]:
         work_queue.put(work)
 
