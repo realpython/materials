@@ -49,11 +49,10 @@ class LinkedList:
             raise Exception("List is empty")
 
         for node in self:
-            if node.data != target_node_data:
-                continue
-            new_node.next = node.next
-            node.next = new_node
-            return
+            if node.data == target_node_data:    
+                new_node.next = node.next
+                node.next = new_node
+                return
 
         raise Exception("Node with data '%s' not found" % target_node_data)
 
