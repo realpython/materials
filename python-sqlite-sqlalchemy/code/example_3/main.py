@@ -35,14 +35,16 @@ def get_average_temp_by_date(date_string, session) -> float:
     min_date = target_date + timedelta(days=-3)
     max_date = target_date + timedelta(days=3)
 
-    result = session.query(
-        func.avg(TemperatureData.value)
-    ).filter(
-        and_(
-            TemperatureData.date >= min_date,
-            TemperatureData.date <= max_date
+    result = (
+        session.query(func.avg(TemperatureData.value))
+        .filter(
+            and_(
+                TemperatureData.date >= min_date,
+                TemperatureData.date <= max_date,
+            )
         )
-    ).one()
+        .one()
+    )
     return result[0]
 
 
@@ -52,14 +54,15 @@ def get_average_temp_sorted(direction: str, session) -> list:
 
     dir = asc if direction.lower() == "asc" else desc
 
-    results = session.query(
-        TemperatureData.date,
-        func.avg(TemperatureData.value).label("average_temp")
-    ).group_by(
-        TemperatureData.date
-    ).order_by(
-        dir("average_temp")
-    ).all()
+    results = (
+        session.query(
+            TemperatureData.date,
+            func.avg(TemperatureData.value).label("average_temp"),
+        )
+        .group_by(TemperatureData.date)
+        .order_by(dir("average_temp"))
+        .all()
+    )
     return results
 
 

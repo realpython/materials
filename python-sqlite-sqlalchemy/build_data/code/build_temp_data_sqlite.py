@@ -28,10 +28,7 @@ def get_temperature_data(filepath):
     """
     with open(filepath) as csvfile:
         csv_reader = csv.DictReader(csvfile)
-        data = {
-            row["name"]: row
-            for row in csv_reader
-        }
+        data = {row["name"]: row for row in csv_reader}
         for value in data.values():
             value.pop("name")
         return data
@@ -44,7 +41,7 @@ def populate_database(session, temperature_data):
             temp_data = TemperatureData(
                 name=student,
                 date=datetime.strptime(date, "%Y-%m-%d").date(),
-                value=value
+                value=value,
             )
             session.add(temp_data)
         session.commit()

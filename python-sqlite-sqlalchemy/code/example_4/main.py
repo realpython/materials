@@ -36,8 +36,11 @@ def get_total_number_of_books_by_publishers(data, direction) -> List:
 
     # Convert the dictionary to a list of tuples and sort it
     retval = [(k, v) for k, v in publishers.items()]
-    return sorted(retval, key=lambda v: v[1],
-                  reverse=False if direction == "asc" else True)
+    return sorted(
+        retval,
+        key=lambda v: v[1],
+        reverse=False if direction == "asc" else True,
+    )
 
 
 def get_total_number_of_authors_by_publishers(data, direction: str) -> List:
@@ -60,8 +63,11 @@ def get_total_number_of_authors_by_publishers(data, direction: str) -> List:
             publishers[row["publisher"]].append(author)
 
     retval = [(k, len(v)) for k, v in publishers.items()]
-    return sorted(retval, key=lambda v: v[1],
-                  reverse=False if direction == "asc" else True)
+    return sorted(
+        retval,
+        key=lambda v: v[1],
+        reverse=False if direction == "asc" else True,
+    )
 
 
 def get_authors(data) -> List:
@@ -73,10 +79,7 @@ def get_authors(data) -> List:
     :return:                    list of authors data
     """
     # Get the authors
-    authors = {
-        f"{row['fname']} {row['lname']}": {}
-        for row in data
-    }
+    authors = {f"{row['fname']} {row['lname']}": {} for row in data}
     # Get the books associated with the authors
     for row in data:
         author = f"{row['fname']} {row['lname']}"
@@ -122,12 +125,14 @@ def add_new_book(data, author_name, book_title, publisher_name):
         raise Exception("No publisher found", publisher_name)
 
     # Add the new book
-    new_data.append({
-        "fname": fname,
-        "lname": lname,
-        "title": book_title,
-        "publisher": publisher_name
-    })
+    new_data.append(
+        {
+            "fname": fname,
+            "lname": lname,
+            "title": book_title,
+            "publisher": publisher_name,
+        }
+    )
     return new_data
 
 
@@ -142,23 +147,11 @@ def output_hierarchical_author_data(authors):
     authors_tree = Tree()
     authors_tree.create_node("Authors", "authors")
     for author, books in authors.items():
-        authors_tree.create_node(
-            author,
-            author,
-            parent="authors"
-        )
+        authors_tree.create_node(author, author, parent="authors")
         for book, publishers in books.items():
-            authors_tree.create_node(
-                book,
-                book,
-                parent=author
-            )
+            authors_tree.create_node(book, book, parent=author)
             for publisher in publishers:
-                authors_tree.create_node(
-                    publisher,
-                    uuid4(),
-                    parent=book
-                )
+                authors_tree.create_node(publisher, uuid4(), parent=book)
     # Output the hierarchical authors data
     print(authors_tree.show())
 
@@ -171,23 +164,22 @@ def main():
 
     # Connect to the database using SqlAlchemy
     path = os.path.dirname(os.path.abspath(__file__))
-    filepath = os.path.join(path,
-                            "../../build_data/data/author_book_publisher.csv")
+    filepath = os.path.join(
+        path, "../../build_data/data/author_book_publisher.csv"
+    )
     author_book_publisher_data = get_author_book_publisher_data(filepath)
 
     # Get the total number of books printed by each publisher
     total_books_by_publisher = get_total_number_of_books_by_publishers(
-        author_book_publisher_data,
-        "desc"
+        author_book_publisher_data, "desc"
     )
-    for publisher, total_books, in total_books_by_publisher:
+    for publisher, total_books in total_books_by_publisher:
         print(f"Publisher: {publisher}, total books: {total_books}")
     print()
 
     # Get the total number of authors each publisher publishes
     total_authors_by_publisher = get_total_number_of_authors_by_publishers(
-        author_book_publisher_data,
-        "desc"
+        author_book_publisher_data, "desc"
     )
     for publisher, total_authors in total_authors_by_publisher:
         print(f"Publisher: {publisher}, total authors: {total_authors}")
@@ -202,7 +194,7 @@ def main():
         author_book_publisher_data,
         author_name="Stephen King",
         book_title="The Stand",
-        publisher_name="Random House"
+        publisher_name="Random House",
     )
 
     # Output the updated hierarchical authors data

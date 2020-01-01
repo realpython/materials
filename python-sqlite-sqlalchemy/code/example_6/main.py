@@ -27,15 +27,13 @@ def get_total_number_of_books_by_publishers(session, direction: str) -> List:
 
     dir = desc if direction == "desc" else asc
 
-    results = session.query(
-        Publisher.name,
-        func.count(Book.title).label("total_books")
-    ).join(
-        Publisher.books
-    ).group_by(
-        Publisher.name
-    ).order_by(
-        dir("total_books")
+    results = (
+        session.query(
+            Publisher.name, func.count(Book.title).label("total_books")
+        )
+        .join(Publisher.books)
+        .group_by(Publisher.name)
+        .order_by(dir("total_books"))
     )
     return results
 
@@ -52,15 +50,13 @@ def get_total_number_of_authors_by_publishers(session, direction: str) -> List:
 
     dir = desc if direction == "desc" else asc
 
-    results = session.query(
-        Publisher.name,
-        func.count(Author.fname).label("total_authors")
-    ).join(
-        Publisher.authors
-    ).group_by(
-        Publisher.name
-    ).order_by(
-        dir("total_authors")
+    results = (
+        session.query(
+            Publisher.name, func.count(Author.fname).label("total_authors")
+        )
+        .join(Publisher.authors)
+        .group_by(Publisher.name)
+        .order_by(dir("total_authors"))
     )
     return results
 
@@ -72,11 +68,7 @@ def get_authors(session) -> List:
     :param session:             database session to work with
     :return:                    list of Author objects
     """
-    results = session.query(
-        Author
-    ).order_by(
-        Author.lname
-    ).all()
+    results = session.query(Author).order_by(Author.lname).all()
     return results
 
 
@@ -93,34 +85,27 @@ def add_new_book(session, author_name, book_title, publisher_name):
     fname, lname = author_name.split(" ")
 
     # Does the book exist?
-    book = session.query(
-        Book
-    ).filter(
-        Book.title == book_title
-    ).one_or_none()
+    book = session.query(Book).filter(Book.title == book_title).one_or_none()
     if book is not None:
         raise Exception("Book exists", book_title)
 
     # Get author
-    author = session.query(
-        Author
-    ).filter(
-        and_(
-            Author.fname == fname,
-            Author.lname == lname
-        )
-    ).one_or_none()
+    author = (
+        session.query(Author)
+        .filter(and_(Author.fname == fname, Author.lname == lname))
+        .one_or_none()
+    )
 
     # Did we get an author?
     if author is None:
         raise Exception("No author found", author_name)
 
     # Get publisher
-    publisher = session.query(
-        Publisher
-    ).filter(
-        Publisher.name == publisher_name
-    ).one_or_none()
+    publisher = (
+        session.query(Publisher)
+        .filter(Publisher.name == publisher_name)
+        .one_or_none()
+    )
 
     # Did we get a publisher?
     if publisher is None:
@@ -149,19 +134,17 @@ def output_hierarchical_author_data(authors):
         authors_tree.create_node(
             f"{author.fname} {author.lname}",
             f"{author.fname} {author.lname}",
-            parent="authors"
+            parent="authors",
         )
         for book in author.books:
             authors_tree.create_node(
                 f"{book.title}",
                 f"{book.title}",
-                parent=f"{author.fname} {author.lname}"
+                parent=f"{author.fname} {author.lname}",
             )
             for publisher in book.publishers:
                 authors_tree.create_node(
-                    f"{publisher.name}",
-                    uuid4(),
-                    parent=f"{book.title}"
+                    f"{publisher.name}", uuid4(), parent=f"{book.title}"
                 )
     # Output the hierarchical authors data
     print(authors_tree.show())
@@ -176,8 +159,7 @@ def main():
     # Connect to the database using SqlAlchemy
     path = os.path.dirname(os.path.abspath(__file__))
     sqlite_filepath = os.path.join(
-        path,
-        "../../build_data/data/author_book_publisher.db"
+        path, "../../build_data/data/author_book_publisher.db"
     )
     engine = create_engine(f"sqlite:///{sqlite_filepath}")
     Session = sessionmaker()
@@ -186,8 +168,7 @@ def main():
 
     # Get the total number of books printed by each publisher
     total_books_by_publisher = get_total_number_of_books_by_publishers(
-        session,
-        "desc"
+        session, "desc"
     )
     for row in total_books_by_publisher:
         print(f"Publisher: {row.name}, total books: {row.total_books}")
@@ -195,8 +176,7 @@ def main():
 
     # Get the total number of authors each publisher publishes
     total_authors_by_publisher = get_total_number_of_authors_by_publishers(
-        session,
-        "desc"
+        session, "desc"
     )
     for row in total_authors_by_publisher:
         print(f"Publisher: {row.name}, total authors: {row.total_authors}")
@@ -211,7 +191,7 @@ def main():
         session,
         author_name="Stephen King",
         book_title="The Stand",
-        publisher_name="Random House"
+        publisher_name="Random House",
     )
 
     # Output the updated hierarchical authors data

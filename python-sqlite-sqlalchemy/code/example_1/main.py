@@ -16,18 +16,15 @@ def get_temperature_data(filepath: str) -> Dict:
     """
     with open(filepath) as csvfile:
         csv_reader = csv.DictReader(csvfile)
-        data = {
-            row["name"]: row
-            for row in csv_reader
-        }
+        data = {row["name"]: row for row in csv_reader}
         for value in data.values():
             value.pop("name")
         return data
 
 
 def get_average_temp_by_date(
-        date_string: str,
-        temperature_data: Dict) -> float:
+    date_string: str, temperature_data: Dict
+) -> float:
     """
     This function gets the average temperature for all the samples
     taken by the students by date
@@ -37,9 +34,7 @@ def get_average_temp_by_date(
     :return:                        average temp for date, or None if not found
     """
     # Target date
-    target_date = datetime.strptime(
-        date_string, "%Y-%m-%d"
-    ).date()
+    target_date = datetime.strptime(date_string, "%Y-%m-%d").date()
 
     # Iterate through the data and get the data
     data = []
@@ -62,8 +57,7 @@ def get_average_temp_by_date(
     return sum(data) / len(data)
 
 
-def get_average_temp_sorted(direction: str,
-                            temperature_data: Dict) -> List:
+def get_average_temp_sorted(direction: str, temperature_data: Dict) -> List:
     dir = direction.lower()
     if dir not in ["asc", "desc"]:
         raise Exception(f"Unknown direction: {direction}")
@@ -81,9 +75,7 @@ def get_average_temp_sorted(direction: str,
 
     # Sort the list in the appropriate order
     return sorted(
-        results,
-        key=lambda v: v[1],
-        reverse=False if dir == "asc" else True
+        results, key=lambda v: v[1], reverse=False if dir == "asc" else True
     )
 
 

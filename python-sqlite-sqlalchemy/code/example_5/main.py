@@ -76,10 +76,7 @@ def get_authors(connection) -> List:
     """
     result = cursor.execute(sql).fetchall()
     # Get the authors
-    authors = {
-        row[0]: {}
-        for row in result
-    }
+    authors = {row[0]: {} for row in result}
     # Get the books associated with the authors
     for row in result:
         author = row[0]
@@ -171,23 +168,11 @@ def output_hierarchical_author_data(authors):
     authors_tree = Tree()
     authors_tree.create_node("Authors", "authors")
     for author, books in authors.items():
-        authors_tree.create_node(
-            author,
-            author,
-            parent="authors"
-        )
+        authors_tree.create_node(author, author, parent="authors")
         for book, publishers in books.items():
-            authors_tree.create_node(
-                book,
-                book,
-                parent=author
-            )
+            authors_tree.create_node(book, book, parent=author)
             for publisher in publishers:
-                authors_tree.create_node(
-                    publisher,
-                    uuid4(),
-                    parent=book
-                )
+                authors_tree.create_node(publisher, uuid4(), parent=book)
     # Output the hierarchical authors data
     print(authors_tree.show())
 
@@ -201,24 +186,21 @@ def main():
     # connect to the sqlite database
     path = os.path.dirname(os.path.abspath(__file__))
     sqlite_filepath = os.path.join(
-        path,
-        "../../build_data/data/author_book_publisher.db"
+        path, "../../build_data/data/author_book_publisher.db"
     )
     connection = sqlite3.connect(sqlite_filepath)
 
     # Get the total number of books printed by each publisher
     total_books_by_publisher = get_total_number_of_books_by_publishers(
-        connection,
-        "desc"
+        connection, "desc"
     )
-    for publisher, total_books, in total_books_by_publisher:
+    for publisher, total_books in total_books_by_publisher:
         print(f"Publisher: {publisher}, total books: {total_books}")
     print()
 
     # Get the total number of authors each publisher publishes
     total_authors_by_publisher = get_total_number_of_authors_by_publishers(
-        connection,
-        "desc"
+        connection, "desc"
     )
     for publisher, total_authors in total_authors_by_publisher:
         print(f"Publisher: {publisher}, total authors: {total_authors}")
@@ -233,7 +215,7 @@ def main():
         connection,
         author_name="Stephen King",
         book_title="The Stand",
-        publisher_name="Random House"
+        publisher_name="Random House",
     )
 
     # Output hierarchical authors data

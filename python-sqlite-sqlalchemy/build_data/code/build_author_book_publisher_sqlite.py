@@ -28,25 +28,27 @@ def populate_database(session, author_book_publisher_data):
     for row in author_book_publisher_data:
 
         author = (
-            session.query(Author).filter(
-                Author.lname == row["lname"]).one_or_none()
+            session.query(Author)
+            .filter(Author.lname == row["lname"])
+            .one_or_none()
         )
         if author is None:
             author = Author(fname=row["fname"], lname=row["lname"])
             session.add(author)
 
-        book = session.query(Book).filter(
-            Book.title == row["title"]).one_or_none()
+        book = (
+            session.query(Book)
+            .filter(Book.title == row["title"])
+            .one_or_none()
+        )
         if book is None:
             book = Book(title=row["title"])
             session.add(book)
 
         publisher = (
-            session.query(
-                Publisher
-            ).filter(
-                Publisher.name == row["publisher"]
-            ).one_or_none()
+            session.query(Publisher)
+            .filter(Publisher.name == row["publisher"])
+            .one_or_none()
         )
         if publisher is None:
             publisher = Publisher(name=row["publisher"])
