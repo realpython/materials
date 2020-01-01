@@ -26,7 +26,7 @@ def get_average_temp_by_date(date_string, connection):
     sql = """
         SELECT
           avg(value) as average
-        FROM temperature_data 
+        FROM temperature_data
         WHERE date between ? and ?
     """
     result = cursor.execute(sql, (min_date, max_date)).fetchone()

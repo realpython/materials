@@ -26,7 +26,7 @@ def get_total_number_of_books_by_publishers(connection, direction) -> List:
     JOIN book_publisher bp on bp.publisher_id = p.publisher_id
     JOIN book b on b.book_id = bp.book_id
     GROUP BY publisher_name
-    ORDER BY total_books {direction};    
+    ORDER BY total_books {direction};
     """
     result = cursor.execute(sql).fetchall()
     return result
@@ -49,7 +49,7 @@ def get_total_number_of_authors_by_publishers(connection, direction) -> List:
     JOIN author_publisher ap on p.publisher_id = ap.publisher_id
     JOIN author a on ap.author_id = a.author_id
     GROUP BY publisher_name
-    ORDER BY total_authors {direction};    
+    ORDER BY total_authors {direction};
     """
     result = cursor.execute(sql).fetchall()
     return result

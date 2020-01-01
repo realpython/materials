@@ -175,20 +175,29 @@ def main():
 
     # Connect to the database using SqlAlchemy
     path = os.path.dirname(os.path.abspath(__file__))
-    sqlite_filepath = os.path.join(path, "../../build_data/data/author_book_publisher.db")
+    sqlite_filepath = os.path.join(
+        path,
+        "../../build_data/data/author_book_publisher.db"
+    )
     engine = create_engine(f"sqlite:///{sqlite_filepath}")
     Session = sessionmaker()
     Session.configure(bind=engine)
     session = Session()
 
     # Get the total number of books printed by each publisher
-    total_books_by_publisher = get_total_number_of_books_by_publishers(session, "desc")
+    total_books_by_publisher = get_total_number_of_books_by_publishers(
+        session,
+        "desc"
+    )
     for row in total_books_by_publisher:
         print(f"Publisher: {row.name}, total books: {row.total_books}")
     print()
 
     # Get the total number of authors each publisher publishes
-    total_authors_by_publisher = get_total_number_of_authors_by_publishers(session, "desc")
+    total_authors_by_publisher = get_total_number_of_authors_by_publishers(
+        session,
+        "desc"
+    )
     for row in total_authors_by_publisher:
         print(f"Publisher: {row.name}, total authors: {row.total_authors}")
     print()

@@ -25,7 +25,9 @@ def get_temperature_data(filepath: str) -> Dict:
         return data
 
 
-def get_average_temp_by_date(date_string: str, temperature_data: Dict) -> float:
+def get_average_temp_by_date(
+        date_string: str,
+        temperature_data: Dict) -> float:
     """
     This function gets the average temperature for all the samples
     taken by the students by date
