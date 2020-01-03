@@ -24,14 +24,9 @@ class Author(Base):
     author_id = Column(Integer, primary_key=True)
     fname = Column(String)
     lname = Column(String)
-    books = relationship(
-        "Book",
-        backref=backref("author")
-    )
+    books = relationship("Book", backref=backref("author"))
     publishers = relationship(
-        "Publisher",
-        secondary=author_publisher,
-        back_populates="authors"
+        "Publisher", secondary=author_publisher, back_populates="authors"
     )
 
 
@@ -41,9 +36,7 @@ class Book(Base):
     author_id = Column(Integer, ForeignKey("author.author_id"))
     title = Column(String)
     publishers = relationship(
-        "Publisher",
-        secondary=book_publisher,
-        back_populates="books"
+        "Publisher", secondary=book_publisher, back_populates="books"
     )
 
 
@@ -52,12 +45,8 @@ class Publisher(Base):
     publisher_id = Column(Integer, primary_key=True)
     name = Column(String)
     authors = relationship(
-        "Author",
-        secondary=author_publisher,
-        back_populates="publishers"
+        "Author", secondary=author_publisher, back_populates="publishers"
     )
     books = relationship(
-        "Book",
-        secondary=book_publisher,
-        back_populates="publishers"
+        "Book", secondary=book_publisher, back_populates="publishers"
     )

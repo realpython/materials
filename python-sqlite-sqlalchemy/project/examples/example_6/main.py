@@ -158,8 +158,7 @@ def main():
 
     # Connect to the database using SqlAlchemy
     sqlite_filepath = resource_filename(
-        "project.data",
-        "author_book_publisher.db"
+        "project.data", "author_book_publisher.db"
     )
     engine = create_engine(f"sqlite:///{sqlite_filepath}")
     Session = sessionmaker()

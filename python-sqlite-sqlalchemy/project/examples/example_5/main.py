@@ -185,8 +185,7 @@ def main():
 
     # connect to the sqlite database
     sqlite_filepath = resource_filename(
-        "project.data",
-        "author_book_publisher.db"
+        "project.data", "author_book_publisher.db"
     )
     connection = sqlite3.connect(sqlite_filepath)
 
