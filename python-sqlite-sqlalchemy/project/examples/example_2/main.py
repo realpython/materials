@@ -2,7 +2,6 @@
 This program gathers information from the database file about temperature
 """
 
-import os
 from pkg_resources import resource_filename
 from datetime import datetime
 from datetime import timedelta

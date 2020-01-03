@@ -69,11 +69,17 @@ def main():
     print("starting")
 
     # get the author/book/publisher data into a dictionary structure
-    csv_filepath = resource_filename("project.data", "author_book_publisher.csv")
+    csv_filepath = resource_filename(
+        "project.data",
+        "author_book_publisher.csv"
+    )
     author_book_publisher_data = get_author_book_publisher_data(csv_filepath)
 
     # get the filepath to the database file
-    sqlite_filepath = resource_filename("project.data", "author_book_publisher.db")
+    sqlite_filepath = resource_filename(
+        "project.data",
+        "author_book_publisher.db"
+    )
 
     # does the database exist?
     if os.path.exists(sqlite_filepath):
