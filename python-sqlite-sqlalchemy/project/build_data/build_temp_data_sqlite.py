@@ -4,6 +4,7 @@ This program gathers information from the temp_data.db file about temperature
 
 import os
 import csv
+from pkg_resources import resource_filename
 from datetime import datetime
 from sqlalchemy import create_engine
 from sqlalchemy import Column, Integer, String, Date, Float
@@ -52,12 +53,11 @@ def main():
     print("starting")
 
     # get the temperature data into a dictionary structure
-    path = os.path.dirname(os.path.abspath(__file__))
-    csv_filepath = os.path.join(path, "../data/temp_data.csv")
+    csv_filepath = resource_filename("project.data", "temp_data.csv")
     temperature_data = get_temperature_data(csv_filepath)
 
     # get the filepath to the database file
-    sqlite_filepath = os.path.join(path, "../data/temp_data.db")
+    sqlite_filepath = resource_filename("project.data", "temp_data.db")
 
     # does the database exist?
     if os.path.exists(sqlite_filepath):

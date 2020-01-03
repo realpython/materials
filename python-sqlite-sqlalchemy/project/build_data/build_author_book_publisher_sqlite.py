@@ -5,12 +5,13 @@ author_book_publisher.csv file.
 
 import os
 import csv
+from pkg_resources import resource_filename
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
-from lib.models import Base
-from lib.models import Author
-from lib.models import Book
-from lib.models import Publisher
+from project.modules.models import Base
+from project.modules.models import Author
+from project.modules.models import Book
+from project.modules.models import Publisher
 
 
 def get_author_book_publisher_data(filepath):
@@ -68,12 +69,11 @@ def main():
     print("starting")
 
     # get the author/book/publisher data into a dictionary structure
-    path = os.path.dirname(os.path.abspath(__file__))
-    csv_filepath = os.path.join(path, "../data/author_book_publisher.csv")
+    csv_filepath = resource_filename("project.data", "author_book_publisher.csv")
     author_book_publisher_data = get_author_book_publisher_data(csv_filepath)
 
     # get the filepath to the database file
-    sqlite_filepath = os.path.join(path, "../data/author_book_publisher.db")
+    sqlite_filepath = resource_filename("project.data", "author_book_publisher.db")
 
     # does the database exist?
     if os.path.exists(sqlite_filepath):

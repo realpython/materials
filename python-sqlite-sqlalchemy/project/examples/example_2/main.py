@@ -3,6 +3,7 @@ This program gathers information from the database file about temperature
 """
 
 import os
+from pkg_resources import resource_filename
 from datetime import datetime
 from datetime import timedelta
 import sqlite3
@@ -56,8 +57,7 @@ def main():
     print("starting")
 
     # Connect to the sqlite database
-    path = os.path.dirname(os.path.abspath(__file__))
-    sqlite_filepath = os.path.join(path, "../../build_data/data/temp_data.db")
+    sqlite_filepath = resource_filename("project.data", "temp_data.db")
     connection = sqlite3.connect(sqlite_filepath)
 
     # Get the average temperature by date

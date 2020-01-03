@@ -7,7 +7,7 @@ by the example programs. There are three build programs:
  * build_temp_data_sqlite.py
  * build_author_book_publisher_sqlite.py
  
- ## Build the Temperature CSV File
+## Build the Temperature CSV File
  
  The build_temp_data_csv.py file builds a CSV data file
  (temp_data.csv) in the data directory
@@ -19,13 +19,13 @@ by the example programs. There are three build programs:
  temperature data, +/- 10 to make the data look variable
  and reasonable.
  
-  ## Build the Temperature Database File
+## Build the Temperature Database File
  
  The build_temp_data_sqlite.py file builds a Sqlite database
  from the previously created temp_data.csv file called 
  temp_data.db in the data directory. 
  
- ## Build the Author / Book / Publisher Database File
+## Build the Author / Book / Publisher Database File
  
  The build_author_book_publisher_sqlite.py file builds
  a database from the data/author_book_publisher.csv file.
@@ -33,13 +33,13 @@ by the example programs. There are three build programs:
  the data and the relationships between the data necessary
  for the examples.
  
- ## Directory Structure
+## Directory Structure
  
  The directory structure is set up in such a way the
  build programs (as well as the examples) can find the
  data files needed for each one.
  
- # Executing the Programs
+## Executing the Programs
  
   * Activate your Python virtualenv
   * cd into the build/code directory

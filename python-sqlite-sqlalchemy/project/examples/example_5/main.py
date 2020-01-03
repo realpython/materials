@@ -2,7 +2,7 @@
 Example 5 program file
 """
 
-import os
+from pkg_resources import resource_filename
 import sqlite3
 from uuid import uuid4
 from typing import List
@@ -184,9 +184,9 @@ def main():
     print("starting")
 
     # connect to the sqlite database
-    path = os.path.dirname(os.path.abspath(__file__))
-    sqlite_filepath = os.path.join(
-        path, "../../build_data/data/author_book_publisher.db"
+    sqlite_filepath = resource_filename(
+        "project.data",
+        "author_book_publisher.db"
     )
     connection = sqlite3.connect(sqlite_filepath)
 

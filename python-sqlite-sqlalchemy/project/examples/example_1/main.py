@@ -2,8 +2,8 @@
 This program gathers information from the temp_data.csv file about temperature
 """
 
-import os
 import csv
+from pkg_resources import resource_filename
 from datetime import datetime
 from datetime import timedelta
 from typing import List, Dict
@@ -83,8 +83,7 @@ def main():
     print("starting")
 
     # Get the temperature data into a dictionary structure
-    path = os.path.dirname(os.path.abspath(__file__))
-    filepath = os.path.join(path, "../../build_data/data/temp_data.csv")
+    filepath = resource_filename("project.data", "temp_data.csv")
     temperature_data = get_temperature_data(filepath)
 
     # Get the average temperature by date

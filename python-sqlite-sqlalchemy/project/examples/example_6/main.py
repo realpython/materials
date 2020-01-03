@@ -2,7 +2,7 @@
 This program gathers information from the temp_data.csv file about temperature
 """
 
-import os
+from pkg_resources import resource_filename
 from typing import List
 from uuid import uuid4
 from sqlalchemy import create_engine
@@ -10,9 +10,9 @@ from sqlalchemy import and_
 from sqlalchemy.sql import func, asc, desc
 from sqlalchemy.orm import sessionmaker
 from treelib import Tree
-from lib.models import Author
-from lib.models import Book
-from lib.models import Publisher
+from project.modules.models import Author
+from project.modules.models import Book
+from project.modules.models import Publisher
 
 
 def get_total_number_of_books_by_publishers(session, direction: str) -> List:
@@ -157,9 +157,9 @@ def main():
     print("starting")
 
     # Connect to the database using SqlAlchemy
-    path = os.path.dirname(os.path.abspath(__file__))
-    sqlite_filepath = os.path.join(
-        path, "../../build_data/data/author_book_publisher.db"
+    sqlite_filepath = resource_filename(
+        "project.data",
+        "author_book_publisher.db"
     )
     engine = create_engine(f"sqlite:///{sqlite_filepath}")
     Session = sessionmaker()

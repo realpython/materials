@@ -1,7 +1,7 @@
-import os
 import csv
 import datetime
 from random import randint
+from pkg_resources import resource_filename
 
 
 start_date = datetime.datetime.strptime("2019-01-02", "%Y-%m-%d")
@@ -86,8 +86,8 @@ def offset_temp(temperature):
 
 def main():
     # create the CSV file
-    path = os.path.dirname(os.path.abspath(__file__))
-    csv_filepath = os.path.join(path, "../data/temp_data.csv")
+    csv_filepath = resource_filename("project.data", "temp_data.csv")
+
     with open(csv_filepath, "w") as data_fh:
 
         # create the writer

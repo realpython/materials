@@ -1,9 +1,10 @@
 """
 This is the example 4 program file
 """
-import os
+
 import csv
 import copy
+from pkg_resources import resource_filename
 from typing import List
 from collections import defaultdict
 from uuid import uuid4
@@ -163,10 +164,7 @@ def main():
     print("starting")
 
     # Connect to the database using SqlAlchemy
-    path = os.path.dirname(os.path.abspath(__file__))
-    filepath = os.path.join(
-        path, "../../build_data/data/author_book_publisher.csv"
-    )
+    filepath = resource_filename("project.data", "author_book_publisher.csv")
     author_book_publisher_data = get_author_book_publisher_data(filepath)
 
     # Get the total number of books printed by each publisher
