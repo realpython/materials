@@ -3,11 +3,6 @@
 import cffi
 import invoke
 import pathlib
-import platform
-
-# Flag if we are on windows as that will require a different command line
-# for the compilers
-WINDOWS = platform.system().startswith("Windows")
 
 
 @invoke.task
@@ -26,15 +21,8 @@ def print_banner(msg):
 def build_cmult(c):
     """ Build the shared library for the sample C code """
     print_banner("Building C Library")
-    if WINDOWS:
-        invoke.run(
-            "cl.exe /LD cmult.c /OUT:libcmult.dll"
-        )
-    else:
-        invoke.run(
-            "gcc -Wall -Werror -fpic cmult.c -I /usr/include/python3.7 "
-            "-shared -o libcmult.so"
-        )
+    invoke.run("gcc -c -Wall -Werror -fpic cmult.c -I /usr/include/python3.7")
+    invoke.run("gcc -shared -o libcmult.so cmult.o")
     print("* Complete")
 
 
@@ -56,14 +44,6 @@ def build_cffi(c):
     with open(h_file_name) as h_file:
         ffi.cdef(h_file.read())
 
-    # need to set the rpath so the new Python module lib can find the .so file
-    # in linux
-    if WINDOWS:
-        extra_links = []
-    else:
-        extra_links = ["-Wl,-rpath,."]
-
-
     ffi.set_source(
         "cffi_example",
         # Since we are calling a fully built library directly no custom source
@@ -75,7 +55,7 @@ def build_cffi(c):
         # libraries we are linking against:
         libraries=["cmult"],
         library_dirs=[this_dir.as_posix()],
-        extra_link_args=extra_links,
+        extra_link_args=["-Wl,-rpath,."],
     )
 
     ffi.compile()
@@ -93,37 +73,22 @@ def test_cffi(c):
 def build_cppmult(c):
     """ Build the shared library for the sample C++ code """
     print_banner("Building C++ Library")
-    if WINDOWS:
-        invoke.run(
-            "cl.exe /LD cmult.c /OUT:libcmult.dll"
-        )
-    else:
-        invoke.run(
-            "g++ -O3 -Wall -Werror -shared -std=c++11 -fPIC cppmult.cpp "
-            "-o libcppmult.so "
-        )
+    invoke.run(
+        "g++ -O3 -Wall -Werror -shared -std=c++11 -fPIC cppmult.cpp "
+        "-o libcppmult.so "
+    )
     print("* Complete")
 
 
 def compile_python_module(cpp_name, extension_name):
-    if WINDOWS:
-        # This needs to get updated with a way to call the python3.7-config
-        # tool
-        # This is the command line - possbily we jsut want a different function
-        # for windows.  The 'spam.lib' portion is going to be the cppmult lib.
-        # cl /LD /I/python/include ni.c spam.lib ../libs/pythonXY.lib
-        invoke.run(
-            "cl.exe /LD {0} /OUT:{1}".format(cpp_name, extension_name)
-        )
-    else:
-        invoke.run(
-            "g++ -O3 -Wall -Werror -shared -std=c++11 -fPIC "
-            "`python3 -m pybind11 --includes` "
-            "-I /usr/include/python3.7 -I .  "
-            "{0} "
-            "-o {1}`python3.7-config --extension-suffix` "
-            "-L. -lcppmult -Wl,-rpath,.".format(cpp_name, extension_name)
-        )
+    invoke.run(
+        "g++ -O3 -Wall -Werror -shared -std=c++11 -fPIC "
+        "`python3 -m pybind11 --includes` "
+        "-I /usr/include/python3.7 -I .  "
+        "{0} "
+        "-o {1}`python3.7-config --extension-suffix` "
+        "-L. -lcppmult -Wl,-rpath,.".format(cpp_name, extension_name)
+    )
 
 
 @invoke.task(build_cppmult)
