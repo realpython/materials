@@ -1,4 +1,5 @@
-#include <stdio.h>
+#include <iostream>
+#include <iomanip>
 #include "cppmult.hpp"
 
 
