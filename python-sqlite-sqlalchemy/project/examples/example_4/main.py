@@ -36,9 +36,8 @@ def get_total_number_of_books_by_publishers(data, direction) -> List:
         publishers[row["publisher"]] += 1
 
     # Convert the dictionary to a list of tuples and sort it
-    retval = [(k, v) for k, v in publishers.items()]
     return sorted(
-        retval,
+        [(k, v) for k, v in publishers.items()],
         key=lambda v: v[1],
         reverse=False if direction == "asc" else True,
     )
@@ -63,9 +62,8 @@ def get_total_number_of_authors_by_publishers(data, direction: str) -> List:
         if author not in publishers[row["publisher"]]:
             publishers[row["publisher"]].append(author)
 
-    retval = [(k, len(v)) for k, v in publishers.items()]
     return sorted(
-        retval,
+        [(k, len(v)) for k, v in publishers.items()],
         key=lambda v: v[1],
         reverse=False if direction == "asc" else True,
     )
@@ -86,18 +84,14 @@ def get_authors(data) -> List:
         author = f"{row['fname']} {row['lname']}"
         title = row["title"]
         authors[author][title] = set()
-    # Get the publisher associated with the book
-    for row in data:
-        author = f"{row['fname']} {row['lname']}"
-        title = row["title"]
         publisher = row["publisher"]
         authors[author][title].add(publisher)
     return authors
 
 
-def add_new_book(data, author_name, book_title, publisher_name):
+def add_new_item(data, author_name, book_title, publisher_name):
     """
-    This function adds a new book to the data
+    This function adds a new item (author, book, publisher) to the data
 
     :param data:                author/book/publisher data
     :param author_name:         author's name
@@ -105,37 +99,34 @@ def add_new_book(data, author_name, book_title, publisher_name):
     :param publisher_name:      publishers name
     :return:                    updated data
     """
-    # Create a new copy of the passed in data
+    # Iterate through the data
+    new_item_exists = False
+    for row in data:
+        author_exists = author_name == f"{row['fname']} {row['lname']}"
+        book_exists = book_title == row["title"]
+        publisher_exists = publisher_name == row["publisher"]
+
+        # Set new_item_exists flag if new item found in data
+        if author_exists and book_exists and publisher_exists:
+            new_item_exists = True
+            break
+        
+    # Does the new item exist already?
+    if new_item_exists:            
+        raise Exception("New item exists", author_name, book_title, publisher_name)
+
+    # Don't modify the input data
     new_data = copy.deepcopy(data)
 
-    # Does the book exist?
-    books = {row["title"] for row in data}
-    if book_title in books:
-        raise Exception("Book exists", book_title)
-
+    # Add the new item
     fname, lname = author_name.split(" ")
-
-    # Does the author exist?
-    authors = {f"{row['fname']} {row['lname']}" for row in data}
-    if author_name not in authors:
-        raise Exception("No author found", author_name)
-
-    # Does the publisher exist?
-    publishers = {row["publisher"] for row in data}
-    if publisher_name not in publishers:
-        raise Exception("No publisher found", publisher_name)
-
-    # Add the new book
-    new_data.append(
-        {
-            "fname": fname,
-            "lname": lname,
-            "title": book_title,
-            "publisher": publisher_name,
-        }
-    )
+    new_data.append({
+        "fname": fname,
+        "lname": lname,
+        "title": book_title,
+        "publisher": publisher_name
+    })
     return new_data
-
 
 def output_hierarchical_author_data(authors):
     """
@@ -154,7 +145,7 @@ def output_hierarchical_author_data(authors):
             for publisher in publishers:
                 authors_tree.create_node(publisher, uuid4(), parent=book)
     # Output the hierarchical authors data
-    print(authors_tree.show())
+    authors_tree.show()
 
 
 def main():
@@ -163,7 +154,7 @@ def main():
     """
     print("starting")
 
-    # Connect to the database using SqlAlchemy
+    # get the data into memory
     filepath = resource_filename("project.data", "author_book_publisher.csv")
     author_book_publisher_data = get_author_book_publisher_data(filepath)
 
@@ -188,13 +179,12 @@ def main():
     output_hierarchical_author_data(authors)
 
     # Add a new book to the data structure
-    author_book_publisher_data = add_new_book(
+    author_book_publisher_data = add_new_item(
         author_book_publisher_data,
         author_name="Stephen King",
         book_title="The Stand",
         publisher_name="Random House",
     )
-
     # Output the updated hierarchical authors data
     authors = get_authors(author_book_publisher_data)
     output_hierarchical_author_data(authors)

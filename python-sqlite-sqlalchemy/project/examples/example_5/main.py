@@ -11,6 +11,9 @@ from treelib import Tree
 
 def get_total_number_of_books_by_publishers(connection, direction) -> List:
     """
+    Get a list of publishers and the total number of books
+    they've published
+
     :param connection:          connection to the database
     :return:                    List of sorted data
     """
@@ -28,12 +31,14 @@ def get_total_number_of_books_by_publishers(connection, direction) -> List:
     GROUP BY publisher_name
     ORDER BY total_books {direction};
     """
-    result = cursor.execute(sql).fetchall()
-    return result
+    return cursor.execute(sql).fetchall()
 
 
 def get_total_number_of_authors_by_publishers(connection, direction) -> List:
     """
+    Get a list of publishers and the total number of authors
+    they've published
+    
     :param connection:          connection to the database
     :return:                    List of sorted data
     """
@@ -51,8 +56,7 @@ def get_total_number_of_authors_by_publishers(connection, direction) -> List:
     GROUP BY publisher_name
     ORDER BY total_authors {direction};
     """
-    result = cursor.execute(sql).fetchall()
-    return result
+    return cursor.execute(sql).fetchall()
 
 
 def get_authors(connection) -> List:
@@ -91,69 +95,120 @@ def get_authors(connection) -> List:
     return authors
 
 
-def add_new_book(connection, author_name, book_title, publisher_name):
+def add_new_item(connection, author_name, book_title, publisher_name):
     """
-    This function adds a new book to the database
+    This function adds a new item to the database
 
-    :param session:             database session to work with
+    :param connection:          connection to the database
     :param author_name:         authors full name
     :param book_title:          book title
     :param publisher_name:      publisher of book
     :return:                    None
     """
-    connection.row_factory = sqlite3.Row
     cursor = connection.cursor()
 
-    # Does the book exist?
-    sql = f"""SELECT 1 FROM book WHERE title = ?"""
-    book = cursor.execute(sql, (book_title,)).fetchone()
-
-    if book is not None:
-        raise Exception("Book exists", book_title)
-
-    # Get author
-    sql = f"""
-        SELECT
-          author_id
+    # Does the author exist in the database?
+    sql = """
+        SELECT 
+            author_id
         FROM author
-        WHERE author.fname = ?
-        AND author.lname = ?
+        WHERE fname = ? AND lname = ?
     """
     fname, lname = author_name.split(" ")
-    author = cursor.execute(sql, (fname, lname)).fetchone()
+    row = cursor.execute(sql, (fname, lname)).fetchone()
+    author_id = row[0] if row is not None else None
 
-    # Did we get an author?
-    if author is None:
-        raise Exception("No author found", author_name)
+    # Does the book exist in the database?
+    sql = """
+        SELECT 
+            book_id
+        FROM book
+        WHERE title = ?
+    """
+    row = cursor.execute(sql, (book_title,)).fetchone()
+    book_id = row[0] if row is not None else None
 
-    # Get publisher
-    sql = f"""
-        SELECT
-          publisher_id
+    # Does the publisher exist in the database?
+    sql = """
+        SELECT 
+            publisher_id
         FROM publisher
         WHERE name = ?
     """
-    publisher = cursor.execute(sql, (publisher_name,)).fetchone()
+    row = cursor.execute(sql, (publisher_name,)).fetchone()
+    publisher_id = row[0] if row is not None else None
 
-    # Did we get a publisher?
-    if publisher is None:
-        raise Exception("No publisher found", publisher_name)
+    # Does new item exist?
+    if author_id is not None and book_id is not None and publisher_id is not None:
+        raise Exception(
+            "New item exists", 
+            author_name,
+            book_title,
+            publisher_name
+        )
+    # Create the author if didn't exist
+    if author_id is None:
+        sql = """INSERT INTO author (fname, lname) VALUES(?, ?)"""
+        cursor.execute(sql, (fname, lname))
+        author_id = cursor.lastrowid
 
-    # Add the book
-    sql = f"""
-        INSERT INTO book
-        (title, author_id)
-        VALUES(?, ?)
+    # Create the book if didn't exist
+    if book_id is None:
+        sql = """
+            INSERT INTO book
+            (author_id, title)
+            VALUES(?, ?)
+        """
+        cursor.execute(sql, (author_id, book_title))
+        book_id = cursor.lastrowid
+
+    # Create the publisher if didn't exist
+    if publisher_id is None:
+        sql = """INSERT INTO publisher (publisher_name) VALUES(?)"""
+        cursor.execute(sql, (publisher_name,))
+        publisher_id = cursor.lastrowid
+
+    # Does author publisher association exist?
+    sql = """
+        SELECT
+            1 
+        FROM author_publisher 
+        WHERE author_id = ?
+        AND publisher_id = ?
     """
-    book_id = cursor.execute(sql, (book_title, author["author_id"])).lastrowid
+    row = cursor.execute(sql, (author_id, publisher_id)).fetchone()
+    author_publisher_exists = row[0] if row is not None else None
 
-    # Update the relationships
-    sql = f"""
-        INSERT INTO book_publisher
-        (book_id, publisher_id)
-        VALUES(?, ?)
+    # Create author publisher association is necessary
+    if author_publisher_exists is None:
+        sql = """
+            INSERT INTO author_publisher
+            (author_id, publisher_id)
+            VALUES(?, ?)
+        """
+        cursor.execute(sql, (author_id, publisher_id))
+
+    # Does book publisher association exist?
+    sql = """
+        SELECT
+            1 
+        FROM book_publisher
+        WHERE book_id = ?
+        AND publisher_id = ?
     """
-    cursor.execute(sql, (book_id, publisher["publisher_id"]))
+    row = cursor.execute(sql, (book_id, publisher_id)).fetchone()
+    book_publisher_exists = row[0] if row is not None else None
+
+    # Create book publisher association is necessary
+    if book_publisher_exists is None:
+        sql = """
+            INSERT INTO book_publisher
+            (book_id, publisher_id)
+            VALUES(?, ?)
+        """
+        cursor.execute(sql, (book_id, publisher_id))
+
+    # Commit the transactions to the database
     connection.commit()
 
 
@@ -174,7 +229,7 @@ def output_hierarchical_author_data(authors):
             for publisher in publishers:
                 authors_tree.create_node(publisher, uuid4(), parent=book)
     # Output the hierarchical authors data
-    print(authors_tree.show())
+    authors_tree.show()
 
 
 def main():
@@ -183,7 +238,7 @@ def main():
     """
     print("starting")
 
-    # connect to the sqlite database
+    # Connect to the sqlite database
     sqlite_filepath = resource_filename(
         "project.data", "author_book_publisher.db"
     )
@@ -209,14 +264,13 @@ def main():
     authors = get_authors(connection)
     output_hierarchical_author_data(authors)
 
-    # add a new book
-    add_new_book(
+    # Add a new book
+    add_new_item(
         connection,
         author_name="Stephen King",
         book_title="The Stand",
         publisher_name="Random House",
     )
-
     # Output hierarchical authors data
     authors = get_authors(connection)
     output_hierarchical_author_data(authors)

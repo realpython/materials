@@ -17,6 +17,8 @@ from project.modules.models import Publisher
 
 def get_total_number_of_books_by_publishers(session, direction: str) -> List:
     """
+    Get a list of publishers and the total number of books
+    they've published
 
     :param session:             database session to work with
     :param direction:
@@ -27,7 +29,7 @@ def get_total_number_of_books_by_publishers(session, direction: str) -> List:
 
     dir = desc if direction == "desc" else asc
 
-    results = (
+    return (
         session.query(
             Publisher.name, func.count(Book.title).label("total_books")
         )
@@ -35,11 +37,12 @@ def get_total_number_of_books_by_publishers(session, direction: str) -> List:
         .group_by(Publisher.name)
         .order_by(dir("total_books"))
     )
-    return results
 
 
 def get_total_number_of_authors_by_publishers(session, direction: str) -> List:
     """
+    Get a list of publishers and the total number of authors
+    they've published
 
     :param session:             database session to work with
     :param direction:
@@ -50,7 +53,7 @@ def get_total_number_of_authors_by_publishers(session, direction: str) -> List:
 
     dir = desc if direction == "desc" else asc
 
-    results = (
+    return (
         session.query(
             Publisher.name, func.count(Author.fname).label("total_authors")
         )
@@ -58,7 +61,6 @@ def get_total_number_of_authors_by_publishers(session, direction: str) -> List:
         .group_by(Publisher.name)
         .order_by(dir("total_authors"))
     )
-    return results
 
 
 def get_authors(session) -> List:
@@ -68,13 +70,12 @@ def get_authors(session) -> List:
     :param session:             database session to work with
     :return:                    list of Author objects
     """
-    results = session.query(Author).order_by(Author.lname).all()
-    return results
+    return session.query(Author).order_by(Author.lname).all()
 
 
-def add_new_book(session, author_name, book_title, publisher_name):
+def add_new_item(session, author_name, book_title, publisher_name):
     """
-    This function adds a new book to the database
+    This function adds a new item to the database
 
     :param session:             database session to work with
     :param author_name:         authors full name
@@ -82,41 +83,60 @@ def add_new_book(session, author_name, book_title, publisher_name):
     :param publisher_name:      publisher of book
     :return:                    None
     """
+    # Get the author if exists
     fname, lname = author_name.split(" ")
-
-    # Does the book exist?
-    book = session.query(Book).filter(Book.title == book_title).one_or_none()
-    if book is not None:
-        raise Exception("Book exists", book_title)
-
-    # Get author
     author = (
         session.query(Author)
         .filter(and_(Author.fname == fname, Author.lname == lname))
         .one_or_none()
     )
 
-    # Did we get an author?
-    if author is None:
-        raise Exception("No author found", author_name)
+    # Get the book if exists
+    book = (
+        session.query(Book)
+        .filter(Book.title == book_title)
+        .one_or_none()
+    )
 
-    # Get publisher
+    # Get the publisher is exists
     publisher = (
         session.query(Publisher)
         .filter(Publisher.name == publisher_name)
         .one_or_none()
     )
+    # Does new item exist?
+    if author is not None and book is not None and publisher is not None:
+        raise Exception(
+            "New item exists",
+            author_name,
+            book_title,
+            publisher_name
+        )
+    # Create the author if didn't exist
+    if author is None:
+        author = Author(fname=fname, lname=lname)
 
-    # Did we get a publisher?
+    # Create the book if didn't exist
+    if book is None:
+        book = Book(title=book_title)
+
+    # Create the publisher if didn't exist
     if publisher is None:
-        raise Exception("No publisher found", publisher)
+        publisher = Publisher(name=publisher_name)
 
-    # Create the book
-    new_book = Book(title=book_title)
+    # Add the book to the author's books collection is didn't exist
+    if book not in author.books:
+        author.books.append(book)
 
-    # Insert the book and create the relationships
-    author.books.append(new_book)
-    publisher.books.append(new_book)
+    # Add the author to the publisher's collection if didn't exist
+    if author not in publisher.authors:
+        publisher.authors.append(author)
+
+    # Add the book to the publisher's collection if didn't exist
+    if book not in publisher.books:
+        publisher.books.append(book)
+
+    # commit to the database
     session.commit()
 
 
@@ -147,7 +167,7 @@ def output_hierarchical_author_data(authors):
                     f"{publisher.name}", uuid4(), parent=f"{book.title}"
                 )
     # Output the hierarchical authors data
-    print(authors_tree.show())
+    authors_tree.show()
 
 
 def main():
@@ -186,7 +206,7 @@ def main():
     output_hierarchical_author_data(authors)
 
     # Add a new book
-    add_new_book(
+    add_new_item(
         session,
         author_name="Stephen King",
         book_title="The Stand",
