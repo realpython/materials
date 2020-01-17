@@ -25,9 +25,9 @@ def get_average_temp_by_date(date_string, connection):
     cursor = connection.cursor()
     sql = """
         SELECT
-          avg(value) as average
+          AVG(value) AS average
         FROM temperature_data
-        WHERE date between ? and ?
+        WHERE date BETWEEN ? and ?
     """
     result = cursor.execute(sql, (min_date, max_date)).fetchone()
     return result[0] if result else None
@@ -43,7 +43,7 @@ def get_average_temp_sorted(direction: str, connection) -> list:
     sql = f"""
         SELECT
             date,
-            AVG(value) as average_temp
+            AVG(value) AS average_temp
         FROM temperature_data
         GROUP BY date
         ORDER BY average_temp {dir}
