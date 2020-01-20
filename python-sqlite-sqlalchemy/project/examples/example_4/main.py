@@ -79,7 +79,7 @@ def get_authors(data) -> List:
     """
     # Get the authors
     authors = {f"{row['fname']} {row['lname']}": {} for row in data}
-    # Get the books associated with the authors
+    # Get the books/publisher associated with the authors hierarchy
     for row in data:
         author = f"{row['fname']} {row['lname']}"
         title = row["title"]
@@ -110,23 +110,31 @@ def add_new_item(data, author_name, book_title, publisher_name):
         if author_exists and book_exists and publisher_exists:
             new_item_exists = True
             break
-        
+
     # Does the new item exist already?
-    if new_item_exists:            
-        raise Exception("New item exists", author_name, book_title, publisher_name)
+    if new_item_exists:
+        raise Exception(
+            "New item exists", 
+            author_name, 
+            book_title, 
+            publisher_name
+        )
 
     # Don't modify the input data
     new_data = copy.deepcopy(data)
 
     # Add the new item
     fname, lname = author_name.split(" ")
-    new_data.append({
-        "fname": fname,
-        "lname": lname,
-        "title": book_title,
-        "publisher": publisher_name
-    })
+    new_data.append(
+        {
+            "fname": fname,
+            "lname": lname,
+            "title": book_title,
+            "publisher": publisher_name,
+        }
+    )
     return new_data
+
 
 def output_hierarchical_author_data(authors):
     """
@@ -154,7 +162,7 @@ def main():
     """
     print("starting")
 
-    # get the data into memory
+    # Get the data into memory
     filepath = resource_filename("project.data", "author_book_publisher.csv")
     author_book_publisher_data = get_author_book_publisher_data(filepath)
 

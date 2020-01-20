@@ -98,7 +98,7 @@ def add_new_item(session, author_name, book_title, publisher_name):
         .one_or_none()
     )
 
-    # Get the publisher is exists
+    # Get the publisher if exists
     publisher = (
         session.query(Publisher)
         .filter(Publisher.name == publisher_name)
@@ -124,7 +124,7 @@ def add_new_item(session, author_name, book_title, publisher_name):
     if publisher is None:
         publisher = Publisher(name=publisher_name)
 
-    # Add the book to the author's books collection is didn't exist
+    # Add the book to the author's books collection if didn't exist
     if book not in author.books:
         author.books.append(book)
 
@@ -136,7 +136,7 @@ def add_new_item(session, author_name, book_title, publisher_name):
     if book not in publisher.books:
         publisher.books.append(book)
 
-    # commit to the database
+    # Commit to the database
     session.commit()
 
 

@@ -24,7 +24,7 @@ def get_total_number_of_books_by_publishers(connection, direction) -> List:
     sql = f"""
     SELECT
       p.name            AS publisher_name,
-      count(b.title)    AS total_books
+      COUNT(b.title)    AS total_books
     FROM publisher p
     JOIN book_publisher bp ON bp.publisher_id = p.publisher_id
     JOIN book b ON b.book_id = bp.book_id
@@ -49,10 +49,10 @@ def get_total_number_of_authors_by_publishers(connection, direction) -> List:
     sql = f"""
     SELECT
       p.name            AS publisher_name,
-      count(a.lname)    AS total_authors
+      COUNT(a.lname)    AS total_authors
     FROM publisher p
-    JOIN author_publisher ap ON p.publisher_id = ap.publisher_id
-    JOIN author a ON ap.author_id = a.author_id
+    JOIN author_publisher ap ON ap.publisher_id = p.publisher_id
+    JOIN author a ON a.author_id = ap.author_id
     GROUP BY publisher_name
     ORDER BY total_authors {direction};
     """
@@ -81,15 +81,11 @@ def get_authors(connection) -> List:
     result = cursor.execute(sql).fetchall()
     # Get the authors
     authors = {row[0]: {} for row in result}
-    # Get the books associated with the authors
+    # Get the books/publisher associated with the authors hierarchy
     for row in result:
         author = row[0]
         title = row[1]
         authors[author][title] = set()
-    # Get the publisher associated with the book
-    for row in result:
-        author = row[0]
-        title = row[1]
         publisher = row[2]
         authors[author][title].add(publisher)
     return authors
@@ -139,12 +135,13 @@ def add_new_item(connection, author_name, book_title, publisher_name):
     publisher_id = row[0] if row is not None else None
 
     # Does new item exist?
-    if author_id is not None and book_id is not None and publisher_id is not None:
+    if (
+        author_id is not None
+        and book_id is not None
+        and publisher_id is not None
+    ):
         raise Exception(
-            "New item exists", 
-            author_name,
-            book_title,
-            publisher_name
+            "New item exists", author_name, book_title, publisher_name
         )
     # Create the author if didn't exist
     if author_id is None:
