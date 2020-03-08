@@ -2,7 +2,7 @@ import numpy as np
 from scipy.optimize import minimize, LinearConstraint
 
 n_buyers = 10
-n_shares = 1000
+n_shares = 15
 np.random.seed(10)
 prices = np.random.random(n_buyers)
 money_available = np.random.randint(1, 4, n_buyers)
