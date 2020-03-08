@@ -9,11 +9,7 @@ import math
 __version__ = "1.0"
 __author__ = "Leodanis Pozo Ramos"
 
-ALLOWED_NAMES = {
-    name: obj
-    for name, obj in math.__dict__.items()
-    if "__" not in name
-}
+ALLOWED_NAMES = {name: obj for name, obj in math.__dict__.items() if "__" not in name}
 
 PS1 = "mr>>"
 
