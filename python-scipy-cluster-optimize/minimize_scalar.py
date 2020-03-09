@@ -16,5 +16,5 @@ def objective_function(x):
 res = minimize_scalar(objective_function, method="brent")
 print(res)
 
-res = minimize_scalar(objective_function, method="bounded", bounds=[-2, -1])
+res = minimize_scalar(objective_function, method="bounded", bounds=[-1, 0])
 print(res)
