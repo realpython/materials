@@ -20,11 +20,9 @@ whitened_counts = whiten(unique_counts)
 codebook, _ = kmeans(whitened_counts, 3)
 codes, _ = vq(whitened_counts, codebook)
 
-possible_codes = {0, 1, 2}
-unique_codes, code_indices = np.unique(codes, return_index=True)
-ham_code = unique_codes[np.argmin(code_indices)]
-spam_code = unique_codes[np.argmax(code_indices)]
-unknown_code = list(possible_codes ^ set((ham_code, spam_code)))[0]
+ham_code = codes[0]
+spam_code = codes[-1]
+unknown_code = list(set(range(3)) ^ set((ham_code, spam_code)))[0]
 
 print("definitely ham:", unique_counts[codes == ham_code][-1])
 print("definitely spam:", unique_counts[codes == spam_code][-1])
