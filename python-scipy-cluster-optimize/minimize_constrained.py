@@ -26,4 +26,4 @@ res = minimize(
 print(res)
 
 print("The total number of shares is:", sum(res.x))
-print("The cash each buyer has leftover is:", money_available - res.x * prices)
+print("Leftover money for each buyer:", money_available - res.x * prices)
