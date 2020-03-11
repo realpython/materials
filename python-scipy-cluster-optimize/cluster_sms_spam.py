@@ -1,3 +1,10 @@
+"""
+Clustering example using an SMS spam dataset with SciPy.
+
+Associated with the Real Python article
+Scientific Python: Using SciPy for Optimization
+Available at: https://realpython.com/python-scipy-cluster-optimize/
+"""
 from pathlib import Path
 import numpy as np
 from scipy.cluster.vq import whiten, kmeans, vq
