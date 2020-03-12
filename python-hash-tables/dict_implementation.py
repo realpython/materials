@@ -1,4 +1,7 @@
 DUMMY = -2
+indices = []
+entries = []
+
 def generate_probes(hash_: int, mask: int) -> Iterable[int]:
   # STEP 1 - calculate index
   index = hash_ & mask
@@ -26,3 +29,10 @@ def lookup(key: Any, hash_: int) -> Tuple[int, Any]:
     # STEP 4 & 5: compare identity and hashes
     elif elem.key is key or (elem.hash == hash_ and elem.key == key):
       return (index, elem)
+
+def search(key: Any) -> Any:  # usually implemented as __getitem__
+  hashvalue = hash(key)
+  index, elem = lookup(key, hashvalue)
+  if elem is None or elem == DUMMY:
+    raise KeyError(key)
+  return entries[indices[index]]
