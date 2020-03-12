@@ -19,10 +19,10 @@ def lookup(key: Any, hash_: int) -> Tuple[int, Any]:
     if elem is None:
       # STEP 2 & 3 - empty element
       return (index, None) if freeslot is None else (freeslot, DUMMY)
-    if elem == DUMMY:
+    elif elem == DUMMY:
       # STEP 3 - dummy element
       if freeslot is None:
         freeslot = index
     # STEP 4 & 5: compare identity and hashes
-    if elem.key is key or (elem.hash == hash_ and elem.key == key):
+    elif elem.key is key or (elem.hash == hash_ and elem.key == key):
       return (index, elem)
