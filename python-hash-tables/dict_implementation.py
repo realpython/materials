@@ -13,7 +13,7 @@ class DictKey:
         self.hashvalue = hashvalue
 
     def __repr__(self):
-        return f"<DictKey key={self.key}>"
+        return f"<DictKey {self.key}>"
 
 
 class Dictionary:
@@ -70,27 +70,26 @@ class Dictionary:
                 ):
                     return (index, entry_index)
 
-    def update(self, other=(), /, **kwds):
-        """ D.update([E, ]**F) -> None.  Update D from mapping/iterable E and F.
-            If E present and has a .keys() method, does:     for k in E: D[k] = E[k]
-            If E present and lacks .keys() method, does:     for (k, v) in E: D[k] = v
-            In either case, this is followed by: for k, v in F.items(): D[k] = v
-        """
+    def update(self, other=(), /, **kwargs):
         self._sharing_keys = False
         if isinstance(other, Dictionary):
-            self._sharing_keys = True
-            self.indices = copy.copy(other.indices)
-            self.keys = other.keys
-            self.values = [None] * len(other.values)
-            self.used = other.used
-            self.filled = other.filled
+            if self.used > 0:
+                for key in other:
+                    self[key] = other[key]
+            else:
+                self._sharing_keys = True
+                self.indices = copy.copy(other.indices)
+                self.keys = other.keys
+                self.values = [None] * len(other.values)
+                self.used = other.used
+                self.filled = other.filled
         elif hasattr(other, "keys"):
             for key in other.keys():
                 self[key] = other[key]
         else:
             for key, value in other:
                 self[key] = value
-        for key, value in kwds.items():
+        for key, value in kwargs.items():
             self[key] = value
 
     def _check_keys_sharing(self):
@@ -167,24 +166,37 @@ class Dictionary:
     def __len__(self) -> int:
         return self.used
 
+    def __iter__(self):
+        return iter([dict_key.key for dict_key in self.keys])
+
     def __repr__(self) -> str:
         return f"<Dictionary keys={self.keys}, values={self.values}, version={self.__version}>"
+
+    def show(self):
+        """Used for nicely dispalying the dictionary"""
+        print("=" * 50)
+        print(f"Dictionary version {self.__version}")
+        print("-" * 50)
+        print(f"Indices: {list(self.indices)}")
+        for i, row in enumerate(zip(self.keys, self.values)):
+            print(i, row)
+        print("=" * 50)
 
 
 if __name__ == "__main__":
     d = Dictionary(
         [("key1", "value1"), ("key2", "value2"), (9, "different type of key")]
     )
-    print(d)
-    print(d["key1"])
+    d.show()
     d["key1"] = "changed_value"
-    print(d)
-    print(d["key1"])
+    d.show()
     del d["key2"]
-    print(d)
+    d.show()
     new_d = Dictionary(d)
     new_d["key1"] = "new_d_value"
-    print(new_d)
+    new_d.show()
     new_d["foo"] = "bazz"
-    print(new_d)
-    print(d)
+    new_d.show()
+    d.show()
+    new_d.update(d)
+    new_d.show()
