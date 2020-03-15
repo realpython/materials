@@ -29,6 +29,7 @@ class Dictionary:
         self.update(*args, **kwargs)
 
     def _increase_version(self):
+        """Increase version of current instance and of class attribute"""
         self.__version = Dictionary.__version
         Dictionary.__version += 1
 
@@ -109,7 +110,7 @@ class Dictionary:
         self._check_keys_sharing()
         hashvalue = hash(key)
         indices_index, entry_index = self._lookup(key, hashvalue)
-        if entry_index < 0:
+        if entry_index < 0:  # FREE or DUMMY
             self._increase_version()
             self.indices[indices_index] = self.used
             dict_key = DictKey(key=key, hashvalue=hashvalue)
@@ -117,11 +118,11 @@ class Dictionary:
             self.values.append(value)
             self.used += 1
             if entry_index == FREE:
-                self.filled += 1
+                self.filled += 1  # DUMMY? `filled` would have already contained it
                 if self.filled / len(self.indices) > 2 / 3:
                     self._resize(4 * len(self))
         else:
-            if value != self.values[entry_index]:
+            if value != self.values[entry_index]:  # only if its a different value
                 self._increase_version()
                 self.values[entry_index] = value
 
