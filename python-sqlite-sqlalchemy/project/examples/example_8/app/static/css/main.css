@@ -1,0 +1,24 @@
+
+
+/* div#add-category-form, div#add-product-form {
+  visibility: hidden;
+} */
+
+li {
+  margin: 5px;
+}
+
+button {
+  border-radius: 3px;
+  border-color: darkblue;
+  background-color: lightblue;
+  
+}
+
+button:hover {
+  cursor: pointer;
+}
+
+input.category-name, input.product-name {
+  margin: 4px;
+}

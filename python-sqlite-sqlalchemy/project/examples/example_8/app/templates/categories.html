@@ -1,0 +1,102 @@
+<!doctype html>
+<html class="no-js" lang="">
+
+<head>
+  <meta charset="utf-8">
+  <title></title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <link rel="apple-touch-icon" href="icon.png">
+  <!-- Place favicon.ico in the root directory -->
+
+  <link rel="stylesheet" href="static/css/normalize.css">
+  <link rel="stylesheet" href="static/css/main.css">
+
+  <meta name="theme-color" content="#fafafa">
+</head>
+
+{% macro recurse_categories(descendants, level=0) %}
+<ul>
+{% for descendant in descendants %}
+  {% if descendant.level == level %}
+    <li>
+      {% if not descendant.product_relators %}
+      <button class="add-category"
+        data-descendant-category-id="{{ descendant.category_id }}"
+        data-descendant-level="{{ descendant.level }}"
+        data-descendant-has-product-relator="{{ true if descendant.product_relators else false }}"
+      >
+        {{ descendant.name }}
+      </button>
+      {% else %}
+      <button class="add-product"
+        data-descendant-category-id="{{ descendant.category_id }}"
+        data-descendant-level="{{ descendant.level }}"
+        data-descendant-has-product-relator="{{ true if descendant.product_relators else false }}"
+      >
+        {{ descendant.name }}
+      </button>
+      {% endif %}
+    </li>
+
+    {% if descendant.product_relators %}
+      <ul>
+      {% for product_relator in descendant.product_relators %}
+        <li>{{ product_relator.product_def.name }}</li>
+      {% endfor %}
+      </ul>
+    {% endif %}
+    {{ recurse_categories(descendant.descendants, level + 1) }}
+
+  {% endif %}
+{% endfor %}
+</ul>
+{% endmacro %}
+
+<body>
+  <!--[if IE]>
+    <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
+  <![endif]-->
+
+  <!-- Add your site or application content here -->
+  <h1>Start of the categories page</h1>
+
+  {{ recurse_categories(categories) }}
+
+
+  <!-- add category form -->
+  <div id="add-category-form">
+    <form name="add-category-form" action="/categories" method="POST">
+      <p>Add new category to <span></span>
+      <br />
+      <input name="new-category-name" class="category-name" type=text" value="" />
+      <input name="category-id" class="category-id" type="hidden" value="" />
+      <input name="category-level" class="category-level" type="hidden" value="" />
+      <button id="new-category-submit">Submit</button>
+    </form>
+  </div>
+
+
+  <!-- add product form -->
+  <div id="add-product-form">
+    <form name="add-product-form" action="/categories" method="POST">
+      <p>Add new product to <span></span>
+      <br />
+      <input name="new-product-name" class="product-name" type=text" value="" />
+      <input name="category-id" class="category-id" type="hidden" value="" />
+      <input name="category-level" class="category-level" type="hidden" value="" />
+      <button id="new-product-submit">Submit</button>
+    </form>
+  </div>
+
+
+  <script src="static/js/vendor/modernizr-3.8.0.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+  <script>window.jQuery || document.write('<script src="static/js/vendor/jquery-3.4.1.min.js"><\/script>')</script>
+  <script src="static/js/plugins.js"></script>
+  <script src="static/js/main.js"></script>
+
+  </body>
+
+</html>
