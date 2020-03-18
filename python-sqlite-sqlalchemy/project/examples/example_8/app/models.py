@@ -5,14 +5,13 @@ from app import db
 
 class Artist(db.Model):
     __tablename__ = 'artists'
-
     artist_id = db.Column("ArtistId", db.Integer, primary_key=True)
     name = db.Column("Name", db.String(120))
+    albums = db.relationship("Album", backref="artist")
 
 
 class Employee(db.Model):
     __tablename__ = 'employees'
-
     employee_id = db.Column("EmployeeId", db.Integer, primary_key=True)
     last_name = db.Column("LastName", db.String(20), nullable=False)
     first_name = db.Column("FirstName", db.String(20), nullable=False)
@@ -28,31 +27,28 @@ class Employee(db.Model):
     phone = db.Column("Phone", db.String(24))
     fax = db.Column("Fax", db.String(24))
     email = db.Column("Email", db.String(60))
-
-    parent = db.relationship('Employee', remote_side=[employee_id])
+    parent = db.relationship('Employee', remote_side=[employee_id], backref="reporting")
 
 
 class Genre(db.Model):
     __tablename__ = 'genres'
-
     genre_id = db.Column("GenreId", db.Integer, primary_key=True)
     name = db.Column("Name", db.String(120))
+    tracks = db.relationship("Track", backref="genre")
 
 
 class MediaType(db.Model):
     __tablename__ = 'media_types'
-
     media_type_id = db.Column("MediaTypeId", db.Integer, primary_key=True)
     name = db.Column("Name", db.String(120))
+    tracks = db.relationship("Track", backref="media_type")
 
 
 class Playlist(db.Model):
     __tablename__ = 'playlists'
-
     playlist_id = db.Column("PlaylistId", db.Integer, primary_key=True)
     name = db.Column("Name", db.String(120))
-
-    tracks = db.relationship('Track', secondary='playlist_track')
+    tracks = db.relationship('Track', secondary='playlist_track', back_populates="playlists")
 
 
 # t_sqlite_sequence = db.Table(
@@ -72,17 +68,13 @@ class Playlist(db.Model):
 
 class Album(db.Model):
     __tablename__ = 'albums'
-
     album_id = db.Column("AlbumId", db.Integer, primary_key=True)
     title = db.Column("Title", db.String(160), nullable=False)
     artist_id = db.Column("ArtistId", db.ForeignKey('artists.ArtistId'), nullable=False, index=True)
-
-    artist = db.relationship('Artist')
-
+    tracks = db.relationship("Track", backref="album")
 
 class Customer(db.Model):
     __tablename__ = 'customers'
-
     customer_id = db.Column("CustomerId", db.Integer, primary_key=True)
     first_name = db.Column("FirstName", db.String(40), nullable=False)
     last_name = db.Column("LastName", db.String(20), nullable=False)
@@ -96,13 +88,10 @@ class Customer(db.Model):
     fax = db.Column("Fax", db.String(24))
     email = db.Column("Email", db.String(60), nullable=False)
     support_rep_id = db.Column("SupportRepId", db.ForeignKey('employees.EmployeeId'), index=True)
-
-    employee = db.relationship('Employee')
-
+    invoices = db.relationship("Invoice", backref="customer")
 
 class Invoice(db.Model):
     __tablename__ = 'invoices'
-
     invoice_id = db.Column("InvoiceId", db.Integer, primary_key=True)
     customer_id = db.Column("CustomerId", db.ForeignKey('customers.CustomerId'), nullable=False, index=True)
     invoice_date = db.Column("InvoiceDate", db.DateTime, nullable=False)
@@ -112,8 +101,7 @@ class Invoice(db.Model):
     billing_country = db.Column("BillingCountry", db.String(40))
     billing_postal_code = db.Column("BillingPostalCode", db.String(10))
     total = db.Column("Total", db.Numeric(10, 2), nullable=False)
-
-    customer = db.relationship('Customer')
+    invoice_items = db.relationship("InvoiceItems", backref="invoice")
 
 
 class Track(db.Model):
@@ -128,27 +116,31 @@ class Track(db.Model):
     milliseconds = db.Column("Milliseconds", db.Integer, nullable=False)
     bytes = db.Column("Bytes", db.Integer)
     unit_price = db.Column("UnitPrice", db.Numeric(10, 2), nullable=False)
-
-    album = db.relationship('Album')
-    genre = db.relationship('Genre')
-    media_type = db.relationship('MediaType')
-
+    invoice_items = db.relationship("InvoiceItem", backref="track")
 
 class InvoiceItem(db.Model):
     __tablename__ = 'invoice_items'
-
     invoice_line_id = db.Column("InvoiceLineId", db.Integer, primary_key=True)
     invoice_id = db.Column("InvoiceId", db.ForeignKey('invoices.InvoiceId'), nullable=False, index=True)
     track_id = db.Column("TrackId", db.ForeignKey('tracks.TrackId'), nullable=False, index=True)
     unit_price = db.Column("UnitPrice", db.Numeric(10, 2), nullable=False)
     quantity = db.Column("Quantity", db.Integer, nullable=False)
 
-    invoice = db.relationship('Invoice')
-    track = db.relationship('Track')
 
-
-t_playlist_track = db.Table(
+playlist_track = db.Table(
     'playlist_track', 
-    db.Column('PlaylistId', db.ForeignKey('playlists.PlaylistId'), primary_key=True, nullable=False),
-    db.Column('TrackId', db.ForeignKey('tracks.TrackId'), primary_key=True, nullable=False, index=True)
+    db.Column(
+        'PlaylistId', 
+        db.Integer, 
+        db.ForeignKey('playlists.PlaylistId'), 
+        primary_key=True, nullable=False
+    ),
+    db.Column(
+        'TrackId', 
+        db.Integer, 
+        db.ForeignKey('tracks.TrackId'), 
+        primary_key=True, 
+        nullable=False, 
+        index=True
+    )
 )

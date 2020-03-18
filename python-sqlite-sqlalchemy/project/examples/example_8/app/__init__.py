@@ -1,6 +1,7 @@
 
 from flask import Flask
 from flask import render_template
+from flask_bootstrap import Bootstrap
 from flask_sqlalchemy import SQLAlchemy
 from config import Config
 
@@ -12,6 +13,9 @@ app.config.from_object(Config)
 
 # Configurations
 app.config.from_object('config')
+
+# Initialize Bootstrap connection
+Bootstrap(app)
 
 # Define the database object which is imported
 # by modules and controllers

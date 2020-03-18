@@ -4,5 +4,14 @@ setup(
     name="project",
     version="1.0",
     packages=find_packages(),
-    install_requires=["SQLAlchemy", "treelib"],
+    install_requires=[
+        "Flask==1.1.1",
+        "SQLAlchemy==1.3.13", 
+        "Flask-SQLAlchemy==2.4.1",
+        "Flask-Cors==3.0.8",
+        "Flask-Bootstrap==3.3.7.1",
+        "python-dateutil==2.8.1",
+        "python-dotenv==0.10.5",
+        "treelib"
+    ],
 )
