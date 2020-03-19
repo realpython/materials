@@ -107,10 +107,10 @@ class Dictionary:
         return self.values[entry_index]
 
     def __setitem__(self, key: Any, value: Any):
-        self._check_keys_sharing()
         hashvalue = hash(key)
         indices_index, entry_index = self._lookup(key, hashvalue)
         if entry_index < 0:  # FREE or DUMMY
+            self._check_keys_sharing()
             self._increase_version()
             self.indices[indices_index] = self.used
             dict_key = DictKey(key=key, hashvalue=hashvalue)
@@ -195,9 +195,15 @@ if __name__ == "__main__":
     d.show()
     new_d = Dictionary(d)
     new_d["key1"] = "new_d_value"
+    new_d[9] = "foobar"
+    new_d.show()
+    new_d["different_key"] = "value"
     new_d.show()
     new_d["foo"] = "bazz"
     new_d.show()
     d.show()
     new_d.update(d)
+    new_d.show()
+    new_d["more"] = "values"
+    new_d["should"] = "resize"
     new_d.show()
