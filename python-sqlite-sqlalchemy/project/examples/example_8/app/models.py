@@ -101,7 +101,7 @@ class Invoice(db.Model):
     billing_country = db.Column("BillingCountry", db.String(40))
     billing_postal_code = db.Column("BillingPostalCode", db.String(10))
     total = db.Column("Total", db.Numeric(10, 2), nullable=False)
-    invoice_items = db.relationship("InvoiceItems", backref="invoice")
+    invoice_items = db.relationship("InvoiceItem", backref="invoice")
 
 
 class Track(db.Model):
@@ -117,6 +117,7 @@ class Track(db.Model):
     bytes = db.Column("Bytes", db.Integer)
     unit_price = db.Column("UnitPrice", db.Numeric(10, 2), nullable=False)
     invoice_items = db.relationship("InvoiceItem", backref="track")
+    playlists = db.relationship('Playlist', secondary='playlist_track', back_populates="tracks")
 
 class InvoiceItem(db.Model):
     __tablename__ = 'invoice_items'

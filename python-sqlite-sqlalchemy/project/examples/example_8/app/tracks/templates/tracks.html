@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+
+
+{% block content %}
+<div class="container">
+  <div class="m-4">
+    {% if artist is not none %}
+    <div class="card" style="width: 18rem;">
+      <div class="card-body">
+        <h5 class="card-title">Artist Name and Album</h5>
+        <p class="card-text">{{ tracks[0].album.artist.name }}</p>
+        <p class="card-text">{{ tracks[0].album.title }}</p>
+      </div>
+    </div>
+    {% endif %}
+    <table class="table table-striped table-bordered table-hover table-sm">
+      <caption>List of Tracks</caption>
+      <thead>
+        <tr>
+          <th>Track Name</th>
+          <th class="text-center">Media Type</th>
+          <th class="text-center">Genre</th>
+          <th class="text-center">Unit Price</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for track in tracks %}
+        <tr>
+          <td>{{ track.name }}</td>
+          <td class="text-center">{{ track.media_type.name }}</td>
+          <td class="text-center">{{ track.genre.name }}</td>
+          <td class="text-right">{{ track.unit_price }}</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+</div>
+{% endblock %}
+
