@@ -4,11 +4,16 @@
 {% block content %}
 <div class="container">
   <div class="m-4">
-    {% if artist_id is not none %}
+    {% if artist is not none %}
     <div class="card" style="width: 18rem;">
+      <div class="card-header">Create New Album</div>
       <div class="card-body">
-        <h5 class="card-title">Artist Name</h5>
-        <p class="card-text">{{ albums[0].artist.name }}</p>
+        <p class="card-text">Artist Name:&nbsp;{{ artist.name }}</p>
+        <form method="POST" action="{{url_for('albums_bp.albums', artist_id=artist.artist_id)}}">
+          {{ form.csrf_token }}
+          {{ render_field(form.title, placeholder=form.title.label.text) }}
+          <button type="submit" class="btn btn-primary">Create</button>
+        </form>
       </div>
     </div>
     {% endif %}

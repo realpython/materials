@@ -1,4 +1,5 @@
 {% extends "bootstrap/base.html" %}
+{% from "bootstrap/base.html" import render_field %}
 
 {% block title %}
 Chinook Database Web Server
@@ -32,3 +33,31 @@ Chinook Database Web Server
     {{ super() }}
     <script src="{{url_for('static', filename='js/base.js')}}"></script>
 {% endblock %}
+
+
+{% macro render_field(field) %}
+<div class="form-group">
+    {{ field(class_='form-control', **kwargs)|safe }}
+    {% if field.errors %}
+        {% for error in field.errors %}
+        <div class="alert alert-danger" role="alert" style="margin-top: 10px;">
+            {{ error }}
+        </div>
+        {% endfor %}
+    {% endif %}
+</div>
+{% endmacro %}
+
+
+{% macro render_select(field) %}
+<div class="form-group">
+    {{ field(class_='form-control', **kwargs)|safe }}
+    {% if field.errors %}
+        {% for error in field.errors %}
+        <div class="alert alert-danger" role="alert" style="margin-top: 10px;">
+            {{ error }}
+        </div>
+        {% endfor %}
+    {% endif %}
+</div>
+{% endmacro %}

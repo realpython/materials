@@ -6,10 +6,21 @@
   <div class="m-4">
     {% if artist is not none %}
     <div class="card" style="width: 18rem;">
+      <div class="card-header">Create New Track</div>
       <div class="card-body">
-        <h5 class="card-title">Artist Name and Album</h5>
-        <p class="card-text">{{ tracks[0].album.artist.name }}</p>
-        <p class="card-text">{{ tracks[0].album.title }}</p>
+        <p class="card-text">Artist's Name:&nbsp;{{ artist.name }}</p>
+        <p class="card-text">Album's Name:&nbsp;{{ album.title }}</p>
+        <form method="POST" action="{{url_for('tracks_bp.tracks', album_id=album.album_id)}}">
+          {{ form.csrf_token }}
+          {{ render_field(form.name, placeholder=form.name.label.text) }}
+          {{ render_select(form.media_type, placeholder=form.media_type.label.text) }}
+          {{ render_select(form.genre, placeholder=form.genre.label.text) }}
+          {{ render_field(form.composer, placeholder=form.composer.label.text) }}
+          {{ render_field(form.milliseconds, placeholder=form.milliseconds.label.text) }}
+          {{ render_field(form.bytes, placeholder=form.bytes.label.text) }}
+          {{ render_field(form.unit_price, placeholder=form.unit_price.label.text) }}
+          <button type="submit" class="btn btn-primary">Create</button>
+        </form>
       </div>
     </div>
     {% endif %}
