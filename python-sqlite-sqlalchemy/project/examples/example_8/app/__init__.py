@@ -21,9 +21,13 @@ Bootstrap(app)
 from .artists import routes as artist_routes
 from .albums import routes as album_routes
 from .tracks import routes as track_routes
+from .playlists import routes as playlist_routes
+from .customers import routes as customer_routes
 app.register_blueprint(artist_routes.artists_bp)
 app.register_blueprint(album_routes.albums_bp)
 app.register_blueprint(track_routes.tracks_bp)
+app.register_blueprint(playlist_routes.playlists_bp)
+app.register_blueprint(customer_routes.customers_bp)
 
 # Sample HTTP error handling
 @app.errorhandler(404)
