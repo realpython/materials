@@ -1,7 +1,5 @@
 #!/usr/bin/env python3
 
-# File: mathrepl.py
-
 """MathREPL, a math expression evaluator using Python's eval() and math."""
 
 import math
@@ -9,7 +7,10 @@ import math
 __version__ = "1.0"
 __author__ = "Leodanis Pozo Ramos"
 
-ALLOWED_NAMES = {name: obj for name, obj in math.__dict__.items() if "__" not in name}
+ALLOWED_NAMES = {
+    name: obj for name, obj in math.__dict__.items()
+    if not name.startswith("__")
+}
 
 PS1 = "mr>>"
 
@@ -25,11 +26,11 @@ Usage:
 Build math expressions using numeric values and operators.
 Use any of the following functions and constants:
 
-{', '.join(ALLOWED_NAMES)}
+{', '.join(ALLOWED_NAMES.keys())}
 """
 
 
-def evaluate(expression: str) -> float:
+def evaluate(expression):
     """Evaluate a math expression."""
     # Compile and validate syntax
     try:
@@ -40,13 +41,13 @@ def evaluate(expression: str) -> float:
     # Validate allowed names
     for name in code.co_names:
         if name not in ALLOWED_NAMES:
-            raise NameError(f'The use of "{name}" is not allowed')
+            raise NameError(f"The use of '{name}' is not allowed")
 
     return eval(code, {"__builtins__": {}}, ALLOWED_NAMES)
 
 
-def main() -> None:
-    """Main loop: Read and evaluate user input."""
+def main():
+    """Main loop: Read and evaluate user's input."""
     print(WELCOME)
     while True:
         # Read user's input
@@ -62,14 +63,12 @@ def main() -> None:
         if expression.lower() in {"quit", "exit"}:
             raise SystemExit()
 
-        # Evaluate the expression
+        # Evaluate the expression and print the result
         try:
-            result = evaluate(expression)
+            print(f"The result is: {evaluate(expression)}")
         except Exception as err:
+            # Print an error message if something goes wrong
             print(err)
-
-        # Print the result
-        print(f"The result is: {result}")
 
 
 if __name__ == "__main__":
