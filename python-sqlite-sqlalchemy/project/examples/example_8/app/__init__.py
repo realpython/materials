@@ -23,11 +23,15 @@ from .albums import routes as album_routes
 from .tracks import routes as track_routes
 from .playlists import routes as playlist_routes
 from .customers import routes as customer_routes
+from .invoices import routes as invoice_routes
+from .employees import routes as employee_routes
 app.register_blueprint(artist_routes.artists_bp)
 app.register_blueprint(album_routes.albums_bp)
 app.register_blueprint(track_routes.tracks_bp)
 app.register_blueprint(playlist_routes.playlists_bp)
 app.register_blueprint(customer_routes.customers_bp)
+app.register_blueprint(invoice_routes.invoices_bp)
+app.register_blueprint(employee_routes.employees_bp)
 
 # Sample HTTP error handling
 @app.errorhandler(404)

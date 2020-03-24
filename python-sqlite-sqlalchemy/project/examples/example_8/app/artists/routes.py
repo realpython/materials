@@ -12,28 +12,24 @@ from app.models import Artist
 
 # Setup the Blueprint
 artists_bp = Blueprint(
-    "artists_bp",
-    __name__,
-    template_folder="templates",
-    static_folder="static"
+    "artists_bp", __name__, template_folder="templates", static_folder="static"
 )
 
+
 def does_artist_exist(form, field):
-    artist = db.session.query(Artist) \
-        .filter(Artist.name == field.data) \
+    artist = (
+        db.session.query(Artist)
+        .filter(Artist.name == field.data)
         .one_or_none()
+    )
 
     if artist is not None:
-        raise ValidationError("Artist already exists", field.data)        
+        raise ValidationError("Artist already exists", field.data)
 
 
 class CreateArtistForm(FlaskForm):
     name = StringField(
-        label="Artist's Name",
-        validators=[
-            InputRequired(),
-            does_artist_exist
-        ]
+        label="Artist's Name", validators=[InputRequired(), does_artist_exist]
     )
 
 
@@ -50,13 +46,5 @@ def artists():
         db.session.commit()
         return redirect(url_for("artists_bp.artists"))
 
-    artists = db.session.query(Artist) \
-        .order_by(Artist.name) \
-        .all()
-    return render_template(
-        "artists.html", 
-        artists=artists,
-        form=form,
-    )
-
-
+    artists = db.session.query(Artist).order_by(Artist.name).all()
+    return render_template("artists.html", artists=artists, form=form,)

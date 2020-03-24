@@ -13,29 +13,22 @@ from app.models import Album
 
 # Setup the Blueprint
 albums_bp = Blueprint(
-    "albums_bp",
-    __name__,
-    template_folder="templates",
-    static_folder="static"
+    "albums_bp", __name__, template_folder="templates", static_folder="static"
 )
 
 
 def does_album_exist(form, field):
-    album = db.session.query(Album) \
-        .filter(Album.title == field.data) \
-        .one_or_none()
+    album = (
+        db.session.query(Album).filter(Album.title == field.data).one_or_none()
+    )
 
     if album is not None:
-        raise ValidationError("Album already exists", field.data)        
+        raise ValidationError("Album already exists", field.data)
 
 
 class CreateAlbumForm(FlaskForm):
     title = StringField(
-        label="Albums's Name",
-        validators=[
-            InputRequired(),
-            does_album_exist
-        ]
+        label="Albums's Name", validators=[InputRequired(), does_album_exist]
     )
 
 
@@ -45,9 +38,11 @@ def albums(artist_id=None):
     form = CreateAlbumForm()
 
     # Get the artist
-    artist = db.session.query(Artist) \
-        .filter(Artist.artist_id == artist_id) \
+    artist = (
+        db.session.query(Artist)
+        .filter(Artist.artist_id == artist_id)
         .one_or_none()
+    )
 
     # Is the form valid?
     if form.validate_on_submit():
@@ -68,8 +63,5 @@ def albums(artist_id=None):
     albums = query.order_by(Album.title).all()
 
     return render_template(
-        "albums.html", 
-        artist=artist,
-        albums=albums,
-        form=form
+        "albums.html", artist=artist, albums=albums, form=form
     )

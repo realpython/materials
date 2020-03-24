@@ -10,7 +10,7 @@ playlists_bp = Blueprint(
     "playlists_bp",
     __name__,
     template_folder="templates",
-    static_folder="static"
+    static_folder="static",
 )
 
 
@@ -27,8 +27,4 @@ def playlists(playlist_id=None):
 
     playlists = query.order_by(Playlist.name).all()
 
-    return render_template(
-        "playlists.html", 
-        playlists=playlists
-    )
-
+    return render_template("playlists.html", playlists=playlists)

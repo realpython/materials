@@ -19,69 +19,51 @@ from app.models import Genre
 
 # Setup the Blueprint
 tracks_bp = Blueprint(
-    "tracks_bp",
-    __name__,
-    template_folder="templates",
-    static_folder="static"
+    "tracks_bp", __name__, template_folder="templates", static_folder="static"
 )
 
 
 def does_artist_exist(form, field):
-    artist = db.session.query(Artist) \
-        .filter(Artist.name == field.data) \
+    artist = (
+        db.session.query(Artist)
+        .filter(Artist.name == field.data)
         .one_or_none()
+    )
 
     if artist is not None:
-        raise ValidationError("Artist already exists", field.data)        
+        raise ValidationError("Artist already exists", field.data)
 
 
 def does_album_exist(form, field):
-    album = db.session.query(Album) \
-        .filter(Album.title == field.data) \
-        .one_or_none()
+    album = (
+        db.session.query(Album).filter(Album.title == field.data).one_or_none()
+    )
 
     if album is not None:
-        raise ValidationError("Album already exists", field.data)        
+        raise ValidationError("Album already exists", field.data)
 
 
 def does_track_exist(form, field):
-    track = db.session.query(Track) \
-        .filter(Track.name == field.data) \
-        .one_or_none()
+    track = (
+        db.session.query(Track).filter(Track.name == field.data).one_or_none()
+    )
 
     if track is not None:
-        raise ValidationError("Track already exists", field.data)        
+        raise ValidationError("Track already exists", field.data)
 
 
 class CreateTrackForm(FlaskForm):
     name = StringField(
-        label="Track's Name",
-        validators=[
-            InputRequired(),
-            does_track_exist
-        ]
+        label="Track's Name", validators=[InputRequired(), does_track_exist]
     )
-    media_type = SelectField(
-        label="Media Type",
-        validators=[InputRequired()]
-    )
-    genre = SelectField(
-        label="Genre",
-        validators=[InputRequired()]
-    )
+    media_type = SelectField(label="Media Type", validators=[InputRequired()])
+    genre = SelectField(label="Genre", validators=[InputRequired()])
     composer = StringField(label="Composer")
     milliseconds = IntegerField(
-        label="Time in Milliseconds",
-        validators=[InputRequired()]
+        label="Time in Milliseconds", validators=[InputRequired()]
     )
-    bytes = IntegerField(
-        label="Size in Bytes",
-        validators=[InputRequired()]
-    )
-    unit_price = FloatField(
-        label = "Unit Price",
-        validators=[InputRequired()]
-    )
+    bytes = IntegerField(label="Size in Bytes", validators=[InputRequired()])
+    unit_price = FloatField(label="Unit Price", validators=[InputRequired()])
 
 
 @tracks_bp.route("/tracks/<int:album_id>", methods=["GET", "POST"])
@@ -101,9 +83,11 @@ def tracks(album_id=None):
     ]
 
     # Get the album
-    album = db.session.query(Album) \
-        .filter(Album.album_id == album_id) \
+    album = (
+        db.session.query(Album)
+        .filter(Album.album_id == album_id)
         .one_or_none()
+    )
 
     artist = album.artist
 
@@ -117,21 +101,15 @@ def tracks(album_id=None):
             composer=form.composer.data,
             milliseconds=form.milliseconds.data,
             bytes=form.bytes.data,
-            unit_price=form.unit_price.data
+            unit_price=form.unit_price.data,
         )
         album.tracks.append(track)
         db.session.add(album)
         db.session.commit()
 
     # Get the tracks
-    tracks = db.session.query(Track) \
-        .filter(Track.album_id == album_id) \
-        .all()
+    tracks = db.session.query(Track).filter(Track.album_id == album_id).all()
 
     return render_template(
-        "tracks.html", 
-        artist=artist,
-        album=album,
-        tracks=tracks,
-        form=form
+        "tracks.html", artist=artist, album=album, tracks=tracks, form=form
     )
