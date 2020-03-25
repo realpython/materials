@@ -8,8 +8,9 @@ load_dotenv()
 
 
 class Config:
-    base_path = Path(__file__).resolve().parent
-    db_path = base_path / "app" / "data" / "chinook.db"
+    base_path = Path(__file__).resolve().parent.parent.parent
+    #db_path = base_path / "app" / "data" / "chinook.db"
+    db_path = base_path / "data" / "chinook.db"
 
     SECRET_KEY = os.getenv("SECRET_KEY")
     SQLALCHEMY_DATABASE_URI = r"sqlite:///" + str(db_path)
