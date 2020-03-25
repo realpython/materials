@@ -66,6 +66,9 @@ class Enemy(arcade.AnimatedWalkingSprite):
         self.state = arcade.FACE_LEFT
         self.change_x = -PLAYER_MOVE_SPEED // 2
 
+        # Set the initial texture
+        self.texture = self.stand_right_textures[0]
+
 
 # Title view
 class TitleView(arcade.View):
@@ -605,6 +608,9 @@ class PlatformerView(arcade.View):
         player.center_y = PLAYER_START_Y
         player.state = arcade.FACE_RIGHT
         player.lives = PLAYER_LIVES
+
+        # Set the initial texture
+        player.texture = player.stand_right_textures[0]
 
         return player
 

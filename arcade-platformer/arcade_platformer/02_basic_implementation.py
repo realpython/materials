@@ -33,6 +33,7 @@ PLAYER_START_Y = 256
 PLAYER_MOVE_SPEED = 10
 PLAYER_JUMP_SPEED = 20
 
+
 class Platformer(arcade.Window):
     """Platformer class. Derived from arcade.Window, provides all functionality
     for our game.
@@ -124,7 +125,7 @@ class Platformer(arcade.Window):
         arcade.set_background_color(background_color)
 
         # Find the edge of the map to control viewport scrolling
-        self.map_width = (map.map_size.width-1) * map.tile_size.width
+        self.map_width = (map.map_size.width - 1) * map.tile_size.width
 
         # Create the player sprite, if they're not already setup
         if not self.player:
@@ -160,37 +161,28 @@ class Platformer(arcade.Window):
 
         # Load them all now
         walking_right_textures = [
-            arcade.load_texture(texture, scale=CHARACTER_SCALING)
-            for texture in walking_paths
+            arcade.load_texture(texture) for texture in walking_paths
         ]
         walking_left_textures = [
-            arcade.load_texture(
-                texture, scale=CHARACTER_SCALING, mirrored=True
-            )
+            arcade.load_texture(texture, mirrored=True)
             for texture in walking_paths
         ]
 
         walking_up_textures = [
-            arcade.load_texture(texture, scale=CHARACTER_SCALING)
-            for texture in climbing_paths
+            arcade.load_texture(texture) for texture in climbing_paths
         ]
         walking_down_textures = [
-            arcade.load_texture(texture, scale=CHARACTER_SCALING)
-            for texture in climbing_paths
+            arcade.load_texture(texture) for texture in climbing_paths
         ]
 
-        standing_right_textures = [
-            arcade.load_texture(standing_path, scale=CHARACTER_SCALING)
-        ]
+        standing_right_textures = [arcade.load_texture(standing_path)]
 
         standing_left_textures = [
-            arcade.load_texture(
-                standing_path, scale=CHARACTER_SCALING, mirrored=True
-            )
+            arcade.load_texture(standing_path, mirrored=True)
         ]
 
         # Create the sprite
-        player = arcade.AnimatedWalkingSprite(scale=CHARACTER_SCALING)
+        player = arcade.AnimatedWalkingSprite()
 
         # Add the proper textures
         player.stand_left_textures = standing_left_textures
@@ -205,6 +197,9 @@ class Platformer(arcade.Window):
         player.center_y = PLAYER_START_Y
         player.state = arcade.FACE_RIGHT
 
+        # Set the initial texture
+        player.texture = player.stand_right_textures[0]
+
         return player
 
     def on_draw(self):
@@ -212,7 +207,7 @@ class Platformer(arcade.Window):
         """
 
         arcade.start_render()
-        
+
         # Draw all the sprites
         self.background_list.draw()
         self.walls_list.draw()
@@ -302,7 +297,7 @@ class Platformer(arcade.Window):
             key {int} -- Which key was released
             modifiers {int} -- Which modifiers were down at the time
         """
-        
+
         # Check for player left/right movement
         if key in [
             arcade.key.LEFT,
@@ -340,7 +335,7 @@ class Platformer(arcade.Window):
             if self.view_left < 0:
                 self.view_left = 0
             else:
-                changed_viewport = Truex
+                changed_viewport = True
 
         # Scroll right
         # Find the current right boundary
@@ -380,6 +375,7 @@ class Platformer(arcade.Window):
                 self.view_bottom,
                 SCREEN_HEIGHT + self.view_bottom,
             )
+
 
 # Main
 if __name__ == "__main__":

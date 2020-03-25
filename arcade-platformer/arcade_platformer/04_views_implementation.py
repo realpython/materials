@@ -59,29 +59,32 @@ class Enemy(arcade.AnimatedWalkingSprite):
 
         # Load them all now
         self.walk_left_textures = [
-            arcade.load_texture(texture, scale=CHARACTER_SCALING)
+            arcade.load_texture(texture)
             for texture in walking_texture_path
         ]
 
         self.walk_right_textures = [
             arcade.load_texture(
-                texture, scale=CHARACTER_SCALING, mirrored=True
+                texture, mirrored=True
             )
             for texture in walking_texture_path
         ]
 
         self.stand_left_textures = [
             arcade.load_texture(
-                standing_texture_path, scale=CHARACTER_SCALING, mirrored=True
+                standing_texture_path, mirrored=True
             )
         ]
         self.stand_right_textures = [
-            arcade.load_texture(standing_texture_path, scale=CHARACTER_SCALING)
+            arcade.load_texture(standing_texture_path)
         ]
 
         # Set the enemy defaults
         self.state = arcade.FACE_LEFT
         self.change_x = -PLAYER_MOVE_SPEED // 2
+
+        # Set the initial texture
+        self.texture = self.stand_right_textures[0]
 
 
 # Title view
@@ -429,37 +432,37 @@ class PlatformerView(arcade.View):
 
         # Load them all now
         walking_right_textures = [
-            arcade.load_texture(texture, scale=CHARACTER_SCALING)
+            arcade.load_texture(texture)
             for texture in walking_paths
         ]
         walking_left_textures = [
             arcade.load_texture(
-                texture, scale=CHARACTER_SCALING, mirrored=True
+                texture, mirrored=True
             )
             for texture in walking_paths
         ]
 
         walking_up_textures = [
-            arcade.load_texture(texture, scale=CHARACTER_SCALING)
+            arcade.load_texture(texture)
             for texture in climbing_paths
         ]
         walking_down_textures = [
-            arcade.load_texture(texture, scale=CHARACTER_SCALING)
+            arcade.load_texture(texture)
             for texture in climbing_paths
         ]
 
         standing_right_textures = [
-            arcade.load_texture(standing_path, scale=CHARACTER_SCALING)
+            arcade.load_texture(standing_path)
         ]
 
         standing_left_textures = [
             arcade.load_texture(
-                standing_path, scale=CHARACTER_SCALING, mirrored=True
+                standing_path, mirrored=True
             )
         ]
 
         # Create the sprite
-        player = arcade.AnimatedWalkingSprite(scale=CHARACTER_SCALING)
+        player = arcade.AnimatedWalkingSprite()
 
         # Add the proper textures
         player.stand_left_textures = standing_left_textures
@@ -473,6 +476,9 @@ class PlatformerView(arcade.View):
         player.center_x = PLAYER_START_X
         player.center_y = PLAYER_START_Y
         player.state = arcade.FACE_RIGHT
+
+        # Set the initial texture
+        player.texture = player.stand_right_textures[0]
 
         return player
 
@@ -544,9 +550,6 @@ class PlatformerView(arcade.View):
         # Update the player animation
         self.player.update_animation(delta_time)
 
-        # # Move any platforms that need moving
-        self.walls_list.update()
-
         # Are there enemies? Update them as well
         if self.enemies_list:
             self.enemies_list.update_animation(delta_time)
@@ -572,7 +575,7 @@ class PlatformerView(arcade.View):
 
         for coin in coins_hit:
             # Add the coin score to our score
-            self.score += coin.properties["point_value"]
+            self.score += int(coin.properties["point_value"])
 
             # Play the coin sound
             arcade.play_sound(self.coin_sound)

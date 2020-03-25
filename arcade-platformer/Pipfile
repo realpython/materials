@@ -6,7 +6,7 @@ verify_ssl = true
 [dev-packages]
 
 [packages]
-arcade = "==2.3.0"
+arcade = "==2.3.7"
 attrs = "==19.3.0"
 future = "==0.18.2"
 numpy = "==1.18.1"

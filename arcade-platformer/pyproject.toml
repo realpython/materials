@@ -7,7 +7,7 @@ license = "MIT"
 
 [tool.poetry.dependencies]
 python = "^3.7"
-arcade = "^2.3"
+arcade = "^2.3.7"
 
 [tool.poetry.dev-dependencies]
 black = { version = "*", allow-prereleases = true }

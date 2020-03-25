@@ -176,37 +176,37 @@ class Platformer(arcade.Window):
 
         # Load them all now
         walking_right_textures = [
-            arcade.load_texture(texture, scale=CHARACTER_SCALING)
+            arcade.load_texture(texture)
             for texture in walking_paths
         ]
         walking_left_textures = [
             arcade.load_texture(
-                texture, scale=CHARACTER_SCALING, mirrored=True
+                texture, mirrored=True
             )
             for texture in walking_paths
         ]
 
         walking_up_textures = [
-            arcade.load_texture(texture, scale=CHARACTER_SCALING)
+            arcade.load_texture(texture)
             for texture in climbing_paths
         ]
         walking_down_textures = [
-            arcade.load_texture(texture, scale=CHARACTER_SCALING)
+            arcade.load_texture(texture)
             for texture in climbing_paths
         ]
 
         standing_right_textures = [
-            arcade.load_texture(standing_path, scale=CHARACTER_SCALING)
+            arcade.load_texture(standing_path)
         ]
 
         standing_left_textures = [
             arcade.load_texture(
-                standing_path, scale=CHARACTER_SCALING, mirrored=True
+                standing_path, mirrored=True
             )
         ]
 
         # Create the sprite
-        player = arcade.AnimatedWalkingSprite(scale=CHARACTER_SCALING)
+        player = arcade.AnimatedWalkingSprite()
 
         # Add the proper textures
         player.stand_left_textures = standing_left_textures
@@ -220,6 +220,9 @@ class Platformer(arcade.Window):
         player.center_x = PLAYER_START_X
         player.center_y = PLAYER_START_Y
         player.state = arcade.FACE_RIGHT
+
+        # Set the initial texture
+        player.texture = player.stand_right_textures[0]
 
         return player
 
