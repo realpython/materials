@@ -31,11 +31,8 @@ Use any of the following functions and constants:
 
 def evaluate(expression):
     """Evaluate a math expression."""
-    # Compile and validate syntax
-    try:
-        code = compile(expression, "<string>", "eval")
-    except SyntaxError:
-        raise SyntaxError("Invalid input expression")
+    # Compile the expression (eventually raising a SyntaxError)
+    code = compile(expression, "<string>", "eval")
 
     # Validate allowed names
     for name in code.co_names:
@@ -62,12 +59,20 @@ def main():
         if expression.lower() in {"quit", "exit"}:
             raise SystemExit()
 
-        # Evaluate the expression and print the result
+        # Evaluate the expression and handle errors
         try:
-            print(f"The result is: {evaluate(expression)}")
-        except Exception as err:
-            # Print an error message if something goes wrong
+            result = evaluate(expression)
+        except SyntaxError:
+            # If the user enters an invalid expression
+            print("Invalid input expression syntax")
+            continue
+        except NameError as err:
+            # If the user tries to use a name that isn't allowed
             print(err)
+            continue
+
+        # Print the result if no error occurs
+        print(f"The result is: {result}")
 
 
 if __name__ == "__main__":
