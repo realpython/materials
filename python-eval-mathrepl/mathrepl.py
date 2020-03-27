@@ -31,7 +31,8 @@ Use any of the following functions and constants:
 
 def evaluate(expression):
     """Evaluate a math expression."""
-    # Compile the expression (eventually raising a SyntaxError)
+    # Compile the expression eventually raising a SyntaxError
+    # when the user enters an invalid expression
     code = compile(expression, "<string>", "eval")
 
     # Validate allowed names
@@ -39,6 +40,9 @@ def evaluate(expression):
         if name not in ALLOWED_NAMES:
             raise NameError(f"The use of '{name}' is not allowed")
 
+    # Evaluate the expression eventually raising a ValueError
+    # when the user uses a math function with a wrong input value
+    # e.g. math.sqrt(-10)
     return eval(code, {"__builtins__": {}}, ALLOWED_NAMES)
 
 
@@ -66,8 +70,9 @@ def main():
             # If the user enters an invalid expression
             print("Invalid input expression syntax")
             continue
-        except NameError as err:
+        except (NameError, ValueError) as err:
             # If the user tries to use a name that isn't allowed
+            # or an invalid value to a given math function
             print(err)
             continue
 
