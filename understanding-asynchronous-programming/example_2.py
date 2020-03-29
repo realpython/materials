@@ -1,4 +1,5 @@
 import queue
+from builtins import range
 
 
 def task(name, queue):
