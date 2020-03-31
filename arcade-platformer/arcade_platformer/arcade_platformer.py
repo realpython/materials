@@ -515,8 +515,7 @@ class PlatformerView(arcade.View):
             self.player.center_y = game.PLAYER_START_Y
 
         # Setup our enemies
-        self.enemies_list = None
-        self.create_enemy_sprites()
+        self.enemies_list = self.create_enemy_sprites()
 
         # Reset the viewport
         self.view_left = 0
@@ -530,14 +529,16 @@ class PlatformerView(arcade.View):
             ladders=self.ladders_list,
         )
 
-    def create_enemy_sprites(self) -> None:
+    def create_enemy_sprites(self) -> arcade.SpriteList:
         """Creates enemy sprites appropriate for the current level
         """
+        enemies_list = arcade.SpriteList()
 
-        # No enemies on level 1
+        # Only enemies on level 2
         if self.level == 2:
-            self.enemies_list = arcade.SpriteList()
-            self.enemies_list.append(Enemy(1464, 320))
+            enemies_list.append(Enemy(1464, 320))
+
+        return enemies_list
 
     def create_player_sprite(self) -> arcade.AnimatedWalkingSprite:
         """Creates the animated player sprite
