@@ -805,10 +805,6 @@ class PlatformerView(arcade.View):
     def scroll_viewport(self) -> None:
         """Scrolls the viewport when the player gets close to the edges
         """
-
-        # By default, don't change anything
-        changed_viewport = False
-
         # Scroll left
         # Find the current left boundary
         left_boundary = self.view_left + game.LEFT_VIEWPORT_MARGIN
@@ -819,8 +815,6 @@ class PlatformerView(arcade.View):
             # But don't scroll past the left edge of the map
             if self.view_left < 0:
                 self.view_left = 0
-            else:
-                changed_viewport = True
 
         # Scroll right
         # Find the current right boundary
@@ -834,8 +828,6 @@ class PlatformerView(arcade.View):
             # Don't scroll past the right edge of the map
             if self.view_left > self.map_width - game.SCREEN_WIDTH:
                 self.view_left = self.map_width - game.SCREEN_WIDTH
-            else:
-                changed_viewport = True
 
         # Scroll up
         top_boundary = (
@@ -843,27 +835,24 @@ class PlatformerView(arcade.View):
         )
         if self.player.top > top_boundary:
             self.view_bottom += self.player.top - top_boundary
-            changed_viewport = True
 
         # Scroll down
         bottom_boundary = self.view_bottom + game.BOTTOM_VIEWPORT_MARGIN
         if self.player.bottom < bottom_boundary:
             self.view_bottom -= bottom_boundary - self.player.bottom
-            changed_viewport = True
 
-        if changed_viewport:
-            # Only scroll to integers. Otherwise we end up with pixels that
-            # don't line up on the screen
-            self.view_bottom = int(self.view_bottom)
-            self.view_left = int(self.view_left)
+        # Only scroll to integers. Otherwise we end up with pixels that
+        # don't line up on the screen
+        self.view_bottom = int(self.view_bottom)
+        self.view_left = int(self.view_left)
 
-            # Do the scrolling
-            arcade.set_viewport(
-                left=self.view_left,
-                right=game.SCREEN_WIDTH + self.view_left,
-                bottom=self.view_bottom,
-                top=game.SCREEN_HEIGHT + self.view_bottom,
-            )
+        # Do the scrolling
+        arcade.set_viewport(
+            left=self.view_left,
+            right=game.SCREEN_WIDTH + self.view_left,
+            bottom=self.view_bottom,
+            top=game.SCREEN_HEIGHT + self.view_bottom,
+        )
 
     def on_draw(self) -> None:
         """Draws everything
