@@ -24,10 +24,10 @@ ASSETS_PATH = pathlib.Path(__file__).resolve().parent.parent / "assets"
 # Classes
 # Enemy class
 class Enemy(arcade.AnimatedWalkingSprite):
-    """An enemy sprite with basic walking movement
-    """
+    """An enemy sprite with basic walking movement"""
 
     def __init__(self, pos_x: int, pos_y: int) -> None:
+        """Create enemy"""
         super().__init__(
             game.CHARACTER_SCALING, center_x=pos_x, center_y=pos_y
         )
@@ -74,10 +74,11 @@ class TitleView(arcade.View):
     """
 
     def __init__(self) -> None:
+        """Create title screen"""
         # Initialize the parent
         super().__init__()
 
-        # Find the folder contain our images
+        # Find the title image in the images folder
         title_image_path = ASSETS_PATH / "images" / "title_image.png"
 
         # Load our title image
@@ -109,8 +110,7 @@ class TitleView(arcade.View):
             self.display_timer = 1.0
 
     def on_draw(self) -> None:
-        """Draws everything to the screen
-        """
+        """Draws everything to the screen"""
 
         # Start the rendering loop
         arcade.start_render()
@@ -152,10 +152,13 @@ class TitleView(arcade.View):
 
 # Instructions view
 class InstructionsView(arcade.View):
+    """Show instructions to the player"""
+
     def __init__(self) -> None:
+        """Create instructions screen"""
         super().__init__()
 
-        # Find the folder contain our images
+        # Find the instructions image in the image folder
         instructions_image_path = (
             ASSETS_PATH / "images" / "instructions_image.png"
         )
@@ -164,13 +167,12 @@ class InstructionsView(arcade.View):
         self.instructions_image = arcade.load_texture(instructions_image_path)
 
     def on_draw(self) -> None:
-        """Draws everything to the screen
-        """
+        """Draws everything to the screen"""
 
         # Start the rendering loop
         arcade.start_render()
 
-        # Draw a rectangle filled with our title image
+        # Draw a rectangle filled with the instructions image
         arcade.draw_texture_rectangle(
             center_x=game.SCREEN_WIDTH / 2,
             center_y=game.SCREEN_HEIGHT / 2,
@@ -180,7 +182,7 @@ class InstructionsView(arcade.View):
         )
 
     def on_key_press(self, key: int, modifiers: int) -> None:
-        """Resume the game when the user presses ESC again
+        """Start the game when the user presses Enter
 
         Arguments:
             key -- Which key was pressed
@@ -198,10 +200,10 @@ class InstructionsView(arcade.View):
 
 # Pause view, used when the player pauses the game
 class PauseView(arcade.View):
-    """Shown when the game is paused
-    """
+    """Shown when the game is paused"""
 
     def __init__(self, game_view: arcade.View) -> None:
+        """Create the pause screen"""
         # Initialize the parent
         super().__init__()
 
@@ -214,8 +216,7 @@ class PauseView(arcade.View):
         )
 
     def on_draw(self) -> None:
-        """Draw the underlying screen, blurred, then the Paused text
-        """
+        """Draw the underlying screen, blurred, then the Paused text"""
 
         # First, draw the underlying view
         # This also calls start_render(), so no need to do it again
@@ -253,12 +254,12 @@ class PauseView(arcade.View):
 
 # Victory View, shown when the player completes a level successfully
 class VictoryView(arcade.View):
-    """Shown when a level is completed
-    """
+    """Shown when a level is completed"""
 
     def __init__(
         self, game_view: arcade.View, victory_sound: arcade.Sound
     ) -> None:
+        """Create the victory screen"""
         # Initialize the parent
         super().__init__()
 
@@ -274,8 +275,7 @@ class VictoryView(arcade.View):
         )
 
     def on_draw(self) -> None:
-        """Draw the underlying screen, blurred, then the victory text
-        """
+        """Draw the underlying screen, blurred, then the victory text"""
 
         # First, draw the underlying view
         # This also calls start_render(), so no need to do it again
@@ -315,10 +315,10 @@ class VictoryView(arcade.View):
 
 # Game Over View, shown when the game is over
 class GameOverView(arcade.View):
-    """Shown when a level is completed
-    """
+    """Shown when the player loses the game"""
 
     def __init__(self, game_view: arcade.View) -> None:
+        """Create the game over screen"""
         # Initialize the parent
         super().__init__()
 
@@ -331,8 +331,7 @@ class GameOverView(arcade.View):
         )
 
     def on_draw(self) -> None:
-        """Draw the underlying screen, blurred, then the victory text
-        """
+        """Draw the underlying screen, blurred, then the game over text"""
 
         # First, draw the underlying view
         # This also calls start_render(), so no need to do it again
@@ -365,7 +364,7 @@ class GameOverView(arcade.View):
         )
 
     def on_key_press(self, key: int, modifiers: int) -> None:
-        """Start the next level when the user presses Enter
+        """Restart the current level when the user presses Enter
 
         Arguments:
             key -- Which key was pressed
@@ -386,6 +385,7 @@ class PlatformerView(arcade.View):
     """
 
     def __init__(self) -> None:
+        """Create the game view"""
         # First initialize the parent
         super().__init__()
 
@@ -440,8 +440,7 @@ class PlatformerView(arcade.View):
         self.view_mode = False
 
     def setup(self) -> None:
-        """Sets up the game for the current level
-        """
+        """Sets up the game for the current level"""
 
         # Get the current map based on the level
         map_name = f"platform_level_{self.level:02}.tmx"
@@ -531,8 +530,7 @@ class PlatformerView(arcade.View):
         )
 
     def create_enemy_sprites(self) -> arcade.SpriteList:
-        """Creates enemy sprites appropriate for the current level
-        """
+        """Creates enemy sprites appropriate for the current level"""
         enemies_list = arcade.SpriteList()
 
         # Only enemies on level 2
@@ -545,7 +543,7 @@ class PlatformerView(arcade.View):
         """Creates the animated player sprite
 
         Returns:
-            arcade.AnimatedWalkingSprite -- The properly setup player sprite
+            The properly setup player sprite
         """
         # Where are the player images stored?
         texture_path = ASSETS_PATH / "images" / "player"
@@ -802,8 +800,7 @@ class PlatformerView(arcade.View):
         self.scroll_viewport()
 
     def scroll_viewport(self) -> None:
-        """Scrolls the viewport when the player gets close to the edges
-        """
+        """Scrolls the viewport when the player gets close to the edges"""
         # Scroll left
         # Find the current left boundary
         left_boundary = self.view_left + game.LEFT_VIEWPORT_MARGIN
@@ -854,8 +851,7 @@ class PlatformerView(arcade.View):
         )
 
     def on_draw(self) -> None:
-        """Draws everything
-        """
+        """Draws everything"""
 
         arcade.start_render()
 
