@@ -457,12 +457,6 @@ class PlatformerView(arcade.View):
         # Load the current map
         map = arcade.tilemap.read_tmx(str(map_path))
 
-        self.coins_list = None
-        self.background_list = None
-        self.walls_list = None
-        self.ladders_list = None
-        self.goals_list = None
-
         # Load the layers
         self.background_list = arcade.tilemap.process_layer(
             map, layer_name=background_layer, scaling=game.MAP_SCALING
@@ -837,14 +831,8 @@ class PlatformerView(arcade.View):
         if self.player.right > right_boundary:
             self.view_left += self.player.right - right_boundary
             # Don't scroll past the right edge of the map
-            if (
-                self.view_left
-                > self.map_width - game.SCREEN_WIDTH  # - RIGHT_VIEWPORT_MARGIN
-            ):
-                self.view_left = (
-                    self.map_width
-                    - game.SCREEN_WIDTH  # - RIGHT_VIEWPORT_MARGIN
-                )
+            if self.view_left > self.map_width - game.SCREEN_WIDTH:
+                self.view_left = self.map_width - game.SCREEN_WIDTH
             else:
                 changed_viewport = True
 
