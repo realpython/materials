@@ -510,9 +510,10 @@ class PlatformerView(arcade.View):
             self.player = self.create_player_sprite()
 
         # If we have a player sprite, we need to move it back to the beginning
-        else:
-            self.player.center_x = game.PLAYER_START_X
-            self.player.center_y = game.PLAYER_START_Y
+        self.player.center_x = game.PLAYER_START_X
+        self.player.center_y = game.PLAYER_START_Y
+        self.player.change_x = 0
+        self.player.change_y = 0
 
         # Setup our enemies
         self.enemies_list = self.create_enemy_sprites()
