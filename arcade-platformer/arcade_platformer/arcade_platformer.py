@@ -377,7 +377,7 @@ class GameOverView(arcade.View):
             self.window.show_view(self.game_view)
 
         elif key == arcade.key.ESCAPE:
-            exit(0)
+            raise SystemExit(0)
 
 
 class PlatformerView(arcade.View):
@@ -753,7 +753,7 @@ class PlatformerView(arcade.View):
                 walls_hit = arcade.check_for_collision_with_list(
                     sprite=enemy, sprite_list=self.walls_list
                 )
-                if len(walls_hit) > 0:
+                if walls_hit:
                     enemy.change_x *= -1
 
         # Update player movement based on the physics engine
@@ -784,7 +784,7 @@ class PlatformerView(arcade.View):
                 sprite=self.player, sprite_list=self.enemies_list
             )
 
-            if len(enemies_hit) > 0:
+            if enemies_hit:
                 game_over = GameOverView(self)
                 self.window.show_view(game_over)
 
@@ -793,7 +793,7 @@ class PlatformerView(arcade.View):
             sprite=self.player, sprite_list=self.goals_list
         )
 
-        if len(goals_hit) > 0:
+        if goals_hit:
             # Switch to the victory view
             victory_view = VictoryView(self, self.victory_sound)
             self.window.show_view(victory_view)
