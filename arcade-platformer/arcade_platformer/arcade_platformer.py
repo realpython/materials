@@ -7,17 +7,18 @@
 # All game artwork and sounds, except the tile map and victory sound,
 # from www.kenney.nl
 
-# Import libraries
-import arcade
-from os import path, chdir
 
+# Import libraries
+import pathlib
+
+import arcade
 
 # Global variables
 # Game constants
 import constants as game
 
 # Assets path
-ASSETS_PATH = path.join(path.dirname(path.abspath(__file__)), "..", "assets")
+ASSETS_PATH = pathlib.Path(__file__).resolve().parent.parent / "assets"
 
 
 # Classes
@@ -32,14 +33,14 @@ class Enemy(arcade.AnimatedWalkingSprite):
         )
 
         # Where are the player images stored?
-        texture_path = path.join(ASSETS_PATH, "images", "enemies")
+        texture_path = ASSETS_PATH / "images" / "enemies"
 
         # Setup the appropriate textures
         walking_texture_path = [
-            path.join(texture_path, "slimePurple.png"),
-            path.join(texture_path, "slimePurple_move.png"),
+            texture_path / "slimePurple.png",
+            texture_path / "slimePurple_move.png",
         ]
-        standing_texture_path = path.join(texture_path, "slimePurple.png")
+        standing_texture_path = texture_path / "slimePurple.png"
 
         # Load them all now
         self.walk_left_textures = [
@@ -77,7 +78,7 @@ class TitleView(arcade.View):
         super().__init__()
 
         # Find the folder contain our images
-        title_image_path = path.join(ASSETS_PATH, "images", "title_image.png")
+        title_image_path = ASSETS_PATH / "images" / "title_image.png"
 
         # Load our title image
         self.title_image = arcade.load_texture(title_image_path)
@@ -155,8 +156,8 @@ class InstructionsView(arcade.View):
         super().__init__()
 
         # Find the folder contain our images
-        instructions_image_path = path.join(
-            ASSETS_PATH, "images", "instructions_image.png"
+        instructions_image_path = (
+            ASSETS_PATH / "images" / "instructions_image.png"
         )
 
         # Load our title image
@@ -408,13 +409,13 @@ class PlatformerView(arcade.View):
 
         # Load up our sounds here
         self.coin_sound = arcade.load_sound(
-            path.join(ASSETS_PATH, "sounds", "coin.wav")
+            str(ASSETS_PATH / "sounds" / "coin.wav")
         )
         self.jump_sound = arcade.load_sound(
-            path.join(ASSETS_PATH, "sounds", "jump.wav")
+            str(ASSETS_PATH / "sounds" / "jump.wav")
         )
         self.victory_sound = arcade.load_sound(
-            path.join(ASSETS_PATH, "sounds", "victory.wav")
+            str(ASSETS_PATH / "sounds" / "victory.wav")
         )
 
         # Track the bottom left corner of the current viewport
@@ -440,12 +441,9 @@ class PlatformerView(arcade.View):
         """Sets up the game for the current level
         """
 
-        # Change directory to our assets path
-        chdir(ASSETS_PATH)
-
         # Get the current map based on the level
         map_name = f"platform_level_{self.level:02}.tmx"
-        map_path = path.join(".", map_name)
+        map_path = ASSETS_PATH / map_name
 
         # What are the names of the layers?
         wall_layer = "ground"
@@ -455,7 +453,7 @@ class PlatformerView(arcade.View):
         ladders_layer = "ladders"
 
         # Load the current map
-        map = arcade.tilemap.read_tmx(map_path)
+        map = arcade.tilemap.read_tmx(str(map_path))
 
         self.coins_list = None
         self.background_list = None
@@ -547,16 +545,16 @@ class PlatformerView(arcade.View):
             arcade.AnimatedWalkingSprite -- The properly setup player sprite
         """
         # Where are the player images stored?
-        texture_path = path.join(ASSETS_PATH, "images", "player")
+        texture_path = ASSETS_PATH / "images" / "player"
 
         # Setup the appropriate textures
         walking_paths = [
-            path.join(texture_path, f"alienGreen_walk{x}.png") for x in (1, 2)
+            texture_path / f"alienGreen_walk{x}.png" for x in (1, 2)
         ]
         climbing_paths = [
-            path.join(texture_path, f"alienGreen_climb{x}.png") for x in (1, 2)
+            texture_path / f"alienGreen_climb{x}.png" for x in (1, 2)
         ]
-        standing_path = path.join(texture_path, "alienGreen_stand.png")
+        standing_path = texture_path / "alienGreen_stand.png"
 
         # Load them all now
         walking_right_textures = [
