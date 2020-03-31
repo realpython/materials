@@ -4,34 +4,35 @@
 # Demonstrating the capbilities of arcade in a platformer game
 # Supporting the Arcade Platformer article on https://realpython.com
 #
-# All game artwork and sounds, except the tile map and victory sound, from www.kenney.nl
-#
+# All game artwork and sounds, except the tile map and victory sound,
+# from www.kenney.nl
 
 # Import libraries
 import arcade
 from os import path, chdir
-from time import sleep
 
-from constants import *
 
 # Global variables
+# Game constants
+import constants as game
+
 # Assets path
-assets_path = path.join(path.dirname(path.abspath(__file__)), "..", "assets")
+ASSETS_PATH = path.join(path.dirname(path.abspath(__file__)), "..", "assets")
+
 
 # Classes
-
 # Enemy class
-
-
 class Enemy(arcade.AnimatedWalkingSprite):
     """An enemy sprite with basic walking movement
     """
 
     def __init__(self, pos_x, pos_y):
-        super().__init__(CHARACTER_SCALING, center_x=pos_x, center_y=pos_y)
+        super().__init__(
+            game.CHARACTER_SCALING, center_x=pos_x, center_y=pos_y
+        )
 
         # Where are the player images stored?
-        texture_path = path.join(assets_path, "images", "enemies")
+        texture_path = path.join(ASSETS_PATH, "images", "enemies")
 
         # Setup the appropriate textures
         walking_texture_path = [
@@ -54,12 +55,12 @@ class Enemy(arcade.AnimatedWalkingSprite):
             arcade.load_texture(standing_texture_path, mirrored=True)
         ]
         self.stand_right_textures = [
-            arcade.load_texture(standing_texture_path,)
+            arcade.load_texture(standing_texture_path)
         ]
 
         # Set the enemy defaults
         self.state = arcade.FACE_LEFT
-        self.change_x = -PLAYER_MOVE_SPEED // 2
+        self.change_x = -game.PLAYER_MOVE_SPEED // 2
 
         # Set the initial texture
         self.texture = self.stand_right_textures[0]
@@ -76,7 +77,7 @@ class TitleView(arcade.View):
         super().__init__()
 
         # Find the folder contain our images
-        title_image_path = path.join(assets_path, "images", "title_image.png")
+        title_image_path = path.join(ASSETS_PATH, "images", "title_image.png")
 
         # Load our title image
         self.title_image = arcade.load_texture(title_image_path)
@@ -89,7 +90,7 @@ class TitleView(arcade.View):
 
     def on_update(self, delta_time):
         """Processes our timer to toggle the instructions
-        
+
         Arguments:
             delta_time {float} -- time passed since last update
         """
@@ -115,10 +116,10 @@ class TitleView(arcade.View):
 
         # Draw a rectangle filled with our title image
         arcade.draw_texture_rectangle(
-            SCREEN_WIDTH / 2,
-            SCREEN_HEIGHT / 2,
-            SCREEN_WIDTH,
-            SCREEN_HEIGHT,
+            game.SCREEN_WIDTH / 2,
+            game.SCREEN_HEIGHT / 2,
+            game.SCREEN_WIDTH,
+            game.SCREEN_HEIGHT,
             self.title_image,
         )
 
@@ -134,7 +135,7 @@ class TitleView(arcade.View):
 
     def on_key_press(self, key, modifiers):
         """Resume the game when the user presses ESC again
-        
+
         Arguments:
             key {int} -- Which key was pressed
             modifiers {int} -- What modifiers were active
@@ -155,7 +156,7 @@ class InstructionsView(arcade.View):
 
         # Find the folder contain our images
         instructions_image_path = path.join(
-            assets_path, "images", "instructions_image.png"
+            ASSETS_PATH, "images", "instructions_image.png"
         )
 
         # Load our title image
@@ -170,16 +171,16 @@ class InstructionsView(arcade.View):
 
         # Draw a rectangle filled with our title image
         arcade.draw_texture_rectangle(
-            SCREEN_WIDTH / 2,
-            SCREEN_HEIGHT / 2,
-            SCREEN_WIDTH,
-            SCREEN_HEIGHT,
+            game.SCREEN_WIDTH / 2,
+            game.SCREEN_HEIGHT / 2,
+            game.SCREEN_WIDTH,
+            game.SCREEN_HEIGHT,
             self.instructions_image,
         )
 
     def on_key_press(self, key, modifiers):
         """Resume the game when the user presses ESC again
-        
+
         Arguments:
             key {int} -- Which key was pressed
             modifiers {int} -- What modifiers were active
@@ -223,8 +224,8 @@ class PauseView(arcade.View):
         # We get the viewport size from the game view
         arcade.draw_lrtb_rectangle_filled(
             self.game_view.view_left,
-            self.game_view.view_left + SCREEN_WIDTH,
-            self.game_view.view_bottom + SCREEN_HEIGHT,
+            self.game_view.view_left + game.SCREEN_WIDTH,
+            self.game_view.view_bottom + game.SCREEN_HEIGHT,
             self.game_view.view_bottom,
             self.fill_color,
         )
@@ -240,7 +241,7 @@ class PauseView(arcade.View):
 
     def on_key_press(self, key, modifiers):
         """Resume the game when the user presses ESC again
-        
+
         Arguments:
             key {int} -- Which key was pressed
             modifiers {int} -- What modifiers were active
@@ -281,8 +282,8 @@ class VictoryView(arcade.View):
         # We get the viewport size from the game view
         arcade.draw_lrtb_rectangle_filled(
             self.game_view.view_left,
-            self.game_view.view_left + SCREEN_WIDTH,
-            self.game_view.view_bottom + SCREEN_HEIGHT,
+            self.game_view.view_left + game.SCREEN_WIDTH,
+            self.game_view.view_bottom + game.SCREEN_HEIGHT,
             self.game_view.view_bottom,
             self.fill_color,
         )
@@ -298,7 +299,7 @@ class VictoryView(arcade.View):
 
     def on_key_press(self, key, modifiers):
         """Start the next level when the user presses Enter
-        
+
         Arguments:
             key {int} -- Which key was pressed
             modifiers {int} -- What modifiers were active
@@ -338,8 +339,8 @@ class GameOverView(arcade.View):
         # We get the viewport size from the game view
         arcade.draw_lrtb_rectangle_filled(
             self.game_view.view_left,
-            self.game_view.view_left + SCREEN_WIDTH,
-            self.game_view.view_bottom + SCREEN_HEIGHT,
+            self.game_view.view_left + game.SCREEN_WIDTH,
+            self.game_view.view_bottom + game.SCREEN_HEIGHT,
             self.game_view.view_bottom,
             self.fill_color,
         )
@@ -362,7 +363,7 @@ class GameOverView(arcade.View):
 
     def on_key_press(self, key, modifiers):
         """Start the next level when the user presses Enter
-        
+
         Arguments:
             key {int} -- Which key was pressed
             modifiers {int} -- What modifiers were active
@@ -407,13 +408,13 @@ class PlatformerView(arcade.View):
 
         # Load up our sounds here
         self.coin_sound = arcade.load_sound(
-            path.join(assets_path, "sounds", "coin.wav")
+            path.join(ASSETS_PATH, "sounds", "coin.wav")
         )
         self.jump_sound = arcade.load_sound(
-            path.join(assets_path, "sounds", "jump.wav")
+            path.join(ASSETS_PATH, "sounds", "jump.wav")
         )
         self.victory_sound = arcade.load_sound(
-            path.join(assets_path, "sounds", "victory.wav")
+            path.join(ASSETS_PATH, "sounds", "victory.wav")
         )
 
         # Track the bottom left corner of the current viewport
@@ -440,7 +441,7 @@ class PlatformerView(arcade.View):
         """
 
         # Change directory to our assets path
-        chdir(assets_path)
+        chdir(ASSETS_PATH)
 
         # Get the current map based on the level
         map_name = f"platform_level_{self.level:02}.tmx"
@@ -464,30 +465,31 @@ class PlatformerView(arcade.View):
 
         # Load the layers
         self.background_list = arcade.tilemap.process_layer(
-            map, background_layer, MAP_SCALING
+            map, background_layer, game.MAP_SCALING
         )
         self.goals_list = arcade.tilemap.process_layer(
-            map, goal_layer, MAP_SCALING
+            map, goal_layer, game.MAP_SCALING
         )
         self.walls_list = arcade.tilemap.process_layer(
-            map, wall_layer, MAP_SCALING
+            map, wall_layer, game.MAP_SCALING
         )
         self.ladders_list = arcade.tilemap.process_layer(
-            map, ladders_layer, MAP_SCALING
+            map, ladders_layer, game.MAP_SCALING
         )
         self.coins_list = arcade.tilemap.process_layer(
-            map, coin_layer, MAP_SCALING
+            map, coin_layer, game.MAP_SCALING
         )
 
         # Process moving platforms
         moving_platforms_layer_name = "moving_platforms"
         moving_platforms_list = arcade.tilemap.process_layer(
-            map, moving_platforms_layer_name, MAP_SCALING
+            map, moving_platforms_layer_name, game.MAP_SCALING
         )
         for sprite in moving_platforms_list:
             self.walls_list.append(sprite)
 
-        # Set the initial position of each moving platform to the left and/or bottom
+        # Set the initial position of each moving platform to the left and/or
+        # bottom
         for moving_platform in moving_platforms_list:
             if "boundary_left" in moving_platform.properties:
                 moving_platform.left = moving_platform.properties[
@@ -513,8 +515,8 @@ class PlatformerView(arcade.View):
 
         # If we have a player sprite, we need to move it back to the beginning
         else:
-            self.player.center_x = PLAYER_START_X
-            self.player.center_y = PLAYER_START_Y
+            self.player.center_x = game.PLAYER_START_X
+            self.player.center_y = game.PLAYER_START_Y
 
         # Setup our enemies
         self.enemies_list = None
@@ -526,7 +528,7 @@ class PlatformerView(arcade.View):
 
         # Load the physics engine for this map
         self.physics_engine = arcade.PhysicsEnginePlatformer(
-            self.player, self.walls_list, GRAVITY, self.ladders_list
+            self.player, self.walls_list, game.GRAVITY, self.ladders_list
         )
 
     def create_enemy_sprites(self):
@@ -540,12 +542,12 @@ class PlatformerView(arcade.View):
 
     def create_player_sprite(self) -> arcade.AnimatedWalkingSprite:
         """Creates the animated player sprite
-        
+
         Returns:
             arcade.AnimatedWalkingSprite -- The properly setup player sprite
         """
         # Where are the player images stored?
-        texture_path = path.join(assets_path, "images", "player")
+        texture_path = path.join(ASSETS_PATH, "images", "player")
 
         # Setup the appropriate textures
         walking_paths = [
@@ -590,10 +592,10 @@ class PlatformerView(arcade.View):
         player.walk_down_textures = walking_down_textures
 
         # Set the player defaults
-        player.center_x = PLAYER_START_X
-        player.center_y = PLAYER_START_Y
+        player.center_x = game.PLAYER_START_X
+        player.center_y = game.PLAYER_START_Y
         player.state = arcade.FACE_RIGHT
-        player.lives = PLAYER_LIVES
+        player.lives = game.PLAYER_LIVES
 
         # Set the initial texture
         player.texture = player.stand_right_textures[0]
@@ -602,7 +604,7 @@ class PlatformerView(arcade.View):
 
     def on_key_press(self, key: int, modifiers: int):
         """Processes key presses
-        
+
         Arguments:
             key {int} -- Which key was pressed
             modifiers {int} -- Which modifiers were down at the time
@@ -613,12 +615,12 @@ class PlatformerView(arcade.View):
             if self.view_mode:
                 self.view_left -= 20
             else:
-                self.player.change_x = -PLAYER_MOVE_SPEED
+                self.player.change_x = -game.PLAYER_MOVE_SPEED
         elif key in [arcade.key.RIGHT, arcade.key.L]:
             if self.view_mode:
                 self.view_left += 20
             else:
-                self.player.change_x = PLAYER_MOVE_SPEED
+                self.player.change_x = game.PLAYER_MOVE_SPEED
 
         # Check if player can climb up or down
         elif key in [arcade.key.UP, arcade.key.I]:
@@ -626,18 +628,18 @@ class PlatformerView(arcade.View):
                 self.view_bottom += 20
             else:
                 if self.physics_engine.is_on_ladder():
-                    self.player.change_y = PLAYER_MOVE_SPEED
+                    self.player.change_y = game.PLAYER_MOVE_SPEED
         elif key in [arcade.key.DOWN, arcade.key.K]:
             if self.view_mode:
                 self.view_bottom -= 20
             else:
                 if self.physics_engine.is_on_ladder():
-                    self.player.change_y = -PLAYER_MOVE_SPEED
+                    self.player.change_y = -game.PLAYER_MOVE_SPEED
 
         # Check if we can jump
         elif key == arcade.key.SPACE:
             if self.physics_engine.can_jump():
-                self.player.change_y = PLAYER_JUMP_SPEED
+                self.player.change_y = game.PLAYER_JUMP_SPEED
                 # Play the jump sound
                 arcade.play_sound(self.jump_sound)
 
@@ -668,7 +670,7 @@ class PlatformerView(arcade.View):
 
     def on_key_release(self, key: int, modifiers: int):
         """Processes key releases
-        
+
         Arguments:
             key {int} -- The key which was released
             modifiers {int} -- Which modifiers were down at the time
@@ -695,7 +697,7 @@ class PlatformerView(arcade.View):
 
     def on_update(self, delta_time: float):
         """Updates the position of all screen objects
-        
+
         Arguments:
             delta_time {float} -- How much time since the last call
         """
@@ -709,30 +711,32 @@ class PlatformerView(arcade.View):
             # Do the scrolling
             arcade.set_viewport(
                 self.view_left,
-                SCREEN_WIDTH + self.view_left,
+                game.SCREEN_WIDTH + self.view_left,
                 self.view_bottom,
-                SCREEN_HEIGHT + self.view_bottom,
+                game.SCREEN_HEIGHT + self.view_bottom,
             )
             return
 
         # First, check for joystick movement
         if self.joystick:
             # Check if we're in the dead zone
-            if abs(self.joystick.x) > DEAD_ZONE:
-                self.player.change_x = self.joystick.x * PLAYER_MOVE_SPEED
+            if abs(self.joystick.x) > game.DEAD_ZONE:
+                self.player.change_x = self.joystick.x * game.PLAYER_MOVE_SPEED
             else:
                 self.player.change_x = 0
 
-            if abs(self.joystick.y) > DEAD_ZONE:
+            if abs(self.joystick.y) > game.DEAD_ZONE:
                 if self.physics_engine.is_on_ladder():
-                    self.player.change_y = self.joystick.y * PLAYER_MOVE_SPEED
+                    self.player.change_y = (
+                        self.joystick.y * game.PLAYER_MOVE_SPEED
+                    )
                 else:
                     self.player.change_y = 0
 
             # Did the user press the jump button?
             if self.joystick.buttons[0]:
                 if self.physics_engine.can_jump():
-                    self.player.change_y = PLAYER_JUMP_SPEED
+                    self.player.change_y = game.PLAYER_JUMP_SPEED
                     # Play the jump sound
                     arcade.play_sound(self.jump_sound)
 
@@ -807,7 +811,7 @@ class PlatformerView(arcade.View):
 
         # Scroll left
         # Find the current left boundary
-        left_boundary = self.view_left + LEFT_VIEWPORT_MARGIN
+        left_boundary = self.view_left + game.LEFT_VIEWPORT_MARGIN
 
         # Are we to the left of this boundary? Then we should scroll left
         if self.player.left < left_boundary:
@@ -820,7 +824,9 @@ class PlatformerView(arcade.View):
 
         # Scroll right
         # Find the current right boundary
-        right_boundary = self.view_left + SCREEN_WIDTH - RIGHT_VIEWPORT_MARGIN
+        right_boundary = (
+            self.view_left + game.SCREEN_WIDTH - game.RIGHT_VIEWPORT_MARGIN
+        )
 
         # Are we right of this boundary? Then we should scroll right
         if self.player.right > right_boundary:
@@ -828,22 +834,25 @@ class PlatformerView(arcade.View):
             # Don't scroll past the right edge of the map
             if (
                 self.view_left
-                > self.map_width - SCREEN_WIDTH  # - RIGHT_VIEWPORT_MARGIN
+                > self.map_width - game.SCREEN_WIDTH  # - RIGHT_VIEWPORT_MARGIN
             ):
                 self.view_left = (
-                    self.map_width - SCREEN_WIDTH  # - RIGHT_VIEWPORT_MARGIN
+                    self.map_width
+                    - game.SCREEN_WIDTH  # - RIGHT_VIEWPORT_MARGIN
                 )
             else:
                 changed_viewport = True
 
         # Scroll up
-        top_boundary = self.view_bottom + SCREEN_HEIGHT - TOP_VIEWPORT_MARGIN
+        top_boundary = (
+            self.view_bottom + game.SCREEN_HEIGHT - game.TOP_VIEWPORT_MARGIN
+        )
         if self.player.top > top_boundary:
             self.view_bottom += self.player.top - top_boundary
             changed_viewport = True
 
         # Scroll down
-        bottom_boundary = self.view_bottom + BOTTOM_VIEWPORT_MARGIN
+        bottom_boundary = self.view_bottom + game.BOTTOM_VIEWPORT_MARGIN
         if self.player.bottom < bottom_boundary:
             self.view_bottom -= bottom_boundary - self.player.bottom
             changed_viewport = True
@@ -857,9 +866,9 @@ class PlatformerView(arcade.View):
             # Do the scrolling
             arcade.set_viewport(
                 self.view_left,
-                SCREEN_WIDTH + self.view_left,
+                game.SCREEN_WIDTH + self.view_left,
                 self.view_bottom,
-                SCREEN_HEIGHT + self.view_bottom,
+                game.SCREEN_HEIGHT + self.view_bottom,
             )
 
     def on_draw(self):
@@ -901,7 +910,9 @@ class PlatformerView(arcade.View):
 
 # Main
 if __name__ == "__main__":
-    window = arcade.Window(SCREEN_WIDTH, SCREEN_HEIGHT, SCREEN_TITLE)
+    window = arcade.Window(
+        game.SCREEN_WIDTH, game.SCREEN_HEIGHT, game.SCREEN_TITLE
+    )
     title_view = TitleView()
     window.show_view(title_view)
     arcade.run()
