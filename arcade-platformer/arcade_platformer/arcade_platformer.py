@@ -117,21 +117,21 @@ class TitleView(arcade.View):
 
         # Draw a rectangle filled with our title image
         arcade.draw_texture_rectangle(
-            game.SCREEN_WIDTH / 2,
-            game.SCREEN_HEIGHT / 2,
-            game.SCREEN_WIDTH,
-            game.SCREEN_HEIGHT,
-            self.title_image,
+            center_x=game.SCREEN_WIDTH / 2,
+            center_y=game.SCREEN_HEIGHT / 2,
+            width=game.SCREEN_WIDTH,
+            height=game.SCREEN_HEIGHT,
+            texture=self.title_image,
         )
 
         # Should we show our instructions?
         if self.show_instructions:
             arcade.draw_text(
                 "Enter to Start | I for Instructions",
-                100,
-                220,
-                arcade.color.INDIGO,
-                40,
+                start_x=100,
+                start_y=220,
+                color=arcade.color.INDIGO,
+                font_size=40,
             )
 
     def on_key_press(self, key: int, modifiers: int) -> None:
@@ -172,11 +172,11 @@ class InstructionsView(arcade.View):
 
         # Draw a rectangle filled with our title image
         arcade.draw_texture_rectangle(
-            game.SCREEN_WIDTH / 2,
-            game.SCREEN_HEIGHT / 2,
-            game.SCREEN_WIDTH,
-            game.SCREEN_HEIGHT,
-            self.instructions_image,
+            center_x=game.SCREEN_WIDTH / 2,
+            center_y=game.SCREEN_HEIGHT / 2,
+            width=game.SCREEN_WIDTH,
+            height=game.SCREEN_HEIGHT,
+            texture=self.instructions_image,
         )
 
     def on_key_press(self, key: int, modifiers: int) -> None:
@@ -224,20 +224,20 @@ class PauseView(arcade.View):
         # Now create a filled rect that covers the current viewport
         # We get the viewport size from the game view
         arcade.draw_lrtb_rectangle_filled(
-            self.game_view.view_left,
-            self.game_view.view_left + game.SCREEN_WIDTH,
-            self.game_view.view_bottom + game.SCREEN_HEIGHT,
-            self.game_view.view_bottom,
-            self.fill_color,
+            left=self.game_view.view_left,
+            right=self.game_view.view_left + game.SCREEN_WIDTH,
+            top=self.game_view.view_bottom + game.SCREEN_HEIGHT,
+            bottom=self.game_view.view_bottom,
+            color=self.fill_color,
         )
 
         # Now show the Pause text
         arcade.draw_text(
             "PAUSED - ESC TO CONTINUE",
-            self.game_view.view_left + 180,
-            self.game_view.view_bottom + 300,
-            arcade.color.INDIGO,
-            40,
+            start_x=self.game_view.view_left + 180,
+            start_y=self.game_view.view_bottom + 300,
+            color=arcade.color.INDIGO,
+            font_size=40,
         )
 
     def on_key_press(self, key: int, modifiers: int) -> None:
@@ -284,20 +284,20 @@ class VictoryView(arcade.View):
         # Now create a filled rect that covers the current viewport
         # We get the viewport size from the game view
         arcade.draw_lrtb_rectangle_filled(
-            self.game_view.view_left,
-            self.game_view.view_left + game.SCREEN_WIDTH,
-            self.game_view.view_bottom + game.SCREEN_HEIGHT,
-            self.game_view.view_bottom,
-            self.fill_color,
+            left=self.game_view.view_left,
+            right=self.game_view.view_left + game.SCREEN_WIDTH,
+            top=self.game_view.view_bottom + game.SCREEN_HEIGHT,
+            bottom=self.game_view.view_bottom,
+            color=self.fill_color,
         )
 
         # Now show the victory text
         arcade.draw_text(
             "SUCCESS! Press Enter for next level...",
-            self.game_view.view_left + 90,
-            self.game_view.view_bottom + 300,
-            arcade.color.INDIGO,
-            40,
+            start_x=self.game_view.view_left + 90,
+            start_y=self.game_view.view_bottom + 300,
+            color=arcade.color.INDIGO,
+            font_size=40,
         )
 
     def on_key_press(self, key: int, modifiers: int) -> None:
@@ -341,27 +341,27 @@ class GameOverView(arcade.View):
         # Now create a filled rect that covers the current viewport
         # We get the viewport size from the game view
         arcade.draw_lrtb_rectangle_filled(
-            self.game_view.view_left,
-            self.game_view.view_left + game.SCREEN_WIDTH,
-            self.game_view.view_bottom + game.SCREEN_HEIGHT,
-            self.game_view.view_bottom,
-            self.fill_color,
+            left=self.game_view.view_left,
+            right=self.game_view.view_left + game.SCREEN_WIDTH,
+            top=self.game_view.view_bottom + game.SCREEN_HEIGHT,
+            bottom=self.game_view.view_bottom,
+            color=self.fill_color,
         )
 
         # Now show the game over text
         arcade.draw_text(
             "Game Over!",
-            self.game_view.view_left + 360,
-            self.game_view.view_bottom + 330,
-            arcade.color.INDIGO,
-            40,
+            start_x=self.game_view.view_left + 360,
+            start_y=self.game_view.view_bottom + 330,
+            color=arcade.color.INDIGO,
+            font_size=40,
         )
         arcade.draw_text(
             "Enter to restart, ESC to exit",
-            self.game_view.view_left + 190,
-            self.game_view.view_bottom + 280,
-            arcade.color.INDIGO,
-            40,
+            start_x=self.game_view.view_left + 190,
+            start_y=self.game_view.view_bottom + 280,
+            color=arcade.color.INDIGO,
+            font_size=40,
         )
 
     def on_key_press(self, key: int, modifiers: int) -> None:
@@ -465,25 +465,27 @@ class PlatformerView(arcade.View):
 
         # Load the layers
         self.background_list = arcade.tilemap.process_layer(
-            map, background_layer, game.MAP_SCALING
+            map, layer_name=background_layer, scaling=game.MAP_SCALING
         )
         self.goals_list = arcade.tilemap.process_layer(
-            map, goal_layer, game.MAP_SCALING
+            map, layer_name=goal_layer, scaling=game.MAP_SCALING
         )
         self.walls_list = arcade.tilemap.process_layer(
-            map, wall_layer, game.MAP_SCALING
+            map, layer_name=wall_layer, scaling=game.MAP_SCALING
         )
         self.ladders_list = arcade.tilemap.process_layer(
-            map, ladders_layer, game.MAP_SCALING
+            map, layer_name=ladders_layer, scaling=game.MAP_SCALING
         )
         self.coins_list = arcade.tilemap.process_layer(
-            map, coin_layer, game.MAP_SCALING
+            map, layer_name=coin_layer, scaling=game.MAP_SCALING
         )
 
         # Process moving platforms
         moving_platforms_layer_name = "moving_platforms"
         moving_platforms_list = arcade.tilemap.process_layer(
-            map, moving_platforms_layer_name, game.MAP_SCALING
+            map,
+            layer_name=moving_platforms_layer_name,
+            scaling=game.MAP_SCALING,
         )
         for sprite in moving_platforms_list:
             self.walls_list.append(sprite)
@@ -528,7 +530,10 @@ class PlatformerView(arcade.View):
 
         # Load the physics engine for this map
         self.physics_engine = arcade.PhysicsEnginePlatformer(
-            self.player, self.walls_list, game.GRAVITY, self.ladders_list
+            player_sprite=self.player,
+            platforms=self.walls_list,
+            gravity_constant=game.GRAVITY,
+            ladders=self.ladders_list,
         )
 
     def create_enemy_sprites(self) -> None:
@@ -710,10 +715,10 @@ class PlatformerView(arcade.View):
 
             # Do the scrolling
             arcade.set_viewport(
-                self.view_left,
-                game.SCREEN_WIDTH + self.view_left,
-                self.view_bottom,
-                game.SCREEN_HEIGHT + self.view_bottom,
+                left=self.view_left,
+                right=game.SCREEN_WIDTH + self.view_left,
+                bottom=self.view_bottom,
+                top=game.SCREEN_HEIGHT + self.view_bottom,
             )
             return
 
@@ -752,7 +757,7 @@ class PlatformerView(arcade.View):
             for enemy in self.enemies_list:
                 enemy.center_x += enemy.change_x
                 walls_hit = arcade.check_for_collision_with_list(
-                    enemy, self.walls_list
+                    sprite=enemy, sprite_list=self.walls_list
                 )
                 if len(walls_hit) > 0:
                     enemy.change_x *= -1
@@ -766,7 +771,7 @@ class PlatformerView(arcade.View):
 
         # Check if we've picked up a coin
         coins_hit = arcade.check_for_collision_with_list(
-            self.player, self.coins_list
+            sprite=self.player, sprite_list=self.coins_list
         )
 
         for coin in coins_hit:
@@ -782,7 +787,7 @@ class PlatformerView(arcade.View):
         # Has Roz collided with an enemy?
         if self.enemies_list:
             enemies_hit = arcade.check_for_collision_with_list(
-                self.player, self.enemies_list
+                sprite=self.player, sprite_list=self.enemies_list
             )
 
             if len(enemies_hit) > 0:
@@ -791,7 +796,7 @@ class PlatformerView(arcade.View):
 
         # Now check if we're at the ending goal
         goals_hit = arcade.check_for_collision_with_list(
-            self.player, self.goals_list
+            sprite=self.player, sprite_list=self.goals_list
         )
 
         if len(goals_hit) > 0:
@@ -865,10 +870,10 @@ class PlatformerView(arcade.View):
 
             # Do the scrolling
             arcade.set_viewport(
-                self.view_left,
-                game.SCREEN_WIDTH + self.view_left,
-                self.view_bottom,
-                game.SCREEN_HEIGHT + self.view_bottom,
+                left=self.view_left,
+                right=game.SCREEN_WIDTH + self.view_left,
+                bottom=self.view_bottom,
+                top=game.SCREEN_HEIGHT + self.view_bottom,
             )
 
     def on_draw(self) -> None:
@@ -893,16 +898,16 @@ class PlatformerView(arcade.View):
         # First a black background for a shadow effect
         arcade.draw_text(
             score_text,
-            10 + self.view_left,
-            10 + self.view_bottom,
+            start_x=10 + self.view_left,
+            start_y=10 + self.view_bottom,
             color=arcade.csscolor.BLACK,
             font_size=40,
         )
         # Now in white slightly shifted
         arcade.draw_text(
             score_text,
-            15 + self.view_left,
-            15 + self.view_bottom,
+            start_x=15 + self.view_left,
+            start_y=15 + self.view_bottom,
             color=arcade.csscolor.WHITE,
             font_size=40,
         )
@@ -911,7 +916,9 @@ class PlatformerView(arcade.View):
 # Main
 if __name__ == "__main__":
     window = arcade.Window(
-        game.SCREEN_WIDTH, game.SCREEN_HEIGHT, game.SCREEN_TITLE
+        width=game.SCREEN_WIDTH,
+        height=game.SCREEN_HEIGHT,
+        title=game.SCREEN_TITLE,
     )
     title_view = TitleView()
     window.show_view(title_view)
