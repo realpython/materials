@@ -748,15 +748,14 @@ class PlatformerView(arcade.View):
         self.background_list.update_animation(delta_time)
 
         # Are there enemies? Update them as well
-        if self.enemies_list:
-            self.enemies_list.update_animation(delta_time)
-            for enemy in self.enemies_list:
-                enemy.center_x += enemy.change_x
-                walls_hit = arcade.check_for_collision_with_list(
-                    sprite=enemy, sprite_list=self.walls_list
-                )
-                if walls_hit:
-                    enemy.change_x *= -1
+        self.enemies_list.update_animation(delta_time)
+        for enemy in self.enemies_list:
+            enemy.center_x += enemy.change_x
+            walls_hit = arcade.check_for_collision_with_list(
+                sprite=enemy, sprite_list=self.walls_list
+            )
+            if walls_hit:
+                enemy.change_x *= -1
 
         # Update player movement based on the physics engine
         self.physics_engine.update()
@@ -781,14 +780,13 @@ class PlatformerView(arcade.View):
             coin.remove_from_sprite_lists()
 
         # Has Roz collided with an enemy?
-        if self.enemies_list:
-            enemies_hit = arcade.check_for_collision_with_list(
-                sprite=self.player, sprite_list=self.enemies_list
-            )
+        enemies_hit = arcade.check_for_collision_with_list(
+            sprite=self.player, sprite_list=self.enemies_list
+        )
 
-            if enemies_hit:
-                game_over = GameOverView(self)
-                self.window.show_view(game_over)
+        if enemies_hit:
+            game_over = GameOverView(self)
+            self.window.show_view(game_over)
 
         # Now check if we're at the ending goal
         goals_hit = arcade.check_for_collision_with_list(
@@ -867,8 +865,7 @@ class PlatformerView(arcade.View):
         self.coins_list.draw()
         self.goals_list.draw()
         self.ladders_list.draw()
-        if self.enemies_list:
-            self.enemies_list.draw()
+        self.enemies_list.draw()
         self.player.draw()
 
         # Draw the score in the lower left
