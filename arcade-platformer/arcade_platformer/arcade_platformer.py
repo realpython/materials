@@ -27,7 +27,7 @@ class Enemy(arcade.AnimatedWalkingSprite):
     """An enemy sprite with basic walking movement
     """
 
-    def __init__(self, pos_x, pos_y):
+    def __init__(self, pos_x: int, pos_y: int) -> None:
         super().__init__(
             game.CHARACTER_SCALING, center_x=pos_x, center_y=pos_y
         )
@@ -73,7 +73,7 @@ class TitleView(arcade.View):
     There is a way to show instructions and start the game.
     """
 
-    def __init__(self):
+    def __init__(self) -> None:
         # Initialize the parent
         super().__init__()
 
@@ -89,11 +89,11 @@ class TitleView(arcade.View):
         # Are we showing the instructions?
         self.show_instructions = False
 
-    def on_update(self, delta_time):
+    def on_update(self, delta_time: float) -> None:
         """Processes our timer to toggle the instructions
 
         Arguments:
-            delta_time {float} -- time passed since last update
+            delta_time -- time passed since last update
         """
 
         # First, count down the time
@@ -108,7 +108,7 @@ class TitleView(arcade.View):
             # And reset the timer so the instructions flash slowly
             self.display_timer = 1.0
 
-    def on_draw(self):
+    def on_draw(self) -> None:
         """Draws everything to the screen
         """
 
@@ -134,12 +134,12 @@ class TitleView(arcade.View):
                 40,
             )
 
-    def on_key_press(self, key, modifiers):
+    def on_key_press(self, key: int, modifiers: int) -> None:
         """Resume the game when the user presses ESC again
 
         Arguments:
-            key {int} -- Which key was pressed
-            modifiers {int} -- What modifiers were active
+            key -- Which key was pressed
+            modifiers -- What modifiers were active
         """
         if key == arcade.key.RETURN:
             game_view = PlatformerView()
@@ -152,7 +152,7 @@ class TitleView(arcade.View):
 
 # Instructions view
 class InstructionsView(arcade.View):
-    def __init__(self):
+    def __init__(self) -> None:
         super().__init__()
 
         # Find the folder contain our images
@@ -163,7 +163,7 @@ class InstructionsView(arcade.View):
         # Load our title image
         self.instructions_image = arcade.load_texture(instructions_image_path)
 
-    def on_draw(self):
+    def on_draw(self) -> None:
         """Draws everything to the screen
         """
 
@@ -179,12 +179,12 @@ class InstructionsView(arcade.View):
             self.instructions_image,
         )
 
-    def on_key_press(self, key, modifiers):
+    def on_key_press(self, key: int, modifiers: int) -> None:
         """Resume the game when the user presses ESC again
 
         Arguments:
-            key {int} -- Which key was pressed
-            modifiers {int} -- What modifiers were active
+            key -- Which key was pressed
+            modifiers -- What modifiers were active
         """
         if key == arcade.key.RETURN:
             game_view = PlatformerView()
@@ -201,7 +201,7 @@ class PauseView(arcade.View):
     """Shown when the game is paused
     """
 
-    def __init__(self, game_view):
+    def __init__(self, game_view: arcade.View) -> None:
         # Initialize the parent
         super().__init__()
 
@@ -213,7 +213,7 @@ class PauseView(arcade.View):
             arcade.color.WHITE, transparency=150
         )
 
-    def on_draw(self):
+    def on_draw(self) -> None:
         """Draw the underlying screen, blurred, then the Paused text
         """
 
@@ -240,12 +240,12 @@ class PauseView(arcade.View):
             40,
         )
 
-    def on_key_press(self, key, modifiers):
+    def on_key_press(self, key: int, modifiers: int) -> None:
         """Resume the game when the user presses ESC again
 
         Arguments:
-            key {int} -- Which key was pressed
-            modifiers {int} -- What modifiers were active
+            key -- Which key was pressed
+            modifiers -- What modifiers were active
         """
         if key == arcade.key.ESCAPE:
             self.window.show_view(self.game_view)
@@ -256,7 +256,9 @@ class VictoryView(arcade.View):
     """Shown when a level is completed
     """
 
-    def __init__(self, game_view, victory_sound):
+    def __init__(
+        self, game_view: arcade.View, victory_sound: arcade.Sound
+    ) -> None:
         # Initialize the parent
         super().__init__()
 
@@ -271,7 +273,7 @@ class VictoryView(arcade.View):
             arcade.color.WHITE, transparency=150
         )
 
-    def on_draw(self):
+    def on_draw(self) -> None:
         """Draw the underlying screen, blurred, then the victory text
         """
 
@@ -298,12 +300,12 @@ class VictoryView(arcade.View):
             40,
         )
 
-    def on_key_press(self, key, modifiers):
+    def on_key_press(self, key: int, modifiers: int) -> None:
         """Start the next level when the user presses Enter
 
         Arguments:
-            key {int} -- Which key was pressed
-            modifiers {int} -- What modifiers were active
+            key -- Which key was pressed
+            modifiers -- What modifiers were active
         """
         if key == arcade.key.ENTER:
             self.game_view.level += 1
@@ -316,7 +318,7 @@ class GameOverView(arcade.View):
     """Shown when a level is completed
     """
 
-    def __init__(self, game_view):
+    def __init__(self, game_view: arcade.View) -> None:
         # Initialize the parent
         super().__init__()
 
@@ -328,7 +330,7 @@ class GameOverView(arcade.View):
             arcade.color.WHITE, transparency=150
         )
 
-    def on_draw(self):
+    def on_draw(self) -> None:
         """Draw the underlying screen, blurred, then the victory text
         """
 
@@ -362,12 +364,12 @@ class GameOverView(arcade.View):
             40,
         )
 
-    def on_key_press(self, key, modifiers):
+    def on_key_press(self, key: int, modifiers: int) -> None:
         """Start the next level when the user presses Enter
 
         Arguments:
-            key {int} -- Which key was pressed
-            modifiers {int} -- What modifiers were active
+            key -- Which key was pressed
+            modifiers -- What modifiers were active
         """
         if key == arcade.key.ENTER:
             # Reset the current level
@@ -383,7 +385,7 @@ class PlatformerView(arcade.View):
     from arcade.Window, plus managing different views for our game.
     """
 
-    def __init__(self):
+    def __init__(self) -> None:
         # First initialize the parent
         super().__init__()
 
@@ -437,7 +439,7 @@ class PlatformerView(arcade.View):
         # Flag for entering view mode - allows super-user to skim around
         self.view_mode = False
 
-    def setup(self):
+    def setup(self) -> None:
         """Sets up the game for the current level
         """
 
@@ -529,7 +531,7 @@ class PlatformerView(arcade.View):
             self.player, self.walls_list, game.GRAVITY, self.ladders_list
         )
 
-    def create_enemy_sprites(self):
+    def create_enemy_sprites(self) -> None:
         """Creates enemy sprites appropriate for the current level
         """
 
@@ -600,12 +602,12 @@ class PlatformerView(arcade.View):
 
         return player
 
-    def on_key_press(self, key: int, modifiers: int):
+    def on_key_press(self, key: int, modifiers: int) -> None:
         """Processes key presses
 
         Arguments:
-            key {int} -- Which key was pressed
-            modifiers {int} -- Which modifiers were down at the time
+            key -- Which key was pressed
+            modifiers -- Which modifiers were down at the time
         """
 
         # Check for player left/right movement
@@ -666,12 +668,12 @@ class PlatformerView(arcade.View):
                 self.view_bottom = self.save_view_bottom
                 self.view_left = self.save_view_left
 
-    def on_key_release(self, key: int, modifiers: int):
+    def on_key_release(self, key: int, modifiers: int) -> None:
         """Processes key releases
 
         Arguments:
-            key {int} -- The key which was released
-            modifiers {int} -- Which modifiers were down at the time
+            key -- The key which was released
+            modifiers -- Which modifiers were down at the time
         """
 
         # Check for player left/right movement
@@ -693,11 +695,11 @@ class PlatformerView(arcade.View):
             if self.physics_engine.is_on_ladder():
                 self.player.change_y = 0
 
-    def on_update(self, delta_time: float):
+    def on_update(self, delta_time: float) -> None:
         """Updates the position of all screen objects
 
         Arguments:
-            delta_time {float} -- How much time since the last call
+            delta_time -- How much time since the last call
         """
 
         # Are we in view mode? If so, update nothing, but skew the view
@@ -800,7 +802,7 @@ class PlatformerView(arcade.View):
         # Scroll the viewport if necessary
         self.scroll_viewport()
 
-    def scroll_viewport(self):
+    def scroll_viewport(self) -> None:
         """Scrolls the viewport when the player gets close to the edges
         """
 
@@ -869,7 +871,7 @@ class PlatformerView(arcade.View):
                 game.SCREEN_HEIGHT + self.view_bottom,
             )
 
-    def on_draw(self):
+    def on_draw(self) -> None:
         """Draws everything
         """
 
