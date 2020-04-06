@@ -92,11 +92,7 @@ def add_new_item(session, author_name, book_title, publisher_name):
     )
 
     # Get the book if exists
-    book = (
-        session.query(Book)
-        .filter(Book.title == book_title)
-        .one_or_none()
-    )
+    book = session.query(Book).filter(Book.title == book_title).one_or_none()
 
     # Get the publisher if exists
     publisher = (
@@ -107,10 +103,7 @@ def add_new_item(session, author_name, book_title, publisher_name):
     # Does new item exist?
     if author is not None and book is not None and publisher is not None:
         raise Exception(
-            "New item exists",
-            author_name,
-            book_title,
-            publisher_name
+            "New item exists", author_name, book_title, publisher_name
         )
     # Create the author if didn't exist
     if author is None:
