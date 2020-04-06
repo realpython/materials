@@ -1,4 +1,3 @@
-
 from flask import Flask
 from flask import render_template
 from flask_bootstrap import Bootstrap
@@ -18,13 +17,14 @@ db = SQLAlchemy(app)
 Bootstrap(app)
 
 # Register Blueprings
-from .artists import routes as artist_routes            # noqa: E402
-from .albums import routes as album_routes              # noqa: E402
-from .tracks import routes as track_routes              # noqa: E402
-from .playlists import routes as playlist_routes        # noqa: E402
-from .customers import routes as customer_routes        # noqa: E402
-from .invoices import routes as invoice_routes          # noqa: E402
-from .employees import routes as employee_routes        # noqa: E402
+from .artists import routes as artist_routes  # noqa: E402
+from .albums import routes as album_routes  # noqa: E402
+from .tracks import routes as track_routes  # noqa: E402
+from .playlists import routes as playlist_routes  # noqa: E402
+from .customers import routes as customer_routes  # noqa: E402
+from .invoices import routes as invoice_routes  # noqa: E402
+from .employees import routes as employee_routes  # noqa: E402
+
 app.register_blueprint(artist_routes.artists_bp)
 app.register_blueprint(album_routes.albums_bp)
 app.register_blueprint(track_routes.tracks_bp)
@@ -37,7 +37,7 @@ app.register_blueprint(employee_routes.employees_bp)
 # Sample HTTP error handling
 @app.errorhandler(404)
 def not_found(error):
-    return render_template('404.html'), 404
+    return render_template("404.html"), 404
 
 
-from app import models                                  # noqa: F401, E402
+from app import models  # noqa: F401, E402
