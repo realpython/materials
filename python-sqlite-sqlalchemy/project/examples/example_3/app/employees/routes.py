@@ -1,6 +1,5 @@
 from flask import Blueprint
 from flask import render_template
-from sqlalchemy import func
 from app import db
 from app.models import Employee
 

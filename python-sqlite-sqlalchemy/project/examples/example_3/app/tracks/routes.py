@@ -1,7 +1,5 @@
 from flask import Blueprint
 from flask import render_template
-from flask import redirect
-from flask import url_for
 from flask_wtf import FlaskForm
 from wtforms import StringField
 from wtforms import IntegerField
