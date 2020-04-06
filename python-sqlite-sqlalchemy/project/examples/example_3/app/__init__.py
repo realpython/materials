@@ -40,4 +40,4 @@ def not_found(error):
     return render_template('404.html'), 404
 
 
-from app import models                                  # noqa: E401, E402
+from app import models                                  # noqa: F401, E402
