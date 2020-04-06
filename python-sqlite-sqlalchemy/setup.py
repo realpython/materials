@@ -14,6 +14,6 @@ setup(
         "Flask-WTF==0.14.3",
         "python-dateutil==2.8.1",
         "python-dotenv==0.10.5",
-        "treelib"
+        "treelib",
     ],
 )
