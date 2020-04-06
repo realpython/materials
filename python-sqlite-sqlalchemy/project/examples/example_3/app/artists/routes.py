@@ -22,7 +22,6 @@ def does_artist_exist(form, field):
         .filter(Artist.name == field.data)
         .one_or_none()
     )
-
     if artist is not None:
         raise ValidationError("Artist already exists", field.data)
 
