@@ -35,4 +35,3 @@ def customers(customer_id=None):
         .all()
     )
     return render_template("customers.html", results=results)
-

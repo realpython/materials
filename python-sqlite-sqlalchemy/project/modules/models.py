@@ -21,7 +21,6 @@ book_publisher = Table(
 )
 
 
-
 class Author(Base):
     __tablename__ = "author"
     author_id = Column(Integer, primary_key=True)
@@ -31,6 +30,7 @@ class Author(Base):
     publishers = relationship(
         "Publisher", secondary=author_publisher, back_populates="authors"
     )
+
 
 class Book(Base):
     __tablename__ = "book"

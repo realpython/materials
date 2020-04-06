@@ -38,5 +38,4 @@ app.register_blueprint(employee_routes.employees_bp)
 def not_found(error):
     return render_template('404.html'), 404
 
-#from app import routes
 from app import models
