@@ -46,4 +46,4 @@ def artists():
         return redirect(url_for("artists_bp.artists"))
 
     artists = db.session.query(Artist).order_by(Artist.name).all()
-    return render_template("artists.html", artists=artists, form=form,)
+    return render_template("artists.html", artists=artists, form=form)
