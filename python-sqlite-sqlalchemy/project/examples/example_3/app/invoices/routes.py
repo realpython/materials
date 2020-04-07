@@ -24,4 +24,5 @@ def invoices(invoice_id=None):
         query = query.filter(Invoice.invoice_id == invoice_id)
 
     invoices = query.order_by(Invoice.invoice_id).all()
+    
     return render_template("invoices.html", invoices=invoices)
