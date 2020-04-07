@@ -9,7 +9,7 @@ invoices_bp = Blueprint(
     "invoices_bp",
     __name__,
     template_folder="templates",
-    static_folder="static"
+    static_folder="static",
 )
 
 
@@ -24,5 +24,4 @@ def invoices(invoice_id=None):
         query = query.filter(Invoice.invoice_id == invoice_id)
 
     invoices = query.order_by(Invoice.invoice_id).all()
-    
     return render_template("invoices.html", invoices=invoices)
