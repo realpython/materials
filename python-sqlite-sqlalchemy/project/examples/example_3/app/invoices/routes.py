@@ -19,7 +19,7 @@ def invoices(invoice_id=None):
     # Start the query for invoices
     query = db.session.query(Invoice)
 
-    # Display the invoice for the invocie id passed?
+    # Display the invoice for the invoice id passed?
     if invoice_id is not None:
         query = query.filter(Invoice.invoice_id == invoice_id)
 
