@@ -796,7 +796,7 @@ class PlatformerView(arcade.View):
             victory_view = VictoryView(self, self.victory_sound)
             self.window.show_view(victory_view)
 
-        # Scroll the viewport if necessary
+        # Set the viewport, scrolling if necessary
         self.scroll_viewport()
 
     def scroll_viewport(self) -> None:

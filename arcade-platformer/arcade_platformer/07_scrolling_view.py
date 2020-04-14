@@ -4,13 +4,15 @@
 # Demonstrating the capbilities of arcade in a platformer game
 # Supporting the Arcade Platformer article on https://realpython.com
 #
-# All game artwork and sounds, except the tile map, from www.kenney.nl
-#
+# All game artwork and sounds, except the tile map and victory sound,
+# from www.kenney.nl
+
 
 # Import libraries
 import arcade
-from os import path, chdir
+import pathlib
 
+# Game constants
 # Window dimensions
 SCREEN_WIDTH = 1000
 SCREEN_HEIGHT = 650
@@ -18,13 +20,6 @@ SCREEN_TITLE = "Arcade Platformer"
 
 # Scaling Constants
 MAP_SCALING = 1.0
-CHARACTER_SCALING = 1.0
-
-# Viewport margins
-LEFT_VIEWPORT_MARGIN = 50
-RIGHT_VIEWPORT_MARGIN = 300
-TOP_VIEWPORT_MARGIN = 150
-BOTTOM_VIEWPORT_MARGIN = 150
 
 # Player constants
 GRAVITY = 1.0
@@ -33,22 +28,29 @@ PLAYER_START_Y = 256
 PLAYER_MOVE_SPEED = 10
 PLAYER_JUMP_SPEED = 20
 
+# Viewport margins
+# How close do we have to be to scroll the viewport?
+LEFT_VIEWPORT_MARGIN = 50
+RIGHT_VIEWPORT_MARGIN = 300
+TOP_VIEWPORT_MARGIN = 150
+BOTTOM_VIEWPORT_MARGIN = 150
 
+# Assets path
+ASSETS_PATH = pathlib.Path(__file__).resolve().parent.parent / "assets"
+
+
+# Classes
 class Platformer(arcade.Window):
-    """Platformer class. Derived from arcade.Window, provides all functionality
-    for our game.
+    """PlatformerView class. Derived from arcade.View, provides all functionality
+    from arcade.Window, plus managing different views for our game.
     """
 
-    def __init__(self):
-        # First initial the parent
+    def __init__(self) -> None:
+        """Create the game view"""
+        # First initialize the parent
         super().__init__(SCREEN_WIDTH, SCREEN_HEIGHT, SCREEN_TITLE)
 
-        # Save the path to our game assets
-        self.assets_path = path.join(
-            path.dirname(path.abspath(__file__)), "..", "assets"
-        )
-
-        # These lists hold different sets of sprites
+        # These lists will hold different sets of sprites
         self.coins_list = None
         self.background_list = None
         self.walls_list = None
@@ -59,6 +61,9 @@ class Platformer(arcade.Window):
         # One sprite for the player, no more is needed
         self.player = None
 
+        # We need a physics engine as well
+        self.physics_engine = None
+
         # Someplace to keep score
         self.score = 0
 
@@ -67,29 +72,21 @@ class Platformer(arcade.Window):
 
         # Load up our sounds here
         self.coin_sound = arcade.load_sound(
-            path.join(self.assets_path, "sounds", "coin.wav")
+            str(ASSETS_PATH / "sounds" / "coin.wav")
         )
         self.jump_sound = arcade.load_sound(
-            path.join(self.assets_path, "sounds", "jump.wav")
+            str(ASSETS_PATH / "sounds" / "jump.wav")
+        )
+        self.victory_sound = arcade.load_sound(
+            str(ASSETS_PATH / "sounds" / "victory.wav")
         )
 
-        # We need a physics engine as well
-        self.physics_engine = None
-
-        # Track the bottom left corner of the current viewport
-        self.view_left = 0
-        self.view_bottom = 0
-
-    def setup(self):
-        """Sets up the game for the current level
-        """
-
-        # Change directory to our assets path
-        chdir(self.assets_path)
+    def setup(self) -> None:
+        """Sets up the game for the current level"""
 
         # Get the current map based on the level
         map_name = f"platform_level_{self.level:02}.tmx"
-        map_path = path.join(".", map_name)
+        map_path = ASSETS_PATH / map_name
 
         # What are the names of the layers?
         wall_layer = "ground"
@@ -99,23 +96,23 @@ class Platformer(arcade.Window):
         ladders_layer = "ladders"
 
         # Load the current map
-        map = arcade.tilemap.read_tmx(map_path)
+        map = arcade.tilemap.read_tmx(str(map_path))
 
         # Load the layers
         self.background_list = arcade.tilemap.process_layer(
-            map, background_layer, MAP_SCALING
-        )
-        self.coins_list = arcade.tilemap.process_layer(
-            map, coin_layer, MAP_SCALING
+            map, layer_name=background_layer, scaling=MAP_SCALING
         )
         self.goals_list = arcade.tilemap.process_layer(
-            map, goal_layer, MAP_SCALING
+            map, layer_name=goal_layer, scaling=MAP_SCALING
         )
         self.walls_list = arcade.tilemap.process_layer(
-            map, wall_layer, MAP_SCALING
+            map, layer_name=wall_layer, scaling=MAP_SCALING
         )
         self.ladders_list = arcade.tilemap.process_layer(
-            map, ladders_layer, MAP_SCALING
+            map, layer_name=ladders_layer, scaling=MAP_SCALING
+        )
+        self.coins_list = arcade.tilemap.process_layer(
+            map, layer_name=coin_layer, scaling=MAP_SCALING
         )
 
         # Set the background color
@@ -132,32 +129,40 @@ class Platformer(arcade.Window):
             self.player = self.create_player_sprite()
 
         # If we have a player sprite, we need to move it back to the beginning
-        else:
-            self.player.center_x = PLAYER_START_X
-            self.player.center_y = PLAYER_START_Y
+        self.player.center_x = PLAYER_START_X
+        self.player.center_y = PLAYER_START_Y
+        self.player.change_x = 0
+        self.player.change_y = 0
+
+        # Reset the viewport
+        self.view_left = 0
+        self.view_bottom = 0
 
         # Load the physics engine for this map
         self.physics_engine = arcade.PhysicsEnginePlatformer(
-            self.player, self.walls_list, GRAVITY, self.ladders_list
+            player_sprite=self.player,
+            platforms=self.walls_list,
+            gravity_constant=GRAVITY,
+            ladders=self.ladders_list,
         )
 
     def create_player_sprite(self) -> arcade.AnimatedWalkingSprite:
-        """"Creates the animated player sprite
-        
+        """Creates the animated player sprite
+
         Returns:
-            arcade.AnimatedWalkingSprite -- The properly setup player sprite
+            The properly setup player sprite
         """
         # Where are the player images stored?
-        texture_path = path.join(self.assets_path, "images", "player")
+        texture_path = ASSETS_PATH / "images" / "player"
 
         # Setup the appropriate textures
         walking_paths = [
-            path.join(texture_path, f"alienGreen_walk{x}.png") for x in (1, 2)
+            texture_path / f"alienGreen_walk{x}.png" for x in (1, 2)
         ]
         climbing_paths = [
-            path.join(texture_path, f"alienGreen_climb{x}.png") for x in (1, 2)
+            texture_path / f"alienGreen_climb{x}.png" for x in (1, 2)
         ]
-        standing_path = path.join(texture_path, "alienGreen_stand.png")
+        standing_path = texture_path / "alienGreen_stand.png"
 
         # Load them all now
         walking_right_textures = [
@@ -202,71 +207,12 @@ class Platformer(arcade.Window):
 
         return player
 
-    def on_draw(self):
-        """Draws everything
-        """
-
-        arcade.start_render()
-
-        # Draw all the sprites
-        self.background_list.draw()
-        self.walls_list.draw()
-        self.coins_list.draw()
-        self.goals_list.draw()
-        self.ladders_list.draw()
-        self.player.draw()
-
-    def on_update(self, delta_time: float):
-        """Updates the position of all screen objects
-        
-        Arguments:
-            delta_time {float} -- How much time since the last call
-        """
-
-        # Update player movement based on the physics engine
-        self.physics_engine.update()
-
-        # Restrict user movement so they can't walk off screen
-        if self.player.left < 0:
-            self.player.left = 0
-
-        # Update the player animation
-        self.player.update_animation()
-
-        # Check if we've picked up a coin
-        coins_hit = arcade.check_for_collision_with_list(
-            self.player, self.coins_list
-        )
-
-        for coin in coins_hit:
-            # Add the coin score to our score
-            self.score += coin.properties["point_value"]
-
-            # Play the coin sound
-            arcade.play_sound(self.coin_sound)
-
-            # Remove the coin
-            coin.remove_from_sprite_lists()
-
-        # Now check if we're at the ending goal
-        goals_hit = arcade.check_for_collision_with_list(
-            self.player, self.goals_list
-        )
-
-        for goal in goals_hit:
-            # Setup the next level
-            self.level += 1
-            self.setup()
-
-        # Scroll the viewport if necessary
-        self.scroll_viewport()
-
-    def on_key_press(self, key: int, modifiers: int):
+    def on_key_press(self, key: int, modifiers: int) -> None:
         """Processes key presses
-        
+
         Arguments:
-            key {int} -- Which key was pressed
-            modifiers {int} -- Which modifiers were down at the time
+            key -- Which key was pressed
+            modifiers -- Which modifiers were down at the time
         """
 
         # Check for player left/right movement
@@ -290,12 +236,12 @@ class Platformer(arcade.Window):
                 # Play the jump sound
                 arcade.play_sound(self.jump_sound)
 
-    def on_key_release(self, key: int, modifiers: int):
+    def on_key_release(self, key: int, modifiers: int) -> None:
         """Processes key releases
-        
+
         Arguments:
-            key {int} -- Which key was released
-            modifiers {int} -- Which modifiers were down at the time
+            key -- The key which was released
+            modifiers -- Which modifiers were down at the time
         """
 
         # Check for player left/right movement
@@ -317,13 +263,56 @@ class Platformer(arcade.Window):
             if self.physics_engine.is_on_ladder():
                 self.player.change_y = 0
 
-    def scroll_viewport(self):
-        """Scrolls the viewport when the player gets close to the edges
+    def on_update(self, delta_time: float) -> None:
+        """Updates the position of all screen objects
+
+        Arguments:
+            delta_time -- How much time since the last call
         """
 
-        # By default, don't change anything
-        changed_viewport = False
+        # Update the player animation
+        self.player.update_animation(delta_time)
 
+        # Update player movement based on the physics engine
+        self.physics_engine.update()
+
+        # Restrict user movement so they can't walk off screen
+        if self.player.left < 0:
+            self.player.left = 0
+
+        # Check if we've picked up a coin
+        coins_hit = arcade.check_for_collision_with_list(
+            sprite=self.player, sprite_list=self.coins_list
+        )
+
+        for coin in coins_hit:
+            # Add the coin score to our score
+            self.score += int(coin.properties["point_value"])
+
+            # Play the coin sound
+            arcade.play_sound(self.coin_sound)
+
+            # Remove the coin
+            coin.remove_from_sprite_lists()
+
+        # Now check if we're at the ending goal
+        goals_hit = arcade.check_for_collision_with_list(
+            sprite=self.player, sprite_list=self.goals_list
+        )
+
+        if goals_hit:
+            # Play the victory sound
+            self.victory_sound.play()
+
+            # Setup the next level
+            self.level += 1
+            self.setup()
+
+        # Set the viewport, scrolling if necessary
+        self.scroll_viewport()
+
+    def scroll_viewport(self) -> None:
+        """Scrolls the viewport when the player gets close to the edges"""
         # Scroll left
         # Find the current left boundary
         left_boundary = self.view_left + LEFT_VIEWPORT_MARGIN
@@ -334,8 +323,6 @@ class Platformer(arcade.Window):
             # But don't scroll past the left edge of the map
             if self.view_left < 0:
                 self.view_left = 0
-            else:
-                changed_viewport = True
 
         # Scroll right
         # Find the current right boundary
@@ -345,36 +332,44 @@ class Platformer(arcade.Window):
         if self.player.right > right_boundary:
             self.view_left += self.player.right - right_boundary
             # Don't scroll past the right edge of the map
-            if self.view_left + SCREEN_WIDTH > self.map_width:
+            if self.view_left > self.map_width - SCREEN_WIDTH:
                 self.view_left = self.map_width - SCREEN_WIDTH
-            else:
-                changed_viewport = True
 
         # Scroll up
         top_boundary = self.view_bottom + SCREEN_HEIGHT - TOP_VIEWPORT_MARGIN
         if self.player.top > top_boundary:
             self.view_bottom += self.player.top - top_boundary
-            changed_viewport = True
 
         # Scroll down
         bottom_boundary = self.view_bottom + BOTTOM_VIEWPORT_MARGIN
         if self.player.bottom < bottom_boundary:
             self.view_bottom -= bottom_boundary - self.player.bottom
-            changed_viewport = True
 
-        if changed_viewport:
-            # Only scroll to integers. Otherwise we end up with pixels that
-            # don't line up on the screen
-            self.view_bottom = int(self.view_bottom)
-            self.view_left = int(self.view_left)
+        # Only scroll to integers. Otherwise we end up with pixels that
+        # don't line up on the screen
+        self.view_bottom = int(self.view_bottom)
+        self.view_left = int(self.view_left)
 
-            # Do the scrolling
-            arcade.set_viewport(
-                self.view_left,
-                SCREEN_WIDTH + self.view_left,
-                self.view_bottom,
-                SCREEN_HEIGHT + self.view_bottom,
-            )
+        # Do the scrolling
+        arcade.set_viewport(
+            left=self.view_left,
+            right=SCREEN_WIDTH + self.view_left,
+            bottom=self.view_bottom,
+            top=SCREEN_HEIGHT + self.view_bottom,
+        )
+
+    def on_draw(self) -> None:
+        """Draws everything"""
+
+        arcade.start_render()
+
+        # Draw all the sprites
+        self.background_list.draw()
+        self.walls_list.draw()
+        self.coins_list.draw()
+        self.goals_list.draw()
+        self.ladders_list.draw()
+        self.player.draw()
 
 
 # Main
