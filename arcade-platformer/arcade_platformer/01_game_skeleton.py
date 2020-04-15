@@ -13,8 +13,8 @@ import arcade
 
 # Classes
 class Platformer(arcade.Window):
-    """Platformer class. Derived from arcade.Window, provides all functionality
-    for our game.
+    """Platformer class. Derived from arcade.Window,
+    manages different aspects of the game.
     """
 
     def __init__(self):

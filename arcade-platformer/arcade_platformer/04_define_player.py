@@ -32,8 +32,8 @@ ASSETS_PATH = pathlib.Path(__file__).resolve().parent.parent / "assets"
 
 # Classes
 class Platformer(arcade.Window):
-    """PlatformerView class. Derived from arcade.View, provides all functionality
-    from arcade.Window, plus managing different views for our game.
+    """Platformer class. Derived from arcade.Window,
+    manages different aspects of the game.
     """
 
     def __init__(self) -> None:
