@@ -9,6 +9,7 @@
 
 
 # Import libraries
+from os import sync
 import pathlib
 
 import arcade
@@ -481,19 +482,41 @@ class PlatformerView(arcade.View):
             scaling=game.MAP_SCALING,
         )
         for sprite in moving_platforms_list:
+            # Set the initial position of each moving platform
+            if "boundary_left" in sprite.properties:
+                sprite.left = sprite.properties["boundary_left"]
+            if "boundary_bottom" in sprite.properties:
+                sprite.bottom = sprite.properties["boundary_bottom"]
+
             self.walls_list.append(sprite)
 
-        # Set the initial position of each moving platform to the left and/or
-        # bottom
-        for moving_platform in moving_platforms_list:
-            if "boundary_left" in moving_platform.properties:
-                moving_platform.left = moving_platform.properties[
-                    "boundary_left"
-                ]
-            if "boundary_bottom" in moving_platform.properties:
-                moving_platform.bottom = moving_platform.properties[
-                    "boundary_bottom"
-                ]
+        # Process synchronized platforms
+        synchronized_platforms_layer_name = "synch_platforms"
+        synchronized_platforms_list = arcade.tilemap.process_layer(
+            map,
+            layer_name=synchronized_platforms_layer_name,
+            scaling=game.MAP_SCALING,
+        )
+
+        # Create a dict of grouped sprites
+        self.synchronized_groups = {}
+        for sprite in synchronized_platforms_list:
+            # Get the current group number
+            current_group = sprite.properties["group"]
+            # If this group number isn't in the dict, create a new list
+            if current_group not in self.synchronized_groups.keys():
+                self.synchronized_groups[current_group] = list()
+            # Append the sprite to the given list
+            self.synchronized_groups[current_group].append(sprite)
+
+            # Set the initial position of each moving platform
+            if "boundary_left" in sprite.properties:
+                sprite.left = sprite.properties["boundary_left"]
+            if "boundary_bottom" in sprite.properties:
+                sprite.bottom = sprite.properties["boundary_bottom"]
+
+            # Add each sprite to the walls list so collision works
+            self.walls_list.append(sprite)
 
         # Set the background color
         background_color = arcade.color.AERO_BLUE
@@ -761,6 +784,22 @@ class PlatformerView(arcade.View):
         # Restrict user movement so they can't walk off screen
         if self.player.left < 0:
             self.player.left = 0
+
+        # Update the synchronized platforms
+        for synch_group in self.synchronized_groups.values():
+            # Find the master
+            
+            for sprite in synch_group:
+                if sprite.properties["order"] == 0:
+                    master = sprite
+
+            # Update the rest based on the master
+            for sprite in synch_group:
+                if sprite.properties["order"] != 0:
+                    diff_x = sprite.properties["diff_x"]
+                    diff_y = sprite.properties["diff_y"]
+                    sprite.left = master.left + diff_x
+                    sprite.bottom = master.bottom + diff_y
 
         # Check if we've picked up a coin
         coins_hit = arcade.check_for_collision_with_list(

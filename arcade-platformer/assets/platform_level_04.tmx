@@ -1,43 +1,75 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.2" tiledversion="1.3.1" orientation="orthogonal" renderorder="right-down" compressionlevel="0" width="25" height="20" tilewidth="128" tileheight="128" infinite="0" backgroundcolor="#72cdd5" nextlayerid="7" nextobjectid="37">
+<map version="1.2" tiledversion="1.3.4" orientation="orthogonal" renderorder="right-down" compressionlevel="0" width="25" height="20" tilewidth="128" tileheight="128" infinite="0" backgroundcolor="#72cdd5" nextlayerid="8" nextobjectid="43">
  <tileset firstgid="1" source="arcade_platformer.tsx"/>
  <layer id="1" name="ground" width="25" height="20">
   <data encoding="base64" compression="zlib">
    eAFjYBgFQy0EuIAO5kbCPGgeYAHyBdEwKxlq0LSMcskMAfT4QI8LmLHEqoOpH6XJCwHkcMYVFzCTSVEL0zNKkxYCsDAmFBekmUqaavTyEsQXAmJ20oxBUc0G5CGbywzkY8MomsjgIJsJAGJwAnw=
   </data>
  </layer>
- <objectgroup id="6" name="moving_platforms">
+ <objectgroup id="7" name="synch_platforms">
   <object id="16" gid="13" x="960" y="2350" width="128" height="128">
    <properties>
-    <property name="boundary_bottom" type="float" value="192"/>
-    <property name="boundary_top" type="float" value="640"/>
+    <property name="boundary_bottom" type="float" value="128"/>
+    <property name="boundary_top" type="float" value="768"/>
     <property name="change_y" type="float" value="4"/>
+    <property name="group" type="int" value="0"/>
+    <property name="order" type="int" value="0"/>
    </properties>
   </object>
-  <object id="17" gid="13" x="1280" y="2100" width="128" height="128"/>
   <object id="18" gid="13" x="960" y="1838" width="128" height="128">
    <properties>
-    <property name="boundary_bottom" type="float" value="576"/>
-    <property name="boundary_top" type="float" value="1088"/>
-    <property name="change_y" type="float" value="4"/>
+    <property name="diff_x" type="float" value="0"/>
+    <property name="diff_y" type="float" value="512"/>
+    <property name="group" type="int" value="0"/>
+    <property name="order" type="int" value="1"/>
    </properties>
   </object>
-  <object id="19" gid="13" x="1280" y="1588" width="128" height="128"/>
   <object id="20" gid="13" x="960" y="1326" width="128" height="128">
    <properties>
-    <property name="boundary_bottom" type="float" value="1216"/>
-    <property name="boundary_top" type="float" value="1664"/>
-    <property name="change_y" type="float" value="4"/>
+    <property name="diff_x" type="float" value="0"/>
+    <property name="diff_y" type="float" value="940"/>
+    <property name="group" type="int" value="0"/>
+    <property name="order" type="int" value="2"/>
    </properties>
   </object>
-  <object id="21" gid="13" x="1280" y="1076" width="128" height="128"/>
   <object id="22" gid="13" x="960" y="814" width="128" height="128">
    <properties>
-    <property name="boundary_bottom" type="float" value="1728"/>
-    <property name="boundary_top" type="float" value="2176"/>
-    <property name="change_y" type="float" value="4"/>
+    <property name="diff_x" type="float" value="0"/>
+    <property name="diff_y" type="float" value="1408"/>
+    <property name="group" type="int" value="0"/>
+    <property name="order" type="int" value="3"/>
    </properties>
   </object>
+  <object id="37" gid="13" x="1990" y="2228.34" width="128" height="128">
+   <properties>
+    <property name="boundary_bottom" type="float" value="128"/>
+    <property name="boundary_top" type="float" value="768"/>
+    <property name="change_y" type="float" value="4"/>
+    <property name="group" type="int" value="1"/>
+    <property name="order" type="int" value="0"/>
+   </properties>
+  </object>
+  <object id="38" gid="13" x="1990" y="1789.66" width="128" height="128">
+   <properties>
+    <property name="diff_x" type="float" value="0"/>
+    <property name="diff_y" type="float" value="512"/>
+    <property name="group" type="int" value="1"/>
+    <property name="order" type="int" value="1"/>
+   </properties>
+  </object>
+  <object id="39" gid="13" x="1990" y="1318" width="128" height="128">
+   <properties>
+    <property name="diff_x" type="float" value="0"/>
+    <property name="diff_y" type="float" value="1024"/>
+    <property name="group" type="int" value="1"/>
+    <property name="order" type="int" value="2"/>
+   </properties>
+  </object>
+ </objectgroup>
+ <objectgroup id="6" name="moving_platforms">
+  <object id="17" gid="13" x="1280" y="2100" width="128" height="128"/>
+  <object id="19" gid="13" x="1280" y="1588" width="128" height="128"/>
+  <object id="21" gid="13" x="1280" y="1076" width="128" height="128"/>
   <object id="23" gid="13" x="1820" y="640" width="128" height="128">
    <properties>
     <property name="boundary_left" type="float" value="1820"/>
@@ -45,6 +77,9 @@
     <property name="change_x" type="float" value="4"/>
    </properties>
   </object>
+  <object id="40" gid="13" x="1792" y="2100" width="128" height="128"/>
+  <object id="41" gid="13" x="1792" y="1588" width="128" height="128"/>
+  <object id="42" gid="13" x="1792" y="1076" width="128" height="128"/>
  </objectgroup>
  <layer id="3" name="goal" width="25" height="20">
   <data encoding="base64" compression="zlib">
