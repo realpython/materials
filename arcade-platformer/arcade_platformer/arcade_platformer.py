@@ -788,7 +788,6 @@ class PlatformerView(arcade.View):
         # Update the synchronized platforms
         for synch_group in self.synchronized_groups.values():
             # Find the master
-            
             for sprite in synch_group:
                 if sprite.properties["order"] == 0:
                     master = sprite
@@ -796,10 +795,8 @@ class PlatformerView(arcade.View):
             # Update the rest based on the master
             for sprite in synch_group:
                 if sprite.properties["order"] != 0:
-                    diff_x = sprite.properties["diff_x"]
-                    diff_y = sprite.properties["diff_y"]
-                    sprite.left = master.left + diff_x
-                    sprite.bottom = master.bottom + diff_y
+                    sprite.left = master.left + sprite.properties["diff_x"]
+                    sprite.bottom = master.bottom + sprite.properties["diff_y"]
 
         # Check if we've picked up a coin
         coins_hit = arcade.check_for_collision_with_list(
