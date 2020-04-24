@@ -1,6 +1,6 @@
 # PyCalc
 
-PyCalc is a sample calculator implemented using Python 3, and with a [PyQt5](https://www.riverbankcomputing.com/static/Docs/PyQt5/introduction.html) GUI. PyCalc implements the most basic math operations, that is, division, multiplication, addition, and subtraction.
+PyCalc is a sample calculator implemented using Python 3 and with a [PyQt5](https://www.riverbankcomputing.com/static/Docs/PyQt5/introduction.html) GUI. PyCalc implements the most basic math operations, that is, division, multiplication, addition, and subtraction.
 
 PyCalc is intended to be a demonstrative example on how you can implement a Python + PyQt5 GUI application using the Model-View-Controller (MVC) pattern.
 
@@ -40,7 +40,7 @@ After running this command, you'll see PyCalc running on your screen.
 
 ## How to Use PyCalc
 
-To use PyCalc, you just need to enter a valid math expression using your mouse, and then press `Enter` or click on the `=` sign:
+To use PyCalc, you just need to enter a valid math expression using your mouse and then press `Enter` or click on the `=` sign:
 
 ![Screenshot](pycalc-howto.gif)
 
