@@ -6,10 +6,10 @@ import sys
 
 from PyQt5.QtWidgets import QApplication
 from PyQt5.QtWidgets import QDialog
+from PyQt5.QtWidgets import QDialogButtonBox
+from PyQt5.QtWidgets import QFormLayout
 from PyQt5.QtWidgets import QLineEdit
 from PyQt5.QtWidgets import QVBoxLayout
-from PyQt5.QtWidgets import QFormLayout
-from PyQt5.QtWidgets import QDialogButtonBox
 
 
 class Dialog(QDialog):
