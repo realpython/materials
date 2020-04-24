@@ -62,8 +62,12 @@ class Platformer(arcade.Window):
         self.level = 1
 
         # Load up our sounds here
-        self.coin_sound = arcade.load_sound(str(ASSETS_PATH / "sounds" / "coin.wav"))
-        self.jump_sound = arcade.load_sound(str(ASSETS_PATH / "sounds" / "jump.wav"))
+        self.coin_sound = arcade.load_sound(
+            str(ASSETS_PATH / "sounds" / "coin.wav")
+        )
+        self.jump_sound = arcade.load_sound(
+            str(ASSETS_PATH / "sounds" / "jump.wav")
+        )
         self.victory_sound = arcade.load_sound(
             str(ASSETS_PATH / "sounds" / "victory.wav")
         )
@@ -136,8 +140,12 @@ class Platformer(arcade.Window):
         texture_path = ASSETS_PATH / "images" / "player"
 
         # Setup the appropriate textures
-        walking_paths = [texture_path / f"alienGreen_walk{x}.png" for x in (1, 2)]
-        climbing_paths = [texture_path / f"alienGreen_climb{x}.png" for x in (1, 2)]
+        walking_paths = [
+            texture_path / f"alienGreen_walk{x}.png" for x in (1, 2)
+        ]
+        climbing_paths = [
+            texture_path / f"alienGreen_climb{x}.png" for x in (1, 2)
+        ]
         standing_path = texture_path / "alienGreen_stand.png"
 
         # Load them all now
@@ -145,7 +153,8 @@ class Platformer(arcade.Window):
             arcade.load_texture(texture) for texture in walking_paths
         ]
         walking_left_textures = [
-            arcade.load_texture(texture, mirrored=True) for texture in walking_paths
+            arcade.load_texture(texture, mirrored=True)
+            for texture in walking_paths
         ]
 
         walking_up_textures = [
@@ -157,7 +166,9 @@ class Platformer(arcade.Window):
 
         standing_right_textures = [arcade.load_texture(standing_path)]
 
-        standing_left_textures = [arcade.load_texture(standing_path, mirrored=True)]
+        standing_left_textures = [
+            arcade.load_texture(standing_path, mirrored=True)
+        ]
 
         # Create the sprite
         player = arcade.AnimatedWalkingSprite()
