@@ -291,9 +291,9 @@ def plot_with_legend(
     all_plots = []
     for data, label in zip(y_data, legend_labels):
         if log:
-            temp, = plt.loglog(x_range, data, label=label)
+            (temp,) = plt.loglog(x_range, data, label=label)
         else:
-            temp, = plt.plot(x_range, data, label=label)
+            (temp,) = plt.plot(x_range, data, label=label)
         all_plots.append(temp)
 
     plt.title(title)
