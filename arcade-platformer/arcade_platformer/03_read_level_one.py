@@ -128,7 +128,7 @@ class Platformer(arcade.Window):
 
     def on_key_press(self, key: int, modifiers: int):
         """Processes key presses
-        
+
         Arguments:
             key {int} -- Which key was pressed
             modifiers {int} -- Which modifiers were down at the time
@@ -136,7 +136,7 @@ class Platformer(arcade.Window):
 
     def on_key_release(self, key: int, modifiers: int):
         """Processes key releases
-        
+
         Arguments:
             key {int} -- Which key was released
             modifiers {int} -- Which modifiers were down at the time
@@ -144,7 +144,7 @@ class Platformer(arcade.Window):
 
     def on_update(self, delta_time: float):
         """Updates the position of all screen objects
-        
+
         Arguments:
             delta_time {float} -- How much time since the last call
         """
