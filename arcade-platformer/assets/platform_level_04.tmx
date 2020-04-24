@@ -73,7 +73,7 @@
   <object id="23" gid="13" x="1820" y="640" width="128" height="128">
    <properties>
     <property name="boundary_left" type="float" value="1820"/>
-    <property name="boundary_right" type="float" value="1960"/>
+    <property name="boundary_right" type="float" value="2088"/>
     <property name="change_x" type="float" value="4"/>
    </properties>
   </object>

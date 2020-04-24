@@ -9,7 +9,6 @@
 
 
 # Import libraries
-from os import sync
 import pathlib
 
 import arcade
