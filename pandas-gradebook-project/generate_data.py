@@ -29,6 +29,8 @@ def get_middle_name():
 
 @dataclass
 class Student:
+    """The attributes of this class describe a student at Univ."""
+
     first_name: str = field(default_factory=fake.first_name)
     last_name: str = field(default_factory=fake.last_name)
     psid: int = field(default_factory=get_psid)
@@ -40,6 +42,7 @@ class Student:
     full_name: str = field(init=False)
 
     def __post_init__(self):
+        """Create attributes that depend on other attributes."""
         m = (
             self.middle_name[0].lower()
             if self.middle_name is not None
@@ -69,6 +72,7 @@ class Student:
             self.full_name += f" {self.middle_name}"
 
 
+# These 4 students are used as examples in the tutorial, so they're manually generated.
 students = [
     Student(
         "Woody",
