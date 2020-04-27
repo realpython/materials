@@ -56,19 +56,30 @@ for n in range(1, n_exams + 1):
         final_data[f"Exam {n}"] / final_data[f"Exam {n} - Max Points"]
     )
 
+# print(
+#     final_data.loc[
+#         ["wxb12345", "mxl12345", "txj12345", "jgf12345"],
+#         [f"Exam {n} Score" for n in range(1, n_exams + 1)],
+#     ].to_markdown()
+# )
+
 homework_scores = final_data.filter(regex=r"^Homework \d\d?$", axis=1)
 homework_max_points = final_data.filter(regex=r"^Homework \d\d? -", axis=1)
-
-# print(homework_scores.to_markdown())
 
 sum_of_hw_scores = homework_scores.sum(axis=1)
 sum_of_hw_max = homework_max_points.sum(axis=1)
 final_data["Total Homework"] = sum_of_hw_scores / sum_of_hw_max
 
 # print(
-#     sum_of_hw_scores.to_markdown(),
-#     sum_of_hw_max.to_markdown(),
-#     final_data["Total Homework"].to_markdown(),
+#     pd.concat(
+#         [sum_of_hw_scores, sum_of_hw_max, final_data["Total Homework"]], axis=1
+#     )
+#     .set_axis(
+#         ["Sum of Homework Scores", "Sum of Max Scores", "Total Homework"],
+#         axis=1,
+#     )
+#     .loc[["wxb12345", "mxl12345", "txj12345", "jgf12345"]]
+#     .to_markdown()
 # )
 
 hw_max_renamed = homework_max_points.set_axis(homework_scores.columns, axis=1)
@@ -76,18 +87,26 @@ overall_hw_scores = (homework_scores / hw_max_renamed).sum(axis=1)
 final_data["Overall Homework"] = overall_hw_scores / homework_scores.shape[1]
 
 # print(
-#     overall_hw_scores.to_markdown(),
-#     final_data["Overall Homework"].to_markdown(),
+#     pd.concat([overall_hw_scores, final_data["Overall Homework"]], axis=1)
+#     .set_axis(["Sum of Overall Homework Scores", "Overall Homework"], axis=1)
+#     .loc[["wxb12345", "mxl12345", "txj12345", "jgf12345"]]
+#     .to_markdown()
 # )
 
 final_data["Homework Score"] = final_data[
     ["Total Homework", "Overall Homework"]
 ].max(axis=1)
 
+# print(
+#     final_data.loc[
+#         ["wxb12345", "mxl12345", "txj12345", "jgf12345"],
+#         ["Total Homework", "Overall Homework", "Homework Score"],
+#     ].to_markdown()
+# )
 
 quiz_scores = final_data.filter(regex=r"^Quiz \d$", axis=1)
 quiz_max_points = pd.Series(
-    {"Quiz 1": 11, "Quiz 2": 15, "Quiz 3": 16, "Quiz 4": 16, "Quiz 5": 11}
+    {"Quiz 1": 11, "Quiz 2": 15, "Quiz 3": 17, "Quiz 4": 14, "Quiz 5": 12}
 )
 
 sum_of_quiz_scores = quiz_scores.sum(axis=1)
@@ -100,6 +119,13 @@ final_data["Overall Quizzes"] = overall_quiz_scores / quiz_scores.shape[1]
 final_data["Quiz Score"] = final_data[
     ["Total Quizzes", "Overall Quizzes"]
 ].max(axis=1)
+
+# print(
+#     final_data.loc[
+#         ["wxb12345", "mxl12345", "txj12345", "jgf12345"],
+#         ["Total Quizzes", "Overall Quizzes", "Quiz Score"],
+#     ].to_markdown()
+# )
 
 weightings = pd.Series(
     {
@@ -116,7 +142,12 @@ final_data["Final Score"] = (final_data[weightings.index] * weightings).sum(
 )
 final_data["Ceiling Score"] = np.ceil(final_data["Final Score"] * 100)
 
-# print(final_data[["Final Score", "Ceiling Score"]].to_markdown())
+# print(
+#     final_data.loc[
+#         ["wxb12345", "mxl12345", "txj12345", "jgf12345"],
+#         ["Final Score", "Ceiling Score"],
+#     ].to_markdown()
+# )
 
 grades = {
     90: "A",
@@ -137,4 +168,9 @@ letter_grades = final_data["Ceiling Score"].map(grade_mapping)
 final_data["Final Grade"] = pd.Categorical(
     letter_grades, categories=grades.values(), ordered=True
 )
-print(final_data["Final Grade"].to_markdown())
+
+# print(
+#     final_data.loc[
+#         ["wxb12345", "mxl12345", "txj12345", "jgf12345"], ["Final Grade"],
+#     ].to_markdown()
+# )

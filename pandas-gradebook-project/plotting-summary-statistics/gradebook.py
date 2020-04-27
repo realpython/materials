@@ -75,7 +75,7 @@ final_data["Homework Score"] = final_data[
 
 quiz_scores = final_data.filter(regex=r"^Quiz \d$", axis=1)
 quiz_max_points = pd.Series(
-    {"Quiz 1": 17, "Quiz 2": 14, "Quiz 3": 12, "Quiz 4": 19, "Quiz 5": 15}
+    {"Quiz 1": 11, "Quiz 2": 15, "Quiz 3": 17, "Quiz 4": 14, "Quiz 5": 12}
 )
 
 sum_of_quiz_scores = quiz_scores.sum(axis=1)
@@ -123,7 +123,6 @@ letter_grades = final_data["Ceiling Score"].map(grade_mapping)
 final_data["Final Grade"] = pd.Categorical(
     letter_grades, categories=grades.values(), ordered=True
 )
-print(final_data["Final Grade"])
 
 for section, table in final_data.groupby("Section"):
     print(f"In Section {section} there are {table.shape[0]} students.")

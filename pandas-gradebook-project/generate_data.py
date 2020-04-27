@@ -9,7 +9,7 @@ from faker import Faker
 import pandas as pd
 from dateutil import parser, rrule
 
-rg = np.random.default_rng()
+rg = np.random.default_rng(11111)
 
 fake = Faker()
 HERE = Path(__file__).parent
@@ -107,7 +107,7 @@ students = [
     ),
 ]
 
-n_students = 100
+n_students = 150
 n_fake_students = n_students - len(students)
 students.extend(Student() for _ in range(n_fake_students))
 
@@ -222,7 +222,13 @@ for n in range(1, n_exams + 1):
     hw_exam_cols.extend(
         f"Exam {n} - {s}" for s in ["Max Points", "Submission Time"]
     )
-hw_exam_grades = hw_exam_grades[hw_exam_cols].sort_values(by="First Name")
+hw_exam_grades = hw_exam_grades[hw_exam_cols]
+hw_exam_grades = hw_exam_grades.sort_values(by="First Name")
+
+# Munge some of the data to show different things in the article
+hw_exam_grades.loc[hw_exam_grades["SID"] == "jgf12345", "First Name"] = "Gregg"
+hw_exam_grades.loc[hw_exam_grades["SID"] == "txj12345", "Homework 1"] = np.nan
+
 hw_exam_grades.to_csv(HERE / "data" / "hw_exam_grades.csv", index=False)
 
 for col in range(1, n_quizzes + 1):

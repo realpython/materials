@@ -43,9 +43,26 @@ final_data = pd.merge(
     roster, hw_exam_grades, left_index=True, right_index=True,
 )
 
+# print(
+#     final_data.loc[
+#         ["wxb12345", "mxl12345", "txj12345", "jgf12345"]
+#     ].to_markdown()
+# )
+
 final_data = pd.merge(
     final_data, quiz_grades, left_on="Email Address", right_index=True
 )
 
+# print(
+#     final_data.loc[
+#         ["wxb12345", "mxl12345", "txj12345", "jgf12345"]
+#     ].to_markdown()
+# )
+
 final_data = final_data.fillna(0)
-print(final_data.to_markdown())
+
+# print(
+#     final_data.loc[
+#         ["wxb12345", "mxl12345", "txj12345", "jgf12345"]
+#     ].to_markdown()
+# )

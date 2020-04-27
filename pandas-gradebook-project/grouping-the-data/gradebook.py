@@ -74,7 +74,7 @@ final_data["Homework Score"] = final_data[
 
 quiz_scores = final_data.filter(regex=r"^Quiz \d$", axis=1)
 quiz_max_points = pd.Series(
-    {"Quiz 1": 11, "Quiz 2": 15, "Quiz 3": 16, "Quiz 4": 16, "Quiz 5": 11}
+    {"Quiz 1": 11, "Quiz 2": 15, "Quiz 3": 17, "Quiz 4": 14, "Quiz 5": 12}
 )
 
 sum_of_quiz_scores = quiz_scores.sum(axis=1)
