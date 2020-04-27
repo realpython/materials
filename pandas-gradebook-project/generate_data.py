@@ -1,7 +1,7 @@
 """Generate random data for the project."""
 from dataclasses import dataclass, field, asdict
 from typing import Optional
-from random import choice
+from random import choice, seed as py_rand_seed
 from pathlib import Path
 
 import numpy as np
@@ -9,9 +9,13 @@ from faker import Faker
 import pandas as pd
 from dateutil import parser, rrule
 
-rg = np.random.default_rng(11111)
-
 fake = Faker()
+
+seed = 11111
+fake.seed_instance(seed)
+py_rand_seed(seed)
+rg = np.random.default_rng(seed)
+
 HERE = Path(__file__).parent
 
 
@@ -247,7 +251,7 @@ for col in range(1, n_quizzes + 1):
             "Quiz 4 Grade": "Grade",
             "Quiz 5 Grade": "Grade",
         }
-    ).sample(frac=1).to_csv(
+    ).sample(frac=1, random_state=col).to_csv(
         HERE / "data" / f"quiz_{col}_grades.csv", index=False
     )
 
