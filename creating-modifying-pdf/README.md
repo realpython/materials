@@ -8,4 +8,4 @@ There are two subfolders in this folder:
 2. **`source_code/`:** Contains source code from the chapter
 
 TODO:
-- [] Add source code files
+- [ ] Add source code files
