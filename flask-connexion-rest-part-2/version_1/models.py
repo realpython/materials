@@ -10,10 +10,11 @@ class Person(db.Model):
     timestamp = db.Column(
         db.DateTime, default=datetime.utcnow, onupdate=datetime.utcnow
     )
-    
+
+
 # flask-marshmallow<0.12.0
 
-#class PersonSchema(ma.ModelSchema):
+# class PersonSchema(ma.ModelSchema):
 #    class Meta:
 #        model = Person
 #        sqla_session = db.session
@@ -22,5 +23,4 @@ class Person(db.Model):
 class AuthorSchema(ma.SQLAlchemyAutoSchema):
     class Meta:
         model = Person
-        sqla_session= db.session
-       
+        sqla_session = db.session
