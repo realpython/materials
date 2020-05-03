@@ -38,7 +38,7 @@ def service_connection(key, mask):
             print("echoing", repr(data.outb), "to", data.addr)
             sent = sock.send(data.outb)  # Should be ready to write
             data.outb = data.outb[sent:]
-        elif len(pending_messages) and pending_messages[0][0] == key.fd:
+        elif len(pending_messages) > 0 and pending_messages[0][0] == key.fd:
             data.outb = pending_messages[0][1]
             pending_messages.pop(0)
 
