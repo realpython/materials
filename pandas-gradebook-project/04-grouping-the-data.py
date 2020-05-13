@@ -11,10 +11,9 @@ to calculate final grades for a class.
 from pathlib import Path
 import pandas as pd
 import numpy as np
-import matplotlib.pyplot as plt
 
 HERE = Path(__file__).parent
-DATA_FOLDER = HERE.parent / "data"
+DATA_FOLDER = HERE / "data"
 
 roster = pd.read_csv(
     DATA_FOLDER / "roster.csv",
@@ -129,24 +128,3 @@ for section, table in final_data.groupby("Section"):
     table.sort_values(by=["Last Name", "First Name"]).to_csv(
         DATA_FOLDER / f"Section {section} Grades.csv"
     )
-
-grade_counts = final_data["Final Grade"].value_counts().sort_index()
-grade_counts.plot.bar()
-plt.show()
-
-final_data["Final Score"].plot.hist(bins=20, label="Histogram")
-final_data["Final Score"].plot.density(
-    linewidth=4, label="Kernel Density Estimate"
-)
-
-final_mean = final_data["Final Score"].mean()
-final_std = final_data["Final Score"].std()
-x = np.linspace(final_mean - 5 * final_std, final_mean + 5 * final_std, 200)
-normal_dist = (
-    1
-    / (final_std * np.sqrt(2 * np.pi))
-    * np.exp(-1 / 2 * ((x - final_mean) / final_std) ** 2)
-)
-plt.plot(x, normal_dist, label="Normal Distribution", linewidth=4)
-plt.legend()
-plt.show()

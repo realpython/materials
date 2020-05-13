@@ -13,7 +13,7 @@ import pandas as pd
 import numpy as np
 
 HERE = Path(__file__).parent
-DATA_FOLDER = HERE.parent / "data"
+DATA_FOLDER = HERE / "data"
 
 roster = pd.read_csv(
     DATA_FOLDER / "roster.csv",
@@ -83,24 +83,24 @@ final_data["Total Homework"] = sum_of_hw_scores / sum_of_hw_max
 # )
 
 hw_max_renamed = homework_max_points.set_axis(homework_scores.columns, axis=1)
-overall_hw_scores = (homework_scores / hw_max_renamed).sum(axis=1)
-final_data["Overall Homework"] = overall_hw_scores / homework_scores.shape[1]
+average_hw_scores = (homework_scores / hw_max_renamed).sum(axis=1)
+final_data["Average Homework"] = average_hw_scores / homework_scores.shape[1]
 
 # print(
-#     pd.concat([overall_hw_scores, final_data["Overall Homework"]], axis=1)
-#     .set_axis(["Sum of Overall Homework Scores", "Overall Homework"], axis=1)
+#     pd.concat([average_hw_scores, final_data["Average Homework"]], axis=1)
+#     .set_axis(["Sum of Average Homework Scores", "Average Homework"], axis=1)
 #     .loc[["wxb12345", "mxl12345", "txj12345", "jgf12345"]]
 #     .to_markdown()
 # )
 
 final_data["Homework Score"] = final_data[
-    ["Total Homework", "Overall Homework"]
+    ["Total Homework", "Average Homework"]
 ].max(axis=1)
 
 # print(
 #     final_data.loc[
 #         ["wxb12345", "mxl12345", "txj12345", "jgf12345"],
-#         ["Total Homework", "Overall Homework", "Homework Score"],
+#         ["Total Homework", "Average Homework", "Homework Score"],
 #     ].to_markdown()
 # )
 
@@ -113,17 +113,17 @@ sum_of_quiz_scores = quiz_scores.sum(axis=1)
 sum_of_quiz_max = quiz_max_points.sum()
 final_data["Total Quizzes"] = sum_of_hw_scores / sum_of_hw_max
 
-overall_quiz_scores = (quiz_scores / quiz_max_points).sum(axis=1)
-final_data["Overall Quizzes"] = overall_quiz_scores / quiz_scores.shape[1]
+average_quiz_scores = (quiz_scores / quiz_max_points).sum(axis=1)
+final_data["Average Quizzes"] = average_quiz_scores / quiz_scores.shape[1]
 
 final_data["Quiz Score"] = final_data[
-    ["Total Quizzes", "Overall Quizzes"]
+    ["Total Quizzes", "Average Quizzes"]
 ].max(axis=1)
 
 # print(
 #     final_data.loc[
 #         ["wxb12345", "mxl12345", "txj12345", "jgf12345"],
-#         ["Total Quizzes", "Overall Quizzes", "Quiz Score"],
+#         ["Total Quizzes", "Average Quizzes", "Quiz Score"],
 #     ].to_markdown()
 # )
 
