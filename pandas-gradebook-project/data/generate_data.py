@@ -76,7 +76,8 @@ class Student:
             self.full_name += f" {self.middle_name}"
 
 
-# These 4 students are used as examples in the tutorial, so they're manually generated.
+# These 4 students are used as examples in the tutorial, so they're
+# manually generated.
 students = [
     Student(
         "Woody",
