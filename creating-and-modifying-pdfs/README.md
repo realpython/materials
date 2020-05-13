@@ -9,4 +9,4 @@ There are two subfolders in this folder:
 
 The source code files are organized by section of the article, and the start of each subsection is indicated with comments.
 
-The content of the companion tutorial was adapted from the "Creating and Modifying PDF Files" chapter of the book [*Python Basics: A Practical Introduction to Python 3](https://realpython.com/products/python-basics-book/). If you enjoy this tutorial, check out the full book!
+The content of the companion tutorial was adapted from the "Creating and Modifying PDF Files" chapter of the book [*Python Basics: A Practical Introduction to Python 3*](https://realpython.com/products/python-basics-book/). If you enjoy this tutorial, check out the full book!
