@@ -7,5 +7,4 @@ There are two subfolders in this folder:
 1. **`practice_files/`:** Contains the sample PDFs used in the chapter
 2. **`source_code/`:** Contains source code from the chapter
 
-TODO:
-- [ ] Add source code files
+The source code files are organized by section of the article, and the start of each subsection is indicated with comments.
