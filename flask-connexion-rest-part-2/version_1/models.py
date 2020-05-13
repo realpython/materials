@@ -20,7 +20,7 @@ class Person(db.Model):
 #        sqla_session = db.session
 
 # flask-marshmallow>=0.12.0 (recommended)
-class AuthorSchema(ma.SQLAlchemyAutoSchema):
+class PersonSchema(ma.SQLAlchemyAutoSchema):
     class Meta:
         model = Person
-        sqla_session = db.session
+        load_instance = True
