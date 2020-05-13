@@ -6,10 +6,7 @@ from pathlib import Path
 from PyPDF2 import PdfFileReader, PdfFileWriter
 
 pdf_path = (
-    Path.home() /
-    "creating-and-modifying-pdfs" /
-    "practice_files" /
-    "ugly.pdf"
+    Path.home() / "creating-and-modifying-pdfs" / "practice_files" / "ugly.pdf"
 )
 
 pdf_reader = PdfFileReader(str(pdf_path))
@@ -60,10 +57,10 @@ from pathlib import Path
 from PyPDF2 import PdfFileReader, PdfFileWriter
 
 pdf_path = (
-    Path.home() /
-    "creating-and-modifying-pdfs" /
-    "practice_files" /
-    "half_and_half.pdf"
+    Path.home()
+    / "creating-and-modifying-pdfs"
+    / "practice_files"
+    / "half_and_half.pdf"
 )
 
 pdf_reader = PdfFileReader(str(pdf_path))
@@ -92,6 +89,7 @@ pdf_writer = PdfFileWriter()
 first_page = pdf_reader.getPage(0)
 
 import copy
+
 left_side = copy.deepcopy(first_page)
 current_coords = left_side.mediaBox.upperRight
 new_coords = (current_coords[0] / 2, current_coords[1])

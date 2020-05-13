@@ -1,4 +1,3 @@
-
 # ---------------
 # Open a PDF File
 # ---------------
@@ -7,11 +6,12 @@ from PyPDF2 import PdfFileReader
 
 # You might need to change this to match the path on your computer
 from pathlib import Path
+
 pdf_path = (
-    Path.home() /
-    "creating-and-modifying-pdfs" /
-    "practice_files" /
-    "Pride_and_Prejudice.pdf"
+    Path.home()
+    / "creating-and-modifying-pdfs"
+    / "practice_files"
+    / "Pride_and_Prejudice.pdf"
 )
 
 pdf = PdfFileReader(str(pdf_path))
@@ -46,10 +46,10 @@ from PyPDF2 import PdfFileReader
 
 # Change the path below to the correct path for your computer.
 pdf_path = (
-    Path.home() /
-    "creating-and-modifying-pdfs" /
-    "practice-files" /
-    "Pride_and_Prejudice.pdf"
+    Path.home()
+    / "creating-and-modifying-pdfs"
+    / "practice-files"
+    / "Pride_and_Prejudice.pdf"
 )
 
 pdf_reader = PdfFileReader(str(pdf_path))

@@ -3,6 +3,7 @@
 # -----------------------------
 
 from PyPDF2 import PdfFileMerger
+
 pdf_merger = PdfFileMerger()
 
 # ---------------------------------
@@ -10,11 +11,12 @@ pdf_merger = PdfFileMerger()
 # ---------------------------------
 
 from pathlib import Path
+
 reports_dir = (
-    Path.home() /
-    "creating-and-modifying-pdfs" /
-    "practice_files" /
-    "expense_reports"
+    Path.home()
+    / "creating-and-modifying-pdfs"
+    / "practice_files"
+    / "expense_reports"
 )
 
 for path in reports_dir.glob("*.pdf"):
@@ -41,10 +43,10 @@ from pathlib import Path
 from PyPDF2 import PdfFileMerger
 
 report_dir = (
-    Path.home() /
-    "creating-and-modifying-pdfs" /
-    "practice_files" /
-    "quarterly_report"
+    Path.home()
+    / "creating-and-modifying-pdfs"
+    / "practice_files"
+    / "quarterly_report"
 )
 
 report_path = report_dir / "report.pdf"

@@ -3,6 +3,7 @@
 # -----------------------------
 
 from PyPDF2 import PdfFileWriter
+
 pdf_writer = PdfFileWriter()
 
 page = pdf_writer.addBlankPage(width=72, height=72)
@@ -10,6 +11,7 @@ page = pdf_writer.addBlankPage(width=72, height=72)
 print(type(page))
 
 from pathlib import Path
+
 with Path("blank.pdf").open(mode="wb") as output_file:
     pdf_writer.write(output_file)
 
@@ -23,10 +25,10 @@ from PyPDF2 import PdfFileReader, PdfFileWriter
 
 # Change the path to work on your computer if necessary
 pdf_path = (
-    Path.home() /
-    "creating-and-modifying-pdfs" /
-    "practice_files" /
-    "Pride_and_Prejudice.pdf"
+    Path.home()
+    / "creating-and-modifying-pdfs"
+    / "practice_files"
+    / "Pride_and_Prejudice.pdf"
 )
 input_pdf = PdfFileReader(str(pdf_path))
 
@@ -47,10 +49,10 @@ from PyPDF2 import PdfFileReader, PdfFileWriter
 from pathlib import Path
 
 pdf_path = (
-    Path.home() /
-    "creating-and-modifying-pdfs" /
-    "practice_files" /
-    "Pride_and_Prejudice.pdf"
+    Path.home()
+    / "creating-and-modifying-pdfs"
+    / "practice_files"
+    / "Pride_and_Prejudice.pdf"
 )
 input_pdf = PdfFileReader(str(pdf_path))
 
@@ -64,7 +66,7 @@ print(pdf_writer.getNumPages())
 pdf_writer = PdfFileWriter()
 
 for page in input_pdf.pages[1:4]:
-   pdf_writer.addPage(page)
+    pdf_writer.addPage(page)
 
 with Path("chapter1_slice.pdf").open(mode="wb") as output_file:
     pdf_writer.write(output_file)

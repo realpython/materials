@@ -6,10 +6,10 @@ from pathlib import Path
 from PyPDF2 import PdfFileReader, PdfFileWriter
 
 pdf_path = (
-    Path.home() /
-    "creating-and-modifying-pdfs" /
-    "practice_files" /
-    "newsletter.pdf"
+    Path.home()
+    / "creating-and-modifying-pdfs"
+    / "practice_files"
+    / "newsletter.pdf"
 )
 
 pdf_reader = PdfFileReader(str(pdf_path))
