@@ -32,8 +32,8 @@ pdf_writer.encrypt(user_pwd=user_pwd, owner_pwd=owner_pwd)
 # Decrypting PDFs
 # ---------------
 
-from pathlib import Path
-from PyPDF2 import PdfFileReader, PdfFileWriter
+from pathlib import Path  # noqa
+from PyPDF2 import PdfFileReader, PdfFileWriter  # noqa
 
 pdf_path = Path.home() / "newsletter_protected.pdf"
 

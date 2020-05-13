@@ -53,8 +53,8 @@ with Path("ugly_rotated2.pdf").open(mode="wb") as output_file:
 # Cropping Pages
 # --------------
 
-from pathlib import Path
-from PyPDF2 import PdfFileReader, PdfFileWriter
+from pathlib import Path  # noqa
+from PyPDF2 import PdfFileReader, PdfFileWriter  # noqa
 
 pdf_path = (
     Path.home()
@@ -88,7 +88,7 @@ pdf_writer = PdfFileWriter()
 
 first_page = pdf_reader.getPage(0)
 
-import copy
+import copy  # noqa
 
 left_side = copy.deepcopy(first_page)
 current_coords = left_side.mediaBox.upperRight

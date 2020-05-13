@@ -10,7 +10,7 @@ page = pdf_writer.addBlankPage(width=72, height=72)
 
 print(type(page))
 
-from pathlib import Path
+from pathlib import Path  # noqa
 
 with Path("blank.pdf").open(mode="wb") as output_file:
     pdf_writer.write(output_file)
@@ -20,8 +20,8 @@ with Path("blank.pdf").open(mode="wb") as output_file:
 # Extracting a Single Page From a PDF
 # -----------------------------------
 
-from pathlib import Path
-from PyPDF2 import PdfFileReader, PdfFileWriter
+from pathlib import Path  # noqa
+from PyPDF2 import PdfFileReader, PdfFileWriter  # noqa
 
 # Change the path to work on your computer if necessary
 pdf_path = (
@@ -45,8 +45,8 @@ with Path("first_page.pdf").open(mode="wb") as output_file:
 # Extracting Multiple Pages From a PDF
 # ------------------------------------
 
-from PyPDF2 import PdfFileReader, PdfFileWriter
-from pathlib import Path
+from PyPDF2 import PdfFileReader, PdfFileWriter  # noqa
+from pathlib import Path  # noqa
 
 pdf_path = (
     Path.home()

@@ -41,8 +41,8 @@ for page in pdf.pages:
 # Putting It All Together
 # -----------------------
 
-from pathlib import Path
-from PyPDF2 import PdfFileReader
+from pathlib import Path  # noqa
+from PyPDF2 import PdfFileReader  # noqa
 
 # Change the path below to the correct path for your computer.
 pdf_path = (

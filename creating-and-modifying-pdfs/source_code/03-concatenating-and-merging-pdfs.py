@@ -10,7 +10,7 @@ pdf_merger = PdfFileMerger()
 # Concatenating PDFs With .append()
 # ---------------------------------
 
-from pathlib import Path
+from pathlib import Path  # noqa
 
 reports_dir = (
     Path.home()
@@ -39,8 +39,8 @@ with Path("expense_reports.pdf").open(mode="wb") as output_file:
 # Merging PDFs With .merge()
 # --------------------------
 
-from pathlib import Path
-from PyPDF2 import PdfFileMerger
+from pathlib import Path  # noqa
+from PyPDF2 import PdfFileMerger  # noqa
 
 report_dir = (
     Path.home()

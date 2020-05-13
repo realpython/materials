@@ -13,14 +13,14 @@ canvas.save()
 # Setting the Page Size
 # ---------------------
 
-from reportlab.lib.units import inch, cm
+from reportlab.lib.units import inch, cm  # noqa
 
 print(cm)
 print(inch)
 
 canvas = Canvas("hello.pdf", pagesize=(8.5 * inch, 11 * inch))
 
-from reportlab.lib.pagesizes import LETTER
+from reportlab.lib.pagesizes import LETTER  # noqa
 
 canvas = Canvas("hello.pdf", pagesize=LETTER)
 print(LETTER)
@@ -36,10 +36,10 @@ canvas.drawString(1 * inch, 10 * inch, "Times New Roman (18 pt)")
 canvas.save()
 
 # The code below creates a PDF with blue text
-from reportlab.lib.colors import blue
-from reportlab.lib.pagesizes import LETTER
-from reportlab.lib.units import inch
-from reportlab.pdfgen.canvas import Canvas
+from reportlab.lib.colors import blue  # noqa
+from reportlab.lib.pagesizes import LETTER  # noqa
+from reportlab.lib.units import inch  # noqa
+from reportlab.pdfgen.canvas import Canvas  # noqa
 
 canvas = Canvas("font-colors.pdf", pagesize=LETTER)
 
