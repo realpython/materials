@@ -4,7 +4,7 @@ The Jupyter notebooks in this directory follow the code examples in Real Python'
 
 ## Getting Started
 
-Follow the instructions below to get you up and running with a Jupyter notebook and all the code from the article.
+Follow the instructions below to get up and running with a Jupyter notebook and all the code from the article.
 
 ### Install Dependencies
 
