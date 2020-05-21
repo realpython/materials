@@ -18,7 +18,7 @@ These notebooks have dependencies. One way to install these dependencies is to u
 You can also install all the requirements using `pip` and the `requirements.txt` file included in this directory.
 
 ```bash
-$ pip install -r requirements.txt
+$ python3 -m pip install -r requirements.txt
 ```
 
 ### Synthetic Data Notebook
