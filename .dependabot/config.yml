@@ -1,5 +1,5 @@
 version: 1
 update_configs:
   - package_manager: "python"
-    directory: "/"
+    directory: "/requirements.txt"
     update_schedule: "monthly"
