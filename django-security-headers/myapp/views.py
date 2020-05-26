@@ -1,12 +1,7 @@
-import logging
-
 from django.http import HttpResponse
-
-logger = logging.getLogger("django.server")
 
 
 def index(request):
-    logger.info(request.headers)
     return HttpResponse(
         """\
 <!DOCTYPE html>
