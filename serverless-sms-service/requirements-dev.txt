@@ -7,5 +7,5 @@ enum-compat==0.0.2
 jmespath==0.9.3
 python-dateutil==2.7.3
 six==1.11.0
-typing==3.6.4
+typing==3.7.4.1
 urllib3==1.24
