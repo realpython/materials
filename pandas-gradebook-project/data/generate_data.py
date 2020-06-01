@@ -209,7 +209,7 @@ roster = (
 )
 roster["Email Address"] = roster["Email Address"].str.upper()
 roster["NetID"] = roster["NetID"].str.upper()
-roster.to_csv(HERE / "data" / "roster.csv")
+roster.to_csv(HERE / "roster.csv")
 
 hw_exam_grades = df.filter(
     regex="^first_name$|^last_name$|^netid$|^Homework.*|^Exam.*"
@@ -238,7 +238,7 @@ hw_exam_grades = hw_exam_grades.sort_values(by="First Name")
 hw_exam_grades.loc[hw_exam_grades["SID"] == "jgf12345", "First Name"] = "Gregg"
 hw_exam_grades.loc[hw_exam_grades["SID"] == "txj12345", "Homework 1"] = np.nan
 
-hw_exam_grades.to_csv(HERE / "data" / "hw_exam_grades.csv", index=False)
+hw_exam_grades.to_csv(HERE / "hw_exam_grades.csv", index=False)
 
 for col in range(1, n_quizzes + 1):
     df[["last_name", "first_name", "email", f"Quiz {col} Grade"]].rename(
@@ -253,7 +253,7 @@ for col in range(1, n_quizzes + 1):
             "Quiz 5 Grade": "Grade",
         }
     ).sample(frac=1, random_state=col).to_csv(
-        HERE / "data" / f"quiz_{col}_grades.csv", index=False
+        HERE / f"quiz_{col}_grades.csv", index=False
     )
 
 print(
