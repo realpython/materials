@@ -12,9 +12,14 @@ from pathlib import Path
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
+import scipy.stats
 
 HERE = Path(__file__).parent
 DATA_FOLDER = HERE / "data"
+
+# ----------------------
+# 01 - LOADING THE DATA
+# ----------------------
 
 roster = pd.read_csv(
     DATA_FOLDER / "roster.csv",
@@ -31,25 +36,31 @@ hw_exam_grades = pd.read_csv(
 )
 
 quiz_grades = pd.DataFrame()
-for f in DATA_FOLDER.glob("quiz_*_grades.csv"):
-    quiz_name = " ".join(f.stem.title().split("_")[:2])
+for file_path in DATA_FOLDER.glob("quiz_*_grades.csv"):
+    quiz_name = " ".join(file_path.stem.title().split("_")[:2])
     quiz = pd.read_csv(
-        f,
+        file_path,
         converters={"Email": str.lower},
         index_col=["Email"],
         usecols=["Email", "Grade"],
     ).rename(columns={"Grade": quiz_name})
     quiz_grades = pd.concat([quiz_grades, quiz], axis=1)
 
+# ------------------------
+# 02 - MERGING DATAFRAMES
+# ------------------------
+
 final_data = pd.merge(
     roster, hw_exam_grades, left_index=True, right_index=True,
 )
-
 final_data = pd.merge(
     final_data, quiz_grades, left_on="Email Address", right_index=True
 )
-
 final_data = final_data.fillna(0)
+
+# ------------------------
+# 03 - CALCULATING GRADES
+# ------------------------
 
 n_exams = 3
 for n in range(1, n_exams + 1):
@@ -65,13 +76,12 @@ sum_of_hw_max = homework_max_points.sum(axis=1)
 final_data["Total Homework"] = sum_of_hw_scores / sum_of_hw_max
 
 hw_max_renamed = homework_max_points.set_axis(homework_scores.columns, axis=1)
-overall_hw_scores = (homework_scores / hw_max_renamed).sum(axis=1)
-final_data["Overall Homework"] = overall_hw_scores / homework_scores.shape[1]
+average_hw_scores = (homework_scores / hw_max_renamed).sum(axis=1)
+final_data["Average Homework"] = average_hw_scores / homework_scores.shape[1]
 
 final_data["Homework Score"] = final_data[
-    ["Total Homework", "Overall Homework"]
+    ["Total Homework", "Average Homework"]
 ].max(axis=1)
-
 
 quiz_scores = final_data.filter(regex=r"^Quiz \d$", axis=1)
 quiz_max_points = pd.Series(
@@ -82,11 +92,11 @@ sum_of_quiz_scores = quiz_scores.sum(axis=1)
 sum_of_quiz_max = quiz_max_points.sum()
 final_data["Total Quizzes"] = sum_of_hw_scores / sum_of_hw_max
 
-overall_quiz_scores = (quiz_scores / quiz_max_points).sum(axis=1)
-final_data["Overall Quizzes"] = overall_quiz_scores / quiz_scores.shape[1]
+average_quiz_scores = (quiz_scores / quiz_max_points).sum(axis=1)
+final_data["Average Quizzes"] = average_quiz_scores / quiz_scores.shape[1]
 
 final_data["Quiz Score"] = final_data[
-    ["Total Quizzes", "Overall Quizzes"]
+    ["Total Quizzes", "Average Quizzes"]
 ].max(axis=1)
 
 weightings = pd.Series(
@@ -114,6 +124,7 @@ grades = {
 
 
 def grade_mapping(value):
+    """Map numerical grade to letter grade."""
     for key, letter in grades.items():
         if value >= key:
             return letter
@@ -124,11 +135,22 @@ final_data["Final Grade"] = pd.Categorical(
     letter_grades, categories=grades.values(), ordered=True
 )
 
+# -----------------------
+# 04 - GROUPING THE DATA
+# -----------------------
+
 for section, table in final_data.groupby("Section"):
-    print(f"In Section {section} there are {table.shape[0]} students.")
-    table.sort_values(by=["Last Name", "First Name"]).to_csv(
-        DATA_FOLDER / f"Section {section} Grades.csv"
+    section_file = DATA_FOLDER / f"Section {section} Grades.csv"
+    num_students = table.shape[0]
+    print(
+        f"In Section {section} there are {num_students} students saved to "
+        f"file {section_file}."
     )
+    table.sort_values(by=["Last Name", "First Name"]).to_csv(section_file)
+
+# ---------------------------------
+# 05 - PLOTTING SUMMARY STATISTICS
+# ---------------------------------
 
 grade_counts = final_data["Final Grade"].value_counts().sort_index()
 grade_counts.plot.bar()
@@ -142,11 +164,7 @@ final_data["Final Score"].plot.density(
 final_mean = final_data["Final Score"].mean()
 final_std = final_data["Final Score"].std()
 x = np.linspace(final_mean - 5 * final_std, final_mean + 5 * final_std, 200)
-normal_dist = (
-    1
-    / (final_std * np.sqrt(2 * np.pi))
-    * np.exp(-1 / 2 * ((x - final_mean) / final_std) ** 2)
-)
+normal_dist = scipy.stats.norm.pdf(x, loc=final_mean, scale=final_std)
 plt.plot(x, normal_dist, label="Normal Distribution", linewidth=4)
 plt.legend()
 plt.show()

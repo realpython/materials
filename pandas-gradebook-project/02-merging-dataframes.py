@@ -14,6 +14,10 @@ import pandas as pd
 HERE = Path(__file__).parent
 DATA_FOLDER = HERE / "data"
 
+# ----------------------
+# 01 - LOADING THE DATA
+# ----------------------
+
 roster = pd.read_csv(
     DATA_FOLDER / "roster.csv",
     converters={"NetID": str.lower, "Email Address": str.lower},
@@ -29,40 +33,24 @@ hw_exam_grades = pd.read_csv(
 )
 
 quiz_grades = pd.DataFrame()
-for f in DATA_FOLDER.glob("quiz_*_grades.csv"):
-    quiz_name = " ".join(f.stem.title().split("_")[:2])
+for file_path in DATA_FOLDER.glob("quiz_*_grades.csv"):
+    quiz_name = " ".join(file_path.stem.title().split("_")[:2])
     quiz = pd.read_csv(
-        f,
+        file_path,
         converters={"Email": str.lower},
         index_col=["Email"],
         usecols=["Email", "Grade"],
     ).rename(columns={"Grade": quiz_name})
     quiz_grades = pd.concat([quiz_grades, quiz], axis=1)
 
+# ------------------------
+# 02 - MERGING DATAFRAMES
+# ------------------------
+
 final_data = pd.merge(
     roster, hw_exam_grades, left_index=True, right_index=True,
 )
-
-# print(
-#     final_data.loc[
-#         ["wxb12345", "mxl12345", "txj12345", "jgf12345"]
-#     ].to_markdown()
-# )
-
 final_data = pd.merge(
     final_data, quiz_grades, left_on="Email Address", right_index=True
 )
-
-# print(
-#     final_data.loc[
-#         ["wxb12345", "mxl12345", "txj12345", "jgf12345"]
-#     ].to_markdown()
-# )
-
 final_data = final_data.fillna(0)
-
-# print(
-#     final_data.loc[
-#         ["wxb12345", "mxl12345", "txj12345", "jgf12345"]
-#     ].to_markdown()
-# )
