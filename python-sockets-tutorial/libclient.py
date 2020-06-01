@@ -126,7 +126,7 @@ class Message:
             self.selector.unregister(self.sock)
         except Exception as e:
             print(
-                f"error: selector.unregister() exception for",
+                "error: selector.unregister() exception for",
                 f"{self.addr}: {repr(e)}",
             )
 
@@ -134,7 +134,7 @@ class Message:
             self.sock.close()
         except OSError as e:
             print(
-                f"error: socket.close() exception for",
+                "error: socket.close() exception for",
                 f"{self.addr}: {repr(e)}",
             )
         finally:

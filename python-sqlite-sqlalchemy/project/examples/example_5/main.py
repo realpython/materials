@@ -64,7 +64,7 @@ def get_authors(connection) -> List:
     :return:                    list of authors data
     """
     cursor = connection.cursor()
-    sql = f"""
+    sql = """
     SELECT
       a.fname || ' ' || a.lname     as author,
       b.title,
@@ -105,14 +105,14 @@ def add_new_book(connection, author_name, book_title, publisher_name):
     cursor = connection.cursor()
 
     # Does the book exist?
-    sql = f"""SELECT 1 FROM book WHERE title = ?"""
+    sql = """SELECT 1 FROM book WHERE title = ?"""
     book = cursor.execute(sql, (book_title,)).fetchone()
 
     if book is not None:
         raise Exception("Book exists", book_title)
 
     # Get author
-    sql = f"""
+    sql = """
         SELECT
           author_id
         FROM author
@@ -127,7 +127,7 @@ def add_new_book(connection, author_name, book_title, publisher_name):
         raise Exception("No author found", author_name)
 
     # Get publisher
-    sql = f"""
+    sql = """
         SELECT
           publisher_id
         FROM publisher
@@ -140,7 +140,7 @@ def add_new_book(connection, author_name, book_title, publisher_name):
         raise Exception("No publisher found", publisher_name)
 
     # Add the book
-    sql = f"""
+    sql = """
         INSERT INTO book
         (title, author_id)
         VALUES(?, ?)
@@ -148,7 +148,7 @@ def add_new_book(connection, author_name, book_title, publisher_name):
     book_id = cursor.execute(sql, (book_title, author["author_id"])).lastrowid
 
     # Update the relationships
-    sql = f"""
+    sql = """
         INSERT INTO book_publisher
         (book_id, publisher_id)
         VALUES(?, ?)
