@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/brython/3.8.9/brython.min.js"
+      integrity="sha256-U56d9Sn/Gtf1meSBXazW81LM1bUeyc1jFuoY3CBu6A8="
+      crossorigin="anonymous">
+    </script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/brython/3.8.9/brython_stdlib.min.js"
+      integrity="sha256-twMHOlRBOpBkpyGFeXIBWoJqTpqf76Zp8HExOelwyRc="
+      crossorigin="anonymous"
+      defer>
+    </script>
+    <script src="main.py" type="text/python" defer></script>
+    <style>
+      table { border-collapse: collapse; }
+      table, th, td { border: 1px solid grey; }
+    </style>
+  </head>
+  <body onload="brython(1)">
+    <button id="b64-btn">Base64</button>
+    <p/>
+    <div id="b64-display"></div>
+  </body>
+</html>

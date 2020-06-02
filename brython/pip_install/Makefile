@@ -3,4 +3,4 @@ all: server
 
 .PHONY: server
 server:
-	python -m http.server -d web
+	python3 -m http.server -d web
