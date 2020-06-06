@@ -1,52 +1,35 @@
-from browser import document, prompt, html, alert
-from browser.local_storage import storage
+from browser import alert, document, window
 import json, hashlib
+from javascript import this
 
-LOCAL_STORAGE = 'hashdata'
+hashes = {
+    "sha-1": hashlib.sha1,
+    "sha-256": hashlib.sha256,
+    "sha-512": hashlib.sha512
+}
 
-def load_data():
-    data = storage.get(LOCAL_STORAGE)
-    if data:
-        hash_map = json.loads(data)
-    else:
-        storage[LOCAL_STORAGE] = json.dumps({})
-        hash_map = {}
-    return hash_map
+Vue = window.Vue
 
-def compute(evt):
-    value = document["text-src"].value
+def compute_hash(evt):
+    value = this().input_text
     if not value:
         alert("You need to enter a value")
         return
-    if value in hash_map:
-        alert(f"The SHA-256 value of '{value}' already exists: '{sha_map[value]}'")
-        return
-    hash = hashlib.sha256()
-    hash.update(value.encode())
-    hash_hex = hash.hexdigest()
-    hash_map[value] = hash_hex
-    storage[LOCAL_STORAGE] = json.dumps(hash_map)
-    display_map()
+    hash_object = hashes[this().algo]()
+    hash_object.update(value.encode())
+    hex_value = hash_object.hexdigest()
+    this().hash_value = hex_value
 
-def clear_map(evt):
-    hash_map.clear()
-    storage[LOCAL_STORAGE] = json.dumps({})
-    document["hash-display"].clear()
-
-def display_map():
-    if not hash_map:
-        return
-    table = html.TABLE(Class="pure-table")
-    table <= html.THEAD(html.TR(html.TH("Text") + html.TH("SHA-256")))
-    table <= (html.TR(html.TD(key) + html.TD(hash_map[key])) for key in hash_map)
-    hash_display = document["hash-display"]
-    hash_display.clear()
-    hash_display <= table
-    document["text-src"].value = ""
-
-hash_map = load_data()
-display_map()
-document["submit"].bind("click", compute)
-document["clear-btn"].bind("click", clear_map)
-
+app = Vue.new({
+    "el": "#app",
+    "data": {
+        "hash_value": "",
+        "algos": [ "sha-1", "sha-256", "sha-512" ],
+        "algo": "sha-1",
+        "input_text": ""
+    },
+    "methods": {
+        "compute_hash": compute_hash
+    }
+})
 

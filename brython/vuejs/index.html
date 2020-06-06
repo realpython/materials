@@ -7,11 +7,11 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/pure/2.0.3/pure-min.min.css"
       integrity="sha256-jYujp4Kf07YDuUF9i1MHo4AnpXUKuHxIUXH7CrHxdKw="
       crossorigin="anonymous" 
-      async/>
+      defer/>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.11/vue.min.js" 
       integrity="sha256-ngFW3UnAN0Tnm76mDuu7uUtYEcG3G5H1+zioJw3t+68=" 
       crossorigin="anonymous"
-      async>
+      defer>
     </script>
     <script
       src="https://cdnjs.cloudflare.com/ajax/libs/brython/3.8.9/brython.min.js"
@@ -23,22 +23,30 @@
       src="https://cdnjs.cloudflare.com/ajax/libs/brython/3.8.9/brython_stdlib.min.js"
       integrity="sha256-twMHOlRBOpBkpyGFeXIBWoJqTpqf76Zp8HExOelwyRc="
       crossorigin="anonymous"
-      async>
+      defer>
     </script>
     <script src="main.py" type="text/python" defer></script>
     <style>
       body { padding: 30px; }
+      /* [v-cloak] { display: none; } */
+      [v-cloak] { visibility: hidden; }
     </style>
   </head>
-  <body onload="brython()">
-    <form class="pure-form" onsubmit="return false;">
-      <fieldset>
-        <legend>SHA-256 Calculator</legend>
-        <input type="text" id="text-src" placeholder="Text to Encode" autocomplete="off"/>
-        <button type="submit" id="submit" class="pure-button pure-button-primary">Ok</button>
-        <button id="clear-btn" class="pure-button">Clear</button>
-      </fieldset>
-    </form>
-    <div id="hash-display"></div>
+  <body onload="brython(1)">
+    <div id="app">
+      <form class="pure-form" onsubmit="return false;">
+        <fieldset>
+          <legend>Hash Calculator</legend>
+          <input type="text" v-model="input_text" placeholder="Text to Encode" autocomplete="off"/>
+          <select v-model="algo" :clearable="false" v-cloak>
+            <option v-for="algo in algos" v-bind:value="algo">
+              {{ algo }}
+            </option>
+          </select>
+          <button @click="compute_hash" type="submit" class="pure-button pure-button-primary">Ok</button>
+        </fieldset>
+      </form>
+      <p v-cloak>{{ hash_value }}</p>
+    </div>
   </body>
 </html>
