@@ -28,7 +28,6 @@
     <script src="main.py" type="text/python" defer></script>
     <style>
       body { padding: 30px; }
-      /* [v-cloak] { display: none; } */
       [v-cloak] { visibility: hidden; }
     </style>
   </head>
@@ -37,10 +36,10 @@
       <form class="pure-form" onsubmit="return false;">
         <fieldset>
           <legend>Hash Calculator</legend>
-          <input type="text" v-model="input_text" placeholder="Text to Encode" autocomplete="off"/>
-          <select v-model="algo" :clearable="false" v-cloak>
-            <option v-for="algo in algos" v-bind:value="algo">
-              {{ algo }}
+          <input type="text" v-model.trim="input_text" placeholder="Text to Encode" autocomplete="off"/>
+          <select v-model="algo" v-cloak>
+            <option v-for="name in algos" v-bind:value="name">
+              {{ name }}
             </option>
           </select>
           <button @click="compute_hash" type="submit" class="pure-button pure-button-primary">Ok</button>

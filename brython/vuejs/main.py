@@ -20,12 +20,18 @@ def compute_hash(evt):
     hex_value = hash_object.hexdigest()
     this().hash_value = hex_value
 
+def created():
+    for name in hashes:
+        this().algos.push(name)
+    this().algo = next(iter(hashes))
+
 app = Vue.new({
     "el": "#app",
+    "created": created,
     "data": {
         "hash_value": "",
-        "algos": [ "sha-1", "sha-256", "sha-512" ],
-        "algo": "sha-1",
+        "algos": [],
+        "algo": "",
         "input_text": ""
     },
     "methods": {
