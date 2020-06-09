@@ -2,14 +2,17 @@ from browser import aio, document, prompt, html, alert
 from browser.local_storage import storage
 import json, base64
 
+
 def load_data():
     b64_map = {}
     for key in storage.keys():
         b64_map[key] = storage.get(key)
     return b64_map
 
+
 def save_data(key, value):
     storage[key] = value
+
 
 def base64_compute(evt):
     key = document["text-src"].value
@@ -24,10 +27,12 @@ def base64_compute(evt):
     display_map()
     save_data(key, b64data)
 
+
 def clear_map(evt):
     b64_map.clear()
     storage.clear()
     document["b64-display"].clear()
+
 
 def display_map():
     if not b64_map:
@@ -40,9 +45,8 @@ def display_map():
     base64_display <= table
     document["text-src"].value = ""
 
+
 b64_map = load_data()
 display_map()
 document["submit"].bind("click", base64_compute)
 document["clear-btn"].bind("click", clear_map)
-
-

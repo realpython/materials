@@ -1,11 +1,12 @@
-from browser import document, prompt, html, alert
-import json, hashlib
+from browser import document, html, alert
+import hashlib
 
 hashes = {
     "sha-1": hashlib.sha1,
     "sha-256": hashlib.sha256,
-    "sha-512": hashlib.sha512
+    "sha-512": hashlib.sha512,
 }
+
 
 def compute_hash(evt):
     value = document["text-src"].value
@@ -19,10 +20,6 @@ def compute_hash(evt):
     hex_value = hash_object.hexdigest()
     display_hash(hex_value)
 
-def clear_map(evt):
-    hash_map.clear()
-    storage[LOCAL_STORAGE] = json.dumps({})
-    document["hash-display"].clear()
 
 def display_hash(hex_value):
     text = html.P(hex_value)
@@ -30,6 +27,5 @@ def display_hash(hex_value):
     hash_display.clear()
     hash_display <= text
 
+
 document["submit"].bind("click", compute_hash)
-
-
