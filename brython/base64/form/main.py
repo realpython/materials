@@ -1,4 +1,4 @@
-from browser import document, prompt, html, alert
+from browser import document, html, alert
 import base64
 
 b64_map = {}

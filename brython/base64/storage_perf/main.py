@@ -1,6 +1,6 @@
-from browser import aio, document, prompt, html, alert
+from browser import document, html, alert
 from browser.local_storage import storage
-import json, base64
+import base64
 
 
 def load_data():
