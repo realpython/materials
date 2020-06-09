@@ -1,0 +1,92 @@
+<!DOCTYPE html >
+<html>
+  <head>
+    <meta charset="utf-8"/>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/pure/2.0.3/pure-min.min.css"
+      integrity="sha256-jYujp4Kf07YDuUF9i1MHo4AnpXUKuHxIUXH7CrHxdKw="
+      crossorigin="anonymous" />
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/brython/3.8.9/brython.min.js" defer>
+    </script>
+      <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/brython/3.8.9/brython_stdlib.min.js" defer>
+    </script>
+    <style>
+      body { padding: 30px; }
+      aside {
+        background: lightyellow;
+        margin: 1em 0;
+        padding: .3em 1em;
+        border-radius: 3px;
+        border: 1px solid gray;
+        color: gray;
+      }
+    </style>
+  </head>
+  <body onload="brython(1)">
+    <h2>Fetch Requests</h2>
+    <aside><p>Demonstrate the usage of GET using <tt>javascript.fetch</tt>. 
+      You need to start a server for this example to work. 
+      You can start the Python development web server with the following command: 
+      <tt>python3 -m http.server</tt>.
+    </p></aside>
+    <form class="pure-form" onsubmit="return false;">
+      <legend>Actions</legend>
+      <button id="get-btn" class="pure-button pure-button-primary">Fetch Get</button>
+      <button id="clear-logs-btn" class="pure-button">Clear Logs</button>
+      <legend>Logs</legend>
+      <textarea id="log" name="log" rows="20" cols="60"></textarea>
+    </form>
+    <script type="text/python">
+from browser import ajax, document, window
+
+def counter():
+    x = 1
+    while True:
+      yield x
+      x += 1
+
+cnt = counter()
+
+def on_complete(req):
+    if req.status == 200:
+        log(f"Text received: '{req.text}'")
+    elif req.status == 0:
+        error = f"Error: Did you start a web server (ex: 'python3 -m http.server')?"
+        log(error)
+    else:
+        error = f"Error: {req.status} - {req.text}"
+
+def log(message):
+    document["log"].value += f"{next(cnt):03}: {message} \n"
+
+def add_log_sep():
+    log_text = document["log"].value
+    if not log_text:
+        return
+    else:
+        document["log"].value += "======================================\n"
+
+def clear_logs(evt):
+    global cnt
+    cnt = counter() # Reset counter
+    document["log"].value = ""
+
+def fetch_result(response):
+    log(response.status)
+    response.text().then(lambda text: log(text))
+
+def fetch_get(evt):
+    add_log_sep()
+    log("Before fetch get")
+    window.fetch("/api.txt").then(fetch_result)
+    log("After async get")
+
+document["get-btn"].bind("click", fetch_get)
+document["clear-logs-btn"].bind("click", clear_logs)
+    </script>
+  </body>
+
+</html>
