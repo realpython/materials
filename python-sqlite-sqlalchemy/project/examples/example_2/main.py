@@ -164,10 +164,7 @@ def output_hierarchical_author_data(authors):
 
 
 def main():
-    """
-    Main entry point of program
-    """
-    print("starting")
+    """Main entry point of program"""
 
     # Connect to the database using SqlAlchemy
     sqlite_filepath = resource_filename(
@@ -209,8 +206,6 @@ def main():
     # Output the updated hierarchical authors data
     authors = get_authors(session)
     output_hierarchical_author_data(authors)
-
-    print("finished")
 
 
 if __name__ == "__main__":

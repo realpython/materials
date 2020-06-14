@@ -10,16 +10,23 @@ import pandas as pd
 from treelib import Tree
 
 
-def get_author_book_publisher_data(filepath: str) -> pd.DataFrame:
+def get_data(filepath: str) -> pd.DataFrame:
     """Get book data from the csv file"""
     return pd.read_csv(filepath)
 
 
-def get_total_number_of_books_by_publishers(data, ascending=True) -> List:
-    """
-    :param data:                author/book/publisher data
-    :param direction:           direction to sort the data by
-    :return:                    List of sorted data
+def get_books_by_publisher(
+    data: pd.DataFrame, ascending: bool = True
+) -> pd.Series:
+    """This function returns the books by the associated publisher as
+    a Pandas series
+
+    Args:
+        data (pd.DataFrame): The Pandas dataframe to get the data from
+        ascending (bool, optional): The sorting direction for the returned data. Defaults to True.
+
+    Returns:
+        pd.Series: The sorted data as a Pandas series
     """
     return (
         data.loc[:, ["title", "publisher"]]
@@ -29,14 +36,21 @@ def get_total_number_of_books_by_publishers(data, ascending=True) -> List:
     )
 
 
-def get_total_number_of_authors_by_publishers(data, ascending=True) -> List:
-    """
-    :param data:                author/book/publisher data
-    :param direction:           direction to sort the data by
-    :return:                    List of sorted data
+def get_authors_by_publisher(
+    data: pd.DataFrame, ascending: bool = True
+) -> pd.Series:
+    """This function returns the authors by the associated publisher as
+    a Panda series
+
+    Args:
+        data (pd.DataFrame): The Pandas dataframe to get the data from
+        ascending (bool, optional): The sorting direction for the returned data. Defaults to True.
+
+    Returns:
+        pd.Series: The sorted data as a Pandas series
     """
     return (
-        data.assign(name=data.fname.str.cat(data.lname, sep=" "))
+        data.assign(name=data.first_name.str.cat(data.last_name, sep=" "))
         .loc[:, ["name", "publisher"]]
         .groupby("publisher")["name"]
         .nunique()
@@ -44,24 +58,29 @@ def get_total_number_of_authors_by_publishers(data, ascending=True) -> List:
     )
 
 
-def add_new_book(data, author_name, book_title, publisher_name):
-    """
-    This function adds a new book to the data
+def add_new_book(
+    data: pd.DataFrame, author_name: str, book_title: str, publisher_name: str
+) -> pd.DataFrame:
+    """This function adds a new book to the system
 
-    :param data:                author/book/publisher data
-    :param author_name:         author's name
-    :param book_title:          book title
-    :param publisher_name:      publishers name
-    :return:                    updated data
+    Args:
+        data (pd.DataFrame): The data from to add the new book to
+        author_name (str): Author's full name
+        book_title (str): Book title
+        publisher_name (str): Publisher's name
+
+    Returns:
+        pd.DataFrame: the new book as a Pandas DataFrame
     """
     # Does the book exist?
     if book_title in data["title"].values:
         raise Exception("Book exists", book_title)
 
     # Does the author exist?
-    fname, _, lname = author_name.partition(" ")
+    first_name, _, last_name = author_name.partition(" ")
     if not any(
-        data["fname"].str.contains(fname) & data["lname"].str.contains(lname)
+        data["first_name"].str.contains(first_name)
+        & data["last_name"].str.contains(last_name)
     ):
         raise Exception("No author found", author_name)
 
@@ -70,26 +89,28 @@ def add_new_book(data, author_name, book_title, publisher_name):
         raise Exception("No publisher found", publisher_name)
 
     # Add the new book
-    return data.append(
+    d = data.append(
         {
-            "fname": fname,
-            "lname": lname,
+            "first_name": first_name,
+            "last_name": last_name,
             "title": book_title,
             "publisher": publisher_name,
         },
         ignore_index=True,
     )
+    return d
 
 
-def output_hierarchical_author_data(data):
+def output_author_hierarchy(data: pd.DataFrame):
+    """This function outputs the data as a hierarchy with 
+    the authors as the root node
+
+    Args:
+        data (pd.DataFrame): The data to present
     """
-    This function outputs the author/book/publisher information in
-    a hierarchical manner
-
-    :param authors:         the collection of root author objects
-    :return:                None
-    """
-    authors = data.assign(name=data.fname.str.cat(data.lname, sep=" "))
+    authors = data.assign(
+        name=data.first_name.str.cat(data.last_name, sep=" ")
+    )
 
     authors_tree = Tree()
     authors_tree.create_node("Authors", "authors")
@@ -105,49 +126,40 @@ def output_hierarchical_author_data(data):
 
 
 def main():
-    """
-    The main entry point of the program
-    """
-    print("starting")
+    """The main entry point of the program"""
 
-    # Connect to the database using SqlAlchemy
+    # Get the resources for the program
     with resources.path(
         "project.data", "author_book_publisher.csv"
     ) as filepath:
-        author_book_publisher_data = get_author_book_publisher_data(filepath)
+        data = get_data(filepath)
 
     # Get the total number of books printed by each publisher
-    total_books_by_publisher = get_total_number_of_books_by_publishers(
-        author_book_publisher_data, ascending=False
-    )
+    books_by_publisher = get_books_by_publisher(data, ascending=False)
 
-    for publisher, total_books in total_books_by_publisher.items():
+    for publisher, total_books in books_by_publisher.items():
         print(f"Publisher: {publisher}, total books: {total_books}")
     print()
 
     # Get the total number of authors each publisher publishes
-    total_authors_by_publisher = get_total_number_of_authors_by_publishers(
-        author_book_publisher_data, ascending=False
-    )
-    for publisher, total_authors in total_authors_by_publisher.items():
+    authors_by_publisher = get_authors_by_publisher(data, ascending=False)
+    for publisher, total_authors in authors_by_publisher.items():
         print(f"Publisher: {publisher}, total authors: {total_authors}")
     print()
 
     # Output hierarchical authors data
-    output_hierarchical_author_data(author_book_publisher_data)
+    output_author_hierarchy(data)
 
     # Add a new book to the data structure
-    author_book_publisher_data = add_new_book(
-        author_book_publisher_data,
+    data = add_new_book(
+        data,
         author_name="Stephen King",
         book_title="The Stand",
         publisher_name="Random House",
     )
 
     # Output the updated hierarchical authors data
-    output_hierarchical_author_data(author_book_publisher_data)
-
-    print("finished")
+    output_author_hierarchy(data)
 
 
 if __name__ == "__main__":
