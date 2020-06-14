@@ -16,7 +16,7 @@ import os
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 try:
-    SECRET_KEY = os.environ.get(SECRET_KEY)
+    SECRET_KEY = os.environ["SECRET_KEY"]
 except KeyError as e:
     raise RuntimeError("Could not find a SECRET_KEY in environment") from e
 
