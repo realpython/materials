@@ -118,3 +118,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
 STATIC_URL = "/static/"
+
+# Additional header-related settings
+SECURE_REFERRER_POLICY = "no-referrer-when-downgrade"
+SECURE_BROWSER_XSS_FILTER = True
