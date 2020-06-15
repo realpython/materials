@@ -125,6 +125,11 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
 STATIC_URL = "/static/"
+STATIC_ROOT = "/var/www/supersecure.codes/static"
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, "static"),
+    "/var/www/supersecure.codes/static",
+]
 
 # Additional header-related settings
 SECURE_REFERRER_POLICY = "no-referrer-when-downgrade"

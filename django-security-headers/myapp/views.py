@@ -12,6 +12,9 @@ def index(request):
       href="https://cdn.jsdelivr.net/npm/normalize.css@8.0.1/normalize.css"
     >
   </head>
-  <body><p>Now this is some sweet HTML!</p></body>
+  <body>
+    <p><span id="changeme">Now this is some sweet HTML!</span></p>
+    <script src="static/js/foo.js"></script>
+  </body>
 </html>"""
     )
