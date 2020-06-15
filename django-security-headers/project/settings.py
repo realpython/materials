@@ -129,3 +129,8 @@ STATIC_URL = "/static/"
 # Additional header-related settings
 SECURE_REFERRER_POLICY = "no-referrer-when-downgrade"
 SECURE_BROWSER_XSS_FILTER = True
+
+SECURE_HSTS_SECONDS = 30  # Unit is seconds; *USE A SMALL VALUE FOR TESTING!*
+SECURE_HSTS_PRELOAD = True
+SECURE_HSTS_INCLUDE_SUBDOMAINS = True
+SECURE_PROXY_SSL_HEADER = ("HTTP_X_FORWARDED_PROTO", "https")
