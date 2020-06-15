@@ -24,7 +24,6 @@ except KeyError as e:
 DEBUG = True
 
 ALLOWED_HOSTS = [
-    "localhost",
     "supersecure.codes",
     "www.supersecure.codes"
 ]
