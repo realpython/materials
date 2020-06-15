@@ -1,6 +1,6 @@
 # yin.py
 
-print(f"Hello from yin")
+print("Hello from yin")
 number = 42
 
 
@@ -10,4 +10,4 @@ def combine():
     return number + yang.number
 
 
-print(f"Goodbye from yin")
+print("Goodbye from yin")

@@ -1,6 +1,6 @@
 # yang.py
 
-print(f"Hello from yang")
+print("Hello from yang")
 import yin  # noqa
 
 number = 24
@@ -11,4 +11,4 @@ def combine():
 
 
 print(f"yin and yang combined is {combine()}")
-print(f"Goodbye from yang")
+print("Goodbye from yang")
