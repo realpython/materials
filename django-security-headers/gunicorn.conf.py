@@ -1,6 +1,4 @@
-"""Gunicorn config file
-https://docs.gunicorn.org/en/latest/configure.html
-"""
+"""Gunicorn *production* config file"""
 
 import multiprocessing
 
