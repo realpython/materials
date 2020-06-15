@@ -14,7 +14,7 @@ def index(request):
   </head>
   <body>
     <p><span id="changeme">Now this is some sweet HTML!</span></p>
-    <script src="static/js/foo.js"></script>
+    <script src="/static/js/foo.js"></script>
   </body>
 </html>"""
     )
