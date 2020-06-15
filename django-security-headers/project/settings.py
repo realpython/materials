@@ -54,7 +54,7 @@ MIDDLEWARE = [
 MIDDLEWARE += ["csp.middleware.CSPMiddleware"]
 
 # https://django-csp.readthedocs.io/en/latest/configuration.html
-CSP_SCRIPT_SRC = ["'self'", "cdn.jsdelivr.net"]
+CSP_STYLE_SRC = ["'self'", "cdn.jsdelivr.net"]
 
 ROOT_URLCONF = "project.urls"
 
