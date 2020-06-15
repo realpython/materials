@@ -127,7 +127,6 @@ STATIC_URL = "/static/"
 STATIC_ROOT = "/var/www/supersecure.codes/static"
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "static"),
-    "/var/www/supersecure.codes/static",
 ]
 
 # Additional header-related settings
