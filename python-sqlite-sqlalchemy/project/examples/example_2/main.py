@@ -2,30 +2,32 @@
 This program gathers information from the temp_data.csv file about temperature
 """
 
-from pkg_resources import resource_filename
 from typing import List
 from uuid import uuid4
-from sqlalchemy import create_engine
-from sqlalchemy import and_
-from sqlalchemy.sql import func, asc, desc
+
+from flask_sqlalchemy import SQLAlchemy
+from pkg_resources import resource_filename
+from sqlalchemy import and_, create_engine
 from sqlalchemy.orm import sessionmaker
+from sqlalchemy.sql import asc, desc, func
 from treelib import Tree
-from project.modules.models import Author
-from project.modules.models import Book
-from project.modules.models import Publisher
+
+from project.modules.models import Author, Book, Publisher
 
 
-def get_total_number_of_books_by_publishers(session, direction: str) -> List:
-    """
-    Get a list of publishers and the total number of books
+def get_books_by_publishers(session, direction: str) -> List:
+    """Get a list of publisher and the total number of books
     they've published
 
-    :param session:             database session to work with
-    :param direction:
-    :return:
+    Args:
+        session (SqlAlchemy Session object): database session to use
+        direction (str): direction to sort the results
+
+    Returns:
+        List: list of publisher sorted by number of books published
     """
     if direction not in ["asc", "desc"]:
-        raise Exception(f"Unknown direction: {direction}")
+        raise ValueError(f"Unknown direction: {direction}")
 
     dir = desc if direction == "desc" else asc
 
@@ -39,14 +41,16 @@ def get_total_number_of_books_by_publishers(session, direction: str) -> List:
     )
 
 
-def get_total_number_of_authors_by_publishers(session, direction: str) -> List:
-    """
-    Get a list of publishers and the total number of authors
+def get_authors_by_publishers(session, direction: str) -> List:
+    """Get a list of publisher and the total number of authors
     they've published
 
-    :param session:             database session to work with
-    :param direction:
-    :return:
+    Args:
+        session (SqlAlchemy Session object): database session to use
+        direction (str): direction to sort the results
+
+    Returns:
+        List: list of publisher sorted by number of authors published
     """
     if direction not in ["asc", "desc"]:
         raise Exception(f"Unknown direction: {direction}")
@@ -55,7 +59,8 @@ def get_total_number_of_authors_by_publishers(session, direction: str) -> List:
 
     return (
         session.query(
-            Publisher.name, func.count(Author.fname).label("total_authors")
+            Publisher.name,
+            func.count(Author.first_name).label("total_authors"),
         )
         .join(Publisher.authors)
         .group_by(Publisher.name)
@@ -64,30 +69,24 @@ def get_total_number_of_authors_by_publishers(session, direction: str) -> List:
 
 
 def get_authors(session) -> List:
-    """
-    This function returns a list of author objects
-
-    :param session:             database session to work with
-    :return:                    list of Author objects
-    """
-    return session.query(Author).order_by(Author.lname).all()
+    """Get a list of author objects"""
+    return session.query(Author).order_by(Author.last_name).all()
 
 
-def add_new_item(session, author_name, book_title, publisher_name):
-    """
-    This function adds a new item to the database
+def add_new_item(
+    session, author_name: str, book_title: str, publisher_name: str
+):
+    """This function adds a new book to the system"""
 
-    :param session:             database session to work with
-    :param author_name:         authors full name
-    :param book_title:          book title
-    :param publisher_name:      publisher of book
-    :return:                    None
-    """
     # Get the author if exists
-    fname, lname = author_name.split(" ")
+    first_name, last_name = author_name.split(" ")
     author = (
         session.query(Author)
-        .filter(and_(Author.fname == fname, Author.lname == lname))
+        .filter(
+            and_(
+                Author.first_name == first_name, Author.last_name == last_name
+            )
+        )
         .one_or_none()
     )
 
@@ -107,7 +106,7 @@ def add_new_item(session, author_name, book_title, publisher_name):
         )
     # Create the author if didn't exist
     if author is None:
-        author = Author(fname=fname, lname=lname)
+        author = Author(first_name=first_name, last_name=last_name)
 
     # Create the book if didn't exist
     if book is None:
@@ -133,7 +132,7 @@ def add_new_item(session, author_name, book_title, publisher_name):
     session.commit()
 
 
-def output_hierarchical_author_data(authors):
+def output_author_hierarchy(authors):
     """
     This function outputs the author/book/publisher information in
     a hierarchical manner
@@ -145,15 +144,15 @@ def output_hierarchical_author_data(authors):
     authors_tree.create_node("Authors", "authors")
     for author in authors:
         authors_tree.create_node(
-            f"{author.fname} {author.lname}",
-            f"{author.fname} {author.lname}",
+            f"{author.first_name} {author.last_name}",
+            f"{author.first_name} {author.last_name}",
             parent="authors",
         )
         for book in author.books:
             authors_tree.create_node(
                 f"{book.title}",
                 f"{book.title}",
-                parent=f"{author.fname} {author.lname}",
+                parent=f"{author.first_name} {author.last_name}",
             )
             for publisher in book.publishers:
                 authors_tree.create_node(
@@ -176,24 +175,20 @@ def main():
     session = Session()
 
     # Get the total number of books printed by each publisher
-    total_books_by_publisher = get_total_number_of_books_by_publishers(
-        session, "desc"
-    )
-    for row in total_books_by_publisher:
+    books_by_publisher = get_books_by_publishers(session, "desc")
+    for row in books_by_publisher:
         print(f"Publisher: {row.name}, total books: {row.total_books}")
     print()
 
     # Get the total number of authors each publisher publishes
-    total_authors_by_publisher = get_total_number_of_authors_by_publishers(
-        session, "desc"
-    )
-    for row in total_authors_by_publisher:
+    authors_by_publisher = get_authors_by_publishers(session, "desc")
+    for row in authors_by_publisher:
         print(f"Publisher: {row.name}, total authors: {row.total_authors}")
     print()
 
     # Output hierarchical authors data
     authors = get_authors(session)
-    output_hierarchical_author_data(authors)
+    output_author_hierarchy(authors)
 
     # Add a new book
     add_new_item(
@@ -205,7 +200,7 @@ def main():
 
     # Output the updated hierarchical authors data
     authors = get_authors(session)
-    output_hierarchical_author_data(authors)
+    output_author_hierarchy(authors)
 
 
 if __name__ == "__main__":

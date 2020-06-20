@@ -1,10 +1,13 @@
 """
-This is the example 4 program file
+This is the example 1 program file
+
+This example program was kindly created by Geir Arne Hjelle, another RealPython author,
+as part of the editorial process to improve this article and the information it presents.
+You can learn more about Geir from this URL: https://realpython.com/team/gahjelle/
 """
 
 from importlib import resources
 from typing import List
-from uuid import uuid4
 
 import pandas as pd
 from treelib import Tree
@@ -28,12 +31,9 @@ def get_books_by_publisher(
     Returns:
         pd.Series: The sorted data as a Pandas series
     """
-    return (
-        data.loc[:, ["title", "publisher"]]
-        .groupby("publisher")["title"]
-        .count()
+    return data.groupby("publisher") \
+        .size() \
         .sort_values(ascending=ascending)
-    )
 
 
 def get_authors_by_publisher(
@@ -51,9 +51,9 @@ def get_authors_by_publisher(
     """
     return (
         data.assign(name=data.first_name.str.cat(data.last_name, sep=" "))
-        .loc[:, ["name", "publisher"]]
-        .groupby("publisher")["name"]
+        .groupby("publisher")
         .nunique()
+        .loc[:, "name"]
         .sort_values(ascending=ascending)
     )
 
@@ -61,20 +61,11 @@ def get_authors_by_publisher(
 def add_new_book(
     data: pd.DataFrame, author_name: str, book_title: str, publisher_name: str
 ) -> pd.DataFrame:
-    """This function adds a new book to the system
+    """This function adds a new book to the system"""
 
-    Args:
-        data (pd.DataFrame): The data from to add the new book to
-        author_name (str): Author's full name
-        book_title (str): Book title
-        publisher_name (str): Publisher's name
-
-    Returns:
-        pd.DataFrame: the new book as a Pandas DataFrame
-    """
     # Does the book exist?
     if book_title in data["title"].values:
-        raise Exception("Book exists", book_title)
+        raise ValueError("Book exists", book_title)
 
     # Does the author exist?
     first_name, _, last_name = author_name.partition(" ")
@@ -82,14 +73,14 @@ def add_new_book(
         data["first_name"].str.contains(first_name)
         & data["last_name"].str.contains(last_name)
     ):
-        raise Exception("No author found", author_name)
+        raise ValueError("No author found", author_name)
 
     # Does the publisher exist?
     if publisher_name not in data["publisher"].values:
-        raise Exception("No publisher found", publisher_name)
+        raise ValueError("No publisher found", publisher_name)
 
     # Add the new book
-    d = data.append(
+    return data.append(
         {
             "first_name": first_name,
             "last_name": last_name,
@@ -98,15 +89,11 @@ def add_new_book(
         },
         ignore_index=True,
     )
-    return d
 
 
 def output_author_hierarchy(data: pd.DataFrame):
     """This function outputs the data as a hierarchy with 
     the authors as the root node
-
-    Args:
-        data (pd.DataFrame): The data to present
     """
     authors = data.assign(
         name=data.first_name.str.cat(data.last_name, sep=" ")
@@ -119,7 +106,7 @@ def output_author_hierarchy(data: pd.DataFrame):
         for book, publishers in books.groupby("title")["publisher"]:
             authors_tree.create_node(book, book, parent=author)
             for publisher in publishers:
-                authors_tree.create_node(publisher, uuid4(), parent=book)
+                authors_tree.create_node(publisher, parent=book)
 
     # Output the hierarchical authors data
     authors_tree.show()
@@ -136,7 +123,6 @@ def main():
 
     # Get the total number of books printed by each publisher
     books_by_publisher = get_books_by_publisher(data, ascending=False)
-
     for publisher, total_books in books_by_publisher.items():
         print(f"Publisher: {publisher}, total books: {total_books}")
     print()

@@ -24,8 +24,8 @@ book_publisher = Table(
 class Author(Base):
     __tablename__ = "author"
     author_id = Column(Integer, primary_key=True)
-    fname = Column(String)
-    lname = Column(String)
+    first_name = Column(String)
+    last_name = Column(String)
     books = relationship("Book", backref=backref("author"))
     publishers = relationship(
         "Publisher", secondary=author_publisher, back_populates="authors"
