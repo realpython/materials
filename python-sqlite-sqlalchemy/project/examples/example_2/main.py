@@ -5,7 +5,6 @@ This program gathers information from the temp_data.csv file about temperature
 from typing import List
 from uuid import uuid4
 
-from flask_sqlalchemy import SQLAlchemy
 from pkg_resources import resource_filename
 from sqlalchemy import and_, create_engine
 from sqlalchemy.orm import sessionmaker

@@ -34,7 +34,9 @@ def populate_database(session, author_book_publisher_data):
             .one_or_none()
         )
         if author is None:
-            author = Author(first_name=row["first_name"], last_name=row["last_name"])
+            author = Author(
+                first_name=row["first_name"], last_name=row["last_name"]
+            )
             session.add(author)
 
         book = (

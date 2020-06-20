@@ -1,13 +1,14 @@
 """
 This is the example 1 program file
 
-This example program was kindly created by Geir Arne Hjelle, another RealPython author,
-as part of the editorial process to improve this article and the information it presents.
-You can learn more about Geir from this URL: https://realpython.com/team/gahjelle/
+This example program was kindly created by Geir Arne Hjelle,
+another RealPython author, as part of the editorial process
+to improve this article and the information it presents.
+You can learn more about Geir from this URL:
+https://realpython.com/team/gahjelle/
 """
 
 from importlib import resources
-from typing import List
 
 import pandas as pd
 from treelib import Tree
@@ -25,15 +26,14 @@ def get_books_by_publisher(
     a Pandas series
 
     Args:
-        data (pd.DataFrame): The Pandas dataframe to get the data from
-        ascending (bool, optional): The sorting direction for the returned data. Defaults to True.
+        data (pd.DataFrame): The Pandas dataframe to get the
+        data from ascending (bool, optional): The sorting
+        direction for the returned data. Defaults to True.
 
     Returns:
         pd.Series: The sorted data as a Pandas series
     """
-    return data.groupby("publisher") \
-        .size() \
-        .sort_values(ascending=ascending)
+    return data.groupby("publisher").size().sort_values(ascending=ascending)
 
 
 def get_authors_by_publisher(
@@ -43,8 +43,9 @@ def get_authors_by_publisher(
     a Panda series
 
     Args:
-        data (pd.DataFrame): The Pandas dataframe to get the data from
-        ascending (bool, optional): The sorting direction for the returned data. Defaults to True.
+        data (pd.DataFrame): The Pandas dataframe to get the data
+        from ascending (bool, optional): The sorting direction for
+        the returned data. Defaults to True.
 
     Returns:
         pd.Series: The sorted data as a Pandas series
@@ -92,7 +93,7 @@ def add_new_book(
 
 
 def output_author_hierarchy(data: pd.DataFrame):
-    """This function outputs the data as a hierarchy with 
+    """This function outputs the data as a hierarchy with
     the authors as the root node
     """
     authors = data.assign(
