@@ -31,9 +31,7 @@ def get_books_by_publisher(data, ascending=True):
     Returns:
         The sorted data as a pandas series
     """
-    return data.groupby("publisher")
-        .size()
-        .sort_values(ascending=ascending)
+    return data.groupby("publisher").size().sort_values(ascending=ascending)
 
 
 def get_authors_by_publisher(data, ascending=True):
