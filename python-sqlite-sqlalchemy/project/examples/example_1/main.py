@@ -14,41 +14,39 @@ import pandas as pd
 from treelib import Tree
 
 
-def get_data(filepath: str) -> pd.DataFrame:
+def get_data(filepath):
     """Get book data from the csv file"""
     return pd.read_csv(filepath)
 
 
-def get_books_by_publisher(
-    data: pd.DataFrame, ascending: bool = True
-) -> pd.Series:
+def get_books_by_publisher(data, ascending=True):
     """This function returns the books by the associated publisher as
-    a Pandas series
+    a pandas series
 
     Args:
-        data (pd.DataFrame): The Pandas dataframe to get the
-        data from ascending (bool, optional): The sorting
-        direction for the returned data. Defaults to True.
+        data: The pandas dataframe to get the
+        ascending: The sorting direction for the returned data. 
+        Defaults to True.
 
     Returns:
-        pd.Series: The sorted data as a Pandas series
+        The sorted data as a pandas series
     """
-    return data.groupby("publisher").size().sort_values(ascending=ascending)
+    return data.groupby("publisher")
+        .size()
+        .sort_values(ascending=ascending)
 
 
-def get_authors_by_publisher(
-    data: pd.DataFrame, ascending: bool = True
-) -> pd.Series:
+def get_authors_by_publisher(data, ascending=True):
     """This function returns the authors by the associated publisher as
     a Panda series
 
     Args:
-        data (pd.DataFrame): The Pandas dataframe to get the data
-        from ascending (bool, optional): The sorting direction for
-        the returned data. Defaults to True.
+        data: The pandas dataframe to get the data
+        ascending: The sorting direction for the returned data. 
+        Defaults to True.
 
     Returns:
-        pd.Series: The sorted data as a Pandas series
+        The sorted data as a pandas series
     """
     return (
         data.assign(name=data.first_name.str.cat(data.last_name, sep=" "))
@@ -59,9 +57,7 @@ def get_authors_by_publisher(
     )
 
 
-def add_new_book(
-    data: pd.DataFrame, author_name: str, book_title: str, publisher_name: str
-) -> pd.DataFrame:
+def add_new_book(data, author_name, book_title, publisher_name):
     """This function adds a new book to the system"""
 
     # Does the book exist?
@@ -92,10 +88,8 @@ def add_new_book(
     )
 
 
-def output_author_hierarchy(data: pd.DataFrame):
-    """This function outputs the data as a hierarchy with
-    the authors as the root node
-    """
+def output_author_hierarchy(data):
+    """Output the data as a hierarchy list of authors"""
     authors = data.assign(
         name=data.first_name.str.cat(data.last_name, sep=" ")
     )

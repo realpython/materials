@@ -14,13 +14,13 @@ from treelib import Tree
 from project.modules.models import Author, Book, Publisher
 
 
-def get_books_by_publishers(session, direction: str) -> List:
+def get_books_by_publishers(session, direction):
     """Get a list of publisher and the total number of books
     they've published
 
     Args:
-        session (SqlAlchemy Session object): database session to use
-        direction (str): direction to sort the results
+        session: database session to use
+        direction: direction to sort the results
 
     Returns:
         List: list of publisher sorted by number of books published
@@ -40,13 +40,13 @@ def get_books_by_publishers(session, direction: str) -> List:
     )
 
 
-def get_authors_by_publishers(session, direction: str) -> List:
+def get_authors_by_publishers(session, direction):
     """Get a list of publisher and the total number of authors
     they've published
 
     Args:
-        session (SqlAlchemy Session object): database session to use
-        direction (str): direction to sort the results
+        session: database session to use
+        direction: direction to sort the results
 
     Returns:
         List: list of publisher sorted by number of authors published
@@ -67,14 +67,12 @@ def get_authors_by_publishers(session, direction: str) -> List:
     )
 
 
-def get_authors(session) -> List:
+def get_authors(session):
     """Get a list of author objects"""
     return session.query(Author).order_by(Author.last_name).all()
 
 
-def add_new_item(
-    session, author_name: str, book_title: str, publisher_name: str
-):
+def add_new_item(session, author_name, book_title, publisher_name):
     """This function adds a new book to the system"""
 
     # Get the author if exists
