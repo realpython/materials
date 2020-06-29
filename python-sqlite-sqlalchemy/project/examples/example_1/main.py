@@ -25,7 +25,7 @@ def get_books_by_publisher(data, ascending=True):
 
     Args:
         data: The pandas dataframe to get the
-        ascending: The sorting direction for the returned data. 
+        ascending: The sorting direction for the returned data.
         Defaults to True.
 
     Returns:
@@ -42,7 +42,7 @@ def get_authors_by_publisher(data, ascending=True):
 
     Args:
         data: The pandas dataframe to get the data
-        ascending: The sorting direction for the returned data. 
+        ascending: The sorting direction for the returned data.
         Defaults to True.
 
     Returns:

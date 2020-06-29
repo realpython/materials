@@ -2,7 +2,6 @@
 This program gathers information from the temp_data.csv file about temperature
 """
 
-from typing import List
 from uuid import uuid4
 
 from pkg_resources import resource_filename
