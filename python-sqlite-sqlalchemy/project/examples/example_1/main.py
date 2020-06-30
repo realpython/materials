@@ -20,11 +20,10 @@ def get_data(filepath):
 
 
 def get_books_by_publisher(data, ascending=True):
-    """This function returns the books by the associated publisher as
-    a pandas series
+    """Returns the books by the associated publisher as a pandas series
 
     Args:
-        data: The pandas dataframe to get the
+        data: The pandas dataframe to get the from
         ascending: The sorting direction for the returned data.
         Defaults to True.
 
@@ -35,11 +34,10 @@ def get_books_by_publisher(data, ascending=True):
 
 
 def get_authors_by_publisher(data, ascending=True):
-    """This function returns the authors by the associated publisher as
-    a Panda series
+    """Returns the authors by the associated publisher as a Panda series
 
     Args:
-        data: The pandas dataframe to get the data
+        data: The pandas dataframe to get the data from
         ascending: The sorting direction for the returned data.
         Defaults to True.
 
@@ -56,7 +54,7 @@ def get_authors_by_publisher(data, ascending=True):
 
 
 def add_new_book(data, author_name, book_title, publisher_name):
-    """This function adds a new book to the system"""
+    """Adds a new book to the system"""
 
     # Does the book exist?
     if book_title in data["title"].values:

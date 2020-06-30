@@ -13,21 +13,21 @@ from treelib import Tree
 from project.modules.models import Author, Book, Publisher
 
 
-def get_books_by_publishers(session, direction):
+def get_books_by_publishers(session, ascending=True):
     """Get a list of publisher and the total number of books
     they've published
 
     Args:
         session: database session to use
-        direction: direction to sort the results
+        ascending: direction to sort the results
 
     Returns:
         List: list of publisher sorted by number of books published
     """
-    if direction not in ["asc", "desc"]:
-        raise ValueError(f"Unknown direction: {direction}")
+    if isinstance(ascending, bool):
+        raise ValueError(f"Sorting value invalid: {ascending}")
 
-    dir = desc if direction == "desc" else asc
+    dir = asc if ascending else desc
 
     return (
         session.query(
@@ -39,21 +39,21 @@ def get_books_by_publishers(session, direction):
     )
 
 
-def get_authors_by_publishers(session, direction):
+def get_authors_by_publishers(session, ascending=True):
     """Get a list of publisher and the total number of authors
     they've published
 
     Args:
         session: database session to use
-        direction: direction to sort the results
+        ascending: direction to sort the results
 
     Returns:
         List: list of publisher sorted by number of authors published
     """
-    if direction not in ["asc", "desc"]:
-        raise Exception(f"Unknown direction: {direction}")
+    if isinstance(ascending, bool):
+        raise ValueError(f"Sorting value invalid: {ascending}")
 
-    dir = desc if direction == "desc" else asc
+    dir = asc if ascending else desc
 
     return (
         session.query(
@@ -72,7 +72,7 @@ def get_authors(session):
 
 
 def add_new_item(session, author_name, book_title, publisher_name):
-    """This function adds a new book to the system"""
+    """Adds a new book to the system"""
 
     # Get the author if exists
     first_name, last_name = author_name.split(" ")
@@ -130,7 +130,7 @@ def add_new_item(session, author_name, book_title, publisher_name):
 
 def output_author_hierarchy(authors):
     """
-    This function outputs the author/book/publisher information in
+    Outputs the author/book/publisher information in
     a hierarchical manner
 
     :param authors:         the collection of root author objects
