@@ -55,10 +55,10 @@ def run_quiz(population, num_questions, num_countries):
         correct = max(countries, key=lambda k: population[k])
         if guess == correct:
             num_correct += 1
-            print(f"Yes, {guess} is most populus ({population[guess]:,})")
+            print(f"Yes, {guess} is most populous ({population[guess]:,})")
         else:
             print(
-                f"No, {correct} ({population[correct]:,}) is more populus "
+                f"No, {correct} ({population[correct]:,}) is more populous "
                 f"than {guess} ({population[guess]:,})"
             )
 
