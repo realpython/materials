@@ -5,10 +5,10 @@ import importlib
 from collections import namedtuple
 from importlib import resources
 
-# Simple structure for storing information about one plug-in
+# Basic structure for storing information about one plugin
 Plugin = namedtuple("Plugin", ("name", "func"))
 
-# Dictionary with information about all registered plug-ins
+# Dictionary with information about all registered plugins
 _PLUGINS = {}
 
 

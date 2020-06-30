@@ -15,7 +15,7 @@ class _Population:
     @property
     def data(self):
         """Read data from disk"""
-        if self._data:  # Data have already been read, return it directly
+        if self._data:  # Data has already been read, return it directly
             return self._data
 
         # Read data and store it in self._data
@@ -52,5 +52,5 @@ class _Population:
         return sorted(countries, key=lambda c: countries[c], reverse=True)
 
 
-# Instantiate the Singleton
+# Instantiate the singleton
 data = _Population()

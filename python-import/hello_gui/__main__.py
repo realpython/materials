@@ -14,12 +14,12 @@ class Hello(tk.Tk):
         super().__init__(*args, **kwargs)
         self.wm_title("Hello")
 
-        # Read image, store a reference to it and set it as an icon
+        # Read image, store a reference to it, and set it as an icon
         with resources.path("hello_gui.gui_resources", "logo.png") as path:
             self._icon = tk.PhotoImage(file=path)
         self.iconphoto(True, self._icon)
 
-        # Read image, create a button and store a reference to the image
+        # Read image, create a button, and store a reference to the image
         with resources.path("hello_gui.gui_resources", "hand.png") as path:
             hand = tk.PhotoImage(file=path)
         button = ttk.Button(

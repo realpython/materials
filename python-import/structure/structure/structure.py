@@ -16,7 +16,7 @@ def main():
         print("Need one argument: the root of the original file tree")
         raise SystemExit()
 
-    # Recreate the file structure
+    # Re-create the file structure
     new_root = files.unique_path(pathlib.Path.cwd(), "{:03d}")
     for path in root.rglob("*"):
         if path.is_file() and new_root not in path.parents:
