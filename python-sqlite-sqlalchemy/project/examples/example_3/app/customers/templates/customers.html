@@ -1,6 +1,5 @@
 {% extends "base.html" %}
 
-
 {% block content %}
 <div class="container-fluid">
   <div class="m-4">
@@ -37,7 +36,8 @@
       <div class="card-body">
         <p class="card-text">Name:&nbsp;{{ customer.full_name }}</p>
         <p class="card-text">Address:&nbsp;{{ customer.address }}</p>
-        <p class="card-text">City:&nbsp;{{ customer.city }},&nbsp;{{ customer.state }}&nbsp;&nbsp;{{ customer.postal_code }}</p>
+        <p class="card-text">
+          City:&nbsp;{{ customer.city }},&nbsp;{{ customer.state }}&nbsp;&nbsp;{{ customer.postal_code }}</p>
         <p class="card-text">Phone:&nbsp;{{ customer.phone }}</p>
         <p class="card-text">Email:&nbsp;{{ customer.email }}</p>
         <p class="card-text">Support Rep:&nbsp;
@@ -80,4 +80,3 @@
   </div>
 </div>
 {% endblock %}
-
