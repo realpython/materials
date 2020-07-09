@@ -74,7 +74,7 @@ app.layout = html.Div(
                         html.Div(
                             children="Date Range",
                             className="menu-title"
-                            ),
+                        ),
                         dcc.DatePickerRange(
                             id="date-range",
                             min_date_allowed=data.Date.min().date(),

@@ -11,19 +11,23 @@ data.sort_values("Date", inplace=True)
 
 external_stylesheets = [
     {
-        "href": "https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap",
+        "href": "https://fonts.googleapis.com/css2?"
+        "family=Lato:wght@400;700&display=swap",
         "rel": "stylesheet",
     },
 ]
 app = dash.Dash(__name__, external_stylesheets=external_stylesheets)
 server = app.server
 app.title = "Avocados Analytics: Understand Your Avocados!"
+
 app.layout = html.Div(
     children=[
         html.Div(
             children=[
                 html.P(children="🥑", className="header-emoji"),
-                html.H1(children="Avocados Analytics", className="header-title"),
+                html.H1(
+                    children="Avocados Analytics", className="header-title"
+                ),
                 html.P(
                     children="Analyze the behaviour of prices"
                     " and the number of avocados sold in the US"
@@ -68,7 +72,10 @@ app.layout = html.Div(
                 ),
                 html.Div(
                     children=[
-                        html.Div(children="Date Range", className="menu-title"),
+                        html.Div(
+                            children="Date Range",
+                            className="menu-title"
+                        ),
                         dcc.DatePickerRange(
                             id="date-range",
                             min_date_allowed=data.Date.min().date(),
@@ -149,7 +156,7 @@ def update_charts(region, avocado_type, start_date, end_date):
             },
         ],
         "layout": {
-            "title": {"text": "Avocados Sold", "x": 0.05, "xanchor": "left",},
+            "title": {"text": "Avocados Sold", "x": 0.05, "xanchor": "left"},
             "xaxis": {"fixedrange": True},
             "yaxis": {"fixedrange": True},
             "colorway": ["#E12D39"],
