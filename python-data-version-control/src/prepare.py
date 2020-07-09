@@ -1,18 +1,19 @@
 from pathlib import Path
+
 import pandas as pd
 
-folders_to_labels = {"n03445777": "golf ball", "n03888257": "parachute"}
+FOLDERS_TO_LABELS = {"n03445777": "golf ball", "n03888257": "parachute"}
 
 
-def get_filelist_and_labels(source_path, target_folders):
+def get_filelist_and_labels(source_path):
     images = []
     labels = []
     for image_path in source_path.rglob("*/*.JPEG"):
         filename = image_path.absolute()
-        folder = image_path.parts[-2]
-        if folder in target_folders:
+        folder = image_path.parent.name
+        if folder in FOLDERS_TO_LABELS:
             images.append(filename)
-            label = folders_to_labels[folder]
+            label = FOLDERS_TO_LABELS[folder]
             labels.append(label)
     return images, labels
 
@@ -27,17 +28,13 @@ def main(repo_path):
     data_path = repo_path / "data"
     train_path = data_path / "raw/train"
     test_path = data_path / "raw/val"
-    train_filenames, train_labels = get_filelist_and_labels(
-        train_path, folders_to_labels.keys()
-    )
-    test_filenames, test_labels = get_filelist_and_labels(
-        test_path, folders_to_labels.keys()
-    )
+    train_filenames, train_labels = get_filelist_and_labels(train_path)
+    test_filenames, test_labels = get_filelist_and_labels(test_path)
     prepared = data_path / "prepared"
     save_as_csv(train_filenames, train_labels, prepared / "train.csv")
     save_as_csv(test_filenames, test_labels, prepared / "test.csv")
 
 
 if __name__ == "__main__":
-    repo_path = Path(__file__) / "../.."
-    main(repo_path.resolve())
+    repo_path = Path(__file__).parent.parent
+    main(repo_path)

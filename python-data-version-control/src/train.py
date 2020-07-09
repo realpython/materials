@@ -1,5 +1,6 @@
 from joblib import dump
 from pathlib import Path
+
 import numpy as np
 import pandas as pd
 from skimage.io import imread_collection
@@ -24,19 +25,23 @@ def preprocess(image):
     return reshaped
 
 
+def load_data(data_path):
+    df = pd.read_csv(data_path)
+    labels = load_labels(data_frame=df, column_name="label")
+    raw_images = load_images(data_frame=df, column_name="filename")
+    processed_images = [preprocess(image) for image in raw_images]
+    data = np.concatenate(processed_images, axis=0)
+    return data, labels
+
+
 def main(repo_path):
     train_csv_path = repo_path / "data/prepared/train.csv"
-    train_df = pd.read_csv(train_csv_path)
-    raw_images = load_images(data_frame=train_df, column_name="filename")
-    labels = load_labels(data_frame=train_df, column_name="label")
-    preprocessed = [preprocess(image) for image in raw_images]
-    train_data = np.concatenate(preprocessed, axis=0)
+    train_data, labels = load_data(train_csv_path)
     sgd = SGDClassifier(max_iter=10)
     trained_model = sgd.fit(train_data, labels)
-    model_path = repo_path / "model"
-    dump(trained_model, model_path / "model.joblib")
+    dump(trained_model, repo_path / "model/model.joblib")
 
 
 if __name__ == "__main__":
-    repo_path = Path(__file__) / "../.."
-    main(repo_path.resolve())
+    repo_path = Path(__file__).parent.parent
+    main(repo_path)
