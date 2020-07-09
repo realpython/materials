@@ -48,7 +48,7 @@ app.layout = html.Div(
                                     "y": data["AveragePrice"],
                                     "type": "lines",
                                     "hovertemplate": "$%{y:.2f}"
-                                                     "<extra></extra>",
+                                    "<extra></extra>",
                                 },
                             ],
                             "layout": {
