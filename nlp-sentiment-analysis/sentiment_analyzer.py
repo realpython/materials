@@ -9,7 +9,8 @@ Transcendently beautiful in moments outside the office, it seems almost
 sitcom-like in those scenes. When Toni Colette walks out and ponders
 life silently, it's gorgeous.<br /><br />The movie doesn't seem to decide
 whether it's slapstick, farce, magical realism, or drama, but the best of it
-doesn't matter. (The worst is sort of tedious - like Office Space with less humor.)
+doesn't matter. (The worst is sort of tedious - like Office Space with 
+less humor.)
 """
 
 
@@ -67,9 +68,11 @@ def evaluate_model(tokenizer, textcat, test_data: list) -> dict:
     for i, review in enumerate(textcat.pipe(reviews)):
         true_label = labels[i]["cats"]
         for predicted_label, score in review.cats.items():
+            # Every `cats` dictionary includes both labels, you
+            # can get all the info we need with just the pos label
             if (
                 predicted_label == "neg"
-            ):  # Every `cats` dictionary  includes both labels, you can get all the info we need with just the pos label
+            ):
                 continue
             if score >= 0.5 and true_label["pos"]:
                 true_positives += 1
