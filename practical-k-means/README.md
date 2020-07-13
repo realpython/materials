@@ -1,6 +1,6 @@
 # Practical K-Means Clustering in Python
 
-The Jupyter notebooks in this directory follow the code examples in Real Python's [Practical K-Means Clustering in Python](https://realpython.com/practical-k-means-clustering-python/) article. The article is structured such that there are two main sections with code. The first section works with synthetic data. The second section starts when the TCGA cancer gene expression dataset is introduced.
+The Jupyter notebooks in this directory follow the code examples in Real Python's [Practical K-Means Clustering in Python](https://realpython.com/k-means-clustering-python/) article. The article is structured such that there are two main sections with code. The first section works with synthetic data. The second section starts when the TCGA cancer gene expression dataset is introduced.
 
 ## Getting Started
 
