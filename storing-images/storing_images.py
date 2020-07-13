@@ -113,7 +113,7 @@ def store_single_lmdb(image, image_id, label):
     map_size = image.nbytes * 10
 
     # Create a new LMDB environment
-    env = lmdb.open(str(lmdb_dir / f"single_lmdb"), map_size=map_size)
+    env = lmdb.open(str(lmdb_dir / "single_lmdb"), map_size=map_size)
 
     # Start a new write transaction
     with env.begin(write=True) as txn:
@@ -396,7 +396,7 @@ def read_single_lmdb(image_id):
     """
 
     # Open the LMDB environment; see (1)
-    env = lmdb.open(str(lmdb_dir / f"single_lmdb"), readonly=True)
+    env = lmdb.open(str(lmdb_dir / "single_lmdb"), readonly=True)
 
     # Start a new read transaction
     with env.begin() as txn:
