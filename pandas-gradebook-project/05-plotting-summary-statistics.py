@@ -30,7 +30,7 @@ roster = pd.read_csv(
 
 hw_exam_grades = pd.read_csv(
     DATA_FOLDER / "hw_exam_grades.csv",
-    converters={"SID": str.lower, "Email Address": str.lower},
+    converters={"SID": str.lower},
     usecols=lambda x: "Submission" not in x,
     index_col="SID",
 )
