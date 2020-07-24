@@ -1,10 +1,9 @@
 """
-This program gathers information from the temp_data.csv file about temperature
+This program gathers information from the author_book_publisher.db 
+SQLite database file
 """
 
-from uuid import uuid4
-
-from pkg_resources import resource_filename
+from importlib import resources
 from sqlalchemy import and_, create_engine
 from sqlalchemy.orm import sessionmaker
 from sqlalchemy.sql import asc, desc, func
@@ -93,9 +92,10 @@ def add_new_book(session, author_name, book_title, publisher_name):
         .filter(Publisher.name == publisher_name)
         .one_or_none()
     )
-    # Does book not exist, and the author or publisher also not existexist?
-    if book is not None and not (author is None or publisher is None):
-        raise Exception(
+    # Does book, author and publisher already exist?
+    print(book)
+    if book is not None and author is not None and publisher is not None:
+        raise ValueError(
             "New item exists", author_name, book_title, publisher_name
         )
     # Create the book
@@ -129,14 +129,12 @@ def output_author_hierarchy(authors):
         )
         for book in author.books:
             authors_tree.create_node(
-                f"{book.title}",
-                f"{book.title}",
+                book.title,
+                book.title,
                 parent=f"{author.first_name} {author.last_name}",
             )
             for publisher in book.publishers:
-                authors_tree.create_node(
-                    f"{publisher.name}", uuid4(), parent=f"{book.title}"
-                )
+                authors_tree.create_node(publisher.name, parent=book.title)
     # Output the hierarchical authors data
     authors_tree.show()
 
@@ -145,16 +143,16 @@ def main():
     """Main entry point of program"""
 
     # Connect to the database using SqlAlchemy
-    sqlite_filepath = resource_filename(
+    with resources.path(
         "project.data", "author_book_publisher.db"
-    )
-    engine = create_engine(f"sqlite:///{sqlite_filepath}")
+    ) as sqlite_filepath:
+        engine = create_engine(f"sqlite:///{sqlite_filepath}")
     Session = sessionmaker()
     Session.configure(bind=engine)
     session = Session()
 
     # Get the total number of books printed by each publisher
-    books_by_publisher = get_books_by_publishers(session)
+    books_by_publisher = get_books_by_publishers(session, ascending=False)
     for row in books_by_publisher:
         print(f"Publisher: {row.name}, total books: {row.total_books}")
     print()

@@ -57,21 +57,16 @@ def add_new_book(data, author_name, book_title, publisher_name):
     """Adds a new book to the system"""
 
     # Does the book exist?
-    if book_title in data["title"].values:
-        raise ValueError("Book exists", book_title)
-
-    # Does the author exist?
     first_name, _, last_name = author_name.partition(" ")
-    if not any(
-        data["first_name"].str.contains(first_name)
-        & data["last_name"].str.contains(last_name)
+    if any(
+        (data.first_name == first_name)
+        & (data.last_name == last_name)
+        & (data.title == book_title)
+        & (data.publisher == publisher_name)
     ):
-        raise ValueError("No author found", author_name)
-
-    # Does the publisher exist?
-    if publisher_name not in data["publisher"].values:
-        raise ValueError("No publisher found", publisher_name)
-
+        raise ValueError(
+            "New item exists", author_name, book_title, publisher_name
+        )
     # Add the new book
     return data.append(
         {

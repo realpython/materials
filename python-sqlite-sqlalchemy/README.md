@@ -1,7 +1,7 @@
-# Python / Sqlite /SqlAlchemy article
+# Python / SQLite /SqlAlchemy article
 
 This repository contains the content and example code
-for the python / sqlite / sqlaclchemy article I'm writing
+for the Python / SQLite / SqlAclchemy article I'm writing
 for Real Python.
 
 This project was built using Python 3.8.0
@@ -11,7 +11,7 @@ This project was built using Python 3.8.0
 I use the `pyenv` tool to install Python versions on my Mac. I find it a very useful tool, and the instructions that follow use it, and are based on having Python version 3.8.0 installed using the following command:
 
 ```shell
-pyenv install 3.8.0
+$ pyenv install 3.8.0
 ```
 
 ## Installing The Project
