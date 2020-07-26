@@ -19,7 +19,6 @@
     whitespace and punctuation.
 """
 import unittest
-import string
 
 
 def caesar(plain_text, shift_num=1):

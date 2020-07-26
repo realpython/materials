@@ -7,14 +7,11 @@
     The device state message has many possible values, but this program only
     cares about three: ON, OFF, and ERR.
 
-    Your program will parse the given log file and print out a report giving how
-    long the device was ON, and the time stamp of any ERR conditions.
+    Your program will parse the given log file and print out a report giving
+    how long the device was ON, and the time stamp of any ERR conditions.
 """
-import sys
-import time
 
 
 if __name__ == "__main__":
     # TODO: Your code goes here
     print("There are no unit tests for logparse.")
-
