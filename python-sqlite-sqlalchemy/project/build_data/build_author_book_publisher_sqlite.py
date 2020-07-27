@@ -74,7 +74,8 @@ def main():
     with resources.path(
         "project.data", "author_book_publisher.csv"
     ) as csv_filepath:
-        author_book_publisher_data = get_author_book_publisher_data(csv_filepath)
+        data = get_author_book_publisher_data(csv_filepath)
+        author_book_publisher_data = data
 
     # get the filepath to the database file
     with resources.path(

@@ -16,10 +16,10 @@ albums_bp = Blueprint(
 def does_album_exist(form, field):
     album = (
         db.session.query(Album)
-            .join(Artist)
-            .filter(Artist.name == form.artist.data)
-            .filter(Album.title == field.data)
-            .one_or_none()
+        .join(Artist)
+        .filter(Artist.name == form.artist.data)
+        .filter(Album.title == field.data)
+        .one_or_none()
     )
 
     if album is not None:
