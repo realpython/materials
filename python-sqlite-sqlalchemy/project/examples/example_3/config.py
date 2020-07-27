@@ -12,7 +12,7 @@ class Config:
     db_path = base_path / "data" / "chinook.db"
 
     SECRET_KEY = os.getenv("SECRET_KEY")
-    SQLALCHEMY_DATABASE_URI = r"sqlite:///" + str(db_path)
+    SQLALCHEMY_DATABASE_URI = f"sqlite:///{str(db_path)}"
     SQLALCHEMY_TRACK_MODIFICATIONS = json.loads(
         os.getenv("SQLALCHEMY_TRACK_MODIFICATIONS").lower()
     )

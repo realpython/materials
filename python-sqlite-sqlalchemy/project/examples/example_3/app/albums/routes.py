@@ -1,6 +1,7 @@
 from flask import Blueprint, render_template, redirect, url_for
 from flask_wtf import FlaskForm
 from wtforms import StringField
+from wtforms import HiddenField
 from wtforms.validators import InputRequired, ValidationError
 from app import db
 from app.models import Artist, Album
@@ -14,7 +15,11 @@ albums_bp = Blueprint(
 
 def does_album_exist(form, field):
     album = (
-        db.session.query(Album).filter(Album.title == field.data).one_or_none()
+        db.session.query(Album)
+            .join(Artist)
+            .filter(Artist.name == form.artist.data)
+            .filter(Album.title == field.data)
+            .one_or_none()
     )
 
     if album is not None:
@@ -22,6 +27,7 @@ def does_album_exist(form, field):
 
 
 class CreateAlbumForm(FlaskForm):
+    artist = HiddenField("artist")
     title = StringField(
         label="Albums's Name", validators=[InputRequired(), does_album_exist]
     )
@@ -38,6 +44,8 @@ def albums(artist_id=None):
         .filter(Artist.artist_id == artist_id)
         .one_or_none()
     )
+
+    form.artist.data = artist.name
 
     # Is the form valid?
     if form.validate_on_submit():

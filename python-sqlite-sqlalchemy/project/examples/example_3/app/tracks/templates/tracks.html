@@ -12,6 +12,8 @@
         <p class="card-text">Album's Name:&nbsp;{{ album.title }}</p>
         <form method="POST" action="{{url_for('tracks_bp.tracks', album_id=album.album_id)}}">
           {{ form.csrf_token }}
+          {{ render_field(form.artist) }}
+          {{ render_field(form.album) }}
           {{ render_field(form.name, placeholder=form.name.label.text) }}
           {{ render_select(form.media_type, placeholder=form.media_type.label.text) }}
           {{ render_select(form.genre, placeholder=form.genre.label.text) }}
@@ -48,4 +50,3 @@
   </div>
 </div>
 {% endblock %}
-

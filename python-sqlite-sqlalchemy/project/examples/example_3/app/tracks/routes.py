@@ -5,6 +5,7 @@ from wtforms import StringField
 from wtforms import IntegerField
 from wtforms import FloatField
 from wtforms import SelectField
+from wtforms import HiddenField
 from wtforms.validators import InputRequired
 from wtforms.validators import ValidationError
 from app import db
@@ -34,7 +35,9 @@ def does_artist_exist(form, field):
 
 def does_album_exist(form, field):
     album = (
-        db.session.query(Album).filter(Album.title == field.data).one_or_none()
+        db.session.query(Album)
+            .filter(Album.title == field.data)
+            .one_or_none()
     )
 
     if album is not None:
@@ -43,7 +46,13 @@ def does_album_exist(form, field):
 
 def does_track_exist(form, field):
     track = (
-        db.session.query(Track).filter(Track.name == field.data).one_or_none()
+        db.session.query(Track)
+            .join(Album)
+            .join(Artist)
+            .filter(Artist.name == form.artist.data)
+            .filter(Album.title == form.album.data)
+            .filter(Track.name == field.data)
+            .one_or_none()
     )
 
     if track is not None:
@@ -51,8 +60,13 @@ def does_track_exist(form, field):
 
 
 class CreateTrackForm(FlaskForm):
+    artist = HiddenField("artist")
+    album = HiddenField("album")
     name = StringField(
-        label="Track's Name", validators=[InputRequired(), does_track_exist]
+        label="Track's Name", validators=[
+            InputRequired(), 
+            does_track_exist
+        ]
     )
     media_type = SelectField(label="Media Type", validators=[InputRequired()])
     genre = SelectField(label="Genre", validators=[InputRequired()])
@@ -86,8 +100,10 @@ def tracks(album_id=None):
         .filter(Album.album_id == album_id)
         .one_or_none()
     )
+    form.album.data = album.title
 
     artist = album.artist
+    form.artist.data = artist.name
 
     # Is the form valid?
     if form.validate_on_submit():

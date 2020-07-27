@@ -5,7 +5,7 @@ author_book_publisher.csv file.
 
 import os
 import csv
-from pkg_resources import resource_filename
+from importlib import resources
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 from project.modules.models import Base
@@ -71,19 +71,18 @@ def main():
     print("starting")
 
     # get the author/book/publisher data into a dictionary structure
-    csv_filepath = resource_filename(
+    with resources.path(
         "project.data", "author_book_publisher.csv"
-    )
-    author_book_publisher_data = get_author_book_publisher_data(csv_filepath)
+    ) as csv_filepath:
+        author_book_publisher_data = get_author_book_publisher_data(csv_filepath)
 
     # get the filepath to the database file
-    sqlite_filepath = resource_filename(
+    with resources.path(
         "project.data", "author_book_publisher.db"
-    )
-
-    # does the database exist?
-    if os.path.exists(sqlite_filepath):
-        os.remove(sqlite_filepath)
+    ) as sqlite_filepath:
+        # does the database exist?
+        if os.path.exists(sqlite_filepath):
+            os.remove(sqlite_filepath)
 
     # create the database
     engine = create_engine(f"sqlite:///{sqlite_filepath}")
