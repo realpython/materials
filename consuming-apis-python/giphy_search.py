@@ -1,6 +1,6 @@
 import requests
 
-# Replace the following with the API key generated above.
+# Replace the following with the API key generated.
 api_key = "API_KEY"
 endpoint = "https://api.giphy.com/v1/gifs/search"
 search_term = "shrug"
