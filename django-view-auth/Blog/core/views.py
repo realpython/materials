@@ -4,12 +4,14 @@ from django.http import HttpResponse
 from django.shortcuts import render, get_object_or_404
 from core.models import Blog
 
+
 def listing(request):
     data = {
         "blogs": Blog.objects.all(),
     }
 
     return render(request, "listing.html", data)
+
 
 def view_blog(request, blog_id):
     blog = get_object_or_404(Blog, id=blog_id)
@@ -18,6 +20,7 @@ def view_blog(request, blog_id):
     }
 
     return render(request, "view_blog.html", data)
+
 
 def see_request(request):
     text = f"""
@@ -32,6 +35,7 @@ def see_request(request):
 
     return HttpResponse(text, content_type="text/plain")
 
+
 def user_info(request):
     text = f"""
         Selected HttpRequest.user attributes:
@@ -45,13 +49,16 @@ def user_info(request):
 
     return HttpResponse(text, content_type="text/plain")
 
+
 @login_required
 def private_place(request):
     return HttpResponse("Shhh, members only!", content_type="text/plain")
 
+
 @user_passes_test(lambda user: user.is_staff)
 def staff_place(request):
     return HttpResponse("Employees must wash hands", content_type="text/plain")
+
 
 @login_required
 def add_messages(request):
