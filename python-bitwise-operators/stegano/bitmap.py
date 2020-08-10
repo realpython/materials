@@ -31,7 +31,9 @@ class Bitmap:
     def __getitem__(self, offset: Union[int, slice]) -> Union[int, bytes]:
         return self._file_bytes[offset]
 
-    def __setitem__(self, offset: Union[int, slice], value: Union[int, bytes]) -> None:
+    def __setitem__(
+        self, offset: Union[int, slice], value: Union[int, bytes]
+    ) -> None:
         self._file_bytes[offset] = value
 
     @property

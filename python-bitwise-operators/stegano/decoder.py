@@ -27,4 +27,9 @@ def decode(bitmap: Bitmap) -> None:
 def secret_bytes(bitmap) -> Iterator[int]:
     """Return an iterator over secret bytes."""
     for eight_bytes in bitmap.byte_slices:
-        yield sum([(byte & 1) << (7 - i) for i, byte in enumerate(bitmap[eight_bytes])])
+        yield sum(
+            [
+                (byte & 1) << (7 - i)
+                for i, byte in enumerate(bitmap[eight_bytes])
+            ]
+        )
