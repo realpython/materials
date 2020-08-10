@@ -30,7 +30,7 @@ class ConsoleFrontend(IOFrontend):
                 elif cell == Cell.O:
                     print("🔵", end="┃")
                 else:
-                    print(self.placeholders[i*len(row)+j], end=" ┃")
+                    print(self.placeholders[i * len(row) + j], end=" ┃")
             print()
         print()
 
@@ -56,7 +56,7 @@ class TableConsoleFrontend(IOFrontend):
                 elif cell == Cell.O:
                     text = click.style(cell.value, fg="blue", bold=True)
                 else:
-                    text = str(i*len(row)+j+1)
+                    text = str(i * len(row) + j + 1)
                 table_row.append(text)
             table_data.append(table_row)
         table = SingleTable(table_data=table_data)
@@ -69,7 +69,7 @@ class TableConsoleFrontend(IOFrontend):
         if name is not None:
             click.secho(f"{name} is a winner!", fg="black", bg="green")
         else:
-            click.secho(f"A draw on the board!", fg="black", bg="cyan")
+            click.secho("A draw on the board!", fg="black", bg="cyan")
 
     def get_input(self):
         return input("Enter a number of the cell: ")

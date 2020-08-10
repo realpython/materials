@@ -19,8 +19,9 @@ class Player(ABC):
 
 class RandomPlayer(Player):
     def __init__(self):
-        random_name = "".join([random.choice(string.ascii_letters)
-                               for _ in range(8)])
+        random_name = "".join(
+            [random.choice(string.ascii_letters) for _ in range(8)]
+        )
         super().__init__(name=random_name)
 
     def get_turn(self, board):

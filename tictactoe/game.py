@@ -7,7 +7,8 @@ from tictactoe.io import IOFrontend
 
 class Game(object):
     def __init__(
-            self, x_player=None, o_player=None, frontend: IOFrontend = None):
+        self, x_player=None, o_player=None, frontend: IOFrontend = None
+    ):
         self.board = [
             [Cell.EMPTY, Cell.EMPTY, Cell.EMPTY],
             [Cell.EMPTY, Cell.EMPTY, Cell.EMPTY],
@@ -47,8 +48,8 @@ class Game(object):
         if len(major_diagonal) == 1 and self.board[0][0] != Cell.EMPTY:
             return self.board[0][0]
 
-        if len(minor_diagonal) == 1 and self.board[0][size-1] != Cell.EMPTY:
-            return self.board[0][size-1]
+        if len(minor_diagonal) == 1 and self.board[0][size - 1] != Cell.EMPTY:
+            return self.board[0][size - 1]
 
     def is_game_over(self):
         winner = self._check_winner()
