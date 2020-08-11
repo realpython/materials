@@ -68,7 +68,7 @@ def add_coin():
 
 def on_mouse_move(pos: Tuple):
     """Called whenever the mouse changes position
-    
+
     Arguments:
         pos {Tuple} -- The current position of the mouse
     """
@@ -91,7 +91,7 @@ def on_mouse_move(pos: Tuple):
 
 def update(delta_time: float):
     """Called every frame to update game objects
-    
+
     Arguments:
         delta_time {float} -- Time since the last frame
     """
@@ -107,7 +107,7 @@ def update(delta_time: float):
     # Check each coin in the list for a collision
     for coin in coin_list:
         if player.colliderect(coin):
-            sounds.coin_pickup.play()]
+            sounds.coin_pickup.play()
             coin_remove_list.append(coin)
             score += 10
 
