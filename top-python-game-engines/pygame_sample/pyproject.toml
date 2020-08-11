@@ -1,0 +1,18 @@
+[tool.poetry]
+name = "pygame_sample"
+version = "0.1.0"
+description = "Exploration of the Pygame Game Engine"
+authors = ["Jon Fincher <jfincher42@gmail.com>"]
+
+[tool.poetry.dependencies]
+python = "^3.7"
+pygame = "^1.9.6"
+
+[tool.poetry.dev-dependencies]
+pytest = "^5.2"
+black = "^19.10b0"
+flake8 = "^3.7.9"
+
+[build-system]
+requires = ["poetry>=0.12"]
+build-backend = "poetry.masonry.api"

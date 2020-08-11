@@ -1,0 +1,30 @@
+[tool.poetry]
+name = "adventurelib_sample"
+version = "0.1.0"
+description = "Exploration of the AdventureLib Game Engine"
+authors = ["Jon Fincher <jfincher42@gmail.com>"]
+
+[tool.poetry.dependencies]
+python = "^3.7"
+adventurelib = "^1.2"
+
+[tool.poetry.dev-dependencies]
+pytest = "^5.2"
+black = "^19.10b0"
+flake8 = "^3.7.9"
+
+[tool.black]
+line-length = 79
+target-version = ["py37"]
+exclude = '''
+/(
+  \.git
+  | venv
+  | migrations
+  | node_modules
+)/
+'''
+
+[build-system]
+requires = ["poetry>=0.12"]
+build-backend = "poetry.masonry.api"
