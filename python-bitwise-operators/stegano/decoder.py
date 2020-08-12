@@ -9,11 +9,15 @@ from typing import Iterator
 from .bitmap import Bitmap
 
 
+class DecodingError(Exception):
+    pass
+
+
 def decode(bitmap: Bitmap) -> None:
     """Extract a secret file from the bitmap."""
 
     if bitmap.reserved_field <= 0:
-        raise ValueError("Secret file not found in the bitmap")
+        raise DecodingError("Secret file not found in the bitmap")
 
     iterator = secret_bytes(bitmap)
 

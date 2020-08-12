@@ -5,8 +5,8 @@ $ python -m stegano
 
 from .bitmap import Bitmap
 from .cli import CommandLineArguments, parse_args
-from .decoder import decode
-from .encoder import encode
+from .decoder import decode, DecodingError
+from .encoder import encode, EncodingError
 from .eraser import erase
 
 
@@ -24,5 +24,5 @@ def main(args: CommandLineArguments) -> None:
 if __name__ == "__main__":
     try:
         main(parse_args())
-    except Exception as ex:  # pylint: disable=W0703
+    except (EncodingError, DecodingError) as ex:
         print(ex)

@@ -8,6 +8,10 @@ from typing import Iterator
 from .bitmap import Bitmap
 
 
+class EncodingError(Exception):
+    pass
+
+
 class SecretFile:
     """Convenience class for serializing secret data."""
 
@@ -35,7 +39,7 @@ def encode(bitmap: Bitmap, path: pathlib.Path) -> None:
     file = SecretFile(path)
 
     if file.num_secret_bytes > bitmap.max_bytes:
-        raise ValueError("Not enough pixels to embed a secret file")
+        raise EncodingError("Not enough pixels to embed a secret file")
 
     bitmap.reserved_field = file.size_bytes
     for secret_byte, eight_bytes in zip(file.secret_bytes, bitmap.byte_slices):
