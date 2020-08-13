@@ -3,7 +3,7 @@ Rooms for the AdventureLib game
 """
 
 # Import the library contents
-from adventurelib import *
+import adventurelib as adv
 
 # Import our items as well
 import adventurelib_game_items
@@ -13,7 +13,7 @@ import adventurelib_game_characters
 
 
 # Create a subclass of Rooms to track some custom properties
-class GameArea(Room):
+class GameArea(adv.Room):
     def __init__(self, description: str):
 
         super().__init__(description)
@@ -26,10 +26,10 @@ class GameArea(Room):
             "west": False,
         }
         # All areas can have items in them
-        self.items = Bag()
+        self.items = adv.Bag()
 
         # All areas can have characters in them
-        self.characters = Bag()
+        self.characters = adv.Bag()
 
         # All areas may have been visited already
         # If so, we can print a shorter description

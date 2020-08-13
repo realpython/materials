@@ -9,10 +9,10 @@ of AdventureLib. It will:
 """
 
 # Import the library contents
-from adventurelib import *
+import adventurelib as adv
 
 # Define our rooms
-bedroom = Room(
+bedroom = adv.Room(
     """
 You are in your bedroom. The bed is unmade, but otherwise
 it's clean. Your dresser is in the corner, and a desk is
@@ -20,14 +20,14 @@ under the window.
 """
 )
 
-living_room = Room(
+living_room = adv.Room(
     """
 The living room stands bright and empty. The TV is off,
 and the sun shines brightly through the curtains.
 """
 )
 
-front_porch = Room(
+front_porch = adv.Room(
     """
 The creaky boards of your front porch welcome you as an
 old friend. Your front door mat reads 'Welcome'.
@@ -62,31 +62,31 @@ def unlock_living_room(current_room):
 
 
 # Create our items
-key = Item("a front door key", "key")
+key = adv.Item("a front door key", "key")
 key.use_item = unlock_living_room
 
 # Create empty Bags for room contents
-bedroom.contents = Bag()
-living_room.contents = Bag()
-front_porch.contents = Bag()
+bedroom.contents = adv.Bag()
+living_room.contents = adv.Bag()
+front_porch.contents = adv.Bag()
 
 # Put the key in the bedroom
 bedroom.contents.add(key)
 
 # Setup our current empty inventory
-inventory = Bag()
+inventory = adv.Bag()
 
 
 # Define our movement commands
-@when("go DIRECTION")
-@when("north", direction="north")
-@when("south", direction="south")
-@when("east", direction="east")
-@when("west", direction="west")
-@when("n", direction="north")
-@when("s", direction="south")
-@when("e", direction="east")
-@when("w", direction="west")
+@adv.when("go DIRECTION")
+@adv.when("north", direction="north")
+@adv.when("south", direction="south")
+@adv.when("east", direction="east")
+@adv.when("west", direction="west")
+@adv.when("n", direction="north")
+@adv.when("s", direction="south")
+@adv.when("e", direction="east")
+@adv.when("w", direction="west")
 def go(direction: str):
     """Processes our moving direction
 
@@ -114,13 +114,13 @@ def go(direction: str):
 
 
 # How do we look at the room
-@when("look")
+@adv.when("look")
 def look():
     """Looks at the current room"""
     global current_room
 
     # Describe the room
-    say(f"{current_room}")
+    adv.say(f"{current_room}")
 
     # List the contents
     for item in current_room.contents:
@@ -131,8 +131,8 @@ def look():
 
 
 # How do we look at items?
-@when("look at ITEM")
-@when("inspect ITEM")
+@adv.when("look at ITEM")
+@adv.when("inspect ITEM")
 def look_at(item: str):
 
     # Check if the item is in our inventory or not
@@ -144,9 +144,9 @@ def look_at(item: str):
 
 
 # How do we pick up items?
-@when("take ITEM")
-@when("get ITEM")
-@when("pickup ITEM")
+@adv.when("take ITEM")
+@adv.when("get ITEM")
+@adv.when("pickup ITEM")
 def get(item: str):
     """Get the item if it exists
 
@@ -164,8 +164,8 @@ def get(item: str):
 
 
 # How do we use an item?
-@when("unlock door", item="key")
-@when("use ITEM")
+@adv.when("unlock door", item="key")
+@adv.when("use ITEM")
 def use(item: str):
     """Use an item, consumes it if used
 
@@ -186,4 +186,4 @@ def use(item: str):
 
 
 if __name__ == "__main__":
-    start()
+    adv.start()
