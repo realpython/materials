@@ -24,20 +24,20 @@ def draw():
     """
 
     # Clear the screen first
-    screen.clear()
+    pgzrun.screen.clear()
 
     # Set the background color to white
-    screen.fill("white")
+    pgzrun.screen.fill("white")
 
     # Draw a blue circle with a radius of 50 in the center of the screen
-    screen.draw.filled_circle((WIDTH // 2, HEIGHT // 2), 50, "blue")
+    pgzrun.screen.draw.filled_circle((WIDTH // 2, HEIGHT // 2), 50, "blue")
 
     # Draw a red outlined square in the top left corner of the screen
-    red_square = Rect((50, 50), (100, 100))
-    screen.draw.rect(red_square, (200, 0, 0))
+    red_square = pgzrun.Rect((50, 50), (100, 100))
+    pgzrun.screen.draw.rect(red_square, (200, 0, 0))
 
     # Draw an orange caption along the bottom in 60 point font
-    screen.draw.text(
+    pgzrun.screen.draw.text(
         "Hello, World! From Pygame Zero!",
         (100, HEIGHT - 50),
         fontsize=60,
