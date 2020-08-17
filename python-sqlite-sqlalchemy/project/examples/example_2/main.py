@@ -94,9 +94,8 @@ def add_new_book(session, author_name, book_title, publisher_name):
     )
     # Does book, author and publisher already exist?
     if book is not None and author is not None and publisher is not None:
-        raise ValueError(
-            "New item exists", author_name, book_title, publisher_name
-        )
+        return
+
     # Create the book
     book = Book(title=book_title)
 
