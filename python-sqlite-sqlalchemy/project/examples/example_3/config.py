@@ -4,7 +4,11 @@ from pathlib import Path
 from dotenv import load_dotenv
 
 # Load the environment variables from .env file
-load_dotenv()
+path = Path(__file__).parent / ".env"
+if path.exists():
+    load_dotenv()
+else:
+    raise IOError(".env file not found")
 
 
 class Config:

@@ -38,14 +38,18 @@ class CreateAlbumForm(FlaskForm):
 def albums(artist_id=None):
     form = CreateAlbumForm()
 
-    # Get the artist
-    artist = (
-        db.session.query(Artist)
-        .filter(Artist.artist_id == artist_id)
-        .one_or_none()
-    )
-
-    form.artist.data = artist.name
+    # did we get an artist id?
+    if artist_id is not None:
+        # Get the artist
+        artist = (
+            db.session.query(Artist)
+            .filter(Artist.artist_id == artist_id)
+            .one_or_none()
+        )
+        form.artist.data = artist.name
+    # otherwise, no artist
+    else:
+        artist = None
 
     # Is the form valid?
     if form.validate_on_submit():

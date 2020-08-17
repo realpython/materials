@@ -36,7 +36,7 @@ def get_books_by_publisher(data, ascending=True):
 
 
 def get_authors_by_publisher(data, ascending=True):
-    """Returns the authors by the associated publisher as a Panda series
+    """Returns the authors by the associated publisher as a pandas series
 
     Args:
         data: The pandas dataframe to get the data from
