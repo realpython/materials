@@ -9,7 +9,7 @@ from sqlalchemy.orm import sessionmaker
 from sqlalchemy.sql import asc, desc, func
 from treelib import Tree
 
-from project.modules.models import Author, Book, Publisher, author_publisher
+from project.modules.models import Author, Book, Publisher
 
 
 def get_books_by_publishers(session, ascending=True):
