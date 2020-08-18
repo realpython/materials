@@ -4,12 +4,13 @@ SQLite database file
 """
 
 from importlib import resources
+
 from sqlalchemy import and_, create_engine
 from sqlalchemy.orm import sessionmaker
 from sqlalchemy.sql import asc, desc, func
-from treelib import Tree
 
-from project.modules.models import Author, Book, Publisher
+from project.modules.models import Author, Book, Publisher, author_publisher
+from treelib import Tree
 
 
 def get_books_by_publishers(session, ascending=True):
@@ -87,14 +88,25 @@ def add_new_book(session, author_name, book_title, publisher_name):
         .filter(Book.publishers.any(Publisher.name == publisher_name))
         .one_or_none()
     )
-
     # Does the book by the author and publisher already exist?
     if book is not None:
         return
-    # Otherwise, create the book
-    else:
+
+    # get the book by the author
+    book = (
+        session.query(Book)
+        .join(Author)
+        .filter(Book.title == book_title)
+        .filter(
+            and_(
+                Author.first_name == first_name, Author.last_name == last_name
+            )
+        )
+        .one_or_none()
+    )
+    # Create the new book if needed
+    if book is None:
         book = Book(title=book_title)
-        session.add(book)
 
     # Get the author
     author = (
@@ -106,10 +118,14 @@ def add_new_book(session, author_name, book_title, publisher_name):
         )
         .one_or_none()
     )
-    # Do we need to create the author
+    # Do we need to create the author?
     if author is None:
         author = Author(first_name=first_name, last_name=last_name)
         session.add(author)
+
+    # Is this a new book for this author?
+    if book not in [book_ for book_ in author.books]:
+        author.books.append(book)
 
     # Get the publisher
     publisher = (
@@ -122,14 +138,10 @@ def add_new_book(session, author_name, book_title, publisher_name):
         publisher = Publisher(name=publisher_name)
         session.add(publisher)
 
-    # Add the book to the author's books collection
-    author.books.append(book)
-
-    # Add the book to the publisher's books collection
-    publisher.books.append(book)
-
-    # Add the publisher to the author's publishers collection
-    author.publishers.append(publisher)
+    # Initialize the book relationships
+    book.author = author
+    book.publishers.append(publisher)
+    session.add(book)
 
     # Commit to the database
     session.commit()

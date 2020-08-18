@@ -30,6 +30,10 @@ class Author(Base):
     publishers = relationship(
         "Publisher", secondary=author_publisher, back_populates="authors"
     )
+    def __eq__(self, other):
+        author_name = f"{self.first_name} {self.last_name}"
+        other_name = f"{other.first_name} {other.last_name}"
+        return author_name == other_name
 
 
 class Book(Base):
@@ -40,6 +44,8 @@ class Book(Base):
     publishers = relationship(
         "Publisher", secondary=book_publisher, back_populates="books"
     )
+    def __eq__(self, other):
+        return self.title == other.title
 
 
 class Publisher(Base):
@@ -52,3 +58,6 @@ class Publisher(Base):
     books = relationship(
         "Book", secondary=book_publisher, back_populates="publishers"
     )
+    def __eq__(self, other):
+        return self.name == other.name
+    
