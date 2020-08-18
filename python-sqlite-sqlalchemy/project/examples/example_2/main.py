@@ -9,7 +9,7 @@ from sqlalchemy import and_, create_engine
 from sqlalchemy.orm import sessionmaker
 from sqlalchemy.sql import asc, desc, func
 
-from project.modules.models import Author, Book, Publisher, author_publisher
+from project.modules.models import Author, Book, Publisher
 from treelib import Tree
 
 
