@@ -123,10 +123,6 @@ def add_new_book(session, author_name, book_title, publisher_name):
         author = Author(first_name=first_name, last_name=last_name)
         session.add(author)
 
-    # Is this a new book for this author?
-    if book not in [book_ for book_ in author.books]:
-        author.books.append(book)
-
     # Get the publisher
     publisher = (
         session.query(Publisher)
