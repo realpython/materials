@@ -64,9 +64,6 @@ def add_new_book(data, author_name, book_title, publisher_name):
         & (data.title == book_title)
         & (data.publisher == publisher_name)
     ):
-        # raise ValueError(
-        #     "New item exists", author_name, book_title, publisher_name
-        # )
         return data
     # Add the new book
     return data.append(
