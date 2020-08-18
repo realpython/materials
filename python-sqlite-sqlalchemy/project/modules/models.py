@@ -52,4 +52,3 @@ class Publisher(Base):
     books = relationship(
         "Book", secondary=book_publisher, back_populates="publishers"
     )
-
