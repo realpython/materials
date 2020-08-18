@@ -9,7 +9,7 @@ from sqlalchemy.orm import sessionmaker
 from sqlalchemy.sql import asc, desc, func
 from treelib import Tree
 
-from project.modules.models import Author, Book, Publisher
+from project.modules.models import Author, Book, Publisher, author_publisher
 
 
 def get_books_by_publishers(session, ascending=True):
@@ -71,8 +71,32 @@ def get_authors(session):
 def add_new_book(session, author_name, book_title, publisher_name):
     """Adds a new book to the system"""
 
-    # Get the author if exists
+    # Get the author's first and last names
     first_name, last_name = author_name.split(" ")
+
+    # Get the book if it exists
+    book = (
+        session.query(Book)
+        .join(Author)
+        .filter(Book.title == book_title)
+        .filter(
+            and_(
+                Author.first_name == first_name, Author.last_name == last_name
+            )
+        )
+        .filter(Book.publishers.any(Publisher.name == publisher_name))
+        .one_or_none()
+    )
+
+    # Does the book by the author and publisher already exist?
+    if book is not None:
+        return
+    # Otherwise, create the book
+    else:
+        book = Book(title=book_title)
+        session.add(book)
+
+    # Get the author
     author = (
         session.query(Author)
         .filter(
@@ -82,28 +106,30 @@ def add_new_book(session, author_name, book_title, publisher_name):
         )
         .one_or_none()
     )
+    # Do we need to create the author
+    if author is None:
+        author = Author(first_name=first_name, last_name=last_name)
+        session.add(author)
 
-    # Get the book if exists
-    book = session.query(Book).filter(Book.title == book_title).one_or_none()
-
-    # Get the publisher if exists
+    # Get the publisher
     publisher = (
         session.query(Publisher)
         .filter(Publisher.name == publisher_name)
         .one_or_none()
     )
-    # Does book, author and publisher already exist?
-    if book is not None and author is not None and publisher is not None:
-        return
+    # Do we need to create the publisher?
+    if publisher is None:
+        publisher = Publisher(name=publisher_name)
+        session.add(publisher)
 
-    # Create the book
-    book = Book(title=book_title)
-
-    # Add the book to the author's books collection if didn't exist
+    # Add the book to the author's books collection
     author.books.append(book)
 
-    # Add the book to the publisher's collection if didn't exist
+    # Add the book to the publisher's books collection
     publisher.books.append(book)
+
+    # Add the publisher to the author's publishers collection
+    author.publishers.append(publisher)
 
     # Commit to the database
     session.commit()
@@ -120,19 +146,13 @@ def output_author_hierarchy(authors):
     authors_tree = Tree()
     authors_tree.create_node("Authors", "authors")
     for author in authors:
-        authors_tree.create_node(
-            f"{author.first_name} {author.last_name}",
-            f"{author.first_name} {author.last_name}",
-            parent="authors",
-        )
-        for book in author.books:
-            authors_tree.create_node(
-                book.title,
-                book.title,
-                parent=f"{author.first_name} {author.last_name}",
-            )
+        author_id = f"{author.first_name} {author.last_name}"
+        authors_tree.create_node(author_id, author_id, parent="authors")
+        for index, book in enumerate(author.books):
+            book_id = f"{author_id}:{book.title}:{index}"
+            authors_tree.create_node(book.title, book_id, parent=author_id)
             for publisher in book.publishers:
-                authors_tree.create_node(publisher.name, parent=book.title)
+                authors_tree.create_node(publisher.name, parent=book_id)
     # Output the hierarchical authors data
     authors_tree.show()
 
@@ -172,7 +192,30 @@ def main():
         book_title="The Stand",
         publisher_name="Random House",
     )
-
+    add_new_book(
+        session,
+        author_name="Tom Clancy",
+        book_title="It",
+        publisher_name="Random House",
+    )
+    add_new_book(
+        session,
+        author_name="Doug Farrell",
+        book_title="Python and SQLite and SqlAlchemy, Oh My",
+        publisher_name="Random House",
+    )
+    add_new_book(
+        session,
+        author_name="Tom Clancy",
+        book_title="It",
+        publisher_name="Real Python",
+    )
+    add_new_book(
+        session,
+        author_name="Tom Clancy",
+        book_title="It",
+        publisher_name="Random House",
+    )
     # Output the updated hierarchical authors data
     authors = get_authors(session)
     output_author_hierarchy(authors)

@@ -64,9 +64,10 @@ def add_new_book(data, author_name, book_title, publisher_name):
         & (data.title == book_title)
         & (data.publisher == publisher_name)
     ):
-        raise ValueError(
-            "New item exists", author_name, book_title, publisher_name
-        )
+        # raise ValueError(
+        #     "New item exists", author_name, book_title, publisher_name
+        # )
+        return data
     # Add the new book
     return data.append(
         {
@@ -90,9 +91,10 @@ def output_author_hierarchy(data):
     for author, books in authors.groupby("name"):
         authors_tree.create_node(author, author, parent="authors")
         for book, publishers in books.groupby("title")["publisher"]:
-            authors_tree.create_node(book, book, parent=author)
+            book_id = f"{author}:{book}"
+            authors_tree.create_node(book, book_id, parent=author)
             for publisher in publishers:
-                authors_tree.create_node(publisher, parent=book)
+                authors_tree.create_node(publisher, parent=book_id)
 
     # Output the hierarchical authors data
     authors_tree.show()
@@ -127,6 +129,30 @@ def main():
         data,
         author_name="Stephen King",
         book_title="The Stand",
+        publisher_name="Random House",
+    )
+    data = add_new_book(
+        data,
+        author_name="Tom Clancy",
+        book_title="It",
+        publisher_name="Random House",
+    )
+    data = add_new_book(
+        data,
+        author_name="Doug Farrell",
+        book_title="Python and SQLite and SqlAlchemy, Oh My",
+        publisher_name="Random House",
+    )
+    data = add_new_book(
+        data,
+        author_name="Tom Clancy",
+        book_title="It",
+        publisher_name="Real Python",
+    )
+    data = add_new_book(
+        data,
+        author_name="Tom Clancy",
+        book_title="It",
         publisher_name="Random House",
     )
 
