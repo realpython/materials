@@ -131,31 +131,6 @@ def main():
         book_title="The Stand",
         publisher_name="Random House",
     )
-    data = add_new_book(
-        data,
-        author_name="Tom Clancy",
-        book_title="It",
-        publisher_name="Random House",
-    )
-    data = add_new_book(
-        data,
-        author_name="Doug Farrell",
-        book_title="Python and SQLite and SqlAlchemy, Oh My",
-        publisher_name="Random House",
-    )
-    data = add_new_book(
-        data,
-        author_name="Tom Clancy",
-        book_title="It",
-        publisher_name="Real Python",
-    )
-    data = add_new_book(
-        data,
-        author_name="Tom Clancy",
-        book_title="It",
-        publisher_name="Random House",
-    )
-
     # Output the updated hierarchical authors data
     output_author_hierarchy(data)
 

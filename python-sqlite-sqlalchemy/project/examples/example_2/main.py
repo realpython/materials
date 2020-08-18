@@ -192,30 +192,6 @@ def main():
         book_title="The Stand",
         publisher_name="Random House",
     )
-    add_new_book(
-        session,
-        author_name="Tom Clancy",
-        book_title="It",
-        publisher_name="Random House",
-    )
-    add_new_book(
-        session,
-        author_name="Doug Farrell",
-        book_title="Python and SQLite and SqlAlchemy, Oh My",
-        publisher_name="Random House",
-    )
-    add_new_book(
-        session,
-        author_name="Tom Clancy",
-        book_title="It",
-        publisher_name="Real Python",
-    )
-    add_new_book(
-        session,
-        author_name="Tom Clancy",
-        book_title="It",
-        publisher_name="Random House",
-    )
     # Output the updated hierarchical authors data
     authors = get_authors(session)
     output_author_hierarchy(authors)
