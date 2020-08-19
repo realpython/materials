@@ -208,13 +208,10 @@ if __name__ == "__main__":
     # How many guesses have they taken?
     guesses_taken = 0
 
-    # What is the word the user is trying to guess?
-    current_word = ""
-
     # Begin the game
     print("Welcome to Hangman!")
 
-    # Select the word and make a display version
+    # Select the word to be guessed and make a display version
     current_word = select_word()
     displayed_word = build_displayed_word(current_word, letters_guessed)
 
@@ -234,7 +231,7 @@ if __name__ == "__main__":
             player_guess = str.lower(input("Guess a letter: "))
 
         # Is this letter in the current word?
-        if player_guess in set(current_word):
+        if player_guess in current_word:
             print("Great guess!")
         else:
             print("Sorry, it's not there.")
