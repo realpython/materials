@@ -82,7 +82,6 @@ def output_author_hierarchy(data):
     authors = data.assign(
         name=data.first_name.str.cat(data.last_name, sep=" ")
     )
-
     authors_tree = Tree()
     authors_tree.create_node("Authors", "authors")
     for author, books in authors.groupby("name"):

@@ -65,7 +65,7 @@ def get_authors_by_publishers(session, ascending=True):
 
 
 def get_authors(session):
-    """Get a list of author objects"""
+    """Get a list of author objects sorted by last name"""
     return session.query(Author).order_by(Author.last_name).all()
 
 
@@ -73,9 +73,9 @@ def add_new_book(session, author_name, book_title, publisher_name):
     """Adds a new book to the system"""
 
     # Get the author's first and last names
-    first_name, last_name = author_name.split(" ")
+    first_name, _, last_name = author_name.partition(" ")
 
-    # Get the book if it exists
+    # Check if the book exists
     book = (
         session.query(Book)
         .join(Author)
@@ -92,7 +92,7 @@ def add_new_book(session, author_name, book_title, publisher_name):
     if book is not None:
         return
 
-    # get the book by the author
+    # Check if the book exists for the author
     book = (
         session.query(Book)
         .join(Author)
@@ -156,8 +156,8 @@ def output_author_hierarchy(authors):
     for author in authors:
         author_id = f"{author.first_name} {author.last_name}"
         authors_tree.create_node(author_id, author_id, parent="authors")
-        for index, book in enumerate(author.books):
-            book_id = f"{author_id}:{book.title}:{index}"
+        for book in author.books:
+            book_id = f"{author_id}:{book.title}"
             authors_tree.create_node(book.title, book_id, parent=author_id)
             for publisher in book.publishers:
                 authors_tree.create_node(publisher.name, parent=book_id)
