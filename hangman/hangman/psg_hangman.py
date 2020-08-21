@@ -66,8 +66,6 @@ def game_over(
 
 
 # Hangman functions for GUI version
-
-
 # PSG: Define the layout element which contains our letter buttons
 def letter_frame():
     letter_groups = [
@@ -95,6 +93,90 @@ def letter_frame():
     ]
 
 
+def draw_hangman(graph_element: sg.Graph, guesses_taken: int) -> None:
+    """Draw the proper Hangman
+
+    Args:
+        graph_element (sg.Graph): Where to draw the hangman
+        guesses_taken (int): How far do we draw them
+    """
+
+    # Clear the screen
+    graph_element.Erase()
+
+    # Draw the scaffold
+    graph_element.DrawLine([40, 55], [180, 55], width=10)
+    graph_element.DrawLine([165, 60], [165, 365], width=10)
+    graph_element.DrawLine([160, 360], [100, 360], width=10)
+    graph_element.DrawLine([100, 365], [100, 330], width=10)
+    graph_element.DrawLine([100, 330], [100, 310], width=1)
+
+    # Draw the hanged man
+    if guesses_taken >= 1:
+        # Draw the head
+        graph_element.DrawCircle(
+            [100, 290], 20, line_color="red", line_width=1
+        )
+
+    if guesses_taken >= 2:
+        # Draw the body
+        graph_element.DrawLine(
+            [100, 270], [100, 170], color="red", width=1
+        )
+
+    if guesses_taken >= 3:
+        # Draw the left arm
+        graph_element.DrawLine(
+            [100, 250], [80, 250], color="red", width=1
+        )
+        graph_element.DrawLine(
+            [80, 250], [60, 210], color="red", width=1
+        )
+        graph_element.DrawLine(
+            [60, 210], [60, 190], color="red", width=1
+        )
+
+    if guesses_taken >= 4:
+        # Draw the right arm
+        graph_element.DrawLine(
+            [100, 250], [120, 250], color="red", width=1
+        )
+        graph_element.DrawLine(
+            [120, 250], [140, 210], color="red", width=1
+        )
+        graph_element.DrawLine(
+            [140, 210], [140, 190], color="red", width=1
+        )
+
+    if guesses_taken >= 5:
+        # Draw the left leg
+        graph_element.DrawLine(
+            [100, 170], [80, 170], color="red", width=1
+        )
+        graph_element.DrawLine(
+            [80, 170], [70, 140], color="red", width=1
+        )
+        graph_element.DrawLine(
+            [70, 140], [70, 80], color="red", width=1
+        )
+        graph_element.DrawLine([70, 80], [60, 80], color="red", width=1)
+
+    if guesses_taken >= 6:
+        # Draw the right leg
+        graph_element.DrawLine(
+            [100, 170], [120, 170], color="red", width=1
+        )
+        graph_element.DrawLine(
+            [120, 170], [130, 140], color="red", width=1
+        )
+        graph_element.DrawLine(
+            [130, 140], [130, 80], color="red", width=1
+        )
+        graph_element.DrawLine(
+            [130, 80], [140, 80], color="red", width=1
+        )
+
+
 if __name__ == "__main__":
 
     # Create the main window layout
@@ -106,6 +188,7 @@ if __name__ == "__main__":
                 [
                     [
                         sg.Graph(
+                            key="-HANGMAN-",
                             canvas_size=(200, 400),
                             graph_bottom_left=(0, 0),
                             graph_top_right=(200, 400),
@@ -185,24 +268,82 @@ if __name__ == "__main__":
     # Undo buttom is disabled until we have a guess
     window["-UNDO-"].update(disabled=True)
 
-    while True:
+    # Start the game/event loop
+    while not game_over(guesses_taken, current_word, letters_guessed):
+
         # Display the built word
         window["-DISPLAY-WORD-"].update(displayed_word)
 
+        # Draw the hanged man
+        draw_hangman(window["-HANGMAN-"], guesses_taken)
+
         # Get a button press
         event, values = window.read()
-        print(event, values)
+
+        # Does the user want to close the window?
         if event in (sg.WIN_CLOSED, "Exit"):
             break
+
+        # Was it a letter button?
         elif event[:8] == "-letter-":
+
+            # Which letter?
             player_guess = event[8].lower()
-            if player_guess not in set(current_word):
+
+            # Is it in the word?
+            if player_guess not in current_word:
                 guesses_taken += 1
+
+            # Add it to the letters guessed
             letters_guessed.add(player_guess)
+
+            # Build a new display word
             displayed_word = build_displayed_word(
                 current_word, letters_guessed
             )
+
+            # Enable the Undo button
             window["-UNDO-"].update(disabled=False)
             window[event].update(disabled=True)
+
+            # TODO: Add this letter to the Undo stack
+
+        # Was it the restart button?
+        elif event == "-RESTART-":
+
+            # Clear the letters guessed
+            letters_guessed.clear()
+
+            # Reset the number of guesses taken
+            guesses_taken = 0
+
+            # Build a new display word
+            displayed_word = build_displayed_word(
+                current_word, letters_guessed
+            )
+
+            # Disable the Undo button
+            window["-UNDO-"].update(disabled=True)
+
+            # Enable the letter buttons
+            for letter in "ABCDEFGHIJKLMNOPQRSTUVWXYZ":
+                window[f"-letter-{letter}-"].update(disabled=False)
+
+    # Draw the final hanged man
+    draw_hangman(window["-HANGMAN-"], guesses_taken)
+
+    # Did the player win?
+    if guesses_taken < 6:
+        sg.Popup(
+            "You've won! Congratulations!",
+            title="Winner!",
+            custom_text="OK",
+        )
+    else:
+        sg.Popup(
+            f"You've lost! The word was '{current_word}'.",
+            title="Sorry!",
+            custom_text="OK",
+        )
 
     window.close()
