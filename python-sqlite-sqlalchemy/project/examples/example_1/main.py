@@ -105,13 +105,13 @@ def main():
     ) as filepath:
         data = get_data(filepath)
 
-    # Get the total number of books printed by each publisher
+    # Get the number of books printed by each publisher
     books_by_publisher = get_books_by_publisher(data, ascending=False)
     for publisher, total_books in books_by_publisher.items():
         print(f"Publisher: {publisher}, total books: {total_books}")
     print()
 
-    # Get the total number of authors each publisher publishes
+    # Get the number of authors each publisher publishes
     authors_by_publisher = get_authors_by_publisher(data, ascending=False)
     for publisher, total_authors in authors_by_publisher.items():
         print(f"Publisher: {publisher}, total authors: {total_authors}")

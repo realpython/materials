@@ -14,7 +14,7 @@ from treelib import Tree
 
 
 def get_books_by_publishers(session, ascending=True):
-    """Get a list of publisher and the total number of books they've published
+    """Get a list of publishers and the number of books they've published
 
     Args:
         session: database session to use
@@ -39,7 +39,7 @@ def get_books_by_publishers(session, ascending=True):
 
 
 def get_authors_by_publishers(session, ascending=True):
-    """Get a list of publisher and the total number of authors they've published
+    """Get a list of publishers and the number of authors they've published
 
     Args:
         session: database session to use
@@ -177,13 +177,13 @@ def main():
     Session.configure(bind=engine)
     session = Session()
 
-    # Get the total number of books printed by each publisher
+    # Get the number of books printed by each publisher
     books_by_publisher = get_books_by_publishers(session, ascending=False)
     for row in books_by_publisher:
         print(f"Publisher: {row.name}, total books: {row.total_books}")
     print()
 
-    # Get the total number of authors each publisher publishes
+    # Get the number of authors each publisher publishes
     authors_by_publisher = get_authors_by_publishers(session)
     for row in authors_by_publisher:
         print(f"Publisher: {row.name}, total authors: {row.total_authors}")
