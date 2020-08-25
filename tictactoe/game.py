@@ -7,9 +7,7 @@ from tictactoe.io import IOFrontend
 
 
 class Game(object):
-    def __init__(
-        self, x_player = None, o_player = None, frontend = None
-    ):
+    def __init__(self, x_player=None, o_player=None, frontend=None):
         self.board = [
             [Cell.EMPTY, Cell.EMPTY, Cell.EMPTY],
             [Cell.EMPTY, Cell.EMPTY, Cell.EMPTY],
@@ -47,9 +45,9 @@ class Game(object):
         major_diagonal = [self.board[i][i] for i in range(size)]
         if self._check_winning_set(major_diagonal):
             return major_diagonal[0]
-        
+
         # Check minor diagonal
-        minor_diagonal = [self.board[i][size - i -1] for i in range(size)]
+        minor_diagonal = [self.board[i][size - i - 1] for i in range(size)]
         if self._check_winning_set(minor_diagonal):
             return minor_diagonal[0]
 

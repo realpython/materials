@@ -20,25 +20,22 @@ class IOFrontend(ABC):
 
 
 class ConsoleFrontend(IOFrontend):
-    placeholders = ["①", "②", "③", "④", "⑤", "⑥", "⑦", "⑧", "⑨"]
-
     def print_board(self, board):
         for i, row in enumerate(board):
             for j, column in enumerate(row):
-                if (cell := board[i][j]) == Cell.X:
-                    print("❌", end="┃")
-                elif cell == Cell.O:
-                    print("🔵", end="┃")
+                if (cell := board[i][j]) != Cell.EMPTY:
+                    print(cell.value, end="|")
                 else:
-                    print(self.placeholders[i * len(row) + j], end=" ┃")
+                    cell_number = i * len(row) + j + 1
+                    print(cell_number, end="|")
             print()
         print()
 
     def print_winner(self, name=None):
         if name is None:
-            print("🌼 It is a draw! 🌼")
+            print("Game is a draw!")
         else:
-            print(f"🎉 Player {name} wins! 🎉")
+            print(f"Player {name} wins!")
 
     def get_input(self):
         return input("Enter a number of the cell: ")
@@ -51,10 +48,10 @@ class TableConsoleFrontend(IOFrontend):
         for i, row in enumerate(board):
             table_row = []
             for j, column in enumerate(row):
-                if (cell := board[i][j]) == Cell.X:
+                if (cell := board[i][j]) != Cell.EMPTY:
                     text = click.style(cell.value, fg="red", bold=True)
-                elif cell == Cell.O:
-                    text = click.style(cell.value, fg="blue", bold=True)
+                    color = "red" if cell == Cell.X else "blue"
+                    text = click.style(cell.value, fg=color, bold=True)
                 else:
                     text = str(i * len(row) + j + 1)
                 table_row.append(text)
