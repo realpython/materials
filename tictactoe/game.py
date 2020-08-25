@@ -1,9 +1,7 @@
-from enum import Enum
 from typing import Optional
 
 from tictactoe import Cell
 from tictactoe.player import Turn, RandomPlayer
-from tictactoe.io import IOFrontend
 
 
 class Game(object):
