@@ -225,7 +225,7 @@ if __name__ == "__main__":
                 element_justification="center",
             )
         ],
-        # A Restart and Undo button would be helpful
+        # New, Restart, and Quit buttons
         [
             sg.Frame(
                 "",
