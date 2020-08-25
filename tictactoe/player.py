@@ -2,9 +2,16 @@ import random
 import string
 from abc import ABC, abstractmethod
 from random import choice
+from dataclasses import dataclass
 
 from tictactoe import Cell
 from tictactoe.io import ConsoleFrontend
+
+
+@dataclass
+class Turn:
+    row: int
+    column: int
 
 
 class Player(ABC):
@@ -13,7 +20,7 @@ class Player(ABC):
         self.frontend = frontend
 
     @abstractmethod
-    def get_turn(self, board) -> int:
+    def get_turn(self, board) -> Turn:
         pass
 
 
@@ -25,13 +32,13 @@ class RandomPlayer(Player):
         super().__init__(name=random_name)
 
     def get_turn(self, board):
-        available_cells = []
+        available_turns = []
         for i, row in enumerate(board):
             for j, column in enumerate(row):
                 if board[i][j] == Cell.EMPTY:
-                    cell_index = i * len(board) + j
-                    available_cells.append(cell_index)
-        return choice(available_cells)
+                    t = Turn(i, j)
+                    available_turns.append(t)
+        return choice(available_turns)
 
 
 class ConsolePlayer(Player):
@@ -39,7 +46,10 @@ class ConsolePlayer(Player):
         frontend = ConsoleFrontend()
         super().__init__(name=name, frontend=frontend)
 
-    def get_turn(self, board) -> int:
+    def get_turn(self, board) -> Turn:
+        size = len(board)
         while True:
-            index = self.frontend.get_input()
-            return int(index) - 1
+            index = int(self.frontend.get_input()) - 1
+            row = index // size
+            column = index % size
+            return Turn(row, column)

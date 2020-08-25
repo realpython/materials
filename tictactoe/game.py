@@ -1,13 +1,14 @@
+from enum import Enum
 from typing import Optional
 
 from tictactoe import Cell
-from tictactoe.player import RandomPlayer
+from tictactoe.player import Turn, RandomPlayer
 from tictactoe.io import IOFrontend
 
 
 class Game(object):
     def __init__(
-        self, x_player=None, o_player=None, frontend: IOFrontend = None
+        self, x_player = None, o_player = None, frontend = None
     ):
         self.board = [
             [Cell.EMPTY, Cell.EMPTY, Cell.EMPTY],
@@ -26,30 +27,31 @@ class Game(object):
                     return False
         return True
 
+    def _check_winning_set(self, iterable) -> bool:
+        unique = set(iterable)
+        return Cell.EMPTY not in unique and len(unique) == 1
+
     def _check_winner(self) -> Optional[Cell]:
         # Check rows
         for row in self.board:
-            if len(set(row)) == 1 and row[0] != Cell.EMPTY:
+            if self._check_winning_set(row):
                 return row[0]
 
         # Check columns
         for column in [*zip(*self.board)]:
-            if len(set(column)) == 1 and column[0] != Cell.EMPTY:
+            if self._check_winning_set(column):
                 return column[0]
 
-        # Check diagonals
+        # Check major diagonal
         size = len(self.board)
-        major_diagonal = set()
-        minor_diagonal = set()
-        for i in range(size):
-            major_diagonal.add(self.board[i][i])
-            minor_diagonal.add(self.board[i][size - i - 1])
-
-        if len(major_diagonal) == 1 and self.board[0][0] != Cell.EMPTY:
-            return self.board[0][0]
-
-        if len(minor_diagonal) == 1 and self.board[0][size - 1] != Cell.EMPTY:
-            return self.board[0][size - 1]
+        major_diagonal = [self.board[i][i] for i in range(size)]
+        if self._check_winning_set(major_diagonal):
+            return major_diagonal[0]
+        
+        # Check minor diagonal
+        minor_diagonal = [self.board[i][size - i -1] for i in range(size)]
+        if self._check_winning_set(minor_diagonal):
+            return minor_diagonal[0]
 
     def is_game_over(self):
         winner = self._check_winner()
@@ -58,11 +60,8 @@ class Game(object):
 
         return self._check_draw()
 
-    def make_turn(self, turn: int, piece: Cell):
-        size = len(self.board)
-        i = turn // size
-        j = turn % size
-        self.board[i][j] = piece
+    def make_turn(self, turn: Turn, piece: Cell):
+        self.board[turn.row][turn.column] = piece
         self.is_x_turn = not self.is_x_turn
 
     def print_board(self):
