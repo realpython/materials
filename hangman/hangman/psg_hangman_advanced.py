@@ -12,8 +12,9 @@ def select_word() -> str:
     Returns:
         str: A word to be guessed
     """
-    word_list = ["spam", "eggs", "monty", "python", "llama"]
-    return choice(word_list)
+    with open("word_list.txt", "r") as words:
+        word_list = words.readlines()
+    return choice(word_list).strip()
 
 
 def build_displayed_word(
@@ -257,122 +258,133 @@ if __name__ == "__main__":
         ],
     ]
 
-    # Initial game setup
-    # How many guesses have they taken?
-    guesses_taken = 0
-
-    # Which letters have been guessed already
-    letters_guessed = set()
-
-    # Select the word to be guessed and make a display version
-    current_word = select_word()
-    displayed_word = build_displayed_word(current_word, letters_guessed)
-
     # Define the window
     window = sg.Window("Hangman", layout, finalize=True)
 
-    # Did the user quit the game?
+    # Did the player quit the game?
     player_quit = False
 
-    # Start the game/event loop
-    while not game_over(guesses_taken, current_word, letters_guessed):
+    # Control our rounds
+    while not player_quit:
+
+        # Initial round setup
+        # How many guesses have they taken?
+        guesses_taken = 0
+
+        # Which letters have been guessed already
+        letters_guessed = set()
+
+        # Select the word to be guessed and make a display version
+        current_word = select_word()
+        displayed_word = build_displayed_word(
+            current_word, letters_guessed
+        )
+
+        # Enable all the letter buttons
+        for letter in "ABCDEFGHIJKLMNOPQRSTUVWXYZ":
+            window[f"-letter-{letter}-"].update(disabled=False)
+
+        # Start the game/event loop
+        while not game_over(
+            guesses_taken, current_word, letters_guessed
+        ):
+
+            # Display the built word
+            window["-DISPLAY-WORD-"].update(displayed_word)
+
+            # Draw the hanged man
+            draw_hangman(window["-HANGMAN-"], guesses_taken)
+
+            # Get a button press
+            event, values = window.read()
+
+            # Does the user want to close the window?
+            if event in (sg.WIN_CLOSED, "Exit", "-QUIT-"):
+                player_quit = True
+                break
+
+            # Was it a letter button?
+            elif event[:8] == "-letter-":
+
+                # Which letter?
+                player_guess = event[8].lower()
+
+                # Is it in the word?
+                if player_guess not in current_word:
+                    guesses_taken += 1
+
+                # Add it to the letters guessed
+                letters_guessed.add(player_guess)
+
+                # Build a new display word
+                displayed_word = build_displayed_word(
+                    current_word, letters_guessed
+                )
+
+                # Disable this letter button
+                window[event].update(disabled=True)
+
+            # Was it the restart button?
+            elif event == "-RESTART-":
+
+                # Clear the letters guessed
+                letters_guessed.clear()
+
+                # Reset the number of guesses taken
+                guesses_taken = 0
+
+                # Build a new display word
+                displayed_word = build_displayed_word(
+                    current_word, letters_guessed
+                )
+
+                # Enable all the letter buttons
+                for letter in "ABCDEFGHIJKLMNOPQRSTUVWXYZ":
+                    window[f"-letter-{letter}-"].update(disabled=False)
+
+            # Was it the New button?
+            elif event == "-NEW-":
+
+                # Select a new word
+                current_word = select_word()
+
+                # Clear the letters guessed
+                letters_guessed.clear()
+
+                # Reset the number of guesses taken
+                guesses_taken = 0
+
+                # Build a new display word
+                displayed_word = build_displayed_word(
+                    current_word, letters_guessed
+                )
+
+                # Enable all the letter buttons
+                for letter in "ABCDEFGHIJKLMNOPQRSTUVWXYZ":
+                    window[f"-letter-{letter}-"].update(disabled=False)
+
+        # Draw the final hanged man
+        draw_hangman(window["-HANGMAN-"], guesses_taken)
 
         # Display the built word
         window["-DISPLAY-WORD-"].update(displayed_word)
 
-        # Draw the hanged man
-        draw_hangman(window["-HANGMAN-"], guesses_taken)
+        # Did the player quit?
+        if player_quit:
+            pass
 
-        # Get a button press
-        event, values = window.read()
-
-        # Does the user want to close the window?
-        if event in (sg.WIN_CLOSED, "Exit", "-QUIT-"):
-            player_quit = True
-            break
-
-        # Was it a letter button?
-        elif event[:8] == "-letter-":
-
-            # Which letter?
-            player_guess = event[8].lower()
-
-            # Is it in the word?
-            if player_guess not in current_word:
-                guesses_taken += 1
-
-            # Add it to the letters guessed
-            letters_guessed.add(player_guess)
-
-            # Build a new display word
-            displayed_word = build_displayed_word(
-                current_word, letters_guessed
+        # Did the player win?
+        elif guesses_taken < 6:
+            answer = sg.PopupYesNo(
+                "You've won! Congratulations!\nAnother round?",
+                title="Winner!",
             )
-
-            # Disable this letter button
-            window[event].update(disabled=True)
-
-        # Was it the restart button?
-        elif event == "-RESTART-":
-
-            # Clear the letters guessed
-            letters_guessed.clear()
-
-            # Reset the number of guesses taken
-            guesses_taken = 0
-
-            # Build a new display word
-            displayed_word = build_displayed_word(
-                current_word, letters_guessed
+            player_quit = answer == "No"
+        else:
+            answer = sg.PopupYesNo(
+                f"You've lost! The word was '{current_word}'.\nAnother round?",
+                title="Sorry!",
             )
-
-            # Enable all the letter buttons
-            for letter in "ABCDEFGHIJKLMNOPQRSTUVWXYZ":
-                window[f"-letter-{letter}-"].update(disabled=False)
-
-        # Was it the New button?
-        elif event == "-NEW-":
-
-            # Select a new word
-            current_word = select_word()
-
-            # Clear the letters guessed
-            letters_guessed.clear()
-
-            # Reset the number of guesses taken
-            guesses_taken = 0
-
-            # Build a new display word
-            displayed_word = build_displayed_word(
-                current_word, letters_guessed
-            )
-
-            # Enable all the letter buttons
-            for letter in "ABCDEFGHIJKLMNOPQRSTUVWXYZ":
-                window[f"-letter-{letter}-"].update(disabled=False)
-
-    # Draw the final hanged man
-    draw_hangman(window["-HANGMAN-"], guesses_taken)
-
-    # Display the built word
-    window["-DISPLAY-WORD-"].update(displayed_word)
-
-    # Did the player quit?
-    if player_quit:
-        pass
-
-    # Did the player win?
-    elif guesses_taken < 6:
-        sg.Popup(
-            "You've won! Congratulations!",
-            title="Winner!",
-            custom_text="OK",
-        )
-    else:
-        sg.Popup(
-            f"You've lost! The word was '{current_word}'.",
-            title="Sorry!",
-            custom_text="OK",
-        )
+            player_quit = answer == "No"
 
     window.close()
