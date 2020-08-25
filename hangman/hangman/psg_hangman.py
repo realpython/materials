@@ -233,14 +233,20 @@ if __name__ == "__main__":
                     [
                         sg.Sizer(h_pixels=90),
                         sg.Button(
+                            button_text="New",
+                            key="-NEW-",
+                            font="Any 20",
+                        ),
+                        sg.Sizer(h_pixels=60),
+                        sg.Button(
                             button_text="Restart",
                             key="-RESTART-",
                             font="Any 20",
                         ),
                         sg.Sizer(h_pixels=60),
                         sg.Button(
-                            button_text="Undo",
-                            key="-UNDO-",
+                            button_text="Quit",
+                            key="-QUIT-",
                             font="Any 20",
                         ),
                         sg.Sizer(h_pixels=90),
@@ -265,8 +271,8 @@ if __name__ == "__main__":
     # Define the window
     window = sg.Window("Hangman", layout, finalize=True)
 
-    # Undo buttom is disabled until we have a guess
-    window["-UNDO-"].update(disabled=True)
+    # Did the user quit the game?
+    user_quit = False
 
     # Start the game/event loop
     while not game_over(guesses_taken, current_word, letters_guessed):
@@ -281,7 +287,8 @@ if __name__ == "__main__":
         event, values = window.read()
 
         # Does the user want to close the window?
-        if event in (sg.WIN_CLOSED, "Exit"):
+        if event in (sg.WIN_CLOSED, "Exit", "-QUIT-"):
+            user_quit = True
             break
 
         # Was it a letter button?
@@ -302,11 +309,8 @@ if __name__ == "__main__":
                 current_word, letters_guessed
             )
 
-            # Enable the Undo button
-            window["-UNDO-"].update(disabled=False)
+            # Disable this letter button
             window[event].update(disabled=True)
-
-            # TODO: Add this letter to the Undo stack
 
         # Was it the restart button?
         elif event == "-RESTART-":
@@ -322,18 +326,40 @@ if __name__ == "__main__":
                 current_word, letters_guessed
             )
 
-            # Disable the Undo button
-            window["-UNDO-"].update(disabled=True)
+            # Enable all the letter buttons
+            for letter in "ABCDEFGHIJKLMNOPQRSTUVWXYZ":
+                window[f"-letter-{letter}-"].update(disabled=False)
 
-            # Enable the letter buttons
+        # Was it the New button?
+        elif event == "-NEW-":
+
+            # Select a new word
+            current_word = select_word()
+
+            # Clear the letters guessed
+            letters_guessed.clear()
+
+            # Reset the number of guesses taken
+            guesses_taken = 0
+
+            # Build a new display word
+            displayed_word = build_displayed_word(
+                current_word, letters_guessed
+            )
+
+            # Enable all the letter buttons
             for letter in "ABCDEFGHIJKLMNOPQRSTUVWXYZ":
                 window[f"-letter-{letter}-"].update(disabled=False)
 
     # Draw the final hanged man
     draw_hangman(window["-HANGMAN-"], guesses_taken)
 
+    # Did the player quit?
+    if user_quit:
+        pass
+
     # Did the player win?
-    if guesses_taken < 6:
+    elif guesses_taken < 6:
         sg.Popup(
             "You've won! Congratulations!",
             title="Winner!",
