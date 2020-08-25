@@ -1,0 +1,786 @@
+Jul 11 16:11:51:490 [139681125603136] dut: --------------------------------------------------------------------------------------------------------
+Jul 11 16:11:51:490 [139681125603136] dut: Revision : 64180
+Jul 11 16:11:51:490 [139681125603136] dut: MUTEX_LOCK?   hash(duthash_remove)
+Jul 11 16:11:51:490 [139681125603136] dut: MUTEX_LOCK    hash(duthash_remove)
+Jul 11 16:11:51:490 [139681125603136] dut: MUTEX_UNLOCK? hash(duthash_remove)
+Jul 11 16:11:51:490 [139681125603136] dut: MUTEX_UNLOCK  hash(duthash_remove)
+Jul 11 16:11:51:490 [139681125603136] dut: MUTEX_LOCK?   hash(dutinfo_create)
+Jul 11 16:11:51:490 [139681125603136] dut: MUTEX_LOCK    hash(dutinfo_create)
+Jul 11 16:11:51:490 [139681125603136] dut: MUTEX_UNLOCK? hash(dutinfo_create)
+Jul 11 16:11:51:490 [139681125603136] dut: MUTEX_UNLOCK  hash(dutinfo_create)
+Jul 11 16:11:51:490 [139681125603136] dut: MUTEX_LOCK?   hash(init_dut)
+Jul 11 16:11:51:490 [139681125603136] dut: MUTEX_LOCK    hash(init_dut)
+Jul 11 16:11:51:490 [139681125603136] dut: set hglob.mydut = 0x16f2f20
+Jul 11 16:11:51:490 [139681125603136] dut: MUTEX_UNLOCK? hash(init_dut)
+Jul 11 16:11:51:490 [139681125603136] dut: MUTEX_UNLOCK  hash(init_dut)
+Jul 11 16:11:51:490 [139681125603136] dut: MUTEX_LOCK?   hash(dutinfo_create)
+Jul 11 16:11:51:490 [139681125603136] dut: MUTEX_LOCK    hash(dutinfo_create)
+Jul 11 16:11:51:490 [139681125603136] dut: dutinfo create: /dom/dut 10.220.40.191/48002 0x16f37c0
+Jul 11 16:11:51:490 [139681125603136] dut: MUTEX_UNLOCK? hash(dutinfo_create)
+Jul 11 16:11:51:490 [139681125603136] dut: MUTEX_UNLOCK  hash(dutinfo_create)
+Jul 11 16:11:51:490 [139681125603136] dut: MUTEX_LOCK?   hash(dutinfo_create)
+Jul 11 16:11:51:490 [139681125603136] dut: MUTEX_LOCK    hash(dutinfo_create)
+Jul 11 16:11:51:490 [139681125603136] dut: dutinfo create: /TunnelPerformance/perfw2k8-17 169.254.18.44/48002 0x16f40d0
+Jul 11 16:11:51:490 [139681125603136] dut: MUTEX_UNLOCK? hash(dutinfo_create)
+Jul 11 16:11:51:490 [139681125603136] dut: MUTEX_UNLOCK  hash(dutinfo_create)
+Jul 11 16:11:51:490 [139681125603136] dut: MUTEX_LOCK?   hash(dutinfo_create)
+Jul 11 16:11:51:490 [139681125603136] dut: MUTEX_LOCK    hash(dutinfo_create)
+Jul 11 16:11:51:490 [139681125603136] dut: dutinfo create: /db/db-1-sh02             10.220.43.160/48002 0x16f56a0
+Jul 11 16:11:51:490 [139681125603136] dut: MUTEX_UNLOCK? hash(dutinfo_create)
+Jul 11 16:11:51:490 [139681125603136] dut: MUTEX_UNLOCK  hash(dutinfo_create)
+Jul 11 16:11:51:490 [139681125603136] dut: MUTEX_LOCK?   hash(dutinfo_create)
+Jul 11 16:11:51:490 [139681125603136] dut: MUTEX_LOCK    hash(dutinfo_create)
+Jul 11 16:11:51:490 [139681125603136] dut: dutinfo create: /bci-ci-sec-rhel6_domain/bci-ci-sec-solx64 10.220.42.66/48002 0x16f5f40
+Jul 11 16:11:51:490 [139681125603136] dut: MUTEX_UNLOCK? hash(dutinfo_create)
+Jul 11 16:11:51:490 [139681125603136] dut: MUTEX_UNLOCK  hash(dutinfo_create)
+Jul 11 16:11:51:490 [139681125603136] dut: MUTEX_LOCK?   hash(dutinfo_create)
+Jul 11 16:11:51:490 [139681125603136] dut: MUTEX_LOCK    hash(dutinfo_create)
+Jul 11 16:11:51:490 [139681125603136] dut: MUTEX_UNLOCK? hash(dutinfo_create)
+Jul 11 16:11:51:490 [139681125603136] dut: MUTEX_UNLOCK  hash(dutinfo_create)
+Jul 11 16:11:51:490 [139681125603136] dut: Device State: ON
+Jul 11 16:11:51:490 [139681125603136] dut: MUTEX_LOCK?   hash(dutinfo_create)
+Jul 11 16:11:51:490 [139681125603136] dut: MUTEX_LOCK    hash(dutinfo_create)
+Jul 11 16:11:51:490 [139681125603136] dut: dutinfo create: /dom/testcent7   10.220.40.49/48002 0x16f7080
+Jul 11 16:11:51:490 [139681125603136] dut: MUTEX_UNLOCK? hash(dutinfo_create)
+Jul 11 16:11:51:490 [139681125603136] dut: MUTEX_UNLOCK  hash(dutinfo_create)
+Jul 11 16:11:51:490 [139681125603136] dut: MUTEX_LOCK?   hash(dutinfo_create)
+Jul 11 16:11:51:490 [139681125603136] dut: MUTEX_LOCK    hash(dutinfo_create)
+Jul 11 16:11:51:490 [139681125603136] dut: MUTEX_UNLOCK? hash(dutinfo_create)
+Jul 11 16:11:51:490 [139681125603136] dut: MUTEX_UNLOCK  hash(dutinfo_create)
+Jul 11 16:11:51:490 [139681125603136] dut: MUTEX_LOCK?   hash(dutinfo_create)
+Jul 11 16:11:51:490 [139681125603136] dut: MUTEX_LOCK    hash(dutinfo_create)
+Jul 11 16:11:51:490 [139681125603136] dut: dutinfo create: /cent1_domain/win11 10.220.40.126/48002 0x16f8380
+Jul 11 16:11:51:490 [139681125603136] dut: MUTEX_UNLOCK? hash(dutinfo_create)
+Jul 11 16:11:51:490 [139681125603136] dut: MUTEX_UNLOCK  hash(dutinfo_create)
+Jul 11 16:11:51:490 [139681125603136] dut: MUTEX_LOCK?   hash(dutinfo_create)
+Jul 11 16:11:51:490 [139681125603136] dut: MUTEX_LOCK    hash(dutinfo_create)
+Jul 11 16:11:51:490 [139681125603136] dut: dutinfo create: /dom/testwin2012 10.220.40.88/48002 0x16f8e00
+Jul 11 16:11:51:490 [139681125603136] dut: MUTEX_UNLOCK? hash(dutinfo_create)
+Jul 11 16:11:51:490 [139681125603136] dut: MUTEX_UNLOCK  hash(dutinfo_create)
+Jul 11 16:11:51:490 [139681125603136] dut: MUTEX_LOCK?   hash(dutinfo_create)
+Jul 11 16:11:51:490 [139681125603136] dut: MUTEX_LOCK    hash(dutinfo_create)
+Jul 11 16:11:51:490 [139681125603136] dut: dutinfo create: /Primary_dom/Secondary 10.220.42.244/48002 0x16f9870
+Jul 11 16:11:51:490 [139681125603136] dut: MUTEX_UNLOCK? hash(dutinfo_create)
+Jul 11 16:11:51:490 [139681125603136] dut: MUTEX_UNLOCK  hash(dutinfo_create)
+Jul 11 16:11:51:490 [139681125603136] dut: MUTEX_LOCK?   hash(dutinfo_create)
+Jul 11 16:11:51:490 [139681125603136] dut: MUTEX_LOCK    hash(dutinfo_create)
+Jul 11 16:11:51:490 [139681125603136] dut: dutinfo create: /bci-ci-sec-rhel6_domain/bci-ci-sec-win2 10.220.42.67/48002 0x16fa110
+Jul 11 16:11:51:490 [139681125603136] dut: MUTEX_UNLOCK? hash(dutinfo_create)
+Jul 11 16:11:51:490 [139681125603136] dut: MUTEX_UNLOCK  hash(dutinfo_create)
+Jul 11 16:11:51:490 [139681125603136] dut: MUTEX_LOCK?   hash(dutinfo_create)
+Jul 11 16:11:51:490 [139681125603136] dut: MUTEX_LOCK    hash(dutinfo_create)
+Jul 11 16:11:51:490 [139681125603136] dut: dutinfo create: /TunnelPerformance/perfw2k8-15 169.254.120.22/48002 0x16fa9b0
+Jul 11 16:11:51:490 [139681125603136] dut: MUTEX_UNLOCK? hash(dutinfo_create)
+Jul 11 16:11:51:490 [139681125603136] dut: MUTEX_UNLOCK  hash(dutinfo_create)
+Jul 11 16:11:51:490 [139681125603136] dut: MUTEX_LOCK?   hash(dutinfo_create)
+Jul 11 16:11:51:490 [139681125603136] dut: MUTEX_LOCK    hash(dutinfo_create)
+Jul 11 16:11:51:490 [139681125603136] dut: dutinfo create: /AC2Primary_domain/AC2Primary_dut 10.220.42.174/48002 0x16fb4d0
+Jul 11 16:11:51:491 [139681125603136] dut: MUTEX_UNLOCK? hash(dutinfo_create)
+Jul 11 16:11:51:491 [139681125603136] dut: MUTEX_UNLOCK  hash(dutinfo_create)
+Jul 11 16:11:51:491 [139681125603136] dut: MUTEX_LOCK?   hash(dutinfo_create)
+Jul 11 16:11:51:491 [139681125603136] dut: MUTEX_LOCK    hash(dutinfo_create)
+Jul 11 16:11:51:491 [139681125603136] dut: dutinfo create: /DE279854dom/DE279854primh 10.220.41.20/48002 0x16fbd70
+Jul 11 16:11:51:491 [139681125603136] dut: MUTEX_UNLOCK? hash(dutinfo_create)
+Jul 11 16:11:51:491 [139681125603136] dut: MUTEX_UNLOCK  hash(dutinfo_create)
+Jul 11 16:11:51:491 [139681125603136] dut: MUTEX_LOCK?   hash(dutinfo_create)
+Jul 11 16:11:51:491 [139681125603136] dut: MUTEX_LOCK    hash(dutinfo_create)
+Jul 11 16:11:51:491 [139681125603136] dut: dutinfo create: /bci-ci-sec-rhel6_domain/bci-ci-sec-rhel7 10.220.42.62/48002 0x16fc830
+Jul 11 16:11:51:491 [139681125603136] dut: MUTEX_UNLOCK? hash(dutinfo_create)
+Jul 11 16:11:51:491 [139681125603136] dut: MUTEX_UNLOCK  hash(dutinfo_create)
+Jul 11 16:11:51:491 [139681125603136] dut: MUTEX_LOCK?   hash(dutinfo_create)
+Jul 11 16:11:51:491 [139681125603136] dut: MUTEX_LOCK    hash(dutinfo_create)
+Jul 11 16:11:51:491 [139681125603136] dut: dutinfo create: /mbonnetrh67_domain/mbonnetcent64-1 10.220.40.252/48002 0x16fd0d0
+Jul 11 16:11:51:491 [139681125603136] dut: MUTEX_UNLOCK? hash(dutinfo_create)
+Jul 11 16:11:51:491 [139681125603136] dut: MUTEX_UNLOCK  hash(dutinfo_create)
+Jul 11 16:11:51:491 [139681125603136] dut: MUTEX_LOCK?   hash(dutinfo_create)
+Jul 11 16:11:51:491 [139681125603136] dut: MUTEX_LOCK    hash(dutinfo_create)
+Jul 11 16:11:51:491 [139681125603136] dut: dutinfo create: /dom/testwin2012_2 10.220.40.131/48002 0x16fd9c0
+Jul 11 16:11:51:491 [139681125603136] dut: MUTEX_UNLOCK? hash(dutinfo_create)
+Jul 11 16:11:51:491 [139681125603136] dut: MUTEX_UNLOCK  hash(dutinfo_create)
+Jul 11 16:11:51:491 [139681125603136] dut: MUTEX_LOCK?   hash(dutinfo_create)
+Jul 11 16:11:51:491 [139681125603136] dut: MUTEX_LOCK    hash(dutinfo_create)
+Jul 11 16:11:51:491 [139681125603136] dut: MUTEX_UNLOCK? hash(dutinfo_create)
+Jul 11 16:11:51:491 [139681125603136] dut: MUTEX_UNLOCK  hash(dutinfo_create)
+Jul 11 16:11:51:491 [139681125603136] dut: MUTEX_LOCK?   hash(dutinfo_create)
+Jul 11 16:11:51:491 [139681125603136] dut: MUTEX_LOCK    hash(dutinfo_create)
+Jul 11 16:11:51:491 [139681125603136] dut: dutinfo create: /Win2k12Prim847_domain/Win2k12Prim847_dut 10.220.41.92/48002 0x16feee0
+Jul 11 16:11:51:491 [139681125603136] dut: MUTEX_UNLOCK? hash(dutinfo_create)
+Jul 11 16:11:51:491 [139681125603136] dut: MUTEX_UNLOCK  hash(dutinfo_create)
+Jul 11 16:11:51:491 [139681125603136] dut: MUTEX_LOCK?   hash(dutinfo_create)
+Jul 11 16:11:51:491 [139681125603136] dut: MUTEX_LOCK    hash(dutinfo_create)
+Jul 11 16:11:51:491 [139681125603136] dut: dutinfo create: /Primary_dom/Primary_dut 10.220.42.217/48002 0x16ff780
+Jul 11 16:11:51:491 [139681125603136] dut: MUTEX_UNLOCK? hash(dutinfo_create)
+Jul 11 16:11:51:491 [139681125603136] dut: MUTEX_UNLOCK  hash(dutinfo_create)
+Jul 11 16:11:51:491 [139681125603136] dut: MUTEX_LOCK?   hash(dutinfo_create)
+Jul 11 16:11:51:491 [139681125603136] dut: MUTEX_LOCK    hash(dutinfo_create)
+Jul 11 16:11:51:491 [139681125603136] dut: dutinfo create: /AC2Primary_domain/SaaSTS 10.220.41.139/48002 0x1700060
+Jul 11 16:11:51:491 [139681125603136] dut: MUTEX_UNLOCK? hash(dutinfo_create)
+Jul 11 16:11:51:491 [139681125603136] dut: MUTEX_UNLOCK  hash(dutinfo_create)
+Jul 11 16:11:51:491 [139681125603136] dut: MUTEX_LOCK?   hash(dutinfo_create)
+Jul 11 16:11:51:491 [139681125603136] dut: MUTEX_LOCK    hash(dutinfo_create)
+Jul 11 16:11:51:491 [139681125603136] dut: dutinfo create: /db/db-1-lh02             10.220.42.118/48002 0x17009c0
+Jul 11 16:11:51:491 [139681125603136] dut: MUTEX_UNLOCK? hash(dutinfo_create)
+Jul 11 16:11:51:491 [139681125603136] dut: MUTEX_UNLOCK  hash(dutinfo_create)
+Jul 11 16:11:51:491 [139681125603136] dut: MUTEX_LOCK?   hash(dutinfo_create)
+Jul 11 16:11:51:491 [139681125603136] dut: MUTEX_LOCK    hash(dutinfo_create)
+Jul 11 16:11:51:491 [139681125603136] dut: MUTEX_UNLOCK? hash(dutinfo_create)
+Jul 11 16:11:51:491 [139681125603136] dut: MUTEX_UNLOCK  hash(dutinfo_create)
+Jul 11 16:11:51:491 [139681125603136] dut: MUTEX_LOCK?   hash(dutinfo_create)
+Jul 11 16:11:51:491 [139681125603136] dut: MUTEX_LOCK    hash(dutinfo_create)
+Jul 11 16:11:51:491 [139681125603136] dut: dutinfo create: /TunnelPerformance/tswin16 10.220.41.128/48002 0x1701db0
+Jul 11 16:11:51:491 [139681125603136] dut: MUTEX_UNLOCK? hash(dutinfo_create)
+Jul 11 16:11:51:491 [139681125603136] dut: MUTEX_UNLOCK  hash(dutinfo_create)
+Jul 11 16:11:51:491 [139681125603136] dut: MUTEX_LOCK?   hash(dutinfo_create)
+Jul 11 16:11:51:491 [139681125603136] dut: MUTEX_LOCK    hash(dutinfo_create)
+Jul 11 16:11:51:491 [139681125603136] dut: dutinfo create: /TunnelPerformance/TCrhel6 10.220.40.160/48002 0x17026a0
+Jul 11 16:11:51:491 [139681125603136] dut: MUTEX_UNLOCK? hash(dutinfo_create)
+Jul 11 16:11:51:491 [139681125603136] dut: MUTEX_UNLOCK  hash(dutinfo_create)
+Jul 11 16:11:51:491 [139681125603136] dut: MUTEX_LOCK?   hash(dutinfo_create)
+Jul 11 16:11:51:491 [139681125603136] dut: MUTEX_LOCK    hash(dutinfo_create)
+Jul 11 16:11:51:491 [139681125603136] dut: MUTEX_UNLOCK? hash(dutinfo_create)
+Jul 11 16:11:51:491 [139681125603136] dut: MUTEX_UNLOCK  hash(dutinfo_create)
+Jul 11 16:11:51:491 [139681125603136] dut: MUTEX_LOCK?   hash(dutinfo_create)
+Jul 11 16:11:51:491 [139681125603136] dut: MUTEX_LOCK    hash(dutinfo_create)
+Jul 11 16:11:51:491 [139681125603136] dut: dutinfo create: /mbonnetw2k8sand_domain/mikebw2k8sandh2 10.220.41.109/48002 0x1703a90
+Jul 11 16:11:51:491 [139681125603136] dut: MUTEX_UNLOCK? hash(dutinfo_create)
+Jul 11 16:11:51:491 [139681125603136] dut: MUTEX_UNLOCK  hash(dutinfo_create)
+Jul 11 16:11:51:491 [139681125603136] dut: duthash_read - 27 duts read from cache
+Jul 11 16:11:51:491 [139681125603136] dut: cfgReader file open: dut.cfg
+Jul 11 16:11:51:491 [139681125603136] dut: cfgReader file close: dut.cfg
+Jul 11 16:11:51:491 [139681125603136] dut: MUTEX_LOCK?   hash(dutinfo_create)
+Jul 11 16:11:51:491 [139681125603136] dut: MUTEX_LOCK    hash(dutinfo_create)
+Jul 11 16:11:51:491 [139681125603136] dut: MUTEX_UNLOCK? hash(dutinfo_create)
+Jul 11 16:11:51:491 [139681125603136] dut: MUTEX_UNLOCK  hash(dutinfo_create)
+Jul 11 16:11:51:491 [139681125603136] dut: MUTEX_LOCK?   hash(dutinfo_create)
+Jul 11 16:11:51:491 [139681125603136] dut: MUTEX_LOCK    hash(dutinfo_create)
+Jul 11 16:11:51:491 [139681125603136] dut: MUTEX_UNLOCK? hash(dutinfo_create)
+Jul 11 16:11:51:491 [139681125603136] dut: MUTEX_UNLOCK  hash(dutinfo_create)
+Jul 11 16:11:51:491 [139681125603136] dut: MUTEX_LOCK?   hash(dutinfo_create)
+Jul 11 16:11:51:491 [139681125603136] dut: MUTEX_LOCK    hash(dutinfo_create)
+Jul 11 16:11:51:491 [139681125603136] dut: MUTEX_UNLOCK? hash(dutinfo_create)
+Jul 11 16:11:51:491 [139681125603136] dut: MUTEX_UNLOCK  hash(dutinfo_create)
+Jul 11 16:11:51:491 [139681125603136] dut: Added 3 static duts from cache
+Jul 11 16:11:51:491 [139681125603136] dut: dut SEC: session=1804560451
+Jul 11 16:11:51:492 [139681125603136] dut: dut SEC: expire=21600
+Jul 11 16:11:51:492 [139681125603136] dut: dut SEC: version=1688
+Jul 11 16:11:51:492 [139681125603136] dut: dut SEC: ignore IP=no
+Jul 11 16:11:51:492 [139681125603136] dut: dut SEC: auth_mode=0000
+Jul 11 16:11:51:492 [139681125603136] dut: dut SEC: trusted IPs=
+Jul 11 16:11:51:495 [139681125603136] dut: dut SEC: ON
+Jul 11 16:11:51:495 [139681125603136] dut: nimGetIpList called with buffer size 40960
+Jul 11 16:11:51:495 [139681125603136] dut: nimGetIpList - skipping loopback address 127.0.0.1
+Jul 11 16:11:51:495 [139681125603136] dut: nimGetIpList - skipping loopback address ::1
+Jul 11 16:11:51:495 [139681125603136] dut: nimGetIpList - found |||10.220.40.228|fc00:415::c9f1:5e35:cef2:ef8|fe80::e3c7:a9f2:3dd8:6450|
+Jul 11 16:11:51:495 [139681125603136] dut: MUTEX_LOCK?   hash(hsecInit)
+Jul 11 16:11:51:495 [139681125603136] dut: MUTEX_LOCK    hash(hsecInit)
+Jul 11 16:11:51:495 [139681125603136] dut: MUTEX_UNLOCK? hash(hsecInit)
+Jul 11 16:11:51:495 [139681125603136] dut: MUTEX_UNLOCK  hash(hsecInit)
+Jul 11 16:11:51:496 [139681125603136] dut: nimSessionServer - port = 48002
+Jul 11 16:11:51:496 [139681125603136] dut: SSL - skipping SSL server setup - ssl_mode is 0 (off)
+Jul 11 16:11:51:496 [139681125603136] dut: sockCheckLocalPort: port=48002, non-strict binding, checking all
+Jul 11 16:11:51:496 [139681125603136] dut: sockCheckLocalPort: port=48002 sock=6, trying addr=--
+Jul 11 16:11:51:496 [139681125603136] dut: sockCheckLocalPort - close 6
+Jul 11 16:11:51:496 [139681125603136] dut: sockServer - new socket 6
+Jul 11 16:11:51:496 [139681125603136] dut: sockServer:0x17279e0:0.0.0.0/48002
+Jul 11 16:11:51:496 [139681125603136] dut: (nim_ldap_init_ssl) enter
+Jul 11 16:11:51:496 [139681125603136] dut: (nim_ldap_init_ssl) ldapssl_client_init -> Success (0)
+Jul 11 16:11:51:496 [139681125603136] dut: (nld_dll_load) leave have paging: true
+Jul 11 16:11:51:496 [139681125603136] dut: (nim_ldap_init_ssl) done:  OK (0)
+Jul 11 16:11:51:496 [139681125603136] dut: (nim_ldap_cert_auto_verify_disable) ldapssl_set_verify_callback -> Success (0)
+Jul 11 16:11:51:496 [139681125603136] dut: ----- dut started -----
+Jul 11 16:11:51:496 [139681125603136] dut:  log_level= 6 , log_file=dut.log
+Jul 11 16:11:51:496 [139681125603136] dut:  LDAP LIB = 1.22
+
+Jul 11 16:11:51:496 [139681125603136] dut: -----
+Jul 11 16:11:51:496 [139681125603136] dut: do_assign_to_list entered...
+Jul 11 16:11:51:496 [139681125603136] dut: AssignToList - used 0 ms to lookup 1 users
+Jul 11 16:11:51:496 [139681125603136] dut: do_assign_to_list finished... status: OK (0), time used: 0 ms
+Jul 11 16:11:51:497 [139681125603136] dut: duti is starting in thread 78374656
+Jul 11 16:11:51:497 [139681125603136] dut: sockConnect - new TCP socket fd=7
+Jul 11 16:11:51:497 [139681004775168] dut: duti main thread started
+Jul 11 16:11:51:497 [139681004775168] dut: nimSessionServer - port = 48002
+Jul 11 16:11:51:497 [139681004775168] dut: SSL - skipping SSL server setup - ssl_mode is 0 (off)
+Jul 11 16:11:51:497 [139681125603136] dut: SREQUEST: port_register ->10.220.40.228/48000
+Jul 11 16:11:51:497 [139681004775168] dut: sockServer - new socket 8
+Jul 11 16:11:51:497 [139681125603136] dut:  head  mtype=100 cmd=port_register seq=0 ts=1499811111 frm=10.220.40.228/55902 tout=20 addr= sid=lpW5VPKZ/DKdf80dKgf9jAADMTQ5OTgxMTE3MQFheGEtdWltc2VydmVyMS1kZXZf
+Jul 11 16:11:51:497 [139681125603136] dut:  data  name=dut port=48002
+Jul 11 16:11:51:497 [139681004775168] dut: sockServer:0x7f0a00000930:0.0.0.0/48002
+Jul 11 16:11:51:497 [139681125603136] dut: RREPLY: status=OK(0) <-10.220.40.228/48000  h=37 d=0
+Jul 11 16:11:51:497 [139681125603136] dut:  head  mtype=200 status=0 seq=0
+Jul 11 16:11:51:497 [139681125603136] dut: sockClose:0x171ed40:10.220.40.228/55902
+Jul 11 16:11:51:497 [139681125603136] dut: SREQUEST: _close ->10.220.40.228/48000
+Jul 11 16:11:51:497 [139681125603136] dut:  head  mtype=100 cmd=_close seq=1 ts=1499811111 frm=10.220.40.228/55902 tout=20 addr= sid=lpW5VPKZ/DKdf80dKgf9jAADMTQ5OTgxMTE3MQFheGEtdWltc2VydmVyMS1kZXZf
+Jul 11 16:11:51:497 [139681125603136] dut: nimSessionServer - port = 48001
+Jul 11 16:11:51:497 [139681125603136] dut: SSL - skipping SSL server setup - ssl_mode is 0 (off)
+Jul 11 16:11:51:497 [139681125603136] dut: sockCheckLocalPort: port=48001, non-strict binding, checking all
+Jul 11 16:11:51:497 [139681125603136] dut: sockCheckLocalPort: port=48001 sock=7, trying addr=--
+Jul 11 16:11:51:497 [139681125603136] dut: sockCheckLocalPort - close 7
+Jul 11 16:11:51:497 [139681125603136] dut: sockServer - new socket 7
+Jul 11 16:11:51:497 [139681125603136] dut: sockServer:0x171e8a0:0.0.0.0/48001
+Jul 11 16:11:51:497 [139681125603136] dut: sockConnect - new TCP socket fd=9
+Jul 11 16:11:51:497 [139681125603136] dut: SREQUEST: port_register ->10.220.40.228/48000
+Jul 11 16:11:51:497 [139681125603136] dut:  head  mtype=100 cmd=port_register seq=0 ts=1499811111 frm=10.220.40.228/55904 tout=20 addr= sid=lpW5VPKZ/DKdf80dKgf9jAADMTQ5OTgxMTE3MQFheGEtdWltc2VydmVyMS1kZXZf
+Jul 11 16:11:51:497 [139681125603136] dut:  data  name=spooler port=48001
+Jul 11 16:11:51:497 [139681125603136] dut: RREPLY: status=OK(0) <-10.220.40.228/48000  h=37 d=0
+Jul 11 16:11:51:497 [139681125603136] dut:  head  mtype=200 status=0 seq=0
+Jul 11 16:11:51:497 [139681125603136] dut: sockClose:0x173c860:10.220.40.228/55904
+Jul 11 16:11:51:497 [139681125603136] dut: SREQUEST: _close ->10.220.40.228/48000
+Jul 11 16:11:51:497 [139681125603136] dut:  head  mtype=100 cmd=_close seq=1 ts=1499811111 frm=10.220.40.228/55904 tout=20 addr= sid=lpW5VPKZ/DKdf80dKgf9jAADMTQ5OTgxMTE3MQFheGEtdWltc2VydmVyMS1kZXZf
+Jul 11 16:11:51:497 [139681125603136] dut: Spooler - initializing
+Jul 11 16:11:51:497 [139681125603136] dut: validating character encoding of config file: dut.cfg
+Jul 11 16:11:51:497 [139681125603136] dut: nimCharsetValidateFile: dut.cfg: no target charset
+Jul 11 16:11:51:498 [139681125603136] dut: Messages will have their source extended with the origin value to ensure uniqueness
+Jul 11 16:11:51:498 [139681125603136] dut: Removed 'q/temp/t_1'
+Jul 11 16:11:51:498 [139681125603136] dut: Removed 'q/temp/t_2'
+Jul 11 16:11:51:498 [139681125603136] dut: Removed 'q/temp'
+Jul 11 16:11:51:498 [139681125603136] dut: System has 2 available cores, default spooler inbound thread pool size is 2
+Jul 11 16:11:51:498 [139681125603136] dut: Using default inbound thread pool size
+Jul 11 16:11:51:498 [139681125603136] dut: newRoute name=data_engine pr=0x173d100
+Jul 11 16:11:51:498 [139681125603136] dut: Configured ATTACH queue route 'data_engine' for 'QOS_MESSAGE,QOS_DEFINITION' (bulk:100 min:0 wait:0 timeout:60)
+Jul 11 16:11:51:498 [139681125603136] dut: newRoute name=baseline_engine.BASELINE_CONFIG pr=0x173dc90
+Jul 11 16:11:51:498 [139680926398208] dut: Queue management thread for 'data_engine' started
+Jul 11 16:11:51:498 [139681125603136] dut: Configured ATTACH queue route 'baseline_engine.BASELINE_CONFIG' for 'BASELINE_CONFIG' (bulk:100 min:0 wait:0 timeout:60)
+Jul 11 16:11:51:498 [139681125603136] dut: newRoute name=prediction_engine.PREDICTION_CONFIG pr=0x173e980
+Jul 11 16:11:51:498 [139680918005504] dut: Queue management thread for 'baseline_engine.BASELINE_CONFIG' started
+Jul 11 16:11:51:498 [139680926398208] dut: Queue 'data_engine' has queued file '3951.sds' for future processing
+Jul 11 16:11:51:499 [139681125603136] dut: Configured ATTACH queue route 'prediction_engine.PREDICTION_CONFIG' for 'PREDICTION_CONFIG' (bulk:100 min:0 wait:0 timeout:60)
+Jul 11 16:11:51:499 [139681125603136] dut: newRoute name=action_manager pr=0x173f650
+Jul 11 16:11:51:499 [139680926398208] dut: Queue 'data_engine' has 1 existing data files
+Jul 11 16:11:51:499 [139680926398208] dut: Queue 'data_engine' will start reading at file sequence no. 3951
+Jul 11 16:11:51:499 [139680926398208] dut: Queue 'data_engine' will start writing at file sequence no. 3952
+Jul 11 16:11:51:499 [139680909612800] dut: Queue management thread for 'prediction_engine.PREDICTION_CONFIG' started
+Jul 11 16:11:51:499 [139680926398208] dut: Queue 'data_engine' opened file '3952.sds' for writing
+Jul 11 16:11:51:499 [139680901220096] dut: Initalizing read file '3951.sds' for 'data_engine'
+Jul 11 16:11:51:499 [139680918005504] dut: Queue 'baseline_engine.BASELINE_CONFIG' has queued file '157.sds' for future processing
+Jul 11 16:11:51:499 [139680901220096] dut: Read file '3951.sds' initialized for 'data_engine', 0 msgs found (@ pos 0), 0 ms used
+Jul 11 16:11:51:499 [139681125603136] dut: Configured ATTACH queue route 'action_manager' for 'ems_action' (bulk:100 min:0 wait:0 timeout:60)
+Jul 11 16:11:51:499 [139681125603136] dut: newRoute name=legacy_alarm_manager pr=0x1740320
+Jul 11 16:11:51:499 [139680892827392] dut: Queue management thread for 'action_manager' started
+Jul 11 16:11:51:500 [139680884434688] dut: Initalizing read file '157.sds' for 'baseline_engine.BASELINE_CONFIG'
+Jul 11 16:11:51:500 [139680884434688] dut: Read file '157.sds' initialized for 'baseline_engine.BASELINE_CONFIG', 0 msgs found (@ pos 0), 0 ms used
+Jul 11 16:11:51:500 [139680909612800] dut: Queue 'prediction_engine.PREDICTION_CONFIG' has queued file '157.sds' for future processing
+Jul 11 16:11:51:500 [139681125603136] dut: Configured ATTACH queue route 'legacy_alarm_manager' for 'alarm' (bulk:100 min:0 wait:0 timeout:60)
+Jul 11 16:11:51:500 [139681125603136] dut: newRoute name=alarm_manager pr=0x1740ff0
+Jul 11 16:11:51:500 [139680918005504] dut: Queue 'baseline_engine.BASELINE_CONFIG' has 1 existing data files
+Jul 11 16:11:51:500 [139680918005504] dut: Queue 'baseline_engine.BASELINE_CONFIG' will start reading at file sequence no. 157
+Jul 11 16:11:51:500 [139680918005504] dut: Queue 'baseline_engine.BASELINE_CONFIG' will start writing at file sequence no. 158
+Jul 11 16:11:51:500 [139680918005504] dut: Queue 'baseline_engine.BASELINE_CONFIG' opened file '158.sds' for writing
+Jul 11 16:11:51:500 [139680892827392] dut: Queue 'action_manager' has queued file '125.sds' for future processing
+Jul 11 16:11:51:500 [139681125603136] dut: Configured ATTACH queue route 'alarm_manager' for 'enriched_events' (bulk:100 min:0 wait:0 timeout:60)
+Jul 11 16:11:51:500 [139681125603136] dut: newRoute name=ems pr=0x1741cc0
+Jul 11 16:11:51:500 [139680909612800] dut: Queue 'prediction_engine.PREDICTION_CONFIG' has 1 existing data files
+Jul 11 16:11:51:500 [139680909612800] dut: Queue 'prediction_engine.PREDICTION_CONFIG' will start reading at file sequence no. 157
+Jul 11 16:11:51:500 [139680909612800] dut: Queue 'prediction_engine.PREDICTION_CONFIG' will start writing at file sequence no. 158
+Jul 11 16:11:51:500 [139680909612800] dut: Queue 'prediction_engine.PREDICTION_CONFIG' opened file '158.sds' for writing
+Jul 11 16:11:51:500 [139680892827392] dut: Queue 'action_manager' has 1 existing data files
+Jul 11 16:11:51:500 [139680892827392] dut: Queue 'action_manager' will start reading at file sequence no. 125
+Jul 11 16:11:51:500 [139680892827392] dut: Queue 'action_manager' will start writing at file sequence no. 126
+Jul 11 16:11:51:501 [139680892827392] dut: Queue 'action_manager' opened file '126.sds' for writing
+Jul 11 16:11:51:501 [139680884434688] dut: Queue 'baseline_engine.BASELINE_CONFIG' file '157.sds' does not contain sendable msgs, deleted
+Jul 11 16:11:51:501 [139681125603136] dut: Configured ATTACH queue route 'ems' for 'TOT_RULE_CONFIG' (bulk:100 min:0 wait:0 timeout:60)
+Jul 11 16:11:51:501 [139681125603136] dut: newRoute name=event_manager pr=0x1742990
+Jul 11 16:11:51:502 [139681125603136] dut: Configured ATTACH queue route 'event_manager' for 'event' (bulk:100 min:0 wait:0 timeout:60)
+Jul 11 16:11:51:502 [139681125603136] dut: newRoute name=probeDiscovery pr=0x1743660
+Jul 11 16:11:51:502 [139681125603136] dut: Configured ATTACH queue route 'probeDiscovery' for 'probe_discovery' (bulk:100 min:0 wait:0 timeout:60)
+Jul 11 16:11:51:502 [139681125603136] dut: newRoute name=udm_inventory pr=0x17440f0
+Jul 11 16:11:51:502 [139681125603136] dut: Configured ATTACH queue route 'udm_inventory' for 'udm_inventory' (bulk:100 min:0 wait:0 timeout:60)
+Jul 11 16:11:51:502 [139681125603136] dut: newRoute name=emailgtw pr=0x1745a90
+Jul 11 16:11:51:502 [139681125603136] dut: Configured ATTACH queue route 'emailgtw' for 'EMAIL' (bulk:100 min:0 wait:0 timeout:60)
+Jul 11 16:11:51:502 [139681125603136] dut: newRoute name=ems_alarm_new pr=0x1746760
+Jul 11 16:11:51:502 [139681125603136] dut: Configured ATTACH queue route 'ems_alarm_new' for 'alarm_new' (bulk:100 min:0 wait:0 timeout:60)
+Jul 11 16:11:51:502 [139681125603136] dut: newRoute name=ems_alarm_update pr=0x1747430
+Jul 11 16:11:51:502 [139681125603136] dut: Configured ATTACH queue route 'ems_alarm_update' for 'alarm_update' (bulk:100 min:0 wait:0 timeout:60)
+Jul 11 16:11:51:502 [139681125603136] dut: newRoute name=ems_alarm_assign pr=0x1748100
+Jul 11 16:11:51:502 [139681125603136] dut: Configured ATTACH queue route 'ems_alarm_assign' for 'alarm_assign' (bulk:100 min:0 wait:0 timeout:60)
+Jul 11 16:11:51:502 [139681125603136] dut: newRoute name=ems_alarm_close pr=0x1748dd0
+Jul 11 16:11:51:502 [139681125603136] dut: Configured ATTACH queue route 'ems_alarm_close' for 'alarm_close' (bulk:100 min:0 wait:0 timeout:60)
+Jul 11 16:11:51:502 [139681125603136] dut: spooler_main_thread - has started in thread 139680313992960
+Jul 11 16:11:51:502 [139681125603136] dut: topology - main thread - cfg - on = 1, max_threads = 10, restart_wait = 60 seconds
+Jul 11 16:11:51:502 [139681125603136] dut: topology - main thread - started
+Jul 11 16:11:51:502 [139680574068480] dut: Queue management thread for 'alarm_manager' started
+Jul 11 16:11:51:502 [139680574068480] dut: Queue 'alarm_manager' has queued file '282.sds' for future processing
+Jul 11 16:11:51:502 [139680574068480] dut: Queue 'alarm_manager' has 1 existing data files
+Jul 11 16:11:51:502 [139680574068480] dut: Queue 'alarm_manager' will start reading at file sequence no. 282
+Jul 11 16:11:51:502 [139680574068480] dut: Queue 'alarm_manager' will start writing at file sequence no. 283
+Jul 11 16:11:51:502 [139680574068480] dut: Queue 'alarm_manager' opened file '283.sds' for writing
+Jul 11 16:11:51:502 [139680548890368] dut: Queue sender thread for 'baseline_engine.BASELINE_CONFIG' started
+Jul 11 16:11:51:502 [139680540497664] dut: Queue sender thread for 'prediction_engine.PREDICTION_CONFIG' started
+Jul 11 16:11:51:502 [139680381134592] dut: Queue management thread for 'event_manager' started
+Jul 11 16:11:51:502 [139680381134592] dut: Queue 'event_manager' has queued file '285.sds' for future processing
+Jul 11 16:11:51:503 [139680381134592] dut: Queue 'event_manager' has 1 existing data files
+Jul 11 16:11:51:503 [139680381134592] dut: Queue 'event_manager' will start reading at file sequence no. 285
+Jul 11 16:11:51:503 [139680381134592] dut: Queue 'event_manager' will start writing at file sequence no. 286
+Jul 11 16:11:51:503 [139680381134592] dut: Queue 'event_manager' opened file '286.sds' for writing
+Jul 11 16:11:51:503 [139680884434688] dut: Queue management thread for 'probeDiscovery' started
+Jul 11 16:11:51:503 [139680884434688] dut: Queue 'probeDiscovery' has queued file '187.sds' for future processing
+Jul 11 16:11:51:503 [139680884434688] dut: Queue 'probeDiscovery' has 1 existing data files
+Jul 11 16:11:51:503 [139680884434688] dut: Queue 'probeDiscovery' will start reading at file sequence no. 187
+Jul 11 16:11:51:503 [139680884434688] dut: Queue 'probeDiscovery' will start writing at file sequence no. 188
+Jul 11 16:11:51:503 [139680884434688] dut: Queue 'probeDiscovery' opened file '188.sds' for writing
+Jul 11 16:11:51:503 [139680288814848] dut: do_assign_to_list entered...
+Jul 11 16:11:51:503 [139680288814848] dut: AssignToList - used 0 ms to lookup 1 users
+Jul 11 16:11:51:503 [139680288814848] dut: do_assign_to_list finished... status: OK (0), time used: 0 ms
+Jul 11 16:11:51:503 [139680347563776] dut: Queue management thread for 'ems_alarm_new' started
+Jul 11 16:11:51:503 [139680347563776] dut: Queue 'ems_alarm_new' has queued file '89.sds' for future processing
+Jul 11 16:11:51:503 [139680347563776] dut: Queue 'ems_alarm_new' has 1 existing data files
+Jul 11 16:11:51:503 [139680347563776] dut: Queue 'ems_alarm_new' will start reading at file sequence no. 89
+Jul 11 16:11:51:503 [139680347563776] dut: Queue 'ems_alarm_new' will start writing at file sequence no. 90
+Jul 11 16:11:51:503 [139680347563776] dut: Queue 'ems_alarm_new' opened file '90.sds' for writing
+Jul 11 16:11:51:503 [139680330778368] dut: Queue management thread for 'ems_alarm_assign' started
+Jul 11 16:11:51:503 [139680330778368] dut: Queue 'ems_alarm_assign' has queued file '89.sds' for future processing
+Jul 11 16:11:51:503 [139680330778368] dut: Queue 'ems_alarm_assign' has 1 existing data files
+Jul 11 16:11:51:503 [139680330778368] dut: Queue 'ems_alarm_assign' will start reading at file sequence no. 89
+Jul 11 16:11:51:503 [139680330778368] dut: Queue 'ems_alarm_assign' will start writing at file sequence no. 90
+Jul 11 16:11:51:503 [139680330778368] dut: Queue 'ems_alarm_assign' opened file '90.sds' for writing
+Jul 11 16:11:51:503 [139680322385664] dut: Queue management thread for 'ems_alarm_close' started
+Jul 11 16:11:51:503 [139680322385664] dut: Queue 'ems_alarm_close' has queued file '89.sds' for future processing
+Jul 11 16:11:51:503 [139680322385664] dut: Queue 'ems_alarm_close' has 1 existing data files
+Jul 11 16:11:51:503 [139680322385664] dut: Queue 'ems_alarm_close' will start reading at file sequence no. 89
+Jul 11 16:11:51:503 [139680322385664] dut: Queue 'ems_alarm_close' will start writing at file sequence no. 90
+Jul 11 16:11:51:503 [139680322385664] dut: Queue 'ems_alarm_close' opened file '90.sds' for writing
+Jul 11 16:11:51:504 [139680305600256] dut: cfgReader file close: dut.cfg
+Jul 11 16:11:51:504 [139680305600256] dut: [-1040206080] started worker thread (0xc1ffb700)
+Jul 11 16:11:51:504 [139680305600256] dut: [-1048598784] started worker thread (0xc17fa700)
+Jul 11 16:11:51:504 [139680305600256] dut: [-1056991488] started worker thread (0xc0ff9700)
+Jul 11 16:11:51:504 [139680305600256] dut: [-1207961856] started worker thread (0xb7fff700)
+Jul 11 16:11:51:504 [139680305600256] dut: [-1216354560] started worker thread (0xb77fe700)
+Jul 11 16:11:51:504 [139680305600256] dut: [-1224747264] started worker thread (0xb6ffd700)
+Jul 11 16:11:51:504 [139680305600256] dut: [-1233139968] started worker thread (0xb67fc700)
+Jul 11 16:11:51:504 [139680305600256] dut: [-1241532672] started worker thread (0xb5ffb700)
+Jul 11 16:11:51:504 [139680305600256] dut: [-1249925376] started worker thread (0xb57fa700)
+Jul 11 16:11:51:504 [139680305600256] dut: [-1258318080] started worker thread (0xb4ff9700)
+Jul 11 16:11:51:504 [139680372741888] dut: Queue management thread for 'udm_inventory' started
+Jul 11 16:11:51:504 [139680372741888] dut: Queue 'udm_inventory' has queued file '187.sds' for future processing
+Jul 11 16:11:51:504 [139680372741888] dut: Queue 'udm_inventory' has 1 existing data files
+Jul 11 16:11:51:504 [139680372741888] dut: Queue 'udm_inventory' will start reading at file sequence no. 187
+Jul 11 16:11:51:504 [139680372741888] dut: Queue 'udm_inventory' will start writing at file sequence no. 188
+Jul 11 16:11:51:504 [139680372741888] dut: Queue 'udm_inventory' opened file '188.sds' for writing
+Jul 11 16:11:51:504 [139680280422144] dut: Initalizing read file '282.sds' for 'alarm_manager'
+Jul 11 16:11:51:505 [139680280422144] dut: Read file '282.sds' initialized for 'alarm_manager', 0 msgs found (@ pos 0), 0 ms used
+Jul 11 16:11:51:505 [139680280422144] dut: Queue 'alarm_manager' file '282.sds' does not contain sendable msgs, deleted
+Jul 11 16:11:51:505 [139680179808000] dut: Queue sender thread for 'event_manager' started
+Jul 11 16:11:51:505 [139680188200704] dut: Initalizing read file '285.sds' for 'event_manager'
+Jul 11 16:11:51:505 [139680188200704] dut: Read file '285.sds' initialized for 'event_manager', 0 msgs found (@ pos 0), 0 ms used
+Jul 11 16:11:51:505 [139680901220096] dut: Queue 'data_engine' file '3951.sds' does not contain sendable msgs, deleted
+Jul 11 16:11:51:505 [139680590853888] dut: Queue management thread for 'legacy_alarm_manager' started
+Jul 11 16:11:51:505 [139680590853888] dut: Queue 'legacy_alarm_manager' has queued file '122.sds' for future processing
+Jul 11 16:11:51:505 [139680590853888] dut: Queue 'legacy_alarm_manager' has 1 existing data files
+Jul 11 16:11:51:505 [139680590853888] dut: Queue 'legacy_alarm_manager' will start reading at file sequence no. 122
+Jul 11 16:11:51:505 [139680590853888] dut: Queue 'legacy_alarm_manager' will start writing at file sequence no. 123
+Jul 11 16:11:51:505 [139680590853888] dut: Queue 'legacy_alarm_manager' opened file '123.sds' for writing
+Jul 11 16:11:51:505 [139680876041984] dut: Queue sender thread for 'data_engine' started
+Jul 11 16:11:51:505 [139680188200704] dut: Queue 'event_manager' file '285.sds' does not contain sendable msgs, deleted
+Jul 11 16:11:51:505 [139680582461184] dut: Initalizing read file '157.sds' for 'prediction_engine.PREDICTION_CONFIG'
+Jul 11 16:11:51:505 [139680582461184] dut: Read file '157.sds' initialized for 'prediction_engine.PREDICTION_CONFIG', 0 msgs found (@ pos 0), 0 ms used
+Jul 11 16:11:51:505 [139680582461184] dut: Queue 'prediction_engine.PREDICTION_CONFIG' file '157.sds' does not contain sendable msgs, deleted
+Jul 11 16:11:51:505 [139680565675776] dut: Initalizing read file '125.sds' for 'action_manager'
+Jul 11 16:11:51:506 [139680163022592] dut: Queue sender thread for 'probeDiscovery' started
+Jul 11 16:11:51:506 [139679869409024] dut: [-1056991488] thread started
+Jul 11 16:11:51:506 [139679693260544] dut: [-1233139968] thread started
+Jul 11 16:11:51:506 [139679676475136] dut: [-1249925376] thread started
+Jul 11 16:11:51:506 [139679710045952] dut: [-1216354560] thread started
+Jul 11 16:11:51:506 [139680565675776] dut: Read file '125.sds' initialized for 'action_manager', 0 msgs found (@ pos 0), 0 ms used
+Jul 11 16:11:51:506 [139680171415296] dut: Initalizing read file '187.sds' for 'probeDiscovery'
+Jul 11 16:11:51:506 [139680171415296] dut: Read file '187.sds' initialized for 'probeDiscovery', 0 msgs found (@ pos 0), 0 ms used
+Jul 11 16:11:51:506 [139680565675776] dut: Queue 'action_manager' file '125.sds' does not contain sendable msgs, deleted
+Jul 11 16:11:51:506 [139680557283072] dut: Queue management thread for 'ems' started
+Jul 11 16:11:51:506 [139680557283072] dut: Queue 'ems' has queued file '157.sds' for future processing
+Jul 11 16:11:51:506 [139680557283072] dut: Queue 'ems' has 1 existing data files
+Jul 11 16:11:51:506 [139680557283072] dut: Queue 'ems' will start reading at file sequence no. 157
+Jul 11 16:11:51:506 [139680557283072] dut: Queue 'ems' will start writing at file sequence no. 158
+Jul 11 16:11:51:506 [139680171415296] dut: Queue 'probeDiscovery' file '187.sds' does not contain sendable msgs, deleted
+Jul 11 16:11:51:506 [139680557283072] dut: Queue 'ems' opened file '158.sds' for writing
+Jul 11 16:11:51:506 [139680146237184] dut: Initalizing read file '89.sds' for 'ems_alarm_new'
+Jul 11 16:11:51:506 [139680146237184] dut: Read file '89.sds' initialized for 'ems_alarm_new', 0 msgs found (@ pos 0), 0 ms used
+Jul 11 16:11:51:506 [139680389527296] dut: Queue sender thread for 'action_manager' started
+Jul 11 16:11:51:506 [139680146237184] dut: Queue 'ems_alarm_new' file '89.sds' does not contain sendable msgs, deleted
+Jul 11 16:11:51:506 [139680355956480] dut: Queue management thread for 'emailgtw' started
+Jul 11 16:11:51:506 [139680355956480] dut: Queue 'emailgtw' has queued file '75.sds' for future processing
+Jul 11 16:11:51:506 [139680355956480] dut: Queue 'emailgtw' has 1 existing data files
+Jul 11 16:11:51:506 [139680355956480] dut: Queue 'emailgtw' will start reading at file sequence no. 75
+Jul 11 16:11:51:506 [139680355956480] dut: Queue 'emailgtw' will start writing at file sequence no. 76
+Jul 11 16:11:51:506 [139680355956480] dut: Queue 'emailgtw' opened file '76.sds' for writing
+Jul 11 16:11:51:506 [139680339171072] dut: Queue management thread for 'ems_alarm_update' started
+Jul 11 16:11:51:506 [139680339171072] dut: Queue 'ems_alarm_update' has queued file '91.sds' for future processing
+Jul 11 16:11:51:506 [139680339171072] dut: Queue 'ems_alarm_update' has 1 existing data files
+Jul 11 16:11:51:506 [139680339171072] dut: Queue 'ems_alarm_update' will start reading at file sequence no. 91
+Jul 11 16:11:51:506 [139680339171072] dut: Queue 'ems_alarm_update' will start writing at file sequence no. 92
+Jul 11 16:11:51:506 [139680339171072] dut: Queue 'ems_alarm_update' opened file '92.sds' for writing
+Jul 11 16:11:51:506 [139680313992960] dut: spooler main thread started
+Jul 11 16:11:51:506 [139680297207552] dut: topology - main thread - starting worker thread pool ...
+Jul 11 16:11:51:506 [139680297207552] dut: [-1476430080] started worker thread (0xa7ff7700)
+Jul 11 16:11:51:506 [139680297207552] dut: [-1484822784] started worker thread (0xa77f6700)
+Jul 11 16:11:51:506 [139680297207552] dut: [-1493215488] started worker thread (0xa6ff5700)
+Jul 11 16:11:51:506 [139680297207552] dut: [-1501608192] started worker thread (0xa67f4700)
+Jul 11 16:11:51:506 [139680297207552] dut: [-1510000896] started worker thread (0xa5ff3700)
+Jul 11 16:11:51:506 [139680297207552] dut: [-1518393600] started worker thread (0xa57f2700)
+Jul 11 16:11:51:506 [139680297207552] dut: [-1526786304] started worker thread (0xa4ff1700)
+Jul 11 16:11:51:506 [139680297207552] dut: [-1535179008] started worker thread (0xa47f0700)
+Jul 11 16:11:51:506 [139680297207552] dut: [-1543571712] started worker thread (0xa3fef700)
+Jul 11 16:11:51:506 [139680297207552] dut: [-1551964416] started worker thread (0xa37ee700)
+Jul 11 16:11:51:506 [139680272029440] dut: Queue sender thread for 'alarm_manager' started
+Jul 11 16:11:51:506 [139679911372544] dut: Queue sender thread for 'ems_alarm_assign' started
+Jul 11 16:11:51:506 [139679894587136] dut: Queue sender thread for 'ems_alarm_close' started
+Jul 11 16:11:51:506 [139679718438656] dut: [-1207961856] thread started
+Jul 11 16:11:51:506 [139679877801728] dut: [-1048598784] thread started
+Jul 11 16:11:51:506 [139679701653248] dut: [-1224747264] thread started
+Jul 11 16:11:51:506 [139679919765248] dut: Initalizing read file '89.sds' for 'ems_alarm_assign'
+Jul 11 16:11:51:506 [139679684867840] dut: [-1241532672] thread started
+Jul 11 16:11:51:506 [139679919765248] dut: Read file '89.sds' initialized for 'ems_alarm_assign', 0 msgs found (@ pos 0), 0 ms used
+Jul 11 16:11:51:506 [139680901220096] dut: Initalizing read file '122.sds' for 'legacy_alarm_manager'
+Jul 11 16:11:51:506 [139679919765248] dut: Queue 'ems_alarm_assign' file '89.sds' does not contain sendable msgs, deleted
+Jul 11 16:11:51:506 [139680901220096] dut: Read file '122.sds' initialized for 'legacy_alarm_manager', 0 msgs found (@ pos 0), 0 ms used
+Jul 11 16:11:51:506 [139679902979840] dut: Initalizing read file '89.sds' for 'ems_alarm_close'
+Jul 11 16:11:51:507 [139679902979840] dut: Read file '89.sds' initialized for 'ems_alarm_close', 0 msgs found (@ pos 0), 0 ms used
+Jul 11 16:11:51:507 [139679902979840] dut: Queue 'ems_alarm_close' file '89.sds' does not contain sendable msgs, deleted
+Jul 11 16:11:51:507 [139679886194432] dut: [-1040206080] thread started
+Jul 11 16:11:51:507 [139679668082432] dut: [-1258318080] thread started
+Jul 11 16:11:51:506 [139680137844480] dut: Queue sender thread for 'ems_alarm_new' started
+Jul 11 16:11:51:507 [139679517112064] dut: Initalizing read file '187.sds' for 'udm_inventory'
+Jul 11 16:11:51:507 [139680901220096] dut: Queue 'legacy_alarm_manager' file '122.sds' does not contain sendable msgs, deleted
+Jul 11 16:11:51:506 [139679508719360] dut: Queue sender thread for 'udm_inventory' started
+Jul 11 16:11:51:507 [139680280422144] dut: Queue sender thread for 'legacy_alarm_manager' started
+Jul 11 16:11:51:507 [139680582461184] dut: Initalizing read file '91.sds' for 'ems_alarm_update'
+Jul 11 16:11:51:507 [139679517112064] dut: Read file '187.sds' initialized for 'udm_inventory', 0 msgs found (@ pos 0), 0 ms used
+Jul 11 16:11:51:507 [139680582461184] dut: Read file '91.sds' initialized for 'ems_alarm_update', 0 msgs found (@ pos 0), 0 ms used
+Jul 11 16:11:51:507 [139680582461184] dut: Queue 'ems_alarm_update' file '91.sds' does not contain sendable msgs, deleted
+Jul 11 16:11:51:507 [139679500326656] dut: Queue sender thread for 'ems_alarm_update' started
+Jul 11 16:11:51:507 [139679491933952] dut: Post input handling thread - started
+Jul 11 16:11:51:507 [139679475148544] dut: spooler subscriber management thread started
+Jul 11 16:11:51:507 [139679458363136] dut: There are 0 objects waiting on 2 threads
+Jul 11 16:11:51:507 [139679449970432] dut: [-1476430080] thread started
+Jul 11 16:11:51:507 [139679433185024] dut: [-1493215488] thread started
+Jul 11 16:11:51:507 [139679416399616] dut: [-1510000896] thread started
+Jul 11 16:11:51:507 [139679399614208] dut: [-1526786304] thread started
+Jul 11 16:11:51:507 [139679391221504] dut: [-1535179008] thread started
+Jul 11 16:11:51:507 [139679374436096] dut: [-1551964416] thread started
+Jul 11 16:11:51:507 [139679441577728] dut: [-1484822784] thread started
+Jul 11 16:11:51:507 [139679424792320] dut: [-1501608192] thread started
+Jul 11 16:11:51:507 [139679408006912] dut: [-1518393600] thread started
+Jul 11 16:11:51:507 [139679382828800] dut: [-1543571712] thread started
+Jul 11 16:11:51:507 [139679483541248] dut: Post input handling thread - started
+Jul 11 16:11:51:507 [139679517112064] dut: Queue 'udm_inventory' file '187.sds' does not contain sendable msgs, deleted
+Jul 11 16:11:51:507 [139680188200704] dut: Queue sender thread for 'emailgtw' started
+Jul 11 16:11:51:507 [139680146237184] dut: Initalizing read file '75.sds' for 'emailgtw'
+Jul 11 16:11:51:507 [139680146237184] dut: Read file '75.sds' initialized for 'emailgtw', 0 msgs found (@ pos 0), 0 ms used
+Jul 11 16:11:51:507 [139680146237184] dut: Queue 'emailgtw' file '75.sds' does not contain sendable msgs, deleted
+Jul 11 16:11:51:507 [139680565675776] dut: Initalizing read file '157.sds' for 'ems'
+Jul 11 16:11:51:507 [139680565675776] dut: Read file '157.sds' initialized for 'ems', 0 msgs found (@ pos 0), 0 ms used
+Jul 11 16:11:51:507 [139680565675776] dut: Queue 'ems' file '157.sds' does not contain sendable msgs, deleted
+Jul 11 16:11:51:507 [139680171415296] dut: Queue sender thread for 'ems' started
+Jul 11 16:11:52:213 [139681125603136] dut: sockAccept: new socket fd=25
+Jul 11 16:11:52:213 [139681125603136] dut: sockAccept: new session nims=0x17279e0 new=0x174a1e0 fd=25 10.238.40.228/48002<-10.238.40.143/37088
+Jul 11 16:11:52:213 [139681125603136] dut: RREQUEST: dutpost_bulk <-10.238.40.143/37088  h=390 d=16
+Jul 11 16:11:52:213 [139681125603136] dut:  data  bulk_size=0
+Jul 11 16:11:52:213 [139681125603136] dut: nimSockaddr2Ip - found 10.238.40.143
+Jul 11 16:11:52:214 [139681125603136] dut: nimIP2Ether - new UDP socket fd=26
+Jul 11 16:11:52:214 [139681125603136] dut: nimVerifyLogin dut
+Jul 11 16:11:52:214 [139681125603136] dut: verify - [target] prid=dut cmd=dutpost_bulk ip=10.238.40.143 perm=2
+Jul 11 16:11:52:214 [139679491933952] dut: nimSession:0x174a1e0:25:10.238.40.143/37088:10.238.40.143/37088 - needs cross-thread locking
+Jul 11 16:11:52:214 [139679491933952] dut: SREPLY: status = 0(OK) ->10.238.40.143/37088
+Jul 11 16:11:52:214 [139679491933952] dut:  head  mtype=200 status=0 seq=0
+Jul 11 16:11:52:214 [139679491933952] dut:  data  bulk_size_max=10000
+Jul 11 16:11:52:225 [139681125603136] dut: RREQUEST: dutpost_bulk <-10.238.40.143/37088  h=390 d=72750
+Jul 11 16:11:52:226 [139681125603136] dut:  data  bulk_size=100 bulk_list=PPDS(72695) qsize=263
+Jul 11 16:11:52:229 [139679483541248] dut: SREPLY: status = 0(OK) ->10.238.40.143/37088
+Jul 11 16:11:52:229 [139679483541248] dut:  head  mtype=200 status=0 seq=1
+Jul 11 16:11:52:240 [139681125603136] dut: RREQUEST: dutpost_bulk <-10.238.40.143/37088  h=390 d=69890
+Jul 11 16:11:52:240 [139681125603136] dut:  data  bulk_size=100 bulk_list=PPDS(69835) qsize=164
+Jul 11 16:11:52:243 [139679491933952] dut: SREPLY: status = 0(OK) ->10.238.40.143/37088
+Jul 11 16:11:52:243 [139679491933952] dut:  head  mtype=200 status=0 seq=2
+Jul 11 16:11:52:243 [139679491933952] dut:  data  bulk_size_max=10000
+Jul 11 16:11:52:254 [139681125603136] dut: RREQUEST: dutpost_bulk <-10.238.40.143/37088  h=390 d=44615
+Jul 11 16:11:52:254 [139681125603136] dut:  data  bulk_size=64 bulk_list=PPDS(44561) qsize=64
+Jul 11 16:11:52:256 [139679483541248] dut: SREPLY: status = 0(OK) ->10.238.40.143/37088
+Jul 11 16:11:52:256 [139679483541248] dut:  head  mtype=200 status=0 seq=3
+Jul 11 16:11:52:504 [139680305600256] dut: cfgReader file open: dut.cfg
+Jul 11 16:11:52:504 [139680305600256] dut: cfgReader file close: dut.cfg
+Jul 11 16:11:52:504 [139680305600256] dut: cfgReader file open: dut.cfg
+Jul 11 16:11:52:505 [139680305600256] dut: cfgReader file close: dut.cfg
+Jul 11 16:11:52:505 [139680305600256] dut: cfgReader file open: dut.cfg
+Jul 11 16:11:52:505 [139680305600256] dut: cfgReader file close: dut.cfg
+Jul 11 16:11:52:506 [139680297207552] dut: topology - main thread - worker thread pool started
+Jul 11 16:11:52:721 [139681004775168] dut: RREQUEST: dutup <-10.238.42.217/39140  h=315 d=379
+Jul 11 16:11:52:721 [139681004775168] dut:  head  mtype=100 cmd=dutup seq=0 ts=1499811114 frm=0.0.0.0/39140 tout=0 addr= sid=jU+GzsjC7tvUL8vyUhRLHAADMTQ5OTgxMTcxNAFHcmFlbWVQcmltYXJ5X2h1YgEx
+Jul 11 16:11:52:721 [139681004775168] dut: dutup source: Primary_dut
+Jul 11 16:11:52:721 [139681004775168] dut: MUTEX_LOCK?   hash(dutinfo_update)
+Jul 11 16:11:52:721 [139681004775168] dut: MUTEX_LOCK    hash(dutinfo_update)
+Jul 11 16:11:52:721 [139681004775168] dut: dutinfo_update - found dutinfo for /Primary_dom/Primary_dut
+Jul 11 16:11:52:721 [139681004775168] dut: dutinfo_update - topology - origin was found in update - addr=/Primary_dom/Primary_dut/Primary/dut, from 10.238.42.217/39140
+Jul 11 16:11:52:721 [139681004775168] dut: dutinfo_update - Primary_dom/Primary_dut from=10.238.42.217/39140 CHANGED proximity=0 status=0 secver=22
+Jul 11 16:11:52:721 [139681004775168] dut: ch_dutlist /Primary_dom/Primary_dut/Primary/dut
+Jul 11 16:11:52:721 [139681004775168] dut: MUTEX_UNLOCK? hash(dutinfo_update)
+Jul 11 16:11:52:721 [139681004775168] dut: MUTEX_UNLOCK  hash(dutinfo_update)
+Jul 11 16:11:53:255 [139681125603136] dut: medium timeout
+Jul 11 16:11:53:490 [139681125603136] dut: Device State: OFF
+Jul 11 16:11:53:660 [139681125603136] dut: sockAccept: new socket fd=26
+Jul 11 16:11:53:660 [139681125603136] dut: sockAccept: new session nims=0x17279e0 new=0x174c6c0 fd=26 10.238.40.228/48002<-10.238.40.232/56084
+Jul 11 16:11:53:660 [139681125603136] dut: RREQUEST: nametoip <-10.238.40.232/56084  h=321 d=83
+Jul 11 16:11:53:660 [139681125603136] dut:  head  mtype=100 cmd=nametoip seq=0 ts=1499811114 frm=10.238.40.232/56084 tout=10 addr= sid=FueJqQ3SMYAMEY38NQeKZgADMTQ5OTgxMTcwNAFheGEtdWltdW1wMS1kZXZfaHVi
+Jul 11 16:11:53:660 [139681125603136] dut: MUTEX_LOCK?   hash(inametoip)
+Jul 11 16:11:53:660 [139681125603136] dut: MUTEX_LOCK    hash(inametoip)
+Jul 11 16:11:53:660 [139681125603136] dut: MUTEX_UNLOCK? hash(inametoip)
+Jul 11 16:11:53:660 [139681125603136] dut: MUTEX_UNLOCK  hash(inametoip)
+Jul 11 16:11:53:660 [139681125603136] dut: SREPLY: status = 4(not found) ->10.238.40.232/56084
+Jul 11 16:11:53:660 [139681125603136] dut:  head  mtype=200 status=4 seq=0
+Jul 11 16:11:53:660 [139681125603136] dut: RREQUEST: _close <-10.238.40.232/56084  h=319 d=0
+Jul 11 16:11:53:660 [139681125603136] dut:  head  mtype=100 cmd=_close seq=1 ts=1499811114 frm=10.238.40.232/56084 tout=10 addr= sid=FueJqQ3SMYAMEY38NQeKZgADMTQ5OTgxMTcwNAFheGEtdWltdW1wMS1kZXZfaHVi
+Jul 11 16:11:53:660 [139681125603136] dut: sockClose:0x174c6c0:10.238.40.228/48002
+Jul 11 16:11:53:723 [139681125603136] dut: sockAccept: new socket fd=26
+Jul 11 16:11:53:723 [139681125603136] dut: sockAccept: new session nims=0x17279e0 new=0x17503d0 fd=26 10.238.40.228/48002<-10.238.40.228/37222
+Jul 11 16:11:53:723 [139681125603136] dut: SREPLY: status = 0(OK) ->10.238.40.228/37222
+Jul 11 16:11:53:723 [139681125603136] dut:  head  mtype=200 status=0 seq=0
+Jul 11 16:11:53:723 [139681125603136] dut: RREQUEST: _close <-10.238.40.228/37222  h=108 d=0
+Jul 11 16:11:53:723 [139681125603136] dut:  head  mtype=100 cmd=_close seq=1 ts=1499811113 frm=10.238.40.228/37222 tout=15 addr=
+Jul 11 16:11:53:723 [139681125603136] dut: sockClose:0x17503d0:10.238.40.228/48002
+Jul 11 16:11:53:724 [139681125603136] dut: sockAccept: new socket fd=26
+Jul 11 16:11:53:724 [139681125603136] dut: sockAccept: new session nims=0x17279e0 new=0x17528b0 fd=26 10.238.40.228/48002<-10.238.40.228/37224
+Jul 11 16:11:53:724 [139681125603136] dut: RREQUEST: login <-10.238.40.228/37224  h=108 d=250
+Jul 11 16:11:53:724 [139681125603136] dut:  head  mtype=100 cmd=login seq=0 ts=1499811113 frm=10.238.40.228/37224 tout=180 addr=
+Jul 11 16:11:53:724 [139681125603136] dut:  data  ip=10.238.40.228 ether=10.238.40.228 logindta=[crdta=HEX(160):9428a3edf4dcde9c49c2cb5e33258d66 crlen=151]
+Jul 11 16:11:53:724 [139681125603136] dut: login from ctrl 10.238.40.228/37224
+Jul 11 16:11:53:724 [139681125603136] dut: login - probe=controller permissions=read ip=10.238.40.228
+Jul 11 16:11:53:724 [139681125603136] dut: Login: succeeded for controller, ip = 10.238.40.228
+Jul 11 16:11:53:724 [139681125603136] dut: SREPLY: status = 0(OK) ->10.238.40.228/37224
+Jul 11 16:11:53:724 [139681125603136] dut:  head  mtype=200 status=0 seq=0
+Jul 11 16:11:53:724 [139681125603136] dut:  data  sid=zYyeCp56Cg4og2P41oP7yQADMTQ5OTgzMjcxMwFheGEtdWltc2VydmVyMS1kZXZf
+Jul 11 16:11:53:725 [139681125603136] dut: RREQUEST: _close <-10.238.40.228/37224  h=109 d=0
+Jul 11 16:11:53:725 [139681125603136] dut:  head  mtype=100 cmd=_close seq=1 ts=1499811113 frm=10.238.40.228/37224 tout=180 addr=
+Jul 11 16:11:53:725 [139681125603136] dut: sockClose:0x17528b0:10.238.40.228/48002
+Jul 11 16:11:53:725 [139681125603136] dut: sockAccept: new socket fd=26
+Jul 11 16:11:53:725 [139681125603136] dut: sockAccept: new session nims=0x17279e0 new=0x1754d90 fd=26 10.238.40.228/48002<-10.238.40.228/37226
+Jul 11 16:11:53:725 [139681125603136] dut: RREQUEST: _status <-10.238.40.228/37226  h=360 d=0
+Jul 11 16:11:53:725 [139681125603136] dut:  head  mtype=100 cmd=_status seq=0 ts=1499811113 frm=10.238.40.228/37226 tout=15 addr= sid=zYyeCp56Cg4og2P41oP7yQADMTQ5OTgzMjcxMwFheGEtdWltc2VydmVyMS1kZXZf
+Jul 11 16:11:53:725 [139681125603136] dut: SREPLY: status = 0(OK) ->10.238.40.228/37226
+Jul 11 16:11:53:725 [139681125603136] dut:  head  mtype=200 status=0 seq=0
+Jul 11 16:11:53:725 [139681125603136] dut:  data  name=dut company=CA version=7.92saas1 [Build 7.92saas1.1, Jul 11 2017] started=1499811111 restarted=0 connections=5 messages=1 libversion=6.01 (64bit) libdate=Jul 11 2017 ssl_mode=0 ssl_cipher=DEFAULT ssl_version=OpenSSL 1.0.2i  22 Sep 2016
+Jul 11 16:11:53:726 [139681125603136] dut: RREQUEST: _close <-10.238.40.228/37226  h=359 d=0
+Jul 11 16:11:53:726 [139681125603136] dut:  head  mtype=100 cmd=_close seq=1 ts=1499811113 frm=10.238.40.228/37226 tout=15 addr= sid=zYyeCp56Cg4og2P41oP7yQADMTQ5OTgzMjcxMwFheGEtdWltc2VydmVyMS1kZXZf
+Jul 11 16:11:53:726 [139681125603136] dut: sockClose:0x1754d90:10.238.40.228/48002
+Jul 11 16:11:53:726 [139681125603136] dut: sockAccept: new socket fd=26
+Jul 11 16:11:53:726 [139681125603136] dut: sockAccept: new session nims=0x17279e0 new=0x1757270 fd=26 10.238.40.228/48002<-10.238.40.228/37228
+Jul 11 16:11:53:748 [139681125603136] dut: RREQUEST: probelist <-10.238.40.228/37228  h=362 d=18749
+Jul 11 16:11:53:748 [139681125603136] dut:  head  mtype=100 cmd=probelist seq=0 ts=1499811113 frm=10.238.40.228/37228 tout=0 addr= sid=zYyeCp56Cg4og2P41oP7yQADMTQ5OTgzMjcxMwFheGEtdWltc2VydmVyMS1kZXZf
+Jul 11 16:11:53:748 [139681125603136] dut: SREPLY: status = 0(OK) ->10.238.40.228/37228
+Jul 11 16:11:53:748 [139681125603136] dut:  head  mtype=200 status=0 seq=0
+Jul 11 16:11:53:924 [139681125603136] dut: sockAccept: new socket fd=27
+Jul 11 16:11:53:924 [139681125603136] dut: sockAccept: new session nims=0x17279e0 new=0x1759750 fd=27 10.238.40.228/48002<-10.238.40.228/37236
+Jul 11 16:11:53:924 [139681125603136] dut: RREQUEST: verify_login <-10.238.40.228/37236  h=367 d=145
+Jul 11 16:11:53:924 [139681125603136] dut:  head  mtype=100 cmd=verify_login seq=0 ts=1499811113 frm=10.238.40.228/37236 tout=180 addr= sid=zYyeCp56Cg4og2P41oP7yQADMTQ5OTgzMjcxMwFheGEtdWltc2VydmVyMS1kZXZf
+Jul 11 16:11:53:924 [139681125603136] dut:  data  time=1499811113 cmd=port_list prid=controller access=1 ip=10.238.40.228 ether=0:50:56:9d:7d:16 ident=118729019
+Jul 11 16:11:53:924 [139681125603136] dut: verify_login from ctrl 10.238.40.228/37236
+Jul 11 16:11:53:924 [139681125603136] dut: verify - [target] prid=controller cmd=port_list ip=10.238.40.228 perm=1
+Jul 11 16:11:53:924 [139681125603136] dut: SREPLY: status = 6(permission denied) ->10.238.40.228/37236
+Jul 11 16:11:53:924 [139681125603136] dut:  head  mtype=200 status=6 seq=0
+Jul 11 16:11:53:924 [139681125603136] dut:  data  time=1499811113 access=1 ident=118729019
+Jul 11 16:11:53:925 [139681125603136] dut: RREQUEST: _close <-10.238.40.228/37236  h=360 d=0
+Jul 11 16:11:53:925 [139681125603136] dut:  head  mtype=100 cmd=_close seq=1 ts=1499811113 frm=10.238.40.228/37236 tout=180 addr= sid=zYyeCp56Cg4og2P41oP7yQADMTQ5OTgzMjcxMwFheGEtdWltc2VydmVyMS1kZXZf
+Jul 11 16:11:53:925 [139681125603136] dut: sockClose:0x1759750:10.238.40.228/48002
+Jul 11 16:11:53:925 [139681125603136] dut: RREQUEST: login <-10.238.40.228/37228  h=357 d=253
+Jul 11 16:11:53:925 [139681125603136] dut:  head  mtype=100 cmd=login seq=1 ts=1499811113 frm=10.238.40.228/37228 tout=0 addr= sid=zYyeCp56Cg4og2P41oP7yQADMTQ5OTgzMjcxMwFheGEtdWltc2VydmVyMS1kZXZf
+Jul 11 16:11:53:925 [139681125603136] dut:  data  logindta=[crdta=HEX(160):9428a3edf4dcde9c49c2cb5e33258d66 crlen=150] ip=10.238.40.228 ether=0:50:56:9d:7d:16
+Jul 11 16:11:53:925 [139681125603136] dut: login from ctrl 10.238.40.228/37228
+Jul 11 16:11:53:925 [139681125603136] dut: login - probe=distsrv permissions=admin ip=10.238.40.228
+Jul 11 16:11:53:925 [139681125603136] dut: Login: succeeded for distsrv, ip = 10.238.40.228
+Jul 11 16:11:53:925 [139681125603136] dut: SREPLY: status = 0(OK) ->10.238.40.228/37228
+Jul 11 16:11:53:925 [139681125603136] dut:  head  mtype=200 status=0 seq=1
+Jul 11 16:11:53:925 [139681125603136] dut:  data  sid=LArfduc52PJX4HJXNM+tSQADMTQ5OTgzMjcxMwFheGEtdWltc2VydmVyMS1kZXZf
+Jul 11 16:11:53:925 [139681125603136] dut: sockAccept: new socket fd=27
+Jul 11 16:11:53:925 [139681125603136] dut: sockAccept: new session nims=0x17279e0 new=0x1762710 fd=27 10.238.40.228/48002<-10.238.40.228/37240
+Jul 11 16:11:53:925 [139681125603136] dut: RREQUEST: verify_login <-10.238.40.228/37240  h=367 d=396
+Jul 11 16:11:53:925 [139681125603136] dut:  head  mtype=100 cmd=verify_login seq=0 ts=1499811113 frm=10.238.40.228/37240 tout=180 addr= sid=zYyeCp56Cg4og2P41oP7yQADMTQ5OTgzMjcxMwFheGEtdWltc2VydmVyMS1kZXZf
+Jul 11 16:11:53:925 [139681125603136] dut:  data  time=1499811113 cmd=port_list prid=controller access=1 ip=10.238.40.228 ether=0:50:56:9d:7d:16 ident=118729019 sid=LArfduc52PJX4HJXNM+tSQADMTQ5OTgzMjcxMwFheGEtdWltc2VydmVyMS1kZXZf
+Jul 11 16:11:53:925 [139681125603136] dut: verify_login from ctrl 10.238.40.228/37240
+Jul 11 16:11:53:925 [139681125603136] dut: verify - [target] prid=controller cmd=port_list ip=10.238.40.228 perm=1
+Jul 11 16:11:53:925 [139681125603136] dut: SREPLY: status = 0(OK) ->10.238.40.228/37240
+Jul 11 16:11:53:925 [139681125603136] dut:  head  mtype=200 status=0 seq=0
+Jul 11 16:11:53:925 [139681125603136] dut:  data  time=1499811113 access=1 ident=118729019
+Jul 11 16:11:53:926 [139681125603136] dut: RREQUEST: _close <-10.238.40.228/37240  h=360 d=0
+Jul 11 16:11:53:926 [139681125603136] dut:  head  mtype=100 cmd=_close seq=1 ts=1499811113 frm=10.238.40.228/37240 tout=180 addr= sid=zYyeCp56Cg4og2P41oP7yQADMTQ5OTgzMjcxMwFheGEtdWltc2VydmVyMS1kZXZf
+Jul 11 16:11:53:926 [139681125603136] dut: sockClose:0x1762710:10.238.40.228/48002
+Jul 11 16:11:54:661 [139681125603136] dut: sockAccept: new socket fd=27
+Jul 11 16:11:54:661 [139681125603136] dut: sockAccept: new session nims=0x17279e0 new=0x1764bf0 fd=27 10.238.40.228/48002<-10.238.40.232/56088
+Jul 11 16:11:54:661 [139681125603136] dut: RREQUEST: nametoip <-10.238.40.232/56088  h=321 d=83
+Jul 11 16:11:54:661 [139681125603136] dut:  head  mtype=100 cmd=nametoip seq=0 ts=1499811115 frm=10.238.40.232/56088 tout=10 addr= sid=FueJqQ3SMYAMEY38NQeKZgADMTQ5OTgxMTcwNAFheGEtdWltdW1wMS1kZXZfaHVi
+Jul 11 16:11:53:490 [139681125603136] dut: Device State: ON
+Jul 11 16:11:54:661 [139681125603136] dut: MUTEX_LOCK?   hash(inametoip)
+Jul 11 16:11:54:661 [139681125603136] dut: MUTEX_LOCK    hash(inametoip)
+Jul 11 16:11:54:661 [139681125603136] dut: MUTEX_UNLOCK? hash(inametoip)
+Jul 11 16:11:54:661 [139681125603136] dut: MUTEX_UNLOCK  hash(inametoip)
+Jul 11 16:11:54:661 [139681125603136] dut: SREPLY: status = 4(not found) ->10.238.40.232/56088
+Jul 11 16:11:54:661 [139681125603136] dut:  head  mtype=200 status=4 seq=0
+Jul 11 16:11:54:661 [139681125603136] dut: Device State: ERR
+Jul 11 16:11:54:662 [139681125603136] dut: RREQUEST: _close <-10.238.40.232/56088  h=319 d=0
+Jul 11 16:11:54:662 [139681125603136] dut:  head  mtype=100 cmd=_close seq=1 ts=1499811115 frm=10.238.40.232/56088 tout=10 addr= sid=FueJqQ3SMYAMEY38NQeKZgADMTQ5OTgxMTcwNAFheGEtdWltdW1wMS1kZXZfaHVi
+Jul 11 16:11:54:662 [139681125603136] dut: sockClose:0x1764bf0:10.238.40.228/48002
+Jul 11 16:11:55:733 [139681004775168] dut: RREQUEST: dutup <-10.238.40.49/57468  h=291 d=330
+Jul 11 16:11:55:733 [139681004775168] dut:  head  mtype=100 cmd=dutup seq=0 ts=1499811117 frm=0.0.0.0/57468 tout=0 addr= sid=9GfWh1+qhQNZeoajtpQ8HgADMTQ5OTgxMTcxNwF0ZXN0Y2VudDcBMAExMC4yMzgu
+Jul 11 16:11:55:733 [139681004775168] dut: dutup source: testcent7
+Jul 11 16:11:55:733 [139681004775168] dut: MUTEX_LOCK?   hash(dutinfo_update)
+Jul 11 16:11:55:733 [139681004775168] dut: MUTEX_LOCK    hash(dutinfo_update)
+Jul 11 16:11:55:733 [139681004775168] dut: dutinfo_update - found dutinfo for /dom/testcent7
+Jul 11 16:11:55:733 [139681004775168] dut: dutinfo_update - topology - origin was found in update - addr=/dom/testcent7/testcent7/dut, from 10.238.40.49/57468
+Jul 11 16:11:55:733 [139681004775168] dut: dutinfo_update - dom/testcent7 from=10.238.40.49/57468 CHANGED proximity=0 status=0 secver=172
+Jul 11 16:11:55:733 [139681004775168] dut: ch_dutlist /dom/testcent7/testcent7/dut
+Jul 11 16:11:55:733 [139681004775168] dut: MUTEX_UNLOCK? hash(dutinfo_update)
+Jul 11 16:11:55:733 [139681004775168] dut: MUTEX_UNLOCK  hash(dutinfo_update)
+Jul 11 16:11:56:067 [139681125603136] dut:  data  logindta=[crdta=HEX(144):9428a3edf4dcde9c49c2cb5e33258d66 crlen=135] ip=10.238.40.228 ether=0:50:56:9d:7d:16
+Jul 11 16:11:56:067 [139681125603136] dut: login from ctrl 10.238.40.228/37228
+Jul 11 16:11:56:067 [139681125603136] dut: login - probe=automated_deployment_engine permissions=admin ip=10.238.40.228
+Jul 11 16:11:56:067 [139681125603136] dut: Login: succeeded for automated_deployment_engine, ip = 10.238.40.228
+Jul 11 16:11:56:067 [139681125603136] dut: Device State: ERR
+Jul 11 16:11:56:067 [139681125603136] dut: SREPLY: status = 0(OK) ->10.238.40.228/37228
+Jul 11 16:11:56:067 [139681125603136] dut:  head  mtype=200 status=0 seq=2
+Jul 11 16:11:56:067 [139681125603136] dut:  data  sid=6HLrdYRrql15M84HvmtEEgADMTQ5OTgzMjcxNgFheGEtdWltc2VydmVyMS1kZXZf
+Jul 11 16:11:56:071 [139681125603136] dut: sockAccept: new socket fd=27
+Jul 11 16:11:56:071 [139681125603136] dut: sockAccept: new session nims=0x17279e0 new=0x17670d0 fd=27 10.238.40.228/48002<-10.238.40.228/37268
+Jul 11 16:11:56:071 [139681125603136] dut: RREQUEST: subscribe <-10.238.40.228/37268  h=178 d=83
+Jul 11 16:11:56:071 [139681125603136] dut:  data  subject=AutomatedDeployment id=NimListenHandler heartbeat_interval=2
+Jul 11 16:11:56:071 [139681125603136] dut: Subscribe request received from 10.238.40.228/37268
+Jul 11 16:11:56:512 [139679475148544] dut: Processing new subscribe request from '10.238.40.228/37268'
+Jul 11 16:11:56:512 [139679475148544] dut: ciOpen - cache path: /opt/nimsoft/niscache
+Jul 11 16:11:56:512 [139679475148544] dut: ciOpen - initializing global CI cache
+Jul 11 16:11:56:512 [139679475148544] dut: ciSaveMetric - saving MET [MC84D2BF98A3E711E125B9024C45F3B02] 10.1:10
+Jul 11 16:11:56:512 [139679475148544] dut: internal alarm - Number of subscribers is below the threshold., 0, subs
+Jul 11 16:11:56:512 [139679475148544] dut: ciClose - [C6346694FACBF1CB4ADEEA28D21E4BFAB]
+Jul 11 16:11:56:512 [139679475148544] dut: add_subscriber id=NimListenHandler sub=0x7f09c8001200
+Jul 11 16:11:56:512 [139679475148544] dut: subscription request header: Size=178
+Jul 11 16:11:56:512 [139679475148544] dut: frm             PDS_PCH          20 10.238.40.228/37268
+Jul 11 16:11:56:512 [139679475148544] dut: mtype           PDS_PCH           4 100
+Jul 11 16:11:56:512 [139679475148544] dut: charset         PDS_PCH           6 UTF-8
+Jul 11 16:11:56:512 [139679475148544] dut: cmd             PDS_PCH          10 subscribe
+Jul 11 16:11:56:512 [139679475148544] dut: seq             PDS_I             2 0
+Jul 11 16:11:56:512 [139679475148544] dut: ts              PDS_I            11 1499811116
+Jul 11 16:11:56:512 [139679475148544] dut: subscription request data  : Size=83
+Jul 11 16:11:56:512 [139679475148544] dut: subject         PDS_PCH          20 AutomatedDeployment
+Jul 11 16:11:56:512 [139679475148544] dut: id              PDS_PCH          17 NimListenHandler
+Jul 11 16:11:56:512 [139679475148544] dut: heartbeat_interval PDS_I             2 2
+Jul 11 16:11:56:512 [139679475148544] dut: Add subscriber to temporary queue 'AutomatedDeployment' (requested by '10.238.40.228/37268')
+Jul 11 16:11:56:512 [139679475148544] dut: newRoute name=t_0 pr=0x7f09c8001830
+Jul 11 16:11:56:512 [139679475148544] dut: TMP route 't_0' created for subject 'AutomatedDeployment'
+Jul 11 16:11:56:512 [139679475148544] dut: subscriber did not request a reply_timeout, using default of 60
+Jul 11 16:11:56:512 [139680565675776] dut: Queue management thread for 't_0' started
+Jul 11 16:11:56:512 [139680565675776] dut: Queue 't_0' will start reading at file sequence no. 0
+Jul 11 16:11:56:512 [139680565675776] dut: Queue 't_0' will start writing at file sequence no. 0
+Jul 11 16:11:56:512 [139680565675776] dut: Queue 't_0' opened file '0.sds' for writing
+Jul 11 16:11:56:512 [139680565675776] dut: Queue 't_0'  now reading from file  '0.sds' (contains 0 msgs, starting @ pos 0)
+Jul 11 16:11:56:512 [139679475148544] dut: nimSession:0x17670d0:27:10.238.40.228/37268:10.238.40.228/37268 - needs cross-thread locking
+Jul 11 16:11:56:513 [139679475148544] dut: SREPLY: status = 0(OK) ->10.238.40.228/37268
+Jul 11 16:11:56:513 [139679475148544] dut:  head  mtype=200 status=0 seq=0
+Jul 11 16:11:56:513 [139679475148544] dut:  data  heartbeat_interval=2 reply_timeout=60
+Jul 11 16:11:56:513 [139679475148544] dut: Subscriber 'NimListenHandler' at '10.238.40.228/37268' attached to queue 't_0' (subject:AutomatedDeployment requested bulk:0, granted bulk:0, minimum bulk:0, wait:0, heartbeat: 2, reply timeout: 60), time used: 0 ms
+Jul 11 16:11:56:513 [139679475148544] dut: Subscriber 'NimListenHandler' attached to queue 't_0' sub=0x7f09c8001200 pr=0x7f09c8001830 nims=0x17670d0 sfd=27
+Jul 11 16:11:56:514 [139679517112064] dut: Queue sender thread for 't_0' started
+Jul 11 16:11:56:514 [139679517112064] dut: SREQUEST: heartbeat ->10.238.40.228/37268
+Jul 11 16:11:56:514 [139679517112064] dut:  head  mtype=100 cmd=heartbeat seq=0 ts=1499811116 frm=10.238.40.228/48002 tout=10 addr= sid=lpW5VPKZ/DKdf80dKgf9jAADMTQ5OTgxMTE3MQFheGEtdWltc2VydmVyMS1kZXZf
+Jul 11 16:11:56:515 [139679517112064] dut: RREPLY: status=OK(0) <-10.238.40.228/37268  h=55 d=0
+Jul 11 16:11:56:515 [139679517112064] dut:  head  mtype=200 charset=UTF-8 seq=0 status=0
+Jul 11 16:11:56:515 [139679517112064] dut: Sent heartbeat on queue route 't_0'
+Jul 11 16:11:57:291 [139681125603136] dut: RREQUEST: login <-10.238.40.228/37228  h=357 d=187
+Jul 11 16:11:57:291 [139681125603136] dut:  head  mtype=100 cmd=login seq=3 ts=1499811117 frm=10.238.40.228/37228 tout=0 addr= sid=zYyeCp56Cg4og2P41oP7yQADMTQ5OTgzMjcxMwFheGEtdWltc2VydmVyMS1kZXZf
+Jul 11 16:11:57:291 [139681125603136] dut:  data  logindta=[crdta=HEX(96):9428a3edf4dcde9c49c2cb5e33258d66 crlen=87] ip=10.238.40.228 ether=0:50:56:9d:7d:16
+Jul 11 16:11:57:291 [139681125603136] dut: login from ctrl 10.238.40.228/37228
+Jul 11 16:11:57:291 [139681125603136] dut: login - probe=mpse permissions=admin ip=10.238.40.228
+Jul 11 16:11:57:291 [139681125603136] dut: Login: succeeded for mpse, ip = 10.238.40.228
+Jul 11 16:11:57:291 [139681125603136] dut: SREPLY: status = 0(OK) ->10.238.40.228/37228
+Jul 11 16:11:57:291 [139681125603136] dut:  head  mtype=200 status=0 seq=3
+Jul 11 16:11:57:291 [139681125603136] dut:  data  sid=5EvERBzKD/WAIQ2kdtmGOAADMTQ5OTgzMjcxNwFheGEtdWltc2VydmVyMS1kZXZf
+Jul 11 16:11:57:303 [139681125603136] dut: sockAccept: new socket fd=30
+Jul 11 16:11:57:303 [139681125603136] dut: sockAccept: new session nims=0x17279e0 new=0x17695b0 fd=30 10.238.40.228/48002<-10.238.40.228/37290
+Jul 11 16:11:57:305 [139681125603136] dut: RREQUEST: license_info <-10.238.40.228/37290  h=364 d=0
+Jul 11 16:11:57:305 [139681125603136] dut: nimSockaddr2Ip - found 10.238.40.228
+Jul 11 16:11:57:305 [139681125603136] dut: nimIP2Ether - new UDP socket fd=31
+Jul 11 16:11:57:305 [139681125603136] dut: nimVerifyLogin dut
+Jul 11 16:11:57:305 [139681125603136] dut: verify - [target] prid=dut cmd=license_info ip=10.238.40.228 perm=1
+Jul 11 16:11:57:305 [139681125603136] dut: license_info - from 10.238.40.228/37290
+Jul 11 16:11:57:305 [139681125603136] dut: SREPLY: status = 0(OK) ->10.238.40.228/37290
+Jul 11 16:11:57:305 [139681125603136] dut:  head  mtype=200 status=0 seq=0
+Jul 11 16:11:57:305 [139681125603136] dut: Device State: OFF
+Jul 11 16:11:57:305 [139681125603136] dut: RREQUEST: _close <-10.238.40.228/37290  h=357 d=0
+Jul 11 16:11:57:305 [139681125603136] dut: sockClose:0x17695b0:10.238.40.228/48002
+Jul 11 16:11:57:349 [139681125603136] dut: sockAccept: new socket fd=30
+Jul 11 16:11:57:349 [139681125603136] dut: sockAccept: new session nims=0x17279e0 new=0x176ba90 fd=30 10.238.40.228/48002<-10.238.40.228/37306
+Jul 11 16:11:57:349 [139681125603136] dut: RREQUEST: verify_login <-10.238.40.228/37306  h=367 d=318
+Jul 11 16:11:57:349 [139681125603136] dut:  head  mtype=100 cmd=verify_login seq=0 ts=1499811117 frm=10.238.40.228/37306 tout=180 addr= sid=zYyeCp56Cg4og2P41oP7yQADMTQ5OTgzMjcxMwFheGEtdWltc2VydmVyMS1kZXZf
+Jul 11 16:11:57:349 [139681125603136] dut:  data  time=1499811117 cmd=probe_list prid=controller access=1 ip=10.238.40.228 ether=0:50:56:9d:7d:16 ident=2122925495 sid=5EvERBzKD/WAIQ2kdtmGOAADMTQ5OTgzMjcxNwFheGEtdWltc2VydmVyMS1kZXZf
+Jul 11 16:11:57:349 [139681125603136] dut: verify_login from ctrl 10.238.40.228/37306
+Jul 11 16:11:57:349 [139681125603136] dut: verify - [target] prid=controller cmd=probe_list ip=10.238.40.228 perm=1
+Jul 11 16:11:57:349 [139681125603136] dut: SREPLY: status = 0(OK) ->10.238.40.228/37306
+Jul 11 16:11:57:349 [139681125603136] dut:  head  mtype=200 status=0 seq=0
+Jul 11 16:11:57:349 [139681125603136] dut:  data  time=1499811117 access=1 ident=2122925495
+Jul 11 16:11:57:350 [139681125603136] dut: RREQUEST: _close <-10.238.40.228/37306  h=360 d=0
+Jul 11 16:11:57:350 [139681125603136] dut:  head  mtype=100 cmd=_close seq=1 ts=1499811117 frm=10.238.40.228/37306 tout=180 addr= sid=zYyeCp56Cg4og2P41oP7yQADMTQ5OTgzMjcxMwFheGEtdWltc2VydmVyMS1kZXZf
+Jul 11 16:11:57:350 [139681125603136] dut: sockClose:0x176ba90:10.238.40.228/48002
+Jul 11 16:11:58:327 [139679517112064] dut: SREQUEST: heartbeat ->10.238.40.228/37268
+Jul 11 16:11:58:327 [139679517112064] dut:  head  mtype=100 cmd=heartbeat seq=1 ts=1499811118 frm=10.238.40.228/48002 tout=10 addr= sid=lpW5VPKZ/DKdf80dKgf9jAADMTQ5OTgxMTE3MQFheGEtdWltc2VydmVyMS1kZXZf
+Jul 11 16:11:58:328 [139679517112064] dut: RREPLY: status=OK(0) <-10.238.40.228/37268  h=55 d=0
+Jul 11 16:11:58:328 [139679517112064] dut:  head  mtype=200 charset=UTF-8 seq=1 status=0
+Jul 11 16:11:58:328 [139679517112064] dut: Sent heartbeat on queue route 't_0'
+Jul 11 16:11:58:710 [139681125603136] dut: sockAccept: new socket fd=30
+Jul 11 16:11:58:710 [139681125603136] dut: sockAccept: new session nims=0x17279e0 new=0x174c6c0 fd=30 10.238.40.228/48002<-172.17.60.11/49248
+Jul 11 16:11:58:710 [139681125603136] dut: RREQUEST: subscribe <-172.17.60.11/49248  h=171 d=81
+Jul 11 16:11:58:710 [139681125603136] dut:  data  subject=_$dutALL,alarm_stats id=Infrastructure Manager [administrator]
+Jul 11 16:11:58:710 [139681125603136] dut: Device State: ON
+Jul 11 16:11:58:710 [139681125603136] dut: Subscribe request received from 172.17.60.11/49248
+Jul 11 16:11:58:962 [139681125603136] dut: sockAccept: new socket fd=31
+Jul 11 16:11:58:962 [139681125603136] dut: sockAccept: new session nims=0x17279e0 new=0x1759750 fd=31 10.238.40.228/48002<-10.238.40.228/37400
+Jul 11 16:11:58:962 [139681125603136] dut: RREQUEST: verify_login <-10.238.40.228/37400  h=367 d=147
+Jul 11 16:11:58:962 [139681125603136] dut:  head  mtype=100 cmd=verify_login seq=0 ts=1499811118 frm=10.238.40.228/37400 tout=180 addr= sid=zYyeCp56Cg4og2P41oP7yQADMTQ5OTgzMjcxMwFheGEtdWltc2VydmVyMS1kZXZf
+Jul 11 16:11:58:962 [139681125603136] dut:  data  time=1499811118 cmd=probe_list prid=controller access=1 ip=10.238.40.228 ether=0:50:56:9d:7d:16 ident=1824950816
+Jul 11 16:11:58:962 [139681125603136] dut: verify_login from ctrl 10.238.40.228/37400
+Jul 11 16:11:58:962 [139681125603136] dut: verify - [target] prid=controller cmd=probe_list ip=10.238.40.228 perm=1
+Jul 11 16:11:58:962 [139681125603136] dut: SREPLY: status = 6(permission denied) ->10.238.40.228/37400
+Jul 11 16:11:58:962 [139681125603136] dut:  head  mtype=200 status=6 seq=0
+Jul 11 16:11:58:962 [139681125603136] dut:  data  time=1499811118 access=1 ident=1824950816
+Jul 11 16:11:58:962 [139681125603136] dut: RREQUEST: _close <-10.238.40.228/37400  h=360 d=0
+Jul 11 16:11:58:962 [139681125603136] dut:  head  mtype=100 cmd=_close seq=1 ts=1499811118 frm=10.238.40.228/37400 tout=180 addr= sid=zYyeCp56Cg4og2P41oP7yQADMTQ5OTgzMjcxMwFheGEtdWltc2VydmVyMS1kZXZf
+Jul 11 16:11:58:962 [139681125603136] dut: sockClose:0x1759750:10.238.40.228/48002
+Jul 11 16:11:59:015 [139681125603136] dut: RREQUEST: login <-10.238.40.228/37228  h=357 d=187
+Jul 11 16:11:59:015 [139681125603136] dut:  head  mtype=100 cmd=login seq=4 ts=1499811119 frm=10.238.40.228/37228 tout=0 addr= sid=zYyeCp56Cg4og2P41oP7yQADMTQ5OTgzMjcxMwFheGEtdWltc2VydmVyMS1kZXZf
+Jul 11 16:11:59:015 [139681125603136] dut:  data  logindta=[crdta=HEX(96):9428a3edf4dcde9c49c2cb5e33258d66 crlen=85] ip=10.238.40.228 ether=0:50:56:9d:7d:16
+Jul 11 16:11:59:015 [139681125603136] dut: login from ctrl 10.238.40.228/37228
+Jul 11 16:11:59:015 [139681125603136] dut: login - probe=ppm permissions=admin ip=10.238.40.228
+Jul 11 16:11:59:015 [139681125603136] dut: Login: succeeded for ppm, ip = 10.238.40.228
+Jul 11 16:11:59:015 [139681125603136] dut: SREPLY: status = 0(OK) ->10.238.40.228/37228
+Jul 11 16:11:59:015 [139681125603136] dut:  head  mtype=200 status=0 seq=4
+Jul 11 16:11:59:015 [139681125603136] dut:  data  sid=kgFRn+RGLMX7RDgFkOaQ6gADMTQ5OTgzMjcxOQFheGEtdWltc2VydmVyMS1kZXZf
+Jul 11 16:11:59:048 [139681125603136] dut: RREQUEST: login <-10.238.40.228/37228  h=357 d=205
+Jul 11 16:11:59:048 [139681125603136] dut:  head  mtype=100 cmd=login seq=5 ts=1499811119 frm=10.238.40.228/37228 tout=0 addr= sid=zYyeCp56Cg4og2P41oP7yQADMTQ5OTgzMjcxMwFheGEtdWltc2VydmVyMS1kZXZf
+Jul 11 16:11:59:048 [139681125603136] dut:  data  logindta=[crdta=HEX(112):9428a3edf4dcde9c49c2cb5e33258d66 crlen=111] ip=10.238.40.228 ether=0:50:56:9d:7d:16
+Jul 11 16:11:59:048 [139681125603136] dut: login from ctrl 10.238.40.228/37228
+Jul 11 16:11:59:048 [139681125603136] dut: login - probe=baseline_engine permissions=admin ip=10.238.40.228
+Jul 11 16:11:59:048 [139681125603136] dut: Login: succeeded for baseline_engine, ip = 10.238.40.228
+Jul 11 16:11:59:048 [139681125603136] dut: SREPLY: status = 0(OK) ->10.238.40.228/37228
+Jul 11 16:11:59:048 [139681125603136] dut:  head  mtype=200 status=0 seq=5
+Jul 11 16:11:59:048 [139681125603136] dut:  data  sid=zW2CLPVTY5Vh1N4qgjwZZwADMTQ5OTgzMjcxOQFheGEtdWltc2VydmVyMS1kZXZf
+Jul 11 16:11:59:083 [139681125603136] dut: sockAccept: new socket fd=31
+Jul 11 16:11:59:083 [139681125603136] dut: sockAccept: new session nims=0x17279e0 new=0x1762710 fd=31 10.238.40.228/48002<-10.238.40.228/37434
+Jul 11 16:11:59:083 [139681125603136] dut: RREQUEST: queue_delete <-10.238.40.228/37434  h=368 d=62
+Jul 11 16:11:59:083 [139681125603136] dut: nimSockaddr2Ip - found 10.238.40.228
+Jul 11 16:11:59:083 [139681125603136] dut: nimIP2Ether - new UDP socket fd=32
+Jul 11 16:11:59:083 [139681125603136] dut: nimVerifyLogin dut
+Jul 11 16:11:59:083 [139681125603136] dut: verify - [target] prid=dut cmd=queue_delete ip=10.238.40.228 perm=3
+Jul 11 16:11:59:083 [139681125603136] dut: Delete queue request received from 10.238.40.228/37434
+Jul 11 16:11:59:100 [139681125603136] dut: sockAccept: new socket fd=32
+Jul 11 16:11:59:100 [139681125603136] dut: sockAccept: new session nims=0x17279e0 new=0x1764bf0 fd=32 10.238.40.228/48002<-10.238.40.228/37438
+Jul 11 16:11:59:100 [139681125603136] dut: RREQUEST: queue_list <-10.238.40.228/37438  h=366 d=0
+Jul 11 16:11:59:100 [139681125603136] dut: nimSockaddr2Ip - found 10.238.40.228
+Jul 11 16:11:59:100 [139681125603136] dut: nimIP2Ether - new UDP socket fd=33
+Jul 11 16:11:59:100 [139681125603136] dut: nimVerifyLogin dut
+Jul 11 16:11:59:100 [139681125603136] dut: verify - [target] prid=dut cmd=queue_list ip=10.238.40.228 perm=1
+Jul 11 16:11:59:100 [139681125603136] dut: cfgReader file open: dut.cfg
+Jul 11 16:11:59:100 [139681125603136] dut: cfgReader file close: dut.cfg
+Jul 11 16:11:59:101 [139681125603136] dut: SREPLY: status = 0(OK) ->10.238.40.228/37438
+Jul 11 16:11:59:101 [139681125603136] dut:  head  mtype=200 status=0 seq=0
+Jul 11 16:11:59:101 [139681125603136] dut:  data  __file=dut.cfg sections=PPDS(2926)
+Jul 11 16:11:59:101 [139681125603136] dut: RREQUEST: _close <-10.238.40.228/37438  h=361 d=0
+Jul 11 16:11:59:101 [139681125603136] dut: sockClose:0x1764bf0:10.238.40.228/48002
+Jul 11 16:11:59:102 [139681125603136] dut: sockAccept: new socket fd=32
+Jul 11 16:11:59:102 [139681125603136] dut: sockAccept: new session nims=0x17279e0 new=0x17503d0 fd=32 10.238.40.228/48002<-10.238.40.228/37440
+Jul 11 16:11:59:105 [139681125603136] dut: RREQUEST: subscribe <-10.238.40.228/37440  h=267 d=112
+Jul 11 16:11:59:105 [139681125603136] dut:  head  mtype=100 charset=UTF-8 cmd=subscribe seq=0 ts=1499811119 sid=zW2CLPVTY5Vh1N4qgjwZZwADMTQ5OTgzMjcxOQFheGEtdWltc2VydmVyMS1kZXZf
+Jul 11 16:11:59:105 [139681125603136] dut:  data  bulk_size=1000 attach=baseline_engine.BASELINE_CONFIG id=baseline_engine heartbeat_interval=5
+Jul 11 16:11:59:105 [139681125603136] dut: Subscribe request received from 10.238.40.228/37440
+Jul 11 16:11:59:201 [139681125603136] dut: Device State: OFF
+Jul 11 16:11:59:522 [139679475148544] dut: Processing new subscribe request from '172.17.60.11/49248'
+Jul 11 16:11:59:522 [139679475148544] dut: add_subscriber id=Infrastructure Manager [administrator] sub=0x7f09c8002020
