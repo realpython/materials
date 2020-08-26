@@ -31,11 +31,15 @@ def build_displayed_word(current_word: str, letters_guessed: set) -> str:
 
     # What do we separate the letters with
     separator = " "
-    display = [letter if letter in letters_guessed else "*" for letter in current_word]
+    display = [
+        letter if letter in letters_guessed else "*" for letter in current_word
+    ]
     return separator.join(display)
 
 
-def game_over(guesses_taken: int, current_word: str, letters_guessed: set) -> bool:
+def game_over(
+    guesses_taken: int, current_word: str, letters_guessed: set
+) -> bool:
     """Determines end of game condition
 
     Args:
@@ -108,7 +112,9 @@ def draw_hangman(graph_element: sg.Graph, guesses_taken: int) -> None:
     # Draw the hanged man
     if guesses_taken >= 1:
         # Draw the head
-        graph_element.DrawCircle([100, 290], 20, line_color="red", line_width=1)
+        graph_element.DrawCircle(
+            [100, 290], 20, line_color="red", line_width=1
+        )
 
     if guesses_taken >= 2:
         # Draw the body
@@ -163,7 +169,12 @@ if __name__ == "__main__":
             ),
             # Where are the letters we can guess?
             sg.Column(
-                [[sg.Frame("Letters", letter_frame(), font="Any 20",), sg.Sizer()]]
+                [
+                    [
+                        sg.Frame("Letters", letter_frame(), font="Any 20",),
+                        sg.Sizer(),
+                    ]
+                ]
             ),
         ],
         # Where is the word we are guessing?
@@ -189,13 +200,19 @@ if __name__ == "__main__":
                 [
                     [
                         sg.Sizer(h_pixels=90),
-                        sg.Button(button_text="New", key="-NEW-", font="Any 20",),
-                        sg.Sizer(h_pixels=60),
                         sg.Button(
-                            button_text="Restart", key="-RESTART-", font="Any 20",
+                            button_text="New", key="-NEW-", font="Any 20",
                         ),
                         sg.Sizer(h_pixels=60),
-                        sg.Button(button_text="Quit", key="-QUIT-", font="Any 20",),
+                        sg.Button(
+                            button_text="Restart",
+                            key="-RESTART-",
+                            font="Any 20",
+                        ),
+                        sg.Sizer(h_pixels=60),
+                        sg.Button(
+                            button_text="Quit", key="-QUIT-", font="Any 20",
+                        ),
                         sg.Sizer(h_pixels=90),
                     ]
                 ],
@@ -265,7 +282,9 @@ if __name__ == "__main__":
                 letters_guessed.add(player_guess)
 
                 # Build a new display word
-                displayed_word = build_displayed_word(current_word, letters_guessed)
+                displayed_word = build_displayed_word(
+                    current_word, letters_guessed
+                )
 
                 # Disable this letter button
                 window[event].update(disabled=True)
@@ -280,7 +299,9 @@ if __name__ == "__main__":
                 guesses_taken = 0
 
                 # Build a new display word
-                displayed_word = build_displayed_word(current_word, letters_guessed)
+                displayed_word = build_displayed_word(
+                    current_word, letters_guessed
+                )
 
                 # Enable all the letter buttons
                 for letter in "ABCDEFGHIJKLMNOPQRSTUVWXYZ":
@@ -299,7 +320,9 @@ if __name__ == "__main__":
                 guesses_taken = 0
 
                 # Build a new display word
-                displayed_word = build_displayed_word(current_word, letters_guessed)
+                displayed_word = build_displayed_word(
+                    current_word, letters_guessed
+                )
 
                 # Enable all the letter buttons
                 for letter in "ABCDEFGHIJKLMNOPQRSTUVWXYZ":
