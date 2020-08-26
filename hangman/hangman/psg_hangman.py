@@ -16,9 +16,7 @@ def select_word() -> str:
     return choice(word_list)
 
 
-def build_displayed_word(
-    current_word: str, letters_guessed: set
-) -> str:
+def build_displayed_word(current_word: str, letters_guessed: set) -> str:
     """Builds the word to show the user
     with the corrent letters in place
 
@@ -32,16 +30,11 @@ def build_displayed_word(
 
     # What do we separate the letters with
     separator = " "
-    display = [
-        letter if letter in letters_guessed else "*"
-        for letter in current_word
-    ]
+    display = [letter if letter in letters_guessed else "*" for letter in current_word]
     return separator.join(display)
 
 
-def game_over(
-    guesses_taken: int, current_word: str, letters_guessed: set
-) -> bool:
+def game_over(guesses_taken: int, current_word: str, letters_guessed: set) -> bool:
     """Determines end of game condition
 
     Args:
@@ -114,67 +107,37 @@ def draw_hangman(graph_element: sg.Graph, guesses_taken: int) -> None:
     # Draw the hanged man
     if guesses_taken >= 1:
         # Draw the head
-        graph_element.DrawCircle(
-            [100, 290], 20, line_color="red", line_width=1
-        )
+        graph_element.DrawCircle([100, 290], 20, line_color="red", line_width=1)
 
     if guesses_taken >= 2:
         # Draw the body
-        graph_element.DrawLine(
-            [100, 270], [100, 170], color="red", width=1
-        )
+        graph_element.DrawLine([100, 270], [100, 170], color="red", width=1)
 
     if guesses_taken >= 3:
         # Draw the left arm
-        graph_element.DrawLine(
-            [100, 250], [80, 250], color="red", width=1
-        )
-        graph_element.DrawLine(
-            [80, 250], [60, 210], color="red", width=1
-        )
-        graph_element.DrawLine(
-            [60, 210], [60, 190], color="red", width=1
-        )
+        graph_element.DrawLine([100, 250], [80, 250], color="red", width=1)
+        graph_element.DrawLine([80, 250], [60, 210], color="red", width=1)
+        graph_element.DrawLine([60, 210], [60, 190], color="red", width=1)
 
     if guesses_taken >= 4:
         # Draw the right arm
-        graph_element.DrawLine(
-            [100, 250], [120, 250], color="red", width=1
-        )
-        graph_element.DrawLine(
-            [120, 250], [140, 210], color="red", width=1
-        )
-        graph_element.DrawLine(
-            [140, 210], [140, 190], color="red", width=1
-        )
+        graph_element.DrawLine([100, 250], [120, 250], color="red", width=1)
+        graph_element.DrawLine([120, 250], [140, 210], color="red", width=1)
+        graph_element.DrawLine([140, 210], [140, 190], color="red", width=1)
 
     if guesses_taken >= 5:
         # Draw the left leg
-        graph_element.DrawLine(
-            [100, 170], [80, 170], color="red", width=1
-        )
-        graph_element.DrawLine(
-            [80, 170], [70, 140], color="red", width=1
-        )
-        graph_element.DrawLine(
-            [70, 140], [70, 80], color="red", width=1
-        )
+        graph_element.DrawLine([100, 170], [80, 170], color="red", width=1)
+        graph_element.DrawLine([80, 170], [70, 140], color="red", width=1)
+        graph_element.DrawLine([70, 140], [70, 80], color="red", width=1)
         graph_element.DrawLine([70, 80], [60, 80], color="red", width=1)
 
     if guesses_taken >= 6:
         # Draw the right leg
-        graph_element.DrawLine(
-            [100, 170], [120, 170], color="red", width=1
-        )
-        graph_element.DrawLine(
-            [120, 170], [130, 140], color="red", width=1
-        )
-        graph_element.DrawLine(
-            [130, 140], [130, 80], color="red", width=1
-        )
-        graph_element.DrawLine(
-            [130, 80], [140, 80], color="red", width=1
-        )
+        graph_element.DrawLine([100, 170], [120, 170], color="red", width=1)
+        graph_element.DrawLine([120, 170], [130, 140], color="red", width=1)
+        graph_element.DrawLine([130, 140], [130, 80], color="red", width=1)
+        graph_element.DrawLine([130, 80], [140, 80], color="red", width=1)
 
 
 if __name__ == "__main__":
@@ -199,14 +162,7 @@ if __name__ == "__main__":
             ),
             # Where are the letters we can guess?
             sg.Column(
-                [
-                    [
-                        sg.Frame(
-                            "Letters", letter_frame(), font="Any 20",
-                        ),
-                        sg.Sizer(),
-                    ]
-                ]
+                [[sg.Frame("Letters", letter_frame(), font="Any 20",), sg.Sizer()]]
             ),
         ],
         # Where is the word we are guessing?
@@ -232,23 +188,13 @@ if __name__ == "__main__":
                 [
                     [
                         sg.Sizer(h_pixels=90),
-                        sg.Button(
-                            button_text="New",
-                            key="-NEW-",
-                            font="Any 20",
-                        ),
+                        sg.Button(button_text="New", key="-NEW-", font="Any 20",),
                         sg.Sizer(h_pixels=60),
                         sg.Button(
-                            button_text="Restart",
-                            key="-RESTART-",
-                            font="Any 20",
+                            button_text="Restart", key="-RESTART-", font="Any 20",
                         ),
                         sg.Sizer(h_pixels=60),
-                        sg.Button(
-                            button_text="Quit",
-                            key="-QUIT-",
-                            font="Any 20",
-                        ),
+                        sg.Button(button_text="Quit", key="-QUIT-", font="Any 20",),
                         sg.Sizer(h_pixels=90),
                     ]
                 ],
@@ -305,9 +251,7 @@ if __name__ == "__main__":
             letters_guessed.add(player_guess)
 
             # Build a new display word
-            displayed_word = build_displayed_word(
-                current_word, letters_guessed
-            )
+            displayed_word = build_displayed_word(current_word, letters_guessed)
 
             # Disable this letter button
             window[event].update(disabled=True)
@@ -322,9 +266,7 @@ if __name__ == "__main__":
             guesses_taken = 0
 
             # Build a new display word
-            displayed_word = build_displayed_word(
-                current_word, letters_guessed
-            )
+            displayed_word = build_displayed_word(current_word, letters_guessed)
 
             # Enable all the letter buttons
             for letter in "ABCDEFGHIJKLMNOPQRSTUVWXYZ":
@@ -343,9 +285,7 @@ if __name__ == "__main__":
             guesses_taken = 0
 
             # Build a new display word
-            displayed_word = build_displayed_word(
-                current_word, letters_guessed
-            )
+            displayed_word = build_displayed_word(current_word, letters_guessed)
 
             # Enable all the letter buttons
             for letter in "ABCDEFGHIJKLMNOPQRSTUVWXYZ":
@@ -364,9 +304,7 @@ if __name__ == "__main__":
     # Did the player win?
     elif guesses_taken < 6:
         sg.Popup(
-            "You've won! Congratulations!",
-            title="Winner!",
-            custom_text="OK",
+            "You've won! Congratulations!", title="Winner!", custom_text="OK",
         )
     else:
         sg.Popup(
