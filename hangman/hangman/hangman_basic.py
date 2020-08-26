@@ -31,7 +31,9 @@ def build_displayed_word(current_word: str, letters_guessed: set) -> str:
 
     # What do we separate the letters with
     separator = " "
-    display = [letter if letter in letters_guessed else "*" for letter in current_word]
+    display = [
+        letter if letter in letters_guessed else "*" for letter in current_word
+    ]
     return separator.join(display)
 
 
@@ -151,7 +153,9 @@ def show_hangman(guesses: int) -> None:
     print(hanged_man[guesses])
 
 
-def game_over(guesses_taken: int, current_word: str, letters_guessed: set) -> bool:
+def game_over(
+    guesses_taken: int, current_word: str, letters_guessed: set
+) -> bool:
     """Determines end of game condition
 
     Args:
@@ -214,7 +218,9 @@ if __name__ == "__main__":
         # Show the current game state
         show_hangman(guesses_taken)
         print(f"Your word is: {displayed_word}")
-        print(f"Current letters guessed: {build_letter_list(letters_guessed)}\n")
+        print(
+            f"Current letters guessed: {build_letter_list(letters_guessed)}\n"
+        )
 
         # Get user input and validate
         player_guess = ""
