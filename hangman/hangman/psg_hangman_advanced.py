@@ -264,6 +264,12 @@ if __name__ == "__main__":
     # Did the player quit the game?
     player_quit = False
 
+    # How many games have been played?
+    games_played = 0
+
+    # Howe many games have been won?
+    games_won = 0
+
     # Control our rounds
     while not player_quit:
 
@@ -369,20 +375,30 @@ if __name__ == "__main__":
         # Display the built word
         window["-DISPLAY-WORD-"].update(displayed_word)
 
+        # Increment games played
+        games_played += 1
+
         # Did the player quit?
         if player_quit:
             pass
 
         # Did the player win?
         elif guesses_taken < 6:
+            # Increment games won
+            games_won += 1
+
             answer = sg.PopupYesNo(
-                "You've won! Congratulations!\nAnother round?",
+                f"""You've won! Congratulations!
+                That's {games_won} out of {games_played}!
+                Another round?""",
                 title="Winner!",
             )
             player_quit = answer == "No"
         else:
             answer = sg.PopupYesNo(
-                f"You've lost! The word was '{current_word}'.\nAnother round?",
+                f"""You've lost! The word was '{current_word}'.
+                That's {games_won} out of {games_played}!
+                Another round?""",
                 title="Sorry!",
             )
             player_quit = answer == "No"
