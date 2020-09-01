@@ -23,7 +23,8 @@ from PyQt5.QtWidgets import (
     QToolBar,
 )
 
-import qrc_resources
+# NOTE: Uncomment this import to enable icons
+# import qrc_resources
 
 
 class Window(QMainWindow):
