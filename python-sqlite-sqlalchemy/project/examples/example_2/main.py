@@ -168,7 +168,7 @@ def output_author_hierarchy(authors):
 def main():
     """Main entry point of program"""
 
-    # Connect to the database using SqlAlchemy
+    # Connect to the database using SQLAlchemy
     with resources.path(
         "project.data", "author_book_publisher.db"
     ) as sqlite_filepath:

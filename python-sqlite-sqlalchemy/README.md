@@ -1,4 +1,4 @@
-# Python / SQLite /SqlAlchemy article
+# Python / SQLite /SQLAlchemy article
 
 This repository contains the content and example code
 for the Python / SQLite / SqlAclchemy article I'm writing
