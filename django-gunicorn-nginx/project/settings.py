@@ -23,10 +23,7 @@ except KeyError as e:
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = [
-    "supersecure.codes",
-    "www.supersecure.codes"
-]
+ALLOWED_HOSTS = ["supersecure.codes", "www.supersecure.codes"]
 
 
 # Application definition
