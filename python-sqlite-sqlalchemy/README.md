@@ -1,7 +1,7 @@
 # Python / SQLite /SQLAlchemy article
 
 This repository contains the content and example code
-for the Python / SQLite / SqlAclchemy article I'm writing
+for the Python / SQLite / SQLAlchemy article I'm writing
 for Real Python.
 
 This project was built using Python 3.8.0
