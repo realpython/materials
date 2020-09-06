@@ -1,2 +1,2 @@
-django>=3
+django==3.*
 django-csp
