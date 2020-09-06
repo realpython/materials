@@ -128,7 +128,6 @@ STATICFILES_DIRS = [
 
 # Additional header-related settings
 SECURE_REFERRER_POLICY = "no-referrer-when-downgrade"
-SECURE_BROWSER_XSS_FILTER = True
 
 SECURE_HSTS_SECONDS = 31536000  # == 1 year; *USE A SMALL VALUE FOR TESTING!*
 SECURE_HSTS_PRELOAD = True
