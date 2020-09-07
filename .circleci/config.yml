@@ -6,7 +6,7 @@ version: 2
 jobs:
   build:
     docker:
-      - image: circleci/python:3.6
+      - image: circleci/python:3.8
 
     working_directory: ~/repo
 
@@ -21,7 +21,7 @@ jobs:
           - v1-dependencies-
 
       - run:
-          name: install dependencies
+          name: Install dependencies
           command: |
             python3 -m venv venv
             . venv/bin/activate
