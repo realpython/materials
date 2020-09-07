@@ -21,10 +21,9 @@ except KeyError as e:
     raise RuntimeError("Could not find a SECRET_KEY in environment") from e
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
-ALLOWED_HOSTS = ["supersecure.codes", "www.supersecure.codes"]
-
+ALLOWED_HOSTS = [".supersecure.codes"]
 
 # Application definition
 
@@ -36,6 +35,8 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
 ]
+
+INSTALLED_APPS += ["myapp"]
 
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
