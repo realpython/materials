@@ -20,7 +20,7 @@ class Player(ABC):
         self.frontend = frontend
 
     @abstractmethod
-    def get_turn(self, board) -> Turn:
+    def get_turn(self, board):
         pass
 
 
@@ -46,7 +46,7 @@ class ConsolePlayer(Player):
         frontend = ConsoleFrontend()
         super().__init__(name=name, frontend=frontend)
 
-    def get_turn(self, board) -> Turn:
+    def get_turn(self, board):
         size = len(board)
         while True:
             index = int(self.frontend.get_input()) - 1
