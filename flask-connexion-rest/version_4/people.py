@@ -90,7 +90,7 @@ def create(person):
     else:
         abort(
             406,
-            "Peron with last name {lname} already exists".format(lname=lname),
+            "Person with last name {lname} already exists".format(lname=lname),
         )
 
 
