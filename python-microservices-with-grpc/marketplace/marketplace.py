@@ -16,7 +16,9 @@ with open("client.pem", "rb") as fp:
 with open("ca.pem", "rb") as fp:
     ca_cert = fp.read()
 creds = grpc.ssl_channel_credentials(ca_cert, client_key, client_cert)
-recommendations_channel = grpc.secure_channel(f"{recommendations_host}:443", creds)
+recommendations_channel = grpc.secure_channel(
+    f"{recommendations_host}:443", creds
+)
 recommendations_client = RecommendationsStub(recommendations_channel)
 
 
