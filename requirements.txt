@@ -1,7 +1,2 @@
-<<<<<<< HEAD
-black==19.3b0
-flake8==3.7.7
-=======
 black==19.10b0
 flake8==3.8.2 
->>>>>>> master
