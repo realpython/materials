@@ -51,6 +51,7 @@ except sqlite3.OperationalError:
 # OAuth2 client setup
 client = WebApplicationClient(GOOGLE_CLIENT_ID)
 
+
 # Flask-Login helper to retrieve a user from our db
 @login_manager.user_loader
 def load_user(user_id):

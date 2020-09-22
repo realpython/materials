@@ -40,7 +40,7 @@ class SpaceShooter(arcade.Window):
     Collisions end the game
     """
 
-    def __init__(self, width, height, title):
+    def __init__(self, width: int, height: int, title: str):
         """Initialize the game
         """
         super().__init__(width, height, title)
@@ -131,7 +131,7 @@ class SpaceShooter(arcade.Window):
         self.clouds_list.append(cloud)
         self.all_sprites.append(cloud)
 
-    def on_key_press(self, symbol, modifiers):
+    def on_key_press(self, symbol: int, modifiers: int):
         """Handle user keyboard input
         Q: Quit the game
         P: Pause the game
