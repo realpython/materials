@@ -1,0 +1,82 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container-fluid">
+  <div class="m-4">
+    {# display just the playlists #}
+    {% if results|length > 1 %}
+    <table class="table table-striped table-bordered table-hover table-sm">
+      <caption>Customers</caption>
+      <thead>
+        <tr>
+          <th>Customer Name</th>
+          <th class="text-center">Email</th>
+          <th class="text-center">Total Value Of Orders</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for customer, invoices_total in results %}
+        <tr>
+          <td>
+            <a href="{{url_for('customers_bp.customers', customer_id=customer.customer_id)}}">
+              {{ customer.full_name }}
+            </a>
+          </td>
+          <td class="text-center">{{ customer.email }}</td>
+          <td class="text-right">{{ '%.2f'|format(invoices_total) }}</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+    {# display the playlist name and the tracks #}
+    {% else %}
+    {% set customer, invoices_total = results[0] %}
+    <div class="card" style="width: 18rem;">
+      <div class="card-header">Customer</div>
+      <div class="card-body">
+        <p class="card-text">Name:&nbsp;{{ customer.full_name }}</p>
+        <p class="card-text">Address:&nbsp;{{ customer.address }}</p>
+        <p class="card-text">
+          City:&nbsp;{{ customer.city }},&nbsp;{{ customer.state }}&nbsp;&nbsp;{{ customer.postal_code }}</p>
+        <p class="card-text">Phone:&nbsp;{{ customer.phone }}</p>
+        <p class="card-text">Email:&nbsp;{{ customer.email }}</p>
+        <p class="card-text">Support Rep:&nbsp;
+          <a href="{{url_for('employees_bp.employees', employee_id=customer.support_rep_id)}}">
+            {{ customer.support_rep.full_name }}
+          </a>
+        </p>
+      </div>
+    </div>
+    <table class="table table-striped table-bordered table-hover table-sm">
+      <caption>Invoices</caption>
+      <thead>
+        <tr>
+          <th class="text-center">Invoice Id</th>
+          <th class="text-center">Invoice Date</th>
+          <th class="text-right">Total</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% set invoices = customer.invoices %}
+        {% for invoice in invoices %}
+        <tr>
+          <td class="text-center">
+            <a href="{{url_for('invoices_bp.invoices', invoice_id=invoice.invoice_id)}}">
+              {{ invoice.invoice_id}}
+            </a>
+          </td>
+          <td class="text-center">{{ invoice.invoice_date }}</td>
+          <td class="text-right">{{ invoice.total }}</td>
+        </tr>
+        {% endfor %}
+        <tr>
+          <td></td>
+          <td class="text-right">Total</td>
+          <td class="text-right">{{ invoices_total }}</td>
+        </tr>
+      </tbody>
+    </table>
+    {% endif %}
+  </div>
+</div>
+{% endblock %}
