@@ -41,7 +41,13 @@ class Window(QMainWindow):
         self._createActions()
         self._createMenuBar()
         self._createToolBars()
+
+        # Uncomment the call to ._createContextMenu() below to create a context
+        # menu using menu policies. To test this out, you also need to
+        # comment .contextMenuEvent() and uncomment ._createContextMenu()
+
         # self._createContextMenu()
+
         self._connectActions()
         self._createStatusBar()
 
@@ -128,7 +134,7 @@ class Window(QMainWindow):
         self.helpContentAction = QAction("&Help Content...", self)
         self.aboutAction = QAction("&About...", self)
 
-    # Uncomment this method to create a context menu using menu policy
+    # Uncomment this method to create a context menu using menu policies
     # def _createContextMenu(self):
     #     # Setting contextMenuPolicy
     #     self.centralWidget.setContextMenuPolicy(Qt.ActionsContextMenu)
