@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container-fluid">
+  <div class="m-4">
+    <div class="card" style="width: 18rem;">
+      <div class="card-header">Create New Artist</div>
+      <div class="card-body">
+        <form method="POST" action="{{url_for('artists_bp.artists')}}">
+          {{ form.csrf_token }}
+          {{ render_field(form.name, placeholder=form.name.label.text) }}
+          <button type="submit" class="btn btn-primary">Create</button>
+        </form>
+      </div>
+    </div>
+    <table class="table table-striped table-bordered table-hover table-sm">
+      <caption>List of Artists</caption>
+      <thead>
+        <tr>
+          <th>Artist Name</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for artist in artists %}
+        <tr>
+          <td>
+            <a href="{{url_for('albums_bp.albums', artist_id=artist.artist_id)}}">
+              {{ artist.name }}
+            </a>
+          </td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+</div>
+{% endblock %}

@@ -1,0 +1,64 @@
+{% extends "bootstrap/base.html" %}
+{% from "bootstrap/base.html" import render_field %}
+
+{% block title %}
+Chinook Database Web Server
+{% endblock %}
+
+{% block styles %}
+{{ super() }}
+<link rel="stylesheet" href="{{url_for('static', filename='css/base.css')}}">
+{% endblock %}
+
+{% block navbar %}
+<nav class="navbar navbar-expand-lg fixed-top navbar-dark" style="background-color: #361Ddc;">
+    <a class="navbar-brand" href="#">Example 3</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
+        aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <div class="navbar-nav">
+            <a class="nav-item nav-link active" href="/artists">Artists</a>
+            <a class="nav-item nav-link" href="/albums">Albums</a>
+            <a class="nav-item nav-link" href="/playlists">Playlists</a>
+            <a class="nav-item nav-link" href="/customers">Customers</a>
+            <a class="nav-item nav-link" href="/invoices">Invoices</a>
+            <a class="nav-item nav-link" href="/employees">Employees</a>
+        </div>
+    </div>
+</nav>
+{% endblock %}
+
+{% block scripts %}
+{{ super() }}
+<script src="{{url_for('static', filename='js/base.js')}}"></script>
+{% endblock %}
+
+
+{% macro render_field(field) %}
+<div class="form-group">
+    {{ field(class_='form-control', **kwargs)|safe }}
+    {% if field.errors %}
+    {% for error in field.errors %}
+    <div class="alert alert-danger" role="alert" style="margin-top: 10px;">
+        {{ error }}
+    </div>
+    {% endfor %}
+    {% endif %}
+</div>
+{% endmacro %}
+
+
+{% macro render_select(field) %}
+<div class="form-group">
+    {{ field(class_='form-control', **kwargs)|safe }}
+    {% if field.errors %}
+    {% for error in field.errors %}
+    <div class="alert alert-danger" role="alert" style="margin-top: 10px;">
+        {{ error }}
+    </div>
+    {% endfor %}
+    {% endif %}
+</div>
+{% endmacro %}
