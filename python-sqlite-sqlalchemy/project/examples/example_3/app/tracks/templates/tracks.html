@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+
+
+{% block content %}
+<div class="container-fluid">
+  <div class="m-4">
+    {% if artist is not none %}
+    <div class="card" style="width: 18rem;">
+      <div class="card-header">Create New Track</div>
+      <div class="card-body">
+        <p class="card-text">Artist's Name:&nbsp;{{ artist.name }}</p>
+        <p class="card-text">Album's Name:&nbsp;{{ album.title }}</p>
+        <form method="POST" action="{{url_for('tracks_bp.tracks', album_id=album.album_id)}}">
+          {{ form.csrf_token }}
+          {{ render_field(form.artist) }}
+          {{ render_field(form.album) }}
+          {{ render_field(form.name, placeholder=form.name.label.text) }}
+          {{ render_select(form.media_type, placeholder=form.media_type.label.text) }}
+          {{ render_select(form.genre, placeholder=form.genre.label.text) }}
+          {{ render_field(form.composer, placeholder=form.composer.label.text) }}
+          {{ render_field(form.milliseconds, placeholder=form.milliseconds.label.text) }}
+          {{ render_field(form.bytes, placeholder=form.bytes.label.text) }}
+          {{ render_field(form.unit_price, placeholder=form.unit_price.label.text) }}
+          <button type="submit" class="btn btn-primary">Create</button>
+        </form>
+      </div>
+    </div>
+    {% endif %}
+    <table class="table table-striped table-bordered table-hover table-sm">
+      <caption>List of Tracks</caption>
+      <thead>
+        <tr>
+          <th>Track Name</th>
+          <th class="text-center">Media Type</th>
+          <th class="text-center">Genre</th>
+          <th class="text-center">Unit Price</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for track in tracks %}
+        <tr>
+          <td>{{ track.name }}</td>
+          <td class="text-center">{{ track.media_type.name }}</td>
+          <td class="text-center">{{ track.genre.name }}</td>
+          <td class="text-right">{{ track.unit_price }}</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+</div>
+{% endblock %}
