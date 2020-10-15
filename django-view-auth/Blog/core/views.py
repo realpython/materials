@@ -29,8 +29,8 @@ def see_request(request):
         scheme: {request.scheme}
         path:   {request.path}
         method: {request.method}
-        GET: {request.GET}
-        user: {request.user}
+        GET:    {request.GET}
+        user:   {request.user}
     """
 
     return HttpResponse(text, content_type="text/plain")
