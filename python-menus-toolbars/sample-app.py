@@ -95,6 +95,7 @@ class Window(QMainWindow):
         editToolBar.addAction(self.cutAction)
         # Widgets
         self.fontSizeSpinBox = QSpinBox()
+        self.fontSizeSpinBox.setFocusPolicy(Qt.NoFocus)
         editToolBar.addWidget(self.fontSizeSpinBox)
 
     def _createStatusBar(self):
@@ -169,8 +170,6 @@ class Window(QMainWindow):
         self.openAction.triggered.connect(self.openFile)
         self.saveAction.triggered.connect(self.saveFile)
         self.exitAction.triggered.connect(self.close)
-        # Connect Open Recent to dynamically populate it
-        self.openRecentMenu.aboutToShow.connect(self.populateOpenRecent)
         # Connect Edit actions
         self.copyAction.triggered.connect(self.copyContent)
         self.pasteAction.triggered.connect(self.pasteContent)
@@ -178,6 +177,8 @@ class Window(QMainWindow):
         # Connect Help actions
         self.helpContentAction.triggered.connect(self.helpContent)
         self.aboutAction.triggered.connect(self.about)
+        # Connect Open Recent to dynamically populate it
+        self.openRecentMenu.aboutToShow.connect(self.populateOpenRecent)
 
     # Slots
     def newFile(self):
