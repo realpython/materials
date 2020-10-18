@@ -3,13 +3,21 @@
 import cffi
 import invoke
 import pathlib
+import sys
+import os
+on_win = sys.platform.startswith("win")
 
 
 @invoke.task
 def clean(c):
     """ Remove any built objects """
-    for pattern in ["*.o", "*.so", "cffi_example* cython_wrapper.cpp"]:
-        c.run("rm -rf {}".format(pattern))
+    for pattern in ["*.o", "*.so", "*.obj", "*.dll", "cffi_example* cython_wrapper.cpp"]:
+        if on_win:
+            # Deletes only files
+            c.run("del {} >nul 2>&1".format(pattern))
+        else:
+            # Deletes files + dir
+            c.run("rm -rf {}".format(pattern))
 
 
 def print_banner(msg):
@@ -17,20 +25,38 @@ def print_banner(msg):
     print("= {} ".format(msg))
 
 
-@invoke.task
-def build_cmult(c):
+@invoke.task()
+def build_cmult(c, path=None):
     """ Build the shared library for the sample C code """
-    print_banner("Building C Library")
-    invoke.run("gcc -c -Wall -Werror -fpic cmult.c -I /usr/include/python3.7")
-    invoke.run("gcc -shared -o libcmult.so cmult.o")
-    print("* Complete")
+    # Moving this type hint into signature causes an error (???)
+    c: invoke.Context
+    if on_win:
+        if not path:
+            print("Path is missing")
+        else:
+            # Using c.cd didn't work with paths that have spaces :/
+            path = f'"{path}vcvars32.bat" x86'  # Enter the VS venv
+            path += f'&& cd "{os.getcwd()}"'  # Change to current dir
+            path += f'&& cl /LD cmult.c'  # Compile
+            # path = path.replace("&&", " >nul &&") + " >nul" # Uncomment this, to suppress stdout
+            c.run(path)
+    else:
+        print_banner("Building C Library")
+        invoke.run("gcc -c -Wall -Werror -fpic cmult.c -I /usr/include/python3.7")
+        invoke.run("gcc -shared -o cmult.so cmult.o")
+        print("* Complete")
 
 
-@invoke.task(build_cmult)
+# The lib can't automatically be built, since we don't have the VS path
+@invoke.task()
 def test_ctypes(c):
     """ Run the script to test ctypes """
     print_banner("Testing ctypes Module")
-    invoke.run("python3 ctypes_test.py", pty=True)
+    # pty and python3 didn't work for me (win)
+    if on_win:
+        invoke.Result = invoke.run("python ctypes_test.py")
+    else:
+        invoke.Result = invoke.run("python3 ctypes_test.py", pty=False)
 
 
 @invoke.task(build_cmult)

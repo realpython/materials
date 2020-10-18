@@ -2,12 +2,13 @@
 """ Simple examples of calling C functions through ctypes module. """
 import ctypes
 import pathlib
-
+import sys
 
 if __name__ == "__main__":
     # Load the shared library into c types.
-    libname = pathlib.Path().absolute() / "libcmult.so"
-    c_lib = ctypes.CDLL(libname)
+    lib_ext = ".dll" if sys.platform.startswith("win") else ".so"
+    libname = pathlib.Path() / f"cmult{lib_ext}"
+    c_lib = ctypes.CDLL(libname.resolve().__str__())
 
     # Sample data for our call:
     x, y = 6, 2.3
