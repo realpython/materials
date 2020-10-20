@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-import cffi_example
+import cffi_example  # IDE might complain with "no module found" here, even when it exists
 
 if __name__ == "__main__":
     # Sample data for our call:

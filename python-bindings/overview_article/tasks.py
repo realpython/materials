@@ -1,23 +1,26 @@
 """ Task definitions for invoke command line utility for python bindings
-    overview article. """
+    overview article.
+
+    If anything is causing trouble get in touch at Znunu @ github or VimVim @ fcZBB2v @ discord"""
 import cffi
 import invoke
 import pathlib
 import sys
 import os
+import re
 on_win = sys.platform.startswith("win")
 
 
 @invoke.task
 def clean(c):
     """ Remove any built objects """
-    for pattern in ["*.o", "*.so", "*.obj", "*.dll", "cffi_example* cython_wrapper.cpp"]:
+    for pattern in ["*.o", "*.so", "*.obj", "*.dll", "*.exp", "*.lib", "*.pyx", "*.pyd", "cffi_example*", "cython_wrapper.cpp"]:
         if on_win:
-            # Deletes only files
             c.run("del {} >nul 2>&1".format(pattern))
         else:
-            # Deletes files + dir
             c.run("rm -rf {}".format(pattern))
+    if on_win:
+        c.run("rmdir /s /q Release >nul 2>&1".format(pattern))
 
 
 def print_banner(msg):
@@ -47,28 +50,29 @@ def build_cmult(c, path=None):
         print("* Complete")
 
 
-# The lib can't automatically be built, since we don't have the VS path
 @invoke.task()
 def test_ctypes(c):
     """ Run the script to test ctypes """
     print_banner("Testing ctypes Module")
-    # pty and python3 didn't work for me (win)
+    # pty and python3 didn't work for me (win).
     if on_win:
-        invoke.Result = invoke.run("python ctypes_test.py")
+        invoke.run("python ctypes_test.py")
     else:
-        invoke.Result = invoke.run("python3 ctypes_test.py", pty=False)
+        invoke.run("python3 ctypes_test.py", pty=True)
 
 
-@invoke.task(build_cmult)
+@invoke.task()
 def build_cffi(c):
     """ Build the CFFI Python bindings """
     print_banner("Building CFFI Module")
     ffi = cffi.FFI()
 
-    this_dir = pathlib.Path().absolute()
+    this_dir = pathlib.Path().resolve()
     h_file_name = this_dir / "cmult.h"
     with open(h_file_name) as h_file:
-        ffi.cdef(h_file.read())
+        # cffi does not like our preprocessor directives, so we remove them
+        funcs = str("\n").join(line.replace("EXPORT_SYMBOL ", "") for line in h_file.read().splitlines() if not re.match(r" *#", line))
+        ffi.cdef(funcs)
 
     ffi.set_source(
         "cffi_example",
@@ -92,7 +96,12 @@ def build_cffi(c):
 def test_cffi(c):
     """ Run the script to test CFFI """
     print_banner("Testing CFFI Module")
-    invoke.run("python3 cffi_test.py", pty=True)
+    # pty and python3 didn't work for me (win).
+    if on_win:
+        invoke.run("python cffi_test.py")
+    else:
+        invoke.run("python3 cffi_test.py", pty=True)
+
 
 
 @invoke.task()
