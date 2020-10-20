@@ -76,7 +76,8 @@ def build_cffi(c):
     with open(h_file_name) as h_file:
         # cffi does not like our preprocessor directives, so we remove them
         lns = h_file.read().splitlines()
-        flt = (l.replace("EXPORT_SYMBOL ", "") for l in lns if not re.match(r" *#", l))
+        flt = filter(lambda ln: not re.match(r" *#", ln),  lns)
+        flt = map(lambda ln: ln.replace("EXPORT_SYMBOL ", ""), flt)
         ffi.cdef(str("\n").join(flt))
 
     ffi.set_source(
