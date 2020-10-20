@@ -1,7 +1,8 @@
 """ Task definitions for invoke command line utility for python bindings
     overview article.
 
-    If anything is causing trouble get in touch at Znunu @ github or VimVim @ fcZBB2v @ discord"""
+    If anything is causing trouble get in touch at
+    Znunu @ github or VimVim @ fcZBB2v @ discord"""
 import cffi
 import invoke
 import pathlib
@@ -14,13 +15,14 @@ on_win = sys.platform.startswith("win")
 @invoke.task
 def clean(c):
     """ Remove any built objects """
-    for pattern in ["*.o", "*.so", "*.obj", "*.dll", "*.exp", "*.lib", "*.pyx", "*.pyd", "cffi_example*", "cython_wrapper.cpp"]:
+    for pattern in ("*.o", "*.so", "*.obj", "*.dll", "*.exp", "*.lib", "*.pyx",
+                    "*.pyd", "cffi_example*", "cython_wrapper.cpp"):
         if on_win:
             c.run("del {} >nul 2>&1".format(pattern))
         else:
             c.run("rm -rf {}".format(pattern))
     if on_win:
-        c.run("rmdir /s /q Release >nul 2>&1".format(pattern))
+        c.run("rmdir /s /q Release >nul 2>&1")
 
 
 def print_banner(msg):
@@ -40,8 +42,9 @@ def build_cmult(c, path=None):
             # Using c.cd didn't work with paths that have spaces :/
             path = f'"{path}vcvars32.bat" x86'  # Enter the VS venv
             path += f'&& cd "{os.getcwd()}"'  # Change to current dir
-            path += f'&& cl /LD cmult.c'  # Compile
-            # path = path.replace("&&", " >nul &&") + " >nul" # Uncomment this, to suppress stdout
+            path += '&& cl /LD cmult.c'  # Compile
+            # Uncomment line below, to suppress stdout
+            # path = path.replace("&&", " >nul &&") + " >nul"
             c.run(path)
     else:
         print_banner("Building C Library")
@@ -71,8 +74,9 @@ def build_cffi(c):
     h_file_name = this_dir / "cmult.h"
     with open(h_file_name) as h_file:
         # cffi does not like our preprocessor directives, so we remove them
-        funcs = str("\n").join(line.replace("EXPORT_SYMBOL ", "") for line in h_file.read().splitlines() if not re.match(r" *#", line))
-        ffi.cdef(funcs)
+        lns = h_file.read().splitlines()
+        flt_lns = (ln.replace("EXPORT_SYMBOL ", "") for ln in lns if not re.match(r" *#", ln))
+        ffi.cdef(str("\n").join(flt_lns))
 
     ffi.set_source(
         "cffi_example",
@@ -101,7 +105,6 @@ def test_cffi(c):
         invoke.run("python cffi_test.py")
     else:
         invoke.run("python3 cffi_test.py", pty=True)
-
 
 
 @invoke.task()
