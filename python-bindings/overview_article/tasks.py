@@ -9,14 +9,25 @@ import pathlib
 import sys
 import os
 import re
+
 on_win = sys.platform.startswith("win")
 
 
 @invoke.task
 def clean(c):
     """ Remove any built objects """
-    for pattern in ("*.o", "*.so", "*.obj", "*.dll", "*.exp", "*.lib", "*.pyx",
-                    "*.pyd", "cffi_example*", "cython_wrapper.cpp"):
+    for pattern in (
+        "*.o",
+        "*.so",
+        "*.obj",
+        "*.dll",
+        "*.exp",
+        "*.lib",
+        "*.pyx",
+        "*.pyd",
+        "cffi_example*",
+        "cython_wrapper.cpp",
+    ):
         if on_win:
             c.run("del {} >nul 2>&1".format(pattern))
         else:
@@ -42,7 +53,7 @@ def build_cmult(c, path=None):
             # Using c.cd didn't work with paths that have spaces :/
             path = f'"{path}vcvars32.bat" x86'  # Enter the VS venv
             path += f'&& cd "{os.getcwd()}"'  # Change to current dir
-            path += '&& cl /LD cmult.c'  # Compile
+            path += "&& cl /LD cmult.c"  # Compile
             # Uncomment line below, to suppress stdout
             # path = path.replace("&&", " >nul &&") + " >nul"
             c.run(path)
