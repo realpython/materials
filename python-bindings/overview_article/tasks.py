@@ -48,7 +48,8 @@ def build_cmult(c, path=None):
             c.run(path)
     else:
         print_banner("Building C Library")
-        invoke.run("gcc -c -Wall -Werror -fpic cmult.c -I /usr/include/python3.7")
+        cmd = "gcc -c -Wall -Werror -fpic cmult.c -I /usr/include/python3.7"
+        invoke.run(cmd)
         invoke.run("gcc -shared -o cmult.so cmult.o")
         print("* Complete")
 
@@ -75,8 +76,8 @@ def build_cffi(c):
     with open(h_file_name) as h_file:
         # cffi does not like our preprocessor directives, so we remove them
         lns = h_file.read().splitlines()
-        flt_lns = (ln.replace("EXPORT_SYMBOL ", "") for ln in lns if not re.match(r" *#", ln))
-        ffi.cdef(str("\n").join(flt_lns))
+        flt = (l.replace("EXPORT_SYMBOL ", "") for l in lns if not re.match(r" *#", l))
+        ffi.cdef(str("\n").join(flt))
 
     ffi.set_source(
         "cffi_example",
