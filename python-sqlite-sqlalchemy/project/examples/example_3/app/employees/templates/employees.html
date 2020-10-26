@@ -1,0 +1,71 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container-fluid">
+  <div class="m-4">
+    {# display just the employees #}
+    {% if employees|length > 1 %}
+    <table class="table table-striped table-bordered table-hover table-sm">
+      <caption>Employees</caption>
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th class="text-center">Name</th>
+          <th class="text-center">Title</th>
+          <th class="text-center">Reports To</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for employee in employees %}
+        <tr>
+          <td>{{ employee.employee_id }}</td>
+          <td>
+            <a href="{{url_for('employees_bp.employees', employee_id=employee.employee_id)}}">
+              {{ employee.full_name}}
+            </a>
+          </td>
+          <td class="text-center">{{ employee.title }}</td>
+          <td class="text-center">
+            {% if employee.reports_to_id is none %}
+              Top of org chart
+            {% else %}
+            <a href="{{url_for('employees_bp.employees', employee_id=employee.reports_to_id)}}">
+              {{ employee.reports_to.full_name }}
+            </a>
+            {% endif %}
+          </td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+    {# display the employee information #}
+    {% else %}
+    {% set employee = employees[0] %}
+    <div class="card" style="width: 18rem;">
+      <div class="card-header">Employee</div>
+      <div class="card-body">
+        <p class="card-text">Name:&nbsp;{{ employee.full_name }}</p>
+        <p class="card-text">Title:&nbsp;{{ employee.title }}</p>
+        <p class="card-text">Hire Date:&nbsp;{{ employee.hire_date }}</p>
+        <p class="card-text">Birth Date:&nbsp;{{ employee.birth_date }}</p>
+        <p class="card-text">Address:&nbsp;{{ employee.address }}</p>
+        <p class="card-text">City:&nbsp;{{ employee.city }}</p>
+        <p class="card-text">State:&nbsp;{{ employee.state }}</p>
+        <p class="card-text">Postal Code:&nbsp{{ employee.postal_code }}</p>
+        <p class="card-text">Phone:&nbsp;{{ employee.phone }}</p>
+        <p class="card-text">Phone:&nbsp;{{ employee.fax }}</p>
+        <p class="card-text">Email:&nbsp;{{ employee.email }}</p>
+        {% if employee.reports_to_id is not none %}
+        <p class="card-text">Reports To:&nbsp;
+          <a href="{{url_for('employees_bp.employees', employee_id=employee.reports_to_id)}}">
+            {{ employee.reports_to.full_name }}
+          </a>
+        </p>
+        {% endif %}
+      </div>
+    </div>
+    {% endif %}
+  </div>
+</div>
+{% endblock %}
+
