@@ -19,9 +19,7 @@ eval_list = []
 
 
 def train_model(
-    training_data: list,
-    test_data: list,
-    iterations: int = 20
+    training_data: list, test_data: list, iterations: int = 20
 ) -> None:
     # Build pipeline
     nlp = spacy.load("en_core_web_sm")
@@ -60,7 +58,7 @@ def train_model(
                 evaluation_results = evaluate_model(
                     tokenizer=nlp.tokenizer,
                     textcat=textcat,
-                    test_data=test_data
+                    test_data=test_data,
                 )
                 print(
                     f"{loss['textcat']}\t{evaluation_results['precision']}"
@@ -73,9 +71,7 @@ def train_model(
         nlp.to_disk("model_artifacts")
 
 
-def evaluate_model(
-    tokenizer, textcat, test_data: list
-) -> dict:
+def evaluate_model(tokenizer, textcat, test_data: list) -> dict:
     reviews, labels = zip(*test_data)
     reviews = (tokenizer(review) for review in reviews)
     true_positives = 0
@@ -87,9 +83,7 @@ def evaluate_model(
         for predicted_label, score in review.cats.items():
             # Every cats dictionary includes both labels, you can get all
             # the info you need with just the pos label
-            if (
-                predicted_label == "neg"
-            ):
+            if predicted_label == "neg":
                 continue
             if score >= 0.5 and true_label == "pos":
                 true_positives += 1
@@ -128,9 +122,7 @@ def test_model(input_data: str = TEST_REVIEW):
 
 
 def load_training_data(
-    data_directory: str = "aclImdb/train",
-    split: float = 0.8,
-    limit: int = 0
+    data_directory: str = "aclImdb/train", split: float = 0.8, limit: int = 0
 ) -> tuple:
     # Load from files
     reviews = []
@@ -145,7 +137,8 @@ def load_training_data(
                         spacy_label = {
                             "cats": {
                                 "pos": "pos" == label,
-                                "neg": "neg" == label}
+                                "neg": "neg" == label,
+                            }
                         }
                         reviews.append((text, spacy_label))
     random.shuffle(reviews)
