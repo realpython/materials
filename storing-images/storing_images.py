@@ -85,12 +85,12 @@ class CIFAR_Image:
 
 
 def store_single_disk(image, image_id, label):
-    """ Stores a single image as a .png file on disk.
-        Parameters:
-        ---------------
-        image       image array, (32, 32, 3) to be stored
-        image_id    integer unique ID for image
-        label       image label
+    """Stores a single image as a .png file on disk.
+    Parameters:
+    ---------------
+    image       image array, (32, 32, 3) to be stored
+    image_id    integer unique ID for image
+    label       image label
     """
     Image.fromarray(image).save(disk_dir / f"{image_id}.png")
 
@@ -102,12 +102,12 @@ def store_single_disk(image, image_id, label):
 
 
 def store_single_lmdb(image, image_id, label):
-    """ Stores a single image to a LMDB.
-        Parameters:
-        ---------------
-        image       image array, (32, 32, 3) to be stored
-        image_id    integer unique ID for image
-        label       image label
+    """Stores a single image to a LMDB.
+    Parameters:
+    ---------------
+    image       image array, (32, 32, 3) to be stored
+    image_id    integer unique ID for image
+    label       image label
     """
 
     map_size = image.nbytes * 10
@@ -125,12 +125,12 @@ def store_single_lmdb(image, image_id, label):
 
 
 def store_single_hdf5(image, image_id, label):
-    """ Stores a single image to an HDF5 file.
-        Parameters:
-        ---------------
-        image       image array, (32, 32, 3) to be stored
-        image_id    integer unique ID for image
-        label       image label
+    """Stores a single image to an HDF5 file.
+    Parameters:
+    ---------------
+    image       image array, (32, 32, 3) to be stored
+    image_id    integer unique ID for image
+    label       image label
     """
 
     # Create a new HDF5 file
@@ -164,11 +164,11 @@ for method in ("disk", "lmdb", "hdf5"):
 
 
 def store_many_disk(images, labels):
-    """ Stores an array of images to disk
-        Parameters:
-        ---------------
-        images       images array, (N, 32, 32, 3) to be stored
-        labels       labels array, (N, 1) to be stored
+    """Stores an array of images to disk
+    Parameters:
+    ---------------
+    images       images array, (N, 32, 32, 3) to be stored
+    labels       labels array, (N, 1) to be stored
     """
     num_images = len(images)
 
@@ -188,11 +188,11 @@ def store_many_disk(images, labels):
 
 
 def store_many_lmdb(images, labels):
-    """ Stores an array of images to LMDB.
-        Parameters:
-        ---------------
-        images       images array, (N, 32, 32, 3) to be stored
-        labels       labels array, (N, 1) to be stored
+    """Stores an array of images to LMDB.
+    Parameters:
+    ---------------
+    images       images array, (N, 32, 32, 3) to be stored
+    labels       labels array, (N, 1) to be stored
     """
     num_images = len(images)
 
@@ -212,11 +212,11 @@ def store_many_lmdb(images, labels):
 
 
 def store_many_hdf5(images, labels):
-    """ Stores an array of images to HDF5.
-        Parameters:
-        ---------------
-        images       images array, (N, 32, 32, 3) to be stored
-        labels       labels array, (N, 1) to be stored
+    """Stores an array of images to HDF5.
+    Parameters:
+    ---------------
+    images       images array, (N, 32, 32, 3) to be stored
+    labels       labels array, (N, 1) to be stored
     """
     num_images = len(images)
 
@@ -270,14 +270,14 @@ for cutoff in cutoffs:
 def plot_with_legend(
     x_range, y_data, legend_labels, x_label, y_label, title, log=False
 ):
-    """ Displays a single plot with multiple datasets and matching legends.
-        Parameters:
-        --------------
-        x_range         list of lists containing x data
-        y_data          list of lists containing y values
-        legend_labels   list of string legend labels
-        x_label         x axis label
-        y_label         y axis label
+    """Displays a single plot with multiple datasets and matching legends.
+    Parameters:
+    --------------
+    x_range         list of lists containing x data
+    y_data          list of lists containing y values
+    legend_labels   list of string legend labels
+    x_label         x axis label
+    y_label         y axis label
     """
     plt.style.use("seaborn-whitegrid")
     plt.figure(figsize=(10, 7))
@@ -362,15 +362,15 @@ plt.show()
 
 
 def read_single_disk(image_id):
-    """ Stores a single image to disk.
-        Parameters:
-        ---------------
-        image_id    integer unique ID for image
+    """Stores a single image to disk.
+    Parameters:
+    ---------------
+    image_id    integer unique ID for image
 
-        Returns:
-        ----------
-        image       image array, (32, 32, 3) to be stored
-        label       associated meta data, int label
+    Returns:
+    ----------
+    image       image array, (32, 32, 3) to be stored
+    label       associated meta data, int label
     """
     image = np.array(Image.open(disk_dir / f"{image_id}.png"))
 
@@ -384,15 +384,15 @@ def read_single_disk(image_id):
 
 
 def read_single_lmdb(image_id):
-    """ Stores a single image to LMDB.
-        Parameters:
-        ---------------
-        image_id    integer unique ID for image
+    """Stores a single image to LMDB.
+    Parameters:
+    ---------------
+    image_id    integer unique ID for image
 
-        Returns:
-        ----------
-        image       image array, (32, 32, 3) to be stored
-        label       associated meta data, int label
+    Returns:
+    ----------
+    image       image array, (32, 32, 3) to be stored
+    label       associated meta data, int label
     """
 
     # Open the LMDB environment; see (1)
@@ -413,15 +413,15 @@ def read_single_lmdb(image_id):
 
 
 def read_single_hdf5(image_id):
-    """ Stores a single image to HDF5.
-        Parameters:
-        ---------------
-        image_id    integer unique ID for image
+    """Stores a single image to HDF5.
+    Parameters:
+    ---------------
+    image_id    integer unique ID for image
 
-        Returns:
-        ----------
-        image       image array, (32, 32, 3) to be stored
-        label       associated meta data, int label
+    Returns:
+    ----------
+    image       image array, (32, 32, 3) to be stored
+    label       associated meta data, int label
     """
 
     # Open the HDF5 file
@@ -454,15 +454,15 @@ for method in ("disk", "lmdb", "hdf5"):
 
 
 def read_many_disk(num_images):
-    """ Reads image from disk.
-        Parameters:
-        ---------------
-        num_images   number of images to read
+    """Reads image from disk.
+    Parameters:
+    ---------------
+    num_images   number of images to read
 
-        Returns:
-        ----------
-        images      images array, (N, 32, 32, 3) to be stored
-        labels      associated meta data, int label (N, 1)
+    Returns:
+    ----------
+    images      images array, (N, 32, 32, 3) to be stored
+    labels      associated meta data, int label (N, 1)
     """
     images, labels = [], []
 
@@ -480,15 +480,15 @@ def read_many_disk(num_images):
 
 
 def read_many_lmdb(num_images):
-    """ Reads image from LMDB.
-        Parameters:
-        ---------------
-        num_images   number of images to read
+    """Reads image from LMDB.
+    Parameters:
+    ---------------
+    num_images   number of images to read
 
-        Returns:
-        ----------
-        images      images array, (N, 32, 32, 3) to be stored
-        labels      associated meta data, int label (N, 1)
+    Returns:
+    ----------
+    images      images array, (N, 32, 32, 3) to be stored
+    labels      associated meta data, int label (N, 1)
     """
     images, labels = [], []
     env = lmdb.open(str(lmdb_dir / f"{num_images}_lmdb"), readonly=True)
@@ -509,15 +509,15 @@ def read_many_lmdb(num_images):
 
 
 def read_many_hdf5(num_images):
-    """ Reads image from HDF5.
-        Parameters:
-        ---------------
-        num_images   number of images to read
+    """Reads image from HDF5.
+    Parameters:
+    ---------------
+    num_images   number of images to read
 
-        Returns:
-        ----------
-        images      images array, (N, 32, 32, 3) to be stored
-        labels      associated meta data, int label (N, 1)
+    Returns:
+    ----------
+    images      images array, (N, 32, 32, 3) to be stored
+    labels      associated meta data, int label (N, 1)
     """
     images, labels = [], []
 
