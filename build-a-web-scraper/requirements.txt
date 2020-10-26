@@ -1,7 +1,7 @@
 appnope==0.1.0
 attrs==19.3.0
 backcall==0.1.0
-beautifulsoup4==4.9.1
+beautifulsoup4==4.9.3
 bleach==3.1.5
 certifi==2020.4.5.2
 chardet==3.0.4
