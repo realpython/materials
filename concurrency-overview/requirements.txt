@@ -8,7 +8,7 @@ attrs==18.1.0
 certifi==2018.8.13
 chardet==3.0.4
 contextvars==2.3
-flake8==3.5.0
+flake8==3.8.4
 h11==0.8.1
 idna==2.7
 immutables==0.6
