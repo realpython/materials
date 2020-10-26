@@ -3,3 +3,9 @@ update_configs:
   - package_manager: "python"
     directory: "/"
     update_schedule: "monthly"
+    allowed_updates:
+      # Top-level requirements.txt / linters only
+      - match:
+          dependency_name: "flake8"
+      - match:
+          dependency_name: "black"
