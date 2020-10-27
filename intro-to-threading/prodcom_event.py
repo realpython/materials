@@ -7,7 +7,9 @@ import time
 
 
 class Pipeline:
-    """Class to allow a single element pipeline between producer and consumer.
+    """
+    Class to allow a single element pipeline
+    between producer and consumer.
     """
 
     def __init__(self):
