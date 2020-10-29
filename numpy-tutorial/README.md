@@ -12,7 +12,7 @@ $ python -m pip install -r requirements.txt
 
 ## Usage
 
-These examples all make use of the [Jupyter Notebook](https://jupyter-notebook.readthedocs.io/en/stable/).  To the examples, make sure the correct virtual environment is active (you may have to deactivate and reactivate after installing requirements), and run:
+These examples all make use of the [Jupyter Notebook](https://jupyter-notebook.readthedocs.io/en/stable/). To run the examples, make sure the correct virtual environment is active (you may have to deactivate and reactivate after installing requirements), and run:
 
 ```shell
 $ jupyter notebook
