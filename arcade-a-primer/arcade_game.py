@@ -41,8 +41,7 @@ class SpaceShooter(arcade.Window):
     """
 
     def __init__(self, width: int, height: int, title: str):
-        """Initialize the game
-        """
+        """Initialize the game"""
         super().__init__(width, height, title)
 
         # Setup the empty sprite lists
@@ -51,8 +50,7 @@ class SpaceShooter(arcade.Window):
         self.all_sprites = arcade.SpriteList()
 
     def setup(self):
-        """Get the game ready to play
-        """
+        """Get the game ready to play"""
 
         # Set the background color
         arcade.set_background_color(arcade.color.SKY_BLUE)
@@ -236,8 +234,7 @@ class SpaceShooter(arcade.Window):
             self.player.left = 0
 
     def on_draw(self):
-        """Draw all game objects
-        """
+        """Draw all game objects"""
 
         arcade.start_render()
         self.all_sprites.draw()

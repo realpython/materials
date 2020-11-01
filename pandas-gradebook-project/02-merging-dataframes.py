@@ -48,7 +48,10 @@ for file_path in DATA_FOLDER.glob("quiz_*_grades.csv"):
 # ------------------------
 
 final_data = pd.merge(
-    roster, hw_exam_grades, left_index=True, right_index=True,
+    roster,
+    hw_exam_grades,
+    left_index=True,
+    right_index=True,
 )
 final_data = pd.merge(
     final_data, quiz_grades, left_on="Email Address", right_index=True
