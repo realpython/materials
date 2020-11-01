@@ -6,9 +6,10 @@ import sys
 
 if __name__ == "__main__":
     # Load the shared library into c types.
-    lib_ext = ".dll" if sys.platform.startswith("win") else ".so"
-    libname = pathlib.Path() / f"cmult{lib_ext}"
-    c_lib = ctypes.CDLL(libname.resolve().__str__())
+    if sys.platform.startswith("win"):
+        c_lib = ctypes.CDLL("cmult.dll")
+    else:
+        c_lib = ctypes.CDLL("libcmult.so")
 
     # Sample data for our call:
     x, y = 6, 2.3

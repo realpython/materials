@@ -61,7 +61,7 @@ def build_cmult(c, path=None):
         print_banner("Building C Library")
         cmd = "gcc -c -Wall -Werror -fpic cmult.c -I /usr/include/python3.7"
         invoke.run(cmd)
-        invoke.run("gcc -shared -o cmult.so cmult.o")
+        invoke.run("gcc -shared -o libcmult.so cmult.o")
         print("* Complete")
 
 
@@ -113,11 +113,7 @@ def build_cffi(c):
 def test_cffi(c):
     """ Run the script to test CFFI """
     print_banner("Testing CFFI Module")
-    # pty and python3 didn't work for me (win).
-    if on_win:
-        invoke.run("python cffi_test.py")
-    else:
-        invoke.run("python3 cffi_test.py", pty=True)
+    invoke.run("python cffi_test.py", pty=not on_win)
 
 
 @invoke.task()
