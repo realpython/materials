@@ -1,7 +1,6 @@
 #!/usr/bin/env python
 """ Simple examples of calling C functions through ctypes module. """
 import ctypes
-import pathlib
 import sys
 
 if __name__ == "__main__":
