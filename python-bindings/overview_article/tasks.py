@@ -23,7 +23,6 @@ def clean(c):
         "*.dll",
         "*.exp",
         "*.lib",
-        "*.pyx",
         "*.pyd",
         "cffi_example*",
         "cython_wrapper.cpp",
