@@ -1,8 +1,6 @@
 """ Task definitions for invoke command line utility for python bindings
     overview article.
-
-    If anything is causing trouble get in touch at
-    Znunu @ github or VimVim @ fcZBB2v @ discord"""
+"""
 import cffi
 import invoke
 import pathlib
