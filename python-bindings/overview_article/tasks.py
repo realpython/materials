@@ -29,11 +29,10 @@ def clean(c):
     ):
         for file in glob.glob(file_pattern):
             os.remove(file)
-    for dir_pattern in (
-        "Release"
-    ):
+    for dir_pattern in "Release":
         for dir in glob.glob(dir_pattern):
             shutil.rmtree(dir)
+
 
 def print_banner(msg):
     print("==================================================")
