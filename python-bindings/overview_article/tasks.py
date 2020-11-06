@@ -6,7 +6,9 @@ import invoke
 import pathlib
 import sys
 import os
+import shutil
 import re
+import glob
 
 on_win = sys.platform.startswith("win")
 
@@ -14,7 +16,7 @@ on_win = sys.platform.startswith("win")
 @invoke.task
 def clean(c):
     """ Remove any built objects """
-    for pattern in (
+    for file_pattern in (
         "*.o",
         "*.so",
         "*.obj",
@@ -22,16 +24,16 @@ def clean(c):
         "*.exp",
         "*.lib",
         "*.pyd",
-        "cffi_example*",
+        "cffi_example*",  # Is this a dir?
         "cython_wrapper.cpp",
     ):
-        if on_win:
-            c.run("del {} >nul 2>&1".format(pattern))
-        else:
-            c.run("rm -rf {}".format(pattern))
-    if on_win:
-        c.run("rmdir /s /q Release >nul 2>&1")
-
+        for file in glob.glob(file_pattern):
+            os.remove(file)
+    for dir_pattern in (
+        "Release"
+    ):
+        for dir in glob.glob(dir_pattern):
+            shutil.rmtree(dir)
 
 def print_banner(msg):
     print("==================================================")
