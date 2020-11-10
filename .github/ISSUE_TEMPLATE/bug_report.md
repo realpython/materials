@@ -7,13 +7,9 @@ assignees: ''
 
 ---
 
----
-
-Please note that the best way to get support for Real Python courses & articles is to join one of our [weekly Office Hours calls](https://realpython.com/office-hours/) or in the [RP Community Slack](https://realpython.com/community/).
+:information_source: Please note that the best way to get support for Real Python courses & articles is to join one of our [weekly Office Hours calls](https://realpython.com/office-hours/) or in the [RP Community Slack](https://realpython.com/community/). 
 
 You can report issues and problems here, but we typically won't be able to provide 1:1 support outside the channels listed above.
-
----
 
 **Describe the bug**
 A clear and concise description of what the bug is.
