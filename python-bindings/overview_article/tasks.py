@@ -1,15 +1,37 @@
 """ Task definitions for invoke command line utility for python bindings
-    overview article. """
+    overview article.
+"""
 import cffi
 import invoke
 import pathlib
+import sys
+import os
+import shutil
+import re
+import glob
+
+on_win = sys.platform.startswith("win")
 
 
 @invoke.task
 def clean(c):
     """ Remove any built objects """
-    for pattern in ["*.o", "*.so", "cffi_example* cython_wrapper.cpp"]:
-        c.run("rm -rf {}".format(pattern))
+    for file_pattern in (
+        "*.o",
+        "*.so",
+        "*.obj",
+        "*.dll",
+        "*.exp",
+        "*.lib",
+        "*.pyd",
+        "cffi_example*",  # Is this a dir?
+        "cython_wrapper.cpp",
+    ):
+        for file in glob.glob(file_pattern):
+            os.remove(file)
+    for dir_pattern in "Release":
+        for dir in glob.glob(dir_pattern):
+            shutil.rmtree(dir)
 
 
 def print_banner(msg):
@@ -17,32 +39,55 @@ def print_banner(msg):
     print("= {} ".format(msg))
 
 
-@invoke.task
-def build_cmult(c):
+@invoke.task()
+def build_cmult(c, path=None):
     """ Build the shared library for the sample C code """
-    print_banner("Building C Library")
-    invoke.run("gcc -c -Wall -Werror -fpic cmult.c -I /usr/include/python3.7")
-    invoke.run("gcc -shared -o libcmult.so cmult.o")
-    print("* Complete")
+    # Moving this type hint into signature causes an error (???)
+    c: invoke.Context
+    if on_win:
+        if not path:
+            print("Path is missing")
+        else:
+            # Using c.cd didn't work with paths that have spaces :/
+            path = f'"{path}vcvars32.bat" x86'  # Enter the VS venv
+            path += f'&& cd "{os.getcwd()}"'  # Change to current dir
+            path += "&& cl /LD cmult.c"  # Compile
+            # Uncomment line below, to suppress stdout
+            # path = path.replace("&&", " >nul &&") + " >nul"
+            c.run(path)
+    else:
+        print_banner("Building C Library")
+        cmd = "gcc -c -Wall -Werror -fpic cmult.c -I /usr/include/python3.7"
+        invoke.run(cmd)
+        invoke.run("gcc -shared -o libcmult.so cmult.o")
+        print("* Complete")
 
 
-@invoke.task(build_cmult)
+@invoke.task()
 def test_ctypes(c):
     """ Run the script to test ctypes """
     print_banner("Testing ctypes Module")
-    invoke.run("python3 ctypes_test.py", pty=True)
+    # pty and python3 didn't work for me (win).
+    if on_win:
+        invoke.run("python ctypes_test.py")
+    else:
+        invoke.run("python3 ctypes_test.py", pty=True)
 
 
-@invoke.task(build_cmult)
+@invoke.task()
 def build_cffi(c):
     """ Build the CFFI Python bindings """
     print_banner("Building CFFI Module")
     ffi = cffi.FFI()
 
-    this_dir = pathlib.Path().absolute()
+    this_dir = pathlib.Path().resolve()
     h_file_name = this_dir / "cmult.h"
     with open(h_file_name) as h_file:
-        ffi.cdef(h_file.read())
+        # cffi does not like our preprocessor directives, so we remove them
+        lns = h_file.read().splitlines()
+        flt = filter(lambda ln: not re.match(r" *#", ln), lns)
+        flt = map(lambda ln: ln.replace("EXPORT_SYMBOL ", ""), flt)
+        ffi.cdef(str("\n").join(flt))
 
     ffi.set_source(
         "cffi_example",
@@ -66,7 +111,7 @@ def build_cffi(c):
 def test_cffi(c):
     """ Run the script to test CFFI """
     print_banner("Testing CFFI Module")
-    invoke.run("python3 cffi_test.py", pty=True)
+    invoke.run("python cffi_test.py", pty=not on_win)
 
 
 @invoke.task()
