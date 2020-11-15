@@ -8,9 +8,9 @@ def convert_temp(cel_temp):
     """Converts Celsius temperature to Fahrenheit temperature."""
     try:
         far_temp = float(cel_temp) * 9 / 5 + 32
-        far_temp = round(far_temp, 3)  # round to three decimal places
+        far_temp = round(far_temp, 3)  # Round to three decimal places
         return str(far_temp)
-    except ValueError:  # user entered non-numeric temperature
+    except ValueError:  # User entered non-numeric temperature
         return "invalid input"
 
 
