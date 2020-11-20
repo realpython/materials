@@ -13,12 +13,10 @@ SCREEN_TITLE = "Draw Shapes"
 
 
 class Welcome(arcade.Window):
-    """Our main welcome window
-    """
+    """Our main welcome window"""
 
     def __init__(self):
-        """Initialize the window
-        """
+        """Initialize the window"""
 
         # Call the parent class constructor
         super().__init__(SCREEN_WIDTH, SCREEN_HEIGHT, SCREEN_TITLE)
@@ -27,8 +25,7 @@ class Welcome(arcade.Window):
         arcade.set_background_color(arcade.color.WHITE)
 
     def on_draw(self):
-        """Called whenever we need to draw our window
-        """
+        """Called whenever we need to draw our window"""
 
         # Clear the screen and start drawing
         arcade.start_render()
