@@ -1,5 +1,4 @@
 from browser import ajax, document
-import javascript
 
 
 def show_text(req):
@@ -24,9 +23,8 @@ def ajax_get_blocking(evt):
     try:
         ajax.get("/api.txt", blocking=True, oncomplete=show_text)
     except Exception as exc:
-        log(
-            f"Error: {exc.__name__} - Did you start a web server (ex: 'python3 -m http.server')?"
-        )
+        log(f"Error: {exc.__name__}")
+        log("Did you start a web server (ex: 'python3 -m http.server')?")
     else:
         log("After blocking get")
 

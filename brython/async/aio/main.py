@@ -1,5 +1,4 @@
 from browser import aio, document
-import javascript
 
 
 def log(message):
