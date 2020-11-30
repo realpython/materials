@@ -32,7 +32,12 @@ app = Vue.createApp(
     {
         "el": "#app",
         "created": created,
-        "data": lambda _: {"hash_value": "", "algos": [], "algo": "", "input_text": ""},
+        "data": lambda _: {
+            "hash_value": "",
+            "algos": [],
+            "algo": "",
+            "input_text": "",
+        },
         "methods": {"compute_hash": compute_hash},
     }
 )
