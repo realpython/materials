@@ -8,3 +8,7 @@ edition = "2018"
 crate-type=["cdylib"]
 
 [dependencies]
+
+[profile.release]
+lto = true
+opt-level = 's'

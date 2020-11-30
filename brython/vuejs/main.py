@@ -24,15 +24,17 @@ def compute_hash(evt):
 
 def created():
     for name in hashes:
-        this().algos.push(name)
+        this().algos.append(name)
     this().algo = next(iter(hashes))
 
 
-app = Vue.new(
+app = Vue.createApp(
     {
         "el": "#app",
         "created": created,
-        "data": {"hash_value": "", "algos": [], "algo": "", "input_text": ""},
+        "data": lambda _: {"hash_value": "", "algos": [], "algo": "", "input_text": ""},
         "methods": {"compute_hash": compute_hash},
     }
 )
+
+app.mount("#app")

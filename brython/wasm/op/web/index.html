@@ -1,41 +1,24 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/brython/3.8.9/brython.min.js"></script>
-  <head>
-  <body onload="brython()">
-  <script type="text/python">
-from browser import document, window
 
-rust_add = None
-
-def add_rust_fn(module):
-  global rust_add
-  rust_add = module.instance.exports.add
-
-window.WebAssembly.instantiateStreaming(window.fetch("op.wasm")).then(add_rust_fn)
-
-def add_numbers(evt):
-    nb1 = document["number-1"].value
-    nb2 = document["number-2"].value
-    nb1 = nb1 or 0
-    nb2 = nb2 or 0
-    if nb1 is None or nb2 is None:
-      return
-    res = rust_add(nb1, nb2)
-    document["result"].innerHTML = f"{nb1} + {nb2} = {res}"
-
-document["submit"].bind("click", add_numbers)
-</script>
-    <form class="pure-form" onsubmit="return false;">
-      <fieldset>
-        <legend>Add Two Number (WASM + Brython)</legend>
-        <input type="number" value="0" id="number-1" placeholder="1st number" autocomplete="off" required/>
-        <input type="number" value="0" id="number-2" placeholder="2nd number" autocomplete="off" required/>
-        <button type="submit" id="submit" class="pure-button pure-button-primary">Add</button>
-      </fieldset>
-    </form>
-    <br/>
-    <div id="result"></div>
-  </body>
+<head>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/brython/3.9.0/brython.min.js"></script>
+   <script src="main.py" type="text/python" defer></script>
 </head>
+
+<body onload="brython()">
+
+<form class="pure-form" onsubmit="return false;">
+  <h2>Custom Operation using WASM + Brython</h2>
+  <fieldset>
+    <legend>Multiply first number by 2 and add result to second number</legend>
+    <input type="number" value="0" id="number-1" placeholder="1st number" autocomplete="off" required/>
+    <input type="number" value="0" id="number-2" placeholder="2nd number" autocomplete="off" required/>
+    <button type="submit" id="submit" class="pure-button pure-button-primary">Execute</button>
+  </fieldset>
+</form>
+
+<br/>
+<div id="result"></div>
+</body>
+</html>

@@ -3,15 +3,14 @@
 
 <head>
   <script
-    src="https://cdnjs.cloudflare.com/ajax/libs/brython/3.8.9/brython.min.js"
-    integrity="sha256-U56d9Sn/Gtf1meSBXazW81LM1bUeyc1jFuoY3CBu6A8="
+    src="https://cdnjs.cloudflare.com/ajax/libs/brython/3.9.0/brython.min.js"
+    integrity="sha512-6xoV9qvQHPMnIFWzWrRwuq25qpgJ8FiGKekJ+7Bstb8/4XRC98k2c49IpdUVc5QitMNHKWPcFjFUkDxdIjJ7Nw=="
     crossorigin="anonymous">
   </script>
   <script
-    src="https://cdnjs.cloudflare.com/ajax/libs/brython/3.8.9/brython_stdlib.min.js"
-    integrity="sha256-twMHOlRBOpBkpyGFeXIBWoJqTpqf76Zp8HExOelwyRc="
-    crossorigin="anonymous"
-    defer>
+    src="https://cdnjs.cloudflare.com/ajax/libs/brython/3.9.0/brython_stdlib.min.js"
+    integrity="sha512-QbMgbJbXnZv0V/+jpdd68nkyOrYwP/UsJAH/TGQmVHgwwrxI7QNKzRn3dKuG3kG/lVWHx5hYXBISk7zX86TInw=="
+    crossorigin="anonymous">
   </script>
   <style>
     table { border-collapse: collapse; }
@@ -27,7 +26,7 @@ import base64
 
 b64_map = {}
 
-def base64_compute(evt):
+def base64_compute(_) -> None:
     default = "Real Python"
     data = prompt("Enter a string:", default)
     data = data or default
@@ -35,7 +34,7 @@ def base64_compute(evt):
     b64_map[data] = b64data
     display_map()
 
-def display_map():
+def display_map() -> None:
     table = html.TABLE(style={'border': '1 solid grey'})
     table <= html.TR(html.TH("Text") + html.TH("Base64"))
     table <= (html.TR(html.TD(key) + html.TD(b64_map[key])) for key in b64_map)
