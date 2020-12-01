@@ -19,28 +19,28 @@ from browser import window
 def python_add(a, b):
   return a + b
 
-window.python_add = python_add
+window.py_add = python_add
 
 print("After python_add to JS")
 </script>
 
 <script>
-const add = (a, b) => a + b;
+const js_add = (a, b) => a + b;
 QUnit.module('js_add_test', function() {
   QUnit.test('should add two numbers', function(assert) {
-    assert.equal(add(1, 1), 2, '1 + 1 = 2');
+    assert.equal(js_add(1, 1), 2, '1 + 1 = 2');
   });
 });
 
 QUnit.module('py_add_test', function() {
   QUnit.test('should add two numbers in Brython', function(assert) {
-    assert.equal(add(2, 3), 5, '2 + 3 = 5 (python)');
+    assert.equal(py_add(2, 3), 5, '2 + 3 = 5 (python)');
   });
 });
 
 QUnit.module('py_add_failed_test', function() {
   QUnit.test('should add two numbers in Brython (failure)', function(assert) {
-    assert.equal(add(2, 3), 6, '2 + 3 != 6 (python)');
+    assert.equal(py_add(2, 3), 6, '2 + 3 != 6 (python)');
   });
 });
 
