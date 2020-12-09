@@ -12,9 +12,9 @@ app = dash.Dash(__name__)
 
 app.layout = html.Div(
     children=[
-        html.H1(children="Avocados Analytics",),
+        html.H1(children="Avocado Analytics",),
         html.P(
-            children="Analyze the behaviour of prices"
+            children="Analyze the behavior of avocado prices"
             " and the number of avocados sold in the US"
             " between 2015 and 2018",
         ),

@@ -16,7 +16,7 @@ external_stylesheets = [
     },
 ]
 app = dash.Dash(__name__, external_stylesheets=external_stylesheets)
-app.title = "Avocados Analytics: Understand Your Avocados!"
+app.title = "Avocado Analytics: Understand Your Avocados!"
 
 app.layout = html.Div(
     children=[
@@ -27,7 +27,7 @@ app.layout = html.Div(
                     children="Avocados Analytics", className="header-title"
                 ),
                 html.P(
-                    children="Analyze the behaviour of prices"
+                    children="Analyze the behavior of avocado prices"
                     " and the number of avocados sold in the US"
                     " between 2015 and 2018",
                     className="header-description",
