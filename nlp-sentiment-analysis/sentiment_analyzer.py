@@ -79,19 +79,19 @@ def evaluate_model(tokenizer, textcat, test_data: list) -> dict:
     true_negatives = 0
     false_negatives = 1e-8
     for i, review in enumerate(textcat.pipe(reviews)):
-        true_label = labels[i]
+        true_label = labels[i]["cats"]
         for predicted_label, score in review.cats.items():
             # Every cats dictionary includes both labels, you can get all
             # the info you need with just the pos label
             if predicted_label == "neg":
                 continue
-            if score >= 0.5 and true_label == "pos":
+            if score >= 0.5 and true_label["pos"]:
                 true_positives += 1
-            elif score >= 0.5 and true_label == "neg":
+            elif score >= 0.5 and true_label["neg"]:
                 false_positives += 1
-            elif score < 0.5 and true_label == "neg":
+            elif score < 0.5 and true_label["neg"]:
                 true_negatives += 1
-            elif score < 0.5 and true_label == "pos":
+            elif score < 0.5 and true_label["pos"]:
                 false_negatives += 1
     precision = true_positives / (true_positives + false_positives)
     recall = true_positives / (true_positives + false_negatives)
