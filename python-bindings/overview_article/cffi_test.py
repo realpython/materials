@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+# IDE might complain with "no module found" here, even when it exists
 import cffi_example
 
 if __name__ == "__main__":

@@ -28,7 +28,7 @@ roster = pd.read_csv(
 
 hw_exam_grades = pd.read_csv(
     DATA_FOLDER / "hw_exam_grades.csv",
-    converters={"SID": str.lower, "Email Address": str.lower},
+    converters={"SID": str.lower},
     usecols=lambda x: "Submission" not in x,
     index_col="SID",
 )
@@ -49,7 +49,10 @@ for file_path in DATA_FOLDER.glob("quiz_*_grades.csv"):
 # ------------------------
 
 final_data = pd.merge(
-    roster, hw_exam_grades, left_index=True, right_index=True,
+    roster,
+    hw_exam_grades,
+    left_index=True,
+    right_index=True,
 )
 final_data = pd.merge(
     final_data, quiz_grades, left_on="Email Address", right_index=True
@@ -88,7 +91,7 @@ quiz_max_points = pd.Series(
 
 sum_of_quiz_scores = quiz_scores.sum(axis=1)
 sum_of_quiz_max = quiz_max_points.sum()
-final_data["Total Quizzes"] = sum_of_hw_scores / sum_of_hw_max
+final_data["Total Quizzes"] = sum_of_quiz_scores / sum_of_quiz_max
 
 average_quiz_scores = (quiz_scores / quiz_max_points).sum(axis=1)
 final_data["Average Quizzes"] = average_quiz_scores / quiz_scores.shape[1]

@@ -27,7 +27,7 @@ roster = pd.read_csv(
 
 hw_exam_grades = pd.read_csv(
     DATA_FOLDER / "hw_exam_grades.csv",
-    converters={"SID": str.lower, "Email Address": str.lower},
+    converters={"SID": str.lower},
     usecols=lambda x: "Submission" not in x,
     index_col="SID",
 )
@@ -48,7 +48,10 @@ for file_path in DATA_FOLDER.glob("quiz_*_grades.csv"):
 # ------------------------
 
 final_data = pd.merge(
-    roster, hw_exam_grades, left_index=True, right_index=True,
+    roster,
+    hw_exam_grades,
+    left_index=True,
+    right_index=True,
 )
 final_data = pd.merge(
     final_data, quiz_grades, left_on="Email Address", right_index=True
