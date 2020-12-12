@@ -13,10 +13,12 @@ params = {"q": query, "maxResults": 3}
 # The response will contain a list of books that match your query.
 response = requests.get(endpoint, params=params).json()
 for book in response["items"]:
-    # In order to fetch the title, published date and description, you first need to fetch the volume.
+    # In order to fetch the title, published date and description,
+    # you first need to fetch the volume.
     volume = book["volumeInfo"]
 
-    # You can fetch these and other attributes from the book using the specific volume
+    # You can fetch these and other attributes from the book using
+    # the specific volume
     title = volume["title"]
     published = volume["publishedDate"]
     description = volume["description"]
