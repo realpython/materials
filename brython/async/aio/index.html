@@ -13,6 +13,7 @@
       <script
       src="https://cdnjs.cloudflare.com/ajax/libs/brython/3.8.9/brython_stdlib.min.js" defer>
     </script>
+    <script src="main.py" type="text/python" defer></script>
     <style>
       body { padding: 30px; }
       aside {
@@ -27,61 +28,17 @@
   </head>
   <body onload="brython(1)">
     <h2>Aio Requests</h2>
-    <aside><p>Demonstrate the usage of GET using <tt>browser.aio</tt>. 
-      You need to start a server for this example to work. 
-      You can start the Python development web server with the following command: 
+    <aside><p>Demonstrate the usage of GET using <tt>browser.aio</tt>.
+      You need to start a server for this example to work.
+      You can start the Python development web server with the following command:
       <tt>python3 -m http.server</tt>.
     </p></aside>
     <form class="pure-form" onsubmit="return false;">
       <legend>Actions</legend>
       <button id="get-btn" class="pure-button pure-button-primary">Async Get</button>
-      <button id="clear-logs-btn" class="pure-button">Clear Logs</button>
       <legend>Logs</legend>
       <textarea id="log" name="log" rows="20" cols="60"></textarea>
     </form>
-    <script type="text/python">
-from browser import aio, document
-import javascript
-
-def counter():
-    x = 1
-    while True:
-      yield x
-      x += 1
-
-cnt = counter()
-
-def log(message):
-    document["log"].value += f"{next(cnt):03}: {message} \n"
-
-def add_log_sep():
-    log_text = document["log"].value
-    if not log_text:
-        return
-    else:
-        document["log"].value += "======================================\n"
-
-def clear_logs(evt):
-    global cnt
-    cnt = counter() # Reset counter
-    document["log"].value = ""
-
-async def process_get(url):
-    log("Start process_get")
-    log("Before await aio.get")
-    req = await aio.get(url)
-    log(f"Retrieved data: '{req.data}'")
-    log("End process_get")
-
-def aio_get(evt):
-    add_log_sep()
-    log("Before aio.run")
-    aio.run(process_get("/api.txt"))
-    log("After aio.run")
-
-document["get-btn"].bind("click", aio_get)
-document["clear-logs-btn"].bind("click", clear_logs)
-    </script>
   </body>
 
 </html>

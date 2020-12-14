@@ -9,7 +9,6 @@ async def process_get(url):
     log("Before await aio.get")
     req = await aio.get(url)
     log(f"Retrieved data: '{req.data}'")
-    return req.data
 
 
 def aio_get(evt):
