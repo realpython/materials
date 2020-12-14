@@ -7,7 +7,6 @@ from main_window_ui import Ui_MainWindow
 
 
 class Window(QMainWindow, Ui_MainWindow):
-
     def __init__(self, parent=None):
         super().__init__(parent)
         self.setupUi(self)
@@ -34,7 +33,6 @@ class Window(QMainWindow, Ui_MainWindow):
 
 
 class FindReplaceDialog(QDialog):
-
     def __init__(self, parent=None):
         super().__init__(parent)
         loadUi("ui/find_replace.ui", self)
