@@ -15,7 +15,7 @@ $ source venv/bin/activate
 Once you have [PyQt](https://www.riverbankcomputing.com/static/Docs/PyQt5/) installed, you can run the application by executing the following command:
 
 ```sh
-(venv) $ cd sample_text/
+(venv) $ cd sample_editor/
 (venv) $ python app.py
 ```
 
@@ -27,4 +27,4 @@ Leodanis Pozo Ramos – [@lpozo78](https://twitter.com/lpozo78) – lpozor78@gma
 
 ## License
 
-- The set of icons used in this application are part of the [TurkinOS](https://github.com/llamaret/turkinos-icon) icon theme, which is distributed under the [GPL v3.0 license](https://github.com/llamaret/turkinos-icon/blob/master/LICENSE). See `resources/LICENSE` for details.
+The set of icons used in this application are part of the [TurkinOS](https://github.com/llamaret/turkinos-icon) icon theme, which is distributed under the [GPL v3.0 license](https://github.com/llamaret/turkinos-icon/blob/master/LICENSE). See `ui/resources/LICENSE` for details.

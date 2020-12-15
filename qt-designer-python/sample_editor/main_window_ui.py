@@ -45,7 +45,7 @@ class Ui_MainWindow(object):
         self.action_New = QtWidgets.QAction(MainWindow)
         icon = QtGui.QIcon()
         icon.addPixmap(
-            QtGui.QPixmap("ui/../../resources/file-new.png"),
+            QtGui.QPixmap("ui/resources/file-new.png"),
             QtGui.QIcon.Normal,
             QtGui.QIcon.Off,
         )
@@ -54,7 +54,7 @@ class Ui_MainWindow(object):
         self.action_Open = QtWidgets.QAction(MainWindow)
         icon1 = QtGui.QIcon()
         icon1.addPixmap(
-            QtGui.QPixmap("ui/../resources/file-open.png"),
+            QtGui.QPixmap("ui/resources/file-open.png"),
             QtGui.QIcon.Normal,
             QtGui.QIcon.Off,
         )
@@ -63,7 +63,7 @@ class Ui_MainWindow(object):
         self.action_Save = QtWidgets.QAction(MainWindow)
         icon2 = QtGui.QIcon()
         icon2.addPixmap(
-            QtGui.QPixmap("ui/../resources/file-save.png"),
+            QtGui.QPixmap("ui/resources/file-save.png"),
             QtGui.QIcon.Normal,
             QtGui.QIcon.Off,
         )
@@ -72,7 +72,7 @@ class Ui_MainWindow(object):
         self.action_Exit = QtWidgets.QAction(MainWindow)
         icon3 = QtGui.QIcon()
         icon3.addPixmap(
-            QtGui.QPixmap("ui/../resources/file-exit.png"),
+            QtGui.QPixmap("ui/resources/file-exit.png"),
             QtGui.QIcon.Normal,
             QtGui.QIcon.Off,
         )
@@ -81,7 +81,7 @@ class Ui_MainWindow(object):
         self.action_Copy = QtWidgets.QAction(MainWindow)
         icon4 = QtGui.QIcon()
         icon4.addPixmap(
-            QtGui.QPixmap("ui/../resources/edit-copy.png"),
+            QtGui.QPixmap("ui/resources/edit-copy.png"),
             QtGui.QIcon.Normal,
             QtGui.QIcon.Off,
         )
@@ -90,7 +90,7 @@ class Ui_MainWindow(object):
         self.action_Paste = QtWidgets.QAction(MainWindow)
         icon5 = QtGui.QIcon()
         icon5.addPixmap(
-            QtGui.QPixmap("ui/../resources/edit-paste.png"),
+            QtGui.QPixmap("ui/resources/edit-paste.png"),
             QtGui.QIcon.Normal,
             QtGui.QIcon.Off,
         )
@@ -99,7 +99,7 @@ class Ui_MainWindow(object):
         self.action_Cut = QtWidgets.QAction(MainWindow)
         icon6 = QtGui.QIcon()
         icon6.addPixmap(
-            QtGui.QPixmap("ui/../resources/edit-cut.png"),
+            QtGui.QPixmap("ui/resources/edit-cut.png"),
             QtGui.QIcon.Normal,
             QtGui.QIcon.Off,
         )
@@ -110,7 +110,7 @@ class Ui_MainWindow(object):
         self.action_About = QtWidgets.QAction(MainWindow)
         icon7 = QtGui.QIcon()
         icon7.addPixmap(
-            QtGui.QPixmap("ui/../resources/help-content.png"),
+            QtGui.QPixmap("ui/resources/help-content.png"),
             QtGui.QIcon.Normal,
             QtGui.QIcon.Off,
         )
