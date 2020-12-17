@@ -4,7 +4,6 @@ let helloButton = document.getElementById("hello-btn");
 
 helloButton.onclick = function (element) {
   const defaultName = "Real JavaScript";
-  let msg = "";
   let name = prompt("Enter your name:", defaultName);
   if (!name) {
     name = defaultName;
