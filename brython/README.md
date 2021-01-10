@@ -1,5 +1,9 @@
 # Brython Examples
 
+This set of example is intended to accompany the [Real Python](https://realpython.com/) tutorial [Brython: Python in Your Browser](https://realpython.com/brython-python-in-browser).
+
+Most of the examples are lined in the article and others are more complete examples going beyond the scope of the Brython tutorial.
+
 ## async
 
 * Project demonstrating how to use Brython asynchronous functions to request data from a server API.
