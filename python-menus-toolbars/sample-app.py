@@ -199,7 +199,7 @@ class Window(QMainWindow):
 
     def pasteContent(self):
         # Logic for pasting content goes here...
-        self.centralWidget.setText("<b>Edit > Pate</b> clicked")
+        self.centralWidget.setText("<b>Edit > Paste</b> clicked")
 
     def cutContent(self):
         # Logic for cutting content goes here...
