@@ -25,23 +25,15 @@ print(f"One post: {result.inserted_id}")
 post_1 = {
     "title": "Python’s Requests Library (Guide)",
     "author": "Alex",
-    "contributors": [
-        "Aldren",
-        "Brad",
-        "Joanna"
-    ],
-    "url": "https://realpython.com/python-requests/"
+    "contributors": ["Aldren", "Brad", "Joanna"],
+    "url": "https://realpython.com/python-requests/",
 }
 
 post_2 = {
     "title": "Object-Oriented Programming (OOP) in Python 3",
     "author": "David",
-    "contributors": [
-        "Aldren",
-        "Joanna",
-        "Jacob"
-    ],
-    "url": "https://realpython.com/python3-object-oriented-programming/"
+    "contributors": ["Aldren", "Joanna", "Jacob"],
+    "url": "https://realpython.com/python3-object-oriented-programming/",
 }
 
 new_result = posts.insert_many([post_1, post_2])

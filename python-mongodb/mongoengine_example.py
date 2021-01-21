@@ -1,4 +1,4 @@
-from mongoengine import connect, Document, StringField, ListField, URLField
+from mongoengine import Document, ListField, StringField, URLField, connect
 
 # Establishing a Connection
 connect(db="rpblog", host="localhost", port=27017)
@@ -17,7 +17,7 @@ post = Posts(
     title="Beautiful Soup: Build a Web Scraper With Python",
     author="Martin",
     contributors=["Aldren", "Geir", "Jaya", "Joanna", "Mike"],
-    url="https://realpython.com/beautiful-soup-web-scraper-python/"
+    url="https://realpython.com/beautiful-soup-web-scraper-python/",
 )
 post.save()  # Insert the new post
 
