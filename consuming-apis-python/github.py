@@ -1,6 +1,6 @@
 import requests
 
-# First, make sure to follow the steps to create your own Github application:
+# First, make sure to follow the steps to create your own GitHub application:
 # https://docs.github.com/en/free-pro-team@latest/developers/apps/creating-an-oauth-app
 
 
@@ -13,7 +13,7 @@ CLIENT_SECRET = "<REPLACE_WITH_CLIENT_SECRET>"
 REDIRECT_URI = "<REPLACE_WITH_REDIRECT_URI>"
 
 
-# In this method you'll ask the Github API for a URL to redirect the user
+# In this method you'll ask the GitHub API for a URL to redirect the user
 # for authentication.
 def create_oauth_link():
     params = {
@@ -23,13 +23,13 @@ def create_oauth_link():
         "response_type": "code",
     }
 
-    # This endpoint is defined in the Github documentation:
+    # This endpoint is defined in the GitHub documentation:
     # https://docs.github.com/en/free-pro-team@latest/developers/apps/authorizing-oauth-apps#1-request-a-users-github-identity
     endpoint = "https://github.com/login/oauth/authorize"
 
     response = requests.get(endpoint, params=params)
 
-    # When you make the request above, Github will redirect you to their
+    # When you make the request above, GitHub will redirect you to their
     # website to input your credentials. Since you're doing this
     # programmatically, you need to get the `url` parameter and print it in
     # the console instead.
@@ -38,7 +38,7 @@ def create_oauth_link():
     return url
 
 
-# In this method you'll exchange the code you got from the Github API with
+# In this method you'll exchange the code you got from the GitHub API with
 # an access token.
 def exchange_code_for_access_token(code=None):
     params = {
@@ -52,7 +52,7 @@ def exchange_code_for_access_token(code=None):
     # In this case – JSON.
     headers = {"Accept": "application/json"}
 
-    # This endpoint is defined in the Github documentation:
+    # This endpoint is defined in the GitHub documentation:
     # https://docs.github.com/en/free-pro-team@latest/developers/apps/authorizing-oauth-apps#2-users-are-redirected-back-to-your-site-by-github
     endpoint = "https://github.com/login/oauth/access_token"
 
@@ -67,7 +67,7 @@ def print_user_info(access_token=None):
     # when calling the API.
     headers = {"Authorization": f"token {access_token}"}
 
-    # This endpoint is defined in the Github documentation:
+    # This endpoint is defined in the GitHub documentation:
     # https://docs.github.com/en/free-pro-team@latest/rest/reference/users#get-the-authenticated-user
     endpoint = "https://api.github.com/user"
 
@@ -87,10 +87,10 @@ def print_user_info(access_token=None):
 # So, one last time, step by step:
 # 1. Create a link to redirect the user to for authentication:
 link = create_oauth_link()
-print(f"Follow the link to start the authentication with Github: {link}")
+print(f"Follow the link to start the authentication with GitHub: {link}")
 
-# 2. Paste the code you got from Github after authenticating
-code = input("Github code: ")
+# 2. Paste the code you got from GitHub after authenticating
+code = input("GitHub code: ")
 
 # 3. Exchange that code with an access token
 access_token = exchange_code_for_access_token(code)
