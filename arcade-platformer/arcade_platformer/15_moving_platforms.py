@@ -362,13 +362,15 @@ class PlatformerView(arcade.View):
         # Process moving platforms
         moving_platforms_layer_name = "moving_platforms"
         moving_platforms_list = arcade.tilemap.process_layer(
-            map, layer_name=moving_platforms_layer_name, scaling=MAP_SCALING,
+            map,
+            layer_name=moving_platforms_layer_name,
+            scaling=MAP_SCALING,
         )
         for sprite in moving_platforms_list:
             self.walls_list.append(sprite)
 
         # Set the background color
-        background_color = arcade.color.AERO_BLUE
+        background_color = arcade.color.FRESH_AIR
         if map.background_color:
             background_color = map.background_color
         arcade.set_background_color(background_color)
@@ -708,7 +710,9 @@ class PlatformerView(arcade.View):
 # Main
 if __name__ == "__main__":
     window = arcade.Window(
-        width=SCREEN_WIDTH, height=SCREEN_HEIGHT, title=SCREEN_TITLE,
+        width=SCREEN_WIDTH,
+        height=SCREEN_HEIGHT,
+        title=SCREEN_TITLE,
     )
     title_view = TitleView()
     window.show_view(title_view)

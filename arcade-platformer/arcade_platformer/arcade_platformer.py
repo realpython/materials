@@ -504,7 +504,7 @@ class PlatformerView(arcade.View):
             current_group = sprite.properties["group"]
             # If this group number isn't in the dict, create a new list
             if current_group not in self.synchronized_groups.keys():
-                self.synchronized_groups[current_group] = list()
+                self.synchronized_groups[current_group] = []
             # Append the sprite to the given list
             self.synchronized_groups[current_group].append(sprite)
 
@@ -518,7 +518,7 @@ class PlatformerView(arcade.View):
             self.walls_list.append(sprite)
 
         # Set the background color
-        background_color = arcade.color.AERO_BLUE
+        background_color = arcade.color.FRESH_AIR
         if map.background_color:
             background_color = map.background_color
         arcade.set_background_color(background_color)

@@ -131,7 +131,7 @@ class PlatformerView(arcade.View):
         )
 
         # Set the background color
-        background_color = arcade.color.AERO_BLUE
+        background_color = arcade.color.FRESH_AIR
         if map.background_color:
             background_color = map.background_color
         arcade.set_background_color(background_color)

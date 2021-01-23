@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.2" tiledversion="1.3.0" orientation="orthogonal" renderorder="right-down" compressionlevel="0" width="25" height="20" tilewidth="128" tileheight="128" infinite="0" backgroundcolor="#72cdd5" nextlayerid="12" nextobjectid="16">
+<map version="1.4" tiledversion="2021.01.13" orientation="orthogonal" renderorder="right-down" compressionlevel="0" width="25" height="20" tilewidth="128" tileheight="128" infinite="0" backgroundcolor="#a6e7ff" nextlayerid="12" nextobjectid="16">
  <tileset firstgid="1" name="arcade_platformer" tilewidth="128" tileheight="128" tilecount="62" columns="0">
   <grid orientation="orthogonal" width="1" height="1"/>
   <tile id="0">
