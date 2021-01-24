@@ -28,7 +28,9 @@ class Enemy(arcade.AnimatedWalkingSprite):
 
     def __init__(self, pos_x: int, pos_y: int) -> None:
         """Create enemy"""
-        super().__init__(game.CHARACTER_SCALING, center_x=pos_x, center_y=pos_y)
+        super().__init__(
+            game.CHARACTER_SCALING, center_x=pos_x, center_y=pos_y
+        )
 
         # Where are the player images stored?
         texture_path = ASSETS_PATH / "images" / "enemies"
@@ -53,7 +55,9 @@ class Enemy(arcade.AnimatedWalkingSprite):
         self.stand_left_textures = [
             arcade.load_texture(standing_texture_path, mirrored=True)
         ]
-        self.stand_right_textures = [arcade.load_texture(standing_texture_path)]
+        self.stand_right_textures = [
+            arcade.load_texture(standing_texture_path)
+        ]
 
         # Set the enemy defaults
         self.state = arcade.FACE_LEFT
@@ -155,7 +159,9 @@ class InstructionsView(arcade.View):
         super().__init__()
 
         # Find the instructions image in the image folder
-        instructions_image_path = ASSETS_PATH / "images" / "instructions_image.png"
+        instructions_image_path = (
+            ASSETS_PATH / "images" / "instructions_image.png"
+        )
 
         # Load our title image
         self.instructions_image = arcade.load_texture(instructions_image_path)
@@ -250,7 +256,9 @@ class PauseView(arcade.View):
 class VictoryView(arcade.View):
     """Shown when a level is completed"""
 
-    def __init__(self, game_view: arcade.View, victory_sound: arcade.Sound) -> None:
+    def __init__(
+        self, game_view: arcade.View, victory_sound: arcade.Sound
+    ) -> None:
         """Create the victory screen"""
         # Initialize the parent
         super().__init__()
@@ -402,8 +410,12 @@ class PlatformerView(arcade.View):
         self.level = 1
 
         # Load up our sounds here
-        self.coin_sound = arcade.load_sound(str(ASSETS_PATH / "sounds" / "coin.wav"))
-        self.jump_sound = arcade.load_sound(str(ASSETS_PATH / "sounds" / "jump.wav"))
+        self.coin_sound = arcade.load_sound(
+            str(ASSETS_PATH / "sounds" / "coin.wav")
+        )
+        self.jump_sound = arcade.load_sound(
+            str(ASSETS_PATH / "sounds" / "jump.wav")
+        )
         self.victory_sound = arcade.load_sound(
             str(ASSETS_PATH / "sounds" / "victory.wav")
         )
@@ -559,8 +571,12 @@ class PlatformerView(arcade.View):
         texture_path = ASSETS_PATH / "images" / "player"
 
         # Setup the appropriate textures
-        walking_paths = [texture_path / f"alienGreen_walk{x}.png" for x in (1, 2)]
-        climbing_paths = [texture_path / f"alienGreen_climb{x}.png" for x in (1, 2)]
+        walking_paths = [
+            texture_path / f"alienGreen_walk{x}.png" for x in (1, 2)
+        ]
+        climbing_paths = [
+            texture_path / f"alienGreen_climb{x}.png" for x in (1, 2)
+        ]
         standing_path = texture_path / "alienGreen_stand.png"
 
         # Load them all now
@@ -568,7 +584,8 @@ class PlatformerView(arcade.View):
             arcade.load_texture(texture) for texture in walking_paths
         ]
         walking_left_textures = [
-            arcade.load_texture(texture, mirrored=True) for texture in walking_paths
+            arcade.load_texture(texture, mirrored=True)
+            for texture in walking_paths
         ]
 
         walking_up_textures = [
@@ -580,7 +597,9 @@ class PlatformerView(arcade.View):
 
         standing_right_textures = [arcade.load_texture(standing_path)]
 
-        standing_left_textures = [arcade.load_texture(standing_path, mirrored=True)]
+        standing_left_textures = [
+            arcade.load_texture(standing_path, mirrored=True)
+        ]
 
         # Create the sprite
         player = arcade.AnimatedWalkingSprite()
@@ -729,7 +748,9 @@ class PlatformerView(arcade.View):
 
             if abs(self.joystick.y) > game.DEAD_ZONE:
                 if self.physics_engine.is_on_ladder():
-                    self.player.change_y = self.joystick.y * game.PLAYER_MOVE_SPEED
+                    self.player.change_y = (
+                        self.joystick.y * game.PLAYER_MOVE_SPEED
+                    )
                 else:
                     self.player.change_y = 0
 
@@ -828,7 +849,9 @@ class PlatformerView(arcade.View):
 
         # Scroll right
         # Find the current right boundary
-        right_boundary = self.view_left + game.SCREEN_WIDTH - game.RIGHT_VIEWPORT_MARGIN
+        right_boundary = (
+            self.view_left + game.SCREEN_WIDTH - game.RIGHT_VIEWPORT_MARGIN
+        )
 
         # Are we right of this boundary? Then we should scroll right
         if self.player.right > right_boundary:
@@ -838,7 +861,9 @@ class PlatformerView(arcade.View):
                 self.view_left = self.map_width - game.SCREEN_WIDTH
 
         # Scroll up
-        top_boundary = self.view_bottom + game.SCREEN_HEIGHT - game.TOP_VIEWPORT_MARGIN
+        top_boundary = (
+            self.view_bottom + game.SCREEN_HEIGHT - game.TOP_VIEWPORT_MARGIN
+        )
         if self.player.top > top_boundary:
             self.view_bottom += self.player.top - top_boundary
 
