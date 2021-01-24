@@ -54,19 +54,14 @@ class Platformer(arcade.Window):
         self.level = 1
 
         # Load up our sounds here
-        self.coin_sound = arcade.load_sound(
-            str(ASSETS_PATH / "sounds" / "coin.wav")
-        )
-        self.jump_sound = arcade.load_sound(
-            str(ASSETS_PATH / "sounds" / "jump.wav")
-        )
+        self.coin_sound = arcade.load_sound(str(ASSETS_PATH / "sounds" / "coin.wav"))
+        self.jump_sound = arcade.load_sound(str(ASSETS_PATH / "sounds" / "jump.wav"))
         self.victory_sound = arcade.load_sound(
             str(ASSETS_PATH / "sounds" / "victory.wav")
         )
 
     def setup(self):
-        """Sets up the game for the current level
-        """
+        """Sets up the game for the current level"""
         pass
 
     def on_key_press(self, key: int, modifiers: int):
@@ -94,8 +89,7 @@ class Platformer(arcade.Window):
         pass
 
     def on_draw(self):
-        """Draws everything
-        """
+        """Draws everything"""
         pass
 
 

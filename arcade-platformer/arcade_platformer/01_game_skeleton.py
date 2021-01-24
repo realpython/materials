@@ -21,8 +21,7 @@ class Platformer(arcade.Window):
         pass
 
     def setup(self):
-        """Sets up the game for the current level
-        """
+        """Sets up the game for the current level"""
         pass
 
     def on_key_press(self, key: int, modifiers: int):
@@ -50,8 +49,7 @@ class Platformer(arcade.Window):
         pass
 
     def on_draw(self):
-        """Draws everything
-        """
+        """Draws everything"""
         pass
 
 
