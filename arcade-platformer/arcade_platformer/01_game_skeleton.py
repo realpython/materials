@@ -1,22 +1,17 @@
-#
-# Arcade Platformer
-#
-# Demonstrating the capbilities of arcade in a platformer game
-# Supporting the Arcade Platformer article on https://realpython.com
-#
-# All game artwork and sounds, except the tile map, from www.kenney.nl
-#
+"""
+Arcade Platformer
 
-# Import libraries
+Demonstrating the capbilities of arcade in a platformer game
+Supporting the Arcade Platformer article on https://realpython.com
+
+All game artwork from www.kenney.nl
+Game sounds and tile maps by author
+"""
+
 import arcade
 
 
-# Classes
 class Platformer(arcade.Window):
-    """Platformer class. Derived from arcade.Window,
-    manages different aspects of the game.
-    """
-
     def __init__(self):
         pass
 
@@ -41,7 +36,7 @@ class Platformer(arcade.Window):
         """
 
     def on_update(self, delta_time: float):
-        """Updates the position of all screen objects
+        """Updates the position of all game objects
 
         Arguments:
             delta_time {float} -- How much time since the last call
@@ -49,11 +44,9 @@ class Platformer(arcade.Window):
         pass
 
     def on_draw(self):
-        """Draws everything"""
         pass
 
 
-# Main
 if __name__ == "__main__":
     window = Platformer()
     window.setup()

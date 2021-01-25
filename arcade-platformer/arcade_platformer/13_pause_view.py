@@ -1,14 +1,13 @@
-#
-# Arcade Platformer
-#
-# Demonstrating the capbilities of arcade in a platformer game
-# Supporting the Arcade Platformer article on https://realpython.com
-#
-# All game artwork and sounds, except the tile map and victory sound,
-# from www.kenney.nl
+"""
+Arcade Platformer
 
+Demonstrating the capbilities of arcade in a platformer game
+Supporting the Arcade Platformer article on https://realpython.com
 
-# Import libraries
+All game artwork from www.kenney.nl
+Game sounds and tile maps by author
+"""
+
 import arcade
 import pathlib
 
@@ -42,16 +41,12 @@ DEAD_ZONE = 0.1
 ASSETS_PATH = pathlib.Path(__file__).resolve().parent.parent / "assets"
 
 
-# Classes
-# Title view
 class TitleView(arcade.View):
-    """TitleView shows a title screen and prompts the user to begin the game.
-    There is a way to show instructions and start the game.
+    """Displays a title screen and prompts the user to begin the game.
+    Provides a way to show instructions and start the game.
     """
 
     def __init__(self) -> None:
-        """Create title screen"""
-        # Initialize the parent
         super().__init__()
 
         # Find the title image in the images folder
@@ -67,7 +62,7 @@ class TitleView(arcade.View):
         self.show_instructions = False
 
     def on_update(self, delta_time: float) -> None:
-        """Processes our timer to toggle the instructions
+        """Manages the timer to toggle the instructions
 
         Arguments:
             delta_time -- time passed since last update
@@ -86,8 +81,6 @@ class TitleView(arcade.View):
             self.display_timer = 1.0
 
     def on_draw(self) -> None:
-        """Draws everything to the screen"""
-
         # Start the rendering loop
         arcade.start_render()
 
@@ -143,8 +136,6 @@ class InstructionsView(arcade.View):
         self.instructions_image = arcade.load_texture(instructions_image_path)
 
     def on_draw(self) -> None:
-        """Draws everything to the screen"""
-
         # Start the rendering loop
         arcade.start_render()
 
@@ -230,22 +221,16 @@ class PauseView(arcade.View):
 
 # PlatformerView
 class PlatformerView(arcade.View):
-    """PlatformerView class. Derived from arcade.View, provides all functionality
-    from arcade.Window, plus managing different views for our game.
-    """
-
     def __init__(self) -> None:
-        """Create the game view"""
-        # First initialize the parent
         super().__init__()
 
         # These lists will hold different sets of sprites
-        self.coins_list = None
-        self.background_list = None
-        self.walls_list = None
-        self.ladders_list = None
-        self.goals_list = None
-        self.enemies_list = None
+        self.coins = None
+        self.background = None
+        self.walls = None
+        self.ladders = None
+        self.goals = None
+        self.enemies = None
 
         # One sprite for the player, no more is needed
         self.player = None
@@ -297,33 +282,35 @@ class PlatformerView(arcade.View):
         ladders_layer = "ladders"
 
         # Load the current map
-        map = arcade.tilemap.read_tmx(str(map_path))
+        game_map = arcade.tilemap.read_tmx(str(map_path))
 
         # Load the layers
-        self.background_list = arcade.tilemap.process_layer(
-            map, layer_name=background_layer, scaling=MAP_SCALING
+        self.background = arcade.tilemap.process_layer(
+            game_map, layer_name=background_layer, scaling=MAP_SCALING
         )
-        self.goals_list = arcade.tilemap.process_layer(
-            map, layer_name=goal_layer, scaling=MAP_SCALING
+        self.goals = arcade.tilemap.process_layer(
+            game_map, layer_name=goal_layer, scaling=MAP_SCALING
         )
-        self.walls_list = arcade.tilemap.process_layer(
-            map, layer_name=wall_layer, scaling=MAP_SCALING
+        self.walls = arcade.tilemap.process_layer(
+            game_map, layer_name=wall_layer, scaling=MAP_SCALING
         )
-        self.ladders_list = arcade.tilemap.process_layer(
-            map, layer_name=ladders_layer, scaling=MAP_SCALING
+        self.ladders = arcade.tilemap.process_layer(
+            game_map, layer_name=ladders_layer, scaling=MAP_SCALING
         )
-        self.coins_list = arcade.tilemap.process_layer(
-            map, layer_name=coin_layer, scaling=MAP_SCALING
+        self.coins = arcade.tilemap.process_layer(
+            game_map, layer_name=coin_layer, scaling=MAP_SCALING
         )
 
         # Set the background color
         background_color = arcade.color.FRESH_AIR
-        if map.background_color:
-            background_color = map.background_color
+        if game_map.background_color:
+            background_color = game_map.background_color
         arcade.set_background_color(background_color)
 
         # Find the edge of the map to control viewport scrolling
-        self.map_width = (map.map_size.width - 1) * map.tile_size.width
+        self.map_width = (
+            game_map.map_size.width - 1
+        ) * game_map.tile_size.width
 
         # Create the player sprite, if they're not already setup
         if not self.player:
@@ -342,17 +329,12 @@ class PlatformerView(arcade.View):
         # Load the physics engine for this map
         self.physics_engine = arcade.PhysicsEnginePlatformer(
             player_sprite=self.player,
-            platforms=self.walls_list,
+            platforms=self.walls,
             gravity_constant=GRAVITY,
-            ladders=self.ladders_list,
+            ladders=self.ladders,
         )
 
     def create_player_sprite(self) -> arcade.AnimatedWalkingSprite:
-        """Creates the animated player sprite
-
-        Returns:
-            The properly setup player sprite
-        """
         # Where are the player images stored?
         texture_path = ASSETS_PATH / "images" / "player"
 
@@ -409,11 +391,9 @@ class PlatformerView(arcade.View):
         return player
 
     def on_key_press(self, key: int, modifiers: int) -> None:
-        """Processes key presses
-
-        Arguments:
-            key -- Which key was pressed
-            modifiers -- Which modifiers were down at the time
+        """Arguments:
+        key -- Which key was pressed
+        modifiers -- Which modifiers were down at the time
         """
 
         # Check for player left/right movement
@@ -444,11 +424,9 @@ class PlatformerView(arcade.View):
             self.window.show_view(pause)
 
     def on_key_release(self, key: int, modifiers: int) -> None:
-        """Processes key releases
-
-        Arguments:
-            key -- The key which was released
-            modifiers -- Which modifiers were down at the time
+        """Arguments:
+        key -- The key which was released
+        modifiers -- Which modifiers were down at the time
         """
 
         # Check for player left/right movement
@@ -471,10 +449,10 @@ class PlatformerView(arcade.View):
                 self.player.change_y = 0
 
     def on_update(self, delta_time: float) -> None:
-        """Updates the position of all screen objects
+        """Updates the position of all game objects
 
         Arguments:
-            delta_time -- How much time since the last call
+            delta_time {float} -- How much time since the last call
         """
 
         # First, check for joystick movement
@@ -510,7 +488,7 @@ class PlatformerView(arcade.View):
 
         # Check if we've picked up a coin
         coins_hit = arcade.check_for_collision_with_list(
-            sprite=self.player, sprite_list=self.coins_list
+            sprite=self.player, sprite_list=self.coins
         )
 
         for coin in coins_hit:
@@ -525,7 +503,7 @@ class PlatformerView(arcade.View):
 
         # Now check if we're at the ending goal
         goals_hit = arcade.check_for_collision_with_list(
-            sprite=self.player, sprite_list=self.goals_list
+            sprite=self.player, sprite_list=self.goals
         )
 
         if goals_hit:
@@ -587,16 +565,14 @@ class PlatformerView(arcade.View):
         )
 
     def on_draw(self) -> None:
-        """Draws everything"""
-
         arcade.start_render()
 
         # Draw all the sprites
-        self.background_list.draw()
-        self.walls_list.draw()
-        self.coins_list.draw()
-        self.goals_list.draw()
-        self.ladders_list.draw()
+        self.background.draw()
+        self.walls.draw()
+        self.coins.draw()
+        self.goals.draw()
+        self.ladders.draw()
         self.player.draw()
 
         # Draw the score in the lower left
@@ -620,12 +596,9 @@ class PlatformerView(arcade.View):
         )
 
 
-# Main
 if __name__ == "__main__":
     window = arcade.Window(
-        width=SCREEN_WIDTH,
-        height=SCREEN_HEIGHT,
-        title=SCREEN_TITLE,
+        width=SCREEN_WIDTH, height=SCREEN_HEIGHT, title=SCREEN_TITLE
     )
     title_view = TitleView()
     window.show_view(title_view)

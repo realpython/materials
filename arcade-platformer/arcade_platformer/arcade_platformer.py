@@ -1,36 +1,26 @@
-#
-# Arcade Platformer
-#
-# Demonstrating the capbilities of arcade in a platformer game
-# Supporting the Arcade Platformer article on https://realpython.com
-#
-# All game artwork and sounds, except the tile map and victory sound,
-# from www.kenney.nl
+"""
+Arcade Platformer
 
+Demonstrating the capabilities of arcade in a platformer game
+Supporting the Arcade Platformer article on https://realpython.com
 
-# Import libraries
-import pathlib
+All game artwork from www.kenney.nl
+Game sounds and tile maps by author
+"""
 
 import arcade
-
-# Global variables
-# Game constants
+import pathlib
 import constants as game
 
 # Assets path
 ASSETS_PATH = pathlib.Path(__file__).resolve().parent.parent / "assets"
 
 
-# Classes
-# Enemy class
 class Enemy(arcade.AnimatedWalkingSprite):
     """An enemy sprite with basic walking movement"""
 
     def __init__(self, pos_x: int, pos_y: int) -> None:
-        """Create enemy"""
-        super().__init__(
-            game.CHARACTER_SCALING, center_x=pos_x, center_y=pos_y
-        )
+        super().__init__(center_x=pos_x, center_y=pos_y)
 
         # Where are the player images stored?
         texture_path = ASSETS_PATH / "images" / "enemies"
@@ -69,13 +59,11 @@ class Enemy(arcade.AnimatedWalkingSprite):
 
 # Title view
 class TitleView(arcade.View):
-    """TitleView shows a title screen and prompts the user to begin the game.
-    There is a way to show instructions and start the game.
+    """Displays a title screen and prompts the user to begin the game.
+    Provides a way to show instructions and start the game.
     """
 
     def __init__(self) -> None:
-        """Create title screen"""
-        # Initialize the parent
         super().__init__()
 
         # Find the title image in the images folder
@@ -91,7 +79,7 @@ class TitleView(arcade.View):
         self.show_instructions = False
 
     def on_update(self, delta_time: float) -> None:
-        """Processes our timer to toggle the instructions
+        """Manages the timer to toggle the instructions
 
         Arguments:
             delta_time -- time passed since last update
@@ -110,8 +98,6 @@ class TitleView(arcade.View):
             self.display_timer = 1.0
 
     def on_draw(self) -> None:
-        """Draws everything to the screen"""
-
         # Start the rendering loop
         arcade.start_render()
 
@@ -167,8 +153,6 @@ class InstructionsView(arcade.View):
         self.instructions_image = arcade.load_texture(instructions_image_path)
 
     def on_draw(self) -> None:
-        """Draws everything to the screen"""
-
         # Start the rendering loop
         arcade.start_render()
 
@@ -259,8 +243,6 @@ class VictoryView(arcade.View):
     def __init__(
         self, game_view: arcade.View, victory_sound: arcade.Sound
     ) -> None:
-        """Create the victory screen"""
-        # Initialize the parent
         super().__init__()
 
         # Store a reference to the underlying view
@@ -380,22 +362,16 @@ class GameOverView(arcade.View):
 
 
 class PlatformerView(arcade.View):
-    """PlatformerView class. Derived from arcade.View, provides all functionality
-    from arcade.Window, plus managing different views for our game.
-    """
-
     def __init__(self) -> None:
-        """Create the game view"""
-        # First initialize the parent
         super().__init__()
 
         # These lists will hold different sets of sprites
-        self.coins_list = None
-        self.background_list = None
-        self.walls_list = None
-        self.ladders_list = None
-        self.goals_list = None
-        self.enemies_list = None
+        self.coins = None
+        self.background = None
+        self.walls = None
+        self.ladders = None
+        self.goals = None
+        self.enemies = None
 
         # One sprite for the player, no more is needed
         self.player = None
@@ -457,37 +433,37 @@ class PlatformerView(arcade.View):
         map = arcade.tilemap.read_tmx(str(map_path))
 
         # Load the layers
-        self.background_list = arcade.tilemap.process_layer(
+        self.background = arcade.tilemap.process_layer(
             map, layer_name=background_layer, scaling=game.MAP_SCALING
         )
-        self.goals_list = arcade.tilemap.process_layer(
+        self.goals = arcade.tilemap.process_layer(
             map, layer_name=goal_layer, scaling=game.MAP_SCALING
         )
-        self.walls_list = arcade.tilemap.process_layer(
+        self.walls = arcade.tilemap.process_layer(
             map, layer_name=wall_layer, scaling=game.MAP_SCALING
         )
-        self.ladders_list = arcade.tilemap.process_layer(
+        self.ladders = arcade.tilemap.process_layer(
             map, layer_name=ladders_layer, scaling=game.MAP_SCALING
         )
-        self.coins_list = arcade.tilemap.process_layer(
+        self.coins = arcade.tilemap.process_layer(
             map, layer_name=coin_layer, scaling=game.MAP_SCALING
         )
 
         # Process moving platforms
         moving_platforms_layer_name = "moving_platforms"
-        moving_platforms_list = arcade.tilemap.process_layer(
+        moving_platforms = arcade.tilemap.process_layer(
             map,
             layer_name=moving_platforms_layer_name,
             scaling=game.MAP_SCALING,
         )
-        for sprite in moving_platforms_list:
+        for sprite in moving_platforms:
             # Set the initial position of each moving platform
             if "boundary_left" in sprite.properties:
                 sprite.left = sprite.properties["boundary_left"]
             if "boundary_bottom" in sprite.properties:
                 sprite.bottom = sprite.properties["boundary_bottom"]
 
-            self.walls_list.append(sprite)
+            self.walls.append(sprite)
 
         # Process synchronized platforms
         synchronized_platforms_layer_name = "synch_platforms"
@@ -515,7 +491,7 @@ class PlatformerView(arcade.View):
                 sprite.bottom = sprite.properties["boundary_bottom"]
 
             # Add each sprite to the walls list so collision works
-            self.walls_list.append(sprite)
+            self.walls.append(sprite)
 
         # Set the background color
         background_color = arcade.color.FRESH_AIR
@@ -537,7 +513,7 @@ class PlatformerView(arcade.View):
         self.player.change_y = 0
 
         # Setup our enemies
-        self.enemies_list = self.create_enemy_sprites()
+        self.enemies = self.create_enemy_sprites()
 
         # Reset the viewport
         self.view_left = 0
@@ -546,27 +522,25 @@ class PlatformerView(arcade.View):
         # Load the physics engine for this map
         self.physics_engine = arcade.PhysicsEnginePlatformer(
             player_sprite=self.player,
-            platforms=self.walls_list,
+            platforms=self.walls,
             gravity_constant=game.GRAVITY,
-            ladders=self.ladders_list,
+            ladders=self.ladders,
         )
 
     def create_enemy_sprites(self) -> arcade.SpriteList:
-        """Creates enemy sprites appropriate for the current level"""
-        enemies_list = arcade.SpriteList()
+        """Creates enemy sprites appropriate for the current level
+
+        Returns:
+            A Sprite List of enemies"""
+        enemies = arcade.SpriteList()
 
         # Only enemies on level 2
         if self.level == 2:
-            enemies_list.append(Enemy(1464, 320))
+            enemies.append(Enemy(1464, 320))
 
-        return enemies_list
+        return enemies
 
     def create_player_sprite(self) -> arcade.AnimatedWalkingSprite:
-        """Creates the animated player sprite
-
-        Returns:
-            The properly setup player sprite
-        """
         # Where are the player images stored?
         texture_path = ASSETS_PATH / "images" / "player"
 
@@ -624,11 +598,9 @@ class PlatformerView(arcade.View):
         return player
 
     def on_key_press(self, key: int, modifiers: int) -> None:
-        """Processes key presses
-
-        Arguments:
-            key -- Which key was pressed
-            modifiers -- Which modifiers were down at the time
+        """Arguments:
+        key -- Which key was pressed
+        modifiers -- Which modifiers were down at the time
         """
 
         # Check for player left/right movement
@@ -690,11 +662,9 @@ class PlatformerView(arcade.View):
                 self.view_left = self.save_view_left
 
     def on_key_release(self, key: int, modifiers: int) -> None:
-        """Processes key releases
-
-        Arguments:
-            key -- The key which was released
-            modifiers -- Which modifiers were down at the time
+        """Arguments:
+        key -- The key which was released
+        modifiers -- Which modifiers were down at the time
         """
 
         # Check for player left/right movement
@@ -765,14 +735,14 @@ class PlatformerView(arcade.View):
         self.player.update_animation(delta_time)
 
         # Update the animations for our map objects as well
-        self.background_list.update_animation(delta_time)
+        self.background.update_animation(delta_time)
 
         # Are there enemies? Update them as well
-        self.enemies_list.update_animation(delta_time)
-        for enemy in self.enemies_list:
+        self.enemies.update_animation(delta_time)
+        for enemy in self.enemies:
             enemy.center_x += enemy.change_x
             walls_hit = arcade.check_for_collision_with_list(
-                sprite=enemy, sprite_list=self.walls_list
+                sprite=enemy, sprite_list=self.walls
             )
             if walls_hit:
                 enemy.change_x *= -1
@@ -799,7 +769,7 @@ class PlatformerView(arcade.View):
 
         # Check if we've picked up a coin
         coins_hit = arcade.check_for_collision_with_list(
-            sprite=self.player, sprite_list=self.coins_list
+            sprite=self.player, sprite_list=self.coins
         )
 
         for coin in coins_hit:
@@ -814,7 +784,7 @@ class PlatformerView(arcade.View):
 
         # Has Roz collided with an enemy?
         enemies_hit = arcade.check_for_collision_with_list(
-            sprite=self.player, sprite_list=self.enemies_list
+            sprite=self.player, sprite_list=self.enemies
         )
 
         if enemies_hit:
@@ -823,7 +793,7 @@ class PlatformerView(arcade.View):
 
         # Now check if we're at the ending goal
         goals_hit = arcade.check_for_collision_with_list(
-            sprite=self.player, sprite_list=self.goals_list
+            sprite=self.player, sprite_list=self.goals
         )
 
         if goals_hit:
@@ -886,17 +856,15 @@ class PlatformerView(arcade.View):
         )
 
     def on_draw(self) -> None:
-        """Draws everything"""
-
         arcade.start_render()
 
         # Draw all the sprites
-        self.background_list.draw()
-        self.walls_list.draw()
-        self.coins_list.draw()
-        self.goals_list.draw()
-        self.ladders_list.draw()
-        self.enemies_list.draw()
+        self.background.draw()
+        self.walls.draw()
+        self.coins.draw()
+        self.goals.draw()
+        self.ladders.draw()
+        self.enemies.draw()
         self.player.draw()
 
         # Draw the score in the lower left
@@ -920,7 +888,6 @@ class PlatformerView(arcade.View):
         )
 
 
-# Main
 if __name__ == "__main__":
     window = arcade.Window(
         width=game.SCREEN_WIDTH,

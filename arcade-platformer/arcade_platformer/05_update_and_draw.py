@@ -1,14 +1,13 @@
-#
-# Arcade Platformer
-#
-# Demonstrating the capbilities of arcade in a platformer game
-# Supporting the Arcade Platformer article on https://realpython.com
-#
-# All game artwork and sounds, except the tile map and victory sound,
-# from www.kenney.nl
+"""
+Arcade Platformer
 
+Demonstrating the capbilities of arcade in a platformer game
+Supporting the Arcade Platformer article on https://realpython.com
 
-# Import libraries
+All game artwork from www.kenney.nl
+Game sounds and tile maps by author
+"""
+
 import arcade
 import pathlib
 
@@ -30,24 +29,17 @@ PLAYER_START_Y = 256
 ASSETS_PATH = pathlib.Path(__file__).resolve().parent.parent / "assets"
 
 
-# Classes
 class Platformer(arcade.Window):
-    """Platformer class. Derived from arcade.Window,
-    manages different aspects of the game.
-    """
-
     def __init__(self) -> None:
-        """Create the game view"""
-        # First initialize the parent
         super().__init__(SCREEN_WIDTH, SCREEN_HEIGHT, SCREEN_TITLE)
 
         # These lists will hold different sets of sprites
-        self.coins_list = None
-        self.background_list = None
-        self.walls_list = None
-        self.ladders_list = None
-        self.goals_list = None
-        self.enemies_list = None
+        self.coins = None
+        self.background = None
+        self.walls = None
+        self.ladders = None
+        self.goals = None
+        self.enemies = None
 
         # One sprite for the player, no more is needed
         self.player = None
@@ -90,19 +82,19 @@ class Platformer(arcade.Window):
         map = arcade.tilemap.read_tmx(str(map_path))
 
         # Load the layers
-        self.background_list = arcade.tilemap.process_layer(
+        self.background = arcade.tilemap.process_layer(
             map, layer_name=background_layer, scaling=MAP_SCALING
         )
-        self.goals_list = arcade.tilemap.process_layer(
+        self.goals = arcade.tilemap.process_layer(
             map, layer_name=goal_layer, scaling=MAP_SCALING
         )
-        self.walls_list = arcade.tilemap.process_layer(
+        self.walls = arcade.tilemap.process_layer(
             map, layer_name=wall_layer, scaling=MAP_SCALING
         )
-        self.ladders_list = arcade.tilemap.process_layer(
+        self.ladders = arcade.tilemap.process_layer(
             map, layer_name=ladders_layer, scaling=MAP_SCALING
         )
-        self.coins_list = arcade.tilemap.process_layer(
+        self.coins = arcade.tilemap.process_layer(
             map, layer_name=coin_layer, scaling=MAP_SCALING
         )
 
@@ -125,9 +117,9 @@ class Platformer(arcade.Window):
         # Load the physics engine for this map
         self.physics_engine = arcade.PhysicsEnginePlatformer(
             player_sprite=self.player,
-            platforms=self.walls_list,
+            platforms=self.walls,
             gravity_constant=GRAVITY,
-            ladders=self.ladders_list,
+            ladders=self.ladders,
         )
 
     def create_player_sprite(self) -> arcade.AnimatedWalkingSprite:
@@ -192,26 +184,22 @@ class Platformer(arcade.Window):
         return player
 
     def on_key_press(self, key: int, modifiers: int):
-        """Processes key presses
-
-        Arguments:
-            key {int} -- Which key was pressed
-            modifiers {int} -- Which modifiers were down at the time
+        """Arguments:
+        key {int} -- Which key was pressed
+        modifiers {int} -- Which modifiers were down at the time
         """
 
     def on_key_release(self, key: int, modifiers: int):
-        """Processes key releases
-
-        Arguments:
-            key {int} -- Which key was released
-            modifiers {int} -- Which modifiers were down at the time
+        """Arguments:
+        key {int} -- Which key was released
+        modifiers {int} -- Which modifiers were down at the time
         """
 
     def on_update(self, delta_time: float) -> None:
-        """Updates the position of all screen objects
+        """Updates the position of all game objects
 
         Arguments:
-            delta_time -- How much time since the last call
+            delta_time {float} -- How much time since the last call
         """
 
         # Update the player animation
@@ -226,7 +214,7 @@ class Platformer(arcade.Window):
 
         # Check if we've picked up a coin
         coins_hit = arcade.check_for_collision_with_list(
-            sprite=self.player, sprite_list=self.coins_list
+            sprite=self.player, sprite_list=self.coins
         )
 
         for coin in coins_hit:
@@ -241,7 +229,7 @@ class Platformer(arcade.Window):
 
         # Now check if we're at the ending goal
         goals_hit = arcade.check_for_collision_with_list(
-            sprite=self.player, sprite_list=self.goals_list
+            sprite=self.player, sprite_list=self.goals
         )
 
         if goals_hit:
@@ -253,20 +241,17 @@ class Platformer(arcade.Window):
             self.setup()
 
     def on_draw(self) -> None:
-        """Draws everything"""
-
         arcade.start_render()
 
         # Draw all the sprites
-        self.background_list.draw()
-        self.walls_list.draw()
-        self.coins_list.draw()
-        self.goals_list.draw()
-        self.ladders_list.draw()
+        self.background.draw()
+        self.walls.draw()
+        self.coins.draw()
+        self.goals.draw()
+        self.ladders.draw()
         self.player.draw()
 
 
-# Main
 if __name__ == "__main__":
     window = Platformer()
     window.setup()
