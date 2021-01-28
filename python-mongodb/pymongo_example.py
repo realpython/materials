@@ -2,53 +2,53 @@ import pprint
 
 from pymongo import MongoClient
 
-# Establishing a Connection
+# Establish a connection
 client = MongoClient("localhost", 27017)
 
-# Accessing Databases
-db = client.rpblog
+# Access the database
+db = client.rptutorials
 
-# Accessing Collections
-post = db.post
+# Access a collection
+tutorial = db.tutorial
 
-# Inserting a Single Document
-post1 = {
+# Insert a single document
+tutorial1 = {
     "title": "Working With JSON Data in Python",
     "author": "Lucas",
     "contributors": ["Aldren", "Dan", "Joanna"],
     "url": "https://realpython.com/python-json/",
 }
-result = post.insert_one(post1)
-print(f"One post: {result.inserted_id}")
+result = tutorial.insert_one(tutorial1)
+print(f"One tutorial: {result.inserted_id}")
 
-# Inserting Several Documents
-post2 = {
+# Insert several documents
+tutorial2 = {
     "title": "Python’s Requests Library (Guide)",
     "author": "Alex",
     "contributors": ["Aldren", "Brad", "Joanna"],
     "url": "https://realpython.com/python-requests/",
 }
 
-post3 = {
+tutorial3 = {
     "title": "Object-Oriented Programming (OOP) in Python 3",
     "author": "David",
     "contributors": ["Aldren", "Joanna", "Jacob"],
     "url": "https://realpython.com/python3-object-oriented-programming/",
 }
 
-new_result = post.insert_many([post2, post3])
-print(f"Multiple posts: {new_result.inserted_ids}")
+new_result = tutorial.insert_many([tutorial2, tutorial3])
+print(f"Multiple tutorials: {new_result.inserted_ids}")
 
-# Retrieving All Documents
-for doc in post.find():
+# Retrieve all documents
+for doc in tutorial.find():
     pprint.pprint(doc)
 
-# Retrieving a Single Document
-jon_post = post.find_one({"author": "Jon"})
-pprint.pprint(jon_post)
+# Retrieve a single document
+jon_tutorial = tutorial.find_one({"author": "Jon"})
+pprint.pprint(jon_tutorial)
 
-# Closing a Connection
+# Close a connection
 with MongoClient() as client:
-    db = client.rpblog
-    for doc in db.post.find():
+    db = client.rptutorials
+    for doc in db.tutorial.find():
         pprint.pprint(doc)
