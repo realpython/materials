@@ -74,6 +74,7 @@ def create(person):
     :param person:  person to create in people structure
     :return:        201 on success, 406 on person exists
     """
+    global PEOPLE
     lname = person.get("lname", None)
     fname = person.get("fname", None)
 
