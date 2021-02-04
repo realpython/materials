@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+
+
+{% block content %}
+<div class="jumbotron">
+  <h1 class="display-4">404</h1>
+  <p class="lead">
+    Sorry, you've reached a page this site doesn't know about.
+  </p>
+  <a class="btn btn-primary btn-lg" href="{{url_for('artists_bp.artists')}}">Home Page</a>
+</div>
+{% endblock %}
