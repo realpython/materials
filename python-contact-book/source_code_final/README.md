@@ -10,7 +10,7 @@ To run **RP Contacts**, you need to download the sorce code. Then open a termina
 
 ```sh
 $ cd rpcontacts/
-$ python3 -m venv ./venv
+$ python -m venv ./venv
 $ source venv/bin/activate
 (venv) $
 ```
@@ -18,24 +18,16 @@ $ source venv/bin/activate
 2. Install the dependencies
 
 ```sh
-(venv) $ pip install -r requirements.txt
+(venv) $ python -m pip install -r requirements.txt
 ```
 
 3. Run the application
 
 ```sh
-(venv) $ python3 rpcontacts.py
+(venv) $ python rpcontacts.py
 ```
 
-**Note:** This application was built using Python 3.8.5 and PyQt 5.15.1.
-
-## Sample Data
-
-If you want to add some sample data to **RP Contacts** to test the application, then run the following command:
-
-```sh
-(venv) $ python3 sample_data.py
-```
+**Note:** This application was coded and tested using Python 3.8.5 and PyQt 5.15.2.
 
 ## Release History
 
