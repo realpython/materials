@@ -11,7 +11,7 @@ from .views import Window
 
 
 def main():
-    """RP Contacts' main function."""
+    """RP Contacts main function."""
     # Create the application
     app = QApplication(sys.argv)
     # Connect to the database before creating any window

@@ -144,7 +144,7 @@ class AddDialog(QDialog):
                     "Error!",
                     f"You must provide a contact's {field.objectName()}",
                 )
-                # self.data = None
+                self.data = None  # Reset .data
                 return
 
             self.data.append(field.text())
