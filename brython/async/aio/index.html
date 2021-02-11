@@ -1,0 +1,44 @@
+<!DOCTYPE html >
+<html>
+  <head>
+    <meta charset="utf-8"/>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/pure/2.0.3/pure-min.min.css"
+      integrity="sha256-jYujp4Kf07YDuUF9i1MHo4AnpXUKuHxIUXH7CrHxdKw="
+      crossorigin="anonymous" />
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/brython/3.8.9/brython.min.js" defer>
+    </script>
+      <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/brython/3.8.9/brython_stdlib.min.js" defer>
+    </script>
+    <script src="main.py" type="text/python" defer></script>
+    <style>
+      body { padding: 30px; }
+      aside {
+        background: lightyellow;
+        margin: 1em 0;
+        padding: .3em 1em;
+        border-radius: 3px;
+        border: 1px solid gray;
+        color: gray;
+      }
+    </style>
+  </head>
+  <body onload="brython(1)">
+    <h2>Aio Requests</h2>
+    <aside><p>Demonstrate the usage of GET using <tt>browser.aio</tt>.
+      You need to start a server for this example to work.
+      You can start the Python development web server with the following command:
+      <tt>python3 -m http.server</tt>.
+    </p></aside>
+    <form class="pure-form" onsubmit="return false;">
+      <legend>Actions</legend>
+      <button id="get-btn" class="pure-button pure-button-primary">Async Get</button>
+      <legend>Logs</legend>
+      <textarea id="log" name="log" rows="20" cols="60"></textarea>
+    </form>
+  </body>
+
+</html>

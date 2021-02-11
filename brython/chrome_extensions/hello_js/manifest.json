@@ -1,0 +1,10 @@
+{
+    "name": "JS Hello World",
+    "version": "1.0",
+    "description": "Hello World Chrome Extension in JavaScript",
+    "manifest_version": 2,
+    "browser_action": {
+        "default_popup": "popup.html"
+    },
+    "permissions": ["declarativeContent", "storage", "activeTab"]
+}
