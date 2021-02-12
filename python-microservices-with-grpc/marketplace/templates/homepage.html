@@ -1,0 +1,13 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Online Books For You</title>
+</head>
+<body>
+    <h1>Mystery books you may like</h1>
+    <ul>
+    {% for book in recommendations %}
+        <li>{{ book.title }}</li>
+    {% endfor %}
+    </ul>
+</body>

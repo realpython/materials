@@ -1,0 +1,20 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <script
+        src="https://cdnjs.cloudflare.com/ajax/libs/brython/3.9.0/brython.js">
+    </script>
+    <script type="text/javascript">
+      function myMessageBox(name) {
+        window.alert(`Hello ${name}!`);
+      }
+    </script>
+  </head>
+  <body onload="brython()">
+    <script type="text/python">
+      from browser import window
+      window.myMessageBox("Jon")
+    </script>
+  </body>
+</html>
