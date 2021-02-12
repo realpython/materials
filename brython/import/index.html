@@ -1,0 +1,21 @@
+<!doctype html>
+<html>
+    <head>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/brython/3.8.9/brython.min.js" async></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/brython/3.8.9/brython_stdlib.min.js" async></script>
+    </head>
+    <body onload="brython()">
+
+        <script type="text/python">
+            from browser import document, html, window
+            import sys
+            import functional
+
+            selection = functional.take(10, range(10000))
+            numbers = ', '.join([str(x) for x in selection])
+
+            document <= html.P(f"{sys.version=}")
+            document <= html.P(f"{numbers=}")
+        </script>
+    </body>
+</html>
