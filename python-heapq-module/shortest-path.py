@@ -13,13 +13,13 @@ map = """\
 def parse_map(map):
     lines = map.splitlines()
     origin = 0, 0
-    destination = len(lines[0]) - 1, len(lines) - 1
+    destination = len(lines[-1]) - 1, len(lines) - 1
     return lines, origin, destination
 
 
 def is_valid(lines, position):
     x, y = position
-    if not (0 <= x < len(lines[0]) and 0 <= y < len(lines)):
+    if not (0 <= y < len(lines) and 0 <= x < len(lines[y])):
         return False
     if lines[y][x] == "X":
         return False
@@ -49,20 +49,21 @@ def find_path(map):
     lines, origin, destination = parse_map(map)
     tentative = {origin: []}
     candidates = [(0, origin)]
-    known = set()
-    while destination not in known:
-        if not candidates:
-            raise ValueError("no path")
+    certain = set()
+    while destination not in certain and len(candidates) > 0:
         _ignored, current = heapq.heappop(candidates)
-        if current in known:
+        if current in certain:
             continue
-        neighbors = set(get_neighbors(lines, current)) - known
-        relevant_neighbors = get_shorter_paths(tentative, neighbors, current)
-        for neighbor, path in relevant_neighbors:
+        certain.add(current)
+        neighbors = set(get_neighbors(lines, current)) - certain
+        shorter = get_shorter_paths(tentative, neighbors, current)
+        for neighbor, path in shorter:
             tentative[neighbor] = path
             heapq.heappush(candidates, (len(path), neighbor))
-        known.add(current)
-    return tentative[destination] + [destination]
+    if destination in tentative:
+        return tentative[destination] + [destination]
+    else:
+        raise ValueError("no path")
 
 
 def show_path(path, map):
