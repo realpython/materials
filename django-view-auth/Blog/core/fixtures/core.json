@@ -1,0 +1,1 @@
+[{"model": "core.blog", "pk": 1, "fields": {"title": "Fruit", "content": "<p> Turns out, you can compare them: </p>\r\n\r\n<ul>\r\n   <li>Apple</li>\r\n   <li>Orange</li>\r\n</ul>"}}, {"model": "core.blog", "pk": 2, "fields": {"title": "I like airplanes", "content": "I prefer them to be very <i>fast</i>. I wish the Concorde still existed."}}]
