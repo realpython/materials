@@ -70,8 +70,8 @@ class Deck(Sequence[Card]):
     def __getitem__(self, key: int) -> Card:
         ...
 
-    @overload  # noqa
-    def __getitem__(self, key: slice) -> "Deck":
+    @overload
+    def __getitem__(self, key: slice) -> "Deck":  # noqa
         ...
 
     def __getitem__(  # noqa

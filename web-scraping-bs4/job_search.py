@@ -12,10 +12,12 @@ def scrape_jobs(location=None):
     :rtype: BeautifulSoup object
     """
     if location:
-        URL = f"https://www.monster.com/jobs/search/\
-                ?q=Software-Developer&where={location}"
+        URL = (
+            f"https://www.monster.com/jobs/search/"
+            f"?q=Software-Developer&where={location}"
+        )
     else:
-        URL = f"https://www.monster.com/jobs/search/?q=Software-Developer"
+        URL = "https://www.monster.com/jobs/search/?q=Software-Developer"
     page = requests.get(URL)
 
     soup = BeautifulSoup(page.content, "html.parser")

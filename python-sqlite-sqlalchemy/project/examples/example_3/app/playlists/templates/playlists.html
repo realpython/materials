@@ -1,0 +1,61 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container-fluid">
+  <div class="m-4">
+    {# display just the playlists #}
+    {% if playlists|length > 1 %}
+    <table class="table table-striped table-bordered table-hover table-sm">
+      <caption>Playlists</caption>
+      <thead>
+        <tr>
+          <th>Playlist Name</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for playlist in playlists %}
+        <tr>
+          <td>
+            <a href="{{url_for('playlists_bp.playlists', playlist_id=playlist.playlist_id)}}">
+              {{ playlist.name }}
+            </a>
+          </td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+    {# display the playlist name and the tracks #}
+    {% else %}
+    {% set playlist = playlists[0] %}
+    {% set tracks = playlist.tracks %}
+    <div class="card" style="width: 18rem;">
+      <div class="card-header">Playlist Tracks</div>
+      <div class="card-body">
+        <p class="card-text">Playlist Name:&nbsp;{{ playlist.name }}</p>
+      </div>
+    </div>
+    <table class="table table-striped table-bordered table-hover table-sm">
+      <caption>Playlist Tracks</caption>
+      <thead>
+        <tr>
+          <th>Track Name</th>
+          <th class="text-center">Media Type</th>
+          <th class="text-center">Genre</th>
+          <th class="text-center">Unit Price</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for track in tracks %}
+        <tr>
+          <td>{{ track.name }}</td>
+          <td class="text-center">{{ track.media_type.name }}</td>
+          <td class="text-center">{{ track.genre.name }}</td>
+          <td class="text-right">{{ track.unit_price }}</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+    {% endif %}
+  </div>
+</div>
+{% endblock %}
