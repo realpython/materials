@@ -27,14 +27,14 @@ class _TreeGenerator:
 
     def build_tree(self):
         self._tree_head()
-        self._tree_tail(self._root_dir)
+        self._tree_body(self._root_dir)
         return self._tree
 
     def _tree_head(self):
         self._tree.append(f"{self._root_dir}{os.sep}")
         self._tree.append(PIPE)
 
-    def _tree_tail(self, directory, prefix=""):
+    def _tree_body(self, directory, prefix=""):
         entries = directory.iterdir()
         entries = sorted(entries, key=lambda entry: entry.is_file())
         entries_count = len(entries)
@@ -55,7 +55,7 @@ class _TreeGenerator:
             prefix += PIPE_PREFIX
         else:
             prefix += SPACE_PREFIX
-        self._tree_tail(
+        self._tree_body(
             directory=directory,
             prefix=prefix,
         )
