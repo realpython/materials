@@ -9,7 +9,7 @@ To run **RP Tree**, you need to download the source code. Then open a terminal o
 1. Create and activate a Python virtual environment
 
 ```sh
-$ cd rptree/
+$ cd rptree_project/
 $ python -m venv ./venv
 $ source venv/bin/activate
 (venv) $
@@ -22,6 +22,27 @@ $ source venv/bin/activate
 ```
 
 **Note:** The `-h` or `--help` option provides help on how to use RP Tree.
+
+To take a quick test on **RP Tree**, you can use the sample `home/` directory provided along with the application's code and run the following command:
+
+```sh
+(venv) $ python tree.py ../hello/
+../hello/
+│
+├── hello/
+│   ├── __init__.py
+│   └── hello.py
+│
+├── tests/
+│   └── test_hello.py
+│
+├── requirements.txt
+├── setup.py
+├── README.md
+└── LICENSE
+```
+
+That's it! You've generated a nice directory tree diagram.
 
 ## Current Features
 
