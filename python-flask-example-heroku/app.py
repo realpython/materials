@@ -2,9 +2,11 @@ import os
 from flask import Flask
 
 app = Flask(__name__)
-app.config.from_object(os.getenv("APP_SETTINGS", "config.DevelopmentConfig"))
+env_config = os.getenv("APP_SETTINGS", "config.DevelopmentConfig")
+app.config.from_object(env_config)
 
 
 @app.route("/")
 def index():
-    return f"The configured secret key is {app.config.get('SECRET_KEY')}"
+    secret_key = app.config.get("SECRET_KEY")
+    return f"The configured secret key is {secret_key}."

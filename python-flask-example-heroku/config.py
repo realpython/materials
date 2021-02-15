@@ -1,21 +1,20 @@
 import os
 
 
-class Config(object):
+class Config:
     DEBUG = False
-    TESTING = False
-    SECRET_KEY = os.getenv("SECRET_KEY", "this-is-read-from-env")
+    DEVELOPMENT = False
+    SECRET_KEY = os.getenv("SECRET_KEY", "this-is-the-default-key")
 
 
 class ProductionConfig(Config):
-    DEBUG = False
+    pass
 
 
 class StagingConfig(Config):
-    DEVELOPMENT = True
     DEBUG = True
 
 
 class DevelopmentConfig(Config):
-    DEVELOPMENT = True
     DEBUG = True
+    DEVELOPMENT = True
