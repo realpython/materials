@@ -4,7 +4,7 @@
 
 ## Running the Application
 
-To run **RP Contacts**, you need to download the sorce code. Then open a terminal or command-line window and run the following steps:
+To run **RP Contacts**, you need to download the source code. Then open a terminal or command-line window and run the following steps:
 
 1. Create and activate a Python virtual environment
 
