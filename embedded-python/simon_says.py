@@ -1,4 +1,4 @@
-from microbit import * # noqa
+from microbit import display, Image, accelerometer, sleep
 from random import randrange
 
 # Define left, stay still and right
@@ -23,12 +23,12 @@ while True:
     elif acc_x > 200:
         user_in = "R"
 
-        # Check win condition
-        if user_in == direction:
-            # User input correctly
-            points += 1
-        else:
-            display.scroll(points)
-            display.show(Image.SAD)
-            points = 0
-            sleep(1000)
+    # Check win condition
+    if user_in == direction:
+        # User input correctly
+        points += 1
+    else:
+        display.scroll(points)
+        display.show(Image.SAD)
+        points = 0
+        sleep(1000)
