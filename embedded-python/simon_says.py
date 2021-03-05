@@ -1,4 +1,4 @@
-from microbit import *
+from microbit import * # noqa
 from random import randrange
 
 # Define left, stay still and right
