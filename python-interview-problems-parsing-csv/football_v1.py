@@ -18,5 +18,4 @@
     smallest difference in "for" and "against" goals.  Create unit tests with
     Pytest to test your program.
 """
-import csv
-
+# import csv
