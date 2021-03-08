@@ -45,7 +45,7 @@ class LinkedList:
         current_node.next = node
 
     def add_after(self, target_node_data, new_node):
-        if not self.head:
+        if self.head is None:
             raise Exception("List is empty")
 
         for node in self:
@@ -57,7 +57,7 @@ class LinkedList:
         raise Exception("Node with data '%s' not found" % target_node_data)
 
     def add_before(self, target_node_data, new_node):
-        if not self.head:
+        if self.head is None:
             raise Exception("List is empty")
 
         if self.head.data == target_node_data:
@@ -74,7 +74,7 @@ class LinkedList:
         raise Exception("Node with data '%s' not found" % target_node_data)
 
     def remove_node(self, target_node_data):
-        if not self.head:
+        if self.head is None:
             raise Exception("List is empty")
 
         if self.head.data == target_node_data:
