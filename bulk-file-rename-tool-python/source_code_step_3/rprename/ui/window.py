@@ -102,6 +102,8 @@ class Ui_Window(object):
         self.label_2.setText(_translate("Window", "Files to Rename"))
         self.label_3.setText(_translate("Window", "Renamed Files"))
         self.label_4.setText(_translate("Window", "Filename Prefix:"))
-        self.prefixEdit.setPlaceholderText(_translate("Window", "Rename your files to..."))
+        self.prefixEdit.setPlaceholderText(
+            _translate("Window", "Rename your files to...")
+        )
         self.extensionLabel.setText(_translate("Window", "*.jpg"))
         self.renameFilesButton.setText(_translate("Window", "&Rename"))
