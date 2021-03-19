@@ -17,15 +17,15 @@ while True:
     acc_x = accelerometer.get_x()
     # Determine direction
     if acc_x < -200:
-        user_in = "L"
+        player_in = "L"
     elif abs(acc_x) < 200:
-        user_in = "O"
+        player_in = "O"
     elif acc_x > 200:
-        user_in = "R"
+        player_in = "R"
 
     # Check win condition
-    if user_in == direction:
-        # User input correctly
+    if player_in == direction:
+        # Player input correctly
         points += 1
     else:
         display.scroll(points)
