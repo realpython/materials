@@ -1,6 +1,6 @@
 # Arcade Platformer
 
-Built to support the Arcade Platfomer article at https://realpython.com
+Built to support the Arcade Platfomer article at https://realpython.com/platformer-python-arcade/
 
 Assets downloaded from:
 
