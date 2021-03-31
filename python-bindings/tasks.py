@@ -11,6 +11,7 @@ import re
 import glob
 
 on_win = sys.platform.startswith("win")
+python_minor_version = sys.version.split('.')[1]
 
 
 @invoke.task
@@ -57,7 +58,7 @@ def build_cmult(c, path=None):
             c.run(path)
     else:
         print_banner("Building C Library")
-        cmd = "gcc -c -Wall -Werror -fpic cmult.c -I /usr/include/python3.7"
+        cmd = f"gcc -c -Wall -Werror -fpic cmult.c -I /usr/include/python3.{python_minor_version}"
         invoke.run(cmd)
         invoke.run("gcc -shared -o libcmult.so cmult.o")
         print("* Complete")
@@ -129,10 +130,10 @@ def compile_python_module(cpp_name, extension_name):
     invoke.run(
         "g++ -O3 -Wall -Werror -shared -std=c++11 -fPIC "
         "`python3 -m pybind11 --includes` "
-        "-I /usr/include/python3.7 -I .  "
+        "-I /usr/include/python3.{2} -I .  "
         "{0} "
-        "-o {1}`python3.7-config --extension-suffix` "
-        "-L. -lcppmult -Wl,-rpath,.".format(cpp_name, extension_name)
+        "-o {1}`python3.{2}-config --extension-suffix` "
+        "-L. -lcppmult -Wl,-rpath,.".format(cpp_name, extension_name, python_minor_version)
     )
 
 
