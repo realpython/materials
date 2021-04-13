@@ -10,8 +10,9 @@ results = soup.find(id="ResultsContainer")
 
 # Look for Python jobs
 print("PYTHON JOBS\n==============================\n")
-python_jobs = results.find_all("h2",
-                               string=lambda text: "python" in text.lower())
+python_jobs = results.find_all(
+    "h2", string=lambda text: "python" in text.lower()
+)
 python_job_elems = [h2_elem.parent.parent.parent for h2_elem in python_jobs]
 for p_job in python_job_elems:
     title_elem = p_job.find("h2", class_="title")
