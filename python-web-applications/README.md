@@ -1,6 +1,6 @@
 # Python Web Applications: Deploy Your Script as a Flask App
 
-Code snippets supplementing the [Python Web Applications: Deploy Your Script as a Flask App](https://realpython.com/python-web-applications-update/) tutorial.
+Code snippets supplementing the [Python Web Applications: Deploy Your Script as a Flask App](https://realpython.com/python-web-applications/) tutorial.
 
 ## Running Locally
 
