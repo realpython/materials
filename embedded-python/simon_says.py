@@ -25,7 +25,7 @@ while True:
 
     # Check win condition
     if player_in == direction:
-        # Player input correctly
+        # Player's input is correct
         points += 1
     else:
         display.scroll(points)
