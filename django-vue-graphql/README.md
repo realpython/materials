@@ -1,10 +1,10 @@
 # Build a Blog Using Django, Vue, and GraphQL
 
-## Starting the backend Django application
+## Starting the back-end Django application
 
 In a new terminal tab:
 
-1. Install the backend requirements in the environment of your choice:
+1. Install the back-end requirements in the environment of your choice:
   ```shell
   $ cd /path/to/repo/tutorial-drafts/articles/django-vue-graphql/source_code/backend/
   $ python3 -m pip install -r requirements.txt
@@ -22,11 +22,11 @@ In a new terminal tab:
   $ python manage.py runserver
   ```
 
-## Starting the frontend Vue application
+## Starting the front-end Vue application
 
 In a new terminal tab:
 
-1. Install the frontend requirements:
+1. Install the front-end requirements:
   ```shell
   $ cd /path/to/repo/tutorial-drafts/articles/django-vue-graphql/source_code/frontend/
   $ npm install
@@ -51,5 +51,5 @@ In a new terminal tab:
 ## Try the GraphQL API yourself
 
 1. Visit [the GraphiQL interface](https://localhost:8000/graphql)
-1. View the **Docs** panel on the top right
+1. View the *Docs* panel on the top right
 1. Create some queries&mdash;the available information should auto-populate!
