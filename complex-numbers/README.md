@@ -5,14 +5,14 @@
 Create and activate a virtual environment:
 
 ```shell
-$ python -m venv venv
+$ python -m venv ./venv
 $ source venv/bin/activate
 ```
 
 Install dependencies into your active environment:
 
 ```python
-(venv)$ python -m pip install -U pip jupyterlab ipywidgets matplotlib pillow
+(venv)$ python -m pip install -U pip jupyterlab ipywidgets matplotlib
 (venv)$ python -m jupyter labextension install @jupyter-widgets/jupyterlab-manager
 ```
 
