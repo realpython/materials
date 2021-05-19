@@ -15,7 +15,7 @@ $ git clone git@github.com:realpython/materials.git
 Create a new local Git repository:
 
 ```shell
-$ cd materials/django-hosting-heroku
+$ cd materials/django-hosting-heroku/source_code_final/portfolio-project
 $ git init
 $ git add .
 $ git commit -m "Initial commit"
