@@ -1,0 +1,6 @@
+# Python
+.python-version
+*.pyc
+
+# SQLite
+db.sqlite3
