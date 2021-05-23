@@ -1,6 +1,7 @@
 from datetime import datetime
 from config import db, ma
-from marshmallow import Schema, fields, validates_schema, ValidationError, EXCLUDE
+from marshmallow import fields, EXCLUDE
+
 
 class Person(db.Model):
     __tablename__ = "person"
