@@ -44,7 +44,7 @@ def read_one(person_id):
 
         # Serialize the data for the response
         person_schema = PersonSchema()
-        data = person_schema.dump(person).data
+        data = person_schema.dump(person)
         return data
 
     # Otherwise, nope, didn't find that person
@@ -108,7 +108,7 @@ def update(person_id, person):
 
         # turn the passed in person into a db object
         schema = PersonSchema()
-        update = schema.load(person, session=db.session).data
+        update = schema.load(person, session=db.session)
 
         # Set the id to the person we want to update
         update.person_id = update_person.person_id
@@ -118,7 +118,7 @@ def update(person_id, person):
         db.session.commit()
 
         # return updated person in the response
-        data = schema.dump(update_person).data
+        data = schema.dump(update_person)
 
         return data, 200
 
