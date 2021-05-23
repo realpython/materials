@@ -1,7 +1,6 @@
 from datetime import datetime
 from config import db, ma
-from marshmallow import fields
-
+from marshmallow import Schema, fields, validates_schema, ValidationError, EXCLUDE
 
 class Person(db.Model):
     __tablename__ = "person"
@@ -38,6 +37,7 @@ class PersonSchema(ma.SQLAlchemyAutoSchema):
         model = Person
         sqla_session = db.session
         load_instance = True
+        unknown = EXCLUDE
 
     notes = fields.Nested("PersonNoteSchema", default=[], many=True)
 
@@ -64,6 +64,7 @@ class NoteSchema(ma.SQLAlchemyAutoSchema):
         model = Note
         sqla_session = db.session
         load_instance = True
+        unknown = EXCLUDE
 
     person = fields.Nested("NotePersonSchema", default=None)
 
