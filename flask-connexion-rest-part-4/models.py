@@ -30,24 +30,25 @@ class Note(db.Model):
     )
 
 
-class PersonSchema(ma.ModelSchema):
+class PersonSchema(ma.SQLAlchemyAutoSchema):
     def __init__(self, **kwargs):
-        super().__init__(strict=True, **kwargs)
+        super().__init__(**kwargs)
 
     class Meta:
         model = Person
         sqla_session = db.session
+        load_instance = True
 
     notes = fields.Nested("PersonNoteSchema", default=[], many=True)
 
 
-class PersonNoteSchema(ma.ModelSchema):
+class PersonNoteSchema(ma.SQLAlchemyAutoSchema):
     """
     This class exists to get around a recursion issue
     """
 
     def __init__(self, **kwargs):
-        super().__init__(strict=True, **kwargs)
+        super().__init__(**kwargs)
 
     note_id = fields.Int()
     person_id = fields.Int()
@@ -55,24 +56,25 @@ class PersonNoteSchema(ma.ModelSchema):
     timestamp = fields.Str()
 
 
-class NoteSchema(ma.ModelSchema):
+class NoteSchema(ma.SQLAlchemyAutoSchema):
     def __init__(self, **kwargs):
-        super().__init__(strict=True, **kwargs)
+        super().__init__(**kwargs)
 
     class Meta:
         model = Note
         sqla_session = db.session
+        load_instance = True
 
     person = fields.Nested("NotePersonSchema", default=None)
 
 
-class NotePersonSchema(ma.ModelSchema):
+class NotePersonSchema(ma.SQLAlchemyAutoSchema):
     """
     This class exists to get around a recursion issue
     """
 
     def __init__(self, **kwargs):
-        super().__init__(strict=True, **kwargs)
+        super().__init__(**kwargs)
 
     person_id = fields.Int()
     lname = fields.Str()
