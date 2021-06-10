@@ -1,0 +1,28 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>My Diary</title>
+    <link rel="stylesheet" href="{% static 'css/diary.css' %}">
+</head>
+
+<body>
+    <h1><a href="/">Dear diary …</a></h1>
+
+    {% if messages %}
+	    <ul class="messages">
+	    {% for message in messages %}
+	        <li class="message">
+	            {{ message }}
+	        </li>
+	    {% endfor %}
+	    </ul>
+	{% endif %}
+
+    {% block content %}{% endblock %}
+
+</body>
+
+</html>
