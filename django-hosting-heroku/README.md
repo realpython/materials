@@ -1,4 +1,4 @@
-# Hosting a Django Project on Herok
+# Hosting a Django Project on Heroku
 
 This is a companion project to a Real Python tutorial about [Hosting a Django Project on Heroku](https://realpython.com/django-hosting-on-heroku/). It's a bare-bones Django project without any views.
 
@@ -35,9 +35,10 @@ Optionally, for local development:
 
 ```shell
 $ python3 -m venv ./venv --prompt portfolio
-$ source .venv/bin/activate
+$ source venv/bin/activate
 (portfolio) $ python -m pip install -r requirements.txt
-(portfolio) $ heroku config -s > .env
+(portfolio) $ python -m pip install --upgrade pip
+(portfolio) $ heroku config --shell > .env
 (portfolio) $ heroku local
 ```
 
