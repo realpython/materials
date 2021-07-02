@@ -12,7 +12,7 @@ tw_client = Client(ACCOUNT_SID, AUTH_TOKEN)
 
 
 def send(payload_params=None):
-    """ send sms to the specified number """
+    """send sms to the specified number"""
     msg = tw_client.messages.create(
         from_=FROM_NUMBER, body=payload_params["msg"], to=TO_NUMBER
     )

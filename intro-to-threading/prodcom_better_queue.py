@@ -18,7 +18,7 @@ def producer(queue, event):
 
 
 def consumer(queue, event):
-    """ Pretend we're saving a number in the database. """
+    """Pretend we're saving a number in the database."""
     while not event.is_set() or not pipeline.empty():
         message = queue.get()
         logging.info(
