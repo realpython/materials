@@ -1,6 +1,6 @@
 # How to Host Your Django Project on Heroku
 
-This is a companion project to a tutorial on Real Python. It's a bare-bones Django project without any views.
+This is a companion project to a Real Python tutorial about [Hosting a Django Project on Heroku](https://realpython.com/django-hosting-on-heroku/). It's a bare-bones Django project without any views.
 
 ## Instructions
 
@@ -26,7 +26,7 @@ Deploy the code to Heroku:
 ```shell
 $ heroku login
 $ heroku create
-$ heroku config:set DEBUG=True SECRET_KEY=$(date | base64)
+$ heroku config:set DEBUG=True SECRET_KEY=$(head -c 32 /dev/urandom | base64)
 $ git push heroku master
 $ heroku open
 ```
@@ -34,11 +34,11 @@ $ heroku open
 Optionally, for local development:
 
 ```shell
-$ python3 -m venv .venv
+$ python3 -m venv ./venv --prompt portfolio
 $ source .venv/bin/activate
-$ python3 -m pip install -r requirements.txt
-$ heroku config -s > .env
-$ heroku local
+(portfolio) $ python -m pip install -r requirements.txt
+(portfolio) $ heroku config -s > .env
+(portfolio) $ heroku local
 ```
 
 Navigate your web browser to <http://0.0.0.0:5000/>
