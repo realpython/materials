@@ -9,7 +9,7 @@ You should follow the step-by-step instructions in the tutorial to deploy this p
 Download the code by cloning the `materials` repository:
 
 ```shell
-$ git clone git@github.com:realpython/materials.git
+$ git clone https://github.com/realpython/materials.git
 ```
 
 Create a new local Git repository:
