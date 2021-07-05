@@ -43,3 +43,10 @@ $ source venv/bin/activate
 ```
 
 Navigate your web browser to <http://0.0.0.0:5000/>
+
+**Note:** If you're on a Mac, then you may run into issues with the `heroku local` command above. To mitigate it, try commenting out the line with your `DATABASE_URL` variable from the `.env` file. Alternatively, you can uninstall the `psycopg2` driver and install its binary counterpart:
+
+```console
+$ pip uninstall psycopg2
+$ pip install psycopg2-binary
+```
