@@ -32,7 +32,7 @@ class Operator:
     """
 
     def __init__(self, operator_string):
-        """ Create a new operator object. """
+        """Create a new operator object."""
 
         # String to hold the operator
         self._op_string = operator_string
