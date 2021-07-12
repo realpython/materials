@@ -1,5 +1,5 @@
 import graphene
-from django.contrib.auth.models import User
+from django.contrib.auth import get_user_model
 from graphene_django import DjangoObjectType
 
 from blog import models
@@ -7,7 +7,7 @@ from blog import models
 
 class UserType(DjangoObjectType):
     class Meta:
-        model = User
+        model = get_user_model()
 
 
 class AuthorType(DjangoObjectType):
