@@ -17,15 +17,15 @@ on_win = sys.platform.startswith("win")
 def clean(c):
     """Remove any built objects"""
     for file_pattern in (
-        "*.o",
-        "*.so",
-        "*.obj",
-        "*.dll",
-        "*.exp",
-        "*.lib",
-        "*.pyd",
-        "cffi_example*",  # Is this a dir?
-        "cython_wrapper.cpp",
+            "*.o",
+            "*.so",
+            "*.obj",
+            "*.dll",
+            "*.exp",
+            "*.lib",
+            "*.pyd",
+            "cffi_example*",  # Is this a dir?
+            "cython_wrapper.cpp",
     ):
         for file in glob.glob(file_pattern):
             os.remove(file)
@@ -64,14 +64,25 @@ def build_cmult(c, path=None):
 
 
 @invoke.task()
-def test_ctypes(c):
+def test_ctypes_c(c):
     """Run the script to test ctypes"""
-    print_banner("Testing ctypes Module")
+    print_banner("Testing ctypes Module for C")
     # pty and python3 didn't work for me (win).
     if on_win:
-        invoke.run("python ctypes_test.py")
+        invoke.run("python ctypes_c_test.py")
     else:
-        invoke.run("python3 ctypes_test.py", pty=True)
+        invoke.run("python3 ctypes_c_test.py", pty=True)
+
+
+@invoke.task()
+def test_ctypes_cpp(c):
+    """Run the script to test ctypes"""
+    print_banner("Testing ctypes Module for C++")
+    # pty and python3 didn't work for me (win).
+    if on_win:
+        invoke.run("python ctypes_cpp_test.py")
+    else:
+        invoke.run("python3 ctypes_cpp_test.py", pty=True)
 
 
 @invoke.task()
@@ -173,7 +184,9 @@ def test_cython(c):
 @invoke.task(
     clean,
     build_cmult,
-    test_ctypes,
+    build_cppmult,
+    test_ctypes_c,
+    test_ctypes_cpp,
     build_cffi,
     test_cffi,
     build_pybind11,
