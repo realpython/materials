@@ -17,15 +17,15 @@ on_win = sys.platform.startswith("win")
 def clean(c):
     """Remove any built objects"""
     for file_pattern in (
-            "*.o",
-            "*.so",
-            "*.obj",
-            "*.dll",
-            "*.exp",
-            "*.lib",
-            "*.pyd",
-            "cffi_example*",  # Is this a dir?
-            "cython_wrapper.cpp",
+        "*.o",
+        "*.so",
+        "*.obj",
+        "*.dll",
+        "*.exp",
+        "*.lib",
+        "*.pyd",
+        "cffi_example*",  # Is this a dir?
+        "cython_wrapper.cpp",
     ):
         for file in glob.glob(file_pattern):
             os.remove(file)
@@ -64,7 +64,7 @@ def build_cmult(c, path=None):
 
 
 @invoke.task()
-def test_ctypes_c(c):
+def test_ctypes(c):
     """Run the script to test ctypes"""
     print_banner("Testing ctypes Module for C")
     # pty and python3 didn't work for me (win).
@@ -185,7 +185,7 @@ def test_cython(c):
     clean,
     build_cmult,
     build_cppmult,
-    test_ctypes_c,
+    test_ctypes,
     test_ctypes_cpp,
     build_cffi,
     test_cffi,
