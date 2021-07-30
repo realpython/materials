@@ -6,7 +6,7 @@ import pathlib
 
 if __name__ == "__main__":
     libname = pathlib.Path().absolute()
-    print('libname: ', libname)
+    print("libname: ", libname)
 
     # Load the shared library into c types.
     if sys.platform.startswith("win"):
