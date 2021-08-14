@@ -8,7 +8,7 @@ if __name__ == "__main__":
     if sys.platform.startswith("win"):
         c_lib = ctypes.CDLL("cmult.dll")
     else:
-        c_lib = ctypes.CDLL("libcmult.so")
+        c_lib = ctypes.CDLL("./libcmult.so")
 
     # Sample data for our call:
     x, y = 6, 2.3
