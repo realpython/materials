@@ -1,6 +1,6 @@
 # Python Interview Problems – Parsing CSV Files
 
-Corresponding code for ["Python Interview Problems – Parsing CSV Files."](https://realpython.com/python-interview-problems-parsing-csv-python-files/)
+Corresponding code for ["Python Interview Problems – Parsing CSV Files."](https://realpython.com/python-interview-problem-parsing-csv-files)
 
 The `skeleton_code` directory contains pytest fixtures and module files to get you set up to run pytest. There are no tests in the files, which pytest tells you when you run it:
 
