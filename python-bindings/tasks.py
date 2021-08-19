@@ -64,7 +64,7 @@ def build_cmult(c, path=None):
 
 
 @invoke.task()
-def test_ctypes():
+def test_ctypes(c):
     """Run the script to test ctypes"""
     print_banner("Testing ctypes Module for C")
     # pty and python3 didn't work for me (win).
@@ -75,7 +75,7 @@ def test_ctypes():
 
 
 @invoke.task()
-def test_ctypes_cpp():
+def test_ctypes_cpp(c):
     """Run the script to test ctypes"""
     print_banner("Testing ctypes Module for C++")
     # pty and python3 didn't work for me (win).
@@ -86,7 +86,7 @@ def test_ctypes_cpp():
 
 
 @invoke.task()
-def build_cffi():
+def build_cffi(c):
     """Build the CFFI Python bindings"""
     print_banner("Building CFFI Module")
     ffi = cffi.FFI()
@@ -119,14 +119,14 @@ def build_cffi():
 
 
 @invoke.task()
-def test_cffi():
+def test_cffi(c):
     """Run the script to test CFFI"""
     print_banner("Testing CFFI Module")
     invoke.run("python cffi_test.py", pty=not on_win)
 
 
 @invoke.task()
-def build_cppmult():
+def build_cppmult(c):
     """Build the shared library for the sample C++ code"""
     print_banner("Building C++ Library")
     invoke.run(
@@ -148,7 +148,7 @@ def compile_python_module(cpp_name, extension_name):
 
 
 @invoke.task(build_cppmult)
-def build_pybind11():
+def build_pybind11(c):
     """Build the pybind11 wrapper library"""
     print_banner("Building PyBind11 Module")
     compile_python_module("pybind11_wrapper.cpp", "pybind11_example")
@@ -156,14 +156,14 @@ def build_pybind11():
 
 
 @invoke.task()
-def test_pybind11():
+def test_pybind11(c):
     """Run the script to test PyBind11"""
     print_banner("Testing PyBind11 Module")
     invoke.run("python3 pybind11_test.py", pty=True)
 
 
 @invoke.task(build_cppmult)
-def build_cython():
+def build_cython(c):
     """Build the cython extension module"""
     print_banner("Building Cython Module")
     # Run cython on the pyx file to create a .cpp file
@@ -175,7 +175,7 @@ def build_cython():
 
 
 @invoke.task()
-def test_cython():
+def test_cython(c):
     """Run the script to test Cython"""
     print_banner("Testing Cython Module")
     invoke.run("python3 cython_test.py", pty=True)
