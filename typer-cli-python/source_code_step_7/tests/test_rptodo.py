@@ -5,6 +5,7 @@ from typer.testing import CliRunner
 
 from rptodo import (
     DB_READ_ERROR,
+    ID_ERROR,
     SUCCESS,
     __app_name__,
     __version__,
