@@ -1,2 +1,2 @@
-black==21.6b0
-flake8==3.9.2 
+PySimpleGUI==4.34.0
+pillow==8.1.0
