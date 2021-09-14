@@ -8,7 +8,9 @@ SENTINEL = object()
 
 
 class Pipeline:
-    """Class to allow a single element pipeline between producer and consumer.
+    """
+    Class to allow a single element pipeline
+    between producer and consumer.
     """
 
     def __init__(self):
@@ -49,7 +51,7 @@ def producer(pipeline):
 
 
 def consumer(pipeline):
-    """ Pretend we're saving a number in the database. """
+    """Pretend we're saving a number in the database."""
     message = 0
     while message is not SENTINEL:
         message = pipeline.get_message("Consumer")

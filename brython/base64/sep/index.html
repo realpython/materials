@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <script
+    src="https://cdnjs.cloudflare.com/ajax/libs/brython/3.9.0/brython.min.js"
+    integrity="sha512-6xoV9qvQHPMnIFWzWrRwuq25qpgJ8FiGKekJ+7Bstb8/4XRC98k2c49IpdUVc5QitMNHKWPcFjFUkDxdIjJ7Nw=="
+    crossorigin="anonymous">
+  </script>
+  <script
+    src="https://cdnjs.cloudflare.com/ajax/libs/brython/3.9.0/brython_stdlib.min.js"
+    integrity="sha512-QbMgbJbXnZv0V/+jpdd68nkyOrYwP/UsJAH/TGQmVHgwwrxI7QNKzRn3dKuG3kG/lVWHx5hYXBISk7zX86TInw=="
+    crossorigin="anonymous">
+  </script>
+    <script src="main.py" type="text/python" defer></script>
+    <style>
+      table { border-collapse: collapse; }
+      table, th, td { border: 1px solid grey; }
+    </style>
+</head>
+
+<body onload="brython(1)">
+  <button id="b64-btn">Base64</button>
+  <br/>
+  <div id="b64-display"></div>
+</body>
+
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html >
+<html>
+  <head>
+    <meta charset="utf-8"/>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/pure/2.0.3/pure-min.min.css"
+      integrity="sha256-jYujp4Kf07YDuUF9i1MHo4AnpXUKuHxIUXH7CrHxdKw="
+      crossorigin="anonymous"
+      defer/>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/vue/3.0.2/vue.global.prod.js"
+      integrity="sha512-M8VjsuCj1iBzrwKloFNjvQBmFXT2oF0MWExoLGpQT2nEx5tq7CP+BhWGJdczT1LoWAhyqHh+LJ6ihHSVGyclHw=="
+      crossorigin="anonymous"
+      defer>
+    </script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/brython/3.9.0/brython.min.js"
+      integrity="sha512-6xoV9qvQHPMnIFWzWrRwuq25qpgJ8FiGKekJ+7Bstb8/4XRC98k2c49IpdUVc5QitMNHKWPcFjFUkDxdIjJ7Nw=="
+      crossorigin="anonymous"
+      defer>
+    </script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/brython/3.9.0/brython_stdlib.min.js"
+      integrity="sha512-QbMgbJbXnZv0V/+jpdd68nkyOrYwP/UsJAH/TGQmVHgwwrxI7QNKzRn3dKuG3kG/lVWHx5hYXBISk7zX86TInw=="
+      crossorigin="anonymous"
+      defer>
+    </script>
+    <script src="main.py" type="text/python" defer></script>
+    <style>
+      body { padding: 30px; }
+      [v-cloak] { visibility: hidden; }
+    </style>
+  </head>
+  <body onload="brython(1)">
+    HI THERE
+    <div id="app">
+      <form class="pure-form" onsubmit="return false;">
+        <fieldset>
+          <legend>Hash Calculator</legend>
+          <input type="text" v-model.trim="input_text" placeholder="Text to Encode" autocomplete="off"/>
+          <select v-model="algo" v-cloak>
+            <option v-for="name in algos" v-bind:value="name">
+              {{ name }}
+            </option>
+          </select>
+          <button @click="compute_hash" type="submit" class="pure-button pure-button-primary">Ok</button>
+        </fieldset>
+      </form>
+      <p v-cloak>{{ hash_value }}</p>
+    </div>
+  </body>
+</html>
