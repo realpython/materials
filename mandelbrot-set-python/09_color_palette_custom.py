@@ -12,7 +12,9 @@ def paint(mandelbrot_set, viewport, palette, smooth):
 
 
 def denormalize(palette):
-    return [tuple(int(channel * 255) for channel in color) for color in palette]
+    return [
+        tuple(int(channel * 255) for channel in color) for color in palette
+    ]
 
 
 if __name__ == "__main__":

@@ -7,7 +7,9 @@ from viewport_02 import Viewport
 
 def hsb(hue_degrees: int, saturation: float, brightness: float):
     return getrgb(
-        f"hsv({hue_degrees % 360}," f"{saturation * 100}%," f"{brightness * 100}%)"
+        f"hsv({hue_degrees % 360},"
+        f"{saturation * 100}%,"
+        f"{brightness * 100}%)"
     )
 
 
