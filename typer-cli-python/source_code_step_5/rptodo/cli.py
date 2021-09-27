@@ -78,7 +78,7 @@ def add(
         )
 
 
-@app.command()
+@app.command(name="list")
 def list_all() -> None:
     """List all to-dos."""
     todoer = get_todoer()

@@ -78,7 +78,7 @@ def add(
         )
 
 
-@app.command()
+@app.command(name="list")
 def list_all() -> None:
     """List all to-dos."""
     todoer = get_todoer()
@@ -110,20 +110,20 @@ def list_all() -> None:
     typer.secho("-" * len(headers) + "\n", fg=typer.colors.BLUE)
 
 
-@app.command()
+@app.command(name="complete")
 def set_done(todo_id: int = typer.Argument(...)) -> None:
-    """Set a to-do as done using its TODO_ID."""
+    """Complete a to-do by setting it as done using its TODO_ID."""
     todoer = get_todoer()
     todo, error = todoer.set_done(todo_id)
     if error:
         typer.secho(
-            f'Setting to-do # "{todo_id}" done failed with "{ERRORS[error]}"',
+            f'Completting to-do # "{todo_id}" failed with "{ERRORS[error]}"',
             fg=typer.colors.RED,
         )
         raise typer.Exit(1)
     else:
         typer.secho(
-            f"""to-do # {todo_id} "{todo['Description']}" set done!""",
+            f"""to-do # {todo_id} "{todo['Description']}" completed!""",
             fg=typer.colors.GREEN,
         )
 
@@ -173,7 +173,7 @@ def remove(
             typer.echo("Operation canceled")
 
 
-@app.command()
+@app.command(name="clear")
 def remove_all(
     force: bool = typer.Option(
         ...,
