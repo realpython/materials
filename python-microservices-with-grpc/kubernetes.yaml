@@ -1,0 +1,68 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+    name: marketplace
+    labels:
+        app: marketplace
+spec:
+    replicas: 1
+    selector:
+        matchLabels:
+            app: marketplace
+    template:
+        metadata:
+            labels:
+                app: marketplace
+        spec:
+            containers:
+                - name: marketplace
+                  image: hidan/python-microservices-article-marketplace:0.1
+                  env:
+                      - name: RECOMMENDATIONS_HOST
+                        value: recommendations
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+    name: recommendations
+    labels:
+        app: recommendations
+spec:
+    replicas: 1
+    selector:
+        matchLabels:
+            app: recommendations
+    template:
+        metadata:
+            labels:
+                app: recommendations
+        spec:
+            containers:
+                - name: recommendations
+                  image: hidan/python-microservices-article-recommendations:0.1
+---
+apiVersion: v1
+kind: Service
+metadata:
+    name: recommendations
+spec:
+    selector:
+        app: recommendations
+    ports:
+        - protocol: TCP
+          port: 50051
+          targetPort: 50051
+---
+apiVersion: v1
+kind: Service
+metadata:
+    name: marketplace
+spec:
+    type: LoadBalancer
+    selector:
+        app: marketplace
+    ports:
+        - protocol: TCP
+          port: 5000
+          targetPort: 5000

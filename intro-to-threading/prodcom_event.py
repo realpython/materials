@@ -7,7 +7,9 @@ import time
 
 
 class Pipeline:
-    """Class to allow a single element pipeline between producer and consumer.
+    """
+    Class to allow a single element pipeline
+    between producer and consumer.
     """
 
     def __init__(self):
@@ -55,7 +57,7 @@ def producer(pipeline, event):
 
 
 def consumer(pipeline, event):
-    """ Pretend we're saving a number in the database. """
+    """Pretend we're saving a number in the database."""
     datapoint = 0
     while not event.is_set():
         datapoint = pipeline.get_value("Consumer")

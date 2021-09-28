@@ -1,0 +1,26 @@
+<!doctype html>
+<html>
+
+<head>
+<meta charset="utf-8">
+<script type="text/javascript" src="brython.js"></script>
+<script type="text/javascript" src="brython_stdlib.js"></script>
+</head>
+
+<body onload="brython()">
+
+<script type="text/python">
+from browser import document, html, window
+import sys
+import functional
+
+selection = functional.take(10, range(10000))
+numbers = ', '.join([str(x) for x in selection])
+
+document <= html.P(f"{sys.version=}")
+document <= html.P(f"{numbers=}")
+</script>
+
+</body>
+
+</html>

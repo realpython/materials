@@ -145,7 +145,7 @@ for i in range(6):
 
 
 def segment_fish(image):
-    """ Attempts to segment the clown fish out of the provided image. """
+    """Attempts to segment the clown fish out of the provided image."""
     hsv_image = cv2.cvtColor(image, cv2.COLOR_RGB2HSV)
     light_orange = (1, 190, 200)
     dark_orange = (18, 255, 255)
