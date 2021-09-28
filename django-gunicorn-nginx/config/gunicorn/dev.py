@@ -1,9 +1,9 @@
-"""Gunicorn *development* config file
-https://docs.gunicorn.org/en/latest/configure.html
-"""
+"""Gunicorn *development* config file"""
 
+# Django WSGI application path in pattern MODULE_NAME:VARIABLE_NAME
+wsgi_app = "project.wsgi:application"
 # The granularity of Error log outputs
-log_level = "debug"
+loglevel = "debug"
 # The number of worker processes for handling requests
 workers = 2
 # The socket to bind
