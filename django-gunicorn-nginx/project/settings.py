@@ -23,8 +23,7 @@ except KeyError as e:
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ["supersecure.codes", "www.supersecure.codes"]
-
+ALLOWED_HOSTS = [".supersecure.codes"]
 
 # Application definition
 
@@ -36,6 +35,8 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
 ]
+
+INSTALLED_APPS += ["myapp"]
 
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
@@ -128,7 +129,6 @@ STATICFILES_DIRS = [
 
 # Additional header-related settings
 SECURE_REFERRER_POLICY = "no-referrer-when-downgrade"
-SECURE_BROWSER_XSS_FILTER = True
 
 SECURE_HSTS_SECONDS = 31536000  # == 1 year; *USE A SMALL VALUE FOR TESTING!*
 SECURE_HSTS_PRELOAD = True
