@@ -6,7 +6,7 @@ Items for the AdventureLib Game
 import adventurelib as adv
 
 # All items have some basic properties
-adv.Item.color = "undistiguished"
+adv.Item.color = "undistinguished"
 adv.Item.description = "a generic thing"
 adv.Item.edible = False
 adv.Item.wearable = False

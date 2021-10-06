@@ -195,7 +195,7 @@ def yes_elder():
     give aid. Be wary, though! The wizard does not give away his aid for
     free. As he tests you, remember always where you started your journey.
 
-    Lastly, we don't know what dangers you may face. We are peacful people,
+    Lastly, we don't know what dangers you may face. We are peaceful people,
     but do not wish you to go into the world undefended. Take this meager
     offering, and use it well!
     """

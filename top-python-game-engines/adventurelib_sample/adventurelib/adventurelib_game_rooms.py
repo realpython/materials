@@ -166,9 +166,9 @@ drip of water from the rocks is the only sound for a while.
 You begin to make out a faint light ahead. You hug the wall and
 press on, as the light becomes brighter. You finally enter a
 chamber at least 20 meters across, with a fire blazing in the center.
-Cages line one wall, some empty, but oters containing cows and
+Cages line one wall, some empty, but others containing cows and
 sheep stolen from you neighbors. Opposite them are piles of the bones
-of the creatures unluckly enough to have already been devoured.
+of the creatures unlucky enough to have already been devoured.
 
 As you look around, you become aware of another presence in the room.
 """
