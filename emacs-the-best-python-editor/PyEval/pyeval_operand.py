@@ -11,7 +11,7 @@ class Operand:
     """
 
     def __init__(self, operand_string):
-        """ Create a new operator object. """
+        """Create a new operator object."""
 
         # String to hold the operand literal
         self.op_string = operand_string

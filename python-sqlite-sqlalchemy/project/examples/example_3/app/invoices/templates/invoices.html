@@ -1,0 +1,92 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container-fluid">
+  <div class="m-4">
+    {# display just the invoices #}
+    {% if invoices|length > 1 %}
+    <table class="table table-striped table-bordered table-hover table-sm">
+      <caption>Invoices</caption>
+      <thead>
+        <tr>
+          <th class="text-center">Invoice Id</th>
+          <th class="text-center">Customer Name</th>
+          <th class="text-center">Invoice Date</th>
+          <th class="text-center">Billing Address</th>
+          <th class="text-right">Total</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for invoice in invoices %}
+        <tr>
+          <td>
+            <a href="{{url_for('invoices_bp.invoices', invoice_id=invoice.invoice_id)}}">
+              {{ invoice.invoice_id }}
+            </a>
+          </td>
+          <td>
+            <a href="{{url_for('customers_bp.customers', customer_id=invoice.customer.customer_id)}}">
+              {{ invoice.customer.full_name }}
+            </a>
+          </td>
+          <td class="text-center">{{ invoice.invoice_date }}</td>
+          <td class="text-center">
+            {{ invoice.billing_address }}&nbsp;
+            {{ invoice.billing_city }},&nbsp;
+            {{ invoice.billing_state }}&nbsp;&nbsp;
+            {{ invoice.billing_postal_code }}&nbsp;
+            {{ invoice.billing_country }}
+          </td>
+          <td class="text-right">{{ '%.2f'|format(invoice.total) }}</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+    {# display the invoice items #}
+    {% else %}
+    {% set invoice = invoices[0] %}
+    {% set invoice_items = invoices[0].invoice_items %}
+    <div class="card" style="width: 18rem;">
+      <div class="card-header">Invoice</div>
+      <div class="card-body">
+        <p class="card-text">Customer Name:&nbsp;{{ invoice.customer.full_name }}</p>
+        <p class="card-text">Date:&nbsp;{{ invoice.invoice_date }}</p>
+        <p class="card-text">Billing Address:&nbsp;{{ invoice.billing_address }}</p>
+        <p class="card-text">Billing City:&nbsp;{{ invoice.billing_city }}</p>
+        <p class="card-text">Billing State:&nbsp;{{ invoice.billing_state }}</p>
+        <p class="card-text">Billing Postal Code:&nbsp{{ invoice.billing_postal_code }}</p>
+        <p class="card-text">Billing Country:&nbsp;{{ invoice.billing_country }}</p>
+      </div>
+    </div>
+    <table class="table table-striped table-bordered table-hover table-sm">
+      <caption>Invoice Items</caption>
+      <thead>
+        <tr>
+          <th class="text-center">ID</th>
+          <th class="text-center">Track Id</th>
+          <th class="text-center">Quantity</th>
+          <th class="text-center">Unit Price</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for invoice_item in invoice_items %}
+        <tr>
+          <td class="text-center">{{ invoice_item.track_id }}</td>
+          <td class="text-center">{{ invoice_item.invoice_id }}</td>
+          <td class="text-center">{{ invoice_item.quantity }}</td>
+          <td class="text-right">{{ invoice_item.unit_price }}</td>
+        </tr>
+        {% endfor %}
+        <tr>
+          <td></td>
+          <td></td>
+          <td class="text-right">Total</td>
+          <td class="text-right">{{ invoice.total }}</td>
+        </tr>
+      </tbody>
+    </table>
+
+    {% endif %}
+  </div>
+</div>
+{% endblock %}
