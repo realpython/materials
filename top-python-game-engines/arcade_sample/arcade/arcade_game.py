@@ -76,9 +76,7 @@ class ArcadeGame(arcade.Window):
         )
 
         # Spawn a new coin
-        arcade.schedule(
-            function_pointer=self.add_coin, interval=self.coin_countdown
-        )
+        arcade.schedule(function_pointer=self.add_coin, interval=self.coin_countdown)
 
         # Load our coin collision sound
         self.coin_pickup_sound = arcade.load_sound(
@@ -127,7 +125,7 @@ class ArcadeGame(arcade.Window):
             x {float} -- X Position of the mouse
             y {float} -- Y Position of the mouse
             dx {float} -- Change in x position since last move
-            dy {float} -- Change in y poisiton since last move
+            dy {float} -- Change in y position since last move
         """
 
         # Ensure the player doesn't move off screen

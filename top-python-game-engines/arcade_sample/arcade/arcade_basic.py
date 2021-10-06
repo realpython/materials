@@ -62,7 +62,7 @@ class ArcadeBasic(arcade.Window):
 
         # Draw an orange caption along the bottom in 60 point font
         arcade.draw_text(
-            text="Hello, World! From Pygame Zero!",
+            text="Hello, World! From Arcade!",
             start_x=100,
             start_y=50,
             font_size=28,
