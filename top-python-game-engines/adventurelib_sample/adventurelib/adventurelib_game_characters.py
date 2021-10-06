@@ -13,17 +13,13 @@ adv.Item.context = ""
 elder_barron = adv.Item("Elder Barron", "elder", "barron")
 elder_barron.description = """Elder Barron, a tall distinguished member
 of the community. His steely grey hair and stiff beard inspire confidence."""
-elder_barron.greeting = (
-    "I have some information for you. Would you like to hear it?"
-)
+elder_barron.greeting = "I have some information for you. Would you like to hear it?"
 elder_barron.context = "elder"
 
 blacksmith = adv.Item("Alanna Smith", "Alanna", "blacksmith", "smith")
 blacksmith.description = """Alanna the blacksmith stands just 1.5m tall,
 and her strength lies in her arms and heart"""
-blacksmith.greeting = (
-    "Oh, hi! I've got some stuff for sale. Do you want to see it?"
-)
+blacksmith.greeting = "Oh, hi! I've got some stuff for sale. Do you want to see it?"
 blacksmith.context = "blacksmith"
 
 wizard_trent = adv.Item("Trent the Wizard", "Trent", "wizard")

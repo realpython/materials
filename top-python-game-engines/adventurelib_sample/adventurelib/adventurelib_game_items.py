@@ -21,9 +21,7 @@ apple.wearable = False
 
 cloak = adv.Item("wool cloak", "cloak")
 cloak.color = "grey tweed"
-cloak.description = (
-    "a grey tweed cloak, heavy enough to keep the wind and rain at bay"
-)
+cloak.description = "a grey tweed cloak, heavy enough to keep the wind and rain at bay"
 cloak.edible = False
 cloak.wearable = True
 
@@ -34,7 +32,7 @@ slug.edible = True
 slug.wearable = False
 
 # Create the real items we need
-wooden_sword = adv.tem("wooden sword", "sword")
+wooden_sword = adv.Item("wooden sword", "sword")
 wooden_sword.color = "brown"
 wooden_sword.description = (
     "a small wooden practice sword, not even sharp enough to cut milk"
