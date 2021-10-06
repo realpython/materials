@@ -23,7 +23,7 @@ WIDTH = 800
 HEIGHT = 600
 
 # Setup the player
-player = pgzrun.Actor("alien_green_stand")
+player = Actor("alien_green_stand")
 player_position = WIDTH // 2, HEIGHT // 2
 player.center = player_position
 
@@ -45,10 +45,8 @@ def add_coin():
     """
     global coin_list, coin_countdown
 
-    # Create a new coin pgzrun.Actor at a random location
-    new_coin = pgzrun.Actor(
-        "coin_gold", (randint(10, WIDTH - 10), randint(10, HEIGHT - 10))
-    )
+    # Create a new coin Actor at a random location
+    new_coin = Actor("coin_gold", (randint(10, WIDTH - 10), randint(10, HEIGHT - 10)))
 
     # Add it to the global coin list
     coin_list.append(new_coin)
@@ -63,7 +61,7 @@ def add_coin():
         coin_countdown = 0.1
 
     # Schedule the next coin addition
-    pgzrun.clock.schedule(add_coin, coin_countdown)
+    clock.schedule(add_coin, coin_countdown)
 
 
 def on_mouse_move(pos: Tuple):
@@ -107,7 +105,7 @@ def update(delta_time: float):
     # Check each coin in the list for a collision
     for coin in coin_list:
         if player.colliderect(coin):
-            pgzrun.sounds.coin_pickup.play()
+            sounds.coin_pickup.play()
             coin_remove_list.append(coin)
             score += 10
 
@@ -118,7 +116,7 @@ def update(delta_time: float):
     # The game is over when there are too many coins on the screen
     if len(coin_list) >= COIN_COUNT:
         # Stop making new coins
-        pgzrun.clock.unschedule(add_coin)
+        clock.unschedule(add_coin)
 
         # Print the final score and exit the game
         print(f"Game over! Final score: {score}")
@@ -129,10 +127,10 @@ def draw():
     """Render everything on the screen once per frame"""
 
     # Clear the screen first
-    pgzrun.screen.clear()
+    screen.clear()
 
     # Set the background color to pink
-    pgzrun.screen.fill("pink")
+    screen.fill("pink")
 
     # Draw the player
     player.draw()
@@ -142,13 +140,16 @@ def draw():
         coin.draw()
 
     # Draw the current score at the bottom
-    pgzrun.screen.draw.text(
-        f"Score: {score}", (50, HEIGHT - 50), fontsize=48, color="black",
+    screen.draw.text(
+        f"Score: {score}",
+        (50, HEIGHT - 50),
+        fontsize=48,
+        color="black",
     )
 
 
 # Schedule the first coin to appear
-pgzrun.clock.schedule(add_coin, coin_countdown)
+clock.schedule(add_coin, coin_countdown)
 
 # Run the program
 pgzrun.go()
