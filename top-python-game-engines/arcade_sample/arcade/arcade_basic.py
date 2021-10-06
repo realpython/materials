@@ -48,6 +48,7 @@ class ArcadeBasic(arcade.Window):
             center_y=HEIGHT // 2,
             radius=50,
             color=arcade.color.BLUE,
+            num_segments=50,
         )
 
         # Draw a red outlined square in the top left corner of the screen
