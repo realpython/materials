@@ -5,12 +5,12 @@ description = "Exploration of the Ren'Py Game Engine"
 authors = ["Jon Fincher <jfincher42@gmail.com>"]
 
 [tool.poetry.dependencies]
-python = "^3.7"
+python = "^3.9"
 
 [tool.poetry.dev-dependencies]
 pytest = "^5.2"
-black = "^19.10b0"
-flake8 = "^3.7.9"
+black = "^21.9b0"
+flake8 = "^3.9.2"
 
 [build-system]
 requires = ["poetry>=0.12"]

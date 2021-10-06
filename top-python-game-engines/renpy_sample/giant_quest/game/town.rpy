@@ -78,7 +78,7 @@ label town:
 
     menu:
         "It's perfect!":
-            show blackmith happy
+            show blacksmith happy
 
             smith "Wonderful! Give me the wooden one - I can use it in the furnace!"
 
