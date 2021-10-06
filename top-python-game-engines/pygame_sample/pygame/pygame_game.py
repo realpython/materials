@@ -39,9 +39,7 @@ class Player(pygame.sprite.Sprite):
         super(Player, self).__init__()
 
         # Get the image to draw for the player
-        player_image = str(
-            Path.cwd() / "pygame" / "images" / "alien_green_stand.png"
-        )
+        player_image = str(Path.cwd() / "pygame" / "images" / "alien_green_stand.png")
         # Load the image, preserve alpha channel for transparency
         self.surf = pygame.image.load(player_image).convert_alpha()
         # Save the rect so we can move it
@@ -70,7 +68,10 @@ class Coin(pygame.sprite.Sprite):
 
         # The starting position is randomly generated
         self.rect = self.surf.get_rect(
-            center=(randint(10, WIDTH - 10), randint(10, HEIGHT - 10),)
+            center=(
+                randint(10, WIDTH - 10),
+                randint(10, HEIGHT - 10),
+            )
         )
 
 

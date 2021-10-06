@@ -43,9 +43,7 @@ while running:
 
     # Draw an orange caption along the bottom in 60 point font
     text_font = pygame.font.SysFont("any_font", 60)
-    text_block = text_font.render(
-        "Hello, World! From Pygame", False, (200, 100, 0)
-    )
+    text_block = text_font.render("Hello, World! From Pygame", False, (200, 100, 0))
     screen.blit(text_block, (50, HEIGHT - 50))
 
     # Flip the display
