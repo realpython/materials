@@ -46,7 +46,9 @@ def add_coin():
     global coin_list, coin_countdown
 
     # Create a new coin Actor at a random location
-    new_coin = Actor("coin_gold", (randint(10, WIDTH - 10), randint(10, HEIGHT - 10)))
+    new_coin = Actor(
+        "coin_gold", (randint(10, WIDTH - 10), randint(10, HEIGHT - 10))
+    )
 
     # Add it to the global coin list
     coin_list.append(new_coin)
