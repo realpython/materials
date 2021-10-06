@@ -76,7 +76,9 @@ class ArcadeGame(arcade.Window):
         )
 
         # Spawn a new coin
-        arcade.schedule(function_pointer=self.add_coin, interval=self.coin_countdown)
+        arcade.schedule(
+            function_pointer=self.add_coin, interval=self.coin_countdown
+        )
 
         # Load our coin collision sound
         self.coin_pickup_sound = arcade.load_sound(

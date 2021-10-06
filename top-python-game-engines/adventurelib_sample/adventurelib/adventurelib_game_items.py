@@ -21,7 +21,9 @@ apple.wearable = False
 
 cloak = adv.Item("wool cloak", "cloak")
 cloak.color = "grey tweed"
-cloak.description = "a grey tweed cloak, heavy enough to keep the wind and rain at bay"
+cloak.description = (
+    "a grey tweed cloak, heavy enough to keep the wind and rain at bay"
+)
 cloak.edible = False
 cloak.wearable = True
 
