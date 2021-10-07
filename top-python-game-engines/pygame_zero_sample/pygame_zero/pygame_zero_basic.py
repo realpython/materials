@@ -33,7 +33,9 @@ def draw():
     pgzero.game.screen.fill("white")
 
     # Draw a blue circle with a radius of 50 in the center of the screen
-    pgzero.game.screen.draw.filled_circle((WIDTH // 2, HEIGHT // 2), 50, "blue")
+    pgzero.game.screen.draw.filled_circle(
+        (WIDTH // 2, HEIGHT // 2), 50, "blue"
+    )
 
     # Draw a red outlined square in the top left corner of the screen
     red_square = Rect((50, 50), (100, 100))
