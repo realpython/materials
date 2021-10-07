@@ -14,6 +14,12 @@ of Pygame Zero. It will:
 #   `pgzrun pygame_zero_basic.py`
 import pgzrun
 
+# This section is used to satisfy linters, and can be removed
+from pgzero.rect import Rect
+from pgzero.screen import Screen
+
+screen: Screen
+
 # Set the width and height of our output window, in pixels
 WIDTH = 800
 HEIGHT = 600

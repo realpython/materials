@@ -13,6 +13,17 @@ Pygame Zero, including:
 # You can also run the program from the command line using:
 #   `pgzrun pygame_zero_basic.py`
 import pgzrun
+
+# This section is used to satisfy linters, and can be removed
+from pgzero.actor import Actor
+from pgzero.rect import Rect
+from pgzero.loaders import sounds
+from pgzero.screen import Screen
+from pgzero.clock import clock
+
+screen: Screen
+
+# For type-hinting support
 from typing import Tuple
 
 # To randomize coin placement
