@@ -16,9 +16,7 @@ import pgzrun
 
 # This section is used to satisfy linters, and can be removed
 from pgzero.rect import Rect
-from pgzero.screen import Screen
-
-screen: Screen
+import pgzero.game
 
 # Set the width and height of our output window, in pixels
 WIDTH = 800

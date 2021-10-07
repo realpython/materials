@@ -14,20 +14,18 @@ Pygame Zero, including:
 #   `pgzrun pygame_zero_basic.py`
 import pgzrun
 
-# This section is used to satisfy linters, and can be removed
-from pgzero.actor import Actor
-from pgzero.rect import Rect
-from pgzero.loaders import sounds
-from pgzero.screen import Screen
-from pgzero.clock import clock
-
-screen: Screen
-
 # For type-hinting support
 from typing import Tuple
 
 # To randomize coin placement
 from random import randint
+
+# This section is used to satisfy linters, and can be removed
+from pgzero.actor import Actor
+from pgzero.rect import Rect
+from pgzero.loaders import sounds
+from pgzero.clock import clock
+import pgzero.game
 
 # Set the width and height of our output window, in pixels
 WIDTH = 800
