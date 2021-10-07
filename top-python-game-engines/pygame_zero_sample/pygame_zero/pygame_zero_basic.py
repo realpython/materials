@@ -18,6 +18,8 @@ import pgzrun
 from pgzero.rect import Rect
 import pgzero.game
 
+screen: pgzero.game.screen
+
 # Set the width and height of our output window, in pixels
 WIDTH = 800
 HEIGHT = 600
