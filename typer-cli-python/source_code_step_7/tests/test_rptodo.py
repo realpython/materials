@@ -106,7 +106,7 @@ def test_add_wrong_json_format(mock_wrong_json_format):
 
 
 test_todo1 = {
-    "Description": "buy some milk.",
+    "Description": "Get some milk.",
     "Priority": 2,
     "Done": True,
 }
@@ -126,7 +126,7 @@ def test_set_done(mock_json_file, todo_id, expected):
 
 
 test_todo3 = {
-    "Description": "buy some milk.",
+    "Description": "Get some milk.",
     "Priority": 2,
     "Done": False,
 }

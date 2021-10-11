@@ -4,13 +4,13 @@ import pytest
 from typer.testing import CliRunner
 
 from rptodo import (
-    cli,
-    __app_name__,
-    __version__,
-    rptodo,
-    SUCCESS,
     DB_READ_ERROR,
     ID_ERROR,
+    SUCCESS,
+    __app_name__,
+    __version__,
+    cli,
+    rptodo,
 )
 
 
@@ -25,7 +25,7 @@ def test_version():
 
 @pytest.fixture
 def mock_json_file(tmp_path):
-    todo = [{"Description": "buy some milk.", "Priority": 2, "Done": False}]
+    todo = [{"Description": "Get some milk.", "Priority": 2, "Done": False}]
     db_file = tmp_path / "todo.json"
     with db_file.open("w") as db:
         json.dump(todo, db, indent=4)
@@ -33,19 +33,19 @@ def mock_json_file(tmp_path):
 
 
 test_data1 = {
-    "description": ["clean", "the", "house"],
+    "description": ["Clean", "the", "house"],
     "priority": 1,
     "todo": {
-        "Description": "clean the house.",
+        "Description": "Clean the house.",
         "Priority": 1,
         "Done": False,
     },
 }
 test_data2 = {
-    "description": ["go for a walk"],
+    "description": ["Wash the car"],
     "priority": 2,
     "todo": {
-        "Description": "go for a walk.",
+        "Description": "Wash the car.",
         "Priority": 2,
         "Done": False,
     },
@@ -107,7 +107,7 @@ def test_add_wrong_json_format(mock_wrong_json_format):
 
 
 test_todo1 = {
-    "Description": "buy some milk.",
+    "Description": "Get some milk.",
     "Priority": 2,
     "Done": True,
 }
@@ -127,7 +127,7 @@ def test_set_done(mock_json_file, todo_id, expected):
 
 
 test_todo3 = {
-    "Description": "buy some milk.",
+    "Description": "Get some milk.",
     "Priority": 2,
     "Done": False,
 }
