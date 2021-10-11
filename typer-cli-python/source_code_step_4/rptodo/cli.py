@@ -20,17 +20,17 @@ def init(
     ),
 ) -> None:
     """Initialize the to-do database."""
-    error = config.init_app(db_path)
-    if error:
+    app_init_error = config.init_app(db_path)
+    if app_init_error:
         typer.secho(
-            f'Creating config file failed with "{ERRORS[error]}"',
+            f'Creating config file failed with "{ERRORS[app_init_error]}"',
             fg=typer.colors.RED,
         )
         raise typer.Exit(1)
-    error = database.init_database(Path(db_path))
-    if error:
+    db_init_error = database.init_database(Path(db_path))
+    if db_init_error:
         typer.secho(
-            f'Creating database failed with "{ERRORS[error]}"',
+            f'Creating database failed with "{ERRORS[db_init_error]}"',
             fg=typer.colors.RED,
         )
         raise typer.Exit(1)
