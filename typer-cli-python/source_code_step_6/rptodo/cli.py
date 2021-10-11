@@ -117,7 +117,7 @@ def set_done(todo_id: int = typer.Argument(...)) -> None:
     todo, error = todoer.set_done(todo_id)
     if error:
         typer.secho(
-            f'Completting to-do # "{todo_id}" failed with "{ERRORS[error]}"',
+            f'Completing to-do # "{todo_id}" failed with "{ERRORS[error]}"',
             fg=typer.colors.RED,
         )
         raise typer.Exit(1)
