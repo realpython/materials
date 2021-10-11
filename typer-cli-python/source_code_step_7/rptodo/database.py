@@ -5,7 +5,7 @@ import json
 from pathlib import Path
 from typing import Any, Dict, List, NamedTuple
 
-from . import DB_READ_ERROR, DB_WRITE_ERROR, JSON_ERROR, SUCCESS
+from rptodo import DB_READ_ERROR, DB_WRITE_ERROR, JSON_ERROR, SUCCESS
 
 DEFAULT_DB_FILE_PATH = Path.home().joinpath(
     "." + Path.home().stem + "_todo.json"

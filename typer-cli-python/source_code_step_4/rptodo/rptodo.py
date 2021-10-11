@@ -3,7 +3,7 @@
 from pathlib import Path
 from typing import Any, Dict, NamedTuple
 
-from .database import DatabaseHandler
+from rptodo.database import DatabaseHandler
 
 
 class CurrentTodo(NamedTuple):

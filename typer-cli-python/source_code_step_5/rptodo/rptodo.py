@@ -3,8 +3,8 @@
 from pathlib import Path
 from typing import Any, Dict, List, NamedTuple
 
-from . import DB_READ_ERROR
-from .database import DatabaseHandler
+from rptodo import DB_READ_ERROR
+from rptodo.database import DatabaseHandler
 
 
 class CurrentTodo(NamedTuple):
