@@ -1,3 +1,2 @@
 typer[all]==0.3.2
-poetry==1.1.7
 pytest==6.2.4
