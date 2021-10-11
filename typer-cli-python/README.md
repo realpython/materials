@@ -41,18 +41,18 @@ Usage: rptodo [OPTIONS] COMMAND [ARGS]...
 Options:
   -v, --version         Show the application's version and exit.
   --install-completion  Install completion for the current shell.
-  --show-completion     Show completion for the current shell, to copy it
-                        or customize the installation.
+  --show-completion     Show completion for the current shell, to copy it or
+                        customize the installation.
 
   --help                Show this message and exit.
 
 Commands:
-  add         Add a new to-do with a DESCRIPTION.
-  init        Initialize the to-do database.
-  list-all    List all to-dos.
-  remove      Remove a to-do using its TODO_ID.
-  remove-all  Remove all to-dos.
-  set-done    Set a to-do as done using its TODO_ID.
+  add       Add a new to-do with a DESCRIPTION.
+  clear     Remove all to-dos.
+  complete  Complete a to-do by setting it as done using its TODO_ID.
+  init      Initialize the to-do database.
+  list      List all to-dos.
+  remove    Remove a to-do using its TODO_ID.
 ```
 
 You can also access the help message for specific commands by typing the command and then `--help`. For example, to display the help content for the `add` command, you can run the following:
@@ -77,12 +77,14 @@ Calling `--help` on each command provides specific and useful information about 
 
 **RP to-do** has the following features:
 
-- **`init`** initializes the application's to-do database.
-- **`add DESCRIPTION`** adds a new to-do to the database with a `DESCRIPTION`.
-- **`list-all`** lists all the to-dos in the database.
-- **`set-done TODO_ID`** set a to-do as done using its `TODO_ID`.
-- **`remove TODO_ID`** remove a to-do from the database using its `TODO_ID`.
-- **`remove-all`** remove all the to-dos in the database.
+| Command            | Description                                                  |
+  | ------------------ | ------------------------------------------------------------ |
+  | `init`             | Initializes the application's to-do database.                |
+  | `add DESCRIPTION`  | Adds a new to-do to the database with a `DESCRIPTION`.       |
+  | `list`             | Lists all the to-dos in the database.                        |
+  | `complete TODO_ID` | Completes a to-do by setting it as done using its `TODO_ID`. |
+  | `remove TODO_ID`   | Removes a to-do from the database using its `TODO_ID`.       |
+  | `clear`            | Removes all the to-dos by clearing the database.             |
 
 ## Release History
 
