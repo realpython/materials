@@ -78,13 +78,13 @@ Calling `--help` on each command provides specific and useful information about 
 **RP to-do** has the following features:
 
 | Command            | Description                                                  |
-  | ------------------ | ------------------------------------------------------------ |
-  | `init`             | Initializes the application's to-do database.                |
-  | `add DESCRIPTION`  | Adds a new to-do to the database with a `DESCRIPTION`.       |
-  | `list`             | Lists all the to-dos in the database.                        |
-  | `complete TODO_ID` | Completes a to-do by setting it as done using its `TODO_ID`. |
-  | `remove TODO_ID`   | Removes a to-do from the database using its `TODO_ID`.       |
-  | `clear`            | Removes all the to-dos by clearing the database.             |
+| ------------------ | ------------------------------------------------------------ |
+| `init`             | Initializes the application's to-do database.                |
+| `add DESCRIPTION`  | Adds a new to-do to the database with a `DESCRIPTION`.       |
+| `list`             | Lists all the to-dos in the database.                        |
+| `complete TODO_ID` | Completes a to-do by setting it as done using its `TODO_ID`. |
+| `remove TODO_ID`   | Removes a to-do from the database using its `TODO_ID`.       |
+| `clear`            | Removes all the to-dos by clearing the database.             |
 
 ## Release History
 
