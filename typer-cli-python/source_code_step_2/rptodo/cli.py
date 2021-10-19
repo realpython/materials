@@ -1,4 +1,4 @@
-"""This module provides the RP to-do CLI."""
+"""This module provides the RP To-Do CLI."""
 
 from typing import Optional
 

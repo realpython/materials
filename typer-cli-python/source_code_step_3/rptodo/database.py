@@ -1,4 +1,4 @@
-"""This module provides the RP to-do database functionality."""
+"""This module provides the RP To-Do database functionality."""
 
 import configparser
 from pathlib import Path

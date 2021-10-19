@@ -1,4 +1,4 @@
-"""This module provides the RP to-do model-controller."""
+"""This module provides the RP To-Do model-controller."""
 
 from pathlib import Path
 from typing import Any, Dict, List, NamedTuple

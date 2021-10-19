@@ -1,10 +1,10 @@
-# RP to-do
+# RP To-Do
 
-**RP to-do** is a command-line interface application built with [Typer](https://typer.tiangolo.com/) to help you manage your to-do list.
+**RP To-Do** is a command-line interface application built with [Typer](https://typer.tiangolo.com/) to help you manage your to-do list.
 
 ## Installation
 
-To run **RP to-do**, you need to run the following steps:
+To run **RP To-Do**, you need to run the following steps:
 
 1. Download the application's source code to a `rptodo_project/` directory
 2. Create a Python virtual environment and activate it
@@ -75,7 +75,7 @@ Calling `--help` on each command provides specific and useful information about 
 
 ## Features
 
-**RP to-do** has the following features:
+**RP To-Do** has the following features:
 
 | Command            | Description                                                  |
 | ------------------ | ------------------------------------------------------------ |
