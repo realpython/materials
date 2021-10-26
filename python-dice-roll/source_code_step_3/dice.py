@@ -46,7 +46,7 @@ DICE_ART = {
 }
 DIE_HEIGHT = len(DICE_ART[1])
 DIE_WIDTH = len(DICE_ART[1][0])
-DIE_DISPLAY_SEPARATOR = " "
+DIE_FACE_SEPARATOR = " "
 
 
 def parse_input(input_string):
