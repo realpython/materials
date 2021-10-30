@@ -28,7 +28,7 @@ $ source venv/bin/activate
 (venv) $ python -m rptodo init
 ```
 
-This command asks you to introduce the file path to store the application's database. You can also accept the default file path by pressing enter.
+This command asks you to introduce the file path to store the application's database. You can also accept the default file path by pressing Enter.
 
 ## Usage
 
