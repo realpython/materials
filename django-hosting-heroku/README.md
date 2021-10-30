@@ -1,6 +1,6 @@
 # Hosting a Django Project on Heroku
 
-This is a companion project to a Real Python tutorial about [Hosting a Django Project on Heroku](https://realpython.com/django-hosting-on-heroku/). It's a bare-bones Django project without any views.
+This is a companion project to a Real Python tutorial about [hosting a Django project on Heroku](https://realpython.com/django-hosting-on-heroku/). It's a bare-bones Django project without any views.
 
 ## Instructions
 
