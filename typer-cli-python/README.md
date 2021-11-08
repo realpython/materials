@@ -7,7 +7,7 @@
 To run **RP To-Do**, you need to run the following steps:
 
 1. Download the application's source code to a `rptodo_project/` directory
-2. Create a Python virtual environment and activate it
+2. Create a Python virtual environment and activate it:
 
 ```sh
 $ cd rptodo_project/
@@ -16,13 +16,13 @@ $ source venv/bin/activate
 (venv) $
 ```
 
-2. Install the dependencies
+3. Install the dependencies:
 
 ```sh
 (venv) $ python -m pip install -r requirements.txt
 ```
 
-3. Initialize the application
+4. Initialize the application:
 
 ```sh
 (venv) $ python -m rptodo init
@@ -32,7 +32,7 @@ This command asks you to introduce the file path to store the application's data
 
 ## Usage
 
-Once you've download the source code and run the installation steps, you can run the following command to access the application's usage description:
+Once you've downloaded the source code and run the installation steps, you can run the following command to access the application's usage description:
 
 ```sh
 $ python -m rptodo --help
