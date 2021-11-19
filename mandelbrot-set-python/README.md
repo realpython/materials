@@ -14,7 +14,7 @@ This code requires the following libraries:
 To install them, activate your [virtual environment](https://realpython.com/python-virtual-environments-a-primer/), and type the following command:
 
 ```
-$ python -m pip install -r requirements.txt
+$ python3 -m pip install -r requirements.txt
 ```
 
 ## Usage

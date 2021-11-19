@@ -15,7 +15,7 @@ if __name__ == "__main__":
         for x in range(width):
             re = scale * (x - width / 2)
             im = scale * (height / 2 - y)
-            probability = 1 - mandelbrot_set.probability(complex(re, im))
-            image.putpixel((x, y), int(probability * 255))
+            stability = 1 - mandelbrot_set.stability(complex(re, im))
+            image.putpixel((x, y), int(stability * 255))
 
     image.show()

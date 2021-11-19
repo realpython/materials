@@ -1,15 +1,16 @@
 # mandelbrot_02.py
 
-from typing import NamedTuple
+from dataclasses import dataclass
 
 
-class MandelbrotSet(NamedTuple):
+@dataclass
+class MandelbrotSet:
     max_iterations: int
 
     def __contains__(self, c: complex) -> bool:
-        return self.probability(c) == 1
+        return self.stability(c) == 1
 
-    def probability(self, c: complex) -> float:
+    def stability(self, c: complex) -> float:
         return self.escape_count(c) / self.max_iterations
 
     def escape_count(self, c: complex) -> int:

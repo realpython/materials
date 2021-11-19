@@ -16,7 +16,7 @@ if __name__ == "__main__":
             re = scale * (x - width / 2)
             im = scale * (height / 2 - y)
             c = complex(re, im)
-            probability = 1 - mandelbrot_set.probability(c, smooth=True)
-            image.putpixel((x, y), max(0, min(int(probability * 255), 255)))
+            stability = 1 - mandelbrot_set.stability(c, smooth=True)
+            image.putpixel((x, y), int(stability * 255))
 
     image.show()

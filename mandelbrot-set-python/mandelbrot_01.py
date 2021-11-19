@@ -1,9 +1,10 @@
 # mandelbrot_01.py
 
-from typing import NamedTuple
+from dataclasses import dataclass
 
 
-class MandelbrotSet(NamedTuple):
+@dataclass
+class MandelbrotSet:
     max_iterations: int
 
     def __contains__(self, c: complex) -> bool:

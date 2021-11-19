@@ -22,7 +22,7 @@ def get_members(c, num_iterations):
 
 
 if __name__ == "__main__":
-    c = complex_matrix(-2, 0.5, -1.5, 1.5, pixel_density=1280)
+    c = complex_matrix(-2, 0.5, -1.5, 1.5, pixel_density=512)
 
     plt.imshow(is_stable(c, num_iterations=20).T, cmap="binary")
     plt.gca().set_aspect("equal")

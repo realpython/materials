@@ -3,13 +3,13 @@ from PIL import Image
 from scipy.interpolate import interp1d
 
 from mandelbrot_03 import MandelbrotSet
-from viewport_02 import Viewport
+from viewport import Viewport
 
 
 def paint(mandelbrot_set, viewport, palette, smooth):
     for pixel in viewport:
-        probability = mandelbrot_set.probability(complex(pixel), smooth)
-        index = int(min(probability * len(palette), len(palette) - 1))
+        stability = mandelbrot_set.stability(complex(pixel), smooth)
+        index = int(min(stability * len(palette), len(palette) - 1))
         pixel.color = palette[index % len(palette)]
 
 

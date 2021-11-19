@@ -1,26 +1,22 @@
-# viewport_01.py
+# viewport.py
 
-from typing import NamedTuple
-
+from dataclasses import dataclass
 from PIL import Image
 
 
-class Viewport(NamedTuple):
+@dataclass
+class Viewport:
     image: Image.Image
-    xmin: float
-    xmax: float
-
-    @property
-    def width(self):
-        return self.xmax - self.xmin
+    center: complex
+    width: float
 
     @property
     def height(self):
-        return self.width * self.aspect_ratio
+        return self.scale * self.image.height
 
     @property
-    def aspect_ratio(self):
-        return self.image.height / self.image.width
+    def offset(self):
+        return self.center + complex(-self.width, self.height) / 2
 
     @property
     def scale(self):
@@ -32,7 +28,8 @@ class Viewport(NamedTuple):
                 yield Pixel(self, x, y)
 
 
-class Pixel(NamedTuple):
+@dataclass
+class Pixel:
     viewport: Viewport
     x: int
     y: int
@@ -46,7 +43,7 @@ class Pixel(NamedTuple):
         self.viewport.image.putpixel((self.x, self.y), value)
 
     def __complex__(self):
-        return complex(
-            self.viewport.scale * self.x + self.viewport.xmin,
-            self.viewport.scale * (self.viewport.image.height / 2 - self.y),
+        return (
+            complex(self.x, -self.y) * self.viewport.scale
+            + self.viewport.offset
         )
