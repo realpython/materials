@@ -13,7 +13,7 @@ def parse_input(input_string):
         raise SystemExit(1)
 
 
-# ~~~ CLIENT CODE ~~~
+# ~~~ App's main code block ~~~
 # 1. Get and validate user's input
 num_dice_input = input("How many dice do you want to roll? [1-6] ")
 num_dice = parse_input(num_dice_input)
