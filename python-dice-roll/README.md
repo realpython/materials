@@ -21,4 +21,3 @@ How many dice do you want to roll? [1-6] 5
 The application prompts the user for the number of dice they want to roll and generates a dice faces ASCII diagram with the results.
 
 Each folder in this repository contains the code for the corresponding step in the companion article in a file called `dice.py`.
-

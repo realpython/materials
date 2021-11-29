@@ -5,11 +5,10 @@ def parse_input(input_string):
     If so, return an integer with the same value. Otherwise, tell
     the user to enter a valid number and quit the program.
     """
-    is_valid = input_string.isdigit() and 1 <= int(input_string) <= 6
-    if is_valid:
+    if input_string.strip() in {"1", "2", "3", "4", "5", "6"}:
         return int(input_string)
     else:
-        print("Please enter an integer between 1 and 6.")
+        print("Please enter a number from 1 to 6.")
         raise SystemExit(1)
 
 
