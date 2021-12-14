@@ -1,12 +1,30 @@
 import io
+
 import PySimpleGUI as sg
-
 from PIL import Image
-
 
 PLAYER_X_IMAGE_PATH = "assets/X.png"
 PLAYER_O_IMAGE_PATH = "assets/O.png"
 BLANK_IMAGE_PATH = "assets/BLANK.png"
+INITIAL_PLAYER = "X"
+
+
+def ask_if_play_again(player):
+    """
+    Ask the user if they want to play again or quit
+    """
+    if player is None:
+        message = "Tied Game!"
+    else:
+        message = f"{player} won!"
+    layout = [
+        [sg.Text(f"{message} Do you want to play again or Quit?")],
+        [sg.Button("Restart"), sg.Button("Quit")],
+    ]
+    event, values = sg.Window("Play Again?", layout, modal=True).read(
+        close=True
+    )
+    return True if event == "Restart" else False
 
 
 def check_if_won(winning_configurations):
@@ -66,6 +84,21 @@ def mark_win(buttons):
         button.update(button_color=["green", "green"])
 
 
+def reset_game(buttons):
+    """
+    Reset the game to play again
+    """
+    bio = io.BytesIO()
+    image = Image.open(BLANK_IMAGE_PATH)
+    image.save(bio, format="PNG")
+    for row in buttons:
+        for button in row:
+            button.update(
+                image_data=bio.getvalue(), button_color=["white", "white"]
+            )
+            button.metadata = None
+
+
 def update_game(button, player):
     """
     Update the game
@@ -91,10 +124,14 @@ def update_game(button, player):
 
 
 def main():
+    """
+    Create GUI and manage UI events
+    """
     layout = [
         [
             sg.Button(
-                size=(10, 6),
+                size=(7, 5),
+                button_text=f"({row} {col})",
                 key=(row, col),
                 button_color=("white", "white"),
                 image_filename=BLANK_IMAGE_PATH,
@@ -106,7 +143,7 @@ def main():
     window = sg.Window("Tic-Tac-Toe", layout)
     ways_to_win = get_winning_configurations(layout)
 
-    player = "X"
+    player = INITIAL_PLAYER
     while True:
         event, values = window.read()
         if event == "Exit" or event == sg.WIN_CLOSED:
@@ -114,7 +151,14 @@ def main():
         if isinstance(event, tuple):
             btn_clicked = window[event]
             player = update_game(btn_clicked, player)
-            check_if_won(ways_to_win)
+            winning_configuration, winner = check_if_won(ways_to_win)
+            if winning_configuration is not False:
+                should_restart = ask_if_play_again(winner)
+                if should_restart is False:
+                    # Close the application
+                    break
+                player = INITIAL_PLAYER
+                reset_game(layout)
 
     window.close()
 
