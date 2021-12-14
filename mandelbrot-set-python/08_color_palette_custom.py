@@ -25,7 +25,7 @@ if __name__ == "__main__":
     gray_area = [(1 - i / 44,) * 3 for i in range(45)]
     palette = denormalize(exterior + gray_area + interior)
 
-    mandelbrot_set = MandelbrotSet(max_iterations=20)
+    mandelbrot_set = MandelbrotSet(max_iterations=20, escape_radius=1000)
     image = Image.new(mode="RGB", size=(512, 512))
     viewport = Viewport(image, center=-0.75, width=3.5)
     paint(mandelbrot_set, viewport, palette, smooth=True)

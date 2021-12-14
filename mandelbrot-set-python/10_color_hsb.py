@@ -16,7 +16,7 @@ def hsb(hue_degrees: int, saturation: float, brightness: float):
 if __name__ == "__main__":
     print("This might take a while...")
 
-    mandelbrot_set = MandelbrotSet(max_iterations=25)
+    mandelbrot_set = MandelbrotSet(max_iterations=20, escape_radius=1000)
     image = Image.new(mode="RGB", size=(512, 512))
     for pixel in Viewport(image, center=-0.75, width=3.5):
         stability = mandelbrot_set.stability(complex(pixel), smooth=True)

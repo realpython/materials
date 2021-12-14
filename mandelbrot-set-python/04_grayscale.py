@@ -8,14 +8,13 @@ if __name__ == "__main__":
 
     width, height = 512, 512
     scale = 0.0075
-    grayscale = "L"
+    GRAYSCALE = "L"
 
-    image = Image.new(mode=grayscale, size=(width, height))
+    image = Image.new(mode=GRAYSCALE, size=(width, height))
     for y in range(height):
         for x in range(width):
-            re = scale * (x - width / 2)
-            im = scale * (height / 2 - y)
-            stability = 1 - mandelbrot_set.stability(complex(re, im))
-            image.putpixel((x, y), int(stability * 255))
+            c = scale * complex(x - width / 2, height / 2 - y)
+            instability = 1 - mandelbrot_set.stability(c)
+            image.putpixel((x, y), int(instability * 255))
 
     image.show()

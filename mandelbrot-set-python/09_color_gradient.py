@@ -43,7 +43,7 @@ if __name__ == "__main__":
         [gradient(i / num_colors) for i in range(num_colors)]
     )
 
-    mandelbrot_set = MandelbrotSet(max_iterations=25)
+    mandelbrot_set = MandelbrotSet(max_iterations=20, escape_radius=1000)
     image = Image.new(mode="RGB", size=(512, 512))
     viewport = Viewport(image, center=-0.75, width=3.5)
     paint(mandelbrot_set, viewport, palette, smooth=True)

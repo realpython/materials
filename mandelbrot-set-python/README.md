@@ -8,8 +8,8 @@ This code requires the following libraries:
 
 - Matplotlib
 - NumPy
-- SciPy
 - Pillow
+- SciPy
 
 To install them, activate your [virtual environment](https://realpython.com/python-virtual-environments-a-primer/), and type the following command:
 
