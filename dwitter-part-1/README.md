@@ -4,12 +4,12 @@ This web app models the basic functionality of Twitter.
 
 You can:
 
-- **post** short text messages
-- **view** all users on the platform
-- **follow** and unfollow other users
-- **inspect** a feed of messages from users that you follow
+- **Post** short text messages
+- **View** all users on the platform
+- **Follow** and unfollow other users
+- **Inspect** a feed of messages from users that you follow
 
-Follow the step-by-step instructions of the associated _Real Python_ tutorial to build your own version of Dwitter.
+Follow the [step-by-step instructions](https://realpython.com/django-social-network-1/) on _Real Python_ to build your own version of Dwitter.
 
 ## Setup
 
