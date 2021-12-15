@@ -4,7 +4,7 @@ This web app models the basic functionality of Twitter.
 
 You can:
 
-- **Post** short text messages
+- **Post** short text-based messages
 - **View** all users on the platform
 - **Follow** and unfollow other users
 - **Inspect** a feed of messages from users that you follow
@@ -18,7 +18,7 @@ You can run the provided example project on your local machine by following the 
 Create a new virtual environment:
 
 ```bash
-python3 -m venv ./venv
+python3 -m venv venv
 ```
 
 Activate the virtual environment:
@@ -27,7 +27,9 @@ Activate the virtual environment:
 source ./venv/bin/activate
 ```
 
-Install the dependencies for this project:
+Navigate to the folder for the step you're currently on.
+
+Install the dependencies for this project if you haven't installed them yet:
 
 ```bash
 (venv) $ python -m pip install -r requirements.txt
