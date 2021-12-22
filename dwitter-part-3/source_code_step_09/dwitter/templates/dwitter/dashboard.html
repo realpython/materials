@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="column">
+    {% for followed in user.profile.follows.all %}
+        {% for dweet in followed.user.dweets.all %}
+            <div class="box">
+                {{dweet.body}} 
+                <span class="is-small has-text-grey-light">
+                    ({{ dweet.created_at }} by {{ dweet.user.username }}
+                </span>
+            </div>
+        {% endfor %}
+    {% endfor %}
+</div>
+
+{% endblock content %}

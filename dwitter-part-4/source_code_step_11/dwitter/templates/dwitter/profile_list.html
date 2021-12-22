@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="column">
+
+{% for profile in profiles %}
+
+<div class="block">
+  <div class="card">
+    <a href="{% url 'dwitter:profile' profile.id %}">
+    <div class="card-content">
+      <div class="media">
+        <div class="media-left">
+          <figure class="image is-48x48">
+            <img src="https://bulma.io/images/placeholders/96x96.png"
+                 alt="Placeholder image">
+          </figure>
+        </div>
+        <div class="media-content">
+          <p class="title is-4">{{ profile.user.username }}</p>
+          <p class="subtitle is-6">@{{ profile.user.username|lower }}</p>
+        </div>
+      </div>
+    </div>
+    </a>
+  </div>
+</div>
+
+{% endfor %}
+
+</div>
+
+{% endblock content %}
