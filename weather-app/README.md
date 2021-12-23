@@ -6,13 +6,13 @@ View weather and temperature information for different cities around the world r
 
 ![CLI interactions using the weather CLI app](weather.gif)
 
-Follow the tutorial to [Build this Weather CLI App with Python](https://realpython.com/build-a-python-weather-app-cli/) using only modules from Python's standard library.
+Follow the tutorial to [Build This Weather CLI App with Python](https://realpython.com/build-a-python-weather-app-cli/) using only modules from Python's standard library.
 
 ## Requirements
 
-To run this CLI app, you need a proper installation of [Python](https://www.python.org/) >= 3.6.
+To run this CLI app, you need a modern installation of [Python](https://www.python.org/) >= 3.6.
 
-**Note:** The app was developed on macOS for the [Zsh](https://www.zsh.org) shell. Your mileage with some of the color display and emojis may vary depending on your setup. On Windows, [PowerShell](https://docs.microsoft.com/en-us/powershell/) displays the formatting reasonably well.
+**Note:** This app was developed on macOS for the [Zsh](https://www.zsh.org) shell. Your mileage with some of the color display and emojis may vary depending on your setup. On Windows, [PowerShell](https://docs.microsoft.com/en-us/powershell/) displays the formatting reasonably well.
 
 You also need an [API key for OpenWeather's API](https://openweathermap.org/appid). After signing up and generating your API key, add it to the `secrets.ini` config file:
 
