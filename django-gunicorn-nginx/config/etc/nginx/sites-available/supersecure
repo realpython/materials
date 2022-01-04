@@ -1,0 +1,36 @@
+server_tokens             off;
+access_log                /var/log/nginx/supersecure.access.log;
+error_log                 /var/log/nginx/supersecure.error.log;
+
+server {
+  listen                  80 default_server;
+  return                  444;
+}
+
+server {
+  server_name             .supersecure.codes;
+  listen                  80;
+  return                  307 https://$host$request_uri;
+}
+
+server {
+
+  location / {
+    proxy_pass            http://localhost:8000;
+    proxy_set_header      Host $host;
+    proxy_set_header      X-Forwarded-Proto $scheme;
+    proxy_set_header      X-Forwarded-For $proxy_add_x_forwarded_for;
+    proxy_redirect        off;
+  }
+
+  location /static {
+    autoindex             on;
+    alias                 /var/www/supersecure.codes/static/;
+  }
+
+  listen 443 ssl; # managed by Certbot
+  ssl_certificate /etc/letsencrypt/live/www.supersecure.codes/fullchain.pem; # managed by Certbot
+  ssl_certificate_key /etc/letsencrypt/live/www.supersecure.codes/privkey.pem; # managed by Certbot
+  include /etc/letsencrypt/options-ssl-nginx.conf; # managed by Certbot
+  ssl_dhparam /etc/letsencrypt/ssl-dhparams.pem; # managed by Certbot
+}
