@@ -1,6 +1,6 @@
 # RP Dice Roller
 
-RP Dice Roller is a small Python app that simulates dice rolling events. This code supplements the article [Build a Dice Rolling App With Python](https://realpython.com/python-dice-roll/) on realpython.com.
+RP Dice Roller is a small Python app that simulates dice rolling events. This code supplements the article [Build a Dice-Rolling App With Python](https://realpython.com/python-dice-roll/) on realpython.com.
 
 ## Running RP Dice Roller
 
