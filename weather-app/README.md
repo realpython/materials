@@ -12,7 +12,7 @@ Follow the tutorial to [Build This Weather CLI App with Python](https://realpyth
 
 To run this CLI app, you need a modern installation of [Python](https://www.python.org/) >= 3.6.
 
-**Note:** This app was developed on macOS for the [Zsh](https://www.zsh.org) shell. Your mileage with some of the color display and emojis may vary depending on your setup. On Windows, [PowerShell](https://docs.microsoft.com/en-us/powershell/) displays the formatting reasonably well.
+**Note:** This app was developed on macOS for the [Zsh](https://www.zsh.org) shell. Your mileage with some of the color display and emojis may vary depending on your setup. On Windows, [PowerShell](https://docs.microsoft.com/en-us/powershell/) on [Windows Terminal](https://github.com/microsoft/terminal) displays the formatting reasonably well.
 
 You also need an [API key for OpenWeather's API](https://openweathermap.org/appid). After signing up and generating your API key, add it to the `secrets.ini` config file:
 
