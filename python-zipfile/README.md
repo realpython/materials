@@ -1,5 +1,5 @@
-# Sample ZIP file
+# Sample Resources for the Python's zipfile Tutorial
 
-The `sample_files.zip` file provides sample files for the tutorial [Python's zipfile: Manipulate Your ZIP Files Efficiently](https://realpython.com/python-zipfile/).
+The `python-zipfile/` directory provides sample files for the tutorial [Python's zipfile: Manipulate Your ZIP Files Efficiently](https://realpython.com/python-zipfile/).
 
-If you're following the tutorial, download `sample_files.zip` to your local machine and decompress the file content to your working directory.
+If you're following the tutorial, download the directory content to your local machine and place it in your favorite working directory.
