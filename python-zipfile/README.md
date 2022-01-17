@@ -1,4 +1,4 @@
-# Sample Resources for the Python's zipfile Tutorial
+# Sample Resources for Python's `zipfile`: Manipulate Your ZIP Files Efficiently
 
 The `python-zipfile/` directory provides sample files for the tutorial [Python's zipfile: Manipulate Your ZIP Files Efficiently](https://realpython.com/python-zipfile/).
 
