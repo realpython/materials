@@ -1,7 +1,7 @@
 {% extends "entries/base.html" %}
 
 {% block content %}
-    {% for entry in object_list %}
+    {% for entry in entry_list %}
         <article>
             <h2 class="{{ entry.date_created|date:'l' }}">
                 {{ entry.date_created|date:'Y-m-d H:i' }}

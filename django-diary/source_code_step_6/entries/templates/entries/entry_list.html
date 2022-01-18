@@ -5,7 +5,7 @@
         <h2 class="mark">{% now "Y-m-d H:i" %}</em></h2>
         <a href="{% url 'entry-create' %}"><button>Add new entry</button></a>
     </article>
-    {% for entry in object_list %}
+    {% for entry in entry_list %}
         <article>
             <h2 class="{{ entry.date_created|date:'l' }}">
                 {{ entry.date_created|date:'Y-m-d H:i' }}
