@@ -27,7 +27,7 @@ def create_request(action, value):
 
 def start_connection(host, port, request):
     addr = (host, port)
-    print("starting connection to", addr)
+    print(f"starting connection to {addr}")
     sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
     sock.setblocking(False)
     sock.connect_ex(addr)
@@ -37,7 +37,7 @@ def start_connection(host, port, request):
 
 
 if len(sys.argv) != 5:
-    print("usage:", sys.argv[0], "<host> <port> <action> <value>")
+    print(f"usage: {sys.argv[0]} <host> <port> <action> <value>")
     sys.exit(1)
 
 host, port = sys.argv[1], int(sys.argv[2])
@@ -54,8 +54,8 @@ try:
                 message.process_events(mask)
             except Exception:
                 print(
-                    "main: error: exception for",
-                    f"{message.addr}:\n{traceback.format_exc()}",
+                    f"main: error: exception for {message.addr}:\n"
+                    f"{traceback.format_exc()}"
                 )
                 message.close()
         # Check for a socket being monitored to continue.

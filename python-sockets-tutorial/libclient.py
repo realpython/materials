@@ -45,7 +45,7 @@ class Message:
 
     def _write(self):
         if self._send_buffer:
-            print("sending", repr(self._send_buffer), "to", self.addr)
+            print(f"sending {repr(self._send_buffer)} to {self.addr}")
             try:
                 # Should be ready to write
                 sent = self.sock.send(self._send_buffer)
@@ -121,21 +121,21 @@ class Message:
                 self._set_selector_events_mask("r")
 
     def close(self):
-        print("closing connection to", self.addr)
+        print(f"closing connection to {self.addr}")
         try:
             self.selector.unregister(self.sock)
         except Exception as e:
             print(
-                "error: selector.unregister() exception for",
-                f"{self.addr}: {repr(e)}",
+                f"error: selector.unregister() exception for "
+                f"{self.addr}: {repr(e)}"
             )
 
         try:
             self.sock.close()
         except OSError as e:
             print(
-                "error: socket.close() exception for",
-                f"{self.addr}: {repr(e)}",
+                f"error: socket.close() exception for "
+                f"{self.addr}: {repr(e)}"
             )
         finally:
             # Delete reference to socket object for garbage collection
@@ -200,8 +200,8 @@ class Message:
             # Binary or unknown content-type
             self.response = data
             print(
-                f'received {self.jsonheader["content-type"]} response from',
-                self.addr,
+                f"received {self.jsonheader['content-type']} "
+                f"response from {self.addr}"
             )
             self._process_response_binary_content()
         # Close when response has been processed
