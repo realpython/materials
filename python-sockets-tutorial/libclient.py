@@ -126,7 +126,8 @@ class Message:
             self.selector.unregister(self.sock)
         except Exception as e:
             print(
-                f"Error: selector.unregister() exception for {self.addr}: {e!r}"
+                f"Error: selector.unregister() exception for "
+                f"{self.addr}: {e!r}"
             )
 
         try:
