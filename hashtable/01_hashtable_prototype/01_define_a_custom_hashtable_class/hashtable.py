@@ -1,5 +1,6 @@
 # hashtable.py
 
+
 class HashTable:
     def __init__(self, capacity):
         self.values = capacity * [None]

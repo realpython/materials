@@ -10,7 +10,6 @@ class Pair(NamedTuple):
 
 
 class HashTable:
-
     @classmethod
     def from_dict(cls, dictionary, capacity=None):
         hash_table = cls(capacity or len(dictionary))
@@ -117,15 +116,15 @@ class HashTable:
     def _index(self, key):
         return hash(key) % self.capacity
 
+    def _resize_and_rehash(self):
+        copy = HashTable(capacity=self.capacity * 2)
+        for key, value in self.pairs:
+            copy[key] = value
+        self._buckets = copy._buckets
+
     def _find(self, key):
         bucket = self._buckets[self._index(key)]
         for index, pair in enumerate(bucket):
             if pair.key == key:
                 return bucket, index, pair
         return bucket
-
-    def _resize_and_rehash(self):
-        copy = HashTable(capacity=self.capacity * 2)
-        for key, value in self.pairs:
-            copy[key] = value
-        self._buckets = copy._buckets

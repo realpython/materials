@@ -1,6 +1,5 @@
 # hashtable.py
 
-
 from typing import NamedTuple, Any
 
 
@@ -10,13 +9,6 @@ class Pair(NamedTuple):
 
 
 class HashTable:
-    @classmethod
-    def from_dict(cls, dictionary, capacity=None):
-        hash_table = cls(capacity or len(dictionary) * 10)
-        for key, value in dictionary.items():
-            hash_table[key] = value
-        return hash_table
-
     def __init__(self, capacity):
         if capacity < 1:
             raise ValueError("Capacity must be a positive number")
@@ -51,26 +43,6 @@ class HashTable:
         else:
             return True
 
-    def __eq__(self, other):
-        if self is other:
-            return True
-        if type(self) is not type(other):
-            return False
-        return set(self.pairs) == set(other.pairs)
-
-    def __str__(self):
-        pairs = []
-        for key, value in self.pairs:
-            pairs.append(f"{key!r}: {value!r}")
-        return "{" + ", ".join(pairs) + "}"
-
-    def __repr__(self):
-        cls = self.__class__.__name__
-        return f"{cls}.from_dict({str(self)})"
-
-    def copy(self):
-        return HashTable.from_dict(dict(self.pairs), self.capacity)
-
     def get(self, key, default=None):
         try:
             return self[key]
@@ -83,7 +55,7 @@ class HashTable:
 
     @property
     def values(self):
-        return {pair.value for pair in self.pairs}
+        return [pair.value for pair in self.pairs]
 
     @property
     def keys(self):

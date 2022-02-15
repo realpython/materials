@@ -1,15 +1,13 @@
 # hashtable.py
 
-
 from typing import NamedTuple, Any
+
+DELETED = object()
 
 
 class Pair(NamedTuple):
     key: Any
     value: Any
-
-
-DELETED = object()
 
 
 class HashTable:
@@ -102,11 +100,14 @@ class HashTable:
 
     @property
     def pairs(self):
-        return {pair for pair in self._slots[:] if pair not in (None, DELETED)}
+        return {
+            pair for pair in self._slots[:]
+            if pair not in (None, DELETED)
+        }
 
     @property
     def values(self):
-        return {pair.value for pair in self.pairs}
+        return [pair.value for pair in self.pairs]
 
     @property
     def keys(self):

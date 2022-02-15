@@ -45,7 +45,7 @@ def test_should_not_contain_none_value_when_created():
 
 
 def test_should_insert_none_value():
-    hash_table = HashTable(100)
+    hash_table = HashTable(capacity=100)
     hash_table["key"] = None
     assert None in hash_table.values
 

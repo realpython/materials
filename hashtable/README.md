@@ -1,6 +1,6 @@
-# Implementing a Hash Table in Python
+# Build a Hash Table in Python With Test-Driven Development (TDD)
 
-Code supplementing the tutorial [Implementing a Hash Table in Python](https://realpython.com/python-hash-table/).
+Code supplementing the [tutorial on the hash table](https://realpython.com/python-hash-table/) hosted on Real Python.
 
 ## Installation
 
@@ -14,11 +14,15 @@ $ source venv/bin/activate
 
 ## Usage
 
-Run the unit tests, remembering to seed the Python's hash randomizer with a value that won't cause false positives:
+Use the subfolders in the parent folder `01_hashtable_prototype/` as control checkpoints or when you're lost while going through the tutorial. Remember that these tests require you to seed the Python's hash randomizer with a value that won't cause false positives, for example:
 
 ```shell
-(hashtable) $ export PYTHONHASHSEED=128
-(hashtable) $ pytest 01_hashtable_prototype/
+(hashtable) $ PYTHONHASHSEED=128 pytest 01_hashtable_prototype/01_define_a_custom_hashtable_class
+```
+
+The remaining parent folders contain test cases that don't need that environment variable to be set anymore: 
+
+```shell
 (hashtable) $ pytest 02_linear_probing/
 (hashtable) $ pytest 03_autoresize/
 (hashtable) $ pytest 04_load_factor/

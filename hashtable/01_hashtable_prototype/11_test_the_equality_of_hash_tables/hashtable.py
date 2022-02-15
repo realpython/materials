@@ -2,8 +2,6 @@
 
 from typing import NamedTuple, Any
 
-DELETED = object()
-
 
 class Pair(NamedTuple):
     key: Any
@@ -13,12 +11,12 @@ class Pair(NamedTuple):
 class HashTable:
     @classmethod
     def from_dict(cls, dictionary, capacity=None):
-        hash_table = cls(capacity or len(dictionary))
+        hash_table = cls(capacity or len(dictionary) * 10)
         for key, value in dictionary.items():
             hash_table[key] = value
         return hash_table
 
-    def __init__(self, capacity=8):
+    def __init__(self, capacity):
         if capacity < 1:
             raise ValueError("Capacity must be a positive number")
         self._slots = capacity * [None]
@@ -30,35 +28,19 @@ class HashTable:
         yield from self.keys
 
     def __delitem__(self, key):
-        for index, pair in self._probe(key):
-            if pair is None:
-                raise KeyError(key)
-            if pair is DELETED:
-                continue
-            if pair.key == key:
-                self._slots[index] = DELETED
-                break
+        if key in self:
+            self._slots[self._index(key)] = None
         else:
             raise KeyError(key)
 
     def __setitem__(self, key, value):
-        for index, pair in self._probe(key):
-            if pair in (None, DELETED) or pair.key == key:
-                self._slots[index] = Pair(key, value)
-                break
-        else:
-            self._resize_and_rehash()
-            self[key] = value
+        self._slots[self._index(key)] = Pair(key, value)
 
     def __getitem__(self, key):
-        for _, pair in self._probe(key):
-            if pair is None:
-                raise KeyError(key)
-            if pair is DELETED:
-                continue
-            if pair.key == key:
-                return pair.value
-        raise KeyError(key)
+        pair = self._slots[self._index(key)]
+        if pair is None:
+            raise KeyError(key)
+        return pair.value
 
     def __contains__(self, key):
         try:
@@ -96,10 +78,7 @@ class HashTable:
 
     @property
     def pairs(self):
-        return {
-            pair for pair in self._slots[:]
-            if pair not in (None, DELETED)
-        }
+        return {pair for pair in self._slots[:] if pair}
 
     @property
     def values(self):
@@ -115,15 +94,3 @@ class HashTable:
 
     def _index(self, key):
         return hash(key) % self.capacity
-
-    def _probe(self, key):
-        index = self._index(key)
-        for _ in range(self.capacity):
-            yield index, self._slots[index]
-            index = (index + 1) % self.capacity
-
-    def _resize_and_rehash(self):
-        copy = HashTable(capacity=self.capacity * 2)
-        for key, value in self.pairs:
-            copy[key] = value
-        self._slots = copy._slots

@@ -1,8 +1,5 @@
 # test_hashtable.py
 
-from collections import deque
-from unittest.mock import patch
-
 import pytest
 from pytest_unordered import unordered
 
@@ -22,45 +19,6 @@ def test_should_create_hashtable():
     assert HashTable(capacity=100) is not None
 
 
-def test_should_create_hashtable_with_default_capacity():
-    assert HashTable().capacity == 8
-
-
-def test_should_not_create_hashtable_with_zero_capacity():
-    with pytest.raises(ValueError):
-        HashTable(capacity=0)
-
-
-def test_should_not_create_hashtable_with_negative_capacity():
-    with pytest.raises(ValueError):
-        HashTable(capacity=-100)
-
-
-def test_should_create_hashtable_with_default_load_factor_threshold():
-    assert HashTable()._load_factor_threshold == 0.6
-
-
-def test_should_not_create_hashtable_with_zero_load_factor_threshold():
-    with pytest.raises(ValueError):
-        HashTable(load_factor_threshold=0)
-
-
-def test_should_not_create_hashtable_with_negative_load_factor_threshold():
-    with pytest.raises(ValueError):
-        HashTable(load_factor_threshold=-100)
-
-
-def test_should_create_hashtable_with_one_load_factor_threshold():
-    assert (
-        HashTable(load_factor_threshold=1)._load_factor_threshold == 1
-    )
-
-
-def test_should_not_create_hashtable_with_load_factor_threshold_greater_than_one():
-    with pytest.raises(ValueError):
-        HashTable(load_factor_threshold=1.1)
-
-
 def test_should_report_length_of_empty_hash_table():
     assert len(HashTable(capacity=100)) == 0
 
@@ -77,8 +35,8 @@ def test_should_report_capacity(hash_table):
     assert hash_table.capacity == 100
 
 
-def test_should_create_empty_buckets():
-    assert HashTable(capacity=3)._buckets == [deque(), deque(), deque()]
+def test_should_create_empty_pair_slots():
+    assert HashTable(capacity=3)._slots == [None, None, None]
 
 
 def test_should_insert_key_value_pairs():
@@ -230,6 +188,16 @@ def test_should_convert_to_dict(hash_table):
     assert list(dictionary.values()) == unordered(hash_table.values)
 
 
+def test_should_not_create_hashtable_with_zero_capacity():
+    with pytest.raises(ValueError):
+        HashTable(capacity=0)
+
+
+def test_should_not_create_hashtable_with_negative_capacity():
+    with pytest.raises(ValueError):
+        HashTable(capacity=-100)
+
+
 def test_should_iterate_over_keys(hash_table):
     for key in hash_table.keys:
         assert key in ("hola", 98.6, False)
@@ -267,7 +235,7 @@ def test_should_create_hashtable_from_dict():
 
     hash_table = HashTable.from_dict(dictionary)
 
-    assert hash_table.capacity == len(dictionary) * 2
+    assert hash_table.capacity == len(dictionary) * 10
     assert hash_table.keys == set(dictionary.keys())
     assert hash_table.pairs == set(dictionary.items())
     assert unordered(hash_table.values) == list(dictionary.values())
@@ -293,125 +261,3 @@ def test_should_have_canonical_string_representation(hash_table):
         "HashTable.from_dict({False: True, 'hola': 'hello', 98.6: 37})",
         "HashTable.from_dict({False: True, 98.6: 37, 'hola': 'hello'})",
     }
-
-
-def test_should_compare_equal_to_itself(hash_table):
-    assert hash_table == hash_table
-
-
-def test_should_compare_equal_to_copy(hash_table):
-    assert hash_table is not hash_table.copy()
-    assert hash_table == hash_table.copy()
-
-
-def test_should_compare_equal_different_key_value_order(hash_table):
-    h1 = HashTable.from_dict({"a": 1, "b": 2, "c": 3})
-    h2 = HashTable.from_dict({"b": 2, "a": 1, "c": 3})
-    assert h1 == h2
-
-
-def test_should_compare_unequal(hash_table):
-    other = HashTable.from_dict({"different": "value"})
-    assert hash_table != other
-
-
-def test_should_compare_unequal_another_data_type(hash_table):
-    assert hash_table != 42
-
-
-def test_should_copy_keys_values_pairs_capacity(hash_table):
-    copy = hash_table.copy()
-    assert copy is not hash_table
-    assert set(hash_table.keys) == set(copy.keys)
-    assert set(hash_table.pairs) == set(copy.pairs)
-    assert unordered(hash_table.values) == copy.values
-    assert hash_table.capacity == copy.capacity
-
-
-def test_should_compare_equal_different_capacity():
-    data = {"a": 1, "b": 2, "c": 3}
-    h1 = HashTable.from_dict(data, capacity=50)
-    h2 = HashTable.from_dict(data, capacity=100)
-    assert h1 == h2
-
-
-@patch("builtins.hash", return_value=42)
-def test_should_detect_and_resolve_hash_collisions(mock_hash):
-    hash_table = HashTable(capacity=100)
-    hash_table["hola"] = "hello"
-    hash_table[98.6] = 37
-    hash_table[False] = True
-
-    assert len(hash_table) == 3
-    assert hash_table._buckets[42] == deque(
-        [
-            ("hola", "hello"),
-            (98.6, 37),
-            (False, True),
-        ]
-    )
-
-
-def test_should_double_capacity():
-    hash_table = HashTable(capacity=3)
-    hash_table["hola"] = "hello"
-    hash_table[98.6] = 37
-    hash_table[False] = True
-
-    hash_table["gracias"] = "thank you"
-
-    assert len(hash_table) == 4
-    assert hash_table.capacity == 6
-    assert dict(hash_table.pairs) == {
-        "hola": "hello",
-        98.6: 37,
-        False: True,
-        "gracias": "thank you",
-    }
-
-
-@patch("builtins.hash", return_value=42)
-def test_should_get_collided_values(mock_hash):
-    hash_table = HashTable(capacity=3)
-    hash_table["hola"] = "hello"
-    hash_table[98.6] = 37
-    hash_table[False] = True
-
-    assert len(hash_table) == 3
-
-    assert hash_table["hola"] == "hello"
-    assert hash_table[98.6] == 37
-    assert hash_table[False] is True
-
-
-def test_pairs_should_not_contain_deleted(hash_table):
-    del hash_table["hola"]
-    del hash_table[98.6]
-
-    assert hash_table.pairs == {(False, True)}
-
-
-def test_should_calculate_load_factor(hash_table):
-    assert hash_table.load_factor == 3 / 100
-
-
-def test_should_include_only_buckets_in_load_factor(hash_table):
-    del hash_table["hola"]
-    del hash_table[98.6]
-    assert hash_table.load_factor == 1 / 100
-
-
-def test_should_resize_eagerly_when_load_factor_equal_or_greater():
-    hash_table = HashTable(capacity=100, load_factor_threshold=0.5)
-    for i in range(50):
-        hash_table[i] = "value"
-
-    assert len(hash_table) == 50
-    assert hash_table.capacity == 100
-    assert hash_table.load_factor == 0.5
-
-    hash_table[51] = "value"
-
-    assert len(hash_table) == 51
-    assert hash_table.capacity == 200
-    assert hash_table.load_factor == 51 / 200

@@ -2,7 +2,7 @@
 
 import pytest
 
-from hashtable import HashTable
+from hashtable import HashTable, BLANK
 
 
 @pytest.fixture
@@ -23,7 +23,7 @@ def test_should_report_capacity():
 
 
 def test_should_create_empty_value_slots():
-    assert HashTable(capacity=3)._pairs == [None, None, None]
+    assert HashTable(capacity=3).values == [BLANK, BLANK, BLANK]
 
 
 def test_should_insert_key_value_pairs():
@@ -33,23 +33,21 @@ def test_should_insert_key_value_pairs():
     hash_table[98.6] = 37
     hash_table[False] = True
 
-    assert ("hola", "hello") in hash_table.pairs
-    assert (98.6, 37) in hash_table.pairs
-    assert (False, True) in hash_table.pairs
+    assert "hello" in hash_table.values
+    assert 37 in hash_table.values
+    assert True in hash_table.values
 
     assert len(hash_table) == 100
 
 
 def test_should_not_contain_none_value_when_created():
-    hash_table = HashTable(capacity=100)
-    values = [pair.value for pair in hash_table.pairs if pair]
-    assert None not in values
+    assert None not in HashTable(capacity=100).values
 
 
 def test_should_insert_none_value():
-    hash_table = HashTable(100)
+    hash_table = HashTable(capacity=100)
     hash_table["key"] = None
-    assert ("key", None) in hash_table.pairs
+    assert None in hash_table.values
 
 
 def test_should_find_value_by_key(hash_table):
@@ -91,13 +89,13 @@ def test_should_get_value_with_default(hash_table):
 
 def test_should_delete_key_value_pair(hash_table):
     assert "hola" in hash_table
-    assert ("hola", "hello") in hash_table.pairs
+    assert "hello" in hash_table.values
     assert len(hash_table) == 100
 
     del hash_table["hola"]
 
     assert "hola" not in hash_table
-    assert ("hola", "hello") not in hash_table.pairs
+    assert "hello" not in hash_table.values
     assert len(hash_table) == 100
 
 
@@ -105,28 +103,3 @@ def test_should_raise_key_error_when_deleting(hash_table):
     with pytest.raises(KeyError) as exception_info:
         del hash_table["missing_key"]
     assert exception_info.value.args[0] == "missing_key"
-
-
-def test_should_update_value(hash_table):
-    assert hash_table["hola"] == "hello"
-
-    hash_table["hola"] = "hallo"
-
-    assert hash_table["hola"] == "hallo"
-    assert hash_table[98.6] == 37
-    assert hash_table[False] is True
-    assert len(hash_table) == 100
-
-
-def test_should_return_pairs(hash_table):
-    assert ("hola", "hello") in hash_table.pairs
-    assert (98.6, 37) in hash_table.pairs
-    assert (False, True) in hash_table.pairs
-
-
-def test_should_return_copy_of_pairs(hash_table):
-    assert hash_table.pairs is not hash_table.pairs
-
-
-def test_should_not_include_blank_pairs(hash_table):
-    assert None not in hash_table.pairs
