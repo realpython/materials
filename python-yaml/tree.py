@@ -16,26 +16,27 @@ def visit(node):
 def cast(value, tag):
     match tag.split(":")[-1]:
         case "binary":
-            return f"<img src=\"data:image/png;base64, {value}\" />"
+            return f'<img src="data:image/png;base64, {value}" />'
         case _:
             if "\n" in value:
-                return f"<div class=\"multiline\">{value}</div>"
+                return f'<div class="multiline">{value}</div>'
             else:
                 return f"<span>{value}</span>"
 
 
 def html_list(node):
     items = "".join(f"<li>{visit(child)}</li>" for child in node.value)
-    return f"<ul class=\"sequence\">{items}</ul>"
+    return f'<ul class="sequence">{items}</ul>'
 
 
 def html_map(node):
     pairs = "".join(
-        f"<li><span class=\"key\">{visit(key)}:</span> {visit(value)}</li>"
-        if isinstance(value, yaml.ScalarNode) else (
+        f'<li><span class="key">{visit(key)}:</span> {visit(value)}</li>'
+        if isinstance(value, yaml.ScalarNode)
+        else (
             "<li>"
             "<details>"
-            f"<summary class=\"key\">{visit(key)}</summary> {visit(value)}"
+            f'<summary class="key">{visit(key)}</summary> {visit(value)}'
             "</details>"
             "</li>"
         )
@@ -50,10 +51,10 @@ def html_tree(stream, loader=yaml.SafeLoader):
         "<!DOCTYPE html>"
         "<html>"
         "<head>"
-        "  <meta charset=\"utf-8\">"
+        '  <meta charset="utf-8">'
         "  <title>YAML Tree Preview</title>"
-        "  <link href=\"https://fonts.googleapis.com/css2"
-        "?family=Roboto+Condensed&display=swap\" rel=\"stylesheet\">"
+        '  <link href="https://fonts.googleapis.com/css2'
+        '?family=Roboto+Condensed&display=swap" rel="stylesheet">'
         "  <style>"
         "    * { font-family: 'Roboto Condensed', sans-serif; }"
         "    ul { list-style: none; }"
