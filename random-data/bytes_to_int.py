@@ -27,9 +27,9 @@ import random
 
 def bytes_to_int(b: bytes, byteorder: str = "big") -> int:
     if byteorder == "big":
-        return sum(j * 256 ** i for i, j in enumerate(b[::-1]))
+        return sum(j * 256**i for i, j in enumerate(b[::-1]))
     elif byteorder == "little":
-        return sum(j * 256 ** i for i, j in enumerate(b))
+        return sum(j * 256**i for i, j in enumerate(b))
     else:
         raise ValueError("byteorder must be either 'little' or 'big'.")
 
