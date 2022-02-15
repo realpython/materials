@@ -107,7 +107,7 @@ def decorator(func):
 @timer
 def waste_some_time(num_times):
     for _ in range(num_times):
-        sum([i ** 2 for i in range(10000)])
+        sum([i**2 for i in range(10000)])
 
 
 # Debugging Code
@@ -178,7 +178,7 @@ class Circle:
     @property
     def area(self):
         """Calculate area inside circle"""
-        return self.pi() * self.radius ** 2
+        return self.pi() * self.radius**2
 
     def cylinder_volume(self, height):
         """Calculate volume of cylinder with circle as base"""
@@ -204,7 +204,7 @@ class TimeWaster:
     @timer
     def waste_time(self, num_times):
         for _ in range(num_times):
-            sum([i ** 2 for i in range(self.max_num)])
+            sum([i**2 for i in range(self.max_num)])
 
 
 # Nesting Decorators
@@ -240,4 +240,4 @@ def fibonacci_lru(num):
 # Adding Information About Units
 @set_unit("cm^3")
 def volume(radius, height):
-    return math.pi * radius ** 2 * height
+    return math.pi * radius**2 * height

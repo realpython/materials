@@ -20,7 +20,7 @@ class MandelbrotSet:
     def escape_count(self, c: complex, smooth=False) -> int | float:
         z = 0
         for iteration in range(self.max_iterations):
-            z = z ** 2 + c
+            z = z**2 + c
             if abs(z) > self.escape_radius:
                 if smooth:
                     return iteration + 1 - log(log(abs(z))) / log(2)

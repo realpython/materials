@@ -13,7 +13,7 @@ def complex_matrix(xmin, xmax, ymin, ymax, pixel_density):
 def is_stable(c, num_iterations):
     z = 0
     for _ in range(num_iterations):
-        z = z ** 2 + c
+        z = z**2 + c
     return abs(z) <= 2
 
 
