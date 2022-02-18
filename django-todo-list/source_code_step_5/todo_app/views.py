@@ -16,6 +16,6 @@ class ItemListView(ListView):
         return ToDoItem.objects.filter(todo_list_id=self.kwargs["list_id"])
 
     def get_context_data(self):
-        context = super(ItemListView, self).get_context_data()
+        context = super().get_context_data()
         context["todo_list"] = ToDoList.objects.get(id=self.kwargs["list_id"])
         return context
