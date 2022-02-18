@@ -16,7 +16,7 @@ class MandelbrotSet:
     def escape_count(self, c: complex) -> int:
         z = 0
         for iteration in range(self.max_iterations):
-            z = z ** 2 + c
+            z = z**2 + c
             if abs(z) > 2:
                 return iteration
         return self.max_iterations
