@@ -1,6 +1,3 @@
-import sys
-
-
 PADDING = 20
 
 RED = "\033[1;31m"
@@ -15,4 +12,4 @@ RESET = "\033[0m"
 
 
 def change_color(color):
-    sys.stdout.write(color)
+    print(color, end="")

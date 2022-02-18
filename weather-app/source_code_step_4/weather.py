@@ -17,7 +17,7 @@ def read_user_cli_args():
         description="gets weather and temperature information for a city"
     )
     parser.add_argument(
-        "City", metavar="city", nargs="+", type=str, help="enter the city name"
+        "city", nargs="+", type=str, help="enter the city name"
     )
     parser.add_argument(
         "-i",
@@ -91,6 +91,6 @@ def get_weather_data(query_url):
 
 if __name__ == "__main__":
     user_args = read_user_cli_args()
-    query_url = build_weather_query(user_args.City, user_args.imperial)
+    query_url = build_weather_query(user_args.city, user_args.imperial)
     weather_data = get_weather_data(query_url)
     print(weather_data)
