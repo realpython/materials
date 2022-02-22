@@ -12,7 +12,7 @@ def read_user_cli_args():
         description="gets weather and temperature information for a city"
     )
     parser.add_argument(
-        "City", metavar="city", nargs="+", type=str, help="enter the city name"
+        "city", nargs="+", type=str, help="enter the city name"
     )
     parser.add_argument(
         "-i",
@@ -38,4 +38,4 @@ def _get_api_key():
 
 if __name__ == "__main__":
     user_args = read_user_cli_args()
-    print(user_args.City, user_args.imperial)
+    print(user_args.city, user_args.imperial)
