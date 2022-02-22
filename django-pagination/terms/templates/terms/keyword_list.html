@@ -1,0 +1,5 @@
+{% extends "terms/base.html" %}
+
+{% block content %}
+    {% for kw in page_obj %}<pre>{{kw}}</pre>{% endfor %}
+{% endblock %}
