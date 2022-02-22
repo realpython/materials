@@ -103,7 +103,7 @@ class HashTable:
 
     @property
     def keys(self):
-        return self._keys[:]
+        return self._keys.copy()
 
     @property
     def capacity(self):

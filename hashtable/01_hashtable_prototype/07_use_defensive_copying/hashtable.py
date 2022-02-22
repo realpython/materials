@@ -46,7 +46,7 @@ class HashTable:
 
     @property
     def pairs(self):
-        return [pair for pair in self._pairs[:] if pair]
+        return [pair for pair in self._pairs.copy() if pair]
 
     def _index(self, key):
         return hash(key) % len(self)
