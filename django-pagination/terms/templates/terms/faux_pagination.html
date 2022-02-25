@@ -2,66 +2,62 @@
 
 {% block pagination %}
 <p>
-    Current Page: <b data-page="current"></b>
+    Current Page: <b id="current"></b>
 </p>
 
 <nav>
-    <a href="#" data-page="prev">
+    <a href="#" id="prev">
         Previous Page
     </a>
-    <a href="#" data-page="next">
+    <a href="#" id="next">
         Next Page
     </a>
 </nav>
 
 <script>
-    const CONFIG = {
-        keywords: Array.from(document.querySelectorAll("pre")),
-        paginateBy: 3,
-        selectedPage: -1,
-        prev: document.querySelector("[data-page='prev']"),
-        next: document.querySelector("[data-page='next']")
-    }
-
-    function nextPage(event) {
-        event.preventDefault();
-        CONFIG.selectedPage += 1;
-        goToPage();
-    }
-
-    function prevPage(event) {
-        event.preventDefault();
-        CONFIG.selectedPage -= 1;
-        goToPage();
-    }
-
-    function goToPage() {
-        const indexMin = CONFIG.selectedPage * CONFIG.paginateBy;
-        const indexMax = indexMin + CONFIG.paginateBy;
-        const paginatedArray = CONFIG.keywords.filter((x, index) => {
-            return index >= indexMin && index < indexMax
-        });
-        const currentPage = CONFIG.selectedPage + 1
-        const lastPage = indexMax >= CONFIG.keywords.length
-        document.querySelector("[data-page='current']").innerText = currentPage
-        document.querySelectorAll("pre").forEach(el => el.style.display = "none");
-        paginatedArray.forEach(el => el.style.display = "block");
-
-        if (CONFIG.selectedPage === 0) {
-            CONFIG.prev.style.display = "none"
-        } else {
-            CONFIG.prev.style.display = "inline-block"
+    class FauxPaginator {
+        constructor(perPage) {
+            this.perPage = perPage
+            this.pageIndex = 0
+            this.elements = document.querySelectorAll("pre")
+            this.label = document.querySelector("#current")
+            this.prev = document.querySelector("#prev")
+            this.next = document.querySelector("#next")
+            this.prev.addEventListener("click", this.onPrevClick.bind(this))
+            this.next.addEventListener("click", this.onNextClick.bind(this))
+            this.goToPage()
         }
 
-        if (lastPage) {
-            CONFIG.next.style.display = "none"
-        } else {
-            CONFIG.next.style.display = "inline-block"
+        onPrevClick(event) {
+            event.preventDefault()
+            this.pageIndex--
+            this.goToPage()
+        }
+
+        onNextClick(event) {
+            event.preventDefault()
+            this.pageIndex++
+            this.goToPage()
+        }
+
+        goToPage() {
+            const indexMin = this.pageIndex * this.perPage
+            const indexMax = indexMin + this.perPage
+
+            this.elements.forEach((el, i) => {
+                const visible = i >= indexMin && i < indexMax
+                el.style.display = visible ? "block" : "none"
+            })
+
+            this.label.innerText = this.pageIndex + 1
+
+            const firstPage = indexMin === 0
+            const lastPage = indexMax >= this.elements.length
+            this.prev.style.display = firstPage ? "none" : "inline-block"
+            this.next.style.display = lastPage ? "none" : "inline-block"
         }
     }
 
-    CONFIG.prev.addEventListener("click", prevPage);
-    CONFIG.next.addEventListener("click", nextPage);
-    CONFIG.next.click();
+    new FauxPaginator(3);
 </script>
 {% endblock %}

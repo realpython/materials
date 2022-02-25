@@ -2,41 +2,42 @@
 
 {% block pagination %}
 <nav>
-    <a href="#" data-page="next">
+    <a href="#" id="next">
         Load more
     </a>
 </nav>
 
 <script>
-    const CONFIG = {
-        keywords: Array.from(document.querySelectorAll("pre")),
-        paginateBy: 6,
-        selectedPage: -1,
-        next: document.querySelector("[data-page='next']")
-    }
+    class LoadMorePaginator {
+        constructor(perPage) {
+            this.perPage = perPage
+            this.pageIndex = 0
+            this.elements = document.querySelectorAll("pre")
+            this.next = document.querySelector("#next")
+            this.next.addEventListener("click", this.onNextClick.bind(this))
+            this.loadMore()
+        }
 
-    document.querySelectorAll("pre").forEach(function (el) {
-        el.style.display = "none";
-    });
+        onNextClick(event) {
+            event.preventDefault()
+            this.pageIndex++
+            this.loadMore()
+        }
 
-    function loadMore(event) {
-        event.preventDefault();
-        CONFIG.selectedPage += 1;
-        const indexMin = CONFIG.selectedPage * CONFIG.paginateBy;
-        const indexMax = indexMin + CONFIG.paginateBy;
-        const currentPage = CONFIG.selectedPage + 1
-        const paginatedArray = CONFIG.keywords.filter((x, index) => {
-            return index >= indexMin && index < indexMax
-        });
+        loadMore() {
+            const indexMin = this.pageIndex * this.perPage
+            const indexMax = indexMin + this.perPage
 
-        paginatedArray.forEach(el => el.style.display = "block");
+            this.elements.forEach((el, i) => {
+                const visible = i < indexMax
+                el.style.display = visible ? "block" : "none"
+            })
 
-        if (CONFIG.keywords.length / currentPage <= CONFIG.paginateBy) {
-            CONFIG.next.style.display = "none"
+            const lastPage = indexMax >= this.elements.length
+            this.next.style.display = lastPage ? "none" : "inline-block"
         }
     }
 
-    CONFIG.next.addEventListener("click", loadMore);
-    CONFIG.next.click();
+    new LoadMorePaginator(6);
 </script>
 {% endblock %}
