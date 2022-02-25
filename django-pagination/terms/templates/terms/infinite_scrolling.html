@@ -1,0 +1,60 @@
+{% extends "terms/base.html" %}
+
+{% block pagination %}
+
+<style>
+    #loading {
+        transition: opacity 1s ease-out;
+        opacity: 1;
+    }
+</style>
+
+<div id="loading">Loading...</div>
+
+<script>
+    const CONFIG = {
+        keywords: Array.from(document.querySelectorAll("pre")),
+        paginateBy: 6,
+        selectedPage: -1,
+        loader: document.querySelector("#loading"),
+        options: {
+            root: null,
+            rootMargin: "0px",
+            threshold: 0.25
+        }
+    }
+
+    function loadMore() {
+        CONFIG.selectedPage += 1;
+        const indexMin = CONFIG.selectedPage * CONFIG.paginateBy;
+        const indexMax = indexMin + CONFIG.paginateBy;
+        const currentPage = CONFIG.selectedPage + 1
+        const paginatedArray = CONFIG.keywords.filter((x, index) => {
+            return index >= indexMin && index < indexMax
+        });
+
+        paginatedArray.forEach(el => el.style.display = "block");
+
+        if (CONFIG.keywords.length / currentPage <= CONFIG.paginateBy) {
+            CONFIG.loader.style.opacity = "0"
+        }
+    }
+
+    document.addEventListener("DOMContentLoaded", () => {
+        function handleIntersect(entries, observer) {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    loadMore()
+                }
+            });
+        }
+
+        let observer = new IntersectionObserver(handleIntersect,
+            CONFIG.options);
+        observer.observe(CONFIG.loader);
+    })
+
+    document.querySelectorAll("pre").forEach(el => el.style.display = "none");
+    loadMore();
+</script>
+{% endblock %}

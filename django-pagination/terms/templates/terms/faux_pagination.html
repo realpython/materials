@@ -1,0 +1,67 @@
+{% extends "terms/base.html" %}
+
+{% block pagination %}
+<p>
+    Current Page: <b data-page="current"></b>
+</p>
+
+<nav>
+    <a href="#" data-page="prev">
+        Previous Page
+    </a>
+    <a href="#" data-page="next">
+        Next Page
+    </a>
+</nav>
+
+<script>
+    const CONFIG = {
+        keywords: Array.from(document.querySelectorAll("pre")),
+        paginateBy: 3,
+        selectedPage: -1,
+        prev: document.querySelector("[data-page='prev']"),
+        next: document.querySelector("[data-page='next']")
+    }
+
+    function nextPage(event) {
+        event.preventDefault();
+        CONFIG.selectedPage += 1;
+        goToPage();
+    }
+
+    function prevPage(event) {
+        event.preventDefault();
+        CONFIG.selectedPage -= 1;
+        goToPage();
+    }
+
+    function goToPage() {
+        const indexMin = CONFIG.selectedPage * CONFIG.paginateBy;
+        const indexMax = indexMin + CONFIG.paginateBy;
+        const paginatedArray = CONFIG.keywords.filter((x, index) => {
+            return index >= indexMin && index < indexMax
+        });
+        const currentPage = CONFIG.selectedPage + 1
+        const lastPage = indexMax >= CONFIG.keywords.length
+        document.querySelector("[data-page='current']").innerText = currentPage
+        document.querySelectorAll("pre").forEach(el => el.style.display = "none");
+        paginatedArray.forEach(el => el.style.display = "block");
+
+        if (CONFIG.selectedPage === 0) {
+            CONFIG.prev.style.display = "none"
+        } else {
+            CONFIG.prev.style.display = "inline-block"
+        }
+
+        if (lastPage) {
+            CONFIG.next.style.display = "none"
+        } else {
+            CONFIG.next.style.display = "inline-block"
+        }
+    }
+
+    CONFIG.prev.addEventListener("click", prevPage);
+    CONFIG.next.addEventListener("click", nextPage);
+    CONFIG.next.click();
+</script>
+{% endblock %}

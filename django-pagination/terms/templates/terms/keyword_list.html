@@ -3,3 +3,33 @@
 {% block content %}
     {% for kw in page_obj %}<pre>{{kw}}</pre>{% endfor %}
 {% endblock %}
+
+{% block pagination %}
+{% if page_obj.has_previous %}
+<a href="{% url 'terms-by-page' 1 %}">
+    ◀️◀️
+</a>
+<a href="{% url 'terms-by-page' page_obj.previous_page_number %}">
+    ◀️
+</a>
+{% endif%}
+
+<a>{{page_obj.number}} of {{page_obj.paginator.num_pages}}</a>
+
+{% if page_obj.has_next %}
+<a href="{% url 'terms-by-page' page_obj.next_page_number %}">
+    ▶️
+</a>
+<a href="{% url 'terms-by-page' page_obj.paginator.num_pages %}">
+    ▶️▶️
+</a>
+{% endif%}
+
+<hr>
+
+{% for page_number in page_obj.paginator.page_range %}
+<a href="{% url 'terms-by-page' page_number %}" class="{% if page_number == page_obj.number %}current{% endif %}">
+    {{page_number}}
+</a>
+{% endfor %}
+{% endblock %}

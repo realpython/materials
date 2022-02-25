@@ -1,0 +1,42 @@
+{% extends "terms/base.html" %}
+
+{% block pagination %}
+<nav>
+    <a href="#" data-page="next">
+        Load more
+    </a>
+</nav>
+
+<script>
+    const CONFIG = {
+        keywords: Array.from(document.querySelectorAll("pre")),
+        paginateBy: 6,
+        selectedPage: -1,
+        next: document.querySelector("[data-page='next']")
+    }
+
+    document.querySelectorAll("pre").forEach(function (el) {
+        el.style.display = "none";
+    });
+
+    function loadMore(event) {
+        event.preventDefault();
+        CONFIG.selectedPage += 1;
+        const indexMin = CONFIG.selectedPage * CONFIG.paginateBy;
+        const indexMax = indexMin + CONFIG.paginateBy;
+        const currentPage = CONFIG.selectedPage + 1
+        const paginatedArray = CONFIG.keywords.filter((x, index) => {
+            return index >= indexMin && index < indexMax
+        });
+
+        paginatedArray.forEach(el => el.style.display = "block");
+
+        if (CONFIG.keywords.length / currentPage <= CONFIG.paginateBy) {
+            CONFIG.next.style.display = "none"
+        }
+    }
+
+    CONFIG.next.addEventListener("click", loadMore);
+    CONFIG.next.click();
+</script>
+{% endblock %}
