@@ -1,5 +1,11 @@
 {% extends "terms/base.html" %}
 
+{% block content%}
+<div id="keywords">
+
+</div>
+{% endblock %}
+
 {% block pagination %}
 <nav>
     <a href="#" id="next">
@@ -8,11 +14,20 @@
 </nav>
 
 <script>
+    async function getData(url, page, paginateBy) {
+        const urlWithParams = url + "?" + new URLSearchParams({
+            page: page,
+            per_page: paginateBy
+        })
+        const response = await fetch(urlWithParams);
+        return response.json();
+    }
+
     class LoadMorePaginator {
         constructor(perPage) {
             this.perPage = perPage
-            this.pageIndex = 0
-            this.elements = document.querySelectorAll("pre")
+            this.pageIndex = 1
+            this.container = document.querySelector("#keywords")
             this.next = document.querySelector("#next")
             this.next.addEventListener("click", this.onNextClick.bind(this))
             this.loadMore()
@@ -24,17 +39,20 @@
             this.loadMore()
         }
 
+        addElement(keyword) {
+            let pre = document.createElement("pre")
+            pre.append(keyword)
+            this.container.append(pre)
+        }
+
         loadMore() {
-            const indexMin = this.pageIndex * this.perPage
-            const indexMax = indexMin + this.perPage
-
-            this.elements.forEach((el, i) => {
-                const visible = i < indexMax
-                el.style.display = visible ? "block" : "none"
-            })
-
-            const lastPage = indexMax >= this.elements.length
-            this.next.style.display = lastPage ? "none" : "inline-block"
+            getData("{% url 'terms-api' %}", this.pageIndex, this.perPage)
+                .then(response => {
+                    response.data.forEach((el) => {
+                        this.addElement(el.name)
+                    });
+                    this.next.style.display = !response.page.has_next ? "none" : "inline-block"
+                });
         }
     }
 
