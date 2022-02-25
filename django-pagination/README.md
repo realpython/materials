@@ -41,6 +41,16 @@ Run the Django development server:
 Navigate to `http://localhost:8000/all`.
 You should see an empty page with a _Python Keywords_ headline.
 
+## Prepare the Database
+
+Run the Django migrations:
+
+```bash
+(venv) $ python manage.py migrate
+```
+
+This will create the tables for the Python Wiki project in your database.
+
 ## Add the Python Keywords Data
 
 Enter the Django shell:
