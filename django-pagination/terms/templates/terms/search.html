@@ -6,54 +6,61 @@
     <input id="searchBox" type="text" />
 </form>
 <p>
-    <b data-count="results">0</b>
-    of
-    <b data-count="total"></b>
-    Keywords found<span> with the letters <mark></mark></span>.
+    <b id="resultsCount">0</b>
+    Keywords found.
 </p>
 
-{% for keyword in keyword_list %}
-    <pre>{{keyword}}</pre>
-{% endfor %}
+<div id="keywords"></div>
 {% endblock %}
 
 {% block pagination %}
 <script>
-    const CONFIG = {
-        keywords: document.querySelectorAll("pre"),
-        input: document.querySelector("input"),
-        resultText: document.querySelector("span")
+    async function getData(url, paginateBy, startsWith) {
+        const urlWithParams = url + "?" + new URLSearchParams({
+            per_page: paginateBy,
+            startswith: startsWith
+        })
+        const response = await fetch(urlWithParams);
+        return response.json();
     }
 
-    function search() {
-        const inputVal = CONFIG.input.value.toLowerCase();
-        if (inputVal.length > 0) {
-            CONFIG.keywords.forEach(el => el.style.display = "block");
-        } else {
-            CONFIG.keywords.forEach(el => el.style.display = "none");
+    class Search {
+        constructor(maxResults) {
+            this.maxResults = maxResults
+            this.container = document.querySelector("#keywords")
+            this.resultsCount = document.querySelector("#resultsCount")
+            this.input = document.querySelector("#searchBox")
+            this.input.addEventListener("input", this.doSearch.bind(this))
         }
-        inputVal.split("").forEach(function (char) {
-            for (let i = 0; i < CONFIG.keywords.length; i += 1) {
-                if (!CONFIG.keywords[i].innerText.toLowerCase().includes(char)) {
-                    CONFIG.keywords[i].style.display = "none";
-                }
+
+        addElement(keyword) {
+            let pre = document.createElement("pre")
+            pre.append(keyword)
+            this.container.append(pre)
+        }
+
+        resetSearch() {
+            this.container.innerHTML = '';
+            this.resultsCount.innerHTML = 0;
+        }
+
+        doSearch() {
+            const inputVal = this.input.value.toLowerCase();
+            if (inputVal.length > 0) { 
+                getData("{% url 'terms-api' %}", this.maxResults, inputVal)
+                    .then(response => {
+                        this.resetSearch();
+                        this.resultsCount.innerHTML = response.data.length;
+                        response.data.forEach((el) => {
+                            this.addElement(el.name)
+                        });
+                    });
+            } else {
+                this.resetSearch();
             }
-        });
-
-        const results = document.querySelectorAll("pre[style='display: block;']");
-        document.querySelector("[data-count='results']").innerText = results.length;
-
-        if (inputVal.length > 0) {
-            CONFIG.resultText.style.display = "inline";
-            document.querySelector("mark").innerText = inputVal.toLocaleLowerCase();
-        } else {
-            CONFIG.resultText.style.display = "none";
         }
     }
 
-    document.querySelector("[data-count='total']").innerText = CONFIG.keywords.length;
-    CONFIG.keywords.forEach(el => el.style.display = "none");
-    CONFIG.resultText.style.display = "none";
-    CONFIG.input.addEventListener("input", search);
+    new Search(99);
 </script>
 {% endblock %}

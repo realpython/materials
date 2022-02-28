@@ -1,5 +1,9 @@
 {% extends "terms/base.html" %}
 
+{% block content%}
+<div id="keywords"></div>
+{% endblock %}
+
 {% block pagination %}
 <p>
     Current Page: <b id="current"></b>
@@ -15,10 +19,20 @@
 </nav>
 
 <script>
+    async function getData(url, page, paginateBy) {
+        const urlWithParams = url + "?" + new URLSearchParams({
+            page: page,
+            per_page: paginateBy
+        })
+        const response = await fetch(urlWithParams);
+        return response.json();
+    }
+
     class FauxPaginator {
         constructor(perPage) {
             this.perPage = perPage
-            this.pageIndex = 0
+            this.pageIndex = 1
+            this.container = document.querySelector("#keywords")
             this.elements = document.querySelectorAll("pre")
             this.label = document.querySelector("#current")
             this.prev = document.querySelector("#prev")
@@ -40,21 +54,25 @@
             this.goToPage()
         }
 
+        addElement(keyword) {
+            let pre = document.createElement("pre")
+            pre.append(keyword)
+            this.container.append(pre)
+        }
+
         goToPage() {
-            const indexMin = this.pageIndex * this.perPage
-            const indexMax = indexMin + this.perPage
-
-            this.elements.forEach((el, i) => {
-                const visible = i >= indexMin && i < indexMax
-                el.style.display = visible ? "block" : "none"
-            })
-
-            this.label.innerText = this.pageIndex + 1
-
-            const firstPage = indexMin === 0
-            const lastPage = indexMax >= this.elements.length
-            this.prev.style.display = firstPage ? "none" : "inline-block"
-            this.next.style.display = lastPage ? "none" : "inline-block"
+            getData("{% url 'terms-api' %}", this.pageIndex, this.perPage)
+                .then(response => {
+                    this.container.innerHTML = '';
+                    response.data.forEach((el) => {
+                        this.addElement(el.name)
+                    });
+                    this.label.innerText = this.pageIndex
+                    const firstPage = this.pageIndex === 1
+                    const lastPage = !response.page.has_next ? true : false
+                    this.prev.style.display = firstPage ? "none" : "inline-block"
+                    this.next.style.display = lastPage ? "none" : "inline-block"
+                });
         }
     }
 

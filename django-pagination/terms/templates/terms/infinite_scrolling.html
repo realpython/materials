@@ -1,7 +1,10 @@
 {% extends "terms/base.html" %}
 
-{% block pagination %}
+{% block content%}
+<div id="keywords"></div>
+{% endblock %}
 
+{% block pagination %}
 <style>
     #loading {
         transition: opacity 1s ease-out;
@@ -12,10 +15,21 @@
 <div id="loading">Loading...</div>
 
 <script>
+    async function getData(url, page, paginateBy) {
+        const urlWithParams = url + "?" + new URLSearchParams({
+            page: page,
+            per_page: paginateBy
+        })
+        const response = await fetch(urlWithParams);
+        return response.json();
+    }
+
     class ScrollMorePaginator {
         constructor(perPage) {
             this.perPage = perPage
-            this.pageIndex = 0
+            this.pageIndex = 1
+            this.lastPage = false
+            this.container = document.querySelector("#keywords")
             this.elements = document.querySelectorAll("pre")
             this.loader = document.querySelector("#loading")
             this.options = {
@@ -28,29 +42,35 @@
         }
 
         onIntersect() {
-            this.pageIndex++
-            this.loadMore()
+            if (!this.lastPage) {
+                this.pageIndex++
+                this.loadMore()
+            }
+        }
+
+        addElement(keyword) {
+            let pre = document.createElement("pre")
+            pre.append(keyword)
+            this.container.append(pre)
         }
 
         watchIntersection() {
             document.addEventListener("DOMContentLoaded", () => {
-                let observer = new IntersectionObserver(this.onIntersect.bind(this),
+                const observer = new IntersectionObserver(this.onIntersect.bind(this),
                     this.options);
                 observer.observe(this.loader);
             })
         }
 
         loadMore() {
-            const indexMin = this.pageIndex * this.perPage
-            const indexMax = indexMin + this.perPage
-
-            this.elements.forEach((el, i) => {
-                const visible = i < indexMax
-                el.style.display = visible ? "block" : "none"
-            })
-
-            const lastPage = indexMax >= this.elements.length
-            this.loader.style.opacity = lastPage ? "0" : "1"
+            getData("{% url 'terms-api' %}", this.pageIndex, this.perPage)
+                .then(response => {
+                    response.data.forEach((el) => {
+                        this.addElement(el.name)
+                    });
+                    this.loader.style.opacity = !response.page.has_next ? "0" : "1"
+                    this.lastPage = !response.page.has_next ? true : false
+                });
         }
     }
 
