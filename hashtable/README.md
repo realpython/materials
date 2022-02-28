@@ -1,4 +1,4 @@
-# Build a Hash Table in Python With Test-Driven Development (TDD)
+# Build a Hash Table in Python With TDD
 
 Code supplementing the [tutorial on the hash table](https://realpython.com/python-hash-table/) hosted on Real Python.
 
