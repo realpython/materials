@@ -14,7 +14,7 @@ $ source venv/bin/activate
 
 ## Usage
 
-Use the subfolders in the parent folder `01_hashtable_prototype/` as control checkpoints or when you're lost while going through the tutorial. Remember that these tests require you to seed the Python's hash randomizer with a value that won't cause false positives, for example:
+Use the subfolders in the parent folder `01_hashtable_prototype/` as control checkpoints or when you're lost while going through the tutorial. Remember that these tests require you to seed Python's hash randomizer with a value that won't cause false positives, for example:
 
 ```shell
 (hashtable) $ PYTHONHASHSEED=128 pytest 01_hashtable_prototype/01_define_a_custom_hashtable_class
