@@ -55,7 +55,7 @@ def test_should_create_hashtable_with_one_load_factor_threshold():
     )
 
 
-def test_should_not_create_hashtable_with_load_factor_threshold_greater_than_one():
+def test_should_not_create_hashtable_with_load_factor_threshold_greater_than_1():
     with pytest.raises(ValueError):
         HashTable(load_factor_threshold=1.1)
 
