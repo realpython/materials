@@ -1,3 +1,0 @@
-adventurelib==1.2.1; python_version >= "3" \
-    --hash=sha256:aac1eba3ce841c13c5aa19c94916f6d75ebad9e5ebd5fb50524acd8733b8b432 \
-    --hash=sha256:8772d0d9085abf6d6bb0ddea0aa3d8f8228c1cc8a052ff68cd741af27cfdba8e
