@@ -50,9 +50,7 @@ def test_should_not_create_hashtable_with_negative_load_factor_threshold():
 
 
 def test_should_create_hashtable_with_one_load_factor_threshold():
-    assert (
-        HashTable(load_factor_threshold=1)._load_factor_threshold == 1
-    )
+    assert HashTable(load_factor_threshold=1)._load_factor_threshold == 1
 
 
 def test_should_not_create_hashtable_with_load_factor_threshold_above_one():
@@ -171,11 +169,7 @@ def test_should_update_value(hash_table):
 
 
 def test_should_return_pairs(hash_table):
-    assert hash_table.pairs == [
-        ("hola", "hello"),
-        (98.6, 37),
-        (False, True)
-    ]
+    assert hash_table.pairs == [("hola", "hello"), (98.6, 37), (False, True)]
 
 
 def test_should_get_pairs_of_empty_hash_table():

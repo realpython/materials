@@ -51,9 +51,7 @@ def test_should_not_create_hashtable_with_negative_load_factor_threshold():
 
 
 def test_should_create_hashtable_with_one_load_factor_threshold():
-    assert (
-        HashTable(load_factor_threshold=1)._load_factor_threshold == 1
-    )
+    assert HashTable(load_factor_threshold=1)._load_factor_threshold == 1
 
 
 def test_should_not_create_hashtable_with_load_factor_threshold_above_one():
