@@ -1,0 +1,20 @@
+<!-- todo_list/todo_app/templates/todo_app/todoitem_form.html -->
+{% extends "base.html" %}
+
+{% block content %}
+
+<h3>{{ title }}</h3>
+<form method="post">
+    {% csrf_token %}
+    <table>
+        {{ form.as_table }}
+    </table>
+    <input type="submit" value="Submit">
+    <input value="Cancel" type="button" onclick="location.href='{% url "list" todo_list.id %}'">
+    {% if object %}
+    <input value="Delete this item" type="button"
+        onclick="location.href='{% url "item-delete" todo_list.id object.id %}'">
+    {% endif %}
+</form>
+
+{% endblock %}
