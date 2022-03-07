@@ -49,7 +49,7 @@
         }
 
         addElement(keyword) {
-            let pre = document.createElement("pre")
+            const pre = document.createElement("pre")
             pre.append(keyword)
             this.container.append(pre)
         }
@@ -69,7 +69,7 @@
                         this.addElement(el.name)
                     });
                     this.loader.style.opacity = !response.page.has_next ? "0" : "1"
-                    this.lastPage = !response.page.has_next ? true : false
+                    this.lastPage = !response.page.has_next
                 });
         }
     }

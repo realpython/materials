@@ -55,7 +55,7 @@
         }
 
         addElement(keyword) {
-            let pre = document.createElement("pre")
+            const pre = document.createElement("pre")
             pre.append(keyword)
             this.container.append(pre)
         }
@@ -69,7 +69,7 @@
                     });
                     this.label.innerText = this.pageIndex
                     const firstPage = this.pageIndex === 1
-                    const lastPage = !response.page.has_next ? true : false
+                    const lastPage = !response.page.has_next
                     this.prev.style.display = firstPage ? "none" : "inline-block"
                     this.next.style.display = lastPage ? "none" : "inline-block"
                 });
