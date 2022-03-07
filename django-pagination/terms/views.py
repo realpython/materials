@@ -20,6 +20,7 @@ def listing(request, page):
     keywords = Keyword.objects.all().order_by("name")
     paginator = Paginator(keywords, 2)
     page_object = paginator.get_page(page)
+    page_object.adjusted_elided_pages = paginator.get_elided_page_range(page)
     context = {"page_obj": page_object}
     return render(request, "terms/keyword_list.html", context)
 

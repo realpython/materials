@@ -5,31 +5,28 @@
 {% endblock %}
 
 {% block pagination %}
-{% if page_obj.has_previous %}
-<a href="{% url 'terms-by-page' 1 %}">
-    ◀️◀️
-</a>
-<a href="{% url 'terms-by-page' page_obj.previous_page_number %}">
-    ◀️
-</a>
-{% endif%}
+    {# Remove the comment/endcomment tags to see the example #}
+    {% comment %}
+        {% include "terms/examples/current_page.html" %}
+    {% endcomment%}
 
-<a>{{page_obj.number}} of {{page_obj.paginator.num_pages}}</a>
+    {% comment %}
+        {% include "terms/examples/all_pages.html" %}
+    {% endcomment%}
 
-{% if page_obj.has_next %}
-<a href="{% url 'terms-by-page' page_obj.next_page_number %}">
-    ▶️
-</a>
-<a href="{% url 'terms-by-page' page_obj.paginator.num_pages %}">
-    ▶️▶️
-</a>
-{% endif%}
+    {% comment %}
+        {% include "terms/examples/elided_pages.html" %}
+    {% endcomment%}
 
-<hr>
+    {% comment %}
+        {% include "terms/examples/previous_next.html" %}
+    {% endcomment%}
 
-{% for page_number in page_obj.paginator.page_range %}
-<a href="{% url 'terms-by-page' page_number %}" class="{% if page_number == page_obj.number %}current{% endif %}">
-    {{page_number}}
-</a>
-{% endfor %}
+    {% comment %}
+        {% include "terms/examples/first_last.html" %}
+    {% endcomment%}
+
+    {% comment %}
+        {% include "terms/examples/combined.html" %}
+    {% endcomment%}
 {% endblock %}

@@ -1,0 +1,9 @@
+{% for page_number in page_obj.adjusted_elided_pages %}
+    {% if page_number == page_obj.paginator.ELLIPSIS %}
+    …
+    {% else %}
+    <a href="{% url 'terms-by-page' page_number %}" class="{% if page_number == page_obj.number %}current{% endif %}">
+        {{page_number}}
+    </a>
+    {% endif %}
+{% endfor %}
