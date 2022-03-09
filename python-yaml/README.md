@@ -24,12 +24,6 @@ Additionally, you can install optional dependencies that were mentioned in the t
 
 ## Usage
 
-Print a sample JSON object:
-
-```shell
-$ python print_json.py 
-```
-
 Print a sample YAML document with syntax highlighting:
 
 ```console
@@ -51,5 +45,6 @@ $ cat data.yaml | python tree.py
 Start an interactive demo of a YAML formatter at <http://localhost:8000/>:
 
 ```console
-$ uvicorn formatter:app
+$ cd formatter/
+$ uvicorn server:app
 ```
