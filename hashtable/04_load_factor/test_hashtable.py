@@ -332,7 +332,7 @@ def test_should_compare_equal_different_capacity():
     assert h1 == h2
 
 
-@patch("builtins.hash", return_value=42)
+@patch("builtins.hash", return_value=24)
 def test_should_detect_and_resolve_hash_collisions(mock_hash):
     hash_table = HashTable(capacity=100)
     hash_table["hola"] = "hello"
@@ -341,9 +341,9 @@ def test_should_detect_and_resolve_hash_collisions(mock_hash):
 
     assert len(hash_table) == 3
 
-    assert hash_table._slots[42] == ("hola", "hello")
-    assert hash_table._slots[43] == (98.6, 37)
-    assert hash_table._slots[44] == (False, True)
+    assert hash_table._slots[24] == ("hola", "hello")
+    assert hash_table._slots[25] == (98.6, 37)
+    assert hash_table._slots[26] == (False, True)
 
 
 @patch("builtins.hash", side_effect=[2, 1, 1])
@@ -392,7 +392,7 @@ def test_should_double_capacity():
     }
 
 
-@patch("builtins.hash", return_value=42)
+@patch("builtins.hash", return_value=24)
 def test_should_get_collided_values(mock_hash):
     hash_table = HashTable(capacity=3)
     hash_table["hola"] = "hello"
