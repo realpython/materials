@@ -333,7 +333,7 @@ def test_should_compare_equal_different_capacity():
     assert h1 == h2
 
 
-@patch("builtins.hash", return_value=42)
+@patch("builtins.hash", return_value=24)
 def test_should_detect_and_resolve_hash_collisions(mock_hash):
     hash_table = HashTable(capacity=100)
     hash_table["hola"] = "hello"
@@ -341,7 +341,7 @@ def test_should_detect_and_resolve_hash_collisions(mock_hash):
     hash_table[False] = True
 
     assert len(hash_table) == 3
-    assert hash_table._buckets[42] == deque(
+    assert hash_table._buckets[24] == deque(
         [
             ("hola", "hello"),
             (98.6, 37),
@@ -368,7 +368,7 @@ def test_should_double_capacity():
     }
 
 
-@patch("builtins.hash", return_value=42)
+@patch("builtins.hash", return_value=24)
 def test_should_get_collided_values(mock_hash):
     hash_table = HashTable(capacity=3)
     hash_table["hola"] = "hello"

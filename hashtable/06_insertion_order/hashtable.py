@@ -41,7 +41,6 @@ class HashTable:
                 raise KeyError(key)
 
     def __setitem__(self, key, value):
-
         if self.load_factor >= self._load_factor_threshold:
             self._resize_and_rehash()
 
