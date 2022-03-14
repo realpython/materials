@@ -1,10 +1,10 @@
 # Django Project: Python Wiki
 
-This repository contains the source code for the Django project that is referred to in the [Real Python Django Pagination Article](https://realpython.com/django-pagination/).
+This repository contains the source code for the Django project that you'll complete in the [Real Python Django Pagination Article](https://realpython.com/django-pagination/).
 
 ## Create the Django Project
 
-After you cloned this repository and navigated into it's folder, you can run the provided example project on your local machine by following the steps outlined below.
+After you've cloned this repository and navigated into its folder, you can run the provided example project on your local machine by following the steps outlined below.
 
 Create a new virtual environment:
 
@@ -18,7 +18,7 @@ Activate the virtual environment:
 $ source ./venv/bin/activate
 ```
 
-Navigate to the folder for the step you're currently on.
+Navigate to the folder for the step that you're currently on.
 
 Install the dependencies for this project if you haven't installed them yet:
 
@@ -84,4 +84,4 @@ Run the Django development server:
 (venv) $ python manage.py runserver
 ```
 
-Navigate to `http://localhost:8000/all` to see the page with all Python Keywords.
+Navigate to `http://localhost:8000/all` to see the page with all the Python keywords.
