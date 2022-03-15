@@ -1,6 +1,6 @@
 # Django Project: Python Wiki
 
-This repository contains the source code for the Django project that you'll complete in the [Real Python Django Pagination Article](https://realpython.com/django-pagination/).
+This repository contains the source code for the Django project that you'll complete in Real Python's [Pagination for a User-Friendly Django App](https://realpython.com/django-pagination/).
 
 ## Create the Django Project
 
@@ -49,7 +49,7 @@ Run the Django migrations:
 (venv) $ python manage.py migrate
 ```
 
-This will create the tables for the Python Wiki project in your database.
+This will create the tables for the Python wiki project in your database.
 
 ## Add the Python Keywords Data
 
