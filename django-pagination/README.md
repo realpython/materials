@@ -1,4 +1,4 @@
-# Django Project: Python Wiki
+# Pagination for a User-Friendly Django App
 
 This repository contains the source code for the Django project that you'll complete in Real Python's [Pagination for a User-Friendly Django App](https://realpython.com/django-pagination/).
 
