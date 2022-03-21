@@ -1,0 +1,81 @@
+{% extends "terms/base.html" %}
+
+{% block content%}
+<div id="keywords"></div>
+{% endblock %}
+
+{% block pagination %}
+<p>
+    Current Page: <b id="current"></b>
+</p>
+
+<nav>
+    <a href="#" id="prev">
+        Previous Page
+    </a>
+    <a href="#" id="next">
+        Next Page
+    </a>
+</nav>
+
+<script>
+    async function getData(url, page, paginateBy) {
+        const urlWithParams = url + "?" + new URLSearchParams({
+            page: page,
+            per_page: paginateBy
+        })
+        const response = await fetch(urlWithParams);
+        return response.json();
+    }
+
+    class FauxPaginator {
+        constructor(perPage) {
+            this.perPage = perPage
+            this.pageIndex = 1
+            this.container = document.querySelector("#keywords")
+            this.elements = document.querySelectorAll("pre")
+            this.label = document.querySelector("#current")
+            this.prev = document.querySelector("#prev")
+            this.next = document.querySelector("#next")
+            this.prev.addEventListener("click", this.onPrevClick.bind(this))
+            this.next.addEventListener("click", this.onNextClick.bind(this))
+            this.goToPage()
+        }
+
+        onPrevClick(event) {
+            event.preventDefault()
+            this.pageIndex--
+            this.goToPage()
+        }
+
+        onNextClick(event) {
+            event.preventDefault()
+            this.pageIndex++
+            this.goToPage()
+        }
+
+        addElement(keyword) {
+            const pre = document.createElement("pre")
+            pre.append(keyword)
+            this.container.append(pre)
+        }
+
+        goToPage() {
+            getData("{% url 'terms-api' %}", this.pageIndex, this.perPage)
+                .then(response => {
+                    this.container.innerHTML = '';
+                    response.data.forEach((el) => {
+                        this.addElement(el.name)
+                    });
+                    this.label.innerText = this.pageIndex
+                    const firstPage = this.pageIndex === 1
+                    const lastPage = !response.page.has_next
+                    this.prev.style.display = firstPage ? "none" : "inline-block"
+                    this.next.style.display = lastPage ? "none" : "inline-block"
+                });
+        }
+    }
+
+    new FauxPaginator(3);
+</script>
+{% endblock %}
