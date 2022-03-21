@@ -11,10 +11,10 @@ def html_tree(stream, loader=yaml.SafeLoader):
         "<!DOCTYPE html>"
         "<html>"
         "<head>"
-        "  <meta charset=\"utf-8\">"
+        '  <meta charset="utf-8">'
         "  <title>YAML Tree Preview</title>"
-        "  <link href=\"https://fonts.googleapis.com/css2"
-        "?family=Roboto+Condensed&display=swap\" rel=\"stylesheet\">"
+        '  <link href="https://fonts.googleapis.com/css2'
+        '?family=Roboto+Condensed&display=swap" rel="stylesheet">'
         "  <style>"
         "    * { font-family: 'Roboto Condensed', sans-serif; }"
         "    ul { list-style: none; }"
@@ -55,7 +55,8 @@ def html_list(node):
 def html_map(node):
     pairs = "".join(
         f'<li><span class="key">{visit(key)}:</span> {visit(value)}</li>'
-        if isinstance(value, yaml.ScalarNode) else (
+        if isinstance(value, yaml.ScalarNode)
+        else (
             "<li>"
             "<details>"
             f'<summary class="key">{visit(key)}</summary> {visit(value)}'
