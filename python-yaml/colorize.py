@@ -1,6 +1,7 @@
 # colorize.py
 
 import sys
+
 import yaml
 
 

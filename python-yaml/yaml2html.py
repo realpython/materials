@@ -1,8 +1,8 @@
 # yaml2html.py
 
 import sys
-import yaml
 
+import yaml
 from yaml import (
     ScalarEvent,
     SequenceStartEvent,
@@ -10,6 +10,9 @@ from yaml import (
     MappingStartEvent,
     MappingEndEvent,
 )
+
+OPEN_TAG_EVENTS = (ScalarEvent, SequenceStartEvent, MappingStartEvent)
+CLOSE_TAG_EVENTS = (ScalarEvent, SequenceEndEvent, MappingEndEvent)
 
 
 class HTMLBuilder:
@@ -23,11 +26,8 @@ class HTMLBuilder:
 
     def process(self, event):
 
-        open_tag = (ScalarEvent, SequenceStartEvent, MappingStartEvent)
-        close_tag = (ScalarEvent, SequenceEndEvent, MappingEndEvent)
-
-        if isinstance(event, open_tag):
-            self._tag()
+        if isinstance(event, OPEN_TAG_EVENTS):
+            self._handle_tag()
 
         if isinstance(event, ScalarEvent):
             self._html.append(event.value)
@@ -44,10 +44,10 @@ class HTMLBuilder:
             self._html.append("</dl>")
             self._context.pop()
 
-        if isinstance(event, close_tag):
-            self._tag(close=True)
+        if isinstance(event, CLOSE_TAG_EVENTS):
+            self._handle_tag(close=True)
 
-    def _tag(self, close=False):
+    def _handle_tag(self, close=False):
         if len(self._context) > 0:
             if self._context[-1] is list:
                 self._html.append("</li>" if close else "<li>")

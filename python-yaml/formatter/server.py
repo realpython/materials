@@ -8,13 +8,11 @@ http://127.0.0.1:8000/
 
 from typing import Optional
 
+import yaml
 from fastapi import FastAPI
 from fastapi.responses import JSONResponse, HTMLResponse
 from fastapi.staticfiles import StaticFiles
-
 from pydantic import BaseModel
-
-import yaml
 
 TEST_DATA = {
     "person": {
@@ -26,7 +24,6 @@ TEST_DATA = {
 
 
 class Parameters(BaseModel):
-
     # Boolean flags:
     allow_unicode: bool = False
     canonical: bool = False

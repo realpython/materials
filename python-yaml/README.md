@@ -1,6 +1,6 @@
 # YAML: The Missing Battery in Python
 
-Python scripts and sample data for the [YAML: The Missing Battery in Python](https://realpython.com/mandelbrot-set-python) tutorial on Real Python.
+Python scripts and sample data for the [YAML: The Missing Battery in Python](https://realpython.com/python-yaml/) tutorial on Real Python.
 
 ## Installation
 

@@ -1,7 +1,30 @@
 # tree.py
 
 import sys
+
 import yaml
+
+
+def html_tree(stream, loader=yaml.SafeLoader):
+    body = visit(yaml.compose(stream, loader))
+    return (
+        "<!DOCTYPE html>"
+        "<html>"
+        "<head>"
+        "  <meta charset=\"utf-8\">"
+        "  <title>YAML Tree Preview</title>"
+        "  <link href=\"https://fonts.googleapis.com/css2"
+        "?family=Roboto+Condensed&display=swap\" rel=\"stylesheet\">"
+        "  <style>"
+        "    * { font-family: 'Roboto Condensed', sans-serif; }"
+        "    ul { list-style: none; }"
+        "    ul.sequence { list-style: '- '; }"
+        "    .key { font-weight: bold; }"
+        "    .multiline { white-space: pre; }"
+        "  </style>"
+        "</head>"
+        f"<body>{body}</body></html>"
+    )
 
 
 def visit(node):
@@ -32,8 +55,7 @@ def html_list(node):
 def html_map(node):
     pairs = "".join(
         f'<li><span class="key">{visit(key)}:</span> {visit(value)}</li>'
-        if isinstance(value, yaml.ScalarNode)
-        else (
+        if isinstance(value, yaml.ScalarNode) else (
             "<li>"
             "<details>"
             f'<summary class="key">{visit(key)}</summary> {visit(value)}'
@@ -43,28 +65,6 @@ def html_map(node):
         for key, value in node.value
     )
     return f"<ul>{pairs}</ul>"
-
-
-def html_tree(stream, loader=yaml.SafeLoader):
-    body = visit(yaml.compose(stream, loader))
-    return (
-        "<!DOCTYPE html>"
-        "<html>"
-        "<head>"
-        '  <meta charset="utf-8">'
-        "  <title>YAML Tree Preview</title>"
-        '  <link href="https://fonts.googleapis.com/css2'
-        '?family=Roboto+Condensed&display=swap" rel="stylesheet">'
-        "  <style>"
-        "    * { font-family: 'Roboto Condensed', sans-serif; }"
-        "    ul { list-style: none; }"
-        "    ul.sequence { list-style: '- '; }"
-        "    .key { font-weight: bold; }"
-        "    .multiline { white-space: pre; }"
-        "  </style>"
-        "</head>"
-        f"<body>{body}</body></html>"
-    )
 
 
 if __name__ == "__main__":
