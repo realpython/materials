@@ -1,6 +1,6 @@
 message:
   date: 2022-01-16 12:46:17Z
-  from: joe.doe@domain.com
+  from: john.doe@domain.com
   to:
     - bobby@domain.com
     - molly@domain.com
