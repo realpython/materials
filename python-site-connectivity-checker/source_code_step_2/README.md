@@ -1,4 +1,4 @@
-# RP Checker
+# Build a Site Connectivity Checker in Python
 
 RP Checker is a site connectivity checker utility. It takes one or more website URLs and checks if those sites are online. It can perform the connectivity checks either synchronously or asynchronously.
 
@@ -29,9 +29,9 @@ The status of "python.org" is: "Online!" 👍
 
 RP Checker provides the following options:
 
-- `-u` or `--urls` take one or more URLs and check if they're online.
-- `-f` or `--input-file` take a file containing a list of URLs to check.
-- `-a` or `--asynchronous` run the check asynchronously.
+- `-u` or `--urls` takes one or more URLs and checks if they're online.
+- `-f` or `--input-file` takes a file containing a list of URLs to check.
+- `-a` or `--asynchronous` runs the check asynchronously.
 
 ## About the Author
 
