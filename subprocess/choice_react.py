@@ -5,7 +5,8 @@ from string import ascii_lowercase
 
 print(
     "A letter will appear on screen after a random amount of time,\n"
-    + "when it appears, type the letter as fast as possible and then press enter\n"
+    "when it appears, type the letter as fast as possible "
+    "and then press enter\n"
 )
 print("Press enter when you are ready")
 input()

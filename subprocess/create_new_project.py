@@ -8,9 +8,8 @@ def create_new_project(name):
 
     project_folder = PurePath.joinpath(Path.cwd(), name)
     project_folder.mkdir()
-    os.chdir(
-        project_folder
-    )  # Should change to call git with -C flag which would mean that this line would not be needed
+    os.chdir(project_folder)  # Should change to call git with -C flag
+    # which would mean that this line would not be needed
     project_folder.joinpath("README.md").touch()
     project_folder.joinpath(".gitignore").touch()
     with open(".gitignore", mode="w") as f:
