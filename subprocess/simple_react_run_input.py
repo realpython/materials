@@ -8,7 +8,7 @@ process = subprocess.run(
 
 """
 OUTPUT
- 
+
 Press enter to play
 go!
 0.0
