@@ -73,9 +73,8 @@ Add the Python keywords to your database:
 Verify that the keywords were added to your database:
 
 ```pycon
-Keyword.objects.all()
 >>> Keyword.objects.all()
-<QuerySet [<Keyword: False>, <Keyword: None>, <Keyword: True>, <Keyword: and>, <Keyword: as>, <Keyword: assert>, <Keyword: async>, <Keyword: await>, <Keyword: break>, <Keyword: class>, <Keyword: continue>, <Keyword: def>, <Keyword: del>, <Keyword: elif>, <Keyword: else>, <Keyword: except>, <Keyword: finally>, <Keyword: for>, <Keyword: from>, <Keyword: global>, '...(remaining elements truncated)...']>
+<QuerySet [<Keyword: False>, <Keyword: None>, '...(remaining elements truncated)...']>
 ```
 
 Run the Django development server:
