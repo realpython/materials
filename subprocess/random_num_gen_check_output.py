@@ -1,3 +1,7 @@
 import subprocess
 
-print(subprocess.check_output(["python", "random_num_gen.py"]).strip())
+process = subprocess.run(
+    ["python", "random_num_gen.py"], capture_output=True, text=True
+)
+
+print(int(process.stdout))
