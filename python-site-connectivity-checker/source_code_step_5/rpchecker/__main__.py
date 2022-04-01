@@ -12,7 +12,7 @@ def main():
     """Run RP Checker."""
     user_args = read_user_cli_args()
     urls = _get_websites_urls(user_args)
-    if len(urls) == 0:
+    if not urls:
         print("Error: no URLs to check", file=sys.stderr)
         sys.exit(1)
 
@@ -34,7 +34,7 @@ def _read_urls_from_file(file):
     if file_path.is_file():
         with file_path.open() as urls_file:
             urls = [url.strip() for url in urls_file]
-            if len(urls) > 0:
+            if urls:
                 return urls
             print(f"Error: empty input file, {file}", file=sys.stderr)
     else:
