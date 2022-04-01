@@ -26,7 +26,7 @@ def site_is_online(url, timeout=2):
 
 
 async def site_is_online_async(url, timeout=2):
-    """Return a True if the target URL is online.
+    """Return True if the target URL is online.
 
     Raise an exception otherwise.
     """
