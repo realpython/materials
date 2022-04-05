@@ -25,7 +25,7 @@ HEIGHT = 600
 TITLE = "Arcade Sample Game"
 
 # Location of our assets
-ASSETS_PATH = Path.cwd() / "arcade" / "assets"
+ASSETS_PATH = Path.cwd() / "assets"
 
 # How many coins must be on the screen before the game is over?
 COIN_COUNT = 10
