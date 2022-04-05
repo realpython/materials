@@ -48,7 +48,7 @@ class HashTable:
 
     @property
     def pairs(self):
-        return {pair for pair in self._slots.copy() if pair}
+        return {pair for pair in self._slots if pair}
 
     @property
     def values(self):

@@ -45,7 +45,6 @@ class HashTable:
             raise KeyError(key)
 
     def __setitem__(self, key, value):
-
         if self.load_factor >= self._load_factor_threshold:
             self._resize_and_rehash()
 
@@ -100,9 +99,7 @@ class HashTable:
 
     @property
     def pairs(self):
-        return {
-            pair for pair in self._slots.copy() if pair not in (None, DELETED)
-        }
+        return {pair for pair in self._slots if pair not in (None, DELETED)}
 
     @property
     def values(self):

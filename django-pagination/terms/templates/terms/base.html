@@ -1,0 +1,42 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Python Keywords</title>
+    <link rel="stylesheet" href="{% static 'terms/simple.min.css' %}">
+</head>
+
+<style>
+    nav {
+        text-align: center;
+    }
+    nav a {
+        margin: 0.2rem;
+        min-width: 1.2rem;
+        font-weight: bold;
+    }
+
+    nav a.current {
+        border-color: var(--bg);
+    }
+</style>
+
+<body>
+    <h1>Python Keywords</h1>
+
+    {% block content%}
+        {% for keyword in keyword_list %}
+            <pre>{{keyword}}</pre>
+        {% endfor %}
+    {% endblock %}
+
+    <nav>
+        {% block pagination %}
+            {# Placeholder: Pagination-Elements #}
+        {% endblock %}
+    </nav>
+
+</body>
+
+</html>

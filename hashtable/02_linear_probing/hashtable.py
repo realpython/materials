@@ -95,9 +95,7 @@ class HashTable:
 
     @property
     def pairs(self):
-        return {
-            pair for pair in self._slots.copy() if pair not in (None, DELETED)
-        }
+        return {pair for pair in self._slots if pair not in (None, DELETED)}
 
     @property
     def values(self):

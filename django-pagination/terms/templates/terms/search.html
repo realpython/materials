@@ -1,0 +1,66 @@
+{% extends "terms/base.html" %}
+
+{% block content %}
+<form>
+    <label for="searchBox">Search:</label><br>
+    <input id="searchBox" type="text" />
+</form>
+<p>
+    <b id="resultsCount">0</b>
+    Keywords found.
+</p>
+
+<div id="keywords"></div>
+{% endblock %}
+
+{% block pagination %}
+<script>
+    async function getData(url, paginateBy, startsWith) {
+        const urlWithParams = url + "?" + new URLSearchParams({
+            per_page: paginateBy,
+            startswith: startsWith
+        })
+        const response = await fetch(urlWithParams);
+        return response.json();
+    }
+
+    class Search {
+        constructor(maxResults) {
+            this.maxResults = maxResults
+            this.container = document.querySelector("#keywords")
+            this.resultsCount = document.querySelector("#resultsCount")
+            this.input = document.querySelector("#searchBox")
+            this.input.addEventListener("input", this.doSearch.bind(this))
+        }
+
+        addElement(keyword) {
+            const pre = document.createElement("pre")
+            pre.append(keyword)
+            this.container.append(pre)
+        }
+
+        resetSearch() {
+            this.container.innerHTML = '';
+            this.resultsCount.innerHTML = 0;
+        }
+
+        doSearch() {
+            const inputVal = this.input.value.toLowerCase();
+            if (inputVal.length > 0) { 
+                getData("{% url 'terms-api' %}", this.maxResults, inputVal)
+                    .then(response => {
+                        this.resetSearch();
+                        this.resultsCount.innerHTML = response.data.length;
+                        response.data.forEach((el) => {
+                            this.addElement(el.name)
+                        });
+                    });
+            } else {
+                this.resetSearch();
+            }
+        }
+    }
+
+    new Search(99);
+</script>
+{% endblock %}

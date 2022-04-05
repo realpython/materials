@@ -1,0 +1,10 @@
+{% if page_obj.has_previous %}
+    <a href="{% url 'terms-by-page' 1 %}">
+        First Page
+    </a>
+{% endif%}
+{% if page_obj.has_next %}
+    <a href="{% url 'terms-by-page' page_obj.paginator.num_pages %}">
+        Last Page
+    </a>
+{% endif%}
