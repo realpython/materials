@@ -40,7 +40,7 @@ class Player(pygame.sprite.Sprite):
 
         # Get the image to draw for the player
         player_image = str(
-            Path.cwd() / "pygame" / "images" / "alien_green_stand.png"
+            Path.cwd() / "images" / "alien_green_stand.png"
         )
         # Load the image, preserve alpha channel for transparency
         self.surf = pygame.image.load(player_image).convert_alpha()
@@ -63,7 +63,7 @@ class Coin(pygame.sprite.Sprite):
         super(Coin, self).__init__()
 
         # Get the image to draw for the coin
-        coin_image = str(Path.cwd() / "pygame" / "images" / "coin_gold.png")
+        coin_image = str(Path.cwd() / "images" / "coin_gold.png")
 
         # Load the image, preserve alpha channel for transparency
         self.surf = pygame.image.load(coin_image).convert_alpha()
@@ -101,7 +101,7 @@ score = 0
 
 # Setup the coin pickup sound
 coin_pickup_sound = pygame.mixer.Sound(
-    str(Path.cwd() / "pygame" / "sounds" / "coin_pickup.wav")
+    str(Path.cwd() / "sounds" / "coin_pickup.wav")
 )
 
 # Create a player Sprite and set it's initial position
