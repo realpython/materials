@@ -186,4 +186,7 @@ def use(item: str):
 
 
 if __name__ == "__main__":
+    # Look at out starting room
+    look()
+    
     adv.start()
