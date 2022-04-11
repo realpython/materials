@@ -23,22 +23,22 @@ def draw():
     """Draw is called once per frame to render everything on the screen"""
 
     # Clear the screen first
-    screen.clear()
+    screen.clear()  # noqa: F821
 
     # Set the background color to white
-    screen.fill("white")
+    screen.fill("white")  # noqa: F821
 
     # Draw a blue circle with a radius of 50 in the center of the screen
-    screen.draw.filled_circle(
+    screen.draw.filled_circle(  # noqa: F821
         (WIDTH // 2, HEIGHT // 2), 50, "blue"
     )
 
     # Draw a red outlined square in the top left corner of the screen
-    red_square = Rect((50, 50), (100, 100))
-    screen.draw.rect(red_square, (200, 0, 0))
+    red_square = Rect((50, 50), (100, 100))  # noqa: F821
+    screen.draw.rect(red_square, (200, 0, 0))  # noqa: F821
 
     # Draw an orange caption along the bottom in 60 point font
-    screen.draw.text(
+    screen.draw.text(  # noqa: F821
         "Hello, World! From Pygame Zero!",
         (100, HEIGHT - 50),
         fontsize=60,

@@ -84,6 +84,11 @@ Alternately, you can use `pgzrun` to run both games:
 (venv) $ pgzrun pygame_zero_game.py
 ```
 
+### Note
+Checkers like [flake8 are unaware](https://pygame-zero.readthedocs.io/en/latest/installation.html#for-flake8-pyflakes) of Pygame Zero's extra builtins.
+That's why xou'll find `# noqa: F821` inline comments in `pygame_zero_basic.py` and `pygame_zero_game.py`.
+With the `# noqa` inline comments [flake8](https://flake8.pycqa.org/en/3.1.1/user/ignoring-errors.html#in-line-ignoring-errors) ignores the errors that these lines would cause.
+
 ## Arcade
 
 To run the Arcade sample code, first activate the virtual environment:
