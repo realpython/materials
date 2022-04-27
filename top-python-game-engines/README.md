@@ -1,12 +1,12 @@
 # Top Python Game Engines
 
-This repository contains source code for sample games you'll see in Real Python's Top Python Game Engines article.
+This repository contains source code for sample games that you'll see in Real Python's Top Python Game Engines tutorial.
 
-After cloning this repository, you can navigate into each folder to find the source code for the sample games shown in the article. Instructions on how to run each game is shown below.
+After cloning this repository, you can navigate into each folder to find the source code for the sample games shown in the tutorial. Instructions on how to run each game is shown below.
 
-## Setup the Virtual Environment
+## Set up the Virtual Environment
 
-It is recommended to use a virtual environment to run these samples. To do so, follow these instructions.
+It's recommended to use a virtual environment to run these samples. To do so, follow these instructions.
 
 First, create the virtual environment:
 
@@ -60,7 +60,7 @@ To run the Pygame Zero sample code, first activate the virtual environment:
 $ source ./venv/bin/activate
 ```
 
-Then navigate to the Pygame folder:
+Then navigate to the Pygame Zero folder:
 
 ```bash
 (venv) $ cd pygame_zero
@@ -85,7 +85,7 @@ Alternately, you can use `pgzrun` to run both games:
 ```
 
 ### Note
-Checkers like [flake8 are unaware](https://pygame-zero.readthedocs.io/en/latest/installation.html#for-flake8-pyflakes) of Pygame Zero's extra builtins.
+Checkers like [flake8 are unaware](https://pygame-zero.readthedocs.io/en/latest/installation.html#for-flake8-pyflakes) of Pygame Zero's extra built-ins.
 That's why xou'll find `# noqa: F821` inline comments in `pygame_zero_basic.py` and `pygame_zero_game.py`.
 With the `# noqa` inline comments [flake8](https://flake8.pycqa.org/en/3.1.1/user/ignoring-errors.html#in-line-ignoring-errors) ignores the errors that these lines would cause.
 
@@ -115,15 +115,15 @@ To run the full sample game:
 (venv) $ python arcade_game.py
 ```
 
-## AdventureLib
+## adventurelib
 
-To run the AdventureLib sample code, first activate the virtual environment:
+To run the adventurelib sample code, first activate the virtual environment:
 
 ```bash
 $ source ./venv/bin/activate
 ```
 
-Then navigate to the AdventureLib folder:
+Then navigate to the adventurelib folder:
 
 ```bash
 (venv) $ cd adventurelib
@@ -144,9 +144,9 @@ To run the full sample game:
 
 Unlike the other samples, Ren'Py games are developed and run from the Ren'Py Software Development Kit.
 
-Visit the [Ren'Py web page](https://www.renpy.org/) to download the proper SDK for your environment (Windows, Mac, and Linux versions are available).
+Visit the [Ren'Py web page](https://www.renpy.org/) to download the proper SDK for your environment (Windows, macOS, and Linux versions are available).
 
-Then, run the Ren'Py Launcher using the proper command for your environment. Check out the [Ren'Py Quickstart Guide](https://www.renpy.org/doc/html/quickstart.html#the-ren-py-launcher) for the most up to date instructions.
+Then, run the Ren'Py Launcher using the proper command for your environment. Check out the [Ren'Py Quickstart Guide](https://www.renpy.org/doc/html/quickstart.html#the-ren-py-launcher) for the most up-to-date instructions.
 
 To access the basic and full sample games in the Ren'Py launcher, click _Preferences_, then _Projects Directory_. Change the Projects Directory to the `renpy` folder in the repository folder you downloaded. Click _Return_ to return to the main Ren'Py Launcher page.
 
