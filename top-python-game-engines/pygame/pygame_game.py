@@ -1,11 +1,11 @@
 """
-Simple game in Pygame
+Complete game in Pygame
 
 This game demonstrates some of the more advanced features of
 Pygame, including:
-- using sprites to render complex graphics
-- handling user mouse input
-- basic sound output
+- Using sprites to render complex graphics
+- Handling user mouse input
+- Basic sound output
 """
 
 # Import and initialize the pygame library
@@ -14,7 +14,7 @@ import pygame
 # To randomize coin placement
 from random import randint
 
-# To find our assets
+# To find your assets
 from pathlib import Path
 
 # For type hinting
@@ -24,11 +24,11 @@ from typing import Tuple
 WIDTH = 800
 HEIGHT = 600
 
-# How quickly do we generate coins? Time is in milliseconds
+# How quickly do you generate coins? Time is in milliseconds
 coin_countdown = 2500
 coin_interval = 100
 
-# How many coins can be on the screen before we end?
+# How many coins can be on the screen before you end?
 COIN_COUNT = 10
 
 
@@ -42,7 +42,7 @@ class Player(pygame.sprite.Sprite):
         player_image = str(Path.cwd() / "images" / "alien_green_stand.png")
         # Load the image, preserve alpha channel for transparency
         self.surf = pygame.image.load(player_image).convert_alpha()
-        # Save the rect so we can move it
+        # Save the rect so you can move it
         self.rect = self.surf.get_rect()
 
     def update(self, pos: Tuple):
@@ -84,29 +84,29 @@ screen = pygame.display.set_mode(size=[WIDTH, HEIGHT])
 # Hide the mouse cursor
 pygame.mouse.set_visible(False)
 
-# Setup the clock for a decent framerate
+# Set up the clock for a decent frame rate
 clock = pygame.time.Clock()
 
 # Create a custom event for adding a new coin
 ADDCOIN = pygame.USEREVENT + 1
 pygame.time.set_timer(ADDCOIN, coin_countdown)
 
-# Setup the coin_list
+# Set up the coin_list
 coin_list = pygame.sprite.Group()
 
 # Initialize the score
 score = 0
 
-# Setup the coin pickup sound
+# Set up the coin pickup sound
 coin_pickup_sound = pygame.mixer.Sound(
     str(Path.cwd() / "sounds" / "coin_pickup.wav")
 )
 
-# Create a player Sprite and set it's initial position
+# Create a player sprite and set its initial position
 player = Player()
 player.update(pygame.mouse.get_pos())
 
-# Run until we get to an end condition
+# Run until you get to an end condition
 running = True
 while running:
 
@@ -115,13 +115,13 @@ while running:
         if event.type == pygame.QUIT:
             running = False
 
-        # Should we add a new coin?
+        # Should you add a new coin?
         elif event.type == ADDCOIN:
             # Create a new coin and add it to the coin_list
             new_coin = Coin()
             coin_list.add(new_coin)
 
-            # Speed things up if less than three coins are on screen
+            # Speed things up if fewer than three coins are on-screen
             if len(coin_list) < 3:
                 coin_countdown -= coin_interval
             # Need to have some interval
@@ -137,7 +137,7 @@ while running:
     # Update the player position
     player.update(pygame.mouse.get_pos())
 
-    # Check if the player has collided with a coin, removing them if so
+    # Check if the player has collided with a coin, removing the coin if so
     coins_collected = pygame.sprite.spritecollide(
         sprite=player, group=coin_list, dokill=True
     )
@@ -149,7 +149,7 @@ while running:
 
     # Are there too many coins on the screen?
     if len(coin_list) >= COIN_COUNT:
-        # This counts as an end condition, so we end our game loop
+        # This counts as an end condition, so you end your game loop
         running = False
 
     # To render the screen, first fill the background with pink
@@ -170,7 +170,7 @@ while running:
     # Flip the display to make everything appear
     pygame.display.flip()
 
-    # Ensure we maintain a 30 frames per second rate
+    # Ensure you maintain a 30 frames per second rate
     clock.tick(30)
 
 # Done! Print the final score

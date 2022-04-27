@@ -1,5 +1,5 @@
 """
-Basic Hello World program in Arcade
+Basic "Hello, World!" program in Arcade
 
 This program is designed to demonstrate the basic capabilities
 of Arcade. It will:
@@ -12,7 +12,7 @@ of Arcade. It will:
 # Import arcade allows the program to run in Python IDLE
 import arcade
 
-# Set the width and height of our output window, in pixels
+# Set the width and height of your output window, in pixels
 WIDTH = 800
 HEIGHT = 600
 
@@ -51,7 +51,7 @@ class ArcadeBasic(arcade.Window):
             num_segments=50,
         )
 
-        # Draw a red outlined square in the top left corner of the screen
+        # Draw a red-outlined square in the top-left corner of the screen
         arcade.draw_lrtb_rectangle_outline(
             left=50,
             top=HEIGHT - 50,
@@ -61,7 +61,7 @@ class ArcadeBasic(arcade.Window):
             border_width=3,
         )
 
-        # Draw an orange caption along the bottom in 60 point font
+        # Draw an orange caption along the bottom in 60-point font
         arcade.draw_text(
             text="Hello, World! From Arcade!",
             start_x=100,

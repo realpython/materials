@@ -1,11 +1,11 @@
 """
-Simple game in Arcade
+Complete game in Arcade
 
 This game demonstrates some of the more advanced features of
 Arcade, including:
-- using sprites to render complex graphics
-- handling user input
-- sound output
+- Using sprites to render complex graphics
+- Handling user input
+- Sound output
 """
 
 # Import arcade allows the program to run in Python IDLE
@@ -14,23 +14,23 @@ import arcade
 # To randomize coin placement
 from random import randint
 
-# To locate our assets
+# To locate your assets
 from pathlib import Path
 
-# Set the width and height of our game window, in pixels
+# Set the width and height of your game window, in pixels
 WIDTH = 800
 HEIGHT = 600
 
 # Set the game window title
 TITLE = "Arcade Sample Game"
 
-# Location of our assets
+# Location of your assets
 ASSETS_PATH = Path.cwd() / "assets"
 
 # How many coins must be on the screen before the game is over?
 COIN_COUNT = 10
 
-# How much is each coin worth
+# How much is each coin worth?
 COIN_VALUE = 10
 
 
@@ -50,14 +50,14 @@ class ArcadeGame(arcade.Window):
         # Call the super class init method
         super().__init__(width, height, title)
 
-        # Setup a timer to create new coins
+        # Set up a timer to create new coins
         self.coin_countdown = 2.5
         self.coin_interval = 0.1
 
         # Score is initially zero
         self.score = 0
 
-        # Setup empty sprite lists
+        # Set up empty sprite lists
         self.coins = arcade.SpriteList()
 
         # Don't show the mouse cursor
@@ -69,7 +69,7 @@ class ArcadeGame(arcade.Window):
         # Set the background color
         arcade.set_background_color(color=arcade.color.PINK)
 
-        # Setup the player
+        # Set up the player
         sprite_image = ASSETS_PATH / "images" / "alien_green_stand.png"
         self.player = arcade.Sprite(
             filename=sprite_image, center_x=WIDTH // 2, center_y=HEIGHT // 2
@@ -80,7 +80,7 @@ class ArcadeGame(arcade.Window):
             function_pointer=self.add_coin, interval=self.coin_countdown
         )
 
-        # Load our coin collision sound
+        # Load your coin collision sound
         self.coin_pickup_sound = arcade.load_sound(
             ASSETS_PATH / "sounds" / "coin_pickup.wav"
         )
@@ -103,16 +103,16 @@ class ArcadeGame(arcade.Window):
         # Add the coin to the current list of coins
         self.coins.append(new_coin)
 
-        # We decrease the time between coin appearances, but only if there are
-        # less than three coins on the screen.
+        # Decrease the time between coin appearances, but only if there are
+        # fewer than three coins on the screen.
         if len(self.coins) < 3:
             self.coin_countdown -= self.coin_interval
 
-            # Make sure we don't go too fast
+            # Make sure you don't go too quickly
             if self.coin_countdown < 0.1:
                 self.coin_countdown = 0.1
 
-            # Stop the previous scheduled call
+            # Stop the previously scheduled call
             arcade.unschedule(function_pointer=self.add_coin)
 
             # Schedule the next coin addition
@@ -130,7 +130,7 @@ class ArcadeGame(arcade.Window):
             dy {float} -- Change in y position since last move
         """
 
-        # Ensure the player doesn't move off screen
+        # Ensure the player doesn't move off-screen
         self.player.center_x = arcade.clamp(x, 0, WIDTH)
         self.player.center_y = arcade.clamp(y, 0, HEIGHT)
 
@@ -141,13 +141,13 @@ class ArcadeGame(arcade.Window):
             delta_time {float} -- How many seconds since the last frame?
         """
 
-        # Check if we've picked up a coin
+        # Check if you've picked up a coin
         coins_hit = arcade.check_for_collision_with_list(
             sprite=self.player, sprite_list=self.coins
         )
 
         for coin in coins_hit:
-            # Add the coin score to our score
+            # Add the coin score to your score
             self.score += COIN_VALUE
 
             # Play the coin sound
@@ -180,7 +180,7 @@ class ArcadeGame(arcade.Window):
         # Draw the player
         self.player.draw()
 
-        # Draw the score in the lower left corner
+        # Draw the score in the lower-left corner
         arcade.draw_text(
             text=f"Score: {self.score}",
             start_x=50,

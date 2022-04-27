@@ -1,8 +1,8 @@
 """
-Items for the AdventureLib Game
+Items for the adventurelib Game
 """
 
-# Import the AdventureLib library
+# Import the adventurelib library
 import adventurelib as adv
 
 # All items have some basic properties
@@ -11,8 +11,7 @@ adv.Item.description = "a generic thing"
 adv.Item.edible = False
 adv.Item.wearable = False
 
-# Create our "flavor" items
-# Apple
+# Create your "flavor" items
 apple = adv.Item("small red apple", "apple")
 apple.color = "red"
 apple.description = "a small ripe red apple"
@@ -33,7 +32,7 @@ slug.description = "a fat, slimy, brown slug"
 slug.edible = True
 slug.wearable = False
 
-# Create the real items we need
+# Create the real items you need
 wooden_sword = adv.Item("wooden sword", "sword")
 wooden_sword.color = "brown"
 wooden_sword.description = (

@@ -1,9 +1,9 @@
 """
-Basic Hello World program in AdventureLib
+Basic "Hello, World!" program in adventurelib
 
 This program is designed to demonstrate the basic capabilities
-of AdventureLib. It will:
-- Create a simple three room world
+of adventurelib. It will:
+- Create a simple three-room world
 - Add a single inventory item
 - Require that inventory item to move to the final room
 """
@@ -11,7 +11,7 @@ of AdventureLib. It will:
 # Import the library contents
 import adventurelib as adv
 
-# Define our rooms
+# Define your rooms
 bedroom = adv.Room(
     """
 You are in your bedroom. The bed is unmade, but otherwise
@@ -38,9 +38,9 @@ old friend. Your front door mat reads 'Welcome'.
 bedroom.south = living_room
 living_room.east = front_porch
 
-# Define a constraint to move from the bedroom to the livingroom
+# Define a constraint to move from the bedroom to the living room
 # If the door between the living room and front porch door is locked,
-# we can't exit
+# you can't exit
 living_room.locked = {"east": True}
 
 # None of the other rooms have any locked doors
@@ -61,7 +61,7 @@ def unlock_living_room(current_room):
         print("There is nothing to unlock here.")
 
 
-# Create our items
+# Create your items
 key = adv.Item("a front door key", "key")
 key.use_item = unlock_living_room
 
@@ -73,11 +73,11 @@ front_porch.contents = adv.Bag()
 # Put the key in the bedroom
 bedroom.contents.add(key)
 
-# Setup our current empty inventory
+# Set up your current empty inventory
 inventory = adv.Bag()
 
 
-# Define our movement commands
+# Define your movement commands
 @adv.when("go DIRECTION")
 @adv.when("north", direction="north")
 @adv.when("south", direction="south")
@@ -88,16 +88,16 @@ inventory = adv.Bag()
 @adv.when("e", direction="east")
 @adv.when("w", direction="west")
 def go(direction: str):
-    """Processes our moving direction
+    """Processes your moving direction
 
     Arguments:
         direction {str} -- which direction does the player want to move
     """
 
-    # What is our current room
+    # What is your current room?
     global current_room
 
-    # Is there an exit in that direction
+    # Is there an exit in that direction?
     next_room = current_room.exit(direction)
     if next_room:
         # Is the door locked?
@@ -113,7 +113,7 @@ def go(direction: str):
         print(f"You can't go {direction}.")
 
 
-# How do we look at the room
+# How do you look at the room?
 @adv.when("look")
 def look():
     """Looks at the current room"""
@@ -130,12 +130,12 @@ def look():
     print(f"The following exits are present: {current_room.exits()}")
 
 
-# How do we look at items?
+# How do you look at items?
 @adv.when("look at ITEM")
 @adv.when("inspect ITEM")
 def look_at(item: str):
 
-    # Check if the item is in our inventory or not
+    # Check if the item is in your inventory or not
     obj = inventory.find(item)
     if not obj:
         print(f"You don't have {item}.")
@@ -143,7 +143,7 @@ def look_at(item: str):
         print(f"It's an {obj}.")
 
 
-# How do we pick up items?
+# How do you pick up items?
 @adv.when("take ITEM")
 @adv.when("get ITEM")
 @adv.when("pickup ITEM")
@@ -163,7 +163,7 @@ def get(item: str):
         inventory.add(obj)
 
 
-# How do we use an item?
+# How do you use an item?
 @adv.when("unlock door", item="key")
 @adv.when("use ITEM")
 def use(item: str):
@@ -175,7 +175,7 @@ def use(item: str):
 
     global inventory
 
-    # First, do we have the item?
+    # First, do you have the item?
     obj = inventory.take(item)
     if not obj:
         print(f"You don't have {item}")
@@ -186,7 +186,7 @@ def use(item: str):
 
 
 if __name__ == "__main__":
-    # Look at out starting room
+    # Look at the starting room
     look()
 
     adv.start()

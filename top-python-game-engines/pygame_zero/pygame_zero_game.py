@@ -1,11 +1,11 @@
 """
-Simple game in Pygame Zero
+Complete game in Pygame Zero
 
 This game demonstrates some of the more advanced features of
 Pygame Zero, including:
-- using sprites to render complex graphics
-- handling user input
-- sound output
+- Using sprites to render complex graphics
+- Handling user input
+- Sound output
 
 """
 
@@ -20,20 +20,20 @@ from typing import Tuple
 # To randomize coin placement
 from random import randint
 
-# Set the width and height of our output window, in pixels
+# Set the width and height of your output window, in pixels
 WIDTH = 800
 HEIGHT = 600
 
-# Setup the player
+# Set up the player
 player = Actor("alien_green_stand")  # noqa: F821
 player_position = WIDTH // 2, HEIGHT // 2
 player.center = player_position
 
-# Setup the coins to collect
+# Set up the coins to collect
 COIN_COUNT = 10
 coin_list = list()
 
-# Setup a timer to create new coins
+# Set up a timer to create new coins
 coin_countdown = 2.5
 coin_interval = 0.1
 
@@ -56,11 +56,11 @@ def add_coin():
     coin_list.append(new_coin)
 
     # Decrease the time between coin appearances if there are
-    # less than three coins on the screen.
+    # fewer than three coins on the screen.
     if len(coin_list) < 3:
         coin_countdown -= coin_interval
 
-    # Make sure we don't go too fast
+    # Make sure you don't go too quickly
     if coin_countdown < 0.1:
         coin_countdown = 0.1
 
@@ -103,7 +103,7 @@ def update(delta_time: float):
     player.center = player_position
 
     # Check if the player has collided with a coin
-    # First, setup a list of coins to remove
+    # First, set up a list of coins to remove
     coin_remove_list = []
 
     # Check each coin in the list for a collision
@@ -113,7 +113,7 @@ def update(delta_time: float):
             coin_remove_list.append(coin)
             score += 10
 
-    # Remove any coins with which we collided
+    # Remove any coins with which you collided
     for coin in coin_remove_list:
         coin_list.remove(coin)
 

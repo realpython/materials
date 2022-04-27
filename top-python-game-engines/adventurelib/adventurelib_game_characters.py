@@ -1,15 +1,15 @@
 """
-Characters for the AdventureLib Game
+Characters for the adventurelib Game
 """
 
-# Import the AdventureLib library
+# Import the adventurelib library
 import adventurelib as adv
 
 # All characters have some properties
 adv.Item.greeting = ""
 adv.Item.context = ""
 
-# Our characters
+# Your characters
 elder_barron = adv.Item("Elder Barron", "elder", "barron")
 elder_barron.description = """Elder Barron, a tall distinguished member
 of the community. His steely grey hair and stiff beard inspire confidence."""

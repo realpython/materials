@@ -1,5 +1,5 @@
 """
-Basic Hello World program in Pygame
+Basic "Hello, World!" program in Pygame
 
 This program is designed to demonstrate the basic capabilities
 of Pygame. It will:
@@ -37,11 +37,11 @@ while running:
     # Draw a blue circle with a radius of 50 in the center of the screen
     pygame.draw.circle(screen, (0, 0, 255), (WIDTH // 2, HEIGHT // 2), 50)
 
-    # Draw a red outlined square in the top left corner of the screen
+    # Draw a red-outlined square in the top-left corner of the screen
     red_square = pygame.Rect((50, 50), (100, 100))
     pygame.draw.rect(screen, (200, 0, 0), red_square, 1)
 
-    # Draw an orange caption along the bottom in 60 point font
+    # Draw an orange caption along the bottom in 60-point font
     text_font = pygame.font.SysFont("any_font", 60)
     text_block = text_font.render(
         "Hello, World! From Pygame", False, (200, 100, 0)

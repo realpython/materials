@@ -1,12 +1,12 @@
 ﻿#
-# Simple game in Ren'Py
+# Complete game in Ren'Py
 # 
 # This game demonstrates some of the more advanced features of
-# Ren-Py, including:
-# - multiple sprites
-# - handling user input
-# - selecting alternate outcomes
-# - tracking score and inventory
+# Ren'Py, including:
+# - Multiple sprites
+# - Handling user input
+# - Selecting alternate outcomes
+# - Tracking score and inventory
 # 
 
 ## Declare characters used by this game. The color argument colorizes the
@@ -39,7 +39,7 @@ default additional = 0
 # Did they cross the bridge to town?
 default cross_bridge = False
 
-# We need this for the giant battle later
+# You need this for the giant battle later
 
 init python:
     from random import randint

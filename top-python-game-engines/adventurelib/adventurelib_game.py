@@ -1,40 +1,40 @@
 """
-Complete game written in AdventureLib
+Complete game written in adventurelib
 
 This program is designed to demonstrate the capabilities
-of AdventureLib. It will:
+of adventurelib. It will:
 - Create a large world in which to wander
 - Contain several inventory items
 - Set contexts for moving from one area to another
-- Require some puzzle solving skills
+- Require some puzzle-solving skills
 """
 
 # Import the library contents
 # from adventurelib import *
 import adventurelib as adv
 
-# Import our rooms, which imports our items and characters
+# Import your rooms, which imports your items and characters
 import adventurelib_game_rooms
 
 import adventurelib_game_items
 
-# For our battle sequence
+# For your battle sequence
 from random import randint
 
-# To allow us to exit the game
+# To allow you to exit the game
 import sys
 
 # Set the first room
 current_room = adventurelib_game_rooms.home
 current_room.visited = False
 
-# How many HP do we have
+# How many HP do you have?
 hit_points = 20
 
 # How many HP does the giant have?
 giant_hit_points = 50
 
-# Our current inventory
+# Your current inventory
 inventory = adv.Bag()
 
 
@@ -66,7 +66,7 @@ def look_at(item: str):
     # Check if the item is in the room
     obj = current_room.items.find(item)
     if not obj:
-        # Check if the item is in our inventory
+        # Check if the item is in your inventory
         obj = inventory.find(item)
         if not obj:
             print(f"I can't find {item} anywhere.")
@@ -80,7 +80,7 @@ def look_at(item: str):
 def describe(item: str):
     """Prints a description of an item if it is either:
     1. in the current room, or
-    2. in our inventory
+    2. in your inventory
 
     Arguments:
         item {str} -- the item to look at
@@ -91,7 +91,7 @@ def describe(item: str):
     # Check if the item is in the room
     obj = current_room.items.find(item)
     if not obj:
-        # Check if the item is in our inventory
+        # Check if the item is in your inventory
         obj = inventory.find(item)
         if not obj:
             print(f"I can't find {item} anywhere.")
@@ -121,7 +121,7 @@ def take_item(item: str):
 def eat(item: str):
     global inventory
 
-    # Make sure we have the thing first
+    # Make sure you have the thing first
     obj = inventory.find(item)
 
     # Do you have this thing?
@@ -142,14 +142,14 @@ def eat(item: str):
 def wear(item: str):
     global inventory
 
-    # Make sure we have the thing first
+    # Make sure you have the thing first
     obj = inventory.find(item)
 
     # Do you have this thing?
     if not obj:
         print(f"You don't have {item}.")
 
-    # Is it wearable
+    # Is it wearable?
     elif obj.wearable:
         print(f"The {obj.description} makes a wonderful fashion statement!")
 
@@ -160,7 +160,7 @@ def wear(item: str):
         )
 
 
-# Some character specific commands
+# Some character-specific commands
 @adv.when("talk to CHARACTER")
 def talk_to(character: str):
     global current_room
@@ -412,7 +412,7 @@ def flee():
 @adv.when("later")
 def goodbye():
 
-    # Are we fighting the giant?
+    # Are you fighting the giant?
     if adv.get_context() == "giant":
         # Not so fast!
         print("The giant steps in front of you, blocking your exit!")
@@ -427,7 +427,7 @@ def goodbye():
 @adv.when("look")
 def look():
     """Print the description of the current room.
-    If we've already visited it, print a short description.
+    If you've already visited it, print a short description.
     """
     global current_room
 
@@ -452,7 +452,7 @@ def describe_room():
         print(f"There is {item.description} here.")
 
 
-# Define our movement commands
+# Define your movement commands
 @adv.when("go DIRECTION")
 @adv.when("north", direction="north")
 @adv.when("south", direction="south")
@@ -463,16 +463,16 @@ def describe_room():
 @adv.when("e", direction="east")
 @adv.when("w", direction="west")
 def go(direction: str):
-    """Processes our moving direction
+    """Processes your moving direction
 
     Arguments:
         direction {str} -- which direction does the player want to move
     """
 
-    # What is our current room
+    # What is your current room
     global current_room
 
-    # Is there an exit in that direction
+    # Is there an exit in that direction?
     next_room = current_room.exit(direction)
     if next_room:
         # Is the door locked?
@@ -510,7 +510,7 @@ def my_prompt():
     # Get possible exits
     exits_string = get_exits(current_room)
 
-    # Are we in battle?
+    # Are you in battle?
     if adv.get_context() == "giant":
         prompt_string = f"HP: {hit_points} > "
     else:
@@ -549,7 +549,7 @@ if __name__ == "__main__":
     # What happens with unknown commands
     adv.no_command_matches = my_no_command_matches
 
-    # Look at our starting room
+    # Look at your starting room
     look()
 
     # Start the game

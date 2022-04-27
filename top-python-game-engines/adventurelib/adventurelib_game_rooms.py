@@ -1,14 +1,14 @@
 """
-Rooms for the AdventureLib game
+Rooms for the adventurelib game
 """
 
 # Import the library contents
 import adventurelib as adv
 
-# Import our items as well
+# Import your items as well
 import adventurelib_game_items
 
-# And our characters
+# And your characters
 import adventurelib_game_characters
 
 
@@ -32,7 +32,7 @@ class GameArea(adv.Room):
         self.characters = adv.Bag()
 
         # All areas may have been visited already
-        # If so, we can print a shorter description
+        # If so, you can print a shorter description
         self.visited = False
 
         # Which means each area needs a shorter description
@@ -176,7 +176,7 @@ As you look around, you become aware of another presence in the room.
 giant_cave.title = "Cave of the Giant"
 giant_cave.short_desc = "You are in the giant's cave."
 
-# Setup the paths between areas
+# Set up the paths between areas
 home.south = hamlet
 hamlet.south = fork
 fork.west = village
