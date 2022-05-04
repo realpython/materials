@@ -15,7 +15,8 @@ label start:
 
     "You hear your alarm going off, and your mother calling to you."
 
-    mom "It's time to wake up. If I can hear your alarm, you can hear it to - let's go!"
+    mom "It's time to wake up. If I can hear your alarm,
+    you can hear it to - let's go!"
 
     "Reluctantly you open your eyes."
 
@@ -25,13 +26,13 @@ label start:
 
     # This shows the basic narration
 
-    "You awaken in your bedroom after a good night's rest. Laying there sleepily,
-    your eyes wander to the clock on your phone."
+    "You awaken in your bedroom after a good night's rest. 
+    Laying there sleepily, your eyes wander to the clock on your phone."
 
     me "Yoinks! I'm gonna be late!"
 
-    "You leap out of bed and quickly put on some clothes. Grabbing your book bag, you
-    sprint for the door to the living room."
+    "You leap out of bed and quickly put on some clothes.
+    Grabbing your book bag, you sprint for the door to the living room."
 
     scene hallway day
 
