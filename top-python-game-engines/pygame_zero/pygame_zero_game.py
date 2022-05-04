@@ -45,7 +45,7 @@ def add_coin():
     """Adds a new coin to playfield, then
     schedules the next coin to be added
     """
-    global coin_list, coin_countdown
+    global coin_countdown
 
     # Create a new coin Actor at a random location
     new_coin = Actor(  # noqa: F821
@@ -97,7 +97,7 @@ def update(delta_time: float):
     Arguments:
         delta_time {float} -- Time since the last frame
     """
-    global coin_list, score
+    global score
 
     # Update the player position
     player.center = player_position

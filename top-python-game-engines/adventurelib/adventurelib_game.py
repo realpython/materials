@@ -71,7 +71,7 @@ def look_at(item: str):
         if not obj:
             print(f"I can't find {item} anywhere.")
         else:
-            print(f"You current have {item}.")
+            print(f"You have {item}.")
     else:
         print(f"You see {item}.")
 
@@ -96,7 +96,7 @@ def describe(item: str):
         if not obj:
             print(f"I can't find {item} anywhere.")
         else:
-            print(f"You current have {obj.description}.")
+            print(f"You have {obj.description}.")
     else:
         print(f"You see {obj.description}.")
 
@@ -134,7 +134,7 @@ def eat(item: str):
         inventory.take(item)
 
     else:
-        print(f"How do propose we eat {obj.description}?")
+        print(f"How do you propose we eat {obj.description}?")
 
 
 @adv.when("wear ITEM")
@@ -200,7 +200,7 @@ def yes_elder():
     offering, and use it well!
     """
     )
-    current_room.items.add(adventurelib_game_items.wooden_sword)
+    inventory.add(adventurelib_game_items.wooden_sword)
     current_room.locked_exits["south"] = False
 
 
@@ -290,7 +290,7 @@ def fight_giant(character: str):
 
     # Is the giant dead?
     if giant_hit_points <= 0:
-        end_game(True)
+        end_game(victory=True)
 
     print_giant_condition()
     print()
@@ -310,7 +310,7 @@ def fight_giant(character: str):
 
     # Is the player dead?
     if hit_points <= 0:
-        end_game(False)
+        end_game(victory=False)
 
     print_player_condition()
     print()
@@ -485,8 +485,8 @@ def go(direction: str):
             # Clear the context if necessary
             current_context = adv.get_context()
             if current_context == "giant":
-                print(
-                    """You way is currently blocked.\
+                adv.say(
+                    """Your way is currently blocked.
                     Or have you forgotten the giant you are fighting?"""
                 )
             else:
@@ -504,7 +504,7 @@ def go(direction: str):
 
 
 # Define a prompt
-def my_prompt():
+def prompt():
     global current_room
 
     # Get possible exits
@@ -516,10 +516,10 @@ def my_prompt():
     else:
         prompt_string = f"({current_room.title}) > "
 
-    return f"""({exits_string}) {prompt_string} """
+    return f"""({exits_string}) {prompt_string}"""
 
 
-def my_no_command_matches(command: str):
+def no_command_matches(command: str):
     if adv.get_context() == "wizard.riddle":
         adv.say("That is not the correct answer. Begone!")
         adv.set_context(None)
@@ -544,10 +544,10 @@ if __name__ == "__main__":
     adv.set_context(None)
 
     # Set the prompt
-    adv.prompt = my_prompt
+    adv.prompt = prompt
 
     # What happens with unknown commands
-    adv.no_command_matches = my_no_command_matches
+    adv.no_command_matches = no_command_matches
 
     # Look at your starting room
     look()

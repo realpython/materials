@@ -123,7 +123,7 @@ blacksmith_shop.short_desc = "You are in the blacksmith shop."
 side_path = GameArea(
     """
 The path leads away from the fork to Dunhaven. Fresh tracks of
-something big, dragging something behind it, lead away to the east.
+something big, dragging something behind it, lead away to the south.
 """
 )
 side_path.title = "Side path"

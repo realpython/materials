@@ -117,10 +117,9 @@ def go(direction: str):
 @adv.when("look")
 def look():
     """Looks at the current room"""
-    global current_room
 
     # Describe the room
-    adv.say(f"{current_room}")
+    adv.say(current_room)
 
     # List the contents
     for item in current_room.contents:
@@ -172,8 +171,6 @@ def use(item: str):
     Arguments:
         item {str} -- Which item to use
     """
-
-    global inventory
 
     # First, do you have the item?
     obj = inventory.take(item)
