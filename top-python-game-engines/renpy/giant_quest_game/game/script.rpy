@@ -12,7 +12,7 @@
 ## Declare characters used by this game. The color argument colorizes the
 ## name of the character.
 define player = Character("Me", color="#c8ffff")
-define smith = Character("Miranda, village blacksmith", color="#2a3236")
+define smith = Character("Miranda, village blacksmith", color="#99ff9c")
 define wizard = Character("Endeavor, cryptic wizard", color="#f4d3ff")
 define giant = Character("Maull, terrifying giant", color="#ff8c8c")
 
