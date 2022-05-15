@@ -12,7 +12,15 @@ class Person(db.Model):
     )
 
 
-class PersonSchema(ma.ModelSchema):
+# flask-marshmallow<0.12.0
+
+# class PersonSchema(ma.ModelSchema):
+#    class Meta:
+#        model = Person
+#        sqla_session = db.session
+
+# flask-marshmallow>=0.12.0 (recommended)
+class PersonSchema(ma.SQLAlchemyAutoSchema):
     class Meta:
         model = Person
-        sqla_session = db.session
+        load_instance = True
