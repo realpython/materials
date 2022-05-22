@@ -18,8 +18,6 @@ The module contains the following functions:
 - `subtract(a, b)` - Returns the difference of two numbers.
 - `multiply(a, b)` - Returns the product of two numbers.
 - `divide(a, b)` - Returns the quotient of two numbers.
-- `power(a, b)` - Returns the base to the power of the exponent.
-- `sqrt(a)` - Returns the square root of a number.
 """
 
 from typing import Union
@@ -96,7 +94,7 @@ def divide(a: Union[float, int], b: Union[float, int]) -> float:
         >>> divide(4, 0)
         Traceback (most recent call last):
         ...
-        ZeroDivisionError: division by zero
+        ZeroDivisionError: Division by zero
 
     Args:
         a: A number representing the dividend in the division.
@@ -110,55 +108,5 @@ def divide(a: Union[float, int], b: Union[float, int]) -> float:
     """
 
     if b == 0:
-        raise ZeroDivisionError("division by zero")
+        raise ZeroDivisionError("Division by zero")
     return float(a / b)
-
-
-def power(a: Union[float, int], b: Union[float, int] = 2.0) -> float:
-    """Compute and return the base to the power of the exponent.
-
-    Examples:
-        >>> power(4.0, 2.0)
-        16.0
-        >>> power(4, 2)
-        16.0
-        >>> power(4)
-        16.0
-
-    Args:
-        a: A number representing the base in the exponentiation.
-        b: A number representing the exponent in the exponentiation.
-
-    Returns:
-        A number representing the power of the two numbers, `a` and `b`.
-    """
-
-    return float(a**b)
-
-
-def sqrt(a: Union[float, int]) -> float:
-    """Compute and return the square root of a number.
-
-    Examples:
-        >>> sqrt(4.0)
-        2.0
-        >>> sqrt(4)
-        2.0
-        >>> sqrt(-2)
-        Traceback (most recent call last):
-        ...
-        ValueError: math domain error
-
-    Args:
-        a: A number representing the radicand of the square root operation.
-
-    Returns:
-        A number representing the square root of `a`.
-
-    Raises:
-        ValueError: An error occurs when the radicand is below `0`.
-    """
-
-    if a < 0:
-        raise ValueError("math domain error")
-    return float(a ** (1 / 2))
