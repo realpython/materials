@@ -2,5 +2,5 @@
 
 Modules exported by this package:
 
-- `calculations`: Provides several sample math calculations.
+- `calculations`: Provide several sample math calculations.
 """

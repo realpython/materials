@@ -1,7 +1,6 @@
-"""Provides several sample math calculations.
+"""Provide several sample math calculations.
 
-This script can be imported as a module and allows the user
-to make mathematical calculations.
+This module allows the user to make mathematical calculations.
 
 Examples:
     >>> from calculator import calculations
@@ -15,19 +14,19 @@ Examples:
 
 The module contains the following functions:
 
-- `add` - returns the sum of two numbers
-- `subtract` - returns the difference of two numbers
-- `multiply` - returns the product of two numbers
-- `divide` - returns the quotient of two numbers
-- `power` - returns the base to the power of the exponent
-- `sqrt` - returns the square root of a number
+- `add(a, b)` - Returns the sum of two numbers.
+- `subtract(a, b)` - Returns the difference of two numbers.
+- `multiply(a, b)` - Returns the product of two numbers.
+- `divide(a, b)` - Returns the quotient of two numbers.
+- `power(a, b)` - Returns the base to the power of the exponent.
+- `sqrt(a)` - Returns the square root of a number.
 """
 
 from typing import Union
 
 
 def add(a: Union[float, int], b: Union[float, int]) -> float:
-    """Calculates the sum of two numbers.
+    """Compute and return the sum of two numbers.
 
     Examples:
         >>> add(4.0, 2.0)
@@ -36,18 +35,18 @@ def add(a: Union[float, int], b: Union[float, int]) -> float:
         6.0
 
     Args:
-        a: first number
-        b: second number
+        a: A number representing the first addend in the addition.
+        b: A number representing the second addend in the addition.
 
     Returns:
-        sum of the first and the second number
+        A number representing the artihmetic sum of both operands, `a` and `b`.
     """
 
     return float(a + b)
 
 
 def subtract(a: Union[float, int], b: Union[float, int]) -> float:
-    """Calculates the difference of two numbers.
+    """Calculate the difference of two numbers.
 
     Examples:
         >>> subtract(4.0, 2.0)
@@ -56,18 +55,18 @@ def subtract(a: Union[float, int], b: Union[float, int]) -> float:
         2.0
 
     Args:
-        a: minuend
-        b: subtrahend
+        a: A number representing the minuend in the subtraction.
+        b: A number representing the subtrahend in the subtraction.
 
     Returns:
-        the difference between the minuend minus the subtrahend
+        A number representing the difference between the two numbers, `a` and `b`.
     """
 
     return float(a - b)
 
 
 def multiply(a: Union[float, int], b: Union[float, int]) -> float:
-    """Calculates the product of two numbers.
+    """Compute and return the product of two numbers.
 
     Examples:
         >>> multiply(4.0, 2.0)
@@ -76,18 +75,18 @@ def multiply(a: Union[float, int], b: Union[float, int]) -> float:
         8.0
 
     Args:
-        a: first number
-        b: second number
+        a: A number representing the multiplicand in the multiplication.
+        b: A number representing the multiplier in the multiplication.
 
     Returns:
-        the product of the two numbers
+        A number representing the product of the two numbers, `a` and `b`.
     """
 
     return float(a * b)
 
 
 def divide(a: Union[float, int], b: Union[float, int]) -> float:
-    """Calculates the quotient of two numbers.
+    """Compute and return the quotient of two numbers.
 
     Examples:
         >>> divide(4.0, 2.0)
@@ -100,14 +99,14 @@ def divide(a: Union[float, int], b: Union[float, int]) -> float:
         ZeroDivisionError: division by zero
 
     Args:
-        a: dividend
-        b: divisor
-
-    Raises:
-        ZeroDivisionError: gets raised when the divisor is `0`
+        a: A number representing the dividend in the division.
+        b: A number representing the divisor in the division.
 
     Returns:
-        the quotient
+        A number representing the quotient of the two numbers, `a` and `b`.
+
+    Raises:
+        ZeroDivisionError: An error occurs when the divisor is `0`.
     """
 
     if b == 0:
@@ -115,8 +114,8 @@ def divide(a: Union[float, int], b: Union[float, int]) -> float:
     return float(a / b)
 
 
-def power(base: Union[float, int], exponent: Union[float, int] = 2.0) -> float:
-    """Calculates base to the power of exponent.
+def power(a: Union[float, int], b: Union[float, int] = 2.0) -> float:
+    """Compute and return the base to the power of the exponent.
 
     Examples:
         >>> power(4.0, 2.0)
@@ -127,33 +126,37 @@ def power(base: Union[float, int], exponent: Union[float, int] = 2.0) -> float:
         16.0
 
     Args:
-        base: the base number
-        exponent: the exponent used
+        a: A number representing the base in the exponentiation.
+        b: A number representing the exponent in the exponentiation.
 
     Returns:
-        the result of taking the base to the exponent
+        A number representing the power of the two numbers, `a` and `b`.
     """
 
-    return float(base**exponent)
+    return float(a**b)
 
 
 def sqrt(a: Union[float, int]) -> float:
-    """Calculates the square root of a.
+    """Compute and return the square root of a number.
 
     Examples:
         >>> sqrt(4.0)
         2.0
         >>> sqrt(4)
         2.0
+        >>> sqrt(-2)
+        Traceback (most recent call last):
+        ...
+        ValueError: math domain error
 
     Args:
-        a: the number that you want to take the square root of
-
-    Raises:
-        ValueError: raises if `a` is below `0`
+        a: A number representing the radicand of the square root operation.
 
     Returns:
-        the square root of `a`
+        A number representing the square root of `a`.
+
+    Raises:
+        ValueError: An error occurs when the radicand is below `0`.
     """
 
     if a < 0:
