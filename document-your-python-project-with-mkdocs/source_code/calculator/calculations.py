@@ -37,7 +37,7 @@ def add(a: Union[float, int], b: Union[float, int]) -> float:
         b: A number representing the second addend in the addition.
 
     Returns:
-        A number representing the artihmetic sum of both operands, `a` and `b`.
+        A number representing the artihmetic sum of `a` and `b`.
     """
 
     return float(a + b)
@@ -57,7 +57,7 @@ def subtract(a: Union[float, int], b: Union[float, int]) -> float:
         b: A number representing the subtrahend in the subtraction.
 
     Returns:
-        A number representing the difference between the two numbers, `a` and `b`.
+        A number representing the difference between `a` and `b`.
     """
 
     return float(a - b)
@@ -77,7 +77,7 @@ def multiply(a: Union[float, int], b: Union[float, int]) -> float:
         b: A number representing the multiplier in the multiplication.
 
     Returns:
-        A number representing the product of the two numbers, `a` and `b`.
+        A number representing the product of `a` and `b`.
     """
 
     return float(a * b)
@@ -101,7 +101,7 @@ def divide(a: Union[float, int], b: Union[float, int]) -> float:
         b: A number representing the divisor in the division.
 
     Returns:
-        A number representing the quotient of the two numbers, `a` and `b`.
+        A number representing the quotient of `a` and `b`.
 
     Raises:
         ZeroDivisionError: An error occurs when the divisor is `0`.
