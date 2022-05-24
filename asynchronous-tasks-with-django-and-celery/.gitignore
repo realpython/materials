@@ -1,0 +1,7 @@
+__pycache__
+*.pyc
+# Exclude virtual environment
+venv
+# Exclude database files
+db.sqlite3
+dump.rdb
