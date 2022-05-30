@@ -94,7 +94,7 @@ def divide(a: Union[float, int], b: Union[float, int]) -> float:
         >>> divide(4, 0)
         Traceback (most recent call last):
         ...
-        ZeroDivisionError: Division by zero
+        ZeroDivisionError: division by zero
 
     Args:
         a: A number representing the dividend in the division.
@@ -108,5 +108,5 @@ def divide(a: Union[float, int], b: Union[float, int]) -> float:
     """
 
     if b == 0:
-        raise ZeroDivisionError("Division by zero")
+        raise ZeroDivisionError("division by zero")
     return float(a / b)
