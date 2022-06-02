@@ -43,7 +43,7 @@ def ask_question(question):
         num_choices=len(correct_answers),
         hint=question.get("hint"),
     )
-    if set(answers) == set(correct_answers):
+    if correct := (set(answers) == set(correct_answers)):
         print("⭐ Correct! ⭐")
     else:
         is_or_are = " is" if len(correct_answers) == 1 else "s are"
@@ -52,7 +52,7 @@ def ask_question(question):
     if "explanation" in question:
         print(f"\nEXPLANATION:\n{question['explanation']}")
 
-    return 1 if set(answers) == set(correct_answers) else 0
+    return 1 if correct else 0
 
 
 def get_answers(question, alternatives, num_choices=1, hint=None):
