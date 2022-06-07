@@ -43,7 +43,8 @@ class HashTable:
 
     def __setitem__(self, key, value):
         for index, pair in self._probe(key):
-            if pair in (None, DELETED) or pair.key == key:
+            if pair is DELETED: continue
+            if pair is None or pair.key == key:
                 self._slots[index] = Pair(key, value)
                 break
         else:
