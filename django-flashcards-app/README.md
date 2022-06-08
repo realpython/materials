@@ -1,6 +1,6 @@
 # Build a Flashcards App With Django
 
-Follow the [step-by-step instructions](https://realpython.com/django-flashcards-app/) on _Real Python_ to build your own flashcards app with Django.
+Follow the [step-by-step instructions](https://realpython.com/django-flashcards-app/) on Real Python to build your own flashcards app with Django.
 
 ## Setup
 
@@ -9,13 +9,13 @@ You can run the provided example project on your local machine by following the 
 Create a new virtual environment:
 
 ```bash
-python3 -m venv venv
+$ python3 -m venv venv
 ```
 
 Activate the virtual environment:
 
 ```bash
-source ./venv/bin/activate
+$ source venv/bin/activate
 ```
 
 Navigate to the folder for the step you're currently on.
