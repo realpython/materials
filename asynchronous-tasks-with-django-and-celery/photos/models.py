@@ -9,7 +9,7 @@ class Photo(models.Model):
         "Photo Link",
         max_length=255,
         help_text="The URL to the image page",
-        # Assuring that link is unique avoids race conditions with the Celery fetch tasks
+        # Assure unique links to avoid race conditions on Celery tasks
         unique=True,
     )
     image_url = models.URLField(
