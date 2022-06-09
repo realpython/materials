@@ -333,7 +333,7 @@ def test_should_wrap_index_around_when_collides(mock_hash):
     assert hash_table._slots[0] == (False, True)
 
 
-def test_should_overwrite_deleted(hash_table):
+def test_should_not_overwrite_deleted(hash_table):
     del hash_table["hola"]
     deleted_slot = hash_table._slots.index(DELETED)
 
@@ -344,7 +344,7 @@ def test_should_overwrite_deleted(hash_table):
         hash_table["gracias"] = "thank you"
 
     assert len(hash_table) == 3
-    assert DELETED not in hash_table._slots
+    assert DELETED in hash_table._slots
 
 
 def test_should_raise_memory_error_when_not_enough_capacity():
