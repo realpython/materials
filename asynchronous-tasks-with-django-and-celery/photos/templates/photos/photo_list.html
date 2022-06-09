@@ -28,7 +28,7 @@
 
         <form method="post">
             {% csrf_token %}
-            <input type="text" name="images" placeholder="How many images to fetch"/>
+            {{ form }}
             <button type="submit">
                 Fetch New Images
             </button>

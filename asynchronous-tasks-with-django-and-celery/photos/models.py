@@ -6,13 +6,21 @@ class Photo(models.Model):
     updated_on = models.DateTimeField("Updated on", auto_now=True)
     title = models.CharField("Title", max_length=255)
     link = models.URLField(
-        "Photo Link", max_length=255, help_text="The URL to the image page")
+        "Photo Link",
+        max_length=255,
+        help_text="The URL to the image page",
+        # Assuring that link is unique avoids race conditions with the Celery fetch tasks
+        unique=True,
+    )
     image_url = models.URLField(
-        "Image URL", max_length=255, help_text="The URL to the image file itself")
+        "Image URL",
+        max_length=255,
+        help_text="The URL to the image file itself",
+    )
     description = models.TextField("Description")
 
     class Meta:
-        ordering = ['-created_on', 'title']
+        ordering = ["-created_on", "title"]
 
     def __str__(self):
         return self.title[:50]
