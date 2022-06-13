@@ -2,7 +2,7 @@
 
 This part of the project documentation focuses on a
 **problem-oriented** approach. You'll tackle common
-tasks that you might have with the help of the code
+tasks that you might have, with the help of the code
 provided in this project.
 
 ## How To Add Two Numbers?
@@ -38,5 +38,5 @@ to add any two numbers that you need to add:
 
     print(add(20, 22))  # OUTPUT: 42.0
 
-You're now able to add any two numbers and you'll
+You're now able to add any two numbers, and you'll
 always get a `float` as a result.
