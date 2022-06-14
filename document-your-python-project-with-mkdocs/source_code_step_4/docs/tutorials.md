@@ -5,7 +5,7 @@ This part of the project documentation focuses on a
 get started with the code in this project.
 
 > **Note:** Expand this section by considering the
->following points:
+> following points:
 
 - Help newcomers with getting started
 - Teach readers about your library by making them

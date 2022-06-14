@@ -13,7 +13,7 @@ To view the documentation project, navigate to `source_code_final/` and install 
 **Linux, macOS:**
 
 ```bash
-$ cd source_code
+$ cd source_code_final
 $ python3 -m venv venv
 $ source venv/bin/activate
 (venv) $ python -m pip install -r requirements.txt
@@ -22,7 +22,7 @@ $ source venv/bin/activate
 **Windows:**
 
 ```powershell
-PS> cd source_code
+PS> cd source_code_final
 PS> python -m venv venv
 PS> venv\bin\Activate.ps1
 (venv) PS> python -m pip install -r requirements.txt
