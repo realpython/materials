@@ -10,7 +10,7 @@ from celery import shared_task
 
 
 FLICKR_FEED_URL = (
-    "https://api.flickr.com/services/feeds/photos_public.gne"
+    "https://www.flickr.com/services/feeds/photos_public.gne"
     "?format=json"
     "&nojsoncallback=1"
 )
