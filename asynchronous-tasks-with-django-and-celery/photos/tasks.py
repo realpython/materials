@@ -26,7 +26,6 @@ def fetch_latest_flickr_image(self, *args, **kwargs):
     If something goes wrong, the function tries again
     until the requested number of images have been added to the database.
     """
-
     try:
         with urlopen(FLICKR_FEED_URL) as response:
             body = response.read()
