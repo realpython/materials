@@ -53,10 +53,6 @@ class TicTacToeGame:
         second_diagonal = [col[j] for j, col in enumerate(reversed(columns))]
         return rows + columns + [first_diagonal, second_diagonal]
 
-    def toggle_player(self):
-        """Return a toggled player."""
-        self.current_player = next(self._players)
-
     def is_valid_move(self, move):
         """Return True if move is valid, and False otherwise."""
         row, col = move.row, move.col
@@ -87,6 +83,10 @@ class TicTacToeGame:
             move.label for row in self._current_moves for move in row
         )
         return no_winner and all(played_moves)
+
+    def toggle_player(self):
+        """Return a toggled player."""
+        self.current_player = next(self._players)
 
     def reset_game(self):
         """Reset the game state to play again."""
