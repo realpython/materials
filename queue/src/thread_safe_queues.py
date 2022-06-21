@@ -140,9 +140,7 @@ class View:
         if worker is None:
             return ""
         padding = " " * int(29 / 100 * worker.progress)
-        align = Align(
-            padding + worker.state, align="left", vertical="middle"
-        )
+        align = Align(padding + worker.state, align="left", vertical="middle")
         return Panel(align, height=5, title=title)
 
 

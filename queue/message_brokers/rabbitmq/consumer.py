@@ -14,8 +14,6 @@ with pika.BlockingConnection() as connection:
     channel = connection.channel()
     channel.queue_declare(queue=QUEUE_NAME)
     channel.basic_consume(
-        queue=QUEUE_NAME,
-        auto_ack=True,
-        on_message_callback=callback
+        queue=QUEUE_NAME, auto_ack=True, on_message_callback=callback
     )
     channel.start_consuming()

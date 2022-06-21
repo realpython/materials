@@ -10,7 +10,5 @@ with pika.BlockingConnection() as connection:
     while True:
         message = input("Message: ")
         channel.basic_publish(
-            exchange="",
-            routing_key=QUEUE_NAME,
-            body=message.encode("utf-8")
+            exchange="", routing_key=QUEUE_NAME, body=message.encode("utf-8")
         )
