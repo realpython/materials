@@ -4,18 +4,54 @@
     <meta charset="UTF-8"/>
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>Document</title>
+    <title>Flickrest</title>
     <style>
-        header { text-align: center; }
-        hr { margin: 30px 0 30px 0; }
-        main { display: flex; flex-wrap: wrap; justify-content: space-around; max-width: 70%; margin: auto; }
-        img { border-radius: 15px; } // border: 1px; border-style: solid; border-color: gray;
+        body {
+            font-family: sans-serif;
+        }
+        
+        header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+        
+        main { 
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            max-width: 70%;
+            margin: auto;
+        }
+
+        footer {
+            margin: 15px;
+            color: gray;
+            text-align: center;
+        }
+        
+        img { 
+            border-radius: 5px;
+            width: 100%;
+            height: 100%;
+            margin-bottom: 15px;
+        }
+
+        em {
+            font-style: normal;
+            font-weight: bold;
+        }
+        
+        figure {
+            color: gray;
+            box-shadow: 0px 5px 30px 0px #d4d4d4;
+            border-radius: 15px;
+            padding: 15px;
+        }
     </style>
 </head>
 <body>
     
     <header>
-
         <h1>Flickrest Thumbnail Feed</h1>
 
         {% if messages %}
@@ -31,27 +67,27 @@
                 Fetch New Images
             </button>
         </form>
+
         
     </header>
 
-    <hr/>
-
     <main>
-            
         {% for image in object_list %}
-        
-        <div>
-            <figure>
-                <a href="{{ image.link }}" target="_blank">
-                    <img height="100%" width="100%" src="{{ image.image_url }}" alt="{{ image.title }}" target="_blank"/>
-                </a>
-                <figcaption>{{ image.title | truncatechars:30 }}</figcaption>
-            </figure>
-        </div>
-
+            <div>
+                <figure>
+                    <a href="{{ image.link }}">
+                        <img src="{{ image.image_url }}" alt="{{ image.title }}" />
+                    </a>
+                    <figcaption>{{ image.title | truncatechars:30 }}</figcaption>
+                </figure>
+            </div>
         {% endfor %}
-
     </main>
+
+    <footer>
+        You've got <em>{{ object_list | length }}</em> images in your feed.
+        • Last feed update: <em>[TODO]</em>
+    </footer>
 
 </body>
 </html>
