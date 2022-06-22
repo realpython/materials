@@ -16,11 +16,8 @@ class Job(NamedTuple):
     depth: int = 1
 
     def __lt__(self, other):
-        if self is other:
-            return False
-        if not isinstance(other, Job):
-            return False
-        return len(self.url) < len(other.url)
+        if isinstance(other, Job):
+            return len(self.url) < len(other.url)
 
 
 async def main(args):
@@ -32,9 +29,15 @@ async def main(args):
         # queue = asyncio.PriorityQueue()
         tasks = [
             asyncio.create_task(
-                worker(f"Worker-{i}", session, queue, links, args.max_depth)
+                worker(
+                    f"Worker-{i + 1}",
+                    session,
+                    queue,
+                    links,
+                    args.max_depth,
+                )
             )
-            for i in range(1, args.num_workers + 1)
+            for i in range(args.num_workers)
         ]
 
         await queue.put(Job(args.url))
@@ -90,10 +93,7 @@ def parse_args():
 
 
 def display(links):
-    def by_value(pair):
-        return pair[1], pair[0]
-
-    for url, count in sorted(links.items(), key=by_value, reverse=True):
+    for url, count in links.most_common():
         print(f"{count:>3} {url}")
 
 

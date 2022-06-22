@@ -37,7 +37,7 @@ class PriorityQueue(IterableMixin):
         self._elements = []
         self._counter = count()
 
-    def enqueue_descending(self, priority, value):
+    def enqueue_with_priority(self, priority, value):
         element = (-priority, next(self._counter), value)
         heappush(self._elements, element)
 

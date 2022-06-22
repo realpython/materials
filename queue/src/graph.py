@@ -19,11 +19,11 @@ class City(NamedTuple):
     @classmethod
     def from_dict(cls, attrs):
         return cls(
-            attrs["xlabel"],
-            attrs["country"],
-            int(attrs["year"]) or None,
-            float(attrs["latitude"]),
-            float(attrs["longitude"]),
+            name=attrs["xlabel"],
+            country=attrs["country"],
+            year=int(attrs["year"]) or None,
+            latitude=float(attrs["latitude"]),
+            longitude=float(attrs["longitude"]),
         )
 
 
@@ -42,8 +42,8 @@ def load_graph(filename, node_factory):
 def breadth_first_traverse(graph, source, order_by=None):
     queue = Queue(source)
     visited = {source}
-    for node in queue:
-        yield node
+    while queue:
+        yield (node := queue.dequeue())
         neighbors = list(graph.neighbors(node))
         if order_by:
             neighbors.sort(key=order_by)
@@ -61,7 +61,8 @@ def shortest_path(graph, source, destination, order_by=None):
     queue = Queue(source)
     visited = {source}
     previous = {}
-    for node in queue:
+    while queue:
+        node = queue.dequeue()
         neighbors = list(graph.neighbors(node))
         if order_by:
             neighbors.sort(key=order_by)
@@ -70,7 +71,8 @@ def shortest_path(graph, source, destination, order_by=None):
                 visited.add(neighbor)
                 queue.enqueue(neighbor)
                 previous[neighbor] = node
-    return retrace(previous, source, destination)
+                if neighbor == destination:
+                    return retrace(previous, source, destination)
 
 
 def retrace(previous, source, destination):
@@ -94,8 +96,8 @@ def connected(graph, source, destination):
 def depth_first_traverse(graph, source, order_by=None):
     stack = Stack(source)
     visited = set()
-    for node in stack:
-        if node not in visited:
+    while stack:
+        if (node := stack.dequeue()) not in visited:
             yield node
             visited.add(node)
             neighbors = list(graph.neighbors(node))
@@ -140,8 +142,8 @@ def dijkstra_shortest_path(graph, source, destination, weight_factory):
         unvisited[node] = infinity
     unvisited[source] = 0
 
-    for node in unvisited:
-        visited.add(node)
+    while unvisited:
+        visited.add(node := unvisited.dequeue())
         for neighbor, weights in graph[node].items():
             if neighbor not in visited:
                 weight = weight_factory(weights)

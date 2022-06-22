@@ -3,17 +3,19 @@
 import argparse
 import threading
 from dataclasses import dataclass, field
+from enum import IntEnum
 from itertools import zip_longest
 from queue import LifoQueue, PriorityQueue, Queue
 from random import choice, randint
 from time import sleep
-from typing import Any
 
 from rich.align import Align
 from rich.columns import Columns
 from rich.console import Group
 from rich.live import Live
 from rich.panel import Panel
+
+QUEUE_TYPES = {"fifo": Queue, "lifo": LifoQueue, "heap": PriorityQueue}
 
 PRODUCTS = (
     ":balloon:",
@@ -37,16 +39,22 @@ PRODUCTS = (
 @dataclass(order=True)
 class Product:
     priority: int
-    label: Any = field(compare=False)
+    label: str = field(compare=False)
 
     def __str__(self):
         return self.label
 
 
+class Priority(IntEnum):
+    HIGH = 1
+    MEDIUM = 2
+    LOW = 3
+
+
 PRIORITIZED_PRODUCTS = (
-    Product(1, ":1st_place_medal:"),
-    Product(2, ":2nd_place_medal:"),
-    Product(3, ":3rd_place_medal:"),
+    Product(Priority.HIGH, ":1st_place_medal:"),
+    Product(Priority.MEDIUM, ":2nd_place_medal:"),
+    Product(Priority.LOW, ":3rd_place_medal:"),
 )
 
 
@@ -145,7 +153,7 @@ class View:
 
 
 def main(args):
-    buffer = create_buffer(args.queue)
+    buffer = QUEUE_TYPES[args.queue]()
     products = PRIORITIZED_PRODUCTS if args.queue == "heap" else PRODUCTS
     producers = [
         Producer(args.producer_speed, buffer, products)
@@ -166,24 +174,13 @@ def main(args):
 
 
 def parse_args():
-    queue_types = ["fifo", "lifo", "heap"]
     parser = argparse.ArgumentParser()
-    parser.add_argument("-q", "--queue", choices=queue_types, default="fifo")
+    parser.add_argument("-q", "--queue", choices=QUEUE_TYPES, default="fifo")
     parser.add_argument("-p", "--producers", type=int, default=3)
     parser.add_argument("-c", "--consumers", type=int, default=2)
     parser.add_argument("-ps", "--producer-speed", type=int, default=1)
     parser.add_argument("-cs", "--consumer-speed", type=int, default=1)
     return parser.parse_args()
-
-
-def create_buffer(queue_type):
-    match queue_type:
-        case "fifo":
-            return Queue()
-        case "lifo":
-            return LifoQueue()
-        case "heap":
-            return PriorityQueue()
 
 
 if __name__ == "__main__":
