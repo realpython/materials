@@ -32,7 +32,7 @@ Then, import various queue data types from the `queues` module and start using t
 >>> for priority, element in enumerate(["1st", "2nd", "3rd"]):
 ...     fifo.enqueue(element)
 ...     stack.enqueue(element)
-...     heap.enqueue_descending(priority, element)
+...     heap.enqueue_with_priority(priority, element)
 
 >>> for elements in zip(fifo, stack, heap):
 ...     print(elements)
