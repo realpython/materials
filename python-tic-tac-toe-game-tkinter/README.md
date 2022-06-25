@@ -1,6 +1,6 @@
-# Tic-Tac-Toe Game
+# Build a Tic-Tac-Toe Game With Python and Tkinter
 
-A Tic-Tac-Toe game built with Python and Tkinter. It allows two players to play a tic tac toe game by sharing the mouse.
+A tic-tac-toe game built with Python and Tkinter. It allows two players to play a tic-tac-toe game on a shared device.
 
 ## Installation
 
