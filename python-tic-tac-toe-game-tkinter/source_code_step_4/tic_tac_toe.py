@@ -1,4 +1,4 @@
-"""A Tic Tac Toe game built with Python and Tkinter."""
+"""A tic-tac-toe game built with Python and Tkinter."""
 
 import tkinter as tk
 from itertools import cycle
