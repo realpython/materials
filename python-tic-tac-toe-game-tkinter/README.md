@@ -1,10 +1,10 @@
 # Build a Tic-Tac-Toe Game With Python and Tkinter
 
-A tic-tac-toe game built with Python and Tkinter. It allows two players to play a tic-tac-toe game on a shared device.
+This is the code for the Real Python tutorial [Build a Tic-Tac-Toe Game With Python and Tkinter](https://realpython.com/tic-tac-toe-python/). You learn to implement a tic-tac-toe game with Python and Tkinter. It allows two players to play a tic-tac-toe game on a shared device.
 
 ## Installation
 
-The game uses Tkinter to build its user interface. Since Tkinter is part of the Python standard library, you don't need to install anything to run the game. Just make sure that you have a version of Tkinter greater than 8.5.
+The game uses Tkinter to build its user interface. Since Tkinter is part of the Python standard library, you don't need to install anything to run the game. Just make sure that you have a version of Tkinter greater than or equal to 8.6.
 
 ## Run the Game
 
