@@ -119,7 +119,7 @@ City(
 
 ### Thread-Safe Queues
 
-Change directory to `src/` and run the script with optional parameters, for example:
+Change directory to `src/` and run the script with optional parameters. For example:
 
 ```shell
 (queue) $ cd src/
@@ -203,7 +203,7 @@ Start a RabbitMQ broker with Docker:
 $ docker run -it --rm --name rabbitmq -p 5672:5672 rabbitmq
 ```
 
-Open separate terminal windows, activate your virtual environment, change directory to `message_brokers/rabbitmq/` and run your producer and consumer scripts:  
+Open separate terminal windows, activate your virtual environment, change directory to `message_brokers/rabbitmq/`, and run your producer and consumer scripts:  
 
 ```shell
 (queue) $ cd message_brokers/rabbitmq/
@@ -221,7 +221,7 @@ Start a Redis server with Docker:
 $ docker run -it --rm --name redis -p 6379:6379 redis
 ```
 
-Open separate terminal windows, activate your virtual environment, change directory to `message_brokers/redis/` and run your publisher and subscriber scripts:  
+Open separate terminal windows, activate your virtual environment, change directory to `message_brokers/redis/`, and run your publisher and subscriber scripts:  
 
 ```shell
 (queue) $ cd message_brokers/redis/
@@ -240,7 +240,7 @@ $ cd message_brokers/kafka/
 $ docker-compose up
 ```
 
-Open separate terminal windows, activate your virtual environment, change directory to `message_brokers/kafka/` and run your producer and consumer scripts:  
+Open separate terminal windows, activate your virtual environment, change directory to `message_brokers/kafka/`, and run your producer and consumer scripts:  
 
 ```shell
 (queue) $ cd message_brokers/kafka/
