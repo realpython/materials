@@ -36,7 +36,6 @@ class TicTacToeGame:
         self._setup_board()
 
     def _setup_board(self):
-        """Set the board to its initial state."""
         self._current_moves = [
             [Move(row, col) for col in range(self.board_size)]
             for row in range(self.board_size)
