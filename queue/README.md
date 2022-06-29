@@ -1,4 +1,4 @@
-# A Practical Look at Stacks, Queues, and Priority Queues in Python
+# Python Stacks, Queues, and Priority Queues in Practice
 
 Sample code supplementing the tutorial on [Python queues](https://realpython.com/queue-in-python/) hosted on Real Python.
 

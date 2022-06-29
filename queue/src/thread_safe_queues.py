@@ -82,7 +82,7 @@ class Worker(threading.Thread):
     def simulate_work(self):
         self.working = True
         self.progress = 0
-        delay = randint(1, 15 // self.speed)
+        delay = randint(1, 1 + 15 // self.speed)
         for _ in range(100):
             sleep(delay / 100)
             self.progress += 1
