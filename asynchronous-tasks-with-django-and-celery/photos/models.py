@@ -3,7 +3,7 @@ from django.db import models
 
 class Photo(models.Model):
     created_on = models.DateTimeField("Created on", auto_now_add=True)
-    updated_on = models.DateTimeField("Updated on", auto_now=True)
+    updated_on = models.DateTimeField("Updated on", auto_now=True)  # TODO: Delete this? do I need this?
     title = models.CharField("Title", max_length=255)
     link = models.URLField(
         "Photo Link",
