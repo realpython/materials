@@ -5,7 +5,7 @@ app = Flask(__name__)
 
 @app.route("/")
 def home():
-    return render_template("base.html", title="home")
+    return render_template("base.html", title="Jinja and Flask")
 
 
 max_score = 100
@@ -22,7 +22,7 @@ students = [
 @app.route("/results")
 def results():
     context = {
-        "title": "results",
+        "title": "Results",
         "max_score": max_score,
         "test_name": test_name,
         "students": students,
