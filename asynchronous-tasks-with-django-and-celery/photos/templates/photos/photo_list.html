@@ -4,6 +4,7 @@
     <meta charset="UTF-8"/>
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    {% comment %} <link rel="stylesheet" href="https://cdn.simplecss.org/simple.min.css"> {% endcomment %}
     <title>Flickrest</title>
     <style>
         body {
@@ -11,21 +12,36 @@
         }
         
         header {
-            text-align: center;
+            width: 100%;
+            position: sticky;
+            top: 0;
+            background-color: white;
+            padding: 10px;
+            padding-bottom: 30px;
             margin-bottom: 60px;
+            text-align: center;
+            // font-size: 1.5em;
         }
         
-        main { 
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-around;
-            max-width: 70%;
+        main {
+            max-width: 95%;
             margin: auto;
         }
 
+        .buttons, #hidden, #image-list { 
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            margin-bottom: 50px;
+        }
+
         footer {
-            margin: 15px;
+            width: 100%;
+            position: sticky;
+            bottom: 0;
             color: gray;
+            background-color: white;
+            padding: 10px;
             text-align: center;
         }
         
@@ -35,17 +51,26 @@
             height: 100%;
             margin-bottom: 15px;
         }
-
-        em {
-            font-style: normal;
-            font-weight: bold;
-        }
         
         figure {
             color: gray;
             box-shadow: 0px 5px 30px 0px #d4d4d4;
             border-radius: 15px;
             padding: 15px;
+        }
+
+        button {
+            font-size: 1.2em;
+        }
+
+        #hidden {
+            border: 10px solid orange;
+            border-radius: 10px;
+            background-color: eggshell;
+        }
+
+        #hidden-text {
+            text-align: center;
         }
     </style>
 </head>
@@ -60,18 +85,70 @@
             {% endfor %}
         {% endif %}
 
-        <form method="post">
-            {% csrf_token %}
-            {{ form }}
-            <button type="submit">
-                Fetch New Images
-            </button>
-        </form>
+        <div class="buttons">
 
+            <form method="post">
+                {% csrf_token %}
+                <input type="hidden" name="number_of_images_to_fetch" value="1" />
+                <button type="submit">
+                    Add 1 Image
+                </button>
+            </form>
+
+            <form method="post">
+                {% csrf_token %}
+                <input type="hidden" name="number_of_images_to_fetch" value="3" />
+                <button type="submit">
+                    Add 3 Images
+                </button>
+            </form>
+
+            <form method="post">
+                {% csrf_token %}
+                <input type="hidden" name="number_of_images_to_fetch" value="5" />
+                <button type="submit">
+                    Add 5 Images
+                </button>
+            </form>
+
+        </div>
         
     </header>
 
     <main>
+
+    <section id="image-incoming">
+        <p id="hidden-text">Button pressed at TIMESTAMP</p>
+        <div id="hidden">
+            <div>
+                <figure>
+                    <a href="https://placeholder.com">
+                        <img src="https://via.placeholder.com/220x180?text=Waiting+...">
+                    </a>
+                    <figcaption>Celery is working...</figcaption>
+                </figure>
+            </div>
+            <div>
+                <figure>
+                    <a href="https://placeholder.com">
+                        <img src="https://via.placeholder.com/220x180?text=Waiting+...">
+                    </a>
+                    <figcaption>Celery is working...</figcaption>
+                </figure>
+            </div>
+            <div>
+                <figure>
+                    <a href="https://placeholder.com">
+                        <img src="https://via.placeholder.com/220x180?text=Waiting+...">
+                    </a>
+                    <figcaption>Celery is working...</figcaption>
+                </figure>
+            </div>
+        </div>
+    </section>
+
+    <section id="image-list">
+
         {% for image in object_list %}
             <div>
                 <figure>
@@ -82,11 +159,13 @@
                 </figure>
             </div>
         {% endfor %}
+    </section>
+
     </main>
 
     <footer>
-        You've got <em>{{ object_list | length }}</em> images in your feed.
-        • Last feed update: <em>[TODO]</em>
+        You've got <strong>{{ object_list | length }}</strong> images in your feed.
+        • Last feed update: <strong>{{ object_list.0.created_on }}</strong>
     </footer>
 
 </body>

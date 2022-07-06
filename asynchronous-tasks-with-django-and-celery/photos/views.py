@@ -1,25 +1,27 @@
 from django.contrib import messages
-from django.views.generic import ListView, FormView
+from django.views.generic import ListView
+from django.shortcuts import redirect
 
-from photos.tasks import fetch_latest_flickr_image
 from photos.models import Photo
-from photos.forms import PhotoFetchForm
+from photos.tasks import fetch_latest_flickr_image
 
 
-class PhotoView(ListView, FormView):
+class PhotoView(ListView):
     model = Photo
-    form_class = PhotoFetchForm
-    success_url = "/"
 
-    def form_valid(self, form):
-        num_images = form.cleaned_data["number_of_images_to_fetch"]
+    def post(self, request):
+        num_images = int(request.POST["number_of_images_to_fetch"])
         for _ in range(num_images):
-            fetch_latest_flickr_image.delay()
+            task = fetch_latest_flickr_image.delay()
+            if task.successful():  # Isn't successfull right after being called, so doesn't work
+                return redirect("photos:photoview")
+            else:
+                print(f"{task.id} 🥵🥵🥵🥵🥵🥵🥵🥵🥵🥵")
 
         messages.add_message(
             self.request,
             messages.INFO,
-            """Fetching photos in the background...
+            f"""Fetching {num_images} photos in the background...
                             Reload when ready!""",
         )
-        return super().form_valid(form)
+        return redirect("photos:photoview")
