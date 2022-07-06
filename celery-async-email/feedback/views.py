@@ -17,5 +17,7 @@ class FeedbackFormView(FormView):
     success_url = "/success/"
 
     def form_valid(self, form):
-        form.send_email(form.cleaned_data["email"], form.cleaned_data["message"])
+        form.send_email(
+            form.cleaned_data["email"], form.cleaned_data["message"]
+        )
         return super().form_valid(form)
