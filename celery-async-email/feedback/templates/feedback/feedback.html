@@ -1,18 +1,15 @@
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://unpkg.com/simpledotcss/simple.min.css">
-    <title>Feedback</title>
-</head>
-<body>
+{% extends 'feedback/base.html' %}
+
+{% block content %}
+
     <h1>How are we doing?</h1>
+    
     <p>Please send us your feedback.</p>
+
     <form method="post">
         {% csrf_token %}
         {{ form.as_p }}
         <input type="submit"/>
     </form>
-</body>
-</html>
+
+{% endblock content %}
