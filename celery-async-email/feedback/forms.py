@@ -26,7 +26,7 @@ class FeedbackForm(forms.Form):
             f"\t{message}\n\nThank you for your feedback.",
             "support@yourdomain.com",
             [email_address],
-            fail_silently=False
+            fail_silently=False,
         )
 
         # send_feedback_email_task.delay(
