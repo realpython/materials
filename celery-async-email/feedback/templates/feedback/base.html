@@ -7,21 +7,10 @@
     <title>Feedback</title>
 </head>
 <body>
-    <header>
-        <a href="{% url 'feedback:index' %}">🏡 Home</a>
-        <a href="{% url 'feedback:feedback' %}">📝 Feedback</a>
-    </header>
 
     {% block content %}
 
-        <h1>The Secret Link Page</h1>
-
-        <h2>
-            <a href="https://realpython.com/" target="_blank">🐍 Access Real Python 🐍</a>
-        </h2>
-
-        <p>This page holds a link to a secret Python learning resource 🤫</p>
-
     {% endblock content %}
+
 </body>
 </html>

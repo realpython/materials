@@ -3,14 +3,6 @@ from django.views.generic.edit import FormView
 from django.views.generic.base import TemplateView
 
 
-class IndexView(TemplateView):
-    template_name = "feedback/base.html"
-
-
-class SuccessView(TemplateView):
-    template_name = "feedback/success.html"
-
-
 class FeedbackFormView(FormView):
     template_name = "feedback/feedback.html"
     form_class = FeedbackForm
@@ -21,3 +13,7 @@ class FeedbackFormView(FormView):
             form.cleaned_data["email"], form.cleaned_data["message"]
         )
         return super().form_valid(form)
+
+
+class SuccessView(TemplateView):
+    template_name = "feedback/success.html"
