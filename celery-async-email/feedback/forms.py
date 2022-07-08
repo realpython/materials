@@ -13,7 +13,8 @@ class FeedbackForm(forms.Form):
         label="Message", widget=forms.Textarea(attrs={"rows": 5})
     )
 
-    def send_email(self, email_address, message):  # TODO: Remove the args when refactoring the code
+    # TODO: Remove the args when refactoring the code
+    def send_email(self, email_address, message):
 
         # TODO: Initial project state handles email sending right here
         # then I show how that freezes the Django app, then show as a solution
