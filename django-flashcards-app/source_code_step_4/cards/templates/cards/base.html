@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Flashcards</title>
+    <link rel="stylesheet" href="https://cdn.simplecss.org/simple.min.css">
+</head>
+
+<style>
+    /* Custom CSS */
+
+    :root {
+        --accent: #6e48ad;
+        --accent-bg: white;
+        --bg: #fff;
+        --text: #212121;
+        --text-light: #585858;
+        --border: #d8dae1;
+        --code: #d81b60;
+        --preformatted: #444;
+    }
+
+    article {
+        background-color: var(--marked);
+        border: 1px solid var(--border);
+        border-radius: 5px;
+        padding: 1em;
+        margin: 1em 0;
+    }
+
+    h2 {
+        text-align: center;
+    }
+
+    h2, h4 {
+        margin-top: 0;
+    }
+
+    hr {
+        background: var(--accent);
+        border-color: var(--accent);
+    }
+
+    button,
+    a[role="button"] {
+        color: white;
+        text-decoration: none;
+    }
+
+    input, select, textarea {
+        width: 100%;
+    }
+</style>
+
+<body>
+    <header>
+        <h1>Flashcards App</h1>
+        {% include "cards/navigation.html" %}
+    </header>
+    <main>
+        {% block content %}
+            <h2>Welcome to your Flashcards app!</h2>
+        {% endblock content %}
+    </main>
+</body>
+
+</html>
