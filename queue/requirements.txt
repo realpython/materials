@@ -1,0 +1,9 @@
+aiohttp
+beautifulsoup4
+kafka-python3
+networkx
+pika
+pydot
+pygraphviz
+redis
+rich
