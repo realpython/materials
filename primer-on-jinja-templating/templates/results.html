@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block title %}{{ title }}{% endblock title %}
+
+{% block content %}
+<h1>{{ test_name }} {{ title }}</h1>
+<ul>
+{% for student in students|sort(attribute="name") %}
+  <li>
+    {{ macros.add_badge(student, students) }}
+    <em>{{ student.name }}:</em> {{ student.score }}/{{ max_score }}
+  </li>
+{% endfor %}
+</ul>
+{% endblock content %}
