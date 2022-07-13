@@ -1,0 +1,17 @@
+{% extends "cards/base.html" %}
+{% load humanize %}
+
+{% block content %}
+    <h2>
+        All Cards
+    </h2>
+    <a href="{% url 'card-create' %}" role="button">
+        ✨ Create New Card
+    </a>
+    {% for card in card_list %}
+        {% ifchanged %}
+            <h3>🗃 {{ card.box | ordinal }} Box</h3>
+        {% endifchanged %}
+        {% include "cards/card.html" %}
+    {% endfor %}
+{% endblock content %}
