@@ -11,13 +11,19 @@ $ python -m venv venv
 $ source venv/bin/activate
 ```
 
-You can then install `flask` with `pip`:
+You can then install Jinja and Flask with `pip`:
 
 ```console
-(venv) $ python -m pip install flask
+(venv) $ python -m pip install Jinja2 flask
 ```
 
-When you install Flask you'll install Jinja2 as a dependency.
+Alternatively, you can install the pinned dependencies from `requirements.txt`:
+
+```console
+(venv) $ python -m pip install -r requirements.txt
+```
+
+This command will install the versions used in the tutorial of Jinja, Flask, and their dependencies.
 
 ## Run the Web App
 
