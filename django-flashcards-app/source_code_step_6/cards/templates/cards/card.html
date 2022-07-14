@@ -1,0 +1,18 @@
+<article>
+    <h4>{{ card.question }}</h4>
+    {% if not check_card %}
+        <p>{{ card.answer }}</p>
+        <hr/>
+        <a href="{% url 'card-update' card.id %}" role="button">
+            ✏️ Edit Card
+        </a>
+    {% else %}
+        <details>
+            <summary>Reveal Answer</summary>
+            <p>{{ card.answer }}</p>
+        </details>
+        <hr/>
+        {% include "cards/card_check_form.html" with solved=True %}
+        {% include "cards/card_check_form.html" with solved=False %}
+    {% endif %}
+</article>
