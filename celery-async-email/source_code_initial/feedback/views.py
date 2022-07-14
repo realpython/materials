@@ -1,6 +1,7 @@
-from feedback.forms import FeedbackForm
-from django.views.generic.edit import FormView
 from django.views.generic.base import TemplateView
+from django.views.generic.edit import FormView
+
+from feedback.forms import FeedbackForm
 
 
 class FeedbackFormView(FormView):
@@ -9,9 +10,7 @@ class FeedbackFormView(FormView):
     success_url = "/success/"
 
     def form_valid(self, form):
-        form.send_email(
-            form.cleaned_data["email"], form.cleaned_data["message"]
-        )
+        form.send_email()
         return super().form_valid(form)
 
 
