@@ -1,6 +1,6 @@
 # Asynchronous Tasks with Django and Celery
 
-Example project for tutorial update.
+Example project for integrating Celery and Redis into a Django application.
 
 ## Setup (macOS)
 
@@ -15,7 +15,7 @@ $ source venv/bin/activate
 You'll also need to install Redis on your system:
 
 ```sh
-brew install redis
+$ brew install redis
 ```
 
 Once you've installed all the dependencies, you need to start three processes that need to run at the same time:
@@ -29,7 +29,6 @@ To get all of them running, open three different terminal windows and start them
 **Django app:**
 
 ```sh
-(venv) $ python manage.py makemigrations
 (venv) $ python manage.py migrate
 (venv) $ python manage.py runserver
 ```
@@ -37,7 +36,7 @@ To get all of them running, open three different terminal windows and start them
 **Redis server:**
 
 ```sh
-(venv) $ redis-server
+$ redis-server
 ```
 
 **Celery:**
@@ -46,4 +45,4 @@ To get all of them running, open three different terminal windows and start them
 (venv) $ python -m celery -A django_celery worker -l info
 ```
 
-When all three processes are running, you can head over to `localhost:8000/feedback` and submit a feedback response. Celery will simulate a work-intensive process and send an email at the end of it. You'll see the email message show up in the log stream on the terminal window where the Celery worker is running.
+When all three processes are running, you can go to `localhost:8000/` and submit a feedback response. Celery will simulate a work-intensive process and send an email at the end of it. You'll see the email message show up in the log stream on the terminal window where the Celery worker is running.
