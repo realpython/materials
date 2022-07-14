@@ -1,6 +1,7 @@
-from django import forms
+from time import sleep
 
-from feedback.tasks import send_feedback_email_task
+from django import forms
+from django.core.mail import send_mail
 
 
 class FeedbackForm(forms.Form):
@@ -10,6 +11,12 @@ class FeedbackForm(forms.Form):
     )
 
     def send_email(self):
-        send_feedback_email_task.delay(
-            self.cleaned_data["email"], self.cleaned_data["message"]
+        """Sends an email when the feedback form had been submitted."""
+        sleep(20)  # Simulate expensive operation that freezes Django
+        send_mail(
+            "Your Feedback",
+            f"\t{self.cleaned_data['message']}\n\nThank you!",
+            "support@yourdomain.com",
+            [self.cleaned_data["email"]],
+            fail_silently=False,
         )
