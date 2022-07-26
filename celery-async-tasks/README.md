@@ -1,6 +1,7 @@
 # Asynchronous Tasks with Django and Celery
 
 Example project for integrating Celery and Redis into a Django application.
+This repository holds the code for the Real Python [Asynchronous Tasks With Django and Celery](https://realpython.com/asynchronous-tasks-with-django-and-celery/) tutorial.
 
 ## Setup (macOS)
 
