@@ -2,6 +2,8 @@
 
 This repository holds the code for the Real Python [Build a Quiz Application With Python](https://realpython.com/python-quiz-application/) tutorial.
 
+The tutorial uses the [walrus operator](https://realpython.com/python-walrus-operator/), which was introduced in [Python 3.8](https://realpython.com/python38-new-features/). The [`source_code_final_37`](source_code_final/) directory shows a quiz application version that doesn't use the walrus operator and runs on [Python 3.7](https://realpython.com/python37-new-features/).
+
 ## Dependencies
 
 If you're running on Python 3.10 or earlier, then you need to install [`tomli`](https://pypi.org/project/tomli/) which is used to read TOML data files. You should first create a virtual environment:
