@@ -2,7 +2,7 @@
 
 """This module defines some module-level dunder names."""
 
-from __future__ import annotations
+from __future__ import barry_as_FLUFL
 
 __all__ = ["greet"]
 __author__ = "Real Python"

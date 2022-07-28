@@ -4,13 +4,13 @@ from collections import namedtuple
 from dataclasses import dataclass
 
 
-class ConstantsSpace__slots__:
+class ConstantsNamespace__slots__:
     __slots__ = ()
     PI = 3.141592653589793
     EULER_NUMBER = 2.718281828459045
 
 
-class ConstantsSpace_property:
+class ConstantsNamespace_property:
     @property
     def PI(self):
         return 3.141592653589793
@@ -20,18 +20,18 @@ class ConstantsSpace_property:
         return 2.718281828459045
 
 
-ConstantsSpace_namedtuple = namedtuple(
-    "ConstantsSpace", ["PI", "EULER_NUMBER"]
+ConstantsNamespace_namedtuple = namedtuple(
+    "ConstantsNamespace", ["PI", "EULER_NUMBER"]
 )
 
 
 @dataclass(frozen=True)
-class ConstantsSpace_dataclass:
+class ConstantsNamespace_dataclass:
     PI = 3.141592653589793
     EULER_NUMBER = 2.718281828459045
 
 
-class ConstantsSpace__setattr__:
+class ConstantsNamespace__setattr__:
     PI = 3.141592653589793
     EULER_NUMBER = 2.718281828459045
 
