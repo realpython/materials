@@ -5,10 +5,11 @@
 # Imports go here...
 from configparser import ConfigParser
 
-import numpy as np
+# import numpy as np
 
 constants = ConfigParser()
 constants.read("path/to/constants.ini")
+
 
 # Your custom calculations start here...
 def circular_land_area(radius):

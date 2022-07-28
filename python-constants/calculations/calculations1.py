@@ -3,7 +3,7 @@
 """This module implements custom calculations."""
 
 # Imports go here...
-import numpy as np
+# import numpy as np
 
 # Constants go here...
 PI = 3.141592653589793

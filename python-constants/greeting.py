@@ -8,7 +8,7 @@ __all__ = ["greet"]
 __author__ = "Real Python"
 __version__ = "0.1.0"
 
-import sys
+# import sys
 
 
 def greet(name="World"):
