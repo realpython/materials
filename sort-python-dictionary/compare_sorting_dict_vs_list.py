@@ -1,5 +1,4 @@
 from timeit import timeit
-from samples import dictionary_of_dictionaries, list_of_dictionaries
 
 list_program = "sorted(list_of_dictionaries, key=lambda item:item['age'])"
 dict_program = """
@@ -10,8 +9,16 @@ dict(
 )
 """
 
-list_time = timeit(stmt=list_program, globals=globals())
-dict_time = timeit(stmt=dict_program, globals=globals())
+list_time = timeit(
+    stmt=list_program,
+    setup="from samples import list_of_dictionaries",
+    globals=globals(),
+)
+dict_time = timeit(
+    stmt=dict_program,
+    setup="from samples import dictionary_of_dictionaries",
+    globals=globals(),
+)
 
 print(
     f"""

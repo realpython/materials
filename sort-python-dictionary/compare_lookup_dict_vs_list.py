@@ -1,14 +1,17 @@
 from timeit import timeit
-from samples import dictionary_of_dictionaries, list_of_dictionaries
 
 lookups = [15, 18, 19, 16, 6, 12, 5, 3, 9, 20, 2, 10, 13, 17, 4, 14, 11, 7, 8]
 
 list_setup = """
+from samples import list_of_dictionaries
+
 def get_key_from_list(key):
     for item in list_of_dictionaries:
         if item["id"] == key:
             return item
 """
+
+dict_setup = "from samples import dictionary_of_dictionaries"
 
 lookup_list = """
 for key in lookups:
@@ -23,7 +26,9 @@ for key in lookups:
 lookup_list_time = timeit(
     stmt=lookup_list, setup=list_setup, globals=globals()
 )
-lookup_dict_time = timeit(stmt=lookup_dict, globals=globals())
+lookup_dict_time = timeit(
+    stmt=lookup_dict, setup=dict_setup, globals=globals()
+)
 
 print(
     f"""\

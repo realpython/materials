@@ -1,5 +1,3 @@
-from operator import itemgetter
-
 data = {
     193: {"name": "John", "age": 30, "skills": {"python": 8, "javascript": 7}},
     209: {"name": "Bill", "age": 15, "skills": {"python": 6}},
