@@ -1,5 +1,5 @@
-l = [6, 4, 3, 5, 2, 3, 1]
-print(sorted(l))
+basic_list = [6, 4, 3, 5, 2, 3, 1]
+print(sorted(basic_list))
 
 print(sorted({5: 1, 2: 2, 3: 3}))
 
