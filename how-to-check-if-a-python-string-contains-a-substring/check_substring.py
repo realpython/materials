@@ -12,4 +12,4 @@ print("secret" not in raw_file_content)
 
 # Using `in` is a readable way to check if a string contains a substring
 if "secret" in raw_file_content:
-   print("Found!")
+    print("Found!")

@@ -26,4 +26,4 @@ print(re.findall(r"(secret)[\.,]", file_content))
 
 # Iterate over all matches as Match objects
 for match in re.finditer(r"(secret)[\.,]", file_content):
-   print(match)
+    print(match)

@@ -15,8 +15,8 @@ print(file_content.count("secret"))
 
 # Use a for loop to inspect all matches
 for word in file_content.split():
-   if "secret" in word:
-       print(word)
+    if "secret" in word:
+        print(word)
 
 # Use a list comprehension and a conditional check for a one-liner
 print([word for word in file_content.split() if "secret" in word])
