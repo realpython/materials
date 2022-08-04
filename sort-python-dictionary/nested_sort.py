@@ -16,10 +16,7 @@ def get_relevant_skills(item):
     skills = item[1]["skills"]
 
     # Return default value that is equivalent to no skill
-    python_skill = skills.get("python", 0)
-    js_skill = skills.get("js", 0)
-
-    return python_skill + js_skill
+    return skills.get("python", 0) + skills.get("js", 0)
 
 
 print(sorted(data.items(), key=get_relevant_skills, reverse=True))
