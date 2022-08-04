@@ -23,10 +23,12 @@ def get_python(item):
 print(sorted(data.items(), key=get_python, reverse=True))
 
 # Doing the same thing with lambda function and conditional expression
-sorted(
-    data.items(),
-    key=lambda item: item[1]["skills"]["python"]
-    if "python" in item[1]["skills"]
-    else 0,
-    reverse=True,
+print(
+    sorted(
+        data.items(),
+        key=lambda item: item[1]["skills"]["python"]
+        if "python" in item[1]["skills"]
+        else 0,
+        reverse=True,
+    )
 )

@@ -37,11 +37,10 @@ sorted_with_itemgetter_time = timeit(
 )
 
 print(
-    f"""
+    f"""\
 {sorted_with_lambda_time=:.2f} seconds
 {sorted_with_itemgetter_time=:.2f} seconds
 itemgetter is {(
     sorted_with_lambda_time / sorted_with_itemgetter_time
-):.2f} times faster
-""".strip()
+):.2f} times faster"""
 )

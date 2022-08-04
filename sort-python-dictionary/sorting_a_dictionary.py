@@ -1,4 +1,4 @@
-# Sorting lists with the sorted() function
+# Reviewing the sorted() function by sorting a list
 numbers = [5, 3, 4, 3, 6, 7, 3, 2, 3, 4, 1]
 sorted(numbers)
 words = ["aa", "ab", "ac", "ba", "cb", "ca"]

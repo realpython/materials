@@ -1,7 +1,7 @@
 from timeit import timeit
 
-list_program = "sorted(list_of_dictionaries, key=lambda item:item['age'])"
-dict_program = """
+sorting_list = "sorted(list_of_dictionaries, key=lambda item:item['age'])"
+sorting_dict = """
 dict(
     sorted(
         dictionary_of_dictionaries.items(), key=lambda item: item[1]['age']
@@ -9,21 +9,20 @@ dict(
 )
 """
 
-list_time = timeit(
-    stmt=list_program,
+sorting_list_time = timeit(
+    stmt=sorting_list,
     setup="from samples import list_of_dictionaries",
     globals=globals(),
 )
-dict_time = timeit(
-    stmt=dict_program,
+sorting_dict_time = timeit(
+    stmt=sorting_dict,
     setup="from samples import dictionary_of_dictionaries",
     globals=globals(),
 )
 
 print(
-    f"""
-{list_time=:.2f} seconds
-{dict_time=:.2f} seconds
-list is {(dict_time/list_time):.2f} times faster
-"""
+    f"""\
+{sorting_list_time=:.2f} seconds
+{sorting_dict_time=:.2f} seconds
+list is {(sorting_dict_time/sorting_list_time):.2f} times faster"""
 )
