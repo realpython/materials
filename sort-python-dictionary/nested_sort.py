@@ -11,24 +11,23 @@ data = {
 }
 
 
-def get_python(item):
+def get_relevant_skills(item):
+    """Get the sum of Python and JavaScript skill"""
     skills = item[1]["skills"]
-    if "python" in skills:
-        return skills["python"]
-    else:
-        # Return value that is equivalent to having no Python skill
-        return 0
+
+    # Return default value that is equivalent to no skill
+    return skills.get("python", 0) + skills.get("js", 0)
 
 
-print(sorted(data.items(), key=get_python, reverse=True))
+print(sorted(data.items(), key=get_relevant_skills, reverse=True))
 
-# Doing the same thing with lambda function and conditional expression
+# Doing the same thing with lambda function
 print(
     sorted(
         data.items(),
-        key=lambda item: item[1]["skills"]["python"]
-        if "python" in item[1]["skills"]
-        else 0,
+        key=lambda item: (
+            item[1]["skills"].get("python", 0) + item[1]["skills"].get("js", 0)
+        ),
         reverse=True,
     )
 )
