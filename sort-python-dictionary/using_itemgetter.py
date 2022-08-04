@@ -24,3 +24,16 @@ sorted(fruit_inventory, key=itemgetter(1))
 people = {3: "Jim", 2: "Jack", 4: "Jane", 1: "Jill"}
 
 sorted(people.items(), key=itemgetter(1))  # Sort by value
+
+
+scores = {
+    "Jack": 14,
+    "Jill": 14,
+    "John": 15,
+    "Jane": 15,
+    "Jim": 14,
+    "Jess": 14,
+}
+
+# Sorts by value, but keeps names in alphabetical order
+print(sorted(scores.items(), key=itemgetter(1, 0)))
