@@ -11,6 +11,5 @@ exec(compiled_code)
 numbers = [2, 3, 7, 4, 8]
 exec(compiled_code)
 
-
 numbers = [5, 3, 9, 6, 1]
 exec(compiled_code)
