@@ -1,5 +1,3 @@
-# compiled_code.py
-
 string_code = """
 def sum_of_even_squares(numbers):
     return sum(number**2 for number in numbers if number % 2 == 0)

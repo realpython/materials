@@ -1,5 +1,3 @@
-# hello.py
-
 print("Hello, Pythonista!")
 print("Welcome to Real Python!")
 
