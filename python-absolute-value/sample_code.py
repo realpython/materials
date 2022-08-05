@@ -4,7 +4,7 @@ from fractions import Fraction
 from math import sqrt
 
 
-class Vector1:
+class VectorBound:
     def __init__(self, *coordinates):
         self.coordinates = coordinates
 
@@ -13,7 +13,7 @@ class Vector1:
         return math.dist(origin, self.coordinates)
 
 
-class Vector2:
+class VectorFree:
     def __init__(self, *coordinates):
         self.coordinates = coordinates
 
@@ -21,35 +21,35 @@ class Vector2:
         return math.hypot(*self.coordinates)
 
 
-def absolute_value1(x):
+def absolute_value_piecewise(x):
     if x >= 0:
         return x
     else:
         return -x
 
 
-def absolute_value2(x):
+def absolute_value_piecewise_conditional_expression(x):
     return x if x >= 0 else -x
 
 
-def absolute_value3(x):
+def absolute_value_algebraic(x):
     return sqrt(pow(x, 2))
 
 
-def absolute_value4(x):
+def absolute_value_algebraic_exponents(x):
     return (x**2) ** 0.5
 
 
-def absolute_value5(x):
+def absolute_value_silly(x):
     return float(str(x).replace("-", ""))
 
 
 if __name__ == "__main__":
-    print(f"{absolute_value1(-12) = }")
-    print(f"{absolute_value2(-12) = }")
-    print(f"{absolute_value3(-12) = }")
-    print(f"{absolute_value4(-12) = }")
-    print(f"{absolute_value5(-12) = }")
+    print(f"{absolute_value_piecewise(-12) = }")
+    print(f"{absolute_value_piecewise_conditional_expression(-12) = }")
+    print(f"{absolute_value_algebraic(-12) = }")
+    print(f"{absolute_value_algebraic_exponents(-12) = }")
+    print(f"{absolute_value_silly(-12) = }")
 
     print(f"{abs(-12) = }")
     print(f"{abs(-12.0) = }")
@@ -57,5 +57,5 @@ if __name__ == "__main__":
     print(f"{abs(Fraction('-3/4')) = }")
     print(f"{abs(Decimal('-0.75')) = }")
 
-    print(f"{abs(Vector1(0.42, 1.5, 0.87)) = }")
-    print(f"{abs(Vector2(0.42, 1.5, 0.87)) = }")
+    print(f"{abs(VectorBound(0.42, 1.5, 0.87)) = }")
+    print(f"{abs(VectorFree(0.42, 1.5, 0.87)) = }")
