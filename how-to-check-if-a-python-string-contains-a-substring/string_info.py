@@ -1,8 +1,7 @@
 file_content = """hi there and welcome.
 this is a special hidden file with a secret secret.
 i don't want to tell you the secret,
-but i do want to secretly tell you that i have one.
-"""
+but i do want to secretly tell you that i have one."""
 
 # Use .index() to get the starting index of the first match
 print(file_content.index("secret"))

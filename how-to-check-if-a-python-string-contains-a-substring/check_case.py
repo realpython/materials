@@ -1,8 +1,7 @@
 file_content_title = """Hi There And Welcome.
 This Is A Special Hidden File With A Secret Secret.
-I Don'T Want To Tell You The Secret,
-But I Do Want To Secretly Tell You That I Have One.
-"""
+I Don't Want To Tell You The Secret,
+But I Do Want To Secretly Tell You That I Have One."""
 
 # Strings are case-sensitive
 print("secret" in file_content_title)  # False
