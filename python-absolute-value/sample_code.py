@@ -59,4 +59,3 @@ if __name__ == "__main__":
 
     print(f"{abs(Vector1(0.42, 1.5, 0.87)) = }")
     print(f"{abs(Vector2(0.42, 1.5, 0.87)) = }")
-
