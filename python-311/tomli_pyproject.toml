@@ -1,0 +1,15 @@
+[build-system]
+requires      = ["flit_core>=3.2.0,<4"]
+build-backend = "flit_core.buildapi"
+
+[project]
+name            = "tomli"
+version         = "2.0.1"              # DO NOT EDIT THIS LINE MANUALLY. LET bump2version DO IT
+description     = "A lil' TOML parser"
+requires-python = ">=3.7"
+readme          = "README.md"
+keywords        = ["toml"]
+
+[project.urls]
+"Homepage" = "https://github.com/hukkin/tomli"
+"PyPI"     = "https://pypi.org/project/tomli"
