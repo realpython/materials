@@ -1,11 +1,11 @@
-string_code = """
+string_input = """
 def sum_of_even_squares(numbers):
     return sum(number**2 for number in numbers if number % 2 == 0)
 
 print(sum_of_even_squares(numbers))
 """
 
-compiled_code = compile(string_code, "<string>", "exec")
+compiled_code = compile(string_input, "<string>", "exec")
 exec(compiled_code)
 
 numbers = [2, 3, 7, 4, 8]
