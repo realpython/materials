@@ -37,7 +37,7 @@ def add(a: Union[float, int], b: Union[float, int]) -> float:
         b: A number representing the second addend in the addition.
 
     Returns:
-        A number representing the artihmetic sum of `a` and `b`.
+        A number representing the arithmetic sum of `a` and `b`.
     """
 
     return float(a + b)
