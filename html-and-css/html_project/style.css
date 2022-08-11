@@ -19,8 +19,8 @@ a {
 }
 
 .gallery img {
-    width: 150px;
     margin-right: 0.2em;
+    width: 150px;
 }
 
 th,
