@@ -1,0 +1,7 @@
+[python]
+version         = 3.11
+release_manager = "Pablo Galindo Salgado"
+is_beta         = true
+beta_release    = 3
+release_date    = 2022-06-16
+peps            = [657, 654, 678, 680, 673, 675, 646, 659]
