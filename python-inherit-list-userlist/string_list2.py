@@ -3,7 +3,7 @@ from collections import UserList
 
 class StringList(UserList):
     def __init__(self, iterable):
-        self.data = [str(item) for item in iterable]
+        super().__init__(str(item) for item in iterable)
 
     def __setitem__(self, index, item):
         self.data[index] = str(item)

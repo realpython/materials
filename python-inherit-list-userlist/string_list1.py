@@ -1,7 +1,4 @@
-from collections import UserList
-
-
-class StringList(UserList):
+class StringList(list):
     def __init__(self, iterable):
         super().__init__(str(item) for item in iterable)
 

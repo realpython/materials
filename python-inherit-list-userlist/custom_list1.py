@@ -1,6 +1,6 @@
 class CustomList(list):
-    def join(self, sep=" "):
-        return sep.join(str(item) for item in self)
+    def join(self, separator=" "):
+        return separator.join(str(item) for item in self)
 
     def map(self, action):
         return type(self)(action(item) for item in self)
@@ -10,4 +10,4 @@ class CustomList(list):
 
     def for_each(self, func):
         for item in self:
-            yield func(item)
+            func(item)

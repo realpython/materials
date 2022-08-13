@@ -2,8 +2,8 @@ from collections import UserList
 
 
 class CustomList(UserList):
-    def join(self, sep=" "):
-        return sep.join(self.data)
+    def join(self, separator=" "):
+        return separator.join(str(item) for item in self)
 
     def map(self, action):
         return type(self)(action(item) for item in self.data)
@@ -13,4 +13,4 @@ class CustomList(UserList):
 
     def for_each(self, func):
         for item in self.data:
-            yield func(item)
+            func(item)

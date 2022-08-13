@@ -3,7 +3,7 @@ from collections import UserList
 
 class NumberList(UserList):
     def __init__(self, iterable):
-        self.data = [self._validate_number(item) for item in iterable]
+        super().__init__(self._validate_number(item) for item in iterable)
 
     def __setitem__(self, index, item):
         self.data[index] = self._validate_number(item)
