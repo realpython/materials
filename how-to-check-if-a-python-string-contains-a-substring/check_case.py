@@ -1,13 +1,13 @@
-file_content_title = """Hi There And Welcome.
+title_cased_file_content = """Hi There And Welcome.
 This Is A Special Hidden File With A Secret Secret.
 I Don't Want To Tell You The Secret,
 But I Do Want To Secretly Tell You That I Have One."""
 
 # Strings are case-sensitive
-print("secret" in file_content_title)  # False
+print("secret" in title_cased_file_content)  # False
 
 # Convert the input string to lowercase to generalize matching
-file_content = file_content_title.lower()
+file_content = title_cased_file_content.lower()
 
 print(file_content)
 

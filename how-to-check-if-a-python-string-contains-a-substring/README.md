@@ -6,4 +6,4 @@ In this tutorial you'll focus on the most pythonic approach to tackle this task,
 
 Finally, you'll also learn how to **find substrings in pandas columns**. This is helpful if you need to search through data from a CSV file.
 
-Head over to Real Python to the full tutorial on [How to Check if a Python String Contains a Substring](https://realpython.com/python-string-contains-substring/).
+Head over to Real Python for the full tutorial on [How to Check if a Python String Contains a Substring](https://realpython.com/python-string-contains-substring/).
