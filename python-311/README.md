@@ -18,11 +18,26 @@ You'll find examples from all these tutorials in this repository.
 
 ## Dependencies
 
-Install necessary dependencies for the examples:
+Create and activate a [virtual environment](https://realpython.com/python-virtual-environments-a-primer/):
 
 ```console
-$ python -m pip install colorama parse
+$ python -m venv venv
+$ source venv/bin/activate
 ```
+
+Install necessary dependencies for the examples (see [`requirements.in`](requirements.in)):
+
+```console
+(venv) $ python -m pip install colorama parse
+```
+
+Alternatively, you can install dependencies from [`requirements.txt`](requirements.txt) if you want to ensure that you're using the same versions of the third-party packages:
+
+```console
+(venv) $ python -m pip install -r requirements.txt
+```
+
+These examples have been run with [Python 3.11.0rc1](https://www.python.org/downloads/release/python-3110rc1/), the first release candidate of Python 3.11.
 
 ## Examples
 
@@ -33,7 +48,7 @@ This section only contains brief instructions on how you can run the examples. S
 Load [`scientists.py`](scientists.py) into your interactive REPL:
 
 ```console
-$ python -i scientists.py 
+(venv) $ python -i scientists.py 
 ```
 You can then experiment with `dict_to_person()` and `convert_pair()`:
 
@@ -64,17 +79,12 @@ See [Even Better Error Messages in Python 3.11](https://realpython.com/python311
 
 Use `ExceptionGroup` and `except*` to handle several errors at once:
 
-```pycon
->>> try:
-...     raise ExceptionGroup(
-...         "group", [TypeError("str"), ValueError(654), TypeError("int")]
-...     )
-... except* ValueError as eg:
-...     print(f"Handling ValueErrors: {eg.exceptions}")
-...
+```console
+(venv) $ python exception_group.py 
 Handling ValueErrors: (ValueError(654),)
   + Exception Group Traceback (most recent call last):
-  |   ...
+  |   File "/home/realpython/exception_group.py", line 2, in <module>
+  |     raise ExceptionGroup(
   | ExceptionGroup: group (2 sub-exceptions)
   +-+---------------- 1 ----------------
     | TypeError: str
@@ -90,7 +100,7 @@ See [Exception Groups and `except*` in Python 3.11](https://realpython.com/pytho
 Run [`count.py`](count.py), [`count_gather.py`](count_gather.py), and [`count_taskgroup.py`](count_taskgroup.py) and compare their behaviors. For example:
 
 ```console
-$ python count_taskgroup.py scientists.py rot13.txt count.py 
+(venv) $ python count_taskgroup.py scientists.py rot13.txt count.py 
 scientists.py        □□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□ (44)
 Files with thirteen lines are too scary!
 count.py             □□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□ (32)
@@ -105,7 +115,7 @@ See [Asynchronous Task Groups in Python 3.11](https://realpython.com/python311-e
 Use [`read_toml.py`](read_toml.py) to read them:
 
 ```console
-$ python read_toml.py python_info.toml tomli_pyproject.toml 
+(venv) $ python read_toml.py python_info.toml tomli_pyproject.toml 
 ======================python_info.toml======================
 {'python': {'version': 3.11,
             'release_manager': 'Pablo Galindo Salgado',
@@ -126,19 +136,15 @@ $ python read_toml.py python_info.toml tomli_pyproject.toml
                       'PyPI': 'https://pypi.org/project/tomli'}}}
 ```
 
-[`tomllib_w.py`](tomllib_w.py) shows how you can write simplified TOML files:
+You can use [`tomllib_w.py`](tomllib_w.py) to write simplified TOML files. [`write_toml.py`](write_toml.py) demonstrates how you can use it:
 
-```pycon
->>> import tomllib_w
->>> data = {"url": "https://realpython.com/python311-tomllib/",
-...     "author": {"name": "Geir Arne Hjelle", "email": "geirarne@realypython.com"}}
-
->>> print(tomllib_w.dumps(data))
+```console
+(venv) $ python write_toml.py 
 url = "https://realpython.com/python311-tomllib/"
 
 [author]
 name = "Geir Arne Hjelle"
-email = "geirarne@realypython.com"
+email = "geirarne@realpython.com"
 ```
 
 See [`tomllib` TOML Parser in Python 3.11](https://realpython.com/python311-tomllib/#tomllib-toml-parser-in-python-311) and [PEP 680](https://peps.python.org/pep-0680/).
@@ -148,7 +154,7 @@ See [`tomllib` TOML Parser in Python 3.11](https://realpython.com/python311-toml
 [`polar_point.py`](polar_point.py) uses `Self` for annotation:
 
 ```console
-$ python polar_point.py 
+(venv) $ python polar_point.py 
 PolarPoint(r=5.0, φ=0.9272952180016122)
 ```
 
@@ -159,7 +165,7 @@ See [`Self` Type](https://realpython.com/python311-tomllib/#self-type) and [PEP 
 [`execute_sql.py`](execute_sql.py) shows an example of `LiteralString`:
 
 ```console
-$ python execute_sql.py 
+(venv) $ python execute_sql.py 
 Pretending to execute: SELECT * FROM users
 Pretending to execute: SELECT * FROM users
 
@@ -179,22 +185,18 @@ See [Variadic Generic Types](https://realpython.com/python311-tomllib/#variadic-
 
 Use `.add_notes()` to annotate exceptions with custom notes:
 
-```pycon
->>> err = ValueError(678)
->>> err.add_note("Enriching Exceptions with Notes")
->>> err.add_note("Python 3.11")
+```console
+(venv) $ python exception_notes.py 
+err.__notes__ = ['Enriching Exceptions with Notes', 'Python 3.11']
 
->>> err.__notes__
-['Enriching Exceptions with Notes', 'Python 3.11']
->>> for note in err.__notes__:
-...     print(note)
-...
+--------------------- Loop over notes ----------------------
 Enriching Exceptions with Notes
 Python 3.11
 
->>> raise err
+--------------- Notes are added to traceback ---------------
 Traceback (most recent call last):
-  ...
+  File "/home/realpython/exception_notes.py", line 12, in <module>
+    raise err
 ValueError: 678
 Enriching Exceptions with Notes
 Python 3.11
@@ -206,14 +208,9 @@ See [Annotate Exceptions With Custom Notes](https://realpython.com/python311-exc
 
 You can use `sys.exception()` to access the active exception:
 
-```pycon
->>> import sys
-
->>> try:
-...     raise ValueError("bpo-46328")
-... except ValueError:
-...     print(f"Handling {sys.exception()}")
-...
+```console
+(venv) $ python active_exception.py 
+Handling bpo-46328
 Handling bpo-46328
 ```
 
@@ -226,7 +223,7 @@ See [Reference the Active Exception With `sys.exception()`](https://realpython.c
 `traceback_demo.py` shows that tracebacks can be consistently accessed through the exception object:
 
 ```console
-$ python traceback_demo.py 
+(venv) $ python traceback_demo.py 
 tb_last(exc_value.__traceback__) = 'bad_calculation:13'
 tb_last(exc_tb)                  = 'bad_calculation:13'
 ```
@@ -237,30 +234,20 @@ See [Reference the Active Traceback Consistently](https://realpython.com/python3
 
 You can use `math.cbrt()` to calculate cube roots:
 
-```pycon
->>> import math
->>> math.cbrt(729)
-9.000000000000002
-
->>> 729**(1/3)
-8.999999999999998
-
->>> math.pow(729, 1/3)
-8.999999999999998
+```console
+(venv) $ python cube_root.py 
+math.cbrt(729) = 9.000000000000002
+729 ** (1 / 3) = 8.999999999999998
+math.pow(729, 1 / 3) = 8.999999999999998
 ```
 
 You can use `math.exp2()` to calculate powers of two:
 
-```pycon
->>> import math
->>> math.exp2(16)
-65536.0
-
->>> 2**16
-65536
-
->>> math.pow(2, 16)
-65536.0
+```console
+(venv) $ python power_of_two.py 
+math.exp2(16) = 65536.0
+2**16 = 65536
+math.pow(2, 16) = 65536.0
 ```
 
 See [Cube Roots and Powers of Two](https://realpython.com/python311-error-messages/#cube-roots-and-powers-of-two), [BPO 44357](https://github.com/python/cpython/issues/88523) and [BPO 45917](https://github.com/python/cpython/issues/90075).
@@ -269,10 +256,9 @@ See [Cube Roots and Powers of Two](https://realpython.com/python311-error-messag
 
 You can use underscores when defining fractions from strings:
 
-```pycon
->>> from fractions import Fraction
->>> print(Fraction("6_024/1_729"))
-6024/1729
+```console
+(venv) $ python underscore.py 
+Fraction('6_024/1_729') = 6024/1729
 ```
 
 See [Underscores in Fractions](https://realpython.com/python311-error-messages/#underscores-in-fractions) and [BPO 44258](https://github.com/python/cpython/issues/88424).
@@ -281,13 +267,12 @@ See [Underscores in Fractions](https://realpython.com/python311-error-messages/#
 
 The Norwegian calculator implemented in [`kalkulator.py`](kalkulator.py) uses `operator.call()`:
 
-```pycon
->>> import kalkulator
->>> kalkulator.calculate("20 pluss 22")
-42.0
-
->>> kalkulator.calculate("11 delt på 3")
-3.6666666666666665
+```console
+(venv) $ python kalkulator.py 
+20 pluss 22 = 42.0
+2022 minus 1991 = 31.0
+45 ganger 45 = 2025.0
+11 delt på 3 = 3.6666666666666665
 ```
 
 See [Flexible Calling of Objects](https://realpython.com/python311-error-messages/#flexible-calling-of-objects) and [BPO 44019](https://github.com/python/cpython/issues/88185).
