@@ -26,7 +26,7 @@ $ black --check .
 
 ### Running Python Code Formatter
 
-We're using a tool called [black](https://black.readthedocs.io/) on this repo to ensure consistent formatting. On CI it runs in "check" mode to ensure any new files added to the repo follow PEP 8. If you see linter warnings that say something like "would reformat some_file.py" it means black disagrees with your formatting.
+We're using a tool called [black](https://black.readthedocs.io/) on this repo to ensure consistent formatting. On CI it runs in "check" mode to ensure any new files added to the repo follow PEP 8. If you see linter warnings that say something like "would reformat some_file.py" it means that black disagrees with your formatting.
 
 **The easiest way to resolve these errors is to run Black locally on the code and then commit those changes, as explained below.**
 
