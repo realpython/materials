@@ -2,7 +2,7 @@
 Note: Place this Python file next to gallery.html
 """
 
-from pathlib import Path
+from html.parser import HTMLParser
 
 
 class ImageParser(HTMLParser):
