@@ -1,10 +1,10 @@
-from typing import Generic, Literal, NewType, TypeVarTuple, Unpack
+from typing import Generic, Literal, NewType, TypeVarTuple
 
 Ts = TypeVarTuple("Ts")
 
 
-class Array(Generic[Unpack[Ts]]):  # You can use *Ts instead of Unpack[Ts]
-    ...
+class Array(Generic[*Ts]):
+    ...  # Not implemented here
 
 
 Height = NewType("Height", int)

@@ -1,0 +1,57 @@
+# Check that code is formatted consistently
+#
+# Available Python versions:
+# https://raw.githubusercontent.com/actions/python-versions/main/versions-manifest.json
+
+name: linters
+on: 
+  push:
+    branches:
+      - master
+  pull_request:
+
+jobs:
+  tests:
+    name: ${{ matrix.name }}
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - {name: Linux311, python: '3.11.0-rc.1', os: ubuntu-latest}
+    steps:
+    - name: Check out repository
+      uses: actions/checkout@v2
+
+    - name: Set up Python 
+      uses: actions/setup-python@v2
+      with:
+        python-version: ${{ matrix.python }}
+
+    - name: Restore cache
+      id: cache
+      uses: actions/cache@v3
+      with:
+        path: ./venv
+        key: ${{ matrix.name }}-pip-${{ hashFiles('requirements.txt') }}
+        restore-keys: |
+          ${{ matrix.name }}-pip-
+
+    - name: Install dependencies
+      if: steps.cache.outputs.cache-hit != 'true'
+      run: |
+        python -m venv venv
+        . venv/bin/activate
+        python -m pip install --upgrade pip
+        python -m pip install -r requirements.txt
+
+    - name: Check code style
+      run: |
+        . venv/bin/activate
+        python -m flake8
+        python -m black --check .
+
+    - name: Check directory layout
+      run: |
+        . venv/bin/activate
+        python .github/workflows/dircheck.py
