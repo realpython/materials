@@ -2,7 +2,6 @@
 
 import sys
 from functools import partial
-from typing import NamedTuple
 
 from PyQt6.QtCore import Qt
 from PyQt6.QtWidgets import (
@@ -21,11 +20,6 @@ DISPLAY_HEIGHT = 35
 BUTTON_SIZE = 40
 
 
-class GridPosition(NamedTuple):
-    row: int
-    col: int
-
-
 class PyCalcWindow(QMainWindow):
     """PyCalc's main window (GUI or view)."""
 
@@ -34,9 +28,9 @@ class PyCalcWindow(QMainWindow):
         self.setWindowTitle("PyCalc")
         self.setFixedSize(WINDOW_SIZE, WINDOW_SIZE)
         self.generalLayout = QVBoxLayout()
-        self._centralWidget = QWidget(self)
-        self.setCentralWidget(self._centralWidget)
-        self._centralWidget.setLayout(self.generalLayout)
+        centralWidget = QWidget(self)
+        centralWidget.setLayout(self.generalLayout)
+        self.setCentralWidget(centralWidget)
         self._createDisplay()
         self._createButtons()
 
@@ -50,36 +44,18 @@ class PyCalcWindow(QMainWindow):
     def _createButtons(self):
         self.buttonMap = {}
         buttonsLayout = QGridLayout()
-        # Key Symbol | Key position
-        keyMap = {
-            "7": GridPosition(0, 0),
-            "8": GridPosition(0, 1),
-            "9": GridPosition(0, 2),
-            "/": GridPosition(0, 3),
-            "C": GridPosition(0, 4),
-            "4": GridPosition(1, 0),
-            "5": GridPosition(1, 1),
-            "6": GridPosition(1, 2),
-            "*": GridPosition(1, 3),
-            "(": GridPosition(1, 4),
-            "1": GridPosition(2, 0),
-            "2": GridPosition(2, 1),
-            "3": GridPosition(2, 2),
-            "-": GridPosition(2, 3),
-            ")": GridPosition(2, 4),
-            "0": GridPosition(3, 0),
-            "00": GridPosition(3, 1),
-            ".": GridPosition(3, 2),
-            "+": GridPosition(3, 3),
-            "=": GridPosition(3, 4),
-        }
+        keyBoard = [
+            ["7", "8", "9", "/", "C"],
+            ["4", "5", "6", "*", "("],
+            ["1", "2", "3", "-", ")"],
+            ["0", "00", ".", "+", "="],
+        ]
 
-        for keySymbol, keyPosition in keyMap.items():
-            self.buttonMap[keySymbol] = QPushButton(keySymbol)
-            self.buttonMap[keySymbol].setFixedSize(BUTTON_SIZE, BUTTON_SIZE)
-            buttonsLayout.addWidget(
-                self.buttonMap[keySymbol], keyPosition.row, keyPosition.col
-            )
+        for row, keys in enumerate(keyBoard):
+            for col, key in enumerate(keys):
+                self.buttonMap[key] = QPushButton(key)
+                self.buttonMap[key].setFixedSize(BUTTON_SIZE, BUTTON_SIZE)
+                buttonsLayout.addWidget(self.buttonMap[key], row, col)
 
         self.generalLayout.addLayout(buttonsLayout)
 
@@ -118,10 +94,10 @@ class PyCalc:
         result = self._evaluate(expression=self._view.displayText())
         self._view.setDisplayText(result)
 
-    def _buildExpression(self, sub_exp):
+    def _buildExpression(self, subExpression):
         if self._view.displayText() == ERROR_MSG:
             self._view.clearDisplay()
-        expression = self._view.displayText() + sub_exp
+        expression = self._view.displayText() + subExpression
         self._view.setDisplayText(expression)
 
     def _connectSignalsAndSlots(self):

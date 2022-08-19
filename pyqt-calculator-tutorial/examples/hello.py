@@ -17,7 +17,7 @@ app = QApplication(sys.argv)
 
 # 3. Create an instance of your application's GUI
 window = QWidget()
-window.setWindowTitle("PyQt6 App")
+window.setWindowTitle("PyQt App")
 window.setGeometry(WIN_X, WIN_Y, WIDTH, HEIGHT)
 helloMsg = QLabel("<h1>Hello World!</h1>", parent=window)
 helloMsg.move(LABEL_X, LABEL_Y)
