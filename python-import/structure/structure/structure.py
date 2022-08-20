@@ -5,7 +5,7 @@ import pathlib
 import sys
 
 # Local imports
-from structure import files
+import files
 
 
 def main():
