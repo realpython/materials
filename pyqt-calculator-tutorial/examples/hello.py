@@ -1,4 +1,4 @@
-"""Simple Hello World example with PyQt6."""
+"""Simple Hello, World example with PyQt6."""
 
 import sys
 
@@ -19,7 +19,7 @@ app = QApplication(sys.argv)
 window = QWidget()
 window.setWindowTitle("PyQt App")
 window.setGeometry(WIN_X, WIN_Y, WIDTH, HEIGHT)
-helloMsg = QLabel("<h1>Hello World!</h1>", parent=window)
+helloMsg = QLabel("<h1>Hello, World!</h1>", parent=window)
 helloMsg.move(LABEL_X, LABEL_Y)
 
 # 4.Show your application's GUI
