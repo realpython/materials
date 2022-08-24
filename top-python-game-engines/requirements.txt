@@ -1,0 +1,4 @@
+adventurelib==1.2.1
+arcade==2.6.10
+pgzero==1.2.1
+pygame==2.1.2
