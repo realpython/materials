@@ -8,6 +8,7 @@ class LowerString(str):
 #         instance = super().__new__(cls, string.lower())
 #         return instance
 
+
 # from collections import UserString
 
 

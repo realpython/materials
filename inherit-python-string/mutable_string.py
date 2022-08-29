@@ -3,10 +3,14 @@ from collections import UserString
 
 class MutableString(UserString):
     def __setitem__(self, index, value):
-        self.data = self.data.replace(self.data[index], value)
+        data_as_list = list(self.data)
+        data_as_list[index] = value
+        self.data = "".join(data_as_list)
 
     def __delitem__(self, index):
-        self.data = self.data[: index - 1] + self.data[index:]
+        data_as_list = list(self.data)
+        del data_as_list[index]
+        self.data = "".join(data_as_list)
 
     def upper(self):
         self.data = self.data.upper()
