@@ -1,4 +1,5 @@
 class LowerString(str):
+    # This initializer doesn't work
     def __init__(self, string):
         super().__init__(string.lower())
 
