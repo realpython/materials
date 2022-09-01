@@ -8,7 +8,7 @@ transcript = """
 """
 
 regex_replacements = [
-    (r" blast\w*", "😤"),
+    (r"blast\w*", "😤"),
     (r" [-T:\+\d]{25}", ""),
     (r"\[support\w*\]", "Agent"),
     (r"\[johndoe\]", "Client"),
