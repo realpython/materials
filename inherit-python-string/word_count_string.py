@@ -1,5 +1,5 @@
 class WordCountString(str):
-    def words(self, separator=" "):
+    def words(self, separator=None):
         return len(self.split(separator))
 
 
@@ -7,5 +7,5 @@ class WordCountString(str):
 
 
 # class WordCountString(UserString):
-#     def words(self, separator=" "):
+#     def words(self, separator=None):
 #         return len(self.split(separator))
