@@ -7,9 +7,16 @@ transcript = """
 [johndoe] 2022-08-24T10:04:03+00:00 : Blast! You're right!
 """
 
-new_transcript = re.sub(r" blast\w*", "😤", transcript, flags=re.IGNORECASE)
-new_transcript = re.sub(r" [-T:\+\d]{25}", "", new_transcript)
-new_transcript = re.sub(r"\[support\w*\]", "Agent", new_transcript)
-new_transcript = re.sub(r"\[johndoe\]", "Client", new_transcript)
+regex_replacements = [
+    (r" blast\w*", "😤"),
+    (r" [-T:\+\d]{25}", ""),
+    (r"\[support\w*\]", "Agent"),
+    (r"\[johndoe\]", "Client"),
+]
 
-print(new_transcript)
+for regex_find, regex_replace in regex_replacements:
+    transcript = re.sub(
+        regex_find, regex_replace, transcript, flags=re.IGNORECASE
+    )
+
+print(transcript)

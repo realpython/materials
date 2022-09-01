@@ -14,23 +14,20 @@ CLIENTS = ["johndoe", "janedoe"]
 
 
 def censor_bad_words(message):
-    output = message
     for word in BAD_WORDS:
-        output = re.sub(rf"{word}\w*", "😤", output, flags=re.IGNORECASE)
-    return output
+        message = re.sub(rf"{word}\w*", "😤", message, flags=re.IGNORECASE)
+    return message
 
 
 def censor_clients(user):
-    output = user
     for client in CLIENTS:
-        output = re.sub(rf"{client}", "Client", output)
-    return output
+        user = re.sub(rf"{client}", "Client", user)
+    return user
 
 
 def sanitize_message(match):
     user, _, message = match.groups()
-    user = user.strip("[]")
-    user = re.sub(r".*support.*", "Agent", user)
+    user = re.sub(r"\[.*support.*\]", "Agent", user)
     return f"{censor_clients(user)} : {censor_bad_words(message)}"
 
 

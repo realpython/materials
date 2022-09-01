@@ -14,12 +14,11 @@ replacements = [
     ("Blast", "😤"),
     ("2022-08-24T", ""),
     ("+00:00", ""),
-    ("[support_tom]", "Tom"),
+    ("[support_tom]", "Agent"),
     ("[johndoe]", "Client"),
 ]
 
-new_transcript = transcript
-for replacement in replacements:
-    new_transcript = new_transcript.replace(*replacement)
+for old, new in replacements:
+    transcript = transcript.replace(old, new)
 
-print(new_transcript)
+print(transcript)
