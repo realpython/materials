@@ -21,7 +21,7 @@ def censor_bad_words(message):
 
 def censor_clients(user):
     for client in CLIENTS:
-        user = re.sub(rf"{client}", "Client", user)
+        user = re.sub(rf"\[{client}\]", "Client", user)
     return user
 
 
