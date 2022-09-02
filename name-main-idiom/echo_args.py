@@ -9,11 +9,10 @@ def echo(text: str, repetitions: int = 3) -> str:
     return f"{echoed_text.lower()}."
 
 
-def main() -> int:
+def main() -> None:
     text = " ".join(sys.argv[1:])
     print(echo(text))
-    return 0
 
 
 if __name__ == "__main__":
-    sys.exit(main())
+    main()
