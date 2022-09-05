@@ -4,7 +4,7 @@ import re
 REGEX_REPLACEMENTS = [
     (r"blast\w*", "😤"),
     (r" [-T:+\d]{25}", ""),
-    (r"\[support\w*\]", "Agent"),
+    (r"\[support\w*\]", "Agent "),
     (r"\[johndoe\]", "Client"),
 ]
 

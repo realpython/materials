@@ -1,9 +1,9 @@
 import re
 
 
-MESSAGE_PATTERN = (
+ENTRY_PATTERN = (
     r"\[(.+)\] "  # User string, discarding square brackets
-    r"[-T:\+\d]{25} "  # Time stamp
+    r"[-T:+\d]{25} "  # Time stamp
     r": "  # Separator
     r"(.+)"  # Message
 )
@@ -28,7 +28,7 @@ def censor_users(user):
 
 def sanitize_message(match):
     user, message = match.groups()
-    return f"{censor_users(user)} : {censor_bad_words(message)}"
+    return f"{censor_users(user):<6} : {censor_bad_words(message)}"
 
 
 transcript = """
@@ -38,4 +38,4 @@ transcript = """
 [johndoe] 2022-08-24T10:04:03+00:00 : Blast! You're right!
 """
 
-print(re.sub(MESSAGE_PATTERN, sanitize_message, transcript))
+print(re.sub(ENTRY_PATTERN, sanitize_message, transcript))

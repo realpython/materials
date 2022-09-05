@@ -6,7 +6,7 @@ REPLACEMENTS = [
     ("Blast", "😤"),
     ("2022-08-24T", ""),
     ("+00:00", ""),
-    ("[support_tom]", "Tom"),
+    ("[support_tom]", "Agent "),
     ("[johndoe]", "Client"),
 ]
 
