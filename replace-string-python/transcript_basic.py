@@ -8,17 +8,3 @@ transcript = """
 print(transcript.replace("BLASTED", "😤"))
 
 print(transcript.replace("BLASTED", "😤").replace("Blast", "😤"))
-
-replacements = [
-    ("BLASTED", "😤"),
-    ("Blast", "😤"),
-    ("2022-08-24T", ""),
-    ("+00:00", ""),
-    ("[support_tom]", "Agent"),
-    ("[johndoe]", "Client"),
-]
-
-for old, new in replacements:
-    transcript = transcript.replace(old, new)
-
-print(transcript)
