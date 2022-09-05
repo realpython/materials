@@ -1,5 +1,13 @@
 import re
 
+
+REGEX_REPLACEMENTS = [
+    (r"blast\w*", "😤"),
+    (r" [-T:+\d]{25}", ""),
+    (r"\[support\w*\]", "Agent"),
+    (r"\[johndoe\]", "Client"),
+]
+
 transcript = """
 [support_tom] 2022-08-24T10:02:23+00:00 : What can I help you with?
 [johndoe] 2022-08-24T10:03:15+00:00 : I CAN'T CONNECT TO MY BLASTED ACCOUNT
@@ -7,14 +15,7 @@ transcript = """
 [johndoe] 2022-08-24T10:04:03+00:00 : Blast! You're right!
 """
 
-regex_replacements = [
-    (r"blast\w*", "😤"),
-    (r" [-T:\+\d]{25}", ""),
-    (r"\[support\w*\]", "Agent"),
-    (r"\[johndoe\]", "Client"),
-]
-
-for regex_find, regex_replace in regex_replacements:
+for regex_find, regex_replace in REGEX_REPLACEMENTS:
     transcript = re.sub(
         regex_find, regex_replace, transcript, flags=re.IGNORECASE
     )
