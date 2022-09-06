@@ -1,3 +1,5 @@
-def do_nothing(): ...
+def do_nothing():
+    ...
+
 
 do_nothing()
