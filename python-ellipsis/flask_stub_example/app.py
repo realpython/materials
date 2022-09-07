@@ -1,12 +1,12 @@
 from flask import Flask
 
-from custom_stats import count_visitor  # noqa: F811
+from custom_stats import count_visitor
 
 app = Flask(__name__)
 
 if app.debug:
 
-    def count_visitor():
+    def count_visitor():  # noqa: F811
         ...
 
 
