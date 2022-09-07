@@ -11,7 +11,7 @@ $ python -m venv venv
 $ source venv/bin/activate
 ```
 
-Then, navigate into the subfolder and install the requirementes with `pip`:
+Then, navigate into the subfolder and install the requirements with `pip`:
 
 ```console
 (venv) $ python -m pip install -r requirements.txt
@@ -25,10 +25,11 @@ Enter the `flask_stub_example/` folder. You can then run the Flask server in deb
 
 ```console
 (venv) $ flask --app app --debug run
-...
 ```
 
-You can visit `http://127.0.0.1:5000/` in your browser to see the "Hello, world!" message.
+You can visit `http://127.0.0.1:5000/` in your browser to see the "Hello, world!" message. Because `count_visitor()` defined in `app.py` is a stub function using `...`, nothing happens. This serves as an example that you can avoid counting visitors during development.
+
+If you run the app without `--debug`, then `custom_stats.count_visitor()` will execute each time you reload the main page. The example function prints a message to your console. This serves as a stand-in for how your app would count visitors when run in production.
 
 ## Run the Type Hints Example
 
@@ -36,9 +37,7 @@ Enter the `type_hints_examples/` folder and run the files with `mypy`:
 
 ```console
 (venv) $ mypy tuple_example.py
-...
 (venv) $ mypy callable_example.py
-...
 ```
 
 ## Run the NumPy Example
