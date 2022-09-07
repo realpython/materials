@@ -1,6 +1,6 @@
 from flask import Flask
 
-from custom_stats import count_visitor
+from custom_stats import count_visitor  # noqa: F811
 
 app = Flask(__name__)
 
