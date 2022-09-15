@@ -1,6 +1,6 @@
 import numpy as np
 
-# Three dimensional array
+# Three-dimensional array
 
 dimensions = 3
 items_per_array = 2
@@ -11,7 +11,7 @@ arr = np.arange(max_items).reshape(axes)
 
 print(arr[:, :, 0])
 
-# Multi dimensional array
+# Multidimensional array
 
 dimensions = 5  # np.random.randint(1,10)
 items_per_array = 2

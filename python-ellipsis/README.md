@@ -4,7 +4,7 @@ This repository holds the code for the Real Python [When Do You Use an Ellipsis 
 
 ## Dependencies
 
-To run the examples of this repository, you need to have the dependencies installed. You should first create a virtual environment:
+To run the examples in this repository, you need to have the dependencies installed. You should first create a virtual environment:
 
 ```console
 $ python -m venv venv
@@ -27,7 +27,7 @@ Enter the `flask_stub_example/` folder. You can then run the Flask server in deb
 (venv) $ flask --app app --debug run
 ```
 
-You can visit `http://127.0.0.1:5000/` in your browser to see the "Hello, world!" message. Because `count_visitor()` defined in `app.py` is a stub function using `...`, nothing happens. This serves as an example that you can avoid counting visitors during development.
+You can visit `http://127.0.0.1:5000/` in your browser to see the "Hello, world!" message. Because `count_visitor()` defined in `app.py` is a stub function using `...`, nothing happens. This serves as an example that shows how you can avoid counting visitors during development.
 
 If you run the app without `--debug`, then `custom_stats.count_visitor()` will execute each time you reload the main page. The example function prints a message to your console. This serves as a stand-in for how your app would count visitors when run in production.
 
