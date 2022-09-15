@@ -6,8 +6,8 @@ from generator import find_match_gen
 from looping import find_match_loop
 from test_cases import build_list
 
-TIMEIT_TIMES = 10_000
-LIST_SIZE = 1_000
+TIMEIT_TIMES = 100_000
+LIST_SIZE = 500
 POSITION_INCREMENT = 10
 
 looping_times = []
@@ -49,6 +49,8 @@ plot = ax.plot(positions, looping_times)
 plot = ax.plot(positions, generator_times)
 
 plt.xlim([0, LIST_SIZE])
+plt.xlabel("Position of element to be found")
 plt.ylim([0, max(max(looping_times), max(generator_times))])
+plt.ylabel(f"Time to complete {TIMEIT_TIMES:,} times")
 
 plt.show()
