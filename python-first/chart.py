@@ -2,8 +2,6 @@ from timeit import timeit
 
 import matplotlib.pyplot as plt
 
-from generator import find_match_gen
-from looping import find_match_loop
 from test_cases import build_list
 
 TIMEIT_TIMES = 100_000
@@ -29,6 +27,7 @@ for position in range(0, LIST_SIZE, POSITION_INCREMENT):
     looping_times.append(
         timeit(
             "find_match_loop(list_to_search, 'Real Python', None)",
+            setup="from looping import find_match_loop",
             globals=globals(),
             number=TIMEIT_TIMES,
         )
@@ -36,6 +35,7 @@ for position in range(0, LIST_SIZE, POSITION_INCREMENT):
     generator_times.append(
         timeit(
             "find_match_gen(list_to_search, 'Real Python', None)",
+            setup="from generator import find_match_gen",
             globals=globals(),
             number=TIMEIT_TIMES,
         )
