@@ -45,12 +45,13 @@ print("Progress 100%")
 
 fig, ax = plt.subplots()
 
-plot = ax.plot(positions, looping_times)
-plot = ax.plot(positions, generator_times)
+plot = ax.plot(positions, looping_times, label="loop")
+plot = ax.plot(positions, generator_times, label="generator")
 
 plt.xlim([0, LIST_SIZE])
 plt.xlabel("Position of element to be found")
 plt.ylim([0, max(max(looping_times), max(generator_times))])
 plt.ylabel(f"Time to complete {TIMEIT_TIMES:,} times")
+plt.legend()
 
 plt.show()
