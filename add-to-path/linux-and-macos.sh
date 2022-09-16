@@ -11,7 +11,7 @@ export PATH="[PATH_TO_PYTHON]:$PATH"
 
 # Make sure you use the right profile for your system
 echo export PATH="[PATH_TO_PYTHON]:$PATH" >> ~/.profile
-# Re-read profile to see effect in same session
+# Reread profile to see effect in same session
 source ~/.profile
 
 # ------------------------------------
