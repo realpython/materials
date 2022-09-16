@@ -28,8 +28,8 @@ def remove_chat_metadata(chat_export_file):
     date_time = r"(\d+\/\d+\/\d+,\s\d+:\d+)"  # "8/26/22, 17:47"
     dash_whitespace = r"\s-\s"  # " - "
     username = r"([\w\s]+)"  # "Jane Doe"
-    metadata_whitespace = r":\s"  # ": "
-    pattern = date_time + dash_whitespace + username + metadata_whitespace
+    metadata_end = r":\s"  # ": "
+    pattern = date_time + dash_whitespace + username + metadata_end
 
     with open(chat_export_file, "r") as corpus_file:
         content = corpus_file.read()
@@ -54,6 +54,5 @@ def remove_whatsapp_boilerplate(message_collection):
 
     boilerplate = (
         "<Media omitted>",
-        "<media omitted>",
     )
     return tuple((msg for msg in messages if msg not in boilerplate))
