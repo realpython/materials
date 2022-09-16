@@ -1,6 +1,7 @@
 numbers: tuple[int, ...]
 
 # Allowed:
+numbers = ()
 numbers = (1,)
 numbers = (4, 5, 6, 99)
 
