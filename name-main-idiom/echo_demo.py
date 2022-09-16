@@ -7,5 +7,5 @@ def echo(text: str, repetitions: int = 3) -> str:
 
 
 if __name__ == "__main__":
-    print("Example call: echo('HELLO', repetitions=2)", end=f"\n{'-'*40}\n")
+    print("Example call: echo('HELLO', repetitions=2)", end=f"\n{'-' * 42}\n")
     print(echo("HELLO", repetitions=2))
