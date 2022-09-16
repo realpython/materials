@@ -6,7 +6,7 @@
 export PATH="[PATH_TO_PYTHON]:$PATH"
 
 # ------------------------------------
-# Add Path Adding Operation to Profile
+# Add Path-Adding Operation to Profile
 # ------------------------------------
 
 # Make sure you use the right profile for your system
