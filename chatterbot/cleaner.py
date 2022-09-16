@@ -52,7 +52,5 @@ def remove_whatsapp_boilerplate(message_collection):
     """
     messages = message_collection[1:]
 
-    boilerplate = (
-        "<Media omitted>",
-    )
+    boilerplate = ("<Media omitted>",)
     return tuple((msg for msg in messages if msg not in boilerplate))
