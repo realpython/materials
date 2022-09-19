@@ -43,7 +43,7 @@ $ echo $PATH | tr ":" "\n" | grep -v 'badpython'
 # /usr/bin
 # /sbin
 
-$ # Replace newlines with colons
+# Replace newlines with colons
 $ echo $PATH | tr ":" "\n" | grep -v 'badpython' | tr "\n" ":"
 # Output:
 # /usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:
