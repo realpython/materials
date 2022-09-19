@@ -3,23 +3,23 @@
 # ------------------------------------
 
 # Make sure you use the right profile for your system
-export PATH="<PATH_TO_PYTHON>:$PATH"
+$ export PATH="<PATH_TO_PYTHON>:$PATH"
 
 # ------------------------------------
 # Add Path-Adding Operation to Profile
 # ------------------------------------
 
 # Make sure you use the right profile for your system
-echo export PATH="<PATH_TO_PYTHON>:$PATH" >> ~/.profile
+$ echo export PATH="<PATH_TO_PYTHON>:$PATH" >> ~/.profile
 # Reread profile to see effect in same session
-source ~/.profile
+$ source ~/.profile
 
 # ------------------------------------
 # Filtering Bad Paths from PATH
 # ------------------------------------
 
 # View current PATH
-echo $PATH
+$ echo $PATH
 # Output:
 # /usr/local/sbin:/usr/local/bin:/usr/sbin:/home/realpython/badpython:/usr/bin:
 # /sbin:/bin:/usr/games:/usr/local/games
@@ -33,6 +33,9 @@ $ echo $PATH | tr ":" "\n"
 # /home/realpython/badpython
 # /usr/bin
 # /sbin
+# /bin
+# /usr/games
+# /usr/local/games
 
 # Filter out certain lines with grep -v
 $ echo $PATH | tr ":" "\n" | grep -v 'badpython'
@@ -42,6 +45,9 @@ $ echo $PATH | tr ":" "\n" | grep -v 'badpython'
 # /usr/sbin
 # /usr/bin
 # /sbin
+# /bin
+# /usr/games
+# /usr/local/games
 
 # Replace newlines with colons
 $ echo $PATH | tr ":" "\n" | grep -v 'badpython' | tr "\n" ":"
@@ -49,5 +55,5 @@ $ echo $PATH | tr ":" "\n" | grep -v 'badpython' | tr "\n" ":"
 # /usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:
 # /usr/local/games
 
-$ # Assign to PATH
+# Assign to PATH
 $ export PATH=`echo $PATH | tr ":" "\n" | grep -v 'badpython' | tr "\n" ":"`
