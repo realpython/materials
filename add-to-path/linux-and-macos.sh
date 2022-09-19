@@ -24,7 +24,7 @@ echo $PATH
 # /usr/local/sbin:/usr/local/bin:/usr/sbin:/home/realpython/badpython:/usr/bin:
 # /sbin:/bin:/usr/games:/usr/local/games
 
-$ # View on separate lines by replacing colons with newlines
+# View on separate lines by replacing colons with newlines
 $ echo $PATH | tr ":" "\n"
 # Output:
 # /usr/local/sbin
