@@ -34,7 +34,7 @@ $ echo $PATH | tr ":" "\n"
 # /usr/bin
 # /sbin
 
-$ # Filter out certain lines with grep -v
+# Filter out certain lines with grep -v
 $ echo $PATH | tr ":" "\n" | grep -v 'badpython'
 # Output:
 # /usr/local/sbin
