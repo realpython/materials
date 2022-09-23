@@ -32,6 +32,8 @@ RP Checker provides the following options:
 - `-u` or `--urls` takes one or more URLs and checks if they're online.
 - `-f` or `--input-file` takes a file containing a list of URLs to check.
 - `-a` or `--asynchronous` runs the check asynchronously.
+- `-c` or `--csv_column` indicates file is in csv format and which column         contains the hostname.
+
 
 ## About the Author
 
