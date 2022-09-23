@@ -1,4 +1,4 @@
-from enum import Enum, IntEnum
+from enum import IntEnum  # , Enum
 
 # class Size(Enum):
 #     S = "small"

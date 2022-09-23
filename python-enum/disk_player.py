@@ -1,5 +1,3 @@
-# disk_player.py
-
 from enum import Enum, auto
 
 
