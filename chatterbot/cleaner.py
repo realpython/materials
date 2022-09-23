@@ -53,5 +53,5 @@ def remove_non_message_text(export_text_lines):
     """
     messages = export_text_lines[1:-1]
 
-    filter_out_messages = ("<Media omitted>",)
-    return tuple((msg for msg in messages if msg not in filter_out_messages))
+    filter_out_msgs = ("<Media omitted>",)
+    return tuple((msg for msg in messages if msg not in filter_out_msgs))
