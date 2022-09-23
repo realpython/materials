@@ -10,9 +10,10 @@ $ source venv/bin/activate
 (venv) $ python -m pip install -r requirements.txt
 ```
 
-Then you can train and start the interactive command-line interface chatbot by running `bot.py`:
+Then you can navigate into the folder `source_code_final/` and train and start the interactive command-line interface chatbot by running `bot.py`:
 
 ```sh
+(venv) $ cd source_code_final
 (venv) $ python bot.py
 ```
 
