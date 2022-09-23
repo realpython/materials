@@ -1,4 +1,4 @@
-from enum import Flag
+from enum import Flag, IntFlag
 
 # class Role(IntFlag):
 #     OWNER = 8

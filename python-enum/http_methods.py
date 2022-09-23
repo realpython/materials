@@ -1,11 +1,11 @@
-import enum
+from enum import Enum
 
-# HTTPMethod = enum.Enum(
+# HTTPMethod = Enum(
 #     "HTTPMethod", ["GET", "POST", "PUSH", "PATCH", "DELETE"]
 # )
 
 
-class HTTPMethod(enum.Enum):
+class HTTPMethod(Enum):
     GET = 1
     POST = 2
     PUSH = 3

@@ -1,6 +1,6 @@
 from enum import Enum, auto
 
-# class CardinalDirection(enum.Enum):
+# class CardinalDirection(Enum):
 #     NORTH = "N"
 #     SOUTH = "S"
 #     EAST = "E"
