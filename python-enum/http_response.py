@@ -43,6 +43,9 @@ def process_response(response):
 
 
 connection = HTTPSConnection("www.python.org")
-connection.request("GET", "/")
-response = connection.getresponse()
-process_response(response)
+try:
+    connection.request("GET", "/")
+    response = connection.getresponse()
+    process_response(response)
+finally:
+    connection.close()

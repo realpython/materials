@@ -8,11 +8,11 @@ class Semaphore(Enum):
 
 
 # def handle_semaphore(light):
-#     if light == Semaphore.RED:
+#     if light is Semaphore.RED:
 #         print("You must stop!")
-#     elif light == Semaphore.YELLOW:
+#     elif light is Semaphore.YELLOW:
 #         print("Light will change to red, be careful!")
-#     elif light == Semaphore.GREEN:
+#     elif light is Semaphore.GREEN:
 #         print("You can continue!")
 
 
