@@ -1,4 +1,4 @@
-def minimax(state, alpha=-2, beta=2, is_maximizing=True):
+def minimax(state, alpha=-1, beta=1, is_maximizing=True):
     if (score := evaluate(state, is_maximizing)) is not None:
         return score
 
