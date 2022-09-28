@@ -16,9 +16,11 @@ def best_move(state):
 
 
 def possible_new_states(state):
-    return [state - take for take in (1, 2, 3) if take <= state]
+    for pile, counters in enumerate(state):
+        for remain in range(counters):
+            yield state[:pile] + (remain,) + state[pile + 1 :]
 
 
 def evaluate(state, is_maximizing):
-    if state == 0:
-        return 1 if is_maximizing else -1
+    if all(counters == 0 for counters in state):
+        return -1 if is_maximizing else 1
