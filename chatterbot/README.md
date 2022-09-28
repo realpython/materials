@@ -1,4 +1,4 @@
-# Build a Chatbot with Python and ChatterBot
+# ChatterBot: Build a Chatbot with Python
 
 This repository contains code related to the tutorial on [building a Python chatbot with ChatterBot](https://realpython.com/build-a-chatbot-python-chatterbot/).
 
