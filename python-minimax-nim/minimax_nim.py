@@ -1,3 +1,7 @@
+from functools import cache
+
+
+@cache
 def minimax(state, is_maximizing):
     if (score := evaluate(state, is_maximizing)) is not None:
         return score
