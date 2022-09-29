@@ -13,11 +13,11 @@ $ python nim.py
 
 Make your choices by entering a corresponding character and hit enter. You can choose between the different variants that are described in the tutorial.
 
-If you want to add a variant yourself, you can do so by adding a new file named with a `game_` prefix. Inside this file you need to implement the following functions:
+If you want to add a variant yourself, you can do so by adding a new file named with a `game_` prefix. Inside this file, you need to implement the following functions:
 
-- `initial_state()` should set up the initial game state
-- `possible_new_states(state)` should list the possible states you can move to from the current state
-- `evaluate(state, is_maximizing)` should evaluate an end game state and return `None` if the game is not over
+- `initial_state()` should set up the initial game state.
+- `possible_new_states(state)` should list the possible states that you can move to from the current state.
+- `evaluate(state, is_maximizing)` should evaluate an end game state and return `None` if the game isn't over.
 
 See the existing `game_*.py` files for examples.
 
