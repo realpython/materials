@@ -4,9 +4,10 @@ from enum import Enum
 
 class BaseTextEnum(Enum):
     def as_list(self):
-        if not len(self.value):
-            raise NotImplementedError("empty enum member")
-        return [item for item in self.value]
+        try:
+            return list(self.value)
+        except TypeError:
+            return [str(self.value)]
 
 
 class Alphabet(BaseTextEnum):
