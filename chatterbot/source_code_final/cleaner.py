@@ -33,8 +33,8 @@ def remove_chat_metadata(chat_export_file):
 
     with open(chat_export_file, "r") as corpus_file:
         content = corpus_file.read()
-        cleaned_corpus = re.sub(pattern, "", content)
-        return tuple(cleaned_corpus.split("\n"))
+    cleaned_corpus = re.sub(pattern, "", content)
+    return tuple(cleaned_corpus.split("\n"))
 
 
 def remove_non_message_text(export_text_lines):
