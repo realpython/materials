@@ -12,5 +12,9 @@ cleaned_corpus = clean_corpus(CORPUS_FILE)
 trainer.train(cleaned_corpus)
 
 exit_conditions = (":q", "quit", "exit")
-while (query := input("> ")) not in exit_conditions:
-    print(f"🪴 {chatbot.get_response(query)}")
+while True:
+    query = input("> ")
+    if query in exit_conditions:
+        break
+    else:
+        print(f"🪴 {chatbot.get_response(query)}")
