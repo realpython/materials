@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Tic-Tac-Toe</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap" rel="stylesheet">
+  <script defer src="https://pyscript.net/alpha/pyscript.js"></script>
+  <style>
+    .board {
+        stroke: gray;
+        stroke-width: 3;
+    }
+    .text {
+        stroke: black;
+        fill: black;
+        font-size: 80px;
+        font-family: 'Indie Flower', cursive;
+    }
+    .win {
+        stroke: firebrick;
+        fill: firebrick;
+    }
+    .hidden {
+        display: none;
+    }
+    svg {
+        margin: 20px;
+    }
+  </style>
+</head>
+<body>
+    <div>
+        <label>
+            Player X:
+            <select id="playerX" disabled>
+                <option value="random">Random</option>
+                <option value="minimax">Minimax</option>
+                <option value="human" selected>Human</option>
+            </select>
+        </label>
+        <label>
+            Player O:
+            <select id="playerO" disabled>
+                <option value="random">Random</option>
+                <option value="minimax" selected>Minimax</option>
+                <option value="human">Human</option>
+            </select>
+        </label>
+    </div>
+    <svg width="256" height="256" viewBox="0 0 256 256" xmlns="http://www.w3.org/2000/svg">
+        <line x1="85" y1="0" x2="85" y2="255" class="board"/>
+        <line x1="170" y1="0" x2="170" y2="255" class="board" />
+        <line x1="0" y1="85" x2="255" y2="85" class="board" />
+        <line x1="0" y1="170" x2="255" y2="170" class="board" />
+        <a href="" data-id="0"><text x="20" y="70" class="text"></text></a>
+        <a href="" data-id="1"><text x="105" y="70" class="text"></text></a>
+        <a href="" data-id="2"><text x="190" y="70" class="text"></text></a>
+        <a href="" data-id="3"><text x="20" y="155" class="text"></text></a>
+        <a href="" data-id="4"><text x="105" y="155" class="text"></text></a>
+        <a href="" data-id="5"><text x="190" y="155" class="text"></text></a>
+        <a href="" data-id="6"><text x="20" y="240" class="text"></text></a>
+        <a href="" data-id="7"><text x="105" y="240" class="text"></text></a>
+        <a href="" data-id="8"><text x="190" y="240" class="text"></text></a>
+    </svg>
+    <h3 id="status"></h3>
+    <button id="replay" class="hidden">Replay?</button>
+    <py-env>
+        - tic_tac_toe-1.0.0-py3-none-any.whl
+        - paths:
+            - players.py
+            - renderers.py
+    </py-env>
+    <py-script src="script.py"></py-script>
+</body>
+</html>
