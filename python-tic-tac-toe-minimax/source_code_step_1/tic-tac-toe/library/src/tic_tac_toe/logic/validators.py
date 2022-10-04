@@ -40,7 +40,7 @@ def validate_starting_mark(grid: Grid, starting_mark: Mark) -> None:
 
 
 def validate_winner(
-        grid: Grid, starting_mark: Mark, winner: Mark | None
+    grid: Grid, starting_mark: Mark, winner: Mark | None
 ) -> None:
     if winner == "X":
         if starting_mark == "X":

@@ -99,8 +99,7 @@ class GameState:
             for mark in Mark:
                 if re.match(pattern.replace("?", mark), self.grid.cells):
                     return [
-                        match.start()
-                        for match in re.finditer(r"\?", pattern)
+                        match.start() for match in re.finditer(r"\?", pattern)
                     ]
         return []
 
@@ -129,7 +128,7 @@ class GameState:
                 Grid(
                     self.grid.cells[:index]
                     + self.current_mark
-                    + self.grid.cells[index + 1:]
+                    + self.grid.cells[index + 1 :]
                 ),
                 self.starting_mark,
             ),

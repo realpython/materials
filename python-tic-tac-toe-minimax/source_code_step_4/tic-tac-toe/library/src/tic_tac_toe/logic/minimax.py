@@ -12,7 +12,7 @@ def find_best_move(game_state: GameState) -> Move | None:
 
 
 def minimax(
-        move: Move, maximizer: Mark, choose_highest_score: bool = False
+    move: Move, maximizer: Mark, choose_highest_score: bool = False
 ) -> int:
     if move.after_state.game_over:
         return move.after_state.evaluate_score(maximizer)

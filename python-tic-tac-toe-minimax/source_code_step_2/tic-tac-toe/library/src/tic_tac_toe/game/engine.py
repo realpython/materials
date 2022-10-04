@@ -11,6 +11,7 @@ from tic_tac_toe.logic.validators import validate_players
 
 ErrorHandler: TypeAlias = Callable[[Exception], None]
 
+
 @dataclass(frozen=True)
 class TicTacToe:
     player1: Player
