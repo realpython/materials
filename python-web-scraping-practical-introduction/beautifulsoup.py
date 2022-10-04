@@ -1,5 +1,6 @@
-from bs4 import BeautifulSoup
 from urllib.request import urlopen
+
+from bs4 import BeautifulSoup
 
 url = "http://olympus.realpython.org/profiles/dionysus"
 page = urlopen(url)

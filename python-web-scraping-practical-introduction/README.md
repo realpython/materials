@@ -19,7 +19,7 @@ Then, navigate into the subfolder and install the requirements with `pip`:
 
 ## Author
 
-- **Philipp Acsany**, E-mail: [philipp@realpython.com](philipp@realpython.com)
+- [David Amos](https://realpython.com/team/damos/)
 
 ## License
 

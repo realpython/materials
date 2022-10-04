@@ -1,4 +1,5 @@
 import time
+
 import mechanicalsoup
 
 browser = mechanicalsoup.Browser()
