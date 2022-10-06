@@ -12,7 +12,7 @@ Install the library into the active virtual environment:
 
 ### Packaging
 
-Build and package a standalone tic-tac-toe library for distribution:
+Build and package a stand-alone tic-tac-toe library for distribution:
 
 ```shell
 $ python -m pip wheel .

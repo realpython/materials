@@ -84,7 +84,7 @@ Play tic-tac-toe against a minimax computer player in a GUI application built wi
 (venv) $ python -m window
 ```
 
-To change the players, who are currently hardcoded, you'll need to edit the following fragment of the front end's code:
+To change the players, who are currently hard-coded, you'll need to edit the following fragment of the front end's code:
 
 ```python
 def game_loop(window: Window, events: Queue) -> None:
