@@ -1,5 +1,3 @@
-# frontends/window/players.py
-
 from queue import Queue
 
 from tic_tac_toe.game.players import Player

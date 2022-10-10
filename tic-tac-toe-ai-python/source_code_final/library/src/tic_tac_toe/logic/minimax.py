@@ -1,5 +1,3 @@
-# tic_tac_toe/logic/minimax.py
-
 import json
 from functools import cache, partial
 from importlib import resources

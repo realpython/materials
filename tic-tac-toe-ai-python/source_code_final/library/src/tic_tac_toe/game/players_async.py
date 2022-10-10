@@ -1,5 +1,3 @@
-# tic_tac_toe/game/players_async.py
-
 import abc
 import asyncio
 

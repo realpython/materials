@@ -1,5 +1,3 @@
-# tic_tac_toe/logic/minimax.py
-
 from functools import partial
 
 from tic_tac_toe.logic.models import GameState, Mark, Move

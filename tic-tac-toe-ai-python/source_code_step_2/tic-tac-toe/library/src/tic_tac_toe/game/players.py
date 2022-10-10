@@ -1,5 +1,3 @@
-# tic_tac_toe/game/players.py
-
 import abc
 import random
 import time

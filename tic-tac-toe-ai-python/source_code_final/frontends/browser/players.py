@@ -1,5 +1,3 @@
-# frontends/browser/players.py
-
 from asyncio import Queue
 
 from tic_tac_toe.game.players_async import AsyncPlayer

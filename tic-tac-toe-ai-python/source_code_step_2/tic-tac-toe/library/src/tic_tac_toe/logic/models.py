@@ -1,5 +1,3 @@
-# tic_tac_toe/logic/models.py
-
 import enum
 import re
 from dataclasses import dataclass

@@ -1,5 +1,3 @@
-# frontends/browser/cli.py
-
 import http.server
 import socketserver
 import threading

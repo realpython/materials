@@ -1,5 +1,3 @@
-# frontends/browser/script.py
-
 from asyncio.queues import Queue
 
 from js import document

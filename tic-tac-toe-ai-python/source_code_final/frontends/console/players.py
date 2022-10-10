@@ -1,5 +1,3 @@
-# frontends/console/players.py
-
 import re
 
 from tic_tac_toe.game.players import Player

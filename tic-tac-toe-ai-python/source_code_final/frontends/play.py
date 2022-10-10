@@ -1,5 +1,3 @@
-# frontends/play.py
-
 from console.players import ConsolePlayer
 from console.renderers import ConsoleRenderer
 from tic_tac_toe.game.engine import TicTacToe

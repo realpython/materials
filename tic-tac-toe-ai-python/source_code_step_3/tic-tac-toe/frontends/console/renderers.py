@@ -1,5 +1,3 @@
-# frontends/console/renderers.py
-
 import textwrap
 from typing import Iterable
 

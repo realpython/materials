@@ -1,5 +1,3 @@
-# frontends/console/args.py
-
 import argparse
 from typing import NamedTuple
 

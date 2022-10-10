@@ -1,5 +1,3 @@
-# tic_tac_toe/game/engine_async.py
-
 from dataclasses import dataclass
 
 from tic_tac_toe.game.engine import ErrorHandler

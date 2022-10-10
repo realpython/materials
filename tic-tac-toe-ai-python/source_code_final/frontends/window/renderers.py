@@ -1,5 +1,3 @@
-# frontends/window/renderers.py
-
 import tkinter as tk
 from queue import Queue
 from tkinter import ttk

@@ -1,5 +1,3 @@
-# frontends/console/cli.py
-
 from tic_tac_toe.game.engine import TicTacToe
 
 from .args import parse_args
