@@ -1,15 +1,16 @@
 # Replace numbers that are divisible by 3 with "fizz"
 def fizz_buzz(numbers):
     """Implement the Fizz buzz game.
-    
+
     >>> fizz_buzz([3, 6, 9, 12])
     ['fizz', 'fizz', 'fizz', 'fizz']
     """
 
+
 # # Replace numbers that are divisible by 3 with "fizz"
 # def fizz_buzz(numbers):
 #     """Implement the Fizz buzz game.
-    
+
 #     >>> fizz_buzz([3, 6, 9, 12])
 #     ['fizz', 'fizz', 'fizz', 'fizz']
 #     """
@@ -25,7 +26,7 @@ def fizz_buzz(numbers):
 # Replace numbers that are divisible by 5 with "buzz"
 # def fizz_buzz(numbers):
 #     """Implement the Fizz buzz game.
-    
+
 #     >>> fizz_buzz([3, 6, 9, 12])
 #     ['fizz', 'fizz', 'fizz', 'fizz']
 
@@ -46,13 +47,13 @@ def fizz_buzz(numbers):
 # Replace numbers that are divisible by 3 and 5 with "fizz buzz"
 # def fizz_buzz(numbers):
 #     """Implement the Fizz buzz game.
-    
+
 #     >>> fizz_buzz([3, 6, 9, 12])
 #     ['fizz', 'fizz', 'fizz', 'fizz']
 
 #     >>> fizz_buzz([5, 10, 20, 25])
 #     ['buzz', 'buzz', 'buzz', 'buzz']
-    
+
 #     >>> fizz_buzz([15, 30, 45])
 #     ['fizz buzz', 'fizz buzz', 'fizz buzz']
 

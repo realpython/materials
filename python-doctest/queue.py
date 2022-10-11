@@ -7,7 +7,7 @@ class Queue:
 
         >>> Queue()
         Queue([])
-        
+
         >>> numbers = Queue()
         >>> numbers
         Queue([])

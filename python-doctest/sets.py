@@ -6,7 +6,7 @@
 #     @property
 #     def favorite_colors(self):
 #         """Return the user's favorite colors.
-        
+
 #         Usage examples:
 #         >>> john = User("John", {"#797EF6", "#4ADEDE", "#1AA7EC"})
 #         >>> john.favorite_colors
@@ -35,7 +35,7 @@
 class User:
     def __init__(self, name, favorite_colors):
         """Initialize instances of User.
-        
+
         Usage examples:
         >>> User("John", {"#797EF6", "#4ADEDE", "#1AA7EC"}) # doctest: +ELLIPSIS
         <sets.User object at 0x...>
