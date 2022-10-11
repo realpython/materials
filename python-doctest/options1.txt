@@ -1,0 +1,10 @@
+>>> 5 < 7  # doctest: +DONT_ACCEPT_TRUE_FOR_1
+True
+
+>>> print(
+...    "Hello, Pythonista! Welcome to Real Python!"
+... )  # doctest: +ELLIPSIS
+Hello, ... Python!
+
+>>> print("\tHello, World!")  # doctest: +NORMALIZE_WHITESPACE
+	Hello, World!
