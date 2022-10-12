@@ -1,7 +1,7 @@
 from test_fixtures import countries
 
 
-def find_match_gen(iterable, value=None, key=None, default=None):
+def get_first(iterable, value=None, key=None, default=None):
     match value is None, callable(key):
         case (True, True):
             gen = (val for val in iterable if key(val))
@@ -17,9 +17,9 @@ def find_match_gen(iterable, value=None, key=None, default=None):
 
 if __name__ == "__main__":
     target_match = {"country": "Norway", "population": 5311916}
-    print(find_match_gen(countries, target_match))
+    print(get_first(countries, target_match))
 
     def match_scotland(data):
         return data["country"] == "Scotland"
 
-    print(find_match_gen(countries, key=match_scotland))
+    print(get_first(countries, key=match_scotland))
