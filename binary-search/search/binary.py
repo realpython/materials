@@ -7,9 +7,7 @@ from typing import Optional, Set, Sequence
 from search import T, S, Key, identity
 
 
-def find_index(
-    elements: Sequence[T], value: S, key: Key = identity
-) -> Optional[int]:
+def find_index(elements: Sequence[T], value: S, key: Key = identity) -> Optional[int]:
     """Return the index of value in elements or None."""
 
     left, right = 0, len(elements) - 1
@@ -60,9 +58,7 @@ def find_rightmost_index(
     return index
 
 
-def find_all_indices(
-    elements: Sequence[T], value: S, key: Key = identity
-) -> Set[int]:
+def find_all_indices(elements: Sequence[T], value: S, key: Key = identity) -> Set[int]:
     """Return a set of indices of elements with matching key."""
 
     left = find_leftmost_index(elements, value, key)
@@ -79,16 +75,12 @@ def find(elements: Sequence[T], value: S, key: Key = identity) -> Optional[T]:
     return _get(elements, find_index(elements, value, key))
 
 
-def find_leftmost(
-    elements: Sequence[T], value: S, key: Key = identity
-) -> Optional[T]:
+def find_leftmost(elements: Sequence[T], value: S, key: Key = identity) -> Optional[T]:
     """Return the leftmost element or None."""
     return _get(elements, find_leftmost_index(elements, value, key))
 
 
-def find_rightmost(
-    elements: Sequence[T], value: S, key: Key = identity
-) -> Optional[T]:
+def find_rightmost(elements: Sequence[T], value: S, key: Key = identity) -> Optional[T]:
     """Return the rightmost element or None."""
     return _get(elements, find_rightmost_index(elements, value, key))
 
