@@ -29,17 +29,13 @@ def main(args: argparse.Namespace) -> None:
         "binary": binary_search,
     }
 
-    benchmark(
-        algorithms[args.algorithm], load_names(args.path), args.search_term
-    )
+    benchmark(algorithms[args.algorithm], load_names(args.path), args.search_term)
 
 
 def parse_args() -> argparse.Namespace:
     """Parse command line arguments."""
     parser = argparse.ArgumentParser()
-    parser.add_argument(
-        "-a", "--algorithm", choices=("random", "linear", "binary")
-    )
+    parser.add_argument("-a", "--algorithm", choices=("random", "linear", "binary"))
     parser.add_argument("-f", "--file", dest="path")
     parser.add_argument("search_term")
     return parser.parse_args()
@@ -71,9 +67,7 @@ def convert(nano: int) -> str:
     return f"{nano / giga:.2f} s"
 
 
-def benchmark(
-    algorithm, elements: List[str], value: str, repeat: int = 10
-) -> None:
+def benchmark(algorithm, elements: List[str], value: str, repeat: int = 10) -> None:
     """Search for a value in elements using the given algorithm."""
 
     times: List[int] = []
