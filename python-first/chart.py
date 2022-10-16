@@ -13,6 +13,10 @@ LIST_SIZE = 1000
 POSITION_INCREMENT = 10
 
 
+def build_list(size, fill, value, at_position):
+    return [value if i == at_position else fill for i in range(size)]
+
+
 def find_match_loop(iterable):
     for val in iterable:
         if val["population"] > 50:
@@ -21,10 +25,6 @@ def find_match_loop(iterable):
 
 def find_match_gen(iterable):
     return next(val for val in iterable if val["population"] > 50)
-
-
-def build_list(size, fill, value, at_position):
-    return [fill if i != at_position else value for i in range(size)]
 
 
 looping_times = []
@@ -41,7 +41,7 @@ for position in range(0, LIST_SIZE, POSITION_INCREMENT):
 
     list_to_search = build_list(
         LIST_SIZE,
-        {"country": "Oceania", "population": 10},
+        {"country": "Nowhere", "population": 10},
         {"country": "Atlantis", "population": 100},
         position,
     )

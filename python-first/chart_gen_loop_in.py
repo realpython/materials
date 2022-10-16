@@ -7,16 +7,18 @@ from timeit import timeit
 
 import matplotlib.pyplot as plt
 
-from test_fixtures import build_list
-
 TIMEIT_TIMES = 100  # Increase number for smoother lines
-LIST_SIZE = 10000
+LIST_SIZE = 1000
 POSITION_INCREMENT = 10
 
 looping_times = []
 generator_times = []
 in_times = []
 positions = []
+
+
+def build_list(size, fill, value, at_position):
+    return [value if i == at_position else fill for i in range(size)]
 
 
 def find_match_loop(list_to_search, item_to_find):

@@ -267,4 +267,4 @@ name_lists = [countries, all_countries]
 
 
 def build_list(size, fill, value, at_position):
-    return [fill if i != at_position else value for i in range(size)]
+    return [value if i == at_position else fill for i in range(size)]
