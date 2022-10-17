@@ -8,7 +8,7 @@ countries = [
     {"country": "Norway", "population": 5311916},
     {"country": "Philippines", "population": 106651922},
     {"country": "Poland", "population": 37974750},
-    {"country": "Puerto Rico", "population": 3195153},
+    {"country": "Dominican Republic", "population": 10627165},
     {"country": "Scotland", "population": 5424800},
     {"country": "United States", "population": 326687501},
 ]
@@ -263,7 +263,7 @@ all_countries = [
     {"country": "Zimbabwe", "population": 14439018},
 ]
 
-name_lists = [countries, all_countries]
+country_lists = [countries, all_countries]
 
 
 def build_list(size, fill, value, at_position):
