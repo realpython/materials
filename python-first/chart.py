@@ -40,10 +40,10 @@ for position in range(0, LIST_SIZE, POSITION_INCREMENT):
     positions.append(position)
 
     list_to_search = build_list(
-        LIST_SIZE,
-        {"country": "Nowhere", "population": 10},
-        {"country": "Atlantis", "population": 100},
-        position,
+        size=LIST_SIZE,
+        fill={"country": "Nowhere", "population": 10},
+        value={"country": "Atlantis", "population": 100},
+        at_position=position,
     )
 
     looping_times.append(
