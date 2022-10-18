@@ -8,9 +8,9 @@ from timeit import timeit
 import matplotlib.pyplot as plt
 
 
-TIMEIT_TIMES = 100  # Increase number for smoother lines
-LIST_SIZE = 1000
-POSITION_INCREMENT = 10
+TIMEIT_TIMES = 1000000  # Increase number for smoother lines
+LIST_SIZE = 500
+POSITION_INCREMENT = 1000
 
 
 def build_list(size, fill, value, at_position):
@@ -69,9 +69,11 @@ plot = ax.plot(positions, looping_times, label="loop")
 plot = ax.plot(positions, generator_times, label="generator")
 
 plt.xlim([0, LIST_SIZE])
-plt.xlabel("Position of element to be found")
 plt.ylim([0, max(max(looping_times), max(generator_times))])
-plt.ylabel(f"Time to complete {TIMEIT_TIMES:,} times")
+
+plt.xlabel("Index of element to be found")
+plt.ylabel(f"Time in seconds to find element {TIMEIT_TIMES:,} times")
+plt.title("Raw Time to Find First Match")
 plt.legend()
 
 plt.show()
@@ -89,9 +91,11 @@ plot = ax.plot(positions, looping_ratio, label="loop")
 plot = ax.plot(positions, generator_ratio, label="generator")
 
 plt.xlim([0, LIST_SIZE])
-plt.xlabel("Position of element to be found")
 plt.ylim([0, max(max(looping_ratio), max(generator_ratio))])
-plt.ylabel(f"Time to complete {TIMEIT_TIMES:,} times")
+
+plt.xlabel("Index of element to be found")
+plt.ylabel("Speed to find element, relative to loop")
+plt.title("Relative Speed to Find First Match")
 plt.legend()
 
 plt.show()

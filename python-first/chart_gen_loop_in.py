@@ -80,9 +80,11 @@ plot = ax.plot(positions, generator_times, label="generator")
 plot = ax.plot(positions, in_times, label="in")
 
 plt.xlim([0, LIST_SIZE])
-plt.xlabel("Position of element to be found")
 plt.ylim([0, max(max(looping_times), max(generator_times), max(in_times))])
-plt.ylabel(f"Time to complete {TIMEIT_TIMES:,} times")
+
+plt.xlabel("Index of element to be found")
+plt.ylabel(f"Time in seconds to find element {TIMEIT_TIMES:,} times")
+plt.title("Raw Time to Find First Match")
 plt.legend()
 
 plt.show()
@@ -102,9 +104,10 @@ plot = ax.plot(positions, generator_ratio, label="generator")
 plot = ax.plot(positions, in_ratio, label="in")
 
 plt.xlim([0, LIST_SIZE])
-plt.xlabel("Position of element to be found")
 plt.ylim([0, max(max(looping_ratio), max(generator_ratio), max(in_ratio))])
-plt.ylabel(f"Time to complete {TIMEIT_TIMES:,} times")
+plt.xlabel("Index of element to be found")
+plt.ylabel("Speed to find element, relative to loop")
+plt.title("Relative Speed to Find First Match")
 plt.legend()
 
 plt.show()
