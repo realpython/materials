@@ -1,5 +1,3 @@
-# even_numbers.py
-
 def get_even_numbers(numbers):
     """Return the even numbers in a list.
 
