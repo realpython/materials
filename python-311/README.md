@@ -53,7 +53,7 @@ This section only contains brief instructions on how you can run the examples. S
 Run [`inverse.py](inverse.py) for a quick look at the improved tracebacks:
 
 ```console
-(venv) $$ python inverse.py 
+(venv) $ python inverse.py 
 Traceback (most recent call last):
   File "/home/realpython/inverse.py", line 5, in <module>
     print(inverse(0))
