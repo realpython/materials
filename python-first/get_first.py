@@ -4,20 +4,22 @@ from test_fixtures import countries
 def get_first(iterable, value=None, key=None, default=None):
     match value is None, callable(key):
         case (True, True):
-            gen = (val for val in iterable if key(val))
+            gen = (elem for elem in iterable if key(elem))
         case (False, True):
-            gen = (val for val in iterable if key(val) == value)
+            gen = (elem for elem in iterable if key(elem) == value)
         case (True, False):
-            gen = (val for val in iterable if val)
+            gen = (elem for elem in iterable if elem)
         case (False, False):
-            gen = (val for val in iterable if val == value)
+            gen = (elem for elem in iterable if elem == value)
 
     return next(gen, default)
 
 
 if __name__ == "__main__":
-    target_match = {"country": "Norway", "population": 5311916}
-    print(get_first(countries, target_match))
+    print(get_first(countries))
+
+    target_match = {"country": "Norway", "population": 5_311_916}
+    print(get_first(countries, value=target_match))
 
     def match_scotland(data):
         return data["country"] == "Scotland"

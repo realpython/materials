@@ -1,20 +1,22 @@
 from test_fixtures import countries
 
 
-def find_match_gen(iterable, key=None, default=None):
+def get_first(iterable, default=None, key=None):
     if callable(key):
-        gen = (val for val in iterable if key(val))
+        gen = (elem for elem in iterable if key(elem))
     else:
-        gen = (val for val in iterable if val)
+        gen = (elem for elem in iterable if elem)
 
     return next(gen, default)
 
 
 if __name__ == "__main__":
-    target_match = {"country": "Norway", "population": 5311916}
-    print(find_match_gen(countries, target_match))
+    print(get_first(countries))
+
+    target_match = {"country": "Norway", "population": 5_311_916}
+    print(get_first(countries, key=lambda elem: elem == target_match))
 
     def match_scotland(data):
         return data["country"] == "Scotland"
 
-    print(find_match_gen(countries, key=match_scotland))
+    print(get_first(countries, key=match_scotland))

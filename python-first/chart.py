@@ -7,7 +7,6 @@ from timeit import timeit
 
 import matplotlib.pyplot as plt
 
-
 TIMEIT_TIMES = 1000  # Increase number for smoother lines
 LIST_SIZE = 500
 POSITION_INCREMENT = 10
@@ -18,13 +17,13 @@ def build_list(size, fill, value, at_position):
 
 
 def find_match_loop(iterable):
-    for val in iterable:
-        if val["population"] > 50:
-            return val
+    for value in iterable:
+        if value["population"] > 50:
+            return value
 
 
 def find_match_gen(iterable):
-    return next(val for val in iterable if val["population"] > 50)
+    return next(value for value in iterable if value["population"] > 50)
 
 
 looping_times = []
@@ -33,7 +32,7 @@ positions = []
 
 for position in range(0, LIST_SIZE, POSITION_INCREMENT):
     print(
-        f"Progress {position/LIST_SIZE:.0%}",
+        f"Progress {position / LIST_SIZE:.0%}",
         end=f"{3 * ' '}\r",  # Clear previous characters and reset cursor
     )
 

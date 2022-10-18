@@ -22,14 +22,16 @@ def build_list(size, fill, value, at_position):
 
 
 def find_match_loop(list_to_search, item_to_find):
-    for val in list_to_search:
-        if val == item_to_find:
-            return val
+    for value in list_to_search:
+        if value == item_to_find:
+            return value
     return None
 
 
 def find_match_gen(list_to_search, item_to_find):
-    return next((val for val in list_to_search if val == item_to_find), None)
+    return next(
+        (value for value in list_to_search if value == item_to_find), None
+    )
 
 
 def find_match_in(list_to_search, item_to_find):
@@ -39,7 +41,7 @@ def find_match_in(list_to_search, item_to_find):
 
 for position in range(0, LIST_SIZE, POSITION_INCREMENT):
     print(
-        f"Progress {position/LIST_SIZE:.0%}",
+        f"Progress {position / LIST_SIZE:.0%}",
         end=f"{3 * ' '}\r",  # Clear previous characters and resets cursor
     )
 
