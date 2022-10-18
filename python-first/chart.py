@@ -8,9 +8,9 @@ from timeit import timeit
 import matplotlib.pyplot as plt
 
 
-TIMEIT_TIMES = 1000000  # Increase number for smoother lines
+TIMEIT_TIMES = 1000  # Increase number for smoother lines
 LIST_SIZE = 500
-POSITION_INCREMENT = 1000
+POSITION_INCREMENT = 10
 
 
 def build_list(size, fill, value, at_position):
