@@ -6,7 +6,7 @@ from typing import Any, Self, TypeAlias
 Info: TypeAlias = dict[str, Any]
 
 programmers = json.loads(
-    pathlib.Path("programmers.json", encoding="utf-8").read_text()
+    pathlib.Path("programmers.json").read_text(encoding="utf-8")
 )
 
 

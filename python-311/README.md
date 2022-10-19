@@ -443,7 +443,7 @@ See [Flexible Calling of Objects](https://realpython.com/python311-error-message
 
 Some of the less used standard libraries have started raising deprecation warnings. If you happen to be using them, you should look for more modern alternatives.
 
-For example, [`dead_imghdr.py`](dead_imghdr.py) shows the warning raised by importing `imghdr` and how to use [python-magic]() as an alternative:
+For example, [`dead_imghdr.py`](dead_imghdr.py) shows the warning raised by importing `imghdr` and how to use [python-magic](https://pypi.org/project/python-magic/) as an alternative:
 
 ```console
 (venv) $ python dead_imghdr.py 
