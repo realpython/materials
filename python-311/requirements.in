@@ -1,2 +1,4 @@
+aiohttp
 colorama
 parse
+python-magic
