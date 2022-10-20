@@ -177,7 +177,7 @@ Files with thirteen lines are too scary!
 count.py             □□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□ (32)
 ```
 
-See [Asynchronous Task Groups in Python 3.11](https://realpython.com/python311-exception-groups/#asynchronous-task-groups-in-python-311) and [GH-31270](https://github.com/python/cpython/pull/31270).
+See [Asynchronous Task Groups in Python 3.11](https://realpython.com/python311-exception-groups/#asynchronous-task-groups-in-python-311) and [gh-31270](https://github.com/python/cpython/pull/31270).
 
 For a different example, have a look at [`download_peps_gather.py`](download_peps_gather.py) and [`download_peps_taskgroup.py](download_peps_taskgroup.py). For example:
 
@@ -331,7 +331,7 @@ ExceptionTable:
   70 to 70 -> 72 [1] lasti
 ```
 
-See [Zero-Cost Exceptions](https://realpython.com/python311-new-features/#zero-cost-exceptions) and [GH 84403](https://github.com/python/cpython/issues/84403).
+See [Zero-Cost Exceptions](https://realpython.com/python311-new-features/#zero-cost-exceptions) and [gh-84403](https://github.com/python/cpython/issues/84403).
 
 ### Exception Annotations
 
@@ -378,7 +378,7 @@ Handling gh-90486
 
 Note that this is typically not necessary in regular code. You can use the `except ValueError as err` syntax instead.
 
-See [Reference the Active Exception With `sys.exception()`](https://realpython.com/python311-exception-groups/#reference-the-active-exception-with-sysexception) and [GH 90486](https://github.com/python/cpython/issues/90486).
+See [Reference the Active Exception With `sys.exception()`](https://realpython.com/python311-exception-groups/#reference-the-active-exception-with-sysexception) and [gh-90486](https://github.com/python/cpython/issues/90486).
 
 ### Consistent Tracebacks
 
@@ -390,7 +390,7 @@ tb_last(exc_value.__traceback__) = 'bad_calculation:13'
 tb_last(exc_tb)                  = 'bad_calculation:13'
 ```
 
-See [Reference the Active Traceback Consistently](https://realpython.com/python311-exception-groups/#reference-the-active-traceback-consistently) and [GH 89874](https://github.com/python/cpython/issues/89874).
+See [Reference the Active Traceback Consistently](https://realpython.com/python311-exception-groups/#reference-the-active-traceback-consistently) and [gh-89874](https://github.com/python/cpython/issues/89874).
 
 ### New Math Functions: `cbrt()` and `exp2()`
 
@@ -412,7 +412,7 @@ math.exp2(16) = 65536.0
 math.pow(2, 16) = 65536.0
 ```
 
-See [Cube Roots and Powers of Two](https://realpython.com/python311-error-messages/#cube-roots-and-powers-of-two), [GH 88523](https://github.com/python/cpython/issues/88523) and [GH 90075](https://github.com/python/cpython/issues/90075).
+See [Cube Roots and Powers of Two](https://realpython.com/python311-error-messages/#cube-roots-and-powers-of-two), [gh-88523](https://github.com/python/cpython/issues/88523) and [gh-90075](https://github.com/python/cpython/issues/90075).
 
 ### Underscores in Fractions
 
@@ -423,7 +423,7 @@ You can use underscores when defining fractions from strings:
 Fraction('6_024/1_729') = 6024/1729
 ```
 
-See [Underscores in Fractions](https://realpython.com/python311-error-messages/#underscores-in-fractions) and [GH 88424](https://github.com/python/cpython/issues/88424).
+See [Underscores in Fractions](https://realpython.com/python311-error-messages/#underscores-in-fractions) and [gh-88424](https://github.com/python/cpython/issues/88424).
 
 ### Flexible Calling of Objects: `operator.call()`
 
@@ -437,7 +437,7 @@ The Norwegian calculator implemented in [`kalkulator.py`](kalkulator.py) uses `o
 11 delt på 3 = 3.6666666666666665
 ```
 
-See [Flexible Calling of Objects](https://realpython.com/python311-error-messages/#flexible-calling-of-objects) and [GH 88185](https://github.com/python/cpython/issues/88185).
+See [Flexible Calling of Objects](https://realpython.com/python311-error-messages/#flexible-calling-of-objects) and [gh-88185](https://github.com/python/cpython/issues/88185).
 
 ### Dead Batteries
 
