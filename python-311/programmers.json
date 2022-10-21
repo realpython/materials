@@ -1,0 +1,23 @@
+[
+    {"name": {"first": "Uncle Barry"}},
+    {
+        "name": {"first": "Ada", "last": "Lovelace"},
+        "birth": {"year": 1815},
+        "death": {"month": 11, "day": 27}
+    },
+    {
+        "name": {"first": "Grace", "last": "Hopper"},
+        "birth": {"year": 1906, "month": 12, "day": 9},
+        "death": {"year": 1992, "month": 1, "day": 1}
+    },
+    {
+        "name": {"first": "Ole-Johan", "last": "Dahl"},
+        "birth": {"year": 1931, "month": 10, "day": 12},
+        "death": {"year": 2002, "month": 6, "day": 29}
+    },
+    {
+        "name": {"first": "Guido", "last": "Van Rossum"},
+        "birth": {"year": 1956, "month": 1, "day": 31},
+        "death": null
+    }
+]
