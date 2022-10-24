@@ -1,7 +1,7 @@
 import timeit
 
 from make_files import make_dir_with_files, make_nested_dir
-from iterdir import get_all_files, get_all_files_two
+from iterdir import get_all_files_two
 
 NUMBER_OF_FILES_IN_FLAT_DIR = 1000
 
@@ -54,16 +54,14 @@ time_list_nested_iterdir = timeit.timeit(
 
 print(
     f"""
-    FLAT DIR
-    --------
-    glob    : {time_list_flat_glob:.3f}
-    iterdir : {time_list_flat_iterdir:.3f}
-    
-    NESTED DIR
-    ----------
-    glob    : {time_list_nested_glob:.3f}
-    iterdir : {time_list_nested_iterdir:.3f}
-    """
+FLAT DIR
+glob    : {time_list_flat_glob:.3f} seconds
+iterdir : {time_list_flat_iterdir:.3f} seconds
+
+NESTED DIR
+glob    : {time_list_nested_glob:.3f} seconds
+iterdir : {time_list_nested_iterdir:.3f} seconds
+"""
 )
 
 
