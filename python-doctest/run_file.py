@@ -1,3 +1,3 @@
 import doctest
 
-doctest.testfile("tests_file.txt", verbose=True)
+doctest.testfile("test_calculations.txt", verbose=True)

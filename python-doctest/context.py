@@ -1,5 +1,3 @@
-# context.py
-
 total = 100
 
 

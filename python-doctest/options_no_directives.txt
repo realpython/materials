@@ -1,5 +1,3 @@
-# options.txt
-
 >>> 5 < 7
 True
 

@@ -5,7 +5,7 @@ import calculations
 
 
 def load_tests(loader, tests, ignore):
-    tests.addTests(doctest.DocFileSuite("tests_file.txt"))
+    tests.addTests(doctest.DocFileSuite("test_calculations.txt"))
     tests.addTests(doctest.DocTestSuite(calculations))
     return tests
 
