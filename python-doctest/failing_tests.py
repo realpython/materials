@@ -9,7 +9,7 @@ The output must not contain quotes
 'Hello, World!'
 
 The output must not use double quotes
->>> "Hello," + "World!"
+>>> "Hello," + " World!"
 "Hello, World!"
 
 The output must not contain leading or trailing spaces

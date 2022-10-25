@@ -1,6 +1,6 @@
 # Functions to Perform Arithmetic Calculations
 
-The `calculations.py` Python module provides basic arithmetic operations, including sum, subtraction, multiplication, and division.
+The `calculations.py` Python module provides basic arithmetic operations, including addition, subtraction, multiplication, and division.
 
 Here are a few examples of how to use the functions in `calculations.py`:
 
