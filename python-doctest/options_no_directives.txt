@@ -1,0 +1,8 @@
+>>> 5 < 7
+True
+
+>>> print("Hello, Pythonista! Welcome to Real Python!")
+Hello, ... Python!
+
+>>> print("\tHello, World!")
+	Hello, World!
