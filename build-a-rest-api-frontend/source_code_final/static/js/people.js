@@ -1,5 +1,10 @@
 import { sendForm } from "./request.js";
+import { NoteCreateForm } from "./notes.js";
 
+/**
+ * Initializes the forms, state and display of person-related information
+ * via other classes: {@link CreatePersonForm} and {@link PersonControl}
+ */
 export class People {
   constructor() {
     this.allPeopleCards = document.querySelectorAll(".person-card");
@@ -19,7 +24,14 @@ export class People {
   }
 }
 
+/**
+ * Manages a form allowing the creation of a new person.
+ * Manages the view, and the requests to the server
+ */
 class CreatePersonForm {
+  /**
+   * @param {@type {HTMLElement}} el
+   */
   constructor(el) {
     this.form = el;
     this.createButton = el.querySelector("button[data-action='create']");
