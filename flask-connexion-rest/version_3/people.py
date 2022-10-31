@@ -84,9 +84,7 @@ def create(person):
             "fname": fname,
             "timestamp": get_timestamp(),
         }
-        return make_response(
-            "{lname} successfully created".format(lname=lname), 201
-        )
+        return PEOPLE[lname], 201
 
     # Otherwise, they exist, that's an error
     else:
