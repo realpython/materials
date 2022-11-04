@@ -48,8 +48,7 @@ with app.app_context():
     db.create_all()
     for data in PEOPLE_NOTES:
         new_person = Person(lname=data.get("lname"), fname=data.get("fname"))
-        for note in data.get("notes"):
-            content, timestamp = note
+        for content, timestamp in data.get("notes", []):
             new_person.notes.append(
                 Note(
                     content=content,

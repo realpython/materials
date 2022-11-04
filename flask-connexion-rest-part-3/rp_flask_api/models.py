@@ -33,7 +33,7 @@ class Person(db.Model):
     )
 
     notes = db.relationship(
-        "Note",
+        Note,
         backref="person",
         cascade="all, delete, delete-orphan",
         single_parent=True,
