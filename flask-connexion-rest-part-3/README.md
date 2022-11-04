@@ -30,7 +30,7 @@ To see your home page, visit `http://127.0.0.1:8000`. You can find the Swagger U
 
 You can build a SQLite database with content by following the commands below.
 
-navigate into the `rp_flask_api/` folder:
+Navigate into the `rp_flask_api/` folder:
 
 ```console
 (venv) $ python build_database.py

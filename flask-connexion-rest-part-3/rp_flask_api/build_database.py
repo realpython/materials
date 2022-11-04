@@ -1,6 +1,7 @@
 from datetime import datetime
+
 from config import app, db
-from models import Person, Note
+from models import Note, Person
 
 PEOPLE_NOTES = [
     {
@@ -12,7 +13,7 @@ PEOPLE_NOTES = [
                 "The other day a friend said, I have big teeth.",
                 "2022-03-05 22:17:54",
             ),
-            ("Do you pay by grams?", "2022-03-05 22:18:10"),
+            ("Do you pay per gram?", "2022-03-05 22:18:10"),
         ],
     },
     {
