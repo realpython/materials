@@ -1,4 +1,5 @@
 from datetime import datetime
+
 from config import db, ma
 
 
@@ -17,3 +18,7 @@ class PersonSchema(ma.SQLAlchemyAutoSchema):
         model = Person
         load_instance = True
         sqla_session = db.session
+
+
+person_schema = PersonSchema()
+people_schema = PersonSchema(many=True)

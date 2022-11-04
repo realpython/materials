@@ -4,7 +4,7 @@ import config
 from models import Person
 
 app = config.connex_app
-app.add_api("swagger.yml")
+app.add_api(config.basedir / "swagger.yml")
 
 
 @app.route("/")
