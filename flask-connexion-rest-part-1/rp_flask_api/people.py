@@ -1,5 +1,6 @@
 from datetime import datetime
-from flask import make_response, abort
+
+from flask import abort, make_response
 
 
 def get_timestamp():
@@ -8,7 +9,7 @@ def get_timestamp():
 
 PEOPLE = {
     "Fairy": {
-        "fname": "Sugar",
+        "fname": "Tooth",
         "lname": "Fairy",
         "timestamp": get_timestamp(),
     },
@@ -41,15 +42,12 @@ def create(person):
         }
         return PEOPLE[lname], 201
     else:
-        abort(
-            406,
-            f"Person with last name {lname} already exists",
-        )
+        abort(406, f"Person with last name {lname} already exists")
 
 
 def read_one(lname):
     if lname in PEOPLE:
-        return PEOPLE.get(lname)
+        return PEOPLE[lname]
     else:
         abort(404, f"Person with last name {lname} not found")
 
