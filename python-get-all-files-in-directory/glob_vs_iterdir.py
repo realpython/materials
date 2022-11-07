@@ -1,7 +1,7 @@
 import timeit
 
+from iterdir import get_all_files_and_folders_iterdir_gen
 from make_files import make_dir_with_files, make_nested_dir
-from iterdir import get_all_files_two
 
 NUMBER_OF_FILES_IN_FLAT_DIR = 1000
 
@@ -32,7 +32,7 @@ def list_nested_glob():
 
 
 def list_nested_iterdir():
-    list(get_all_files_two(nested_dir))
+    list(get_all_files_and_folders_iterdir_gen(nested_dir))
 
 
 print("Timing list_flat_glob")
