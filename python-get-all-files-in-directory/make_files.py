@@ -55,11 +55,11 @@ def make_recursive_nested_dir(
     return nested_dir
 
 
-def rmdir(directory):
+def recursive_rmdir(directory):
     """Or just use shutil.rmtree()"""
     for item in directory.iterdir():
         if item.is_dir():
-            rmdir(item)
+            recursive_rmdir(item)
         else:
             item.unlink()
     directory.rmdir()

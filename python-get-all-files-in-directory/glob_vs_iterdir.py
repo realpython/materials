@@ -1,10 +1,9 @@
 import timeit
 
-from iterdir import get_all_files_and_folders_iterdir_gen
-from make_files import make_dir_with_files, make_nested_dir
+from iterdir import recursive_iterdir_gen
+from make_files import make_dir_with_files, make_nested_dir, recursive_rmdir
 
 NUMBER_OF_FILES_IN_FLAT_DIR = 1000
-
 NUMBER_OF_FOLDERS_IN_NESTED_DIR = 5
 NUMBER_OF_FILES_IN_NESTED_DIR = 20
 
@@ -32,7 +31,7 @@ def list_nested_glob():
 
 
 def list_nested_iterdir():
-    list(get_all_files_and_folders_iterdir_gen(nested_dir))
+    list(recursive_iterdir_gen(nested_dir))
 
 
 print("Timing list_flat_glob")
@@ -64,15 +63,5 @@ iterdir : {time_list_nested_iterdir:.3f} seconds
 """
 )
 
-
-def rmdir(directory):
-    for item in directory.iterdir():
-        if item.is_dir():
-            rmdir(item)
-        else:
-            item.unlink()
-    directory.rmdir()
-
-
-rmdir(flat_dir)
-rmdir(nested_dir)
+recursive_rmdir(flat_dir)
+recursive_rmdir(nested_dir)

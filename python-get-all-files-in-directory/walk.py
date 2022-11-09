@@ -3,7 +3,7 @@ import pathlib
 import platform
 
 
-def get_all_files_and_folders_walk(path):
+def get_list_from_walk(path):
     files_and_folders = []
 
     separator = "\\" if platform.platform() == "Windows" else "/"
@@ -19,7 +19,7 @@ def get_all_files_and_folders_walk(path):
     return files_and_folders
 
 
-def get_all_files_and_folders_walk_pathlib(path):
+def get_list_from_walk_pathlib(path):
     """Only available from Python 3.12"""
     files_and_folders = []
 
