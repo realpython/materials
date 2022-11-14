@@ -1,6 +1,5 @@
 import argparse
 import datetime
-import sys
 from pathlib import Path
 
 parser = argparse.ArgumentParser(
@@ -21,17 +20,16 @@ target_dir = Path(args.path)
 
 if not target_dir.exists():
     print("The target directory doesn't exist")
-    sys.exit()
+    raise SystemExit(1)
 
 
 def build_output(entry, long=False):
     if long:
         size = entry.stat().st_size
-        owner = entry.owner()
         date = datetime.date.fromtimestamp(entry.stat().st_mtime).strftime(
             "%b %d %m:%S"
         )
-        return f"{owner} {size:>6d} {date} {entry.name}"
+        return f"{size:>6d} {date} {entry.name}"
     return entry.name
 
 

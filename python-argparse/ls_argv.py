@@ -3,16 +3,16 @@ from pathlib import Path
 
 if (args_count := len(sys.argv)) > 2:
     print(f"One argument expected, got {args_count - 1}")
-    sys.exit()
+    raise SystemExit(2)
 elif args_count < 2:
     print("You must specify the target directory")
-    sys.exit()
+    raise SystemExit(2)
 
 target_dir = Path(sys.argv[1])
 
 if not target_dir.is_dir():
     print("The target directory doesn't exist")
-    sys.exit()
+    raise SystemExit(1)
 
 if __name__ == "__main__":
     for entry in target_dir.iterdir():

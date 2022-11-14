@@ -36,11 +36,10 @@ if not target_dir.exists():
 def build_output(entry, long=False):
     if long:
         size = entry.stat().st_size
-        owner = entry.owner()
         date = datetime.date.fromtimestamp(entry.stat().st_mtime).strftime(
             "%b %d %m:%S"
         )
-        return f"{owner} {size:>6d} {date} {entry.name}"
+        return f"{size:>6d} {date} {entry.name}"
     return entry.name
 
 
