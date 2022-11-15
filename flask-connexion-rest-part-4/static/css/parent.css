@@ -1,0 +1,103 @@
+/*
+ * This is the parent CSS stylesheet that all pages get basic styling from
+ */
+
+@import url(http://fonts.googleapis.com/css?family=Roboto:400,300,500,700);
+
+body, .ui-btn {
+    font-family: Roboto;
+}
+
+.navigation {
+    display: flex;
+    flex-direction: row;
+    padding: 15px 10px 15px 10px;
+    border-bottom: 2px solid darkgrey;
+    background-color: whitesmoke;
+}
+
+.navigation a {
+    margin-right: 10px;
+    padding: 5px;
+    border: 1px solid darkgrey;
+    border-radius: 4px;
+    text-decoration: none;
+    cursor: pointer;
+    text: black;
+    background-color: lightskyblue;
+}
+
+.navigation .page_name {
+    flex-grow: 2;
+    text-align: center;
+    font-size: 1.5em;
+    font-weight: bold;
+}
+
+.navigation a:hover {
+    background-color: deepskyblue;
+}
+
+.container {
+    padding: 10px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+table caption {
+    font-weight: bold;
+    padding: 10px 0 10px 0;
+    border-bottom: 2px solid darkgrey;
+    background-color: antiquewhite;
+}
+
+th:not(:last-child), td:not(:last-child) {
+    border-right: 2px solid darkgrey;
+}
+
+
+tbody tr:nth-child(odd) {
+    background-color: gainsboro;
+}
+
+tbody tr {
+    cursor: pointer;
+    height: 33px;
+}
+
+thead tr {
+    height: 33px;
+    border-bottom: 2px solid darkgrey;
+}
+
+tbody tr:not(:last-child){
+    border-bottom: 2px solid darkgrey;
+}
+
+tbody tr:hover {
+    background-color: powderblue;
+}
+
+.error {
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 5px;
+    text-align: center;
+    border: 1px solid lightgrey;
+    border-radius: 3px;
+    background-color: #fbb;
+    opacity: 0;
+}
+
+.visible {
+    opacity: 1;
+}
+
+.hidden {
+    opacity: 0;
+    transition: visibility 0s 2s, opacity 2s linear;
+}

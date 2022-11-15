@@ -1,0 +1,18 @@
+/*
+ * CSS stylesheet for home page
+ */
+
+div.blog {
+    margin: 10px 10px 10px 10px;
+    border: 2px solid darkgrey;
+}
+
+td.name {
+    text-align: center;
+    width: 175px;
+}
+
+td.timestamp {
+    text-align: center;
+    width: 280px;
+}
