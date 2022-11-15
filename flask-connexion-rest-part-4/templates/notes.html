@@ -1,0 +1,75 @@
+{% extends "parent.html" %}
+
+{% block title %}Notes{% endblock %}
+
+{% block head %}
+{{ super() }}
+<link rel="stylesheet" href="/static/css/notes.css">
+{% endblock %}
+
+{% block page_name %}Person Note Create/Update/Delete Page{% endblock %}
+
+{% block body %}
+    <div class="container">
+        <input id="url_person_id" type="hidden" value="{{ person_id }}" />
+        <input id="url_note_id" type="hidden" value="{{ note_id }}" />
+        <div class="section display">
+            <div>
+                <span>Person ID:</span>
+                <span id="person_id"></span>
+            </div>
+            <div>
+                <span>First Name:</span>
+                <span id="fname"></span>
+            </div>
+            <div>
+                <span>Last Name:</span>
+                <span id="lname"></span>
+            </div>
+            <div>
+                <span>Timestamp:</span>
+                <span id="timestamp"></span>
+            </div>
+        </div>
+        <div class="section editor">
+            <div>
+                <span>Note ID:</span>
+                <span id="note_id"></span>
+            </div>
+            <label for="note">Note
+                <input id="note" type="text" maxlength="200"/>
+            </label>
+            <br />
+            <button id="create">Create</button>
+            <button id="update">Update</button>
+            <button id="delete">Delete</button>
+            <button id="reset">Reset</button>
+        </div>
+    </div>
+    <div class="notes">
+        <table>
+            <caption>Notes</caption>
+            <thead>
+                <tr>
+                    <th class="timestamp">Update Time</th>
+                    <th class="content">Content</th>
+                </tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
+    </div>
+    <div class="error"></div>
+
+{% endblock %}
+
+{% block javascript %}
+{{ super() }}
+<script type="module">
+    // Give the imported MVC components a namespace
+    import * as MVC from "/static/js/notes.js";
+
+    // Create an intentional global variable referencing the import
+    window.mvc = MVC;
+</script>
+{% endblock %}
