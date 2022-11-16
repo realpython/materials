@@ -25,5 +25,6 @@ response = openai.Image.create_edit(
 with open(
     DESTINATION_PATH / f"edit-{PROMPT[:5]}-{response['created']}.json",
     mode="w",
-) as fp:
-    json.dump(response, fp)
+    encoding="utf-8",
+) as file:
+    json.dump(response, file)

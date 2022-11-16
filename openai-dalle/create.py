@@ -20,5 +20,5 @@ response = openai.Image.create(
 
 file_name = DATA_DIR / f"{PROMPT[:5]}-{response['created']}.json"
 
-with open(file_name, mode="w") as file_path:
-    json.dump(response, file_path)
+with open(file_name, mode="w", encoding="utf-8") as file:
+    json.dump(response, file)

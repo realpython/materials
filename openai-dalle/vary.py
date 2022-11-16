@@ -23,5 +23,5 @@ response = openai.Image.create_variation(
 
 new_file_name = f"vary-{SOURCE_FILE[:4]}-{response['created']}.json"
 
-with open(DATA_DIR / new_file_name, mode="w") as new_json_file:
-    json.dump(response, new_json_file)
+with open(DATA_DIR / new_file_name, mode="w", encoding="utf-8") as file:
+    json.dump(response, file)
