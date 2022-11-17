@@ -1,7 +1,7 @@
 import os
 import pathlib
 
-from bonus.make_files import make_dir_with_files, recursive_rmdir
+from make_files import make_dir_with_files, recursive_rmdir
 from timing import timeit_multiple
 
 TIMEIT_TIMES = 100
@@ -11,8 +11,12 @@ print("Building files", end="\r")
 flat_dir = make_dir_with_files("flat_dir", NUMBER_OF_FILES)
 
 
-def list_flat_glob():
+def list_flat_glob_star():
     return list(flat_dir.glob("*"))
+
+
+def list_flat_glob_star_star():
+    return list(flat_dir.glob("**/*"))
 
 
 def list_flat_rglob():
@@ -42,7 +46,8 @@ def list_flat_os_listdir():
 
 
 tests = [
-    ("glob", "list_flat_glob()"),
+    ("glob *", "list_flat_glob_star()"),
+    ("glob **/*", "list_flat_glob_star_star()"),
     ("rglob", "list_flat_rglob()"),
     ("iterdir", "list_flat_iterdir()"),
     ("os walk", "list_flat_os_walk()"),

@@ -4,6 +4,10 @@ from pprint import pp
 # Create a Path object
 desktop = pathlib.Path("Desktop")
 
+############################################
+# GETTING A LIST OF FILES AND DIRECTORIES
+############################################
+
 # Basic listing using .iterdir()
 pp(list(desktop.iterdir()))
 
@@ -14,41 +18,80 @@ for item in desktop.iterdir():
 # Usage in a comprehension
 pp([item for item in desktop.iterdir() if item.is_dir()])
 
-# Basic listing using glob patterns
-pp(list(desktop.glob("*")))
+############################################
+# RECURSIVELY LIST WITH GLOBS
+############################################
+
+# Recursively list with glob (both lines are equivalent)
+pp(list(desktop.rglob("*")))
+pp(list(desktop.glob("**/*")))
+
+############################################
+# CONDITIONAL LISTING WITH GLOBS
+############################################
+
+# Conditional listing using glob patterns
+pp(list(desktop.glob("*")))  # Does not recurse
 pp(list(desktop.glob("real*")))
 pp(list(desktop.glob("*.txt")))
 
-# Recursive listing
-pp(list(desktop.rglob("*.py")))
-pp(list(desktop.glob("**/*")))
-pp(list(desktop.glob("**/*.py")))
+# Conditional recursive listing
+pp(list(desktop.rglob("*.py")))  # Equivalent to .glob("**/*.py")
+pp(list(desktop.glob("**/*.py")))  # Equivalent to .rglob("*.py")
 
-# Recursive listing with more advanced checking
-pp([list(filter(lambda item: item.is_file(), desktop.rglob("*")))])
+
+# More complex filtering
+
+# With a for loop
+for item in desktop.rglob("*"):
+    if item.is_file():
+        print(item)
+
+# With comprehensions
 pp([file for file in desktop.rglob("*") if file.suffix in [".py", ".md"]])
 pp([file for file in desktop.rglob("*") if file.is_dir()])
 
-
-# Recursive .iterdir() function to return items if they are files
-def get_all_files(root: pathlib.Path):
-    for item in root.iterdir():
-        if item.is_file():
-            yield item
-        else:
-            yield from get_all_files(item)
+# With the filter() function
+pp([list(filter(lambda item: item.is_file(), desktop.rglob("*")))])
 
 
-pp(list(get_all_files(desktop)))
+############################################
+# OPTING OUT OF JUNK DIRECTORIES
+############################################
 
+SKIP_DIRS = ["temp", "temporary_files", "logs"]
+large_dir = pathlib.Path("large_dir")
 
-# Recursive .iterdir() function to rename txt files to md files
-def rename_txt_to_md(root: pathlib.Path):
-    for item in root.iterdir():
-        if item.is_file() and item.suffix == ".txt":
-            item.rename(f"{item.parent}/{item.stem}.md")
-        elif item.is_dir():
-            rename_txt_to_md(item)
+# Note: With glob you can't opt out
 
+# With a for loop
+for item in large_dir.rglob("*"):
+    if set(item.parts).isdisjoint(SKIP_DIRS):
+        print(item)
 
-# rename_txt_to_md(desktop)  # Uncomment if you want to rename
+# With a comprehension
+pp(
+    [
+        item
+        for item in large_dir.rglob("*")
+        if set(item.parts).isdisjoint(SKIP_DIRS)
+    ]
+)
+
+# With filter()
+pp(
+    list(
+        filter(
+            lambda item: set(item.parts).isdisjoint(SKIP_DIRS),
+            large_dir.rglob("*"),
+        )
+    )
+)
+
+############################################
+# RECURSIVE ITERDIR
+############################################
+
+import skip_dirs  # See module
+
+pp(list(skip_dirs.get_all_items(large_dir)))

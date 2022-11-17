@@ -1,8 +1,8 @@
-from bonus.iterdir import recursive_iterdir, recursive_iterdir_gen
-from bonus.listdir import recursive_listdir, recursive_listdir_gen
-from bonus.make_files import make_recursive_nested_dir, recursive_rmdir
-from bonus.scandir import recursive_scandir, recursive_scandir_gen
-from bonus.walk import get_list_from_walk, get_list_from_walk_pathlib
+from iterdir import recursive_iterdir, recursive_iterdir_gen
+from listdir import recursive_listdir, recursive_listdir_gen
+from make_files import make_recursive_nested_dir, recursive_rmdir
+from scandir import recursive_scandir, recursive_scandir_gen
+from walk import get_list_from_walk, get_list_from_walk_pathlib
 from timing import timeit_multiple
 
 TIMEIT_TIMES = 100
@@ -76,9 +76,8 @@ tests = [
 
 try:
     timeit_multiple(
-        tests, name="flat directory", globals=globals(), number=TIMEIT_TIMES
+        tests, name="nested directory", globals=globals(), number=TIMEIT_TIMES
     )
 
 finally:
-
     recursive_rmdir(nested_dir)
