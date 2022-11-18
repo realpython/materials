@@ -1,6 +1,5 @@
-# aoc_state_machine.py
-
 from dataclasses import dataclass
+
 
 @dataclass
 class StateMachine:

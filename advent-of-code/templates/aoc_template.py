@@ -1,16 +1,18 @@
-# aoc_template.py
-
 import pathlib
 import sys
+
 
 def parse(puzzle_input):
     """Parse input"""
 
+
 def part1(data):
     """Solve part 1"""
 
+
 def part2(data):
     """Solve part 2"""
+
 
 def solve(puzzle_input):
     """Solve the puzzle for the given input"""
@@ -19,6 +21,7 @@ def solve(puzzle_input):
     solution2 = part2(data)
 
     return solution1, solution2
+
 
 if __name__ == "__main__":
     for path in sys.argv[1:]:

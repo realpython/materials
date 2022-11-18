@@ -1,5 +1,3 @@
-# aoc_grid.py
-
 import numpy as np
 from colorama import Cursor
 
