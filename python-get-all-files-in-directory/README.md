@@ -1,6 +1,6 @@
-# How to List the Files in a Directory with Python
+# How to Get a List of All Files in a Directory With Python
 
-The code samples and supporting materials for the [corresponding tutorial](https://realpython.com/[PLACEHOLDER]) on Real Python.
+The code samples and supporting materials for the [corresponding tutorial](https://realpython.com/get-all-files-in-directory-python/) on Real Python.
 
 You'll find two directories to test your listing operations on:
 
@@ -15,7 +15,7 @@ The examples covered in the tutorial are in `examples.py`, with the recursive `.
 
 You'll also find a `bonus` folder. Here you'll find scripts that time a whole range of methods from the `pathlib` and `os` modules when it comes to producing a list of files.
 
-Testing all the methods to produce a basic list of files is not a very fair test, because some methods are optimized to be faster for flat listing whereas others perform better at recursive listing. That said, the results are interesting nonetheless. Try navigating to the bonus folder and running the following commands:
+Testing all the methods to produce a basic list of files isn't a very fair test, because some methods are optimized to be faster for flat listing, whereas others perform better at recursive listing. That said, the results are interesting nonetheless. Try navigating to the bonus folder and running the following commands:
 
 ```
 $ python testing_flat_dir.py; python testing_nested_dir.py
@@ -48,4 +48,4 @@ iterdir_gen    : 4.865 seconds
 
 While the exact times will depend on your system, the relative speeds should be similar.
 
-If you are running Python 3.12, you can uncomment some lines in `testing_flat_dir.py` and `testing_nested_dir.py` that will enable testing for the new `walk()` method in the `pathlib` module.
+If you're running Python 3.12, you can uncomment some lines in `testing_flat_dir.py` and `testing_nested_dir.py` that'll enable testing for the new `walk()` method in the `pathlib` module.
