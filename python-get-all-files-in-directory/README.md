@@ -5,7 +5,7 @@ The code samples and supporting materials for the [corresponding tutorial](https
 You'll find two directories to test your listing operations on:
 
 1. `Desktop`: A few files, and a few subdirectories with a few files
-2. `Desktop_large`: A directory with files and subdirectories. Each subdirectory also has subdirectories and files going three levels deep.
+2. `large_dir`: An extremely large directory with files and subdirectories.
 
 Use these to try out the different methods of listing.
 
