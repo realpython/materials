@@ -21,7 +21,7 @@ def recursive_iterdir_gen(path: pathlib.Path):
 if __name__ == "__main__":
     from pprint import pp
 
-    docs = pathlib.Path("My Documents")
+    docs = pathlib.Path("Desktop")
 
     print(list(docs.iterdir()))
     pp(list(recursive_iterdir(docs)))

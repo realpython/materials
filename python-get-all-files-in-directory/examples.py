@@ -1,6 +1,8 @@
 import pathlib
 from pprint import pp
 
+import skip_dirs  # See skip_dirs.py for details
+
 # Create a Path object
 desktop = pathlib.Path("Desktop")
 
@@ -62,7 +64,8 @@ pp([list(filter(lambda item: item.is_file(), desktop.rglob("*")))])
 SKIP_DIRS = ["temp", "temporary_files", "logs"]
 large_dir = pathlib.Path("large_dir")
 
-# Note: With glob you can't opt out
+# Note: You first find files with .rglob() and then explicitly discard the
+# junk directories
 
 # With a for loop
 for item in large_dir.rglob("*"):
@@ -91,7 +94,5 @@ pp(
 ############################################
 # RECURSIVE ITERDIR
 ############################################
-
-import skip_dirs  # See module
 
 pp(list(skip_dirs.get_all_items(large_dir)))
