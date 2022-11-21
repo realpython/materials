@@ -1,4 +1,4 @@
-# How to Get a List of All Files and Folders in a Directory With Python
+# How to Get a List of All Files in a Directory With Python
 
 The code samples and supporting materials for the [corresponding tutorial](https://realpython.com/get-all-files-in-directory-python/) on Real Python.
 
