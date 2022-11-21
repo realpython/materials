@@ -15,6 +15,8 @@ The examples covered in the tutorial are in `examples.py`, with the recursive `.
 
 You'll also find a `bonus` folder. Here you'll find scripts that time a whole range of methods from the `pathlib` and `os` modules when it comes to producing a list of files.
 
+These scripts use the `make_files.py` module to generate large flat and nested directories just for the test.
+
 Testing all the methods to produce a basic list of files isn't a very fair test, because some methods are optimized to be faster for flat listing, whereas others perform better at recursive listing. That said, the results are interesting nonetheless. Try navigating to the bonus folder and running the following commands:
 
 ```
