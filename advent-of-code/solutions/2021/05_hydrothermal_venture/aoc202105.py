@@ -34,7 +34,9 @@ def count_overlaps(lines):
 
     ## Example:
 
-    >>> count_overlaps([(3, 3, 6, 6), (3, 3, 6, 3), (6, 6, 6, 3)])
+    >>> count_overlaps(
+    ...     [(3, 3, 3, 5), (3, 3, 6, 3), (6, 6, 6, 3), (4, 5, 6, 5)]
+    ... )
     3
     """
     overlaps = collections.Counter(

@@ -10,14 +10,14 @@ def parse(puzzle_input):
     return [int(line) for line in puzzle_input.split("\n")]
 
 
-def part1(modules):
+def part1(module_masses):
     """Solve part 1"""
-    return sum(mass // 3 - 2 for mass in modules)
+    return sum(mass // 3 - 2 for mass in module_masses)
 
 
-def part2(modules):
+def part2(module_masses):
     """Solve part 2"""
-    return sum(all_fuel(mass) for mass in modules)
+    return sum(all_fuel(mass) for mass in module_masses)
 
 
 def all_fuel(mass):
