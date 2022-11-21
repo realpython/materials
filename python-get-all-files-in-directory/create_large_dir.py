@@ -67,9 +67,8 @@ def create_item(item: Item, path_to: Path = Path.cwd()) -> None:
         path_to.joinpath(item.name).touch()
         return
 
-    if item.children or item.junk_files:
-        root = path_to.joinpath(item.name)
-        root.mkdir()
+    root = path_to.joinpath(item.name)
+    root.mkdir()
 
     if item.children:
         for child in item.children:
