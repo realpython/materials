@@ -61,7 +61,7 @@ folder_structure = Item(
 )
 
 
-def create_item(item: Item, path_to: Path = Path("")):
+def create_item(item: Item, path_to: Path = Path.cwd()) -> None:
 
     if item.children is None and item.junk_files is None:
         path_to.joinpath(item.name).touch()
