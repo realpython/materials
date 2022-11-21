@@ -1,10 +1,10 @@
-# How to Get a List of All Files in a Directory With Python
+# How to Get a List of All Files and Folders in a Directory With Python
 
 The code samples and supporting materials for the [corresponding tutorial](https://realpython.com/get-all-files-in-directory-python/) on Real Python.
 
-You'll find a directort to test your listing operations on, `Desktop`, which has few files, and a few subdirectories with a few files.
+You'll find a directory to test your listing operations on, `Desktop`, which contains a few files, and a few subdirectories with a few files.
 
-You'll also find a script called `create_large_dir.py` which will create the `large_dir` example shown in the tutorial. You can try tweaking the numbers there to bulk up the number of files, or create custom directory trees.
+You'll also find a script called [`create_large_dir.py`](create_large_dir.py) which will create the `large_dir/` example shown in the tutorial. You can try tweaking the numbers there to bulk up the number of files or create custom directory trees.
 
 You can use these directories to try out the different methods of listing.
 
@@ -14,7 +14,7 @@ The examples covered in the tutorial are in `examples.py`, with the recursive `.
 
 You'll also find a `bonus` folder. Here you'll find scripts that time a whole range of methods from the `pathlib` and `os` modules when it comes to producing a list of files.
 
-The main testing files are `testing_flat_dir.py` and `testing_nested_dir.py`/.You can tweak the constants at the beginning of these files to change the number of files and/or folders being tested. Along with the number of times the operations are tested. Be warned, though, that bumping up the numbers can cause the tests to take a long time.
+The main testing files are `testing_flat_dir.py` and `testing_nested_dir.py`/. You can tweak the constants at the beginning of these files to change the number of files and/or folders being tested. Along with the number of times the operations are tested. Be warned, though, that bumping up the numbers can cause the tests to take a long time.
 
 These scripts use the `make_files.py` module to generate large flat and nested directories just for the test.
 
