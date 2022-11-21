@@ -4,6 +4,11 @@ from dataclasses import dataclass
 from pathlib import Path
 
 
+NUM_JUNK_FILES_LARGE = 300
+NUM_JUNK_FILES_MEDIUM = 25
+NUM_JUNK_FILES_SMALL = 5
+
+
 @dataclass
 class Item:
     name: str
@@ -22,8 +27,8 @@ folder_structure = Item(
                     [
                         Item(
                             "temp",
-                            [Item("2", junk_files=300)],
-                            junk_files=300,
+                            [Item("2", junk_files=NUM_JUNK_FILES_LARGE)],
+                            junk_files=NUM_JUNK_FILES_LARGE,
                         ),
                         Item("0.txt"),
                         Item("find_me.txt"),
@@ -35,10 +40,10 @@ folder_structure = Item(
                         Item(
                             "temporary_files",
                             [
-                                Item("logs", junk_files=300),
-                                Item("temp", junk_files=300),
+                                Item("logs", junk_files=NUM_JUNK_FILES_LARGE),
+                                Item("temp", junk_files=NUM_JUNK_FILES_LARGE),
                             ],
-                            junk_files=25,
+                            junk_files=NUM_JUNK_FILES_MEDIUM,
                         ),
                         Item("33.txt"),
                         Item("34.txt"),
@@ -48,10 +53,10 @@ folder_structure = Item(
                     ],
                 ),
             ],
-            junk_files=5,
+            junk_files=NUM_JUNK_FILES_SMALL,
         ),
-        Item("temp", junk_files=300),
-        Item("temporary_files", junk_files=300),
+        Item("temp", junk_files=NUM_JUNK_FILES_LARGE),
+        Item("temporary_files", junk_files=NUM_JUNK_FILES_LARGE),
     ],
 )
 
@@ -60,6 +65,7 @@ def create_item(item: Item, path_to: Path = Path("")):
 
     if item.children is None and item.junk_files is None:
         path_to.joinpath(item.name).touch()
+        return
 
     if item.children or item.junk_files:
         root = path_to.joinpath(item.name)
