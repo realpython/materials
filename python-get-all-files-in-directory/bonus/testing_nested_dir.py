@@ -2,8 +2,8 @@ from iterdir import recursive_iterdir, recursive_iterdir_gen
 from listdir import recursive_listdir, recursive_listdir_gen
 from make_files import make_recursive_nested_dir, recursive_rmdir
 from scandir import recursive_scandir, recursive_scandir_gen
-from walk import get_list_from_walk, get_list_from_walk_pathlib
 from timing import timeit_multiple
+from walk import get_list_from_walk, get_list_from_walk_pathlib
 
 TIMEIT_TIMES = 100
 LEVEL_OF_NESTING = 5
