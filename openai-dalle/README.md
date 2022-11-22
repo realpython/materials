@@ -1,6 +1,6 @@
 # Generate Images With DALL·E 2 and the OpenAI API
 
-Learn to use the OpenAI Python library to create images with DALL·E, a state-of-the-art latent diffusion model. In the associated tutorial on [generating images with DALL·E 2 and the OpenAI API](https://realpython.com/generate-images-with-dalle-openai-api/), you explore image creation and generating image variations. You learn to interact with DALL·E using API calls, and incorporate this functionality into your Python scripts.
+Learn to use the OpenAI Python library to create images with DALL·E, a state-of-the-art latent diffusion model. In the associated tutorial on [generating images with DALL·E 2 and the OpenAI API](https://realpython.com/generate-images-with-dalle-openai-api/), you explore image creation and generating image variations. You learn how to interact with DALL·E using API calls and incorporate this functionality into your Python scripts.
 
 ## Setup
 
@@ -23,10 +23,10 @@ Follow the instructions in [the tutorial](https://realpython.com/generate-images
 You can find the code for each of these steps in dedicated scripts:
 
 - `create.py`: Create an image from a text prompt and save the image data to a file.
-- `convert.py`: Convert a Base64 encoded PNG image delivered in a JSON response to a PNG image file.
-- `vary.py`: Read Base64 encoded image data and make an API request to receive variations of that image.
+- `convert.py`: Convert a Base64-encoded PNG image delivered in a JSON response to a PNG image file.
+- `vary.py`: Read Base64-encoded image data and make an API request to receive variations of that image.
 
-The tutorial walks you through each of these scripts and their functionality and output in more detail.
+In the tutorial, you'll walk through each of these scripts and their functionality and output in more detail.
 
 ## Edit Images (Inpainting and Outpainting)
 
