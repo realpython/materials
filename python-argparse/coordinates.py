@@ -6,7 +6,7 @@ arg_parser.add_argument(
     "--coordinates",
     nargs=2,
     metavar=("X", "Y"),
-    help="take the cartesian coordinates %(metavar)s",
+    help="take the Cartesian coordinates %(metavar)s",
 )
 
 args = arg_parser.parse_args()

@@ -14,7 +14,7 @@ general.add_argument(
     "path",
     nargs="?",
     default=".",
-    help="takes the path to the target directory (default: %(default)s)",
+    help="take the path to the target directory (default: %(default)s)",
 )
 
 detailed = parser.add_argument_group("detailed output")
