@@ -13,5 +13,6 @@ with open(JSON_FILE, mode="r", encoding="utf-8") as file:
 
 for index, image_dict in enumerate(response["data"]):
     image_data = b64decode(image_dict["b64_json"])
-    with open(IMAGE_DIR / f"{JSON_FILE.stem}-{index}.png", mode="wb") as png:
+    image_file = IMAGE_DIR / f"{JSON_FILE.stem}-{index}.png"
+    with open(image_file, mode="wb") as png:
         png.write(image_data)
