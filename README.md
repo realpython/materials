@@ -7,7 +7,7 @@ Build Status:
 
 ## Got a Question?
 
-The best way to get support for Real Python courses, articles, and code in this repository is to join one of our [weekly Office Hours calls](https://realpython.com/office-hours/) or to ask your question in the [RP Community Slack](https://realpython.com/community/).
+The best way to get support for Real Python courses, articles, and code in this repository is to join one of our [weekly Office Hours calls](https://realpython.com/office-hours/) or to ask your question in the [RP Community Chat](https://realpython.com/community/).
 
 Due to time constraints, we cannot provide 1:1 support via GitHub. See you on Slack or on the next Office Hours call 🙂
 
