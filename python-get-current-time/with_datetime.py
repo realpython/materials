@@ -34,8 +34,9 @@ now = datetime.datetime.now(datetime.timezone.utc)
 
 print(
     f"""
-{now=}
-{now.isoformat()=}
+UTC timezone aware:
+{now = }
+{now.isoformat() = }
 """
 )
 
@@ -48,8 +49,9 @@ now = datetime.datetime.now().astimezone()
 
 print(
     f"""
-{now=}
-{now.isoformat()=}
+Local timezone aware:
+{now = }
+{now.isoformat() = }
 """
 )
 
