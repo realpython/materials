@@ -1,7 +1,6 @@
-from time import sleep, time
-from random import random
+from random import choice, random
 from string import ascii_lowercase
-
+from time import perf_counter, sleep
 
 print(
     "A letter will appear on screen after a random amount of time,\n"
@@ -12,15 +11,15 @@ print("Press enter when you are ready")
 input()
 print("Ok, get ready!")
 sleep(random() * 5 + 2)
-target_letter = ascii_lowercase[int(random() * 26)]
+target_letter = choice(ascii_lowercase)
 print(f"=====\n= {target_letter} =\n=====\n")
 
-start = time()
+start = perf_counter()
 while True:
     if input() == target_letter:
         break
     else:
         print("Nope! Try again.")
-end = time()
+end = perf_counter()
 
-print(f"You reacted in {end - start} seconds!\nGoodbye!")
+print(f"You reacted in {(end - start) * 1000:.0f} milliseconds!\nGoodbye!")

@@ -1,5 +1,5 @@
-from time import sleep
 from argparse import ArgumentParser
+from time import sleep
 
 parser = ArgumentParser()
 parser.add_argument("time", type=int)

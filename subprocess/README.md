@@ -1,3 +1,5 @@
 # Python `subprocess` Examples
 
-Here are the examples for the Real Python article on the `subprocess` module.
+Here are supporting materials for the Real Python tutorial, [The `subprocess` Module: Wrapping Programs With Python](https://realpython.com/python-subprocess/).
+
+Be aware that some examples are designed for particular operating systems. The `basics_unix.py` file won't work on Windows, for instance.

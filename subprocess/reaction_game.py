@@ -1,4 +1,4 @@
-from time import sleep, perf_counter
+from time import perf_counter, sleep
 from random import random
 
 print("Press enter to play")
@@ -9,4 +9,4 @@ print("go!")
 start = perf_counter()
 input()
 end = perf_counter()
-print(f"You reacted in {end - start} seconds!\nGoodbye!")
+print(f"You reacted in {(end - start) * 1000:.0f} milliseconds!\nGoodbye!")

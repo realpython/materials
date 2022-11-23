@@ -1,6 +1,6 @@
 import sys
 
 try:
-    sys.exit(sys.argv[1])
-except IndexError:
-    sys.exit(0)
+    raise SystemExit(sys.argv[1])
+except IndexError as e:
+    raise SystemExit(0) from e
