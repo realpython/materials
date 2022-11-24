@@ -2,7 +2,7 @@ import subprocess
 
 
 try:
-    subprocess.run(["python", "timer.py", "5"], timeout=10)
+    subprocess.run(["python", "timer.py", "10"], timeout=5, check=True)
 except FileNotFoundError as exc:
     print(f"Process failed because the executable could not be found.\n{exc}")
 except subprocess.CalledProcessError as exc:
