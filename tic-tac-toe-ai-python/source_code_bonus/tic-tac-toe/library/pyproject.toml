@@ -1,0 +1,33 @@
+# pyproject.toml
+
+[build-system]
+requires = ["setuptools>=64.0.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "tic-tac-toe"
+version = "1.0.0"
+description = "Tic-Tac-Toe Game Engine Library"
+readme = "README.md"
+authors = [{ name = "Real Python", email = "info@realpython.com" }]
+license = { file = "LICENSE" }
+classifiers = [
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python",
+    "Programming Language :: Python :: 3",
+]
+keywords = ["tic-tac-toe", "minimax", "gamedev", "tutorial"]
+dependencies = []
+requires-python = ">=3.10"
+
+[project.urls]
+Homepage = "https://github.com/realpython/materials/"
+
+[project.optional-dependencies]
+dev = ["black", "flake8", "isort", "mypy", "pylint"]
+
+[tool.black]
+line-length = 77
+
+[tool.isort]
+profile = "black"
