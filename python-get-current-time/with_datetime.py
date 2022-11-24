@@ -1,4 +1,4 @@
-import datetime
+from datetime import datetime, timezone
 
 """
 datetime.datetime.now() is preferred over:
@@ -8,19 +8,20 @@ datetime.datetime.now() is preferred over:
 - time.time()
 """
 
-now = datetime.datetime.now()
+now = datetime.now()
 
 print(
     f"""
-{now=}
-{now.time()=}
-{now.day=}
-{now.isoformat()=}
-{now.weekday()=}
-{now.isoweekday()=}
-{now.isocalendar()=}
-{now.hour=}
-{now.minute=}
+{now = }
+{now.time()         = }
+{now.day            = }
+{now.hour           = }
+{now.minute         = }
+{now.isoformat()    = }
+{now.weekday()      = }
+{now.isoweekday()   = }
+{now.isocalendar()  = }
+
 """
 )
 
@@ -30,7 +31,7 @@ print(now.strftime("%A, %B %d %Z"))
 
 # UTC timezone aware object
 
-now = datetime.datetime.now(datetime.timezone.utc)
+now = datetime.now(timezone.utc)
 
 print(
     f"""
@@ -42,33 +43,3 @@ UTC timezone aware:
 
 print(now.strftime("%A, %B %d %Z"))
 
-
-# Local timezone aware object
-
-now = datetime.datetime.now().astimezone()
-
-print(
-    f"""
-Local timezone aware:
-{now = }
-{now.isoformat() = }
-"""
-)
-
-print(now.strftime("%A, %B %d %Z"))
-
-
-# Alternative local timezone aware object
-
-LOCAL_TIMEZONE = (
-    datetime.datetime.now(datetime.timezone.utc).astimezone().tzinfo
-)
-
-now = datetime.datetime.now(LOCAL_TIMEZONE)
-
-print(
-    f"""
-{now=}
-{now.isoformat()=}
-"""
-)
