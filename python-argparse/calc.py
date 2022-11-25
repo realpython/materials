@@ -48,5 +48,4 @@ div_parser.set_defaults(func=div)
 
 args = global_parser.parse_args()
 
-if __name__ == "__main__":
-    print(args.func(*args.operands))
+print(args.func(*args.operands))
