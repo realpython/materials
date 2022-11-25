@@ -43,10 +43,9 @@ def build_output(entry, long=False):
     return entry.name
 
 
-if __name__ == "__main__":
-    for entry in target_dir.iterdir():
-        try:
-            long = args.long
-        except AttributeError:
-            long = False
-        print(build_output(entry, long=long))
+for entry in target_dir.iterdir():
+    try:
+        long = args.long
+    except AttributeError:
+        long = False
+    print(build_output(entry, long=long))

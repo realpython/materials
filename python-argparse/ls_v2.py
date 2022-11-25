@@ -27,6 +27,5 @@ def build_output(entry, long=False):
     return entry.name
 
 
-if __name__ == "__main__":
-    for entry in target_dir.iterdir():
-        print(build_output(entry, long=args.long))
+for entry in target_dir.iterdir():
+    print(build_output(entry, long=args.long))

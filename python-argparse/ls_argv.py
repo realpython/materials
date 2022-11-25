@@ -14,6 +14,5 @@ if not target_dir.is_dir():
     print("The target directory doesn't exist")
     raise SystemExit(1)
 
-if __name__ == "__main__":
-    for entry in target_dir.iterdir():
-        print(entry.name)
+for entry in target_dir.iterdir():
+    print(entry.name)
