@@ -1,22 +1,22 @@
 # Python `subprocess` Examples
 
-Here are supporting materials for the Real Python tutorial, [The `subprocess` Module: Wrapping Programs With Python](https://realpython.com/python-subprocess/).
+Here are supporting materials for the Real Python tutorial [The `subprocess` Module: Wrapping Programs With Python](https://realpython.com/python-subprocess/).
 
 Be aware that some examples are designed for particular operating systems. The `basics_unix.py` file won't work on Windows, for instance.
 
-Below are quick descriptions of what the different script do.
+Below, you'll find quick descriptions of what the different scripts do.
 
 ## [basics_unix.py](basics_unix.py)
 
 **Only works on Linux or macOS**
 
-Demonstrates basic usage of `subprocess.run()`
+Demonstrates basic usage of `subprocess.run()`.
 
 ## [basics_win.py](basics_win.py)
 
 **Only works on Windows**
 
-Demonstrates basic usage of `subprocess.run()`
+Demonstrates basic usage of `subprocess.run()`.
 
 ## [custom_exit.py](custom_exit.py)
 
@@ -26,11 +26,11 @@ Raises custom exit codes:
 $ python custom_exit.py 3
 ```
 
-This will exit with error code `3`. By default, will exit with code `0`
+This will exit with error code `3`. By default, will exit with code `0`.
 
 ## [exiter_run.py](exiter_run.py)
 
-Calls [custom_exit.py](custom_exit.py) with `subprocess.run()` demonstrating the `check` argument to `.run()`.
+Calls [custom_exit.py](custom_exit.py) with `subprocess.run()`, demonstrating the `check` argument to `.run()`.
 
 ## [error_handling.py](error_handling.py)
 
@@ -54,7 +54,7 @@ Demonstrates using `subprocess.Popen()` to pipe one command into the other.
 
 ## [popen_timer.py](popen_timer.py)
 
-Demonstrates `subprocess.Popen()` calling [timer.py](timer.py)
+Demonstrates `subprocess.Popen()` calling [timer.py](timer.py).
 
 ## [random_num_gen.py](random_num_gen.py)
 
@@ -72,7 +72,7 @@ Note that this game can be cheated by pressing enter before the game prompts you
 
 ## [reaction_game_v2.py](reaction_game_v2.py)
 
-Tests your reaction times, but guards against cheating by pressing enter before the game prompts you to by making you input a random letter instead.
+Tests your reaction times, but guards against the cheating described above by making you input a random letter instead.
 
 ## [reaction_game_v2_hack.py](reaction_game_v2_hack.py)
 
