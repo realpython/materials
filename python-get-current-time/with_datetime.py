@@ -42,4 +42,3 @@ UTC timezone aware:
 )
 
 print(now.strftime("%A, %B %d %Z"))
-
