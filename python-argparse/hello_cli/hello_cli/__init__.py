@@ -1,0 +1,1 @@
+"""Hello CLI package."""
