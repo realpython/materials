@@ -1,3 +1,9 @@
+"""
+Demonstrates error handling with `subprocess.run()`, catching common errors
+that `subprocess.run()` can encounter. Try changing the commands in
+`subprocess.run()` to raise different errors.
+"""
+
 import subprocess
 
 

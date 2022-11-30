@@ -1,3 +1,9 @@
+"""
+**Only works on Windows**
+
+Demonstrates basic usage of `subprocess.run()`.
+"""
+
 import subprocess
 
 # https://docs.microsoft.com/en-us/windows-server/administration/windows-commands/cmd

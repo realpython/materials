@@ -1,3 +1,13 @@
+"""
+Accepts an integer argument and will sleep for the given time. For example:
+
+```
+$ python timer.py 5
+Starting timer of 5 seconds
+.....Done!
+```
+"""
+
 from argparse import ArgumentParser
 from time import sleep
 

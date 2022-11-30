@@ -1,3 +1,7 @@
+"""
+Demonstrates `subprocess.Popen()` calling [timer.py](timer.py).
+"""
+
 import subprocess
 from time import sleep
 

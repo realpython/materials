@@ -1,3 +1,9 @@
+"""
+**Only works on Linux or macOS**
+
+Demonstrates using `subprocess.Popen()` to pipe one command into the other.
+"""
+
 import subprocess
 
 ls_process = subprocess.Popen(["ls", "/usr/bin"], stdout=subprocess.PIPE)

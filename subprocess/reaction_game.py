@@ -1,3 +1,10 @@
+"""
+Tests your reaction times.
+
+Note: This game can be cheated by pressing enter before the game prompts you
+to press enter.
+"""
+
 from time import perf_counter, sleep
 from random import random
 

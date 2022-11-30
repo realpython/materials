@@ -1,6 +1,10 @@
-import subprocess
+"""
+**Only works on Linux or macOS**
 
-# LINUX examples
+Demonstrates basic usage of `subprocess.run()`.
+"""
+
+import subprocess
 
 subprocess.run(["sh", "-c", "ls"])
 

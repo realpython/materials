@@ -1,3 +1,7 @@
+"""
+Uses `subprocess.Popen()` to cheat the second version of the reaction game.
+"""
+
 import subprocess
 
 

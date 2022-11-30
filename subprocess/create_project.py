@@ -1,6 +1,17 @@
+"""
+Uses `subprocess` to creates a Python project, complete with a virtual
+environment and initialized Git repository.
+
+Must have Git installed on the system with the `git` command available.
+
+If your Python command is `python3`, change the `PYTHON_COMMAND` variable.
+"""
+
 from argparse import ArgumentParser
 from pathlib import Path
 import subprocess
+
+PYTHON_COMMAND = "python"
 
 
 def create_new_project(name):
@@ -11,7 +22,7 @@ def create_new_project(name):
         f.write("\n".join(["venv", "__pycache__"]))
     commands = [
         [
-            "python",
+            PYTHON_COMMAND,
             "-m",
             "venv",
             f"{project_folder}/venv",

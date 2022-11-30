@@ -1,3 +1,9 @@
+"""
+Tests your reaction times, but guards against the cheating that you can do in
+v1 of the reaction game. It does this by making you input a random letter
+instead.
+"""
+
 from random import choice, random
 from string import ascii_lowercase
 from time import perf_counter, sleep
