@@ -19,9 +19,9 @@ components:
         lname:
           type: "string"
   parameters:
-    lname:
-      name: "lname"
-      description: "Last name of the person to get"
+    person_id:
+      name: "person_id"
+      description: "ID of the person"
       in: path
       required: True
       schema:
@@ -30,9 +30,9 @@ components:
       name: "note_id"
       description: "ID of the note"
       in: path
-      required: true
+      required: True
       schema:
-        type: "integer"
+        type: "string"
 
 paths:
   /people:
@@ -50,24 +50,25 @@ paths:
         - People
       summary: "Create a person"
       requestBody:
-          description: "Person to create"
-          required: True
-          content:
-            application/json:
-              schema:
-                x-body-name: "person"
-                $ref: "#/components/schemas/Person"
+        description: "Person to create"
+        required: True
+        content:
+          application/json:
+            schema:
+              x-body-name: "person"
+              $ref: "#/components/schemas/Person"
       responses:
         "201":
           description: "Successfully created person"
-  /people/{lname}:
+
+  /people/{person_id}:
     get:
       operationId: "people.read_one"
       tags:
         - People
       summary: "Read one person"
       parameters:
-        - $ref: "#/components/parameters/lname"
+        - $ref: "#/components/parameters/person_id"
       responses:
         "200":
           description: "Successfully read person"
@@ -77,7 +78,7 @@ paths:
       operationId: "people.update"
       summary: "Update a person"
       parameters:
-        - $ref: "#/components/parameters/lname"
+        - $ref: "#/components/parameters/person_id"
       responses:
         "200":
           description: "Successfully updated person"
@@ -93,10 +94,11 @@ paths:
       operationId: "people.delete"
       summary: "Delete a person"
       parameters:
-        - $ref: "#/components/parameters/lname"
+        - $ref: "#/components/parameters/person_id"
       responses:
         "204":
           description: "Successfully deleted person"
+
   /notes:
     post:
       operationId: "notes.create"
@@ -104,21 +106,22 @@ paths:
         - Notes
       summary: "Create a note associated with a person"
       requestBody:
-          description: "Note to create"
-          required: True
-          content:
-            application/json:
-              schema:
-                x-body-name: "note"
-                type: "object"
-                properties:
-                  person_id:
-                    type: "integer"
-                  content:
-                    type: "string"
+        description: "Note to create"
+        required: True
+        content:
+          application/json:
+            schema:
+              x-body-name: "note"
+              type: "object"
+              properties:
+                person_id:
+                  type: "string"
+                content:
+                  type: "string"
       responses:
         "201":
           description: "Successfully created a note"
+
   /notes/{note_id}:
     get:
       operationId: "notes.read_one"
