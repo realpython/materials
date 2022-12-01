@@ -23,7 +23,7 @@ export class Notes {
   }
 }
 
-class NoteCreateForm {
+export class NoteCreateForm {
   constructor(noteList, personID) {
     this.noteList = noteList;
     this.personID = personID;
