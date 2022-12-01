@@ -1,5 +1,7 @@
 from datetime import datetime
+
 from marshmallow_sqlalchemy import fields
+
 from config import db, ma
 
 
@@ -29,8 +31,9 @@ class Person(db.Model):
     timestamp = db.Column(
         db.DateTime, default=datetime.utcnow, onupdate=datetime.utcnow
     )
+
     notes = db.relationship(
-        "Note",
+        Note,
         backref="person",
         cascade="all, delete, delete-orphan",
         single_parent=True,
@@ -46,3 +49,8 @@ class PersonSchema(ma.SQLAlchemyAutoSchema):
         include_relationships = True
 
     notes = fields.Nested(NoteSchema, many=True)
+
+
+note_schema = NoteSchema()
+person_schema = PersonSchema()
+people_schema = PersonSchema(many=True)
