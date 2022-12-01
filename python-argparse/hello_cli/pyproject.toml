@@ -1,0 +1,13 @@
+[build-system]
+requires = ["setuptools>=61.0.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "hello_cli"
+version = "0.0.1"
+description = "My awesome Hello CLI application"
+readme = "README.md"
+authors = [{ name = "Real Python", email = "info@realpython.com" }]
+
+[project.scripts]
+hello_cli = "hello_cli.__main__:main"
