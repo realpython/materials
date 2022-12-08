@@ -13,13 +13,11 @@ components:
       type: "object"
       required:
         - lname
-        - fname
       properties:
         fname:
           type: "string"
         lname:
           type: "string"
-
   parameters:
     person_id:
       name: "person_id"
@@ -52,13 +50,13 @@ paths:
         - People
       summary: "Create a person"
       requestBody:
-          description: "Person to create"
-          required: True
-          content:
-            application/json:
-              schema:
-                x-body-name: "person"
-                $ref: "#/components/schemas/Person"
+        description: "Person to create"
+        required: True
+        content:
+          application/json:
+            schema:
+              x-body-name: "person"
+              $ref: "#/components/schemas/Person"
       responses:
         "201":
           description: "Successfully created person"
@@ -100,7 +98,7 @@ paths:
       responses:
         "204":
           description: "Successfully deleted person"
-    
+
   /notes:
     post:
       operationId: "notes.create"
@@ -108,18 +106,18 @@ paths:
         - Notes
       summary: "Create a note associated with a person"
       requestBody:
-          description: "Note to create"
-          required: True
-          content:
-            application/json:
-              schema:
-                x-body-name: "note"
-                type: "object"
-                properties:
-                  person_id:
-                    type: "string"
-                  content:
-                    type: "string"
+        description: "Note to create"
+        required: True
+        content:
+          application/json:
+            schema:
+              x-body-name: "note"
+              type: "object"
+              properties:
+                person_id:
+                  type: "string"
+                content:
+                  type: "string"
       responses:
         "201":
           description: "Successfully created a note"

@@ -1,15 +1,19 @@
 from datetime import datetime
+
 from config import app, db
-from models import Person, Note
+from models import Note, Person
 
 PEOPLE_NOTES = [
     {
         "lname": "Fairy",
-        "fname": "Sugar",
+        "fname": "Tooth",
         "notes": [
-            ("Cool, a mini-blogging application!", "2022-01-06 22:17:54"),
-            ("This could be useful", "2022-01-08 22:17:54"),
-            ("Well, sort of useful", "2022-03-06 22:17:54"),
+            ("I brush my teeth after each meal.", "2022-01-06 17:10:24"),
+            (
+                "The other day a friend said, I have big teeth.",
+                "2022-03-05 22:17:54",
+            ),
+            ("Do you pay per gram?", "2022-03-05 22:18:10"),
         ],
     },
     {
@@ -17,12 +21,12 @@ PEOPLE_NOTES = [
         "fname": "Knecht",
         "notes": [
             (
-                "I'm going to make really profound observations",
-                "2022-01-07 22:17:54",
+                "I swear, I'll do better this year.",
+                "2022-01-01 09:15:03",
             ),
             (
-                "Maybe they'll be more obvious than I thought",
-                "2022-02-06 22:17:54",
+                "Really! Only good deeds from now on!",
+                "2022-02-06 13:09:21",
             ),
         ],
     },
@@ -30,8 +34,11 @@ PEOPLE_NOTES = [
         "lname": "Bunny",
         "fname": "Easter",
         "notes": [
-            ("Has anyone seen my Easter eggs?", "2022-01-07 22:47:54"),
-            ("I'm really late delivering these!", "2022-04-06 22:17:54"),
+            (
+                "Please keep the current inflation rate in mind!",
+                "2022-01-07 22:47:54",
+            ),
+            ("No need to hide the eggs this time.", "2022-04-06 13:03:17"),
         ],
     },
 ]
@@ -41,8 +48,7 @@ with app.app_context():
     db.create_all()
     for data in PEOPLE_NOTES:
         new_person = Person(lname=data.get("lname"), fname=data.get("fname"))
-        for note in data.get("notes"):
-            content, timestamp = note
+        for content, timestamp in data.get("notes", []):
             new_person.notes.append(
                 Note(
                     content=content,
@@ -52,5 +58,4 @@ with app.app_context():
                 )
             )
         db.session.add(new_person)
-
     db.session.commit()
