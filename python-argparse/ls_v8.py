@@ -38,7 +38,7 @@ def build_output(entry, long=False):
     if long:
         size = entry.stat().st_size
         date = datetime.datetime.fromtimestamp(entry.stat().st_mtime).strftime(
-            "%b %d %M:%S"
+            "%b %d %H:%M:%S"
         )
         return f"{size:>6d} {date} {entry.name}"
     return entry.name
