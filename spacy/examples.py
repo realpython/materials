@@ -218,7 +218,7 @@ print(
     ).most_common(5)
 )
 
-# %% Part of speech tagging
+# %% Part-of-speech tagging
 
 for token in about_doc[:5]:
     print(
@@ -287,7 +287,7 @@ complete_filtered_tokens = [
 
 print(complete_filtered_tokens)
 
-# %% Rule based matching
+# %% Rule-based matching
 
 matcher = Matcher(nlp.vocab)
 
