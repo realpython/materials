@@ -1,6 +1,14 @@
 # %%
+import pathlib
+from collections import Counter
+
+import textacy
+
 import spacy
+from spacy import displacy
 from spacy.language import Language
+from spacy.matcher import Matcher
+from spacy.tokenizer import Tokenizer
 
 nlp = spacy.load("en_core_web_sm")
 
@@ -17,7 +25,6 @@ print([token.text for token in introduction_doc])
 
 # %% Reading text from a file instead
 
-import pathlib
 
 file_name = "introduction.txt"
 introduction_file_text = pathlib.Path(file_name).read_text()
@@ -111,8 +118,6 @@ custom_about_text = (
 print([token.text for token in nlp(custom_about_text)[8:15]])
 
 
-from spacy.tokenizer import Tokenizer
-
 custom_nlp = spacy.load("en_core_web_sm")
 prefix_re = spacy.util.compile_prefix_regex(custom_nlp.Defaults.prefixes)
 suffix_re = spacy.util.compile_suffix_regex(custom_nlp.Defaults.suffixes)
@@ -174,7 +179,6 @@ for token in conference_help_doc:
 
 # %% Making use of stop words to count words that aren't stop words
 
-from collections import Counter
 
 complete_text = (
     "Gus Proto is a Python developer currently"
@@ -251,7 +255,6 @@ print(f"{adjectives = }")
 
 # Windows server needs to be manually changed to 127.0.0.1
 
-from spacy import displacy
 
 about_interest_text = (
     "He is interested in learning" " Natural Language Processing."
@@ -292,7 +295,6 @@ print(complete_filtered_tokens)
 
 # %% Rule based matching
 
-from spacy.matcher import Matcher
 
 matcher = Matcher(nlp.vocab)
 
@@ -310,7 +312,6 @@ print(extract_full_name(about_doc))
 
 # %% Extracting phone numbers from text with patterns
 
-from spacy.matcher import Matcher
 
 matcher = Matcher(nlp.vocab)
 conference_org_text = (
@@ -406,7 +407,6 @@ for chunk in conference_doc.noun_chunks:
 
 # %% Verb phrase detection
 
-import textacy
 
 about_talk_text = (
     "In this talk, the speaker will introduce the audience to the use"
