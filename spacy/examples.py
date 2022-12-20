@@ -288,7 +288,9 @@ def preprocess_token(token):
 
 
 complete_filtered_tokens = [
-    preprocess_token(token) for token in complete_doc if is_token_allowed(token)
+    preprocess_token(token)
+    for token in complete_doc
+    if is_token_allowed(token)
 ]
 
 print(complete_filtered_tokens)
