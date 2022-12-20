@@ -22,9 +22,7 @@ introduction_doc = nlp(introduction_text)
 # Extract tokens for the given doc
 print([token.text for token in introduction_doc])
 
-
 # %% Reading text from a file instead
-
 
 file_name = "introduction.txt"
 introduction_file_text = pathlib.Path(file_name).read_text()
@@ -78,7 +76,6 @@ custom_ellipsis_sentences = list(custom_ellipsis_doc.sents)
 for sentence in custom_ellipsis_sentences:
     print(sentence)
 
-
 ellipsis_doc = nlp(ellipsis_text)
 ellipsis_sentences = list(ellipsis_doc.sents)
 for sentence in ellipsis_sentences:
@@ -116,7 +113,6 @@ custom_about_text = (
 )
 
 print([token.text for token in nlp(custom_about_text)[8:15]])
-
 
 custom_nlp = spacy.load("en_core_web_sm")
 prefix_re = spacy.util.compile_prefix_regex(custom_nlp.Defaults.prefixes)
@@ -176,9 +172,7 @@ for token in conference_help_doc:
     if str(token) != str(token.lemma_):
         print(f"{str(token):>20} : {str(token.lemma_):20}")
 
-
 # %% Making use of stop words to count words that aren't stop words
-
 
 complete_text = (
     "Gus Proto is a Python developer currently"
@@ -224,7 +218,6 @@ print(
     ).most_common(5)
 )
 
-
 # %% Part of speech tagging
 
 for token in about_doc[:5]:
@@ -254,7 +247,6 @@ print(f"{adjectives = }")
 # %% Using displaCy to visualize text structure
 
 # Windows server needs to be manually changed to 127.0.0.1
-
 
 about_interest_text = (
     "He is interested in learning" " Natural Language Processing."
@@ -297,7 +289,6 @@ print(complete_filtered_tokens)
 
 # %% Rule based matching
 
-
 matcher = Matcher(nlp.vocab)
 
 
@@ -313,7 +304,6 @@ def extract_full_name(nlp_doc):
 print(extract_full_name(about_doc))
 
 # %% Extracting phone numbers from text with patterns
-
 
 matcher = Matcher(nlp.vocab)
 conference_org_text = (
@@ -357,7 +347,6 @@ TOKEN: {token.text}
 {token.head.text = }
 {token.dep_ = }"""
     )
-
 
 displacy.serve(piano_doc, style="dep")
 
@@ -409,7 +398,6 @@ for chunk in conference_doc.noun_chunks:
 
 # %% Verb phrase detection
 
-
 about_talk_text = (
     "In this talk, the speaker will introduce the audience to the use"
     " cases of Natural Language Processing in Fintech, making use of"
@@ -419,7 +407,6 @@ about_talk_text = (
 patterns = [{"POS": "AUX"}, {"POS": "VERB"}]
 about_talk_doc = textacy.make_spacy_doc(about_talk_text, lang="en_core_web_sm")
 verb_phrases = textacy.extract.token_matches(about_talk_doc, patterns=patterns)
-
 
 # Print all verb phrases
 
@@ -449,7 +436,6 @@ for ent in piano_class_doc.ents:
 {ent.label_ = }
 {spacy.explain(ent.label_) = }"""
     )
-
 
 displacy.serve(piano_class_doc, style="ent")
 # %% Use NER to redact names in document
