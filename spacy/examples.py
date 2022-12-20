@@ -261,7 +261,6 @@ displacy.serve(about_interest_doc, style="dep")
 
 # %% Displaying in a Jupyter notebook instead
 
-# Needs IPython and Jupyter to be installed as a dependency
 displacy.render(about_interest_doc, style="dep", jupyter=True)
 
 # %% Preprocessing functions
@@ -286,9 +285,7 @@ def preprocess_token(token):
 
 
 complete_filtered_tokens = [
-    preprocess_token(token)
-    for token in complete_doc
-    if is_token_allowed(token)
+    preprocess_token(token) for token in complete_doc if is_token_allowed(token)
 ]
 
 print(complete_filtered_tokens)
