@@ -27,8 +27,8 @@ if not target_dir.exists():
 def build_output(entry, long=False):
     if long:
         size = entry.stat().st_size
-        date = datetime.date.fromtimestamp(entry.stat().st_mtime).strftime(
-            "%b %d %m:%S"
+        date = datetime.datetime.fromtimestamp(entry.stat().st_mtime).strftime(
+            "%b %d %H:%M:%S"
         )
         return f"{size:>6d} {date} {entry.name}"
     return entry.name
