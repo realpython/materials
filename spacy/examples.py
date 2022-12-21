@@ -92,7 +92,7 @@ print(
     f"{'Text with Whitespace':22}"
     f"{'Is Alphanum?':15}"
     f"{'Is Punctuation?':18}"
-    f"{'Is Stop Word?':6}"
+    f"{'Is Stop Word?'}"
 )
 
 for token in about_doc:
@@ -100,7 +100,7 @@ for token in about_doc:
         f"{str(token.text_with_ws):22}"
         f"{str(token.is_alpha):15}"
         f"{str(token.is_punct):18}"
-        f"{str(token.is_stop):6}"
+        f"{str(token.is_stop)}"
     )
 
 # %% Customizing the tokenizer to add a custom infix
@@ -170,7 +170,7 @@ conference_help_text = (
 conference_help_doc = nlp(conference_help_text)
 for token in conference_help_doc:
     if str(token) != str(token.lemma_):
-        print(f"{str(token):>20} : {str(token.lemma_):20}")
+        print(f"{str(token):>20} : {str(token.lemma_)}")
 
 # %% Making use of stop words to count words that aren't stop words
 
@@ -180,14 +180,14 @@ complete_text = (
     " interested in learning Natural Language Processing."
     " There is a developer conference happening on 21 July"
     ' 2019 in London. It is titled "Applications of Natural'
-    ' Language Processing". There is a helpline number '
+    ' Language Processing". There is a helpline number'
     " available at +44-1234567891. Gus is helping organize it."
     " He keeps organizing local Python meetups and several"
     " internal talks at his workplace. Gus is also presenting"
     ' a talk. The talk will introduce the reader about "Use'
     ' cases of Natural Language Processing in Fintech".'
     " Apart from his work, he is very passionate about music."
-    " Gus is learning to play the Piano. He has enrolled "
+    " Gus is learning to play the Piano. He has enrolled"
     " himself in the weekend batch of Great Piano Academy."
     " Great Piano Academy is situated in Mayfair or the City"
     " of London and has world-class piano instructors."
@@ -223,7 +223,7 @@ print(
 for token in about_doc[:5]:
     print(
         f"""
-        TOKEN: {str(token):10}
+        TOKEN: {str(token)}
         =====
         TAG: {str(token.tag_):10} POS: {token.pos_}
         EXPLANATION: {spacy.explain(token.tag_)}"""
@@ -249,7 +249,7 @@ print(f"{adjectives = }")
 # Windows server needs to be manually changed to 127.0.0.1
 
 about_interest_text = (
-    "He is interested in learning" " Natural Language Processing."
+    "He is interested in learning Natural Language Processing."
 )
 about_interest_doc = nlp(about_interest_text)
 displacy.serve(about_interest_doc, style="dep")
