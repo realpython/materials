@@ -21,10 +21,10 @@ Then you can navigate into the folder `source_code_start/` and create a new data
 
 ```sh
 (venv) $ cd source_code_start
-(venv) $ python build_database.py
+(venv) $ python init_database.py
 ```
 
-This will delete any existing database and create a new database named `people.db` that you can use with your project.
+This will create or update the `people.db` database that you can use with your project.
 
 After building the database, you can start the Flask server:
 
