@@ -15,7 +15,7 @@ def clean_pub_replace(df):
     def clean_pub_replace_inner(df):
         col = df["place_of_publication"]
         for city in CITIES:
-            col.replace(rf".*{city}.*", city, regex=True)
+            col = col.replace(rf".*{city}.*", city, regex=True)
         return col
 
     return df.assign(place_of_publication=clean_pub_replace_inner)
@@ -55,7 +55,8 @@ def clean_pub_itertuples(df):
             for name in CITIES:
                 place = name if name in place else place
 
-        col.append(place)
+            col.append(place)
+        return col
 
     return df.assign(place_of_publication=clean_pub_itertuples_inner)
 
@@ -84,4 +85,4 @@ for f in [
     with codetiming.Timer(
         name=f.__name__, text="{name:20}: {milliseconds:.2f} ms"
     ):
-        f(books)
+        print(f(books).head())
