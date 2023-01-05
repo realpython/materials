@@ -21,11 +21,11 @@ If you also want to work with the included [Jupyter notebook file](footprint.ipy
 
 ## Usage
 
-You can recreate [the HTML file](footprint.html) by running [`footprint.py`](footprint.py) from within your virtual environment.
+You can re-create [the HTML file](footprint.html) by running [`footprint.py`](footprint.py) from within your virtual environment.
 
-You can modify the code to make it work with your own data set.
+You can modify the code to make it work with your own dataset.
 
-Additionally, you can take a look at how Jupyter renders `folium` maps directly inside of a notebook by looking at [`footprint.ipynb`](footprint.ipynb).
+Additionally, you can take a look at how Jupyter renders Folium maps directly inside of a notebook by checking out [`footprint.ipynb`](footprint.ipynb).
 
 ## About the Author
 
