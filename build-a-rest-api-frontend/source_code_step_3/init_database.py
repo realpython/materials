@@ -1,6 +1,5 @@
 from datetime import datetime
 from sqlalchemy.exc import OperationalError
-from sqlalchemy.ext.serializer import loads, dumps
 
 from config import app, db
 from models import Note, Person
