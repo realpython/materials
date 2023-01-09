@@ -21,7 +21,7 @@ components:
   parameters:
     person_id:
       name: "person_id"
-      description: "ID of the person to get"
+      description: "ID of the person"
       in: path
       required: True
       schema:
@@ -60,6 +60,7 @@ paths:
       responses:
         "201":
           description: "Successfully created person"
+
   /people/{person_id}:
     get:
       operationId: "people.read_one"
@@ -97,6 +98,7 @@ paths:
       responses:
         "204":
           description: "Successfully deleted person"
+
   /notes:
     post:
       operationId: "notes.create"
@@ -119,6 +121,7 @@ paths:
       responses:
         "201":
           description: "Successfully created a note"
+
   /notes/{note_id}:
     get:
       operationId: "notes.read_one"

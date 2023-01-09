@@ -4,8 +4,6 @@
     <meta charset="UTF-8">
     <title>RP Flask REST API</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/people.css') }}">
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/notes.css') }}">
     <script
         src="{{ url_for('static', filename='js/index.js') }}"
         type="module"
@@ -16,14 +14,16 @@
     <h1>
         Hello, People!
     </h1>
-    <div class="person-create-card">
-        {% include "_person_create_form.html" %}
-    </div>
-    <div class="people-list">
-        {% for person in people %}
-             {% include "_person_content.html" %}
+    {% for person in people %}
+    <h2>{{ person.fname }} {{ person.lname }}</h2>
+    <ul>
+        {% for note in person.notes %}
+        <li>
+            {{ note.content }}
+        </li>
         {% endfor %}
-    </div>
+    </ul>
+    {% endfor %}
 
     {% if config['DEBUG'] %}
         {% include "_debug.html" %}

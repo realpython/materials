@@ -1,6 +1,33 @@
-import { getData } from "./request.js";
+<div class="debug-card">
+    <form class="debug-form">
+        <input type="text" name="endpoint" value="/api/people" />
+        <button data-action="read">Get Data</button>
+        <button data-action="clear">Clear</button>
+    </form>
+    <pre>
+        <code>{{ config }}</code>
+    </pre>
+</div>
 
-export class DebugForm {
+<style>
+    pre {
+        white-space: pre-wrap;
+    }
+</style>
+
+<script>
+function getData(endpoint, callback) {
+  const request = new XMLHttpRequest();
+  request.onreadystatechange = () => {
+    if (request.readyState === 4) {
+      callback(request.response);
+    }
+  };
+  request.open("GET", endpoint);
+  request.send();
+}
+
+class DebugForm {
   constructor() {
     this.debugCard = document.querySelector(".debug-card");
     this.form = this.debugCard.querySelector(".debug-form");
@@ -32,3 +59,6 @@ export class DebugForm {
     code.innerText = data;
   }
 }
+
+new DebugForm();
+</script>

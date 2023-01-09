@@ -1,3 +1,5 @@
+import { showInDebug } from "./debug.js";
+
 export function getData(endpoint, callback) {
   const request = new XMLHttpRequest();
   request.onreadystatechange = () => {
@@ -16,6 +18,7 @@ export function sendForm(form, action, endpoint, callback) {
   const request = new XMLHttpRequest();
   request.onreadystatechange = () => {
     if (request.readyState === 4) {
+      showInDebug(request.response);
       callback(request.response, form);
     }
   };

@@ -24,10 +24,7 @@ export class NoteCreateForm {
     this.createButton = this.form.querySelector(
       "button[data-action='create']"
     );
-    this.createButton.addEventListener(
-      "click",
-      this.handleCreateClick.bind(this)
-    );
+    this.createButton.addEventListener("click", this.onCreateClick.bind(this));
     this.connectPerson();
   }
 
@@ -36,7 +33,7 @@ export class NoteCreateForm {
     fieldPersonID.setAttribute("value", this.personID);
   }
 
-  handleCreateClick(event) {
+  onCreateClick(event) {
     event.preventDefault();
     sendForm(this.form, "POST", "/api/notes", this.addNoteToList);
     this.form.reset();

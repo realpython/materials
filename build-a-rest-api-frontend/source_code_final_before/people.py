@@ -31,7 +31,6 @@ def update(person_id, person):
     if existing_person:
         update_person = person_schema.load(person, session=db.session)
         existing_person.fname = update_person.fname
-        existing_person.lname = update_person.lname
         db.session.merge(existing_person)
         db.session.commit()
         return person_schema.dump(existing_person), 201

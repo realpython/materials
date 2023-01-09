@@ -1,5 +1,13 @@
 import { getData } from "./request.js";
 
+export function showInDebug(data) {
+  const debugCard = document.querySelector(".debug-card");
+  if (debugCard) {
+    let code = debugCard.querySelector("code");
+    code.innerText = data;
+  }
+}
+
 export class DebugForm {
   constructor() {
     this.debugCard = document.querySelector(".debug-card");

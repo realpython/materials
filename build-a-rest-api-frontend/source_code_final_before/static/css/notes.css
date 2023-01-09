@@ -1,9 +1,18 @@
+.note-control-card {
+    text-align: right;
+}
+
+.note-control {
+    text-align: left;
+}
+
 .note-create-card {
     background-color: var(--secondary-color);
     padding: 1em;
 }
 
-.note-create-card input {
+.note-create-card input,
+.note-control-card input {
     width: 100%;
 }
 
