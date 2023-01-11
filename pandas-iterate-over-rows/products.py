@@ -4,7 +4,6 @@ import pandas as pd
 
 # %% To get cumulative sum, instead of looping, you can create intermediate
 # columns and use .cumsum()
-
 products = (
     pd.read_csv("resources/products.csv")
     .assign(
@@ -15,7 +14,6 @@ products = (
 )
 
 # %% The equivalent way to do that with only .itertuples()
-
 products = pd.read_csv("resources/products.csv")
 
 cumulative_sum = []

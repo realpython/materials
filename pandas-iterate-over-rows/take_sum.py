@@ -4,7 +4,7 @@ import pandas as pd
 
 # %%
 
-webs = pd.read_csv("resources/popular_websites.csv")
+webs = pd.read_csv("resources/popular_websites.csv", index_col=0)
 
 # %% Best way: use the dedicated pandas method
 
@@ -21,3 +21,5 @@ for row in webs.itertuples():
     total += row.total_views
 
 total
+
+# %%
