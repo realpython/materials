@@ -1,6 +1,6 @@
 # Python 3.11 Demos
 
-![Python 3.11: Cool New Features for You to Try](python-311.png)
+![Python 3.11: Cool New Features for You to Try](python-311.jpg)
 
 This repository holds example code that demos some of the new features in Python 3.11.
 
