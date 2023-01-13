@@ -5,6 +5,7 @@ import pandas as pd
 # %% Read CSV and rename headers
 webs = pd.read_csv("resources/popular_websites.csv", index_col=0)
 
+
 # %% Define function to check connection
 def check_connection(name, url):
     try:
