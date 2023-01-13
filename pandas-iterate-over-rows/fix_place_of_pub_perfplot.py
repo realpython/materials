@@ -67,7 +67,7 @@ def get_books(n):
     return pd.concat([books for _ in range((n // len(books)) + 1)]).iloc[:n]
 
 
-perfplot.live(
+plot = perfplot.bench(
     setup=lambda n: get_books(n),
     kernels=[
         clean_pub_replace,
@@ -79,5 +79,7 @@ perfplot.live(
     labels=["replace", "itertuples", "iterrows", "apply", "list comp"],
     n_range=[i**2 for i in range(1, 40, 2)],
     equality_check=None,
-    logy=True,
 )
+
+plot.show()
+plot.show(logy=True)

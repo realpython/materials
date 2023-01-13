@@ -19,11 +19,12 @@ def python_sum(webs):
 
 webs = pd.read_csv("resources/popular_websites.csv", index_col=0)
 
-perfplot.live(
+plot = perfplot.bench(
     n_range=[i**2 for i in range(1, 1000, 100)],
     setup=lambda n: pd.concat([webs for _ in range(n)]),
     kernels=[pandas_sum, loop_sum, python_sum],
     labels=["pandas sum", "loop sum", "python sum"],
-    # equality_check=None,
-    logy=True,
 )
+
+plot.show()
+plot.show(logy=True)

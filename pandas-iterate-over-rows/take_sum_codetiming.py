@@ -19,6 +19,7 @@ def python_sum(webs):
 
 for f in [pandas_sum, loop_sum, python_sum]:
     webs = pd.read_csv("resources/popular_websites.csv", index_col=0)
+    webs = pd.concat([webs for _ in range(1000)])
     with codetiming.Timer(
         name=f.__name__, text="{name:20}: {milliseconds:.2f} ms"
     ):
