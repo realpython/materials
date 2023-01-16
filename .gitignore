@@ -8,6 +8,7 @@ __pycache__/
 
 # C extensions
 *.so
+*.o
 
 # Distribution / packaging
 .Python
@@ -56,6 +57,8 @@ coverage.xml
 # Django stuff:
 *.log
 local_settings.py
+*.sqlite3
+nohup.out
 
 # Flask stuff:
 instance/

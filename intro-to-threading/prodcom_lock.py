@@ -51,7 +51,7 @@ def producer(pipeline):
 
 
 def consumer(pipeline):
-    """ Pretend we're saving a number in the database. """
+    """Pretend we're saving a number in the database."""
     message = 0
     while message is not SENTINEL:
         message = pipeline.get_message("Consumer")

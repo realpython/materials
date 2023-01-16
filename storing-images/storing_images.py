@@ -79,7 +79,7 @@ class CIFAR_Image:
         self.label = label
 
     def get_image(self):
-        """ Returns the image as a numpy array. """
+        """Returns the image as a numpy array."""
         image = np.frombuffer(self.image, dtype=np.uint8)
         return image.reshape(*self.size, self.channels)
 

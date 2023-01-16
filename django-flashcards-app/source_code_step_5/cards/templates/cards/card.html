@@ -1,0 +1,8 @@
+<article>
+    <h4>{{ card.question }}</h4>
+    <p>{{ card.answer }}</p>
+    <hr/>
+    <a href="{% url 'card-update' card.id %}" role="button">
+        ✏️ Edit Card
+    </a>
+</article>

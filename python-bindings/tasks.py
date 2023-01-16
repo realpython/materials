@@ -15,7 +15,7 @@ on_win = sys.platform.startswith("win")
 
 @invoke.task
 def clean(c):
-    """ Remove any built objects """
+    """Remove any built objects"""
     for file_pattern in (
         "*.o",
         "*.so",
@@ -41,7 +41,7 @@ def print_banner(msg):
 
 @invoke.task()
 def build_cmult(c, path=None):
-    """ Build the shared library for the sample C code """
+    """Build the shared library for the sample C code"""
     # Moving this type hint into signature causes an error (???)
     c: invoke.Context
     if on_win:
@@ -57,7 +57,7 @@ def build_cmult(c, path=None):
             c.run(path)
     else:
         print_banner("Building C Library")
-        cmd = "gcc -c -Wall -Werror -fpic cmult.c -I /usr/include/python3.7"
+        cmd = "gcc -c -Wall -Werror -fpic cmult.c"
         invoke.run(cmd)
         invoke.run("gcc -shared -o libcmult.so cmult.o")
         print("* Complete")
@@ -65,18 +65,29 @@ def build_cmult(c, path=None):
 
 @invoke.task()
 def test_ctypes(c):
-    """ Run the script to test ctypes """
-    print_banner("Testing ctypes Module")
+    """Run the script to test ctypes"""
+    print_banner("Testing ctypes Module for C")
     # pty and python3 didn't work for me (win).
     if on_win:
-        invoke.run("python ctypes_test.py")
+        invoke.run("python ctypes_c_test.py")
     else:
-        invoke.run("python3 ctypes_test.py", pty=True)
+        invoke.run("python3 ctypes_c_test.py", pty=True)
 
 
 @invoke.task()
+def test_ctypes_cpp(c):
+    """Run the script to test ctypes"""
+    print_banner("Testing ctypes Module for C++")
+    # pty and python3 didn't work for me (win).
+    if on_win:
+        invoke.run("python ctypes_cpp_test.py")
+    else:
+        invoke.run("python3 ctypes_cpp_test.py", pty=True)
+
+
+@invoke.task(build_cmult)
 def build_cffi(c):
-    """ Build the CFFI Python bindings """
+    """Build the CFFI Python bindings"""
     print_banner("Building CFFI Module")
     ffi = cffi.FFI()
 
@@ -107,16 +118,16 @@ def build_cffi(c):
     print("* Complete")
 
 
-@invoke.task()
+@invoke.task(build_cffi)
 def test_cffi(c):
-    """ Run the script to test CFFI """
+    """Run the script to test CFFI"""
     print_banner("Testing CFFI Module")
     invoke.run("python cffi_test.py", pty=not on_win)
 
 
 @invoke.task()
 def build_cppmult(c):
-    """ Build the shared library for the sample C++ code """
+    """Build the shared library for the sample C++ code"""
     print_banner("Building C++ Library")
     invoke.run(
         "g++ -O3 -Wall -Werror -shared -std=c++11 -fPIC cppmult.cpp "
@@ -129,31 +140,31 @@ def compile_python_module(cpp_name, extension_name):
     invoke.run(
         "g++ -O3 -Wall -Werror -shared -std=c++11 -fPIC "
         "`python3 -m pybind11 --includes` "
-        "-I /usr/include/python3.7 -I .  "
+        "-I . "
         "{0} "
-        "-o {1}`python3.7-config --extension-suffix` "
+        "-o {1}`python3-config --extension-suffix` "
         "-L. -lcppmult -Wl,-rpath,.".format(cpp_name, extension_name)
     )
 
 
 @invoke.task(build_cppmult)
 def build_pybind11(c):
-    """ Build the pybind11 wrapper library """
+    """Build the pybind11 wrapper library"""
     print_banner("Building PyBind11 Module")
     compile_python_module("pybind11_wrapper.cpp", "pybind11_example")
     print("* Complete")
 
 
-@invoke.task()
+@invoke.task(build_pybind11)
 def test_pybind11(c):
-    """ Run the script to test PyBind11 """
+    """Run the script to test PyBind11"""
     print_banner("Testing PyBind11 Module")
     invoke.run("python3 pybind11_test.py", pty=True)
 
 
 @invoke.task(build_cppmult)
 def build_cython(c):
-    """ Build the cython extension module """
+    """Build the cython extension module"""
     print_banner("Building Cython Module")
     # Run cython on the pyx file to create a .cpp file
     invoke.run("cython --cplus -3 cython_example.pyx -o cython_wrapper.cpp")
@@ -163,9 +174,9 @@ def build_cython(c):
     print("* Complete")
 
 
-@invoke.task()
+@invoke.task(build_cython)
 def test_cython(c):
-    """ Run the script to test Cython """
+    """Run the script to test Cython"""
     print_banner("Testing Cython Module")
     invoke.run("python3 cython_test.py", pty=True)
 
@@ -173,7 +184,9 @@ def test_cython(c):
 @invoke.task(
     clean,
     build_cmult,
+    build_cppmult,
     test_ctypes,
+    test_ctypes_cpp,
     build_cffi,
     test_cffi,
     build_pybind11,
@@ -182,5 +195,5 @@ def test_cython(c):
     test_cython,
 )
 def all(c):
-    """ Build and run all tests """
+    """Build and run all tests"""
     pass

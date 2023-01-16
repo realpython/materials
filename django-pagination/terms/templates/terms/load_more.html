@@ -1,0 +1,59 @@
+{% extends "terms/base.html" %}
+
+{% block content%}
+<div id="keywords"></div>
+{% endblock %}
+
+{% block pagination %}
+<nav>
+    <a href="#" id="next">
+        Load more
+    </a>
+</nav>
+
+<script>
+    async function getData(url, page, paginateBy) {
+        const urlWithParams = url + "?" + new URLSearchParams({
+            page: page,
+            per_page: paginateBy
+        })
+        const response = await fetch(urlWithParams);
+        return response.json();
+    }
+
+    class LoadMorePaginator {
+        constructor(perPage) {
+            this.perPage = perPage
+            this.pageIndex = 1
+            this.container = document.querySelector("#keywords")
+            this.next = document.querySelector("#next")
+            this.next.addEventListener("click", this.onNextClick.bind(this))
+            this.loadMore()
+        }
+
+        onNextClick(event) {
+            event.preventDefault()
+            this.pageIndex++
+            this.loadMore()
+        }
+
+        addElement(keyword) {
+            const pre = document.createElement("pre")
+            pre.append(keyword)
+            this.container.append(pre)
+        }
+
+        loadMore() {
+            getData("{% url 'terms-api' %}", this.pageIndex, this.perPage)
+                .then(response => {
+                    response.data.forEach((el) => {
+                        this.addElement(el.name)
+                    });
+                    this.next.style.display = !response.page.has_next ? "none" : "inline-block"
+                });
+        }
+    }
+
+    new LoadMorePaginator(6);
+</script>
+{% endblock %}

@@ -66,7 +66,7 @@ class Expression:
         return self._output_string
 
     def parse(self):
-        """ Parses the current infix expression, and return the RPN version."""
+        """Parses the current infix expression, and return the RPN version."""
 
         # If we've already evaluated, just return the result
         if self._evaluated:

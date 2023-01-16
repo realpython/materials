@@ -34,7 +34,7 @@ def producer(pipeline, event):
 
 
 def consumer(pipeline, event):
-    """ Pretend we're saving a number in the database. """
+    """Pretend we're saving a number in the database."""
     while not event.is_set() or not pipeline.empty():
         message = pipeline.get_message("Consumer")
         logging.info(
