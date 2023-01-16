@@ -1,4 +1,4 @@
-from snake_shop import ordering, sales
+from snake_corp import ordering, sales
 
 print(ordering.get_product_by_id("2194"))
 

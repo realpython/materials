@@ -3,7 +3,7 @@ from importlib import resources
 
 
 def read_products():
-    with resources.open_text("snake_shop", "sales.csv") as f:
+    with resources.open_text("snake_corp", "sales.csv") as f:
         return list(csv.DictReader(f))
 
 

@@ -20,7 +20,7 @@ def get_product_by_id(id, products=None):
 
 
 def make_order(product_id, quantity):
-    os.environ.get("SNAKE_SHOP_ORDERING_KEY")
+    os.environ.get("SNAKE_CORP_ORDERING_KEY")
     resp = requests.post(
         CONFIDENTIAL_API_ENDPOINT,
         json={"id": product_id, "quantity": quantity},
