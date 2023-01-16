@@ -1,6 +1,5 @@
 from datetime import datetime
 from sqlalchemy.exc import OperationalError
-from sqlalchemy.ext.serializer import loads, dumps
 
 from config import app, db
 from models import Note, Person
@@ -45,6 +44,7 @@ PEOPLE_NOTES = [
     },
 ]
 
+
 def get_data_from_table(model):
     try:
         data = db.session.query(model).all()
@@ -52,6 +52,7 @@ def get_data_from_table(model):
         return data
     except OperationalError:
         return []
+
 
 def create_database(db):
     db.create_all()
@@ -70,6 +71,7 @@ def create_database(db):
     db.session.commit()
     print("Created new database")
 
+
 def update_database(db, existing_people, existing_notes):
     db.drop_all()
     db.create_all()
@@ -80,6 +82,7 @@ def update_database(db, existing_people, existing_notes):
     db.session.commit()
     print("Updated existing database")
 
+
 with app.app_context():
     existing_people = get_data_from_table(Person)
     existing_notes = get_data_from_table(Note)
@@ -88,6 +91,3 @@ with app.app_context():
         create_database(db)
     else:
         update_database(db, existing_people, existing_notes)
-
-
-

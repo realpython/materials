@@ -30,9 +30,9 @@ components:
       name: "note_id"
       description: "ID of the note"
       in: path
-      required: true
+      required: True
       schema:
-        type: "integer"
+        type: "string"
 
 paths:
   /people:
@@ -113,7 +113,7 @@ paths:
               type: "object"
               properties:
                 person_id:
-                  type: "integer"
+                  type: "string"
                 content:
                   type: "string"
       responses:
