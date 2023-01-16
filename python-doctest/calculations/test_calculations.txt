@@ -1,0 +1,19 @@
+>>> import calculations
+
+>>> calculations.add(2, 2)
+4.0
+
+>>> calculations.subtract(2, 2)
+0.0
+
+>>> calculations.multiply(2, 2)
+4.0
+
+>>> calculations.divide(2, 2)
+1.0
+
+>>> def test_add():
+...     import calculations
+...     return calculations.add(2, 4)
+>>> test_add()
+6.0

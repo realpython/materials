@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>YAML Formatter</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed&display=swap" rel="stylesheet"/>
+    <link rel="stylesheet" href="/static/style.css">
+  </head>
+  <body>
+    <form>
+      <div class="row">
+        <div class="column">
+          <textarea id="content" readonly rows="15" cols="50"></textarea>
+        </div>
+        <div class="column">
+          <h2>Boolean Flags</h2>
+          <p>
+            <input type="checkbox" id="allow_unicode" name="allow_unicode">
+            <label for="allow_unicode">allow_unicode</label>
+          </p>
+          <p>
+            <input type="checkbox" id="canonical" name="canonical">
+            <label for="canonical">canonical</label>
+          </p>
+          <p>
+            <input type="checkbox" id="default_flow_style" name="default_flow_style">
+            <label for="default_flow_style">default_flow_style</label>
+          </p>
+          <p>
+            <input type="checkbox" id="explicit_end" name="explicit_end">
+            <label for="explicit_end">explicit_end</label>
+          </p>
+          <p>
+            <input type="checkbox" id="explicit_start" name="explicit_start">
+            <label for="explicit_start">explicit_start</label>
+          </p>
+          <p>
+            <input type="checkbox" id="sort_keys" name="sort_keys" checked>
+            <label for="sort_keys">sort_keys</label>
+          </p>
+        </div>
+        <div class="column">
+          <h2>Valued Parameters</h2>
+          <p>
+            <label for="indent">indent</label>
+            <span></span>
+            <input type="range" id="indent" name="indent" min="2" max="9" value="2">
+          </p>
+          <p>
+            <label for="width">width</label>
+            <span></span>
+            <input type="range" id="width" name="width" min="2" max="50" value="50">
+          </p>
+          <p>
+            <label for="default_style">default_style</label>
+            <select id="default_style" name="default_style">
+                <option value="">None</option>
+                <option value="'">Single-quote '</option>
+                <option value="&#34;">Double-quote "</option>
+            </select>
+          </p>
+          <p>
+            <label for="encoding">encoding</label>
+            <select id="encoding" name="encoding">
+              <option value="">None</option>
+              <option value="utf-8">UTF-8</option>
+              <option value="utf-16">UTF-16</option>
+              <option value="utf-32">UTF-32</option>
+              <option value="iso-8859-1">ISO-8859-1</option>
+              <option value="iso-8859-2">ISO-8859-2</option>
+            </select>
+          </p>
+          <p>
+            <label for="line_break">line_break</label>
+            <select id="line_break" name="line_break">
+              <option value="&#13;">macOS \r</option>
+              <option value="&#10;" selected>Linux \n</option>
+              <option value="&#13;&#10;">Windows \r\n</option>
+            </select>
+          </p>
+          <p>
+            <label for="version">version</label>
+            <select id="version" name="version">
+              <option value="">None</option>
+              <option value="1.1">1.1</option>
+              <option value="1.2">1.2</option>
+              <option value="1.99">1.99</option>
+              <option value="2.0">2.0</option>
+            </select>
+          </p>
+        </div>
+      </div>
+    </form>
+    <script src="/static/app.js"></script>
+  </body>
+</html>

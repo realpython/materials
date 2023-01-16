@@ -4,7 +4,7 @@
 
 ## About this repository
 
-This is a companion project to the ["Build Your Personal Diary With Django"](https://realpython.com/build-a-django-diary) tutorial on Real Python.
+This is a companion project to the ["Build Your Personal Diary With Django"](https://realpython.com/django-diary-project-python/) tutorial on Real Python.
 Visit the article to follow along or download the content of `source_code_final` folder from this repository.
 
 ## How To Run `django-diary`

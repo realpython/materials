@@ -32,7 +32,7 @@ class Message:
         elif mode == "rw":
             events = selectors.EVENT_READ | selectors.EVENT_WRITE
         else:
-            raise ValueError(f"Invalid events mask mode {repr(mode)}.")
+            raise ValueError(f"Invalid events mask mode {mode!r}.")
         self.selector.modify(self.sock, events, data=self)
 
     def _read(self):
@@ -50,7 +50,7 @@ class Message:
 
     def _write(self):
         if self._send_buffer:
-            print("sending", repr(self._send_buffer), "to", self.addr)
+            print(f"Sending {self._send_buffer!r} to {self.addr}")
             try:
                 # Should be ready to write
                 sent = self.sock.send(self._send_buffer)
@@ -92,10 +92,10 @@ class Message:
         action = self.request.get("action")
         if action == "search":
             query = self.request.get("value")
-            answer = request_search.get(query) or f'No match for "{query}".'
+            answer = request_search.get(query) or f"No match for '{query}'."
             content = {"result": answer}
         else:
-            content = {"result": f'Error: invalid action "{action}".'}
+            content = {"result": f"Error: invalid action '{action}'."}
         content_encoding = "utf-8"
         response = {
             "content_bytes": self._json_encode(content, content_encoding),
@@ -141,22 +141,19 @@ class Message:
         self._write()
 
     def close(self):
-        print("closing connection to", self.addr)
+        print(f"Closing connection to {self.addr}")
         try:
             self.selector.unregister(self.sock)
         except Exception as e:
             print(
-                "error: selector.unregister() exception for",
-                f"{self.addr}: {repr(e)}",
+                f"Error: selector.unregister() exception for "
+                f"{self.addr}: {e!r}"
             )
 
         try:
             self.sock.close()
         except OSError as e:
-            print(
-                "error: socket.close() exception for",
-                f"{self.addr}: {repr(e)}",
-            )
+            print(f"Error: socket.close() exception for {self.addr}: {e!r}")
         finally:
             # Delete reference to socket object for garbage collection
             self.sock = None
@@ -183,7 +180,7 @@ class Message:
                 "content-encoding",
             ):
                 if reqhdr not in self.jsonheader:
-                    raise ValueError(f'Missing required header "{reqhdr}".')
+                    raise ValueError(f"Missing required header '{reqhdr}'.")
 
     def process_request(self):
         content_len = self.jsonheader["content-length"]
@@ -194,13 +191,13 @@ class Message:
         if self.jsonheader["content-type"] == "text/json":
             encoding = self.jsonheader["content-encoding"]
             self.request = self._json_decode(data, encoding)
-            print("received request", repr(self.request), "from", self.addr)
+            print(f"Received request {self.request!r} from {self.addr}")
         else:
             # Binary or unknown content-type
             self.request = data
             print(
-                f'received {self.jsonheader["content-type"]} request from',
-                self.addr,
+                f"Received {self.jsonheader['content-type']} "
+                f"request from {self.addr}"
             )
         # Set selector to listen for write events, we're done reading.
         self._set_selector_events_mask("w")

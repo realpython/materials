@@ -1,0 +1,16 @@
+* {
+  box-sizing: border-box;
+  font-family: "Roboto Condensed", sans-serif;
+  font-size: 18pt;
+}
+
+.column {
+  float: left;
+  margin: 15px;
+}
+
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}

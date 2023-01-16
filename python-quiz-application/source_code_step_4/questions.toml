@@ -1,0 +1,65 @@
+[[questions]]
+question     = "When was the first known use of the word 'quiz'"
+answer       = "1781"
+alternatives = ["1771", "1871", "1881"]
+
+[[questions]]
+question     = "Which built-in function can get information from the user"
+answer       = "input"
+alternatives = ["get", "print", "write"]
+
+[[questions]]
+question = "What's the purpose of the built-in zip() function"
+answer = "To iterate over two or more sequences at the same time"
+alternatives = [
+    "To combine several strings into one",
+    "To compress several files into one archive",
+    "To get information from the user",
+]
+
+[[questions]]
+question     = "What does dict.get(key) return if key isn't found in dict"
+answer       = "None"
+alternatives = ["key", "True", "False"]
+
+[[questions]]
+question = "How do you iterate over both the indices and elements in an iterable"
+answer = "enumerate(iterable)"
+alternatives = [
+    "enumerate(iterable, start=1)",
+    "range(iterable)",
+    "range(iterable, start=1)",
+]
+
+[[questions]]
+question     = "What's the official name of the := operator"
+answer       = "Assignment expression"
+alternatives = ["Named expression", "Walrus operator", "Colon equals operator"]
+
+[[questions]]
+question = "What's one effect of calling random.seed(42)"
+answer = "The random numbers are reproducible."
+alternatives = [
+    "The random numbers are more random.",
+    "The computer clock is reset.",
+    "The first random number is always 42.",
+]
+
+[[questions]]
+question = "When does __name__ == '__main__' equal True in a Python file"
+answer = "When the file is run as a script"
+alternatives = [
+    "When the file is imported as a module",
+    "When the file has a valid name",
+    "When the file only has one function",
+]
+
+[[questions]]
+question     = "Which version of Python is the first with TOML support built in"
+answer       = "3.11"
+alternatives = ["3.9", "3.10", "3.12"]
+
+[[questions]]
+question     = "What's the name of the list-like data structure in TOML"
+answer       = "Array"
+alternatives = ["List", "Sequence", "Set"]
