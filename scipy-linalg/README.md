@@ -9,7 +9,7 @@ See the tutorials for details.
 
 ## Installation
 
-Use [Conda](https://docs.conda.io/en/latest/miniconda.html) to create and activate a virtual environment:
+Use [`conda`](https://docs.conda.io/en/latest/miniconda.html) to create and activate a virtual environment:
 
 ```console
 $ conda create --name linalg
