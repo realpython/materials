@@ -24,15 +24,10 @@ def data(name, package=__package__):
 def path(name, package=__package__):
     """Find the path to a data file."""
     for resource in resources.files(package).iterdir():
-        if resource.is_dir():
-            data_path = path(name, package=f"{package}.{resource.name}")
-            if data_path is None:
-                raise FileNotFoundError(f"{name} not found in {package}")
-
-            return data_path
-
         if resource.stem == name:
             return resource
+
+    raise FileNotFoundError(f"{name} not found in {package}")
 
 
 @register

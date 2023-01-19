@@ -1,0 +1,19 @@
+{
+  "products": [
+    {
+      "name": "baubles",
+      "description": "x-mas decor",
+      "unit_price": 1.89
+    },
+    {
+      "name": "rubber duck",
+      "description": "silent ai debugging companion placebo",
+      "unit_price": 100.98
+    },
+    {
+      "name": "metallic python",
+      "description": "decorative sculpture",
+      "unit_price": "78.89"
+    }
+  ]
+}

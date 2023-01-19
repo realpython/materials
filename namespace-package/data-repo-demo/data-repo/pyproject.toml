@@ -7,6 +7,10 @@ where = ["."]
 
 [project]
 name = "data-repo"
+authors = [
+    {name = "Ian Currie", email = "iansedano@gmail.com"},
+    {name = "Geir Arne Hjelle", email = "?@?.com"},
+]
 description = "A namespace provider for distributed data repositories"
 readme = "README.md"
 requires-python = ">=3.7"
@@ -14,5 +18,8 @@ keywords = ["one", "two"]
 license = {text = "BSD-3-Clause"}
 classifiers = [
     "Programming Language :: Python :: 3",
+]
+dependencies = [
+    "pandas",
 ]
 dynamic = ["version"]
