@@ -6,9 +6,9 @@ build-backend = "setuptools.build_meta"
 # where = ["."]
 
 [project]
-name = "snake-corp-magic-numbers"
+name = "snake-corp-dateutil"
 version = "1.0.3"
-description = "Super Magic Secret Numbers for the Snake Corporation"
+description = "Date Utilities for the Snake Corporation"
 license = { text = "Snake Corp Software Licence Agreement" }
 
 [tool.black]
