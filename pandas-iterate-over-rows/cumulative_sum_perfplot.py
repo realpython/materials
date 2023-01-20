@@ -4,13 +4,13 @@ import perfplot
 
 def loop_cumsum(products):
     cumulative_sum = []
-    for row in products.itertuples():
+    for product in products.itertuples():
         if cumulative_sum:
             cumulative_sum.append(
-                cumulative_sum[-1] + (row.sales * row.unit_price)
+                cumulative_sum[-1] + (product.sales * product.unit_price)
             )
         else:
-            cumulative_sum.append(row.sales * row.unit_price)
+            cumulative_sum.append(product.sales * product.unit_price)
     return products.assign(cumulative_income=cumulative_sum)
 
 

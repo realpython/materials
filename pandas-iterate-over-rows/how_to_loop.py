@@ -3,38 +3,45 @@ import httpx
 import pandas as pd
 
 # %% Read CSV and rename headers
-webs = pd.read_csv("resources/popular_websites.csv", index_col=0)
-
+websites = pd.read_csv("resources/popular_websites.csv", index_col=0)
+print(websites)
 
 # %% Define function to check connection
 def check_connection(name, url):
     try:
-        httpx.get(url)
+        response = httpx.get(url)
+        location = response.headers.get("location")
+        if location is None or location.startswith(url):
+            print(f"{name} is online!")
+        else:
+            print(f"{name} is online! But redirects to {location}")
+        return True
     except httpx.ConnectError:
-        print("Failed to establish a connection")
+        print(f"Failed to establish a connection with {url}")
         return False
-    print(f"{name} is online!")
-    return True
 
 
 # %% Use .itertuples() to iterate through all rows
-for web in webs.itertuples():
-    check_connection(web.website, web.url)
+for website in websites.itertuples():
+    check_connection(website.name, website.url)
 
 # %%
-for _, web in webs.iterrows():
-    check_connection(web["website"], web["url"])
+for _, website in websites.iterrows():
+    check_connection(website["name"], website["url"])
 
 # %% Use list comprehension to iterate through all rows
-[check_connection(web.website, web.url) for web in webs.itertuples()]
+[
+    check_connection(website.name, website.url)
+    for website in websites.itertuples()
+]
 
 # %% Use the index to iterate through rows
-for i in webs.index:
-    print({**webs.iloc[i]})
+for i in websites.index:
+    print({**websites.iloc[i]})
 
 # %% Transpose and cast to dictionary to iterate through rows
-for row in webs.T.to_dict().values():
-    print(row)
+for website in websites.T.to_dict().values():
+    print(website)
 
 # %%
-webs.aggregate(["sum"])
+websites.aggregate(["sum"])

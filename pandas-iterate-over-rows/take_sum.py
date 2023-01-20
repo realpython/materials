@@ -4,21 +4,21 @@ import pandas as pd
 
 # %%
 
-webs = pd.read_csv("resources/popular_websites.csv", index_col=0)
+websites = pd.read_csv("resources/popular_websites.csv", index_col=0)
 
 # %% Best way: use the dedicated pandas method
 
-webs["total_views"].sum()
+websites["total_views"].sum()
 
 # %% List comprehension
 
-sum(row.total_views for row in webs.itertuples())
+sum(website.total_views for website in websites.itertuples())
 
 # %% itertuples()
 
 total = 0
-for row in webs.itertuples():
-    total += row.total_views
+for website in websites.itertuples():
+    total += website.total_views
 
 total
 

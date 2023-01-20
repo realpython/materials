@@ -1,26 +1,24 @@
-import codetiming
 import pandas as pd
+from codetiming import Timer
 
 
-def pandas_sum(webs):
-    return webs["total_views"].sum()
-
-
-def loop_sum(webs):
+def loop_sum(websites):
     total = 0
-    for row in webs.itertuples():
-        total += row.total_views
+    for website in websites.itertuples():
+        total += website.total_views
     return total
 
 
-def python_sum(webs):
-    return sum(row.total_views for row in webs.itertuples())
+def python_sum(websites):
+    return sum(website.total_views for website in websites.itertuples())
 
 
-for f in [pandas_sum, loop_sum, python_sum]:
-    webs = pd.read_csv("resources/popular_websites.csv", index_col=0)
-    webs = pd.concat([webs for _ in range(1000)])
-    with codetiming.Timer(
-        name=f.__name__, text="{name:20}: {milliseconds:.2f} ms"
-    ):
-        f(webs)
+def pandas_sum(websites):
+    return websites["total_views"].sum()
+
+
+for func in [loop_sum, python_sum, pandas_sum]:
+    websites = pd.read_csv("resources/popular_websites.csv", index_col=0)
+    websites = pd.concat([websites for _ in range(1000)])
+    with Timer(name=func.__name__, text="{name:20}: {milliseconds:.2f} ms"):
+        func(websites)

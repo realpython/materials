@@ -2,26 +2,26 @@ import pandas as pd
 import perfplot
 
 
-def pandas_sum(df):
-    return df["total_views"].sum()
+def pandas_sum(websites):
+    return websites["total_views"].sum()
 
 
-def loop_sum(df):
+def loop_sum(websites):
     total = 0
-    for row in df.itertuples():
+    for row in websites.itertuples():
         total += row.total_views
     return total
 
 
-def python_sum(webs):
-    return sum(row.total_views for row in webs.itertuples())
+def python_sum(websites):
+    return sum(row.total_views for row in websites.itertuples())
 
 
-webs = pd.read_csv("resources/popular_websites.csv", index_col=0)
+websites = pd.read_csv("resources/popular_websites.csv", index_col=0)
 
 plot = perfplot.bench(
     n_range=[i**2 for i in range(1, 1000, 100)],
-    setup=lambda n: pd.concat([webs for _ in range(n)]),
+    setup=lambda n: pd.concat([websites for _ in range(n)]),
     kernels=[pandas_sum, loop_sum, python_sum],
     labels=["pandas sum", "loop sum", "python sum"],
 )
