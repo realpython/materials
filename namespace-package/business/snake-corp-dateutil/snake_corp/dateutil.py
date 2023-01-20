@@ -1,5 +1,6 @@
 from datetime import datetime
 
+
 # 16th July
 def days_to_snake_day(from_date=None):
     if from_date is None:

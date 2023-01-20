@@ -11,6 +11,6 @@ version = "1.0.3"
 description = "Super Magic Secret Numbers for the Snake Corporation"
 license = { text = "Snake Corp Software Licence Agreement" }
 
-[tool.black]
-line-length = 79
+# [tool.black]
+# line-length = 79
 
