@@ -5,12 +5,11 @@ from codetiming import Timer
 def loop_cumsum(products):
     cumulative_sum = []
     for product in products.itertuples():
+        income = product.sales * product.unit_price
         if cumulative_sum:
-            cumulative_sum.append(
-                cumulative_sum[-1] + (product.sales * product.unit_price)
-            )
+            cumulative_sum.append(cumulative_sum[-1] + income)
         else:
-            cumulative_sum.append(product.sales * product.unit_price)
+            cumulative_sum.append(income)
     return products.assign(cumulative_income=cumulative_sum)
 
 
