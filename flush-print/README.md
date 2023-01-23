@@ -55,8 +55,6 @@ At some point the buffer gets filled up so much that it needs to flush during th
 
 Finally, you need to subtract from the current value of `SLIGHTLY_TOO_LARGE_FOR_BUFFER` because we assume that the buffer flushes continuously when it gets full, which means that whatever is in the buffer when the script is done should represent a full buffer.
 
-If you have better and more precise ways to calculate the buffer size, or have spotted a logical or computational mistake in these calculations, then please let us know!
-
 ## About the Author
 
 Martin Breuss - Email: martin@realpython.com
