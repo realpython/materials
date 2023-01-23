@@ -34,7 +34,7 @@ The approach to calculate it is somewhat manual:
   - If they pause, remember the last number that got printed before the pause
   - If they don't pause, increase the value of `SLIGHTLY_TOO_LARGE_FOR_BUFFER` by `10_000` and start from the top
 
-Continue doing this until your script paused when printing the numbers, and you noted the number that displayed last during the pause. Once you have that number, subtract it from the value that `SLIGHTLY_TOO_LARGE_FOR_BUFFER` currently has to calculate your buffer size estimation, for example:
+Continue doing this until your script paused when printing the numbers, and you noted the number that displayed last during the pause. Once you have that number, manually subtract it from the value that `SLIGHTLY_TOO_LARGE_FOR_BUFFER` currently has to calculate your buffer size estimation, for example:
 
 ```python
 SLIGHTLY_TOO_LARGE_FOR_BUFFER = 80_000
@@ -49,7 +49,9 @@ You can divide the number you get by `1000` to get an estimation of your buffer 
 
 If you want to, you could even drill down further with some manual binary search to find the exact byte when the break first occurs.
 
-The idea of this script is that each of these printed numbers take up exactly 6 bytes in the buffer, which you assure with the format specifier in the f-string that you pass to `print()`. When the buffer gets filled up so much that it needs to flush during the execution of your script, then you run into the break in the printout, caused by the call to `time.sleep()` executing. Finally, when the script finishes execution after the break, Python flushes the rest of the buffer contents, which prints the remaining numbers to your terminal.
+The idea of this script is that each of these printed numbers take up exactly 6 bytes in the buffer. This is assuming that you're using an encoding in which numbers and spaces take up one byte. If so, then you can make sure each length is 6 characters with the format specifier in the f-string that you pass to `print()`.
+
+At some point the buffer gets filled up so much that it needs to flush during the execution of your script. After it's flushed, it'll begin to fill up again. Ideally before it fills up again, you run into the call to `time.sleep()` executing. Finally, when the script finishes execution after the sleep, Python flushes the rest of the buffer contents, which prints the remaining numbers to your terminal.
 
 Finally, you need to subtract from the current value of `SLIGHTLY_TOO_LARGE_FOR_BUFFER` because we assume that the buffer flushes continuously when it gets full, which means that whatever is in the buffer when the script is done should represent a full buffer.
 
