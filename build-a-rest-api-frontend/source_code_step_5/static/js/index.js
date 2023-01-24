@@ -5,8 +5,10 @@ import { DebugForm } from "./debug.js";
 function main() {
   new People();
   new Notes();
-  const debug = new DebugForm();
-  debug.showResponse("");
+  if (document.querySelector(".debug-card")) {
+    const debug = new DebugForm();
+    debug.showResponse("");
+  }
 }
 
 main();

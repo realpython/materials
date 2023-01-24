@@ -1,8 +1,10 @@
 import { DebugForm } from "./debug.js";
 
 function main() {
-  const debug = new DebugForm();
-  debug.showResponse("");
+  if (document.querySelector(".debug-card")) {
+    const debug = new DebugForm();
+    debug.showResponse("");
+  }
 }
 
 main();
