@@ -20,15 +20,23 @@ def pandas_cumsum(products):
     ).drop(columns="income")
 
 
-products = pd.read_csv("resources/products.csv")
+def get_products(n):
+    products = pd.read_csv("resources/products.csv")
+    if n < len(products):
+        return products.iloc[:n]
+    return pd.concat([products for _ in range((n // len(products)) + 1)]).iloc[
+        :n
+    ]
+
 
 plot = perfplot.bench(
-    n_range=[i**2 for i in range(1, 1000, 100)],
-    setup=lambda n: pd.concat([products for _ in range(n)]),
+    n_range=[2**i for i in range(20)],
+    setup=get_products,
     kernels=[pandas_cumsum, loop_cumsum],
     labels=["pandas cumsum", "loop cumsum"],
     equality_check=None,
+    title="Loop vs Pandas Cumulative Sum",
+    xlabel="Number of Rows",
 )
 
 plot.show()
-plot.show(logy=True)
