@@ -6,6 +6,7 @@ import pandas as pd
 websites = pd.read_csv("resources/popular_websites.csv", index_col=0)
 print(websites)
 
+
 # %% Define function to check connection
 def check_connection(name, url):
     try:
