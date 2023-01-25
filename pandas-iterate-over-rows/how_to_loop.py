@@ -25,11 +25,14 @@ def check_connection(name, url):
 for website in websites.itertuples():
     check_connection(website.name, website.url)
 
-# %%
+# %% You may use .iterrows() if you have dynamic columnnames
+name_column = "name"
+url_column = "url"
 for _, website in websites.iterrows():
-    check_connection(website["name"], website["url"])
+    check_connection(website[name_column], website[url_column])
 
 # %% Use list comprehension to iterate through all rows
+#    Note that this creates a list that is thrown away again
 [
     check_connection(website.name, website.url)
     for website in websites.itertuples()
@@ -43,5 +46,8 @@ for i in websites.index:
 for website in websites.T.to_dict().values():
     print(website)
 
-# %%
-websites.aggregate(["sum"])
+# %% Use .agg() to aggregate over columns
+websites.agg(
+    total_views=("total_views", "sum"),
+    average_views=("total_views", "mean"),
+)

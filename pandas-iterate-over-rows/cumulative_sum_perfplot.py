@@ -35,7 +35,7 @@ plot = perfplot.bench(
     kernels=[pandas_cumsum, loop_cumsum],
     labels=["pandas cumsum", "loop cumsum"],
     equality_check=None,
-    title="Loop vs Pandas Cumulative Sum",
+    title="Loop vs pandas Cumulative Sum",
     xlabel="Number of Rows",
 )
 

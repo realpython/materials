@@ -13,7 +13,7 @@ for product in products.itertuples():
     else:
         cumulative_sum.append(income)
 
-products.assign(cumulative_income=cumulative_sum)
+products = products.assign(cumulative_income=cumulative_sum)
 
 # %% To get cumulative sum, instead of looping, you can create intermediate
 # columns and use .cumsum()
