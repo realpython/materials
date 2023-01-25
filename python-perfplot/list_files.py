@@ -61,6 +61,6 @@ perfplot.show(
         os_scandir,
         os_listdir,
     ],
-    n_range=[2**n for n in range(15)],
+    n_range=[2**n for n in range(13)],
     equality_check=None,
 )

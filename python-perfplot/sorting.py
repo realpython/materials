@@ -59,7 +59,7 @@ def merge_sort(array):
     )
 
 
-def quicksort(array):
+def quick_sort(array):
     if len(array) < 2:
         return array
     low, same, high = [], [], []
@@ -71,7 +71,7 @@ def quicksort(array):
             same.append(item)
         elif item > pivot:
             high.append(item)
-    return quicksort(low) + same + quicksort(high)
+    return quick_sort(low) + same + quick_sort(high)
 
 
 def insertion_sort_tim(array, left=0, right=None):
@@ -87,7 +87,7 @@ def insertion_sort_tim(array, left=0, right=None):
     return array
 
 
-def timsort(array):
+def tim_sort(array):
     min_run = 32
     n = len(array)
     for i in range(0, n, min_run):
@@ -106,75 +106,5 @@ def timsort(array):
     return array
 
 
-def python_built_in(array):
+def python_built_in_sort(array):
     return sorted(array)
-
-
-# perfplot.show(
-#     setup=lambda n: [randint(0, 1000) for _ in range(n)],
-#     kernels=[
-#         bubble_sort,
-#         insertion_sort,
-#         merge_sort,
-#         quicksort,
-#         timsort,
-#         python_built_in,
-#     ],
-#     n_range=list(range(0, 10000, 1000)),
-# )
-
-# perfplot.show(
-#     setup=lambda n: [randint(0, 1000) for _ in range(n)],
-#     kernels=[
-#         bubble_sort,
-#         insertion_sort,
-#         merge_sort,
-#         quicksort,
-#         timsort,
-#         python_built_in,
-#     ],
-#     n_range=[2**n for n in range(15)],
-# )
-
-
-# perfplot.show(
-#     setup=lambda n: list(range(n)),
-#     kernels=[
-#         bubble_sort,
-#         insertion_sort,
-#         merge_sort,
-#         quicksort,
-#         timsort,
-#         python_built_in,
-#     ],
-#     n_range=[2**n for n in range(15)],
-# )
-
-# perfplot.show(
-#     setup=lambda n: [n + 1, *list(range(n))],
-#     kernels=[
-#         bubble_sort,
-#         insertion_sort,
-#         merge_sort,
-#         quicksort,
-#         timsort,
-#         python_built_in,
-#     ],
-#     n_range=[2**n for n in range(15)],
-# )
-
-plot = perfplot.bench(
-    setup=lambda n: [n + 1, *list(range(n))],
-    kernels=[
-        bubble_sort,
-        insertion_sort,
-        merge_sort,
-        quicksort,
-        timsort,
-        python_built_in,
-    ],
-    n_range=[2**n for n in range(10)],
-)
-
-plot.show(logx=False, logy=True)
-plot.save("sorting.png", logx=False, logy=True)

@@ -19,6 +19,7 @@ def find_match_gen(iterable):
 
 
 perfplot.show(
+    n_range=[2**n for n in range(25)],
     setup=lambda n: build_list(
         size=n,
         fill={"country": "Nowhere", "population": 10},
@@ -27,7 +28,6 @@ perfplot.show(
     ),
     kernels=[find_match_loop, find_match_gen],
     labels=["loop", "gen"],
-    n_range=[2**n for n in range(25)],
     equality_check=None,
     relative_to=0,
 )
