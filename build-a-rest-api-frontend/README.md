@@ -1,6 +1,6 @@
-# Build a Frontend for a REST API
+# Build a Front End for a REST API
 
-This repository contains code related to the tutorial on [building a frontend for a REST API](https://realpython.com/build-a-rest-api-frontend/).
+This repository contains code related to the Real Python tutorial on [building a front end for a REST API](https://realpython.com/build-a-rest-api-frontend/).
 
 ## Setup
 
@@ -32,7 +32,7 @@ After building the database, you can start the Flask server:
 (venv) $ python app.py
 ```
 
-When the Flask server is running, you can visit the frontend on `http://localhost:8000` and the API documentation on `http://localhost:8000/api/ui`.
+When the Flask server is running, you can visit the front end on `http://localhost:8000` and the API documentation on `http://localhost:8000/api/ui`.
 
 ## Author
 
