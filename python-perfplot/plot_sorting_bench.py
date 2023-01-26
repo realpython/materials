@@ -24,5 +24,5 @@ data = perfplot.bench(
     ],
 )
 
-data.show()
-data.save("sorting_algos.png")
+data.save("sorting_algos_log_x.png", logx=True)
+data.save("sorting_algos_linear_x.png", logx=False)
