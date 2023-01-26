@@ -1,6 +1,8 @@
 from random import randint
 
 import perfplot
+import matplotlib.pyplot as plt
+
 
 from sorting import (
     bubble_sort,
@@ -11,7 +13,8 @@ from sorting import (
     python_built_in_sort,
 )
 
-perfplot.show(
+
+out = perfplot.bench(
     n_range=[2**n for n in range(15)],
     setup=lambda n: [randint(0, 1_000) for _ in range(n)],
     kernels=[
@@ -22,6 +25,11 @@ perfplot.show(
         tim_sort,
         python_built_in_sort,
     ],
-    relative_to=3,
-    logy=True,
 )
+
+
+out.plot(relative_to=3, logy=True)
+
+plt.gcf().set_size_inches(12, 7)
+plt.subplots_adjust(left=0.2, right=0.8, top=0.85, bottom=0.15)
+plt.savefig("plot_sorting_relative_to.png", transparent=True)

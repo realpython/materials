@@ -22,6 +22,16 @@ perfplot.show(
         tim_sort,
         python_built_in_sort,
     ],
-    relative_to=3,
     logy=True,
+    labels=[
+        "bubble sort",
+        "insertion sort",
+        "merge sort",
+        "quick sort",
+        "tim sort",
+        "built in sort",
+    ],
+    title="Sorting Algorithms",
+    xlabel="Number of elements in list",
+    time_unit="ns",
 )

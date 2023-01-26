@@ -11,7 +11,7 @@ from sorting import (
     python_built_in_sort,
 )
 
-perfplot.show(
+perfplot.live(
     n_range=[2**n for n in range(15)],
     setup=lambda n: [randint(0, 1_000) for _ in range(n)],
     kernels=[
@@ -22,6 +22,14 @@ perfplot.show(
         tim_sort,
         python_built_in_sort,
     ],
-    relative_to=3,
     logy=True,
+    labels=[
+        "bubble sort",
+        "insertion sort",
+        "merge sort",
+        "quick sort",
+        "tim sort",
+        "built in sort",
+    ],
+    xlabel="Number of elements in list",
 )

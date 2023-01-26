@@ -1,7 +1,5 @@
 from random import randint
 
-import perfplot
-
 
 def bubble_sort(array):
     n = len(array)

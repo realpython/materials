@@ -12,8 +12,8 @@ from sorting import (
 )
 
 perfplot.show(
-    n_range=range(0, 10000, 1000),
-    setup=lambda n: [randint(0, 1000) for _ in range(n)],
+    n_range=range(0, 10_001, 1_000),
+    setup=lambda n: [randint(0, 1_000) for _ in range(n)],
     kernels=[
         bubble_sort,
         insertion_sort,
