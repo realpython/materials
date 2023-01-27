@@ -1,4 +1,4 @@
-from importlib import resources
+from importlib import resources, import_module
 
 readers = {}
 
@@ -10,7 +10,7 @@ def collect():
             continue
         module_name = item.strip(".py")
         try:
-            readers[module_name] = importlib.import_module(
+            readers[module_name] = import_module(
                 f".{module_name}", f"{__package__}.readers"
             ).read
         except AttributeError:
