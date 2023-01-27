@@ -1,0 +1,7 @@
+adder
+black
+crane
+learn
+quake
+snake
+wyrdl
