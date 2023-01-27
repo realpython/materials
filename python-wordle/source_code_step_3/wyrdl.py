@@ -5,7 +5,8 @@ from string import ascii_letters
 
 def main():
     # Pre-process
-    word = get_random_word()
+    words_path = pathlib.Path(__file__).parent / "wordlist.txt"
+    word = get_random_word(words_path.read_text(encoding="utf-8").split("\n"))
 
     # Process (main loop)
     for guess_num in range(1, 7):
@@ -20,11 +21,10 @@ def main():
         game_over(word)
 
 
-def get_random_word():
-    wordlist = pathlib.Path(__file__).parent / "wordlist.txt"
+def get_random_word(word_list):
     words = [
         word.upper()
-        for word in wordlist.read_text(encoding="utf-8").split("\n")
+        for word in word_list
         if len(word) == 5 and all(letter in ascii_letters for letter in word)
     ]
     return random.choice(words)
