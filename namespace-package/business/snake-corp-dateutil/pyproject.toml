@@ -2,15 +2,11 @@
 requires = ["setuptools", "setuptools-scm"]
 build-backend = "setuptools.build_meta"
 
-# # [tool.setuptools.packages.find]
-# # where = ["."]
+[tool.setuptools.packages.find]
+where = ["."]
 
 [project]
 name = "snake-corp-dateutil"
 version = "1.0.3"
 description = "Date Utilities for the Snake Corporation"
-license = { text = "Snake Corp Software Licence Agreement" }
-
-# [tool.black]
-# line-length = 79
-
+license = { text = "Snake Corp Software License Agreement" }

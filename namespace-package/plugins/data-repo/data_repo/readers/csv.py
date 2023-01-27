@@ -1,5 +1,6 @@
-import pathlib
+import pandas as pd
 
 
-def read(file: pathlib.Path):
-    print("reading CSV")
+def csv(data_path):
+    """Read CSV file from a path."""
+    return pd.read_csv(data_path)
