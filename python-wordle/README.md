@@ -6,7 +6,7 @@ The tutorial uses the [walrus operator](https://realpython.com/python-walrus-ope
 
 ## Dependencies
 
-The project uses [Rich](https://rich.readthedocs.io/) for style, color and formatting in the terminal. You should first create a virtual environment:
+The project uses [Rich](https://rich.readthedocs.io/) for style, color, and formatting in the terminal. You should first create a virtual environment:
 
 ```console
 $ python -m venv venv
