@@ -20,4 +20,9 @@ def kernel_two(setup_result):
     return setup_result
 
 
-perfplot.show(n_range=[1, 2, 3], setup=setup, kernels=[kernel_one, kernel_two])
+perfplot.show(
+    n_range=[1, 2, 3],
+    setup=setup,
+    kernels=[kernel_one, kernel_two],
+    target_time_per_measurement=4,
+)

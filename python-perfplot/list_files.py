@@ -18,33 +18,33 @@ def make_dir_with_files(dir_name, number_of_files):
     return flat_dir
 
 
-def glob_star(dir):
-    return list(dir.glob("*"))
+def glob_star(flat_dir):
+    return list(flat_dir.glob("*"))
 
 
-def glob_star_star(dir):
-    return list(dir.glob("**/*"))
+def glob_star_star(flat_dir):
+    return list(flat_dir.glob("**/*"))
 
 
-def rglob_star(dir):
-    return list(dir.rglob("*"))
+def rglob_star(flat_dir):
+    return list(flat_dir.rglob("*"))
 
 
-def iterdir_(dir):
-    return list(dir.iterdir())
+def iterdir(flat_dir):
+    return list(flat_dir.iterdir())
 
 
-def os_walk(dir):
-    _, dirs, files = next(os.walk(dir))
+def os_walk(flat_dir):
+    _, dirs, files = next(os.walk(flat_dir))
     return [*dirs, *files]
 
 
-def os_scandir(dir):
-    return list(os.scandir(dir))
+def os_scandir(flat_dir):
+    return list(os.scandir(flat_dir))
 
 
-def os_listdir(dir):
-    return os.listdir(dir)
+def os_listdir(flat_dir):
+    return os.listdir(flat_dir)
 
 
 perfplot.show(
@@ -56,7 +56,7 @@ perfplot.show(
         glob_star,
         glob_star_star,
         rglob_star,
-        iterdir_,
+        iterdir,
         os_walk,
         os_scandir,
         os_listdir,
