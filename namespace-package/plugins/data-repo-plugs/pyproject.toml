@@ -4,6 +4,8 @@ build-backend = "setuptools.build_meta"
 
 [tool.setuptools.packages.find]
 where = ["."]
+include = ["data_repo"]
+namespaces = true
 
 [project]
 name = "data-repo"
@@ -16,3 +18,4 @@ classifiers = [
     "Programming Language :: Python :: 3",
 ]
 dynamic = ["version"]
+dependencies = ["pandas"]

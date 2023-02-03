@@ -3,20 +3,19 @@ from importlib import resources
 import pandas as pd
 
 
-def data(name, package=__package__):
+def data(name):
     """Get data file."""
-    data_path = path(name, package)
+    data_path = path(name)
     file_type = data_path.suffix.lstrip(".")
     return readers[file_type](data_path)
 
 
-def path(name, package=__package__):
+def path(name):
     """Find the path to a data file."""
-    for resource in resources.files(package).iterdir():
+    for resource in resources.files(__package__).iterdir():
         if resource.stem == name:
             return resource
-
-    raise FileNotFoundError(f"{name} not found in {package}")
+    raise FileNotFoundError(f"{name} not found in {__package__}")
 
 
 def csv(data_path):
