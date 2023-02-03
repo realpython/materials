@@ -124,12 +124,6 @@ app.layout = html.Div(
     Input("date-range", "end_date"),
 )
 def update_charts(region, avocado_type, start_date, end_date):
-    mask = (
-        (data["region"] == region)
-        & (data["type"] == avocado_type)
-        & (data["Date"] >= start_date)
-        & (data["Date"] <= end_date)
-    )
     filtered_data = data.query(
         "region == @region and type == @avocado_type"
         " and Date >= @start_date and Date <= @end_date"
