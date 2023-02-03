@@ -1,21 +1,23 @@
-import dash
-import dash_core_components as dcc
-import dash_html_components as html
 import pandas as pd
+from dash import Dash, dcc, html
 
-data = pd.read_csv("avocado.csv")
-data = data.query("type == 'conventional' and region == 'Albany'")
-data["Date"] = pd.to_datetime(data["Date"], format="%Y-%m-%d")
-data.sort_values("Date", inplace=True)
+data = (
+    pd.read_csv("avocado.csv")
+    .query("type == 'conventional' and region == 'Albany'")
+    .assign(Date=lambda data: pd.to_datetime(data["Date"], format="%Y-%m-%d"))
+    .sort_values(by="Date")
+)
 
 external_stylesheets = [
     {
-        "href": "https://fonts.googleapis.com/css2?"
-        "family=Lato:wght@400;700&display=swap",
+        "href": (
+            "https://fonts.googleapis.com/css2?"
+            "family=Lato:wght@400;700&display=swap"
+        ),
         "rel": "stylesheet",
     },
 ]
-app = dash.Dash(__name__, external_stylesheets=external_stylesheets)
+app = Dash(__name__, external_stylesheets=external_stylesheets)
 app.title = "Avocado Analytics: Understand Your Avocados!"
 
 app.layout = html.Div(
@@ -27,9 +29,10 @@ app.layout = html.Div(
                     children="Avocado Analytics", className="header-title"
                 ),
                 html.P(
-                    children="Analyze the behavior of avocado prices"
-                    " and the number of avocados sold in the US"
-                    " between 2015 and 2018",
+                    children=(
+                        "Analyze the behavior of avocado prices and the number"
+                        " of avocados sold in the US between 2015 and 2018"
+                    ),
                     className="header-description",
                 ),
             ],
@@ -47,8 +50,7 @@ app.layout = html.Div(
                                     "x": data["Date"],
                                     "y": data["AveragePrice"],
                                     "type": "lines",
-                                    "hovertemplate": "$%{y:.2f}"
-                                    "<extra></extra>",
+                                    "hovertemplate": "$%{y:.2f}<extra></extra>",
                                 },
                             ],
                             "layout": {
@@ -62,7 +64,7 @@ app.layout = html.Div(
                                     "tickprefix": "$",
                                     "fixedrange": True,
                                 },
-                                "colorway": ["#17B897"],
+                                "colorway": ["#17b897"],
                             },
                         },
                     ),
@@ -99,6 +101,5 @@ app.layout = html.Div(
         ),
     ]
 )
-
 if __name__ == "__main__":
     app.run_server(debug=True)
