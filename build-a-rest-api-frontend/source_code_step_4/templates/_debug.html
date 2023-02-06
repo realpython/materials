@@ -1,0 +1,16 @@
+<div class="debug-card">
+    <form class="debug-form">
+        <input type="text" name="endpoint" value="/api/people" />
+        <button data-action="read">Get Data</button>
+        <button data-action="clear">Clear</button>
+    </form>
+    <pre>
+        <code>{{ config }}</code>
+    </pre>
+</div>
+
+<style>
+    pre {
+        white-space: pre-wrap;
+    }
+</style>

@@ -1,0 +1,23 @@
+.note-create-card {
+    background-color: var(--secondary-color);
+    padding: 1em;
+}
+
+.note-create-card input {
+    width: 100%;
+}
+
+.note-list {
+    list-style: none;
+    padding-left: 0;
+}
+
+.note-card {
+    background-color: blanchedalmond;
+    padding: 1em;
+    margin: 0.6em 0;
+}
+
+.note-content {
+    padding: 0.3em 0;
+}
