@@ -1,24 +1,23 @@
-import dash
-import dash_core_components as dcc
-import dash_html_components as html
 import pandas as pd
+from dash import Dash, dcc, html
 
-data = pd.read_csv("avocado.csv")
-data = data.query("type == 'conventional' and region == 'Albany'")
-data["Date"] = pd.to_datetime(data["Date"], format="%Y-%m-%d")
-data.sort_values("Date", inplace=True)
+data = (
+    pd.read_csv("avocado.csv")
+    .query("type == 'conventional' and region == 'Albany'")
+    .assign(Date=lambda data: pd.to_datetime(data["Date"], format="%Y-%m-%d"))
+    .sort_values(by="Date")
+)
 
-app = dash.Dash(__name__)
+app = Dash(__name__)
 
 app.layout = html.Div(
     children=[
-        html.H1(
-            children="Avocado Analytics",
-        ),
+        html.H1(children="Avocado Analytics"),
         html.P(
-            children="Analyze the behavior of avocado prices"
-            " and the number of avocados sold in the US"
-            " between 2015 and 2018",
+            children=(
+                "Analyze the behavior of avocado prices and the number"
+                " of avocados sold in the US between 2015 and 2018"
+            ),
         ),
         dcc.Graph(
             figure={
