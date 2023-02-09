@@ -15,7 +15,7 @@ def collect():
                 readers[item.stem] = read_function
         except ImportError:
             continue
-        except AttributeError as e:
+        except AttributeError:
             if item.is_dir():
                 continue
             print(f"No read() function in {item}")
