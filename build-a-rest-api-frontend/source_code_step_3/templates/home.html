@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>RP Flask REST API</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <script
+        src="{{ url_for('static', filename='js/index.js') }}"
+        type="module"
+    ></script>
+</head>
+<body>
+    <h1>
+        Hello, People!
+    </h1>
+    {% for person in people %}
+    <h2>{{ person.fname }} {{ person.lname }}</h2>
+    <ul>
+        {% for note in person.notes %}
+        <li>
+            {{ note.content }}
+        </li>
+        {% endfor %}
+    </ul>
+    {% endfor %}
+
+    {% if config['DEBUG'] %}
+        {% include "_debug.html" %}
+    {% endif %}
+</body>
+</html>
