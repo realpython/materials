@@ -4,7 +4,7 @@ import pandas as pd
 
 
 def data(name):
-    """Get data file."""
+    """Get a data file."""
     data_path = path(name)
     file_type = data_path.suffix.lstrip(".")
     return readers[file_type](data_path)
@@ -19,12 +19,12 @@ def path(name):
 
 
 def csv(data_path):
-    """Read CSV file from a path."""
+    """Read a CSV file from a path."""
     return pd.read_csv(data_path)
 
 
 def json(data_path):
-    """Read JSON file from a path."""
+    """Read a JSON file from a path."""
     return pd.read_json(data_path)
 
 
