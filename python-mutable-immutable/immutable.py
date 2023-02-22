@@ -1,6 +1,6 @@
 class Immutable:
-    def __init__(self, value):
-        super().__setattr__("value", value)
+    def __init__(self, magnitude):
+        super().__setattr__("magnitude", magnitude)
 
     def __setattr__(self, name, value):
         raise AttributeError(f"can't set attribute '{name}'")
