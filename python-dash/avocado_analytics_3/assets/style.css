@@ -61,7 +61,8 @@ body {
     height: 48px;
 }
 
-.Select--single > .Select-control .Select-value, .Select-placeholder {
+.Select--single>.Select-control .Select-value,
+.Select-placeholder {
     line-height: 48px;
 }
 
@@ -74,4 +75,3 @@ body {
     font-weight: bold;
     color: #079A82;
 }
-
