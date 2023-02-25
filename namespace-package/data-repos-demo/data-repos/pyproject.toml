@@ -4,14 +4,14 @@ build-backend = "setuptools.build_meta"
 
 [tool.setuptools.packages.find]
 where = ["."]
-include = ["data_repo"]
+include = ["data_repos"]
 namespaces = true
 
 [project]
-name = "data-repo"
+name = "data-repos"
 authors = [
     {name = "Ian Currie", email = "iansedano@gmail.com"},
-    {name = "Geir Arne Hjelle", email = "?@?.com"},
+    {name = "Geir Arne Hjelle", email = "gahjelle@gmail.com"},
 ]
 description = "A namespace provider for distributed data repositories"
 readme = "README.md"
