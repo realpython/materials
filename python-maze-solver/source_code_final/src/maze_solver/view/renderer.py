@@ -57,9 +57,9 @@ class SVGRenderer:
         return self.line_width // 2
 
     def render(self, maze: Maze, solution: Solution | None = None) -> SVG:
-        margin = 2 * (self.offset + self.line_width)
-        width = margin + maze.width * self.square_size
-        height = margin + maze.height * self.square_size
+        margins = 2 * (self.offset + self.line_width)
+        width = margins + maze.width * self.square_size
+        height = margins + maze.height * self.square_size
         return SVG(
             tag(
                 "svg",

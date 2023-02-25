@@ -1,3 +1,4 @@
+import math
 from typing import NamedTuple, TypeAlias
 
 import networkx as nx
@@ -19,14 +20,13 @@ class Edge(NamedTuple):
         return Edge(self.node2, self.node1)
 
     @property
-    def distance(self) -> int:
-        if self.node1.row == self.node2.row:
-            return abs(self.node1.column - self.node2.column)
-        if self.node1.column == self.node2.column:
-            return abs(self.node1.row - self.node2.row)
-        raise ValueError("Can only move horizontally oor vertically")
+    def distance(self) -> float:
+        return math.dist(
+            (self.node1.row, self.node1.column),
+            (self.node2.row, self.node2.column),
+        )
 
-    def weight(self, bonus=1, penalty=2) -> int:
+    def weight(self, bonus=1, penalty=2) -> float:
         match self.node2.role:
             case Role.REWARD:
                 return self.distance - bonus
@@ -41,10 +41,6 @@ def make_graph(maze: Maze) -> nx.DiGraph:
         (edge.node1, edge.node2, {"weight": edge.weight()})
         for edge in get_directed_edges(maze, get_nodes(maze))
     )
-
-
-def get_directed_edges(maze: Maze, nodes: set[Node]) -> set[Edge]:
-    return (edges := get_edges(maze, nodes)) | {edge.flip for edge in edges}
 
 
 def get_nodes(maze: Maze) -> set[Node]:
@@ -66,7 +62,7 @@ def get_nodes(maze: Maze) -> set[Node]:
 def get_edges(maze: Maze, nodes: set[Node]) -> set[Edge]:
     edges: set[Edge] = set()
     for source_node in nodes:
-        # Follow east:
+        # Follow right:
         node = source_node
         for x in range(node.column + 1, maze.width):
             if node.border & Border.RIGHT:
@@ -75,8 +71,7 @@ def get_edges(maze: Maze, nodes: set[Node]) -> set[Edge]:
             if node in nodes:
                 edges.add(Edge(source_node, node))
                 break
-
-        # Follow south:
+        # Follow down:
         node = source_node
         for y in range(node.row + 1, maze.height):
             if node.border & Border.BOTTOM:
@@ -86,3 +81,7 @@ def get_edges(maze: Maze, nodes: set[Node]) -> set[Edge]:
                 edges.add(Edge(source_node, node))
                 break
     return edges
+
+
+def get_directed_edges(maze: Maze, nodes: set[Node]) -> set[Edge]:
+    return (edges := get_edges(maze, nodes)) | {edge.flip for edge in edges}

@@ -7,7 +7,7 @@ name = "maze-solver"
 version = "1.0.0"
 
 dependencies = [
-    "networkx == 3.0",
+    "networkx >= 3.0",
 ]
 
 [project.scripts]

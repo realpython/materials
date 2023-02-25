@@ -26,8 +26,7 @@ class Solution:
 
 
 def validate_collinear(current: Square, following: Square) -> Square:
-    assert 0 == min(
-        abs(current.row - following.row),
-        abs(current.column - following.column),
+    assert any(
+        [current.row == following.row, current.column == following.column]
     ), "Squares must be collinear"
     return following

@@ -7,8 +7,9 @@ from maze_solver.view.renderer import SVGRenderer
 
 
 def main() -> None:
+    maze = Maze.load(parse_path())
     renderer = SVGRenderer()
-    for solution in solve_all(maze := Maze.load(parse_path())):
+    for solution in solve_all(maze):
         renderer.render(maze, solution).preview()
     else:
         print("No solution found")

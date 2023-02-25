@@ -16,8 +16,8 @@ def dump_squares(
     squares: tuple[Square, ...],
     path: pathlib.Path,
 ) -> None:
+    header, body = serialize(width, height, squares)
     with path.open(mode="wb") as file:
-        header, body = serialize(width, height, squares)
         header.write(file)
         body.write(file)
 

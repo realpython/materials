@@ -60,20 +60,11 @@ class Rect:
     top_left: Point | None = None
 
     def draw(self, **attributes) -> str:
-        return tag(
-            "rect",
-            **(
-                attributes
-                | (
-                    {
-                        "x": self.top_left.x,
-                        "y": self.top_left.y,
-                    }
-                    if self.top_left
-                    else {}
-                )
-            ),
-        )
+        if self.top_left:
+            attrs = attributes | {"x": self.top_left.x, "y": self.top_left.y}
+        else:
+            attrs = attributes
+        return tag("rect", **attrs)
 
 
 @dataclass(frozen=True)
