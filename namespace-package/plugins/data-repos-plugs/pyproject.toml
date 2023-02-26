@@ -4,11 +4,11 @@ build-backend = "setuptools.build_meta"
 
 [tool.setuptools.packages.find]
 where = ["."]
-include = ["data_repo"]
+include = ["data_repos"]
 namespaces = true
 
 [project]
-name = "data-repo"
+name = "data-repos"
 description = "A namespace provider for distributed data repositories"
 readme = "README.md"
 requires-python = ">=3.7"
