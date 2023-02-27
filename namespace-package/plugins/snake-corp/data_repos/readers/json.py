@@ -3,4 +3,5 @@ import pathlib
 
 
 def read(file):
-    return json.loads(pathlib.Path(file).read_text())
+    """Read JSON file from a path."""
+    return json.loads(pathlib.Path(file).read_text(encoding="utf-8"))
