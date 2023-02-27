@@ -8,7 +8,9 @@ def collect():
         if item.stem == "__pycache__":
             continue
         try:
-            read_function = import_module(f"{__package__}.readers.{item.stem}").read
+            read_function = import_module(
+                f"{__package__}.readers.{item.stem}"
+            ).read
             if callable(read_function):
                 readers[item.stem] = read_function
         except ImportError:
