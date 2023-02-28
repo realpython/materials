@@ -1,0 +1,32 @@
+.person-control-card {
+    text-align: right;
+}
+
+.person-control {
+    text-align: left;
+}
+
+.person-create-card {
+    margin-right: 1em;
+}
+
+.person-create-card,
+.person-control-card.editing {
+    background-color: var(--secondary-color);
+    padding: 1em;
+}
+
+.person-create-card input,
+.person-control-card input {
+    width: 100%;
+}
+
+.people-list {
+    margin-bottom: 1.3em;
+}
+
+.person-card {
+    border-left: 0.3em solid var(--main-color);
+    padding: 0.3em 1em;
+    margin: 1em 0;
+}
