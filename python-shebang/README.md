@@ -1,6 +1,6 @@
-# Should You Put the Unix Shebang (#!) in Python Scripts?
+# Executing Python Scripts With a Shebang
 
-This folder holds the code for the Real Python Should You Put the Unix Shebang (#!) in Python Scripts? tutorial.
+This folder holds the code for the Real Python tutorial entitled [Executing Python Scripts With a Shebang](https://realpython.com/python-shebang/).
 
 ## Sample Scripts
 
@@ -9,16 +9,8 @@ This folder holds the code for the Real Python Should You Put the Unix Shebang (
 Command:
 
 ```shell
-$ ./hello.py 
-Hello from Python!
-```
-
-Source:
-
-```python
-#!/usr/bin/env python
-
-print("Hello from Python!")
+$ ./hello.py
+Hello, World!
 ```
 
 ### Perl
@@ -27,15 +19,7 @@ Command:
 
 ```shell
 $ ./hello.pl
-Hello from Perl!
-```
-
-Source:
-
-```perl
-#!/usr/bin/env perl
-
-print "Hello from Perl!\n";
+Hello, World!
 ```
 
 ### JavaScript
@@ -44,15 +28,7 @@ Command:
 
 ```shell
 $ ./hello.js
-Hello from JavaScript!
-```
-
-Source:
-
-```javascript
-#!/usr/bin/env node
-
-console.log("Hello from JavaScript!")
+Hello, World!
 ```
 
 ### Java
@@ -61,18 +37,7 @@ Command:
 
 ```shell
 $ ./hello.j
-Hello from Java!
-```
-
-Source:
-
-```java
-#!/usr/bin/env -S java --source 11
-public class Hello {
-    public static void main(String[] args) {
-        System.out.println("Hello from Java!");
-    }
-}
+Hello, World!
 ```
 
 ## Custom Interpreter
@@ -86,11 +51,12 @@ $ source venv/bin/activate
 (venv) $ python -m pip install .
 ```
 
-Execute sample scripts through the esoteric language interepreter while using the virtual environment:
+Execute sample scripts through the esoteric language interpreter while using the virtual environment:
 
 ```shell
 (venv) $ cd scripts/
 ```
+
 ### Towers of Hanoi
 
 ```shell
@@ -232,6 +198,8 @@ Execute sample scripts through the esoteric language interepreter while using th
 ```
 
 ### ROT-13
+
+This is an interactive script that will expect you to provide input from your keyboard:
 
 ```shell
 (venv) $ ./rot13.b 
