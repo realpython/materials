@@ -6,7 +6,7 @@ This is a small project to demonstrate how to build a face detector using Python
 Refer to the [CMake documentation](https://cmake.org/install/) and that of your preferred C++ compiler for 
 installation instructions. 
 
-The code assumes that the directories `output/` and `eval_img/` exist in its structure, so be sure to create those directories before running.
+The script assumes that the directories `training/`, `output/` and `validation/` exist, so be sure to create those directories before running the code.
 
 ## Usage
 

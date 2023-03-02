@@ -25,7 +25,7 @@ parser.add_argument(
     help="Which model to use for training: hog (CPU), cnn (GPU)",
 )
 parser.add_argument(
-    "-f", action="store", help="Unknown face image filename within eval_img/"
+    "-f", action="store", help="Path to an image with an unknown face"
 )
 args = parser.parse_args()
 
