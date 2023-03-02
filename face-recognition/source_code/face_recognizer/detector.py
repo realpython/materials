@@ -1,13 +1,13 @@
 import argparse
-from collections import defaultdict
-import face_recognition
 import pathlib
 import pickle
+from collections import defaultdict
+
 from PIL import Image, ImageDraw
 
+import face_recognition
 
 DEFAULT_ENCODINGS_PATH = "output/encodings.pkl"
-
 
 parser = argparse.ArgumentParser(description="Recognize faces in an image")
 parser.add_argument("--train", action="store_true", help="Train on input data")
@@ -25,27 +25,24 @@ parser.add_argument(
     help="Which model to use for training: hog (CPU), cnn (GPU)",
 )
 parser.add_argument(
-    "-f", action="store", help="Unknown image filename within eval_img/"
+    "-f", action="store", help="Unknown face image filename within eval_img/"
 )
 args = parser.parse_args()
 
 
 def encode_known_faces(
-    model: str, encodings_location: str = DEFAULT_ENCODINGS_PATH
+    model: str = "hog", encodings_location: str = DEFAULT_ENCODINGS_PATH
 ) -> None:
     names = []
     encodings = []
+
     for filepath in pathlib.Path("training").glob("*/*"):
         name = filepath.parts[1]
         image = face_recognition.load_image_file(filepath)
 
-        # Detect faces in loaded image
-        face_locations = face_recognition.face_locations(
-            image, model=model
-        )  # Can use cnn if on GPU for more accuracy
-
-        # Use bounding boxes to get face encodings.
+        face_locations = face_recognition.face_locations(image, model=model)
         face_encodings = face_recognition.face_encodings(image, face_locations)
+
         for encoding in face_encodings:
             names.append(name)
             encodings.append(encoding)
@@ -65,7 +62,6 @@ def recognize_faces(
 
     input_image = face_recognition.load_image_file(image_location)
 
-    # Detect faces in input and generate encodings
     input_face_locations = face_recognition.face_locations(
         input_image, model=model
     )
@@ -76,7 +72,6 @@ def recognize_faces(
     pillow_image = Image.fromarray(input_image)
     draw = ImageDraw.Draw(pillow_image)
 
-    # Interpret
     for (top, right, bottom, left), unknown_encoding in zip(
         input_face_locations, input_face_encodings
     ):
@@ -85,7 +80,6 @@ def recognize_faces(
         )
         result = "Not found"
 
-        # Generate a list of matched indexes
         match_indexes = []
         name_frequency = defaultdict(int)
         for index, match in enumerate(boolean_matches):
@@ -96,20 +90,16 @@ def recognize_faces(
             name = loaded_encodings["names"][index]
             name_frequency[name] += 1
 
-        # Get the highest-voted name
         if name_frequency:
             result = max(name_frequency, key=lambda key: name_frequency[key])
 
-        # Draw box around detected face
         draw.rectangle(((left, top), (right, bottom)), outline=(51, 51, 255))
         caption_width, caption_height = draw.textsize(result)
-        # Draw solid box to show result
         draw.rectangle(
             ((left, bottom - caption_height - 10), (right, bottom)),
             fill=(51, 51, 255),
             outline=(51, 51, 255),
         )
-        # Write the results on the caption box and preserve margins
         draw.text(
             (left + 6, bottom - caption_height - 5),
             result,
@@ -122,7 +112,8 @@ def recognize_faces(
 
 def validate(model: str = "hog"):
     for filepath in pathlib.Path("validation").glob("**/*"):
-        recognize_faces(image_location=str(filepath), model=model)
+        if filepath.is_file():
+            recognize_faces(image_location=str(filepath), model=model)
 
 
 if __name__ == "__main__":
