@@ -32,7 +32,7 @@ def load_squares(path: pathlib.Path) -> Iterator[Square]:
 
 
 def serialize(
-    width: int, heigth: int, squares: tuple[Square, ...]
+    width: int, height: int, squares: tuple[Square, ...]
 ) -> tuple[FileHeader, FileBody]:
     header = FileHeader(FORMAT_VERSION, width, height)
     body = FileBody(array.array("B", map(compress, squares)))
