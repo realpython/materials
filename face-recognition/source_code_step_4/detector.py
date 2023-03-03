@@ -2,9 +2,8 @@ import pathlib
 import pickle
 from collections import defaultdict
 
-from PIL import Image, ImageDraw
-
 import face_recognition
+from PIL import Image, ImageDraw
 
 DEFAULT_ENCODINGS_PATH = "output/encodings.pkl"
 
@@ -86,5 +85,6 @@ def recognize_faces(
 
     del draw
     pillow_image.show()
+
 
 recognize_faces("two-presidents.webp")

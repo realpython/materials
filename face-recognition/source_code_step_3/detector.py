@@ -2,9 +2,8 @@ import pathlib
 import pickle
 from collections import defaultdict
 
-from PIL import Image, ImageDraw
-
 import face_recognition
+from PIL import Image, ImageDraw
 
 DEFAULT_ENCODINGS_PATH = "output/encodings.pkl"
 
@@ -48,7 +47,7 @@ def recognize_faces(
     )
 
     pillow_image = Image.fromarray(input_image)
-    draw = ImageDraw.Draw(pillow_image)
+    draw = ImageDraw.Draw(pillow_image)  # noqa F841
 
     for (top, right, bottom, left), unknown_encoding in zip(
         input_face_locations, input_face_encodings
@@ -70,7 +69,8 @@ def recognize_faces(
 
         if name_frequency:
             result = max(name_frequency, key=lambda key: name_frequency[key])
-    
+
         print(result)
+
 
 recognize_faces("two-presidents.webp")
