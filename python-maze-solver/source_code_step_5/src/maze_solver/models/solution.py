@@ -13,7 +13,7 @@ class Solution:
     def __post_init__(self) -> None:
         assert self.squares[0].role is Role.ENTRANCE
         assert self.squares[-1].role is Role.EXIT
-        reduce(validate_collinear, self.squares)
+        reduce(validate_corridor, self.squares)
 
     def __iter__(self) -> Iterator[Square]:
         return iter(self.squares)
@@ -25,8 +25,8 @@ class Solution:
         return len(self.squares)
 
 
-def validate_collinear(current: Square, following: Square) -> Square:
+def validate_corridor(current: Square, following: Square) -> Square:
     assert any(
         [current.row == following.row, current.column == following.column]
-    ), "Squares must be collinear"
+    ), "Squares must lie in the same row or column"
     return following
