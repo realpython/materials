@@ -12,18 +12,15 @@ from maze_solver.persistence.serializer import dump_squares, load_squares
 class Maze:
     squares: tuple[Square, ...]
 
+    @classmethod
+    def load(cls, path: Path) -> "Maze":
+        return Maze(tuple(load_squares(path)))
+
     def __post_init__(self) -> None:
         validate_indices(self)
         validate_rows_columns(self)
         validate_entrance(self)
         validate_exit(self)
-
-    @classmethod
-    def load(cls, path: Path) -> "Maze":
-        return Maze(tuple(load_squares(path)))
-
-    def dump(self, path: Path) -> None:
-        dump_squares(self.width, self.height, self.squares, path)
 
     def __iter__(self) -> Iterator[Square]:
         return iter(self.squares)
@@ -46,6 +43,9 @@ class Maze:
     @cached_property
     def exit(self) -> Square:
         return next(sq for sq in self if sq.role is Role.EXIT)
+
+    def dump(self, path: Path) -> None:
+        dump_squares(self.width, self.height, self.squares, path)
 
 
 def validate_indices(maze: Maze) -> None:

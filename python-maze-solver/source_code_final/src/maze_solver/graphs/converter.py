@@ -43,6 +43,10 @@ def make_graph(maze: Maze) -> nx.DiGraph:
     )
 
 
+def get_directed_edges(maze: Maze, nodes: set[Node]) -> set[Edge]:
+    return (edges := get_edges(maze, nodes)) | {edge.flip for edge in edges}
+
+
 def get_nodes(maze: Maze) -> set[Node]:
     nodes: set[Node] = set()
     for square in maze:
@@ -81,7 +85,3 @@ def get_edges(maze: Maze, nodes: set[Node]) -> set[Edge]:
                 edges.add(Edge(source_node, node))
                 break
     return edges
-
-
-def get_directed_edges(maze: Maze, nodes: set[Node]) -> set[Edge]:
-    return (edges := get_edges(maze, nodes)) | {edge.flip for edge in edges}

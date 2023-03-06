@@ -1,17 +1,1 @@
-blessed==1.20.0
-bpython==0.24
-certifi==2022.12.7
-charset-normalizer==3.0.1
-curtsies==0.4.1
-cwcwidth==0.1.8
-greenlet==2.0.2
-idna==3.4
-# Editable install with no version control (maze-solver==1.0.0)
--e /home/bartek/Desktop/maze-solver-final
 networkx==3.0
-Pygments==2.14.0
-pyxdg==0.28
-requests==2.28.2
-six==1.16.0
-urllib3==1.26.14
-wcwidth==0.2.6
