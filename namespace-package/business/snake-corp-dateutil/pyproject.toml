@@ -1,0 +1,14 @@
+[build-system]
+requires      = ["setuptools", "setuptools-scm"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+where      = ["."]
+include    = ["snake_corp"]
+namespaces = true
+
+[project]
+name        = "snake-corp-dateutil"
+version     = "1.0.3"
+description = "Date Utilities for the Snake Corporation"
+license     = { text = "Snake Corp Software License Agreement" }

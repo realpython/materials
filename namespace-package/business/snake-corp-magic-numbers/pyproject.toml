@@ -1,0 +1,14 @@
+[build-system]
+requires      = ["setuptools", "setuptools-scm"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+where      = ["."]
+include    = ["snake_corp"]
+namespaces = true
+
+[project]
+name        = "snake-corp-magic-numbers"
+version     = "1.1.8"
+description = "Super Magic Secret Numbers for the Snake Corporation"
+license     = { text = "Snake Corp Software License Agreement" }
