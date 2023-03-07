@@ -1,2 +1,2 @@
 black[jupyter]==22.6.0
-flake8==5.0.4 
+flake8==6.0.0 
