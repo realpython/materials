@@ -13,7 +13,10 @@ class Greeter:
             self = frame.f_locals["self"]
             if hasattr(self, wrong_name):
                 raise NameError(
-                    f"name '{wrong_name}' is not defined. Did you mean: 'self.{wrong_name}'?"
+                    (
+                        f"name '{wrong_name}' is not defined. "
+                        f"Did you mean: 'self.{wrong_name}'?"
+                    )
                 )
 
 
