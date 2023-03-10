@@ -5,11 +5,11 @@ class Factorial:
         self._factorial = self._calculate_factorial(number)
         del self._cache
 
-    def _calculate_factorial(self, n):
-        if n in self._cache:
-            return self._cache[n]
-        current_factorial = n * self._calculate_factorial(n - 1)
-        self._cache[n] = current_factorial
+    def _calculate_factorial(self, number):
+        if number in self._cache:
+            return self._cache[number]
+        current_factorial = number * self._calculate_factorial(number - 1)
+        self._cache[number] = current_factorial
         return current_factorial
 
     @property
