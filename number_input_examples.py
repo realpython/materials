@@ -1,7 +1,9 @@
 # number_input_examples.py
 
-# This file accompanies the Real Python article "How To Read User Input As Integers".
-# It contains examples of functions that filter user input for valid integers and floats.
+# This file accompanies the Real Python article
+# "How To Read User Input As Integers". It contains
+# examples of functions that filter user input for
+# valid integers and floats.
 
 
 def get_integer(prompt: str, error_message: str = None) -> int:
@@ -50,12 +52,16 @@ def get_integer_with_default(
 
 if __name__ == "__main__":
     print(get_integer("Testing get_integer(): "))
-    print(
-        get_integer("Testing get_integer() with an error message: ", "Invalid integer!")
+    print(get_integer(
+            "Testing get_integer() with an error message: ",
+            "Invalid integer!")
     )
-    print(get_float("Testing get_float() with an error message: ", "Invalid float!"))
+    print(get_float
+          ("Testing get_float() with an error message: ",
+           "Invalid float!"))
     print(
         get_integer_with_default(
-            "Testing get_integer_with_default(): ", 99, "That's not a valid integer!"
+            "Testing get_integer_with_default(): ",
+            99, "That's not a valid integer!"
         )
     )
