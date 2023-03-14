@@ -1,6 +1,6 @@
 """Utility functions for prompting users for numeric input.
 
-This file accompanies the Real Python article How To Read User Input As
+This file accompanies the Real Python tutorial How To Read User Input As
 Integers. It contains examples of functions that filter user input for valid
 integers and floats.
 """
