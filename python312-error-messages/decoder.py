@@ -2,11 +2,12 @@ from this import d
 
 message = "Gunaxf sbe nyy gur nqqrq pynevgl va reebe zrffntrf, Cnoyb!"
 
-decoded_message = ""
+decoded_characters = []
 for character in message:
     if character.isalpha():
-        decoded_message += d.get(character, "")
+        decoded_characters.append(d.get(character, ""))
     else:
-        decoded_message += character
+        decoded_characters.append(character)
+decoded_message = "".join(decoded_characters)
 
 print(decoded_message)
