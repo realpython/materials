@@ -4,7 +4,6 @@ message = "Thanks for all the added clarity in error messages, Pablo!"
 
 reverse_cypher_dict = {value: key for key, value in d.items()}
 
-
 encoded_characters = []
 for character in message:
     if character.isalpha():
