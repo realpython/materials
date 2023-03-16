@@ -30,4 +30,4 @@ Alternatively, you can use the more explicit yet equivalent command:
 $ python -m maze_solver /path/to/labyrinth.maze
 ```
 
-If the command succeeds, then you should either see a rendered solution in your default web browser or a relevant error message in the console.
+If the command succeeds, then you should see either a rendered solution in your default web browser or a relevant error message in the console.
