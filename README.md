@@ -3,7 +3,7 @@
 Bonus materials, exercises, and example projects for Real Python's [Python tutorials](https://realpython.com).
 
 Build Status:
-[![GitHub Actions](https://img.shields.io/github/workflow/status/realpython/materials/linters?label=build)](https://github.com/realpython/materials/actions)
+[![GitHub Actions](https://img.shields.io/github/actions/workflow/status/realpython/materials/linters.yml?branch=master)](https://github.com/realpython/materials/actions)
 
 ## Got a Question?
 
