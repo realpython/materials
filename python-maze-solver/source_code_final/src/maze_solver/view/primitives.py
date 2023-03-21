@@ -55,7 +55,7 @@ class DisjointLines(tuple[Line, ...]):
         return "".join(line.draw(**attributes) for line in self)
 
 
-@dataclass
+@dataclass(frozen=True)
 class Rect:
     top_left: Point | None = None
 
