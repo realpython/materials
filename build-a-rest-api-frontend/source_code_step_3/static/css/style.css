@@ -1,0 +1,80 @@
+:root {
+    --bg-color: white;
+    --main-color: coral;
+    --secondary-color: lavenderblush;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    color: var(--main-color);
+    font-size: 1.3em;
+    font-family: sans-serif;
+    display: grid;
+    justify-content: center;
+}
+
+h2 {
+    margin: 0;
+    padding-bottom: 0.3em;
+}
+
+hr {
+    border: 1px solid var(--main-color);
+    border-bottom: none;
+}
+
+label {
+    display: block;
+}
+
+label span {
+    min-width: 9ch;
+    display: inline-block;
+}
+
+input {
+    border: 1px solid var(--main-color);
+    color: inherit;
+    padding: 0.3em;
+}
+
+.hidden {
+    display: none;
+}
+
+.editing {
+    background-color: var(--secondary-color) !important;
+}
+
+button,
+.button {
+    background-color: var(--main-color);
+    border: 1px solid var(--main-color);
+    color: var(--bg-color);
+    cursor: pointer;
+    font-size: 0.6em;
+    font-weight: bold;
+    margin: 0.3em 0;
+    padding: 0.3em 1.3em;
+    text-transform: uppercase;
+    min-width: 23ch;
+}
+
+button:hover {
+    background-color: var(--bg-color);
+    color: var(--main-color);
+}
+
+.button {
+    background-color: transparent;
+    color: var(--main-color);
+    cursor: pointer;
+}
+
+.button:hover {
+    background-color: var(--main-color);
+    color: var(--bg-color);
+}

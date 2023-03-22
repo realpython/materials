@@ -1,0 +1,23 @@
+[build-system]
+requires      = ["setuptools", "setuptools-scm"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+where      = ["."]
+include    = ["data_repos"]
+namespaces = true
+
+[project]
+name = "data-repos"
+version = "1.0.0"
+authors = [
+    { name = "Ian Currie", email = "iansedano@gmail.com" },
+    { name = "Geir Arne Hjelle", email = "gahjelle@gmail.com" },
+]
+description = "A namespace provider for distributed data repositories"
+readme = "README.md"
+requires-python = ">=3.7"
+keywords = ["namespace", "data"]
+license = { text = "MIT" }
+classifiers = ["Programming Language :: Python :: 3"]
+dependencies = ["pandas"]

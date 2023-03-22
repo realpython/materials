@@ -1,0 +1,17 @@
+<div class="person-card" data-person-id="{{ person.id }}">
+    {% include "_person_control.html" %}
+    <div class="person-content">
+        <h2>
+            <span data-person-fname="{{ person.fname }}">{{ person.fname }}</span>
+            <span data-person-lname="{{ person.lname }}">{{ person.lname }}</span>
+        </h2>
+    </div>
+    <ul class="note-list">
+        <li class="note-create-card">
+            {% include "_note_create_form.html" %}
+        </li>
+        {% for note in person.notes %}
+            {% include "_note_content.html" %}
+        {% endfor %}
+    </ul>
+</div>
