@@ -51,7 +51,7 @@ def recognize_faces(
     ):
         name = _recognize_face(unknown_encoding, loaded_encodings)
         print(name, bounding_box)
-        
+
 
 def _recognize_face(unknown_encoding, loaded_encodings):
     boolean_matches = face_recognition.compare_faces(
@@ -64,5 +64,6 @@ def _recognize_face(unknown_encoding, loaded_encodings):
     )
     if votes:
         return votes.most_common(1)[0][0]
+
 
 recognize_faces("two-presidents.webp")

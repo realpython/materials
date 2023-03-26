@@ -77,10 +77,10 @@ def recognize_faces(
         name = _recognize_face(unknown_encoding, loaded_encodings)
         if name:
             _display_face(draw, bounding_box, name)
-    
+
     del draw
     pillow_image.show()
-        
+
 
 def _recognize_face(unknown_encoding, loaded_encodings):
     boolean_matches = face_recognition.compare_faces(
@@ -98,14 +98,16 @@ def _recognize_face(unknown_encoding, loaded_encodings):
 def _display_face(draw, bounding_box, name):
     top, right, bottom, left = bounding_box
     draw.rectangle(((left, top), (right, bottom)), outline=(51, 51, 255))
-    _, caption_height = draw.textsize(name)
+    text_left, text_top, text_right, text_bottom = draw.textbbox(
+        (left, bottom), name
+    )
     draw.rectangle(
-        ((left, bottom - caption_height - 10), (right, bottom)),
+        ((text_left, text_top), (text_right, text_bottom)),
         fill=(51, 51, 255),
         outline=(51, 51, 255),
     )
     draw.text(
-        (left + 6, bottom - caption_height - 5),
+        (text_left, text_top),
         name,
         fill=(255, 255, 255, 255),
     )
