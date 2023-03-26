@@ -1,7 +1,7 @@
 import argparse
 import pathlib
 import pickle
-from collections import defaultdict
+from collections import Counter
 
 import face_recognition
 from PIL import Image, ImageDraw
@@ -71,42 +71,44 @@ def recognize_faces(
     pillow_image = Image.fromarray(input_image)
     draw = ImageDraw.Draw(pillow_image)
 
-    for (top, right, bottom, left), unknown_encoding in zip(
+    for bounding_box, unknown_encoding in zip(
         input_face_locations, input_face_encodings
     ):
-        boolean_matches = face_recognition.compare_faces(
-            loaded_encodings["encodings"], unknown_encoding
-        )
-        result = "Not found"
-
-        match_indexes = []
-        name_frequency = defaultdict(int)
-        for index, match in enumerate(boolean_matches):
-            if match:
-                match_indexes.append(index)
-
-        for index in match_indexes:
-            name = loaded_encodings["names"][index]
-            name_frequency[name] += 1
-
-        if name_frequency:
-            result = max(name_frequency, key=lambda key: name_frequency[key])
-
-        draw.rectangle(((left, top), (right, bottom)), outline=(51, 51, 255))
-        _, caption_height = draw.textsize(result)
-        draw.rectangle(
-            ((left, bottom - caption_height - 10), (right, bottom)),
-            fill=(51, 51, 255),
-            outline=(51, 51, 255),
-        )
-        draw.text(
-            (left + 6, bottom - caption_height - 5),
-            result,
-            fill=(255, 255, 255, 255),
-        )
-
+        name = _recognize_face(unknown_encoding, loaded_encodings)
+        if name:
+            _display_face(draw, bounding_box, name)
+    
     del draw
     pillow_image.show()
+        
+
+def _recognize_face(unknown_encoding, loaded_encodings):
+    boolean_matches = face_recognition.compare_faces(
+        loaded_encodings["encodings"], unknown_encoding
+    )
+    votes = Counter(
+        name
+        for match, name in zip(boolean_matches, loaded_encodings["names"])
+        if match
+    )
+    if votes:
+        return votes.most_common(1)[0][0]
+
+
+def _display_face(draw, bounding_box, name):
+    top, right, bottom, left = bounding_box
+    draw.rectangle(((left, top), (right, bottom)), outline=(51, 51, 255))
+    _, caption_height = draw.textsize(name)
+    draw.rectangle(
+        ((left, bottom - caption_height - 10), (right, bottom)),
+        fill=(51, 51, 255),
+        outline=(51, 51, 255),
+    )
+    draw.text(
+        (left + 6, bottom - caption_height - 5),
+        name,
+        fill=(255, 255, 255, 255),
+    )
 
 
 def validate(model: str = "hog"):

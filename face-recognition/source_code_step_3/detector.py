@@ -46,31 +46,23 @@ def recognize_faces(
         input_image, input_face_locations
     )
 
-    pillow_image = Image.fromarray(input_image)
-    draw = ImageDraw.Draw(pillow_image)  # noqa F841
-
-    for (top, right, bottom, left), unknown_encoding in zip(
+    for bounding_box, unknown_encoding in zip(
         input_face_locations, input_face_encodings
     ):
-        boolean_matches = face_recognition.compare_faces(
-            loaded_encodings["encodings"], unknown_encoding
-        )
-        result = "Not found"
+        name = _recognize_face(unknown_encoding, loaded_encodings)
+        print(name, bounding_box)
+        
 
-        match_indexes = []
-        name_frequency = defaultdict(int)
-        for index, match in enumerate(boolean_matches):
-            if match:
-                match_indexes.append(index)
-
-        for index in match_indexes:
-            name = loaded_encodings["names"][index]
-            name_frequency[name] += 1
-
-        if name_frequency:
-            result = max(name_frequency, key=lambda key: name_frequency[key])
-
-        print(result)
-
+def _recognize_face(unknown_encoding, loaded_encodings):
+    boolean_matches = face_recognition.compare_faces(
+        loaded_encodings["encodings"], unknown_encoding
+    )
+    votes = Counter(
+        name
+        for match, name in zip(boolean_matches, loaded_encodings["names"])
+        if match
+    )
+    if votes:
+        return votes.most_common(1)[0][0]
 
 recognize_faces("two-presidents.webp")
