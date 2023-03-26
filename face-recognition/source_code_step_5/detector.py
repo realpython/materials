@@ -7,6 +7,11 @@ from PIL import Image, ImageDraw
 
 DEFAULT_ENCODINGS_PATH = "output/encodings.pkl"
 
+# Create directories if they don't already exist
+pathlib.Path("training").mkdir(exist_ok=True)
+pathlib.Path("output").mkdir(exist_ok=True)
+pathlib.Path("validation").mkdir(exist_ok=True)
+
 
 def encode_known_faces(
     model: str = "hog", encodings_location: str = DEFAULT_ENCODINGS_PATH

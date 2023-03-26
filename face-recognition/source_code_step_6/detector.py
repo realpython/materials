@@ -8,6 +8,11 @@ from PIL import Image, ImageDraw
 
 DEFAULT_ENCODINGS_PATH = "output/encodings.pkl"
 
+# Create directories if they don't already exist
+pathlib.Path("training").mkdir(exist_ok=True)
+pathlib.Path("output").mkdir(exist_ok=True)
+pathlib.Path("validation").mkdir(exist_ok=True)
+
 parser = argparse.ArgumentParser(description="Recognize faces in an image")
 parser.add_argument("--train", action="store_true", help="Train on input data")
 parser.add_argument(
