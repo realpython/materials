@@ -54,8 +54,9 @@ def recognize_faces(
     ):
         name = _recognize_face(unknown_encoding, loaded_encodings)
         # print(name, bounding_box)  # Removed
-        if name:
-            _display_face(draw, bounding_box, name)
+        if not name:
+            name = "Unknown"
+        _display_face(draw, bounding_box, name)
 
     del draw
     pillow_image.show()
