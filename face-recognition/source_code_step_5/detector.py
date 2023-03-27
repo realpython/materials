@@ -95,7 +95,7 @@ def _recognize_face(unknown_encoding, loaded_encodings):
 
 def _display_face(draw, bounding_box, name):
     """
-    Draws bounding boxes around faces as well as a caption area and text captions.
+    Draws bounding boxes around faces, a caption area, and text captions.
     """
     top, right, bottom, left = bounding_box
     draw.rectangle(((left, top), (right, bottom)), outline=BOUNDING_BOX_COLOR)
