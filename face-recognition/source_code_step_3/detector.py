@@ -1,9 +1,8 @@
 import pathlib
 import pickle
-from collections import defaultdict
+from collections import Counter
 
 import face_recognition
-from PIL import Image, ImageDraw
 
 DEFAULT_ENCODINGS_PATH = "output/encodings.pkl"
 
