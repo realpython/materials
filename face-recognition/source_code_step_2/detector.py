@@ -14,6 +14,10 @@ pathlib.Path("validation").mkdir(exist_ok=True)
 def encode_known_faces(
     model: str = "hog", encodings_location: str = DEFAULT_ENCODINGS_PATH
 ) -> None:
+    """
+    Loads images in the training directory and builds a dictionary of their
+    names and encodings.
+    """
     names = []
     encodings = []
     for filepath in pathlib.Path("training").glob("*/*"):

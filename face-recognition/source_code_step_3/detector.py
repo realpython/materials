@@ -16,6 +16,10 @@ pathlib.Path("validation").mkdir(exist_ok=True)
 def encode_known_faces(
     model: str = "hog", encodings_location: str = DEFAULT_ENCODINGS_PATH
 ) -> None:
+    """
+    Loads images in the training directory and builds a dictionary of their
+    names and encodings.
+    """
     names = []
     encodings = []
     for filepath in pathlib.Path("training").glob("*/*"):
@@ -39,6 +43,10 @@ def recognize_faces(
     model: str = "hog",
     encodings_location: str = DEFAULT_ENCODINGS_PATH,
 ) -> None:
+    """
+    Given an unknown image, get the locations and encodings of any faces and
+    compares them against the known encodings to find potential matches.
+    """
     with open(encodings_location, "rb") as f:
         loaded_encodings = pickle.load(f)
 
@@ -59,6 +67,10 @@ def recognize_faces(
 
 
 def _recognize_face(unknown_encoding, loaded_encodings):
+    """
+    Given an unknown encoding and all known encodings, find the known
+    encoding with the most matches.
+    """
     boolean_matches = face_recognition.compare_faces(
         loaded_encodings["encodings"], unknown_encoding
     )
