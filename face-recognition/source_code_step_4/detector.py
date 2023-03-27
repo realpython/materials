@@ -6,6 +6,8 @@ import face_recognition
 from PIL import Image, ImageDraw
 
 DEFAULT_ENCODINGS_PATH = "output/encodings.pkl"
+BOUNDING_BOX_COLOR = (51, 51, 255)
+TEXT_COLOR = (255, 255, 255, 255)
 
 # Create directories if they don't already exist
 pathlib.Path("training").mkdir(exist_ok=True)
@@ -82,19 +84,19 @@ def _recognize_face(unknown_encoding, loaded_encodings):
 
 def _display_face(draw, bounding_box, name):
     top, right, bottom, left = bounding_box
-    draw.rectangle(((left, top), (right, bottom)), outline=(51, 51, 255))
+    draw.rectangle(((left, top), (right, bottom)), outline=BOUNDING_BOX_COLOR)
     text_left, text_top, text_right, text_bottom = draw.textbbox(
         (left, bottom), name
     )
     draw.rectangle(
         ((text_left, text_top), (text_right, text_bottom)),
-        fill=(51, 51, 255),
-        outline=(51, 51, 255),
+        fill=BOUNDING_BOX_COLOR,
+        outline=BOUNDING_BOX_COLOR,
     )
     draw.text(
         (text_left, text_top),
         name,
-        fill=(255, 255, 255, 255),
+        fill=TEXT_COLOR,
     )
 
 
