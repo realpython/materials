@@ -98,7 +98,7 @@ def _display_face(draw, bounding_box, name):
 
 
 def validate(model: str = "hog"):
-    for filepath in pathlib.Path("validation").glob("**/*"):
+    for filepath in pathlib.Path("validation").rglob("*"):
         if filepath.is_file():
             recognize_faces(
                 image_location=str(filepath.absolute()), model=model
