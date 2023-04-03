@@ -6,8 +6,8 @@ import face_recognition
 from PIL import Image, ImageDraw
 
 DEFAULT_ENCODINGS_PATH = "output/encodings.pkl"
-BOUNDING_BOX_COLOR = (51, 51, 255)
-TEXT_COLOR = (255, 255, 255, 255)
+BOUNDING_BOX_COLOR = "blue"
+TEXT_COLOR = "white"
 
 # Create directories if they don't already exist
 pathlib.Path("training").mkdir(exist_ok=True)

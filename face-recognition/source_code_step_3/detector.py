@@ -62,6 +62,8 @@ def recognize_faces(
         input_face_locations, input_face_encodings
     ):
         name = _recognize_face(unknown_encoding, loaded_encodings)
+        if not name:
+            name = "Unknown"
         print(name, bounding_box)
 
 
@@ -82,4 +84,4 @@ def _recognize_face(unknown_encoding, loaded_encodings):
         return votes.most_common(1)[0][0]
 
 
-recognize_faces("two-presidents.webp")
+recognize_faces("unknown.jpg")
