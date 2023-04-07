@@ -26,7 +26,3 @@ class Employee(Person):
 
     def __getattr__(self, attr):
         return getattr(Serializer(self), attr)
-
-
-employee = Employee("John", 30, 50000)
-print(employee.to_json())

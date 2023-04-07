@@ -20,20 +20,18 @@ class Car:
         if not self.started:
             print("Car is not started!")
             return
-        if (speed := self.speed + value) <= self.max_speed:
-            print(f"Accelerating to {speed} km/h...")
+        if self.speed + value <= self.max_speed:
             self.speed += value
         else:
-            print(f"Accelerating to {self.max_speed} km/h...")
             self.speed = self.max_speed
+        print(f"Accelerating to {self.speed} km/h...")
 
     def brake(self, value):
-        if (speed := self.speed - value) >= 0:
-            print(f"Braking to {speed} km/h...")
+        if self.speed - value >= 0:
             self.speed -= value
         else:
-            print("Braking to 0 km/h...")
             self.speed = 0
+        print(f"Braking to {self.speed} km/h...")
 
     def __str__(self):
         return f"{self.make}, {self.model}, {self.color}: ({self.year})"

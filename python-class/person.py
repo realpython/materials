@@ -9,6 +9,11 @@
 #     def set_name(self, value):
 #         self._name = value
 
+# Regular attribute
+# class Person:
+#     def __init__(self, name):
+#         self.name = name
+
 
 # Property
 class Person:

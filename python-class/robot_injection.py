@@ -3,17 +3,17 @@ class IndustrialRobot:
         self.body = body
         self.arm = arm
 
-    def rotate_body_left(self):
-        self.body.rotate_left()
+    def rotate_body_left(self, degrees=10):
+        self.body.rotate_left(degrees)
 
-    def rotate_body_right(self):
-        self.body.rotate_right()
+    def rotate_body_right(self, degrees=10):
+        self.body.rotate_right(degrees)
 
-    def move_arm_up(self):
-        self.arm.move_up()
+    def move_arm_up(self, distance=10):
+        self.arm.move_up(distance)
 
-    def move_arm_down(self):
-        self.arm.move_down()
+    def move_arm_down(self, distance=10):
+        self.arm.move_down(distance)
 
     def weld(self):
         self.arm.weld()

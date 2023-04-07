@@ -32,9 +32,3 @@ class Square(Shape):
 
     def perimeter(self):
         return 4 * self.side
-
-
-circle = Circle(100)
-print(circle.radius)
-print(circle.area())
-print(circle.perimeter())
