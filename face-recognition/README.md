@@ -1,6 +1,6 @@
 # Code for Build Your Own Face Recognition Tool With Python
 
-This is a small project to demonstrate how to build a face recognition tool using Python. It goes along with the Real Python tutorial [Build Your Own Face Recognition Tool With Python](https://realpython.com/face-recognition-python/).
+This is a small project to demonstrate how to build a face recognition tool using Python. It goes along with the Real Python tutorial [Build Your Own Face Recognition Tool With Python](https://realpython.com/face-recognition-with-python/).
 
 ## Dependency Installation
 
