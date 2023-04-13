@@ -1,18 +1,18 @@
-import pathlib
 import pickle
+from pathlib import Path
 
 import face_recognition
 
-DEFAULT_ENCODINGS_PATH = "output/encodings.pkl"
+DEFAULT_ENCODINGS_PATH = Path("output/encodings.pkl")
 
 # Create directories if they don't already exist
-pathlib.Path("training").mkdir(exist_ok=True)
-pathlib.Path("output").mkdir(exist_ok=True)
-pathlib.Path("validation").mkdir(exist_ok=True)
+Path("training").mkdir(exist_ok=True)
+Path("output").mkdir(exist_ok=True)
+Path("validation").mkdir(exist_ok=True)
 
 
 def encode_known_faces(
-    model: str = "hog", encodings_location: str = DEFAULT_ENCODINGS_PATH
+    model: str = "hog", encodings_location: Path = DEFAULT_ENCODINGS_PATH
 ) -> None:
     """
     Loads images in the training directory and builds a dictionary of their
@@ -20,7 +20,7 @@ def encode_known_faces(
     """
     names = []
     encodings = []
-    for filepath in pathlib.Path("training").glob("*/*"):
+    for filepath in Path("training").glob("*/*"):
         name = filepath.parent.name
         image = face_recognition.load_image_file(filepath)
 
@@ -32,7 +32,7 @@ def encode_known_faces(
             encodings.append(encoding)
 
     name_encodings = {"names": names, "encodings": encodings}
-    with open(encodings_location, "wb") as f:
+    with encodings_location.open(mode="wb") as f:
         pickle.dump(name_encodings, f)
 
 
