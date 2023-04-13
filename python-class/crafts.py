@@ -23,7 +23,7 @@ class Car(Vehicle):
 
 class Aircraft(Vehicle):
     def fly(self):
-        print("Flying on the sky...")
+        print("Flying in the sky...")
 
 
 class FlyingCar(Car, Aircraft):

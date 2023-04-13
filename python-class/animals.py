@@ -1,7 +1,7 @@
 class Animal:
-    def __init__(self, name, gender, habitat):
+    def __init__(self, name, sex, habitat):
         self.name = name
-        self.gender = gender
+        self.sex = sex
         self.habitat = habitat
 
 
