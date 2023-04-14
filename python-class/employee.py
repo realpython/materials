@@ -2,7 +2,7 @@ from datetime import datetime
 
 
 class Employee:
-    company = "Example Inc."
+    company = "Example, Inc."
 
     def __init__(self, name, birth_date):
         self.name = name
