@@ -16,7 +16,7 @@ class SerializerMixin:
         return pickle.dumps(self.__dict__)
 
 
-class Employee(Person, SerializerMixin):
+class Employee(SerializerMixin, Person):
     def __init__(self, name, age, salary):
         super().__init__(name, age)
         self.salary = salary

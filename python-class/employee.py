@@ -16,11 +16,13 @@ class Employee:
     def birth_date(self, value):
         self._birth_date = datetime.fromisoformat(value)
 
-    def age(self):
+    def compute_age(self):
         today = datetime.today()
         age = today.year - self.birth_date.year
         birthday = datetime(
-            today.year, self.birth_date.month, self.birth_date.day
+            today.year,
+            self.birth_date.month,
+            self.birth_date.day
         )
         if today < birthday:
             age -= 1
@@ -31,7 +33,7 @@ class Employee:
         return cls(**data_dict)
 
     def __str__(self):
-        return f"{self.name} is {self.age()} years old"
+        return f"{self.name} is {self.compute_age()} years old"
 
     def __repr__(self):
         return (

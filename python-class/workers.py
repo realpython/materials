@@ -4,7 +4,7 @@ class Worker:
         self.address = address
         self.hourly_salary = hourly_salary
 
-    def profile(self):
+    def show_profile(self):
         print("== Worker profile ==")
         print(f"Name: {self.name}")
         print(f"Address: {self.address}")
@@ -21,13 +21,3 @@ class Manager(Worker):
 
     def calculate_payroll(self, hours=40):
         return (self.hourly_salary + self.hourly_bonus) * hours
-
-
-class SalesWorker(Worker):
-    def __init__(self, name, address, hourly_salary, sales):
-        super().__init__(name, address, hourly_salary)
-        self.sales = sales
-
-    def calculate_payroll(self, hours=40):
-        return self.hourly_salary * hours + self.sales * 0.05
-        # return super().calculate_payroll(hours) + self.sales * 0.05

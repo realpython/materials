@@ -1,4 +1,4 @@
-class StackDelegation:
+class Stack:
     def __init__(self, items=None):
         if items is None:
             self._items = []

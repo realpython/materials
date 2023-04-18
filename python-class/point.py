@@ -25,7 +25,7 @@ class Point:
 #         return cls(*sequence)
 
 #     @staticmethod
-#     def intro_msg(name):
+#     def show_intro_message(name):
 #         print(f"Hey {name}! This is your 3D Point!")
 
 #     def __repr__(self):
@@ -33,16 +33,16 @@ class Point:
 
 
 # Dataclass
-@dataclass
-class ThreeDPoint:
-    x: int | float
-    y: int | float
-    z: int | float
+# @dataclass
+# class ThreeDPoint:
+#     x: int | float
+#     y: int | float
+#     z: int | float
 
-    @classmethod
-    def from_sequence(cls, sequence):
-        return cls(*sequence)
+#     @classmethod
+#     def from_sequence(cls, sequence):
+#         return cls(*sequence)
 
-    @staticmethod
-    def intro_msg(name):
-        print(f"Hey {name}! This is your 3D Point!")
+#     @staticmethod
+#     def show_intro_message(name):
+#         print(f"Hey {name}! This is your 3D Point!")
