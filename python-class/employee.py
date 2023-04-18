@@ -20,9 +20,7 @@ class Employee:
         today = datetime.today()
         age = today.year - self.birth_date.year
         birthday = datetime(
-            today.year,
-            self.birth_date.month,
-            self.birth_date.day
+            today.year, self.birth_date.month, self.birth_date.day
         )
         if today < birthday:
             age -= 1
