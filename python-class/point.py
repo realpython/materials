@@ -2,12 +2,12 @@ from dataclasses import dataclass
 
 
 # Point with slots
-class Point:
-    __slots__ = ("x", "y")
+# class Point:
+#     __slots__ = ("x", "y")
 
-    def __init__(self, x, y):
-        self.x = x
-        self.y = y
+#     def __init__(self, x, y):
+#         self.x = x
+#         self.y = y
 
 
 # Regular class
@@ -33,16 +33,16 @@ class Point:
 
 
 # Dataclass
-# @dataclass
-# class ThreeDPoint:
-#     x: int | float
-#     y: int | float
-#     z: int | float
+@dataclass
+class ThreeDPoint:
+    x: int | float
+    y: int | float
+    z: int | float
 
-#     @classmethod
-#     def from_sequence(cls, sequence):
-#         return cls(*sequence)
+    @classmethod
+    def from_sequence(cls, sequence):
+        return cls(*sequence)
 
-#     @staticmethod
-#     def show_intro_message(name):
-#         print(f"Hey {name}! This is your 3D Point!")
+    @staticmethod
+    def show_intro_message(name):
+        print(f"Hey {name}! This is your 3D Point!")
