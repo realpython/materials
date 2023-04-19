@@ -2,8 +2,6 @@ from abc import ABC, abstractmethod
 
 # Bad example
 # class Frontend:
-#     """Frontend, concrete implementation."""
-
 #     def __init__(self, backend):
 #         self.backend = backend
 
@@ -13,8 +11,6 @@ from abc import ABC, abstractmethod
 
 
 # class Backend:
-#     """Backend, concrete implementation."""
-
 #     def get_data_from_database(self):
 #         """Return data from the database."""
 #         return "Data from the database"
@@ -22,8 +18,6 @@ from abc import ABC, abstractmethod
 
 # Good example
 class Frontend:
-    """Frontend, concrete implementation."""
-
     def __init__(self, data_source):
         self.data_source = data_source
 
@@ -33,24 +27,16 @@ class Frontend:
 
 
 class DataSource(ABC):
-    """DataSource interface (Abstraction)."""
-
     @abstractmethod
     def get_data(self):
         pass
 
 
 class Database(DataSource):
-    """Database, concrete implementation."""
-
     def get_data(self):
-        """Return data from the database."""
         return "Data from the database"
 
 
 class API(DataSource):
-    """API, concrete implementation."""
-
     def get_data(self):
-        """Return data from the API."""
         return "Data from the API"
