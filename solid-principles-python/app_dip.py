@@ -1,23 +1,23 @@
 from abc import ABC, abstractmethod
 
 # Bad example
-# class Frontend:
-#     def __init__(self, backend):
-#         self.backend = backend
+# class FrontEnd:
+#     def __init__(self, back_end):
+#         self.back_end = back_end
 
 #     def display_data(self):
-#         data = self.backend.get_data_from_database()
+#         data = self.back_end.get_data_from_database()
 #         print("Display data:", data)
 
 
-# class Backend:
+# class BackEnd:
 #     def get_data_from_database(self):
 #         """Return data from the database."""
 #         return "Data from the database"
 
 
 # Good example
-class Frontend:
+class FrontEnd:
     def __init__(self, data_source):
         self.data_source = data_source
 
