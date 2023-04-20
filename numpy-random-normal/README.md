@@ -7,7 +7,7 @@ This repository holds the code for the Real Python [How to Get Normally Distribu
 The scripts use NumPy, Matplotlib, and SciPy. You should first create a virtual environment:
 
 ```console
-$ python -m venv venv
+$ python3 -m venv venv
 $ source venv/bin/activate
 ```
 
