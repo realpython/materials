@@ -1,3 +1,3 @@
-# How to Efficiently Make String Concatenation in Python
+# Efficient String Concatenation in Python
 
-This folder provides the code examples for the article [How to Efficiently Make String Concatenation in Python](https://realpython.com/python-string-concatenation/).
+This folder provides the code examples for the Real Python tutorial [Efficient String Concatenation in Python](https://realpython.com/python-string-concatenation/).
