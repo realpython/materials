@@ -6,5 +6,5 @@ def age_group(age):
     elif 19 < age <= 65:
         result = "an Adult!"
     else:
-        result = "a Golden ager!"
+        result = "in your Golden Years!"
     print("You are " + result)
