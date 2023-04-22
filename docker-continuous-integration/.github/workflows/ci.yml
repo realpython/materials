@@ -26,7 +26,8 @@ jobs:
         with:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
-      - uses: docker/build-push-action@v4.0.0
+      - name: Push image to Docker Hub
+        uses: docker/build-push-action@v4.0.0
         if: ${{ github.event_name == 'push' }}
         with:
           context: ./web
