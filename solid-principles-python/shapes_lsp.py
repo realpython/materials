@@ -20,6 +20,7 @@ from abc import ABC, abstractmethod
 #             self.__dict__["width"] = value
 #             self.__dict__["height"] = value
 
+
 # Good example
 class Shape(ABC):
     @abstractmethod
@@ -41,4 +42,4 @@ class Square(Shape):
         self.side = side
 
     def calculate_area(self):
-        return self.side ** 2
+        return self.side**2
