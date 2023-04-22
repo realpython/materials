@@ -4,49 +4,43 @@ from zipfile import ZipFile
 # Bad example
 # class FileManager:
 #     def __init__(self, filename):
-#         self.filename = Path(filename)
+#         self.path = Path(filename)
 
-#     def read(self):
-#         with self.filename.open(mode="r") as file:
-#             data = file.read()
-#         return data
+#     def read(self, encoding="utf-8"):
+#         return self.path.read_text(encoding)
 
-#     def write(self, data):
-#         with self.filename.open(mode="w") as file:
-#             file.write(data)
+#     def write(self, data, encoding="utf-8"):
+#         self.path.write_text(data, encoding)
 
 #     def compress(self):
-#         with ZipFile(self.filename.stem + ".zip", mode="w") as archive:
-#             archive.write(self.filename)
+#         with ZipFile(self.path.with_suffix(".zip"), mode="w") as archive:
+#             archive.write(self.path)
 
-#     def decompress(self, archive_name):
-#         with ZipFile(archive_name, mode="r") as archive:
+#     def decompress(self):
+#         with ZipFile(self.path.with_suffix(".zip"), mode="r") as archive:
 #             archive.extractall()
 
 
 # Good example
 class FileManager:
     def __init__(self, filename):
-        self.filename = Path(filename)
+        self.path = Path(filename)
 
-    def read(self):
-        with self.filename.open(mode="r") as file:
-            data = file.read()
-        return data
+    def read(self, encoding="utf-8"):
+        return self.path.read_text(encoding)
 
-    def write(self, data):
-        with self.filename.open(mode="w") as file:
-            file.write(data)
+    def write(self, data, encoding="utf-8"):
+        self.path.write_text(data, encoding)
 
 
 class ZipFileManager:
     def __init__(self, filename):
-        self.filename = Path(filename)
+        self.path = Path(filename)
 
     def compress(self):
-        with ZipFile(self.filename.stem + ".zip", mode="w") as archive:
-            archive.write(self.filename)
+        with ZipFile(self.path.with_suffix(".zip"), mode="w") as archive:
+            archive.write(self.path)
 
-    def decompress(self, archive_name):
-        with ZipFile(archive_name, mode="r") as archive:
+    def decompress(self):
+        with ZipFile(self.path.with_suffix(".zip"), mode="r") as archive:
             archive.extractall()

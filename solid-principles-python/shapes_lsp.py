@@ -1,26 +1,44 @@
-class Rectangle:
+from abc import ABC, abstractmethod
+
+# Bad example
+# class Rectangle:
+#     def __init__(self, width, height):
+#         self.width = width
+#         self.height = height
+
+#     def calculate_area(self):
+#         return self.width * self.height
+
+
+# class Square(Rectangle):
+#     def __init__(self, side):
+#         super().__init__(side, side)
+
+#     def __setattr__(self, key, value):
+#         super().__setattr__(key, value)
+#         if key in ("width", "height"):
+#             self.__dict__["width"] = value
+#             self.__dict__["height"] = value
+
+# Good example
+class Shape(ABC):
+    @abstractmethod
+    def calculate_area(self):
+        pass
+
+
+class Rectangle(Shape):
     def __init__(self, width, height):
         self.width = width
         self.height = height
 
-    def area(self):
+    def calculate_area(self):
         return self.width * self.height
 
-    def perimeter(self):
-        return 2 * (self.width + self.height)
 
-
-class Square(Rectangle):
+class Square(Shape):
     def __init__(self, side):
-        super().__init__(side, side)
         self.side = side
 
-    @property
-    def side(self):
-        return self._side
-
-    @side.setter
-    def side(self, value):
-        self._side = value
-        self.width = value
-        self.height = value
+    def calculate_area(self):
+        return self.side ** 2
