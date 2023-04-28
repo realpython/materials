@@ -1,0 +1,76 @@
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro&display=swap');
+
+* {
+  font-family: 'Source Sans Pro', sans-serif;
+  margin: 0;
+}
+
+body {
+  background-color: #f0f0f0;
+}
+
+.panel {
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.4);
+  display: grid;
+  grid-auto-rows: minmax(45px, auto);
+  grid-gap: 10px;
+  grid-template-columns: 1fr;
+  margin: 50px auto;
+  padding: 15px;
+  width: 400px;
+}
+
+.panel input, .panel button {
+  border-radius: 6px;
+  border: 1px solid #dddfe2;
+  font-size: 14pt;
+}
+
+.panel input {
+  color: #555;
+  padding: 10px;
+}
+
+.panel button {
+  background-color: #3a709d;
+  color: white;
+}
+
+.panel *:focus {
+  box-shadow: 1px 1px 5px rgba(69, 123, 157, 0.4);
+  outline: #3a709d solid 1px;
+}
+
+.panel input::placeholder {
+  color: #999;
+}
+
+.panel input:focus::placeholder {
+  color: #bbb;
+}
+
+.login-error {
+  color: #c1121f;
+  font-size: 14pt;
+  margin-top: 10px;
+  text-align: center;
+}
+
+.hidden {
+  display: none;
+}
+
+.top-bar {
+  background-color: #17354b;
+  height: 50px;
+  margin: auto;
+  padding: 10px;
+}
+
+.top-bar > img {
+  display: block;
+  height: 50px;
+  margin: auto;
+}
