@@ -2,8 +2,14 @@ import tempfile
 from dataclasses import dataclass
 from pathlib import Path
 
-from OpenSSL.crypto import (FILETYPE_PEM, TYPE_RSA, X509, PKey,
-                            dump_certificate, dump_privatekey)
+from OpenSSL.crypto import (
+    FILETYPE_PEM,
+    TYPE_RSA,
+    X509,
+    PKey,
+    dump_certificate,
+    dump_privatekey,
+)
 
 
 @dataclass(frozen=True)
