@@ -27,7 +27,8 @@ class Stack(list):
     def __repr__(self) -> str:
         return f"{type(self).__name__}({self})"
 
-When I call repr() with an instance of this class, I get <repr-error 'maximum recursion depth exceeded'>
+When I call repr() with an instance of this class,
+I get <repr-error 'maximum recursion depth exceeded'>
 
 Can you help me fix that?
 """
