@@ -13,19 +13,16 @@ class Account:
         else:
             print("Not enough funds for this transaction")
 
-    def get_balance(self):
-        return self.balance
-
 
 def main():
     account = Account()
     while True:
         operation = input(
             "What would you like to do?\n"
-            " d. deposit\n"
-            " w. withdraw\n"
-            " b. balance\n"
-            " q. quit\n"
+            " d) deposit  "
+            " w) withdraw  "
+            " b) balance  "
+            " q) quit\n"
             "> "
         )
         if operation in "dD":
@@ -35,7 +32,7 @@ def main():
             amount = float(input("Enter the withdrawal amount: "))
             account.withdraw(amount)
         elif operation in "bB":
-            print(f"Current balance: ${account.get_balance():,.2f}")
+            print(f"Current balance: ${account.balance:,.2f}")
         elif operation in "qQ":
             print("Goodbye!")
             break

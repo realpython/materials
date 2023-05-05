@@ -24,10 +24,10 @@ def main():
     while True:
         operation = input(
             "What would you like to do?\n"
-            " d. deposit\n"
-            " w. withdraw\n"
-            " b. balance\n"
-            " q. quit\n"
+            " d) deposit  "
+            " w) withdraw  "
+            " b) balance  "
+            " q) quit\n"
             "> "
         )
         if operation in "dD":

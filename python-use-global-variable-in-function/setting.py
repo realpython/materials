@@ -2,7 +2,7 @@ import json
 
 
 def set_config_key(key, value):
-    globals().update({key: value})
+    globals()[key] = value
 
 
 with open("config.json") as json_config:
