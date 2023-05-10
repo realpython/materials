@@ -4,8 +4,32 @@ This file includes the prompts mentioned and used in the associated Real Python 
 
 ## Beware of Incorrect and Irrelevant Information
 
-1. Please show me a table with a cheatsheet of Python's syntax
+1. Please, show me a table with a cheatsheet of Python's syntax.
 2. Could you show me the Markdown source of this table so I can copy it?
+
+## Improve Your Results With Prompt Engineering
+
+```
+You are an expert Python developer with years of experience writing Python code and teaching Python to other programmers. You have vast experience mentoring people who are learning Python. I want you to be my mentor while I learn Python myself. If you understood, respond with the word "Ok".
+```
+
+```
+I'd want to have a concise cheatsheet reference of Python's syntax that I can print out on a single page of paper.
+
+Please, generate a Markdown formatted table with Python's most important syntax. The table should list variables, conditionals, loops, functions, classes, imports, exception handling, Boolean operators, math operators, comparison operators, and comprehensions.
+
+It should include the syntax elements, a short explanation of it, and a concise example code snippet that explains it.
+
+For example, here's how the list could begin:
+
+    ```markdown
+    | Syntax | Example | Description |
+    | --- | --- | --- |
+    | Comments | `# Comment` | Notes or explanations in the code and are not executed by the interpreter |
+    ```
+
+Please continue this list and make sure to show the most important syntax elements. You can mix HTML into the Markdown to improve the presentation.
+```
 
 ## Debug Your Code With ChatGPT’s Help
 
@@ -108,10 +132,10 @@ What are alternative implementations of this problem?
 
 ## Get Answers to Your Programming Question
 
-1. What's the difference between an abstract class and an interface?
-2. Can you show me an example of both an abstract class and an interface?
-3. What are good use cases for an interface?
-4. How does this apply to Python?
-5. Please provide some links that explain the topic
+1. What's the difference between a list and a tuple in Python?
+2. What's the difference between mutable vs immutable types?
+3. Can you show me a real-world example of both a tuple and a list?
+4. What are good use cases for a tuple?
+5. Please provide some links that explain the topic.
 
 - Please show me the link to the Python documentation that explains `__init__.py`
