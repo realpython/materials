@@ -4,7 +4,7 @@ This file includes the prompts mentioned and used in the associated Real Python 
 
 ## Beware of Incorrect and Irrelevant Information
 
-1. Please, show me a table with a cheatsheet of Python's syntax.
+1. Please show me a table with a cheat sheet of Python's syntax.
 2. Could you show me the Markdown source of this table so I can copy it?
 
 ## Improve Your Results With Prompt Engineering
@@ -14,7 +14,7 @@ You are an expert Python developer with years of experience writing Python code 
 ```
 
 ```
-I'd want to have a concise cheatsheet reference of Python's syntax that I can print out on a single page of paper.
+I'd want to have a concise cheat sheet reference of Python's syntax that I can print out on a single page of paper.
 
 Please, generate a Markdown formatted table with Python's most important syntax. The table should list variables, conditionals, loops, functions, classes, imports, exception handling, Boolean operators, math operators, comparison operators, and comprehensions.
 

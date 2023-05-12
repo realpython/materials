@@ -1,6 +1,6 @@
 # ChatGPT: Your Personal Python Coding Mentor
 
-This repository holds the code used in the Real Python [ChatGPT: Your Personal Python Coding Mentor](https://realpython.com/chatgpt-coding-mentor-python/) tutorial and a few additional files.
+This repository holds the code used in the Real Python [ChatGPT: Your Personal Python Coding Mentor](https://realpython.com/chatgpt-coding-mentor-python/) tutorial, along with a few additional files.
 
 ## Run the Scripts
 
@@ -14,7 +14,7 @@ To play with the different implementations of FizzBuzz, you can load the files i
 
 ## Prompts
 
-The repository also contains an additional file called [prompts.md](prompts.md) that list all the prompts used in the tutorial. If you want to try them in your own ChatGPT conversations, then you can copy the prompts from that file.
+The repository also contains an additional file called [prompts.md](prompts.md) that lists all the prompts used in the tutorial. If you want to try them in your own ChatGPT conversations, then you can copy the prompts from that file.
 
 ## Author
 
