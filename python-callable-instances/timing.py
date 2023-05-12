@@ -18,7 +18,7 @@ class ExecutionTimer:
 
 
 def __call__(self, func):
-    def _timer(*args, **kwargs):
+    def timer(*args, **kwargs):
         result = None
         total_time = 0
         print(f"Running {func.__name__}() {self.repetitions} times")
@@ -34,4 +34,4 @@ def __call__(self, func):
         )
         return result
 
-    return _timer
+    return timer
