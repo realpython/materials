@@ -1,27 +1,26 @@
 # -----------------------------
-# Using the PdfFileWriter Class
+# Using the PdfWriter Class
 # -----------------------------
 
-from PyPDF2 import PdfFileWriter
+from pypdf import PdfWriter
 
-pdf_writer = PdfFileWriter()
+output_pdf = PdfWriter()
 
-page = pdf_writer.addBlankPage(width=72, height=72)
+page = output_pdf.add_blank_page(width=8.27 * 72, height=11.7 * 72)
 
 print(type(page))
 
 from pathlib import Path  # noqa
 
-with Path("blank.pdf").open(mode="wb") as output_file:
-    pdf_writer.write(output_file)
-
+output_pdf.write("blank.pdf")
 
 # -----------------------------------
 # Extracting a Single Page From a PDF
 # -----------------------------------
 
 from pathlib import Path  # noqa
-from PyPDF2 import PdfFileReader, PdfFileWriter  # noqa
+
+from pypdf import PdfReader, PdfWriter  # noqa
 
 # Change the path to work on your computer if necessary
 pdf_path = (
@@ -30,23 +29,23 @@ pdf_path = (
     / "practice_files"
     / "Pride_and_Prejudice.pdf"
 )
-input_pdf = PdfFileReader(str(pdf_path))
+input_pdf = PdfReader(pdf_path)
 
-first_page = input_pdf.getPage(0)
+first_page = input_pdf.pages[0]
 
-pdf_writer = PdfFileWriter()
-pdf_writer.addPage(first_page)
+output_pdf = PdfWriter()
+output_pdf.add_page(first_page)
 
-with Path("first_page.pdf").open(mode="wb") as output_file:
-    pdf_writer.write(output_file)
+output_pdf.write("first_page.pdf")
 
 
 # ------------------------------------
 # Extracting Multiple Pages From a PDF
 # ------------------------------------
 
-from PyPDF2 import PdfFileReader, PdfFileWriter  # noqa
 from pathlib import Path  # noqa
+
+from pypdf import PdfReader, PdfWriter  # noqa
 
 pdf_path = (
     Path.home()
@@ -54,19 +53,13 @@ pdf_path = (
     / "practice_files"
     / "Pride_and_Prejudice.pdf"
 )
-input_pdf = PdfFileReader(str(pdf_path))
+input_pdf = PdfReader(str(pdf_path))
 
-pdf_writer = PdfFileWriter()
-for n in range(1, 4):
-    page = input_pdf.getPage(n)
-    pdf_writer.addPage(page)
-
-print(pdf_writer.getNumPages())
-
-pdf_writer = PdfFileWriter()
+output_pdf = PdfWriter()
 
 for page in input_pdf.pages[1:4]:
-    pdf_writer.addPage(page)
+    output_pdf.add_page(page)
 
-with Path("chapter1_slice.pdf").open(mode="wb") as output_file:
-    pdf_writer.write(output_file)
+print(len(output_pdf.pages))
+
+output_pdf.write("chapter1.pdf")

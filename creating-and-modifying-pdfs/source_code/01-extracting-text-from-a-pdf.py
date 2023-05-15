@@ -2,10 +2,9 @@
 # Open a PDF File
 # ---------------
 
-from PyPDF2 import PdfFileReader
-
-# You might need to change this to match the path on your computer
 from pathlib import Path
+
+from pypdf import PdfReader
 
 pdf_path = (
     Path.home()
@@ -14,27 +13,27 @@ pdf_path = (
     / "Pride_and_Prejudice.pdf"
 )
 
-pdf = PdfFileReader(str(pdf_path))
+pdf = PdfReader(str(pdf_path))
 
-print(pdf.getNumPages())
+print(len(pdf.pages))
 
-print(pdf.documentInfo)
+print(pdf.metadata)
 
-print(pdf.documentInfo.title)
+print(pdf.metadata.title)
 
 
 # ---------------------------
 # Extracting Text From a Page
 # ---------------------------
 
-first_page = pdf.getPage(0)
+first_page = pdf.pages[0]
 
 print(type(first_page))
 
-print(first_page.extractText())
+print(first_page.extract_text())
 
 for page in pdf.pages:
-    print(page.extractText())
+    print(page.extract_text())
 
 
 # -----------------------
@@ -42,7 +41,8 @@ for page in pdf.pages:
 # -----------------------
 
 from pathlib import Path  # noqa
-from PyPDF2 import PdfFileReader  # noqa
+
+from pypdf import PdfReader  # noqa
 
 # Change the path below to the correct path for your computer.
 pdf_path = (
@@ -52,14 +52,15 @@ pdf_path = (
     / "Pride_and_Prejudice.pdf"
 )
 
-pdf_reader = PdfFileReader(str(pdf_path))
-output_file_path = Path.home() / "Pride_and_Prejudice.txt"
+pdf_reader = PdfReader(pdf_path)
+txt_file = Path.home() / "Pride_and_Prejudice.txt"
 
-with output_file_path.open(mode="w") as output_file:
-    title = pdf_reader.documentInfo.title
-    num_pages = pdf_reader.getNumPages()
-    output_file.write(f"{title}\\nNumber of pages: {num_pages}\\n\\n")
+content = [
+    f"{pdf_reader.metadata.title}",
+    f"Number of pages: {len(pdf_reader.pages)}",
+]
 
-    for page in pdf_reader.pages:
-        text = page.extractText()
-        output_file.write(text)
+for page in pdf.pages:
+    content.append(page.extract_text())
+
+txt_file.write_text("\n".join(content))
