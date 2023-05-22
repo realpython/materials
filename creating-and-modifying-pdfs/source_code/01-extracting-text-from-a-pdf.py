@@ -13,26 +13,26 @@ pdf_path = (
     / "Pride_and_Prejudice.pdf"
 )
 
-pdf = PdfReader(str(pdf_path))
+pdf_reader = PdfReader(str(pdf_path))
 
-print(len(pdf.pages))
+print(len(pdf_reader.pages))
 
-print(pdf.metadata)
+print(pdf_reader.metadata)
 
-print(pdf.metadata.title)
+print(pdf_reader.metadata.title)
 
 
 # ---------------------------
 # Extracting Text From a Page
 # ---------------------------
 
-first_page = pdf.pages[0]
+first_page = pdf_reader.pages[0]
 
 print(type(first_page))
 
 print(first_page.extract_text())
 
-for page in pdf.pages:
+for page in pdf_reader.pages:
     print(page.extract_text())
 
 
@@ -48,7 +48,7 @@ from pypdf import PdfReader  # noqa
 pdf_path = (
     Path.home()
     / "creating-and-modifying-pdfs"
-    / "practice-files"
+    / "practice_files"
     / "Pride_and_Prejudice.pdf"
 )
 
@@ -60,7 +60,7 @@ content = [
     f"Number of pages: {len(pdf_reader.pages)}",
 ]
 
-for page in pdf.pages:
+for page in pdf_reader.pages:
     content.append(page.extract_text())
 
 txt_file.write_text("\n".join(content))
