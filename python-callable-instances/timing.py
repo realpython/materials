@@ -22,9 +22,9 @@ class ExecutionTimer:
             total_time = 0
             print(f"Running {func.__name__}() {self.repetitions} times")
             for _ in range(self.repetitions):
-                start = time.time()
+                start = time.perf_counter()
                 result = func(*args, **kwargs)
-                end = time.time()
+                end = time.perf_counter()
                 total_time += end - start
             average_time = total_time / self.repetitions
             print(
