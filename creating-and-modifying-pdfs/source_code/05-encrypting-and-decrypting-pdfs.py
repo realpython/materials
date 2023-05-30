@@ -13,7 +13,7 @@ pdf_path = (
     / "newsletter.pdf"
 )
 
-pdf_reader = PdfReader(str(pdf_path))
+pdf_reader = PdfReader(pdf_path)
 
 pdf_writer = PdfWriter()
 pdf_writer.append_pages_from_reader(pdf_reader)
@@ -38,7 +38,7 @@ from pypdf import PdfReader  # noqa
 
 pdf_path = Path.home() / "newsletter_protected.pdf"
 
-pdf_reader = PdfReader(str(pdf_path))
+pdf_reader = PdfReader(pdf_path)
 
 print(pdf_reader.pages[0])  # Raises FileNotDecryptedError
 

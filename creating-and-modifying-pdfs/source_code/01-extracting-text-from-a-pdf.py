@@ -13,7 +13,7 @@ pdf_path = (
     / "Pride_and_Prejudice.pdf"
 )
 
-pdf_reader = PdfReader(str(pdf_path))
+pdf_reader = PdfReader(pdf_path)
 
 print(len(pdf_reader.pages))
 

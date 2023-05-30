@@ -53,7 +53,7 @@ pdf_path = (
     / "practice_files"
     / "Pride_and_Prejudice.pdf"
 )
-input_pdf = PdfReader(str(pdf_path))
+input_pdf = PdfReader(pdf_path)
 
 output_pdf = PdfWriter()
 
