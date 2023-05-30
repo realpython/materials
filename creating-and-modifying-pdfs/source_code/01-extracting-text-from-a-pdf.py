@@ -1,5 +1,5 @@
 # ---------------
-# Open a PDF File
+# Opening a PDF File
 # ---------------
 
 from pathlib import Path
