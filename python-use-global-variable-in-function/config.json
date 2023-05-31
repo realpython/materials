@@ -1,0 +1,12 @@
+{
+  "database": {
+    "host": "localhost",
+    "port": 5432,
+    "name": "database.db",
+    "user": "username",
+    "password": "secret"
+  },
+  "api_key": "111222333",
+  "base_url": "https://example.com/api",
+  "timeout": 60
+}

@@ -8,9 +8,11 @@ from maze_solver.view.renderer import SVGRenderer
 
 def main() -> None:
     maze = Maze.load(parse_path())
-    renderer = SVGRenderer()
-    for solution in solve_all(maze):
-        renderer.render(maze, solution).preview()
+    solutions = solve_all(maze)
+    if solutions:
+        renderer = SVGRenderer()
+        for solution in solutions:
+            renderer.render(maze, solution).preview()
     else:
         print("No solution found")
 

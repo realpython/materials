@@ -1,6 +1,6 @@
 # Build a Front End for a REST API
 
-This repository contains code related to the Real Python tutorial on [building a front end for a REST API](https://realpython.com/build-a-rest-api-frontend/).
+This repository contains code related to the Real Python tutorial on [building a front end for a REST API](https://realpython.com/flask-javascript-frontend-for-rest-api/).
 
 ## Setup
 

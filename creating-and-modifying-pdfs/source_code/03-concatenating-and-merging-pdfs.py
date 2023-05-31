@@ -2,9 +2,9 @@
 # Using the PdfFileMerger Class
 # -----------------------------
 
-from PyPDF2 import PdfFileMerger
+from pypdf import PdfMerger
 
-pdf_merger = PdfFileMerger()
+pdf_merger = PdfMerger()
 
 # ---------------------------------
 # Concatenating PDFs With .append()
@@ -22,17 +22,17 @@ reports_dir = (
 for path in reports_dir.glob("*.pdf"):
     print(path.name)
 
-expense_reports = list(reports_dir.glob("*.pdf"))
-expense_reports.sort()
+expense_reports = sorted(reports_dir.glob("*.pdf"))
 
 for path in expense_reports:
     print(path.name)
 
-for path in expense_reports:
-    pdf_merger.append(str(path))
+pdf_merger = PdfMerger()
 
-with Path("expense_reports.pdf").open(mode="wb") as output_file:
-    pdf_merger.write(output_file)
+for path in expense_reports:
+    pdf_merger.append(path)
+
+pdf_merger.write("expense_reports.pdf")
 
 
 # --------------------------
@@ -40,7 +40,8 @@ with Path("expense_reports.pdf").open(mode="wb") as output_file:
 # --------------------------
 
 from pathlib import Path  # noqa
-from PyPDF2 import PdfFileMerger  # noqa
+
+from pypdf import PdfMerger  # noqa
 
 report_dir = (
     Path.home()
@@ -52,10 +53,9 @@ report_dir = (
 report_path = report_dir / "report.pdf"
 toc_path = report_dir / "toc.pdf"
 
-pdf_merger = PdfFileMerger()
-pdf_merger.append(str(report_path))
+pdf_merger = PdfMerger()
+pdf_merger.append(report_path)
 
-pdf_merger.merge(1, str(toc_path))
+pdf_merger.merge(1, toc_path)
 
-with Path("full_report.pdf").open(mode="wb") as output_file:
-    pdf_merger.write(output_file)
+pdf_merger.write("full_report.pdf")
