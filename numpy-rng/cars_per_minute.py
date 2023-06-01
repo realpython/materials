@@ -1,8 +1,8 @@
-import numpy as np
+import math
 
 lam = 4
 cars_per_minute = [0, 4, 8]
 
 for cars in cars_per_minute:
-    probabil = np.exp(-lam) * np.power(lam, cars) / np.math.factorial(cars)
-    print(f"P({cars}) = {round(probabil * 100, 1)}%")
+    probability = lam**cars * math.exp(-lam) / math.factorial(cars)
+    print(f"P({cars}) = {probability:.1%}")

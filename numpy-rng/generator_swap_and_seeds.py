@@ -1,12 +1,12 @@
-from numpy.random import Generator, PCG64DXSM
+from numpy.random import PCG64DXSM, Generator
 
-rng1 = Generator(PCG64DXSM())
+pcg64dxsm_rng = Generator(PCG64DXSM())
+print(pcg64dxsm_rng.random())
+
+rng1 = Generator(PCG64DXSM(seed=100))
+print(rng1.random())
 print(rng1.random())
 
-rng2 = Generator(PCG64DXSM(100))
+rng2 = Generator(PCG64DXSM(seed=100))
 print(rng2.random())
 print(rng2.random())
-
-rng3 = Generator(PCG64DXSM(100))
-print(rng3.random())
-print(rng3.random())

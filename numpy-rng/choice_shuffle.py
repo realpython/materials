@@ -7,14 +7,14 @@ print(rng.choice(input_array, size=2))
 print(rng.choice(input_array, size=2, axis=1))
 print(rng.choice(input_array, size=3, replace=False))
 
-rng = np.random.default_rng(25)
+rng = np.random.default_rng(seed=100)
 print(rng.choice(input_array, size=3, replace=False, shuffle=False))
 
-rng = np.random.default_rng(25)
+rng = np.random.default_rng(seed=100)
 print(rng.choice(input_array, size=3, replace=False, shuffle=True))
 
-rng = np.random.default_rng(25)
+rng = np.random.default_rng(seed=100)
 print(rng.choice(input_array, size=3, replace=True, shuffle=False))
 
-rng = np.random.default_rng(25)
+rng = np.random.default_rng(seed=100)
 print(rng.choice(input_array, size=3, replace=True, shuffle=True))
