@@ -4,9 +4,9 @@ This folder contains resources and materials for Real Python's [Creating and Mod
 
 There are two subfolders in this folder:
 
-1. **`practice_files/`:** Contains the sample PDFs used in the chapter
-2. **`source_code/`:** Contains source code from the chapter
+1. **`practice_files/`:** Contains the sample PDFs used in the tutorial
+2. **`source_code/`:** Contains source code from the tutorial
 
-The source code files are organized by section of the article, and the start of each subsection is indicated with comments.
+The source code files are organized by section of the tutorial, and the start of each subsection is indicated with comments.
 
 The content of the companion tutorial was adapted from the "Creating and Modifying PDF Files" chapter of the book [*Python Basics: A Practical Introduction to Python 3*](https://realpython.com/products/python-basics-book/). If you enjoy this tutorial, check out the full book!
