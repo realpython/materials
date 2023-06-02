@@ -1,19 +1,25 @@
 # How to Make Engaging Programming Videos
 
-This repository provides the VSCode settings file that is mentioned in the Real Python [How to Make Engaging Programming Videos](https://realpython.com/making-programming-videos/) tutorial.
+This repository provides the VS Code settings file that is mentioned in the Real Python [How to Make Engaging Programming Videos](https://realpython.com/making-programming-videos/) tutorial.
 
 ## Using the Settings
 
-The provided settings file helps you to have a clutter-free and well-readable VSCode editor.
-You can either replace or enhance your user settings file with the contents of [settings.json](settings.json).
+The provided settings file helps you to have a clutter-free and well-readable VS Code editor for the project you want to record in a video.
 
-Depending on your platform, you can find your user settings file here:
+Here is an example folder structure to show where you can find your existing workspace settings file:
 
-- Windows: `%APPDATA%\Code\User\settings.json`
-- macOS: `$HOME/Library/Application\ Support/Code/User/settings.json`
-- Linux: `$HOME/.config/Code/User/settings.json`
+```
+project/
+│
+├── .vscode/
+│   └── settings.json
+│
+└── code.py
+```
 
-To learn more about adjusting your VSCode settings, check out the VSCode documentation on [user and workspace settings](https://code.visualstudio.com/docs/getstarted/settings#_settingsjson).
+If the `.vscode/` folder and the `settings.json` don't exist, then you can create it with the contents of [settings.json](settings.json). If you already have an existing settings file, then you may only copy the configuration objects that you want to use.
+
+To learn more about adjusting your VS Code settings, check out the VS Code documentation on [user and workspace settings](https://code.visualstudio.com/docs/getstarted/settings#_settingsjson).
 
 ## Before
 
