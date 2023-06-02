@@ -1,0 +1,33 @@
+{
+  "window.zoomLevel": 2,
+  "workbench.startupEditor": "none",
+  "workbench.editorAssociations": {
+    "*.ipynb": "jupyter.notebook.ipynb"
+  },
+  "breadcrumbs.enabled": false,
+  "editor.minimap.enabled": false,
+  "workbench.statusBar.visible": false,
+  "workbench.activityBar.visible": false,
+  "editor.scrollbar.horizontal": "hidden",
+  "editor.scrollbar.vertical": "hidden",
+  "editor.scrollbar.verticalScrollbarSize": 0,
+  "editor.cursorBlinking": "solid",
+  "editor.fontSize": 24,
+  "terminal.integrated.fontSize": 24,
+  "problems.decorations.enabled": false,
+  "problems.autoReveal": false,
+  "outline.problems.enabled": false,
+  "outline.problems.colors": false,
+  "outline.problems.badges": false,
+  "editor.folding": false,
+  "editor.glyphMargin": false,
+  "editor.lineDecorationsWidth": 5,
+  "editor.quickSuggestions": {
+    "other": false,
+    "comments": false,
+    "strings": false
+  },
+  "editor.inlineSuggest.enabled": false,
+  "window.commandCenter": false,
+  "workbench.layoutControl.enabled": false
+}
