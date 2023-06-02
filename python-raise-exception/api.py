@@ -10,7 +10,7 @@ def call_external_api(url):
         response = requests.get(url)
         response.raise_for_status()
         data = response.json()
-    except requests.exceptions.RequestException as error:
+    except requests.RequestException as error:
         raise APIError(f"{error}") from None
     return data
 
