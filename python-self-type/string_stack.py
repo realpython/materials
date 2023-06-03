@@ -5,7 +5,7 @@ class Stack:
     def __init__(self) -> None:
         self.items: list[Any] = []
 
-    def push(self, item: Any) -> 'Stack':
+    def push(self, item: Any) -> "Stack":
         self.items.append(item)
         return self
 

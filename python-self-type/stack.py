@@ -1,4 +1,5 @@
 from typing import Any, Self
+
 # from typing_extensions import Self - for Python < 3.11
 
 
