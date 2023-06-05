@@ -15,4 +15,4 @@ def call_external_api(url):
     return data
 
 
-print(call_external_api("https://api.github.com/event"))
+print(call_external_api("https://api.github.com/events"))
