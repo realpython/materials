@@ -4,17 +4,17 @@ from operator import add, concat, iconcat
 
 
 def flatten_extend(matrix):
-    flat = []
+    flat_list = []
     for row in matrix:
-        flat.extend(row)
-    return flat
+        flat_list.extend(row)
+    return flat_list
 
 
 def flatten_concatenation(matrix):
-    flat = []
+    flat_list = []
     for row in matrix:
-        flat += row
-    return flat
+        flat_list += row
+    return flat_list
 
 
 def flatten_comprehension(matrix):
