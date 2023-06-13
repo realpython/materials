@@ -5,5 +5,5 @@ class MathLibraryError(Exception):
 def divide(a, b):
     try:
         return a / b
-    except ZeroDivisionError as ex:
-        raise MathLibraryError(ex)
+    except ZeroDivisionError as error:
+        raise MathLibraryError(error)
