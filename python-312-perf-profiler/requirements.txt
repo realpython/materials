@@ -1,0 +1,2 @@
+Pillow==9.5.0
+pyinstrument==4.5.0
