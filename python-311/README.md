@@ -50,7 +50,7 @@ This section only contains brief instructions on how you can run the examples. S
 
 ### Improved Error Messages
 
-Run [`inverse.py](inverse.py) for a quick look at the improved tracebacks:
+Run [`inverse.py`](inverse.py) for a quick look at the improved tracebacks:
 
 ```console
 (venv) $ python inverse.py 
