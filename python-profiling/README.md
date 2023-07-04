@@ -1,6 +1,6 @@
 # Profiling in Python: How to Find Performance Bottlenecks
 
-This folder holds sample code that supplements the Real Python tutorial on [Profiling in Python: How to Find Performance Bottlenecks](https://realpython.com/python-profiling/).
+This folder holds sample code that supplements the Real Python tutorial [Profiling in Python: How to Find Performance Bottlenecks](https://realpython.com/python-profiling/).
 
 ## Profiler 1: `time`
 
