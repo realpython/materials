@@ -10,14 +10,15 @@
 
 [support_louis] 2022-10-05T09:22:12+00:00 : Hi, how can I help you today?
 [karen_w] 2022-10-05T09:23:47+00:00 : MY BLASTED ORDER STILL HASN'T ARRIVED AND IT'S BEEN A WEEK!!!
-[support_louis] 2022-10-05T09:24:15+00:00 : I'm sorry to hear that, Karen. Let's look into this issue.[support_louis] 2022-10-05T09:25:35+00:00: Can you please provide your order number so I can check the status for you?
+[support_louis] 2022-10-05T09:24:15+00:00 : I'm sorry to hear that, Karen. Let's look into this issue.
+[support_louis] 2022-10-05T09:25:35+00:00: Can you please provide your order number so I can check the status for you?
 [karen_w] 2022-10-05T09:26:12+00:00: Fine, it's 9876543.
 [support_louis] 2022-10-05T09:26:45+00:00: Thank you, Karen. I see there was a delay in shipping. Your order will arrive within the next 2 days.
 
 [support_jenny] 2022-09-18T17:35:28+00:00: Hello! How can I help you today?
 [alex_harper] 2022-09-18T17:36:05+00:00: I accidentally placed an order twice, can you help me cancel one?
 [support_jenny] 2022-09-18T17:36:25+00:00: Sure, Alex. Can you give me the order number you'd like to cancel?
-[alex_harper] 2022-09-18T17:36:55+00:00: Yes, it's1122334. Thank you!
+[alex_harper] 2022-09-18T17:36:55+00:00: Yes, it's 1122334. Thank you!
 [support_jenny] 2022-09-18T17:37:32+00:00: I've successfully canceled order number 1122334. You will receive a confirmation email shortly.
 
 [support_ben] 2022-09-29T11:51:45+00:00: Good morning, what can I assist you with today?
