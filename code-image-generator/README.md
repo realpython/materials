@@ -35,7 +35,7 @@ Next, you need to install Playwright:
 Finally, run the Flask development server
 
 ```bash
-(venv) $ flask run
+(venv) $ python -m flask run
 ```
 
 Now you can navigate to the address that's shown in the output when you start the server. Commonly, that's `http://localhost:5000/`.
