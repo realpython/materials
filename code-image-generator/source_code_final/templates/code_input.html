@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block title %}
+    01 - Code Input
+{% endblock title %}
+{% block content %}
+    <style>
+        .code_input {
+            min-height: calc({{ num_lines }}em * 1.4 + 2 * 1em);
+            min-width: calc({{ max_chars }}ch + 2 * 2em);
+        } 
+    </style>
+    <form class="columns">
+        <button name="reset" formmethod="post">Reset ♻️</button>
+        <textarea class="code_input" name="code">{{ code }}</textarea>
+        <button formmethod="post" formaction="{{ url_for("theme") }}">Next ➡️</button>
+    </form>
+{% endblock content %}

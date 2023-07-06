@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% block title %}
+    02 - Theme Selection
+{% endblock title %}
+{% block content %}
+    <form method="post" class="columns">
+        <button formaction="{{ url_for("code") }}">⬅️ Back</button>
+        <div>
+            <div class="columns">
+                <select name="theme">
+                    {% for theme_name in all_themes %}
+                        <option value="{{ theme_name }}"
+                                {% if theme_name == theme %}selected{% endif %}>
+                            {{ theme_name }}
+                        </option>
+                    {% endfor %}
+                </select>
+                <button>Reload</button>
+            </div>
+            {% include "_code_block.html" %}
+        </div>
+        <div>
+            <button formaction="{{ url_for("preview") }}">Next ➡️</button>
+        </div>
+    </form>
+{% endblock content %}

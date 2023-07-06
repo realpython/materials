@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{% block title %}
+    03 - Preview
+{% endblock title %}
+{% block content %}
+    <form method="post" class="columns">
+        <button formmethod="get" formaction="{{ url_for("theme") }}">⬅️ Back</button>
+        {% include "_code_block.html" %}
+        <button formaction="{{ url_for("screenshot") }}">Take Photo 📸</button>
+    </form>
+{% endblock content %}
