@@ -125,7 +125,7 @@ Once you have 3.12 installed, open any file from the `f-string/` folder. Uncomme
 For example, go ahead and run the following command:
 
 ```console
-$ python backslaches.py
+$ python backslashes.py
 Hello
 World!
 I
@@ -134,7 +134,7 @@ a
 Pythonista!
 ```
 
-This example shows how the new implementation of f-strings allows you to include backslashes in embedded expressions. This was a limitation of f-strings till Python 3.11. 
+In this example, you can see how the new implementation of f-strings allows you to include backslashes in embedded expressions. This wasn't possible with f-strings in earlier versions of Python. 
 
 ## Authors
 
