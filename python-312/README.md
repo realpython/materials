@@ -14,6 +14,7 @@ You can learn more about Python 3.12's new features in the following Real Python
 
 - [Python 3.12 Preview: Ever Better Error Messages](https://realpython.com/python312-error-messages/)
 - [Python 3.12 Preview: Support For the Linux `perf` Profiler](https://realpython.com/python312-perf-profiler/)
+- [Python 3.12 Preview: More Intuitive and Consistent F-Strings](https://realpython.com/python312-f-strings/)
 
 You'll find examples from all these tutorials in this repository.
 
@@ -116,6 +117,24 @@ $ cat traces_censored.txt | flamegraph.pl --minwidth 10 > flamegraph.svg
 ```
 
 See [Support For the Linux `perf` Profiler in Python 3.12](https://realpython.com/python312-perf-profiler/) for more information.
+
+### New F-String Implementation and Syntax Formalization
+
+Once you have 3.12 installed, open any file from the `f-string/` folder. Uncomment the code as needed. [Run the scripts](https://realpython.com/run-python-scripts/) from your command line or execute the code directly in a [REPL](https://realpython.com/python-repl/) session. You'll see the new f-string implementation in action.
+
+For example, go ahead and run the following command:
+
+```console
+$ python backslashes.py
+Hello
+World!
+I
+am
+a
+Pythonista!
+```
+
+In this example, you can see how the new implementation of f-strings allows you to include backslashes in embedded expressions. This wasn't possible with f-strings in earlier versions of Python. 
 
 ## Authors
 
