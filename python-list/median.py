@@ -1,10 +1,10 @@
-def median(sample):
-    n = len(sample)
-    index = n // 2
-    sorted_sample = sorted(sample)
+def median(samples):
+    n = len(samples)
+    middle_index = n // 2
+    sorted_samples = sorted(samples)
     # Odd number of values
-    if n % 2 != 0:
-        return sorted_sample[index]
+    if n % 2:
+        return sorted_samples[middle_index]
     # Even number of values
-    lower, upper = index - 1, index + 1
-    return sum(sorted_sample[lower:upper]) / 2
+    lower, upper = middle_index - 1, middle_index + 1
+    return sum(sorted_samples[lower:upper]) / 2
