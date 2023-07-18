@@ -31,8 +31,8 @@ def get_average_luminance(pixels):
     return exp(mean([log(luminance(pixel) + 1e-9) for pixel in pixels]))
 
 
-def mean(n):
-    return sum(n) / len(n)
+def mean(numbers):
+    return sum(numbers) / len(numbers)
 
 
 def luminance(pixel):
