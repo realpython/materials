@@ -1,6 +1,6 @@
-# How to Download Files From URL With Python
+# How to Download Files From URLs With Python
 
-This folder contains sample code for the [How to Download Files From URL With Python](https://realpython.com/python-download-file-from-url/) tutorial on Real Python.
+This folder contains sample code for the [How to Download Files From URLs With Python](https://realpython.com/python-download-file-from-url/) tutorial on Real Python.
 
 ## Installation
 
