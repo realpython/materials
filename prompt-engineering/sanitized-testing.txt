@@ -1,0 +1,44 @@
+[Agent] 2023-07-15: Hello! What can I help you with today?
+[Client] 2023-07-15: Hey, my promo code isn't applying the discount in my cart.
+[Agent] 2023-07-15: My apologies for the trouble, ********. Could you tell me the promo code you're trying to use?
+[Client] 2023-07-15: It's "SAVE20".
+
+[Agent] 2023-07-24: Good day! How can I help you?
+[Client] 2023-07-24: Hi "********", I can't update my 😤 credit card information. Do you want my 😤 money or not?
+[Agent] 2023-07-24: I'm sorry for the inconvenience, ********. Can you please confirm your account's email?
+[Client] 2023-07-24: Sure, you have all my 😤 data already anyways. It's ********.
+
+[Agent] 2023-08-13: Good morning! How may I assist you?
+[Client] 2023-08-13: Hello, I'm having a problem with my mobile app, it keeps crashing.
+[Agent] 2023-08-13: I'm sorry to hear that, ********. Could you tell me what device you're using? 
+[Client] 2023-08-13: I have an iPhone 11.
+
+[Agent] 2023-08-30: Good evening! How may I assist you today?
+[Client] 2023-08-30: Hi ********, I've forgotten my 😤 password and I can't login into my account.
+[Agent] 2023-08-30: I'm sorry for the trouble, ********. Could you confirm your email address so we can reset your password?
+[Client] 2023-08-30: Definitely, it's ********.
+
+[Agent] 2023-09-01: Hello! How can I assist you this morning?
+[Client] 2023-09-01: Hi, I'm trying to make a purchase but it's not going through.
+[Agent] 2023-09-01: I'm sorry to hear that, ********. Can you tell me what error message you're receiving?
+[Client] 2023-09-01: It's saying "Payment method not valid".
+
+[Agent] 2023-10-11: Good morning! How may I assist you?
+[Client] 2023-10-11: Hello, I'd like to know the status of my order. 
+[Agent] 2023-10-11: Of course, ********. Could you please provide me with the order number?
+[Client] 2023-10-11: It's ********.
+
+[Agent] 2023-10-19: Welcome! How can I assist you right now?
+[Client] 2023-10-19: 😤! There's no option to change my profile picture. What kind of 😤 joint are you running? 
+[Agent] 2023-10-19: Let me help you with this, ********. Are you trying to update it from the mobile app or the website?
+[Client] 2023-10-19: I'm using the 😤 website
+
+[Agent] 2023-10-29: Hello! What can I help you with today?
+[Client] 2023-10-29: Hi ********, I was charged twice for my last order. 
+[Agent] 2023-10-29: I'm sorry to hear that, ********. Could you share your order number so I can look into this for you?
+[Client] 2023-10-29: Sure, it's ********.
+
+[Agent] 2023-11-08: How can I help you today?
+[Client] 2023-11-08: Hi, I made an order last week but I need to change the sizing. 
+[Agent] 2023-11-08: Certainly, ********. Could you provide me the order number?
+[Client] 2023-11-08: Yes, it's ********. Thanks!
