@@ -69,33 +69,21 @@ def _read_input_text(input_file: str) -> str:
 
 def _assemble_prompt(content: str, settings: dict) -> str:
     """Combine all messages into a single prompt."""
-    prompt = f">>>>>\n{content}\n<<<<<\n\n" + settings["prompts"]["instructions"]
+    prompt = (
+        f">>>>>\n{content}\n<<<<<\n\n" + settings["prompts"]["instructions"]
+    )
     return prompt
 
-
-# def _assemble_messages(content: str, settings: dict) -> List[dict]:
-#     """Combine all messages into a well-formatted dictionary."""
-#     messages = [
-#         {"role": "system", "content": settings["prompts"]["role_prompt"]},
-#         {"role": "user", "content": f">>>>>\n{content}\n<<<<<\n\n"},
-#         {"role": "user", "content": settings["prompts"]["instructions"]},
-#     ]
-#     return messages
 
 def _assemble_messages(content: str, settings: dict) -> List[dict]:
     """Combine all messages into a well-formatted dictionary."""
     messages = [
         {"role": "system", "content": settings["prompts"]["role_prompt"]},
-        {"role": "user", "content": settings["prompts"]["negative_example"]},
-        {"role": "system", "content": settings["prompts"]["negative_reasoning"]},
-        {"role": "assistant", "content": settings["prompts"]["negative_output"]},
-        {"role": "user", "content": settings["prompts"]["positive_example"]},
-        {"role": "system", "content": settings["prompts"]["positive_reasoning"]},
-        {"role": "assistant", "content": settings["prompts"]["positive_output"]},
         {"role": "user", "content": f">>>>>\n{content}\n<<<<<\n\n"},
         {"role": "user", "content": settings["prompts"]["instructions"]},
     ]
     return messages
+
 
 if __name__ == "__main__":
     print(main())
