@@ -1,8 +1,7 @@
+import argparse
 import os
-import sys
 import tomllib
 from pathlib import Path
-from typing import List
 
 import openai
 
@@ -10,80 +9,104 @@ import openai
 openai.api_key = os.getenv("OPENAI_API_KEY")
 
 
-def main() -> str:
-    try:
-        file_path = sys.argv[1]
-    except IndexError:
-        file_path = "training.txt"
-    settings = _load_settings()
-    if settings["general"]["model"] in settings["general"]["chat_models"]:
-        return request_response(file_path)
-    return request_completion(file_path)
+class Settings(dict):
+    """Handle loading and accessing application settings from file."""
+
+    @classmethod
+    def load(cls, path) -> "Settings":
+        """Load TOML settings file and pass it to class constuctor."""
+        with path.open("rb") as file:
+            return cls(tomllib.load(file))
+
+    def __init__(self, *args, **kwargs) -> None:
+        """Add general settings and prompts as instance attributes."""
+        super().__init__(*args, **kwargs)
+        # Settings
+        self.chat_models = self["general"]["chat_models"]
+        self.model = self["general"]["model"]
+        self.max_tokens = self["general"]["max_tokens"]
+        self.temperature = self["general"]["temperature"]
+        self.model_supports_chat_completions = self.model in self.chat_models
+        # Prompts
+        self.instruction_prompt = self["prompts"]["instruction_prompt"]
+        self.role_prompt = self["prompts"]["role_prompt"]
+        self.positive_example = self["prompts"]["positive_example"]
+        self.positive_reasoning = self["prompts"]["positive_reasoning"]
+        self.positive_output = self["prompts"]["positive_output"]
+        self.negative_example = self["prompts"]["negative_example"]
+        self.negative_reasoning = self["prompts"]["negative_reasoning"]
+        self.negative_output = self["prompts"]["negative_output"]
 
 
-def request_completion(file: str) -> str:
-    """Assemble all text into a prompt and send a /completion API request."""
-    settings = _load_settings()
-    content = _read_input_text(file)
-    prompt = _assemble_prompt(content, settings)
+def parse_args() -> argparse.Namespace:
+    """Parse command-line input."""
+    parser = argparse.ArgumentParser()
+    parser.add_argument("file_path", type=Path, help="Path to the input file")
+    return parser.parse_args()
 
+
+def main(args: argparse.Namespace) -> None:
+    file_content = args.file_path.read_text("utf-8")
+    settings = Settings.load(Path("settings.toml"))
+    if settings.model_supports_chat_completions:
+        print(get_chat_completion(file_content, settings))
+    else:
+        print(get_completion(file_content, settings))
+
+
+def get_completion(content: str, settings: Settings) -> str:
+    """Send a request to the /completions endpoint."""
     response = openai.Completion.create(
-        model=settings["general"]["model"],
-        prompt=prompt,
-        max_tokens=settings["general"]["max_tokens"],
-        temperature=settings["general"]["temperature"],
+        model=settings.model,
+        prompt=assemble_prompt(content, settings),
+        max_tokens=settings.max_tokens,
+        temperature=settings.temperature,
     )
     return response["choices"][0]["text"]
 
 
-def request_response(file: str) -> str:
-    """Assemble all text into a prompt and send a /chat API request."""
-    settings = _load_settings()
-    content = _read_input_text(file)
-    messages = _assemble_messages(content, settings)
-
+def get_chat_completion(content: str, settings: Settings) -> str:
+    """Send a request to the /chat/completions endpoint."""
     response = openai.ChatCompletion.create(
-        model=settings["general"]["model"],
-        messages=messages,
-        # max_tokens defaults to inf
-        temperature=settings["general"]["temperature"],
+        model=settings.model,
+        messages=assemble_chat_messages(content, settings),
+        temperature=settings.temperature,
     )
     return response["choices"][0]["message"]["content"]
 
 
-def _load_settings() -> dict:
-    """Load the settings file."""
-    settings_path = Path.cwd() / "settings.toml"
-    with settings_path.open("rb") as settings_file:
-        settings = tomllib.load(settings_file)
-    return settings
+def assemble_prompt(content: str, settings: Settings) -> str:
+    """Combine all text input into a single prompt."""
+    instruction_prompt = settings["prompts"]["instruction_prompt"]
+    return f">>>>>\n{content}\n<<<<<\n\n" + instruction_prompt
 
 
-def _read_input_text(input_file: str) -> str:
-    """Read the text content from a file."""
-    input_file_path = Path(input_file)
-    with input_file_path.open("r") as file:
-        content = file.read()
-    return content
-
-
-def _assemble_prompt(content: str, settings: dict) -> str:
-    """Combine all messages into a single prompt."""
-    prompt = (
-        f">>>>>\n{content}\n<<<<<\n\n" + settings["prompts"]["instructions"]
-    )
-    return prompt
-
-
-def _assemble_messages(content: str, settings: dict) -> List[dict]:
+def assemble_chat_messages(content: str, settings: Settings) -> list[dict]:
     """Combine all messages into a well-formatted dictionary."""
-    messages = [
+    return [
         {"role": "system", "content": settings["prompts"]["role_prompt"]},
-        {"role": "user", "content": f">>>>>\n{content}\n<<<<<\n\n"},
-        {"role": "user", "content": settings["prompts"]["instructions"]},
+        {"role": "user", "content": settings["prompts"]["negative_example"]},
+        {
+            "role": "system",
+            "content": settings["prompts"]["negative_reasoning"],
+        },
+        {
+            "role": "assistant",
+            "content": settings["prompts"]["negative_output"],
+        },
+        {"role": "user", "content": settings["prompts"]["positive_example"]},
+        {
+            "role": "system",
+            "content": settings["prompts"]["positive_reasoning"],
+        },
+        {
+            "role": "assistant",
+            "content": settings["prompts"]["positive_output"],
+        },
+        {"role": "user", "content": f">>>>>\n{content}\n<<<<<"},
+        {"role": "user", "content": settings["prompts"]["instruction_prompt"]},
     ]
-    return messages
 
 
 if __name__ == "__main__":
-    print(main())
+    main(parse_args())
