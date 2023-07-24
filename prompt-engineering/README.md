@@ -1,6 +1,6 @@
 # Practical Prompt Engineering
 
-This repository contains a practical example to showcase a few common prompt engineering techniques. It's the code base used in the [associated Real Python tutorial on prompt engineering](https://realpython.com/practical-prompt-engineering/). The project allows you to preprocess customer service chats using GPT-3 and GPT-4 using the OpenAI API.
+This repository contains a practical example to showcase a few common prompt engineering techniques. It's the code base used in the associated Real Python tutorial on [practical prompt engineering](https://realpython.com/practical-prompt-engineering/). The project allows you to preprocess customer service chats using GPT-3.5 and GPT-4 using the OpenAI API.
 
 ## Setup
 
@@ -28,17 +28,35 @@ Read support chat conversations from a file, sanitize the text, classify by sent
 (venv) $ python app.py chats.txt
 ```
 
-You can provide a different file as input file.
+You can also provide a different file as your input file.
+
+## Files
+
+The repository contains the following files:
+
+- [LICENSE](LICENSE): License information
+- [README.md](README.md): Information on the project and how to use it
+- [app.py](app.py): Code logic
+- [chats.txt](chats.txt): Customer support chats used for building few-shot examples
+- [requirements.txt](requirements.txt): Project requirements
+- [sanitized-chats.txt](sanitized-chats.txt): Sanitized version of `chats.txt` that's used for building few-shot examples for sentiment analysis
+- [sanitized-testing-chats.txt](sanitized-testing-chats.txt): Sanitized version of `testing-chats.txt` that's used for testing the prompt used for sentiment analysis
+- [settings.toml](settings.toml): Main settings file used for iteratively improving the prompts
+- [final-settings.toml](final-settings.toml): Final state of the settings file at the end of the tutorial
+- [testing-chats.txt](testing-chats.txt): Customer support chats used for testing the prompt on new data
+
+You can find more information about when and how to use the different files [in the tutorial](https://realpython.com/practical-prompt-engineering/).
 
 ## Prompts
 
-Change the prompts used in the script by editing the entries in `settings.toml`. The repository also contains a second settings file, `final-settings.toml`, which contains the prompts that you use in the final section.
+Change the prompts used in the script by editing the entries in [`settings.toml`](settings.toml). The repository also contains a second settings file, [`settings-final.toml`](settings-final.toml), which contains the prompts that you use in the [final section](https://realpython.com/practical-prompt-engineering/#improve-your-output-with-the-power-of-conversation) of the tutorial.
 
-While working through the tutorial, you'll learn how iteratively developing the prompt can give you better results based on a couple of prompting techniques. Here you'll find a collection of all the prompts you use throughout the tutorial:
+While working through the tutorial, you'll learn how to improve your text completions by iteratively developing the prompt. You'll make these changes to your prompt based on a couple of prompt engineering techniques. Here you'll find a collection of all the prompts that you use throughout the tutorial:
 
 ### Zero-shot Prompting
 
 ```toml
+[prompts]
 instruction_prompt = """
 Remove personally identifiable information, only show the date,
 and replace all swear words with "😤"
@@ -48,6 +66,7 @@ and replace all swear words with "😤"
 ### One-shot Prompting
 
 ```toml
+[prompts]
 instruction_prompt = """
 Remove personally identifiable information, only show the date,
 and replace all swear words with "😤"
@@ -66,9 +85,10 @@ Example Output:
 """
 ```
 
-# Few-shot Prompting
+### Few-shot Prompting
 
 ```toml
+[prompts]
 instruction_prompt = """
 Remove personally identifiable information, only show the date,
 and replace all swear words with "😤"
@@ -100,6 +120,7 @@ Example Outputs:
 ### Delimiters
 
 ```toml
+[prompts]
 instruction_prompt = """Remove personally identifiable information
 from >>>>>CONTENT<<<<<, only show the date,
 and replace all swear words with "😤"
@@ -135,6 +156,7 @@ and replace all swear words with "😤"
 ### Numbered Steps
 
 ```toml
+[prompts]
 instruction_prompt = """
 Sanitize the text provided in >>>CONTENT<<< in multiple steps:
 
@@ -174,6 +196,7 @@ Sanitize the text provided in >>>CONTENT<<< in multiple steps:
 ### Increased Specificity
 
 ```toml
+[prompts]
 instruction_prompt = """
 Sanitize the text provided in >>>CONTENT<<< in multiple steps:
 
@@ -215,6 +238,7 @@ Sanitize the text provided in >>>CONTENT<<< in multiple steps:
 ### Role Prompts
 
 ```toml
+[prompts]
 instruction_prompt = """
 Sanitize the text provided in >>>CONTENT<<< in multiple steps:
 
@@ -258,6 +282,7 @@ Rephrase every line spoken by an Agent with your unique voice."""
 
 
 ```toml
+[prompts]
 instruction_prompt = """
 Sanitize the text provided in >>>CONTENT<<< in multiple steps:
 
@@ -303,6 +328,7 @@ You never make up any information that isn't there."""
 ### Sentiment Classification
 
 ```toml
+[prompts]
 instruction_prompt = """
 Classify the sentiment of each conversation in >>>>>CONTENT<<<<<
 with "🔥" for negative and "✅" for positive:
@@ -344,6 +370,7 @@ You never make up any information that isn't there."""
 ### Zero-shot CoT
 
 ```toml
+[prompts]
 instruction_prompt = """
 Classify the sentiment of each conversation in >>>>>CONTENT<<<<<
 with "🔥" for negative and "✅" for positive.
@@ -367,6 +394,7 @@ You never make up any information that isn't there."""
 ### Chain-of-Thought (CoT)
 
 ```toml
+[prompts]
 instruction_prompt = """
 Classify the sentiment of each conversation in >>>>>CONTENT<<<<<
 with "🔥" for negative and "✅" for positive.
@@ -410,6 +438,7 @@ You never make up any information that isn't there."""
 ### Structured Output
 
 ```toml
+[prompts]
 instruction_prompt = """
 Classify the sentiment of each conversation in >>>>>CONTENT<<<<<
 as "negative" and "positive".

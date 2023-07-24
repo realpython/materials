@@ -77,34 +77,21 @@ def get_chat_completion(content: str, settings: Settings) -> str:
 
 def assemble_prompt(content: str, settings: Settings) -> str:
     """Combine all text input into a single prompt."""
-    instruction_prompt = settings["prompts"]["instruction_prompt"]
-    return f">>>>>\n{content}\n<<<<<\n\n" + instruction_prompt
+    return f">>>>>\n{content}\n<<<<<\n\n" + settings.instruction_prompt
 
 
 def assemble_chat_messages(content: str, settings: Settings) -> list[dict]:
     """Combine all messages into a well-formatted dictionary."""
     return [
-        {"role": "system", "content": settings["prompts"]["role_prompt"]},
-        {"role": "user", "content": settings["prompts"]["negative_example"]},
-        {
-            "role": "system",
-            "content": settings["prompts"]["negative_reasoning"],
-        },
-        {
-            "role": "assistant",
-            "content": settings["prompts"]["negative_output"],
-        },
-        {"role": "user", "content": settings["prompts"]["positive_example"]},
-        {
-            "role": "system",
-            "content": settings["prompts"]["positive_reasoning"],
-        },
-        {
-            "role": "assistant",
-            "content": settings["prompts"]["positive_output"],
-        },
+        {"role": "system", "content": settings.role_prompt},
+        {"role": "user", "content": settings.negative_example},
+        {"role": "system", "content": settings.negative_reasoning},
+        {"role": "assistant", "content": settings.negative_output},
+        {"role": "user", "content": settings.positive_example},
+        {"role": "system", "content": settings.positive_reasoning},
+        {"role": "assistant", "content": settings.positive_output},
         {"role": "user", "content": f">>>>>\n{content}\n<<<<<"},
-        {"role": "user", "content": settings["prompts"]["instruction_prompt"]},
+        {"role": "user", "content": settings.instruction_prompt},
     ]
 
 
