@@ -1,3 +1,5 @@
+import operator
+
 musicians_list = [
     [1, "Brian", "Wilson", "Beach Boys"],
     [2, "Carl", "Wilson", "Beach Boys"],
@@ -7,8 +9,6 @@ musicians_list = [
     [6, "Bruce", "Welch", "Shadows"],
     [7, "Brian", "Bennett", "Shadows"],
 ]
-
-import operator
 
 get_id = operator.itemgetter(0)
 print(sorted(musicians_list, key=get_id, reverse=True))
