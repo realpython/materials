@@ -1,3 +1,5 @@
+import operator
+
 musicians = [
     {"id": 1, "fname": "Brian", "lname": "Wilson", "group": "Beach Boys"},
     {"id": 2, "fname": "Carl", "lname": "Wilson", "group": "Beach Boys"},
@@ -8,7 +10,6 @@ musicians = [
     {"id": 7, "fname": "Brian", "lname": "Bennett", "group": "Shadows"},
 ]
 
-import operator
 
 # Get a single element
 get_element_four = operator.itemgetter(4)
