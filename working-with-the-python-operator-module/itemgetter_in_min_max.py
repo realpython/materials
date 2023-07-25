@@ -1,3 +1,5 @@
+import operator
+
 musicians_list = [
     [1, "Brian", "Wilson", "Beach Boys"],
     [2, "Carl", "Wilson", "Beach Boys"],
