@@ -1,0 +1,8 @@
+$ python -m timeit "(lambda a, b: a + b)(10, 10)"
+$ python -m timeit -s "from operator import add" "add(10, 10)"
+$ python -m timeit "10 + 10"
+
+$ python -m timeit "(lambda a, b: a ** b)(10, 10)"
+$ python -m timeit -s "from operator import pow" "pow(10, 10)"
+$ python -m timeit "10 ** 10"
+
