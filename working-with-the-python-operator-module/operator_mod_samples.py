@@ -1,3 +1,5 @@
+import operator
+
 print(operator.truediv(5, 2))  # 5 / 2
 
 print(operator.ge(5, 2))  # 5 >= 2
