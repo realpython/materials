@@ -1,6 +1,7 @@
 import operator
 from dataclasses import dataclass
 
+
 @dataclass
 class Musician:
     id: int
