@@ -1,5 +1,5 @@
+import operator
 from dataclasses import dataclass
-
 
 @dataclass
 class Musician:
@@ -23,8 +23,6 @@ group_members = []
 
 for musician in musicians_list:
     group_members.append(Musician(*musician))
-
-import operator
 
 # Returning a single attribute.
 get_fname = operator.attrgetter("fname")
