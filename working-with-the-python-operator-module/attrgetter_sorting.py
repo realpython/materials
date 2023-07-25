@@ -1,3 +1,4 @@
+import operator
 from dataclasses import dataclass
 
 
@@ -23,8 +24,6 @@ group_members = []
 
 for musician in musicians_list:
     group_members.append(Musician(*musician))
-
-import operator
 
 # Sorting on a single attribute.
 
