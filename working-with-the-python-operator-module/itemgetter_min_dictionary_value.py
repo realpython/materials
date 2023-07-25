@@ -1,3 +1,5 @@
+import operator
+
 musicians = [
     {"id": 1, "fname": "Brian", "lname": "Wilson", "group": "Beach Boys"},
     {"id": 2, "fname": "Carl", "lname": "Wilson", "group": "Beach Boys"},
