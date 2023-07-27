@@ -4,7 +4,7 @@ This folder contains supplementary code for the Real Python tutorial on [Working
 
 ## Setup
 
-For most of the examples, you'll use the `operator`, `pickle`, `dataclasses` and `timeit` modules.  All of these come built in to Python. No additional installation is necessary.
+For most of the examples, you'll use the `operator`, `pickle`, `dataclasses`, and `timeit` modules.  All of these come built in to Python. No additional installation is necessary.
 
 ## Usage
 
