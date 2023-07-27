@@ -12,4 +12,4 @@ musicians = [
 
 get_lname = operator.itemgetter("lname")
 
-min(musicians, key=get_lname)
+print(min(musicians, key=get_lname))

@@ -1,4 +1,4 @@
-from operator import add, sub, mul, truediv
+from operator import add, mul, sub, truediv
 
 
 def perform_operation(operator_function, operand1, operand2):

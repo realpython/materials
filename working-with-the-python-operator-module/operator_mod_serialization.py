@@ -1,5 +1,5 @@
-import pickle
 import operator
+import pickle
 
 print(operator.mod(7, 4))
 
