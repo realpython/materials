@@ -1,4 +1,4 @@
-# De-serialize the function unsuccessfully.
+# Deserialize the function unsuccessfully.
 
 import pickle
 
