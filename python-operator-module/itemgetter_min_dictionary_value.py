@@ -1,6 +1,6 @@
 import operator
 
-musicians = [
+musician_dicts = [
     {"id": 1, "fname": "Brian", "lname": "Wilson", "group": "Beach Boys"},
     {"id": 2, "fname": "Carl", "lname": "Wilson", "group": "Beach Boys"},
     {"id": 3, "fname": "Dennis", "lname": "Wilson", "group": "Beach Boys"},
@@ -12,4 +12,4 @@ musicians = [
 
 get_lname = operator.itemgetter("lname")
 
-print(min(musicians, key=get_lname))
+print(min(musician_dicts, key=get_lname))

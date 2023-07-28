@@ -1,6 +1,6 @@
 import operator
 
-musicians = [
+musician_dicts = [
     {"id": 1, "fname": "Brian", "lname": "Wilson", "group": "Beach Boys"},
     {"id": 2, "fname": "Carl", "lname": "Wilson", "group": "Beach Boys"},
     {"id": 3, "fname": "Dennis", "lname": "Wilson", "group": "Beach Boys"},
@@ -11,4 +11,4 @@ musicians = [
 ]
 
 get_names = operator.itemgetter("lname", "fname")
-print(sorted(musicians, key=get_names, reverse=True))
+print(sorted(musician_dicts, key=get_names, reverse=True))

@@ -1,6 +1,6 @@
 import operator
 
-musicians_list = [
+musician_lists = [
     [1, "Brian", "Wilson", "Beach Boys"],
     [2, "Carl", "Wilson", "Beach Boys"],
     [3, "Dennis", "Wilson", "Beach Boys"],
@@ -12,6 +12,6 @@ musicians_list = [
 
 get_id = operator.itemgetter(0)
 
-print(max(musicians_list, key=get_id))
+print(max(musician_lists, key=get_id))
 
-print(min(musicians_list, key=get_id))
+print(min(musician_lists, key=get_id))

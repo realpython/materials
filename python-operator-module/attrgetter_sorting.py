@@ -10,7 +10,7 @@ class Musician:
     group: str
 
 
-musicians_list = [
+musician_lists = [
     [1, "Brian", "Wilson", "Beach Boys"],
     [2, "Carl", "Wilson", "Beach Boys"],
     [3, "Dennis", "Wilson", "Beach Boys"],
@@ -22,7 +22,7 @@ musicians_list = [
 
 group_members = []
 
-for musician in musicians_list:
+for musician in musician_lists:
     group_members.append(Musician(*musician))
 
 # Sorting on a single attribute.

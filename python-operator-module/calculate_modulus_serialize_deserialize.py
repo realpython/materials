@@ -11,7 +11,7 @@ print(calculate_modulus(7, 4))
 with open("calculate_modulus.pkl", "wb") as f:
     pickle.dump(calculate_modulus, f)
 
-# De-serialize the function.
+# Deserialize the function.
 
 with open("calculate_modulus.pkl", "rb") as f:
     unpickled_modulus = pickle.load(f)

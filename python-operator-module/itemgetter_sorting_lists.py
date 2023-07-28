@@ -1,6 +1,6 @@
 import operator
 
-musicians_list = [
+musician_lists = [
     [1, "Brian", "Wilson", "Beach Boys"],
     [2, "Carl", "Wilson", "Beach Boys"],
     [3, "Dennis", "Wilson", "Beach Boys"],
@@ -11,7 +11,7 @@ musicians_list = [
 ]
 
 get_id = operator.itemgetter(0)
-print(sorted(musicians_list, key=get_id, reverse=True))
+print(sorted(musician_lists, key=get_id, reverse=True))
 
 get_elements_two_one = operator.itemgetter(2, 1)
-print(sorted(musicians_list, key=get_elements_two_one, reverse=True))
+print(sorted(musician_lists, key=get_elements_two_one, reverse=True))
