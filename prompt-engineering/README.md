@@ -1,6 +1,6 @@
-# Practical Prompt Engineering
+# Prompt Engineering: A Practical Example
 
-This repository contains a practical example to showcase a few common prompt engineering techniques. It's the code base used in the associated Real Python tutorial on [practical prompt engineering](https://realpython.com/practical-prompt-engineering/). The project allows you to preprocess customer service chats using GPT-3.5 and GPT-4 using the OpenAI API.
+This repository contains a practical example to showcase a few common prompt engineering techniques. It's the codebase used in the associated Real Python tutorial on [practical prompt engineering](https://realpython.com/practical-prompt-engineering/). The project allows you to preprocess customer service chats using GPT-3.5 and GPT-4 using the OpenAI API.
 
 ## Setup
 
@@ -51,9 +51,9 @@ You can find more information about when and how to use the different files [in 
 
 Change the prompts used in the script by editing the entries in [`settings.toml`](settings.toml). The repository also contains a second settings file, [`settings-final.toml`](settings-final.toml), which contains the prompts that you use in the [final section](https://realpython.com/practical-prompt-engineering/#improve-your-output-with-the-power-of-conversation) of the tutorial.
 
-While working through the tutorial, you'll learn how to improve your text completions by iteratively developing the prompt. You'll make these changes to your prompt based on a couple of prompt engineering techniques. Here you'll find a collection of all the prompts that you use throughout the tutorial:
+While working through the tutorial, you'll learn how to improve your text completions by iteratively developing the prompt. You'll make these changes to your prompt based on a few prompt engineering techniques. Here you'll find a collection of all the prompts that you use throughout the tutorial:
 
-### Zero-shot Prompting
+### Zero-Shot Prompting
 
 ```toml
 [prompts]
@@ -63,7 +63,7 @@ and replace all swear words with "😤"
 """
 ```
 
-### One-shot Prompting
+### One-Shot Prompting
 
 ```toml
 [prompts]
@@ -85,7 +85,7 @@ Example Output:
 """
 ```
 
-### Few-shot Prompting
+### Few-Shot Prompting
 
 ```toml
 [prompts]
