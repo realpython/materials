@@ -8,6 +8,6 @@ print_three_members(member1="Frank", member2="Dean", member3="Sam")
 
 print_three_members(member1="Frank", member3="Dean", member2="Sam")
 
-print_three_members("Frank", "Dean", "Sam")
-
-print_three_members("Frank", member3="Dean", member2="Sam")
+# This would be invalid:
+# print_three_members("Frank", member3="Dean", member2="Sam")
+# print_three_members("Frank", "Dean", "Sam")

@@ -4,4 +4,5 @@ def username(fn, ln, /):
 
 print(username("Frank", "Sinatra"))
 
-print(username(fn="Frank", ln="Sinatra"))
+# This would be invalid:
+# print(username(fn="Frank", ln="Sinatra"))

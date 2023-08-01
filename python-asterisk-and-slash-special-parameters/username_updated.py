@@ -9,4 +9,5 @@ username("Frank", "Sinatra")
 
 username("Frank", "Sinatra", initial_last=False)
 
-username(fn="Frank", ln="Sinatra", initial_last=False)
+# This would be invalid:
+# username(fn="Frank", ln="Sinatra", initial_last=False)

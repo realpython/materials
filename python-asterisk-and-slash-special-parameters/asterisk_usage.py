@@ -6,4 +6,5 @@ asterisk_usage(either="Frank", keyword_only="Dean")
 
 asterisk_usage("Frank", keyword_only="Dean")
 
-asterisk_usage("Frank", "Dean")
+# This would be invalid:
+# asterisk_usage("Frank", "Dean")
