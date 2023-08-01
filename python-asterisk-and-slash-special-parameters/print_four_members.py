@@ -4,5 +4,5 @@ def print_four_members(member1, member2, /, member3, *, member4):
     print(f"member3 is {member3}")
     print(f"member4 is {member4}")
 
-print_four_members("Frank", "Dean", member3="Sam", member4="Joey")
 
+print_four_members("Frank", "Dean", member3="Sam", member4="Joey")
