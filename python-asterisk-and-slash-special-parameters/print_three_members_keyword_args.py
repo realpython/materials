@@ -5,7 +5,6 @@ def print_three_members(*, member1, member2, member3):
 
 
 print_three_members(member1="Frank", member2="Dean", member3="Sam")
-
 print_three_members(member1="Frank", member3="Dean", member2="Sam")
 
 # This would be invalid:

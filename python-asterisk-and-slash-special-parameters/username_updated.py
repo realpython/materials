@@ -6,7 +6,6 @@ def username(fn, ln, /, *, initial_last=True):
 
 
 username("Frank", "Sinatra")
-
 username("Frank", "Sinatra", initial_last=False)
 
 # This would be invalid:
