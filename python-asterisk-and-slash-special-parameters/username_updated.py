@@ -4,6 +4,7 @@ def username(fn, ln, /, *, initial_last=True):
     else:
         return fn[0] + ln
 
+
 username("Frank", "Sinatra")
 
 username("Frank", "Sinatra", initial_last=False)
