@@ -5,4 +5,4 @@ slash_usage("Frank", keyword_only="Dean")
 
 slash_usage(position_only="Frank", keyword_only="Dean")
 
-slash_usage(position_only="Frank", "Dean")
+slash_usage(position_only="Frank", "Dean")  # noqa: E731
