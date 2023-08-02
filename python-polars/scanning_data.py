@@ -14,7 +14,9 @@ print(lazy_car_data.schema)
 
 lazy_car_query = (
     lazy_car_data.filter((pl.col("Model Year") >= 2018))
-    .filter(pl.col("Electric Vehicle Type") == "Battery Electric Vehicle (BEV)")
+    .filter(
+        pl.col("Electric Vehicle Type") == "Battery Electric Vehicle (BEV)"
+    )
     .groupby(["State", "Make"])
     .agg(
         pl.mean("Electric Range").alias("Average Electric Range"),

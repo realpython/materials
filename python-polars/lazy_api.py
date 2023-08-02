@@ -36,4 +36,6 @@ lazy_query = (
 
 print(lazy_query.collect().select(pl.col(["price_per_sqft", "year"])))
 
-print(lazy_query.collect().select(pl.col(["price_per_sqft", "year"])).describe())
+print(
+    lazy_query.collect().select(pl.col(["price_per_sqft", "year"])).describe()
+)

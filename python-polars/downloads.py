@@ -3,7 +3,7 @@ import pathlib
 
 
 def download_file(file_url: str, local_file_path: pathlib.Path) -> None:
-    """Download a file from the URL and save it with the specified file name."""
+    "Download a file from the URL and save it with the specified file name."
     response = requests.get(file_url)
     if response:
         local_file_path.write_bytes(response.content)
