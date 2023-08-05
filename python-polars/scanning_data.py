@@ -1,6 +1,6 @@
 import pathlib
-from downloads import download_file
 import polars as pl
+from downloads import download_file
 
 url = "https://data.wa.gov/api/views/f6w7-q2d2/rows.csv?accessType=DOWNLOAD"
 local_file_path = pathlib.Path("electric_cars.csv")
