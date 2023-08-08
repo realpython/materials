@@ -11,7 +11,7 @@ class Musician:
 
     def get_full_name(self, last_name_first=False):
         if last_name_first:
-            return f"{self.lname} {self.fname}"
+            return f"{self.lname}, {self.fname}"
         return f"{self.fname} {self.lname}"
 
 
