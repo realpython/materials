@@ -60,11 +60,11 @@ select {
     line-height: 1.4em;
 }
 
-.code_picture {
+.code-picture {
     text-align: center;
 }
 
-img {
+.code-picture img {
     margin: 1em 0;
     border: 1px solid #cecece;
     max-width: 80%;

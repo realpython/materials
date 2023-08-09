@@ -6,7 +6,7 @@ from pygments.formatters import HtmlFormatter
 from pygments.lexers import Python3Lexer
 from pygments.styles import get_all_styles
 
-from utils import take_screenshot
+from utils import take_screenshot_from_url
 
 app = Flask(__name__)
 app.secret_key = "mysecretkey"
@@ -42,15 +42,6 @@ def reset_session():
     return redirect(url_for("code"))
 
 
-@app.route("/save_style", methods=["POST"])
-def save_style():
-    if request.form.get("style") is not None:
-        session["style"] = request.form.get("style")
-    if request.form.get("code") is not None:
-        session["code"] = request.form.get("code")
-    return redirect(url_for("style"))
-
-
 @app.route("/style", methods=["GET"])
 def style():
     if session.get("style") is None:
@@ -60,8 +51,8 @@ def style():
         "message": "Select Your Style 🎨",
         "code": session["code"],
         "all_styles": list(get_all_styles()),
-        "style_bg_color": formatter.style.background_color,
         "style_definitions": formatter.get_style_defs(),
+        "style_bg_color": formatter.style.background_color,
         "highlighted_code": highlight(
             session["code"], Python3Lexer(), formatter
         ),
@@ -69,15 +60,24 @@ def style():
     return render_template("style_selection.html", **context)
 
 
+@app.route("/save_style", methods=["POST"])
+def save_style():
+    if request.form.get("style") is not None:
+        session["style"] = request.form.get("style")
+    if request.form.get("code") is not None:
+        session["code"] = request.form.get("code")
+    return redirect(url_for("style"))
+
+
 @app.route("/image", methods=["GET"])
 def image():
-    session_dict = {
+    session_data = {
         "name": app.config["SESSION_COOKIE_NAME"],
         "value": request.cookies.get(app.config["SESSION_COOKIE_NAME"]),
         "url": request.host_url,
     }
     target_url = request.host_url + url_for("style")
-    image_bytes = take_screenshot(target_url, session_dict)
+    image_bytes = take_screenshot_from_url(target_url, session_data)
     context = {
         "message": "Done! 🎉",
         "image_b64": base64.b64encode(image_bytes).decode("utf-8"),

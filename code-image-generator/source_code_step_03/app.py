@@ -38,15 +38,6 @@ def reset_session():
     return redirect(url_for("code"))
 
 
-@app.route("/save_style", methods=["POST"])
-def save_style():
-    if request.form.get("style") is not None:
-        session["style"] = request.form.get("style")
-    if request.form.get("code") is not None:
-        session["code"] = request.form.get("code")
-    return redirect(url_for("style"))
-
-
 @app.route("/style", methods=["GET"])
 def style():
     if session.get("style") is None:
@@ -56,10 +47,19 @@ def style():
         "message": "Select Your Style 🎨",
         "code": session["code"],
         "all_styles": list(get_all_styles()),
-        "style_bg_color": formatter.style.background_color,
         "style_definitions": formatter.get_style_defs(),
+        "style_bg_color": formatter.style.background_color,
         "highlighted_code": highlight(
             session["code"], Python3Lexer(), formatter
         ),
     }
     return render_template("style_selection.html", **context)
+
+
+@app.route("/save_style", methods=["POST"])
+def save_style():
+    if request.form.get("style") is not None:
+        session["style"] = request.form.get("style")
+    if request.form.get("code") is not None:
+        session["code"] = request.form.get("code")
+    return redirect(url_for("style"))
