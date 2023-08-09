@@ -1,0 +1,44 @@
+[support_johnny] 2023-07-15T14:40:37+00:00: Hello! What can I help you with today?
+[becky_h] 2023-07-15T14:41:05+00:00: Hey, my promo code isn't applying the discount in my cart.
+[support_johnny] 2023-07-15T14:41:30+00:00: My apologies for the trouble, Becky. Could you tell me the promo code you're trying to use?
+[becky_h] 2023-07-15T14:41:55+00:00: It's "SAVE20".
+
+[support_peter] 2023-07-24T10:56:43+00:00: Good day! How can I help you?
+[lucy_g] 2023-07-24T10:57:12+00:00: Hi "Peter", I can't update my darn credit card information. Do you want my darn money or not?
+[support_peter] 2023-07-24T10:57:38+00:00: I'm sorry for the inconvenience, Lucy. Can you please confirm your account's email?
+[lucy_g] 2023-07-24T10:58:06+00:00: Sure, you have all my darn data already anyways. It's lucy.g@email.com. 
+
+[support_luke] 2023-08-13T11:34:02+00:00: Good morning! How may I assist you?
+[anna_s] 2023-08-13T11:34:30+00:00: Hello, I'm having a problem with my mobile app, it keeps crashing.
+[support_luke] 2023-08-13T11:34:58+00:00: I'm sorry to hear that, Anna. Could you tell me what device you're using? 
+[anna_s] 2023-08-13T11:35:22+00:00: I have an iPhone 11.
+
+[support_lisa] 2023-08-30T20:38:00+00:00: Good evening! How may I assist you today?
+[steve_b] 2023-08-30T20:38:30+00:00: Hi Lisa, I've forgotten my friggin password and I can't login into my account.
+[support_lisa] 2023-08-30T20:38:55+00:00: I'm sorry for the trouble, Steve. Could you confirm your email address so we can reset your password?
+[steve_b] 2023-08-30T20:39:22+00:00: Definitely, it's steve.b@email.com. 
+
+[support_william] 2023-09-01T08:22:40+00:00: Hello! How can I assist you this morning?
+[emma_t] 2023-09-01T08:23:05+00:00: Hi, I'm trying to make a purchase but it's not going through.
+[support_william] 2023-09-01T08:23:33+00:00: I'm sorry to hear that, Emma. Can you tell me what error message you're receiving?
+[emma_t] 2023-09-01T08:24:00+00:00: It's saying "Payment method not valid".
+
+[support_ben] 2023-10-11T09:44:22+00:00: Good morning! How may I assist you?
+[susan_p] 2023-10-11T09:44:55+00:00: Hello, I'd like to know the status of my order. 
+[support_ben] 2023-10-11T09:45:15+00:00: Of course, Susan. Could you please provide me with the order number?
+[susan_p] 2023-10-11T09:45:40+00:00: It's 717171. 
+
+[support_ricky] 2023-10-19T17:38:45+00:00: Welcome! How can I assist you right now?
+[linda_a] 2023-10-19T17:39:10+00:00: Fudge! There's no option to change my profile picture. What kind of crikey joint are you running? 
+[support_ricky] 2023-10-19T17:39:32+00:00: Let me help you with this, Linda. Are you trying to update it from the mobile app or the website?
+[linda_a] 2023-10-19T17:39:57+00:00: I'm using the darn website
+
+[support_tony] 2023-10-29T16:00:32+00:00: Hello! What can I help you with today?
+[mark_s] 2023-10-29T16:01:00+00:00: Hi Tony, I was charged twice for my last order. 
+[support_tony] 2023-10-29T16:01:22+00:00: I'm sorry to hear that, Mark. Could you share your order number so I can look into this for you?
+[mark_s] 2023-10-29T16:01:46+00:00: Sure, it's 333666.
+
+[support_emily] 2023-11-08T14:34:12+00:00: How can I help you today?
+[nina_z] 2023-11-08T14:34:36+00:00: Hi, I made an order last week but I need to change the sizing. 
+[support_emily] 2023-11-08T14:34:58+00:00: Certainly, Nina. Could you provide me the order number?
+[nina_z] 2023-11-08T14:35:26+00:00: Yes, it's 444888. Thanks! 

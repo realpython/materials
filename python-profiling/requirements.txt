@@ -1,0 +1,1 @@
+pyinstrument==4.5.0

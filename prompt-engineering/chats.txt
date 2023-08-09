@@ -1,0 +1,43 @@
+[support_tom] 2023-07-24T10:02:23+00:00 : What can I help you with?
+[johndoe] 2023-07-24T10:03:15+00:00 : I CAN'T CONNECT TO MY BLASTED ACCOUNT
+[support_tom] 2023-07-24T10:03:30+00:00 : Are you sure it's not your caps lock?
+[johndoe] 2023-07-24T10:04:03+00:00 : Blast! You're right!
+
+[support_amy] 2023-06-15T14:45:35+00:00 : Hello! How can I assist you today?
+[greg_stone] 2023-06-15T14:46:20+00:00 : I can't seem to find the download link for my purchased software.
+[support_amy] 2023-06-15T14:47:01+00:00 : No problem, Greg. Let me find that for you. Can you please provide your order number?
+[greg_stone] 2023-06-15T14:47:38+00:00 : It's 1245789. Thanks for helping me out!
+
+[support_louis] 2023-05-05T09:22:12+00:00 : Hi, how can I help you today?
+[karen_w] 2023-05-05T09:23:47+00:00 : MY BLASTED ORDER STILL HASN'T ARRIVED AND IT'S BEEN A WEEK!!!
+[support_louis] 2023-05-05T09:24:15+00:00 : I'm sorry to hear that, Karen. Let's look into this issue.
+[support_louis] 2023-05-05T09:25:35+00:00: Can you please provide your order number so I can check the status for you?
+[karen_w] 2023-05-05T09:26:12+00:00: Fine, it's 9876543.
+[support_louis] 2023-05-05T09:26:45+00:00: Thank you, Karen. I see there was a delay in shipping. Your order will arrive within the next 2 days.
+
+[support_jenny] 2023-06-18T17:35:28+00:00: Hello! How can I help you today?
+[alex_harper] 2023-06-18T17:36:05+00:00: I accidentally placed an order twice, can you help me cancel one?
+[support_jenny] 2023-06-18T17:36:25+00:00: Sure, Alex. Can you give me the order number you'd like to cancel?
+[alex_harper] 2023-06-18T17:36:55+00:00: Yes, it's 1122334. Thank you!
+[support_jenny] 2023-06-18T17:37:32+00:00: I've successfully canceled order number 1122334. You will receive a confirmation email shortly.
+
+[support_ben] 2023-06-29T11:51:45+00:00: Good morning, what can I assist you with today?
+[lisa_beck] 2023-06-29T11:52:20+00:00: Hi there, I received a damaged item in my order. Can you help me return it?
+[support_ben] 2023-06-29T11:52:45+00:00: I'm sorry to hear that, Lisa. Can you provide your order number and specify the damaged item?
+[lisa_beck] 2023-06-29T11:53:22+00:00: Sure, order number is 5566778 and the damaged item is a coffee mug.
+
+[support_rachel] 2023-05-04T08:16:37+00:00: How can I help you today?
+[mike_t] 2023-05-04T08:17:15+00:00: My coupon code isn't working at checkout. Can you help?
+[support_rachel] 2023-05-04T08:17:38+00:00: Of course, Mike. Please provide the coupon code you're trying to use.
+[mike_t] 2023-05-04T08:18:02+00:00: It's "HELLO10".
+[support_rachel] 2023-05-04T08:18:37+00:00: I've checked the code, and it seems to have expired. I apologize for the inconvenience. Here's a new code for you to use: "WELCOME15".
+
+[support_vincent] 2023-06-15T20:43:55+00:00: Good evening! How may I assist you?
+[sara_winters] 2023-06-15T20:44:30+00:00: Hi there, I'm having trouble logging into my account. I've tried resetting my password, but it's not working.
+[support_vincent] 2023-06-15T20:44:52+00:00: I'm sorry to hear that, Sara. Let me help you. Can you please confirm your email address?
+[sara_winters] 2023-06-15T20:45:25+00:00: Sure, it's sara.winters@email.com.
+
+[support_david] 2023-06-24T16:28:43+00:00: Welcome! What can I do for you today?
+[jane_d] 2023-06-24T16:29:16+00:00: Hi, I need to change my delivery address for my recent order.
+[support_david] 2023-06-24T16:29:43+00:00: Alright, Jane. Please provide your order number.
+[jane_d] 2023-06-24T16:30:11+00:00: It's 3344556. Thanks for your help!

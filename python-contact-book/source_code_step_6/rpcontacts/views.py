@@ -149,7 +149,4 @@ class AddDialog(QDialog):
 
             self.data.append(field.text())
 
-        if not self.data:
-            return
-
         super().accept()
