@@ -1,6 +1,12 @@
 import base64
-
-from flask import Flask, render_template, session, request, redirect, url_for
+from flask import (
+    Flask,
+    redirect,
+    render_template,
+    request,
+    session,
+    url_for,
+)
 from pygments import highlight
 from pygments.formatters import HtmlFormatter
 from pygments.lexers import Python3Lexer
@@ -49,7 +55,6 @@ def style():
     formatter = HtmlFormatter(style=session["style"])
     context = {
         "message": "Select Your Style 🎨",
-        "code": session["code"],
         "all_styles": list(get_all_styles()),
         "style_definitions": formatter.get_style_defs(),
         "style_bg_color": formatter.style.background_color,
