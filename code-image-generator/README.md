@@ -39,3 +39,30 @@ Finally, run the Flask development server
 ```
 
 Now you can navigate to the address that's shown in the output when you start the server. Commonly, that's `http://localhost:5000/`.
+
+## Secret Key
+
+If you want to deploy your Flask app later, then it's a good idea to generate a proper secret key.
+
+If you need to create cryptographically sound data like a Flask secret key, then you can use Python's [`secrets`](https://docs.python.org/3/library/secrets.html) module:
+
+```pycon
+>>> import secrets
+>>> secrets.token_hex()
+'2e9ac41b1e0b66a8d93d66400e2300c4b4c2953f'
+```
+
+The `.token_hex()` method returns a [hexadecimal](https://en.wikipedia.org/wiki/Hexadecimal) string containing random numbers and letters from `0` to `9` and `a` to `f`. Use the value that `secrets.token_hex()` outputs for you and add it in your Flask project's `app.py` file:
+
+```python hl_lines="6"
+# app.py
+
+from flask import Flask, render_template
+
+app = Flask(__name__)
+app.secret_key = "2e9ac41b1e0b66a8d93d66400e2300c4b4c2953f"
+
+# ...
+```
+
+To not save the secret key directly in your code, it may be a good idea to work with [environment variables](https://12factor.net/config). You can learn more about it in the Flask documentation about [Configuration Handling](https://flask.palletsprojects.com/en/2.3.x/config/).

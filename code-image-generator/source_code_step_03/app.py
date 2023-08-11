@@ -12,7 +12,9 @@ from pygments.lexers import Python3Lexer
 from pygments.styles import get_all_styles
 
 app = Flask(__name__)
-app.secret_key = "mysecretkey"
+app.secret_key = (
+    "AddYourSecretKeyHere"  # See the README.md file for instructions
+)
 
 PLACEHOLDER_CODE = "print('Hello, World!')"
 DEFAULT_STYLE = "monokai"
