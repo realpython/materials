@@ -1,5 +1,5 @@
 def username(fn, ln, /):
-    return fn + ln[0]
+    return ln + fn[0]
 
 
 print(username("Frank", "Sinatra"))
