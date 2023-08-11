@@ -1,7 +1,9 @@
 {% extends "base.html" %}
+
 {% block title %}
   - Your Image
 {% endblock title %}
+
 {% block content %}
 <form>
   {% if image_b64 %}
@@ -10,7 +12,7 @@
            alt="Code Image" />
     </div>
     <a href="data:image/png;base64,{{ image_b64 | safe }}"
-         download="Your_CodeImage.png">
+       download="Your_CodeImage.png">
         Download Your Code Image ⤵️
       </a>
   {% endif %}
