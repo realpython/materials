@@ -1,0 +1,25 @@
+[general]
+chat_models = ["gpt-3.5-turbo", "gpt-3.5-turbo-16k", "gpt-4"]
+model = "text-davinci-003"
+max_tokens = 2100
+temperature = 0
+
+[prompts]
+instruction_prompt = """
+Remove personally identifiable information, only show the date,
+and replace all swear words with "😤"
+"""
+role_prompt = """
+"""
+positive_example = """
+"""
+positive_reasoning = """
+"""
+positive_output = """
+"""
+negative_example = """
+"""
+negative_reasoning = """
+"""
+negative_output = """
+"""
