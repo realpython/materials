@@ -14,6 +14,8 @@ def cli(path):
     for entry in target_dir.iterdir():
         click.echo(f"{entry.name:{len(entry.name) + 5}}", nl=False)
 
+    click.echo()
+
 
 if __name__ == "__main__":
     cli()

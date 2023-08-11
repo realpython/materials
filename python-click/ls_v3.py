@@ -15,12 +15,15 @@ import click
     ),
 )
 def cli(paths):
-    for path in paths:
+    for i, path in enumerate(paths):
         if len(paths) > 1:
             click.echo(f"{path}/:")
         for entry in path.iterdir():
             click.echo(f"{entry.name:{len(entry.name) + 5}}", nl=False)
-        click.echo("\n")
+        if i < len(paths) - 1:
+            click.echo("\n")
+        else:
+            click.echo()
 
 
 if __name__ == "__main__":

@@ -11,7 +11,7 @@ TIMEOUT = 3
 
 @click.command()
 @click.option("--date", default="2021-10-01")
-@click.option("--api_key", envvar="NASA_API_KEY")
+@click.option("--api-key", envvar="NASA_API_KEY")
 def cli(date, api_key):
     endpoint = f"{BASE_URL}/apod"
     try:

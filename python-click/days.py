@@ -5,7 +5,15 @@ import click
 @click.option(
     "--weekday",
     type=click.Choice(
-        ["monday", "tuesday", "wednesday", "thursday", "friday"]
+        [
+            "Monday",
+            "Tuesday",
+            "Wednesday",
+            "Thursday",
+            "Friday",
+            "Saturday",
+            "Sunday",
+        ]
     ),
 )
 def cli(weekday):
