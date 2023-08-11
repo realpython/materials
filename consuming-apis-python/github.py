@@ -33,9 +33,7 @@ def create_oauth_link():
     # website to input your credentials. Since you're doing this
     # programmatically, you need to get the `url` parameter and print it in
     # the console instead.
-    url = response.url
-
-    return url
+    return response.url
 
 
 # In this method you'll exchange the code you got from the GitHub API with
