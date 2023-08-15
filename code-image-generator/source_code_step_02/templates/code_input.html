@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block title %}
+  - Code Input
+{% endblock title %}
+
+{% block content %}
+<style>
+  .code {
+    min-height: calc({{ num_lines }}em * 1.5 + 2 * 1em);
+    min-width: calc({{ max_chars }}ch + 4 * 2em);
+  }
+</style>
+<form>
+  <textarea class="code"
+              name="code"
+              placeholder="Paste your Python code here">{{ code }}</textarea>
+  <div class="controls">
+    <button formmethod="post" formaction="{{ url_for("reset_session") }}">
+      Reset Session ♻️
+    </button>
+    <button formmethod="post" formaction="{{ url_for("save_code") }}">
+      Save Code 💾
+    </button>
+  </div>
+</form>
+{% endblock content %}

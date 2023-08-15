@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+
+{% block title %}
+  - Style Selection
+{% endblock title %}
+
+{% block content %}
+<style>
+  {{ style_definitions }}
+
+  .code {
+    background-color: {{ style_bg_color }};
+  }
+</style>
+<form>
+  <div class="controls">
+    <select name="style">
+        {% for style_name in all_styles %}
+          <option value="{{ style_name }}">{{ style_name }}</option>
+        {% endfor %}
+    </select>
+    <button formmethod="post" formaction="{{ url_for("save_style") }}">
+      Change Style 💅
+    </button>
+  </div>
+  <div class="code">
+    {{ highlighted_code | safe }}
+  </div>
+  <div class="controls">
+    <button formmethod="get" formaction="{{ url_for("code") }}">
+      ⬅️ Back
+    </button>
+    <button formmethod="get" formaction="{{ url_for("image") }}">
+      Create Image 📸
+    </button>
+  </div>
+</form>
+{% endblock content %}
