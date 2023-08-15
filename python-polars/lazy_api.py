@@ -8,7 +8,7 @@ buildings = {
     "sqft": rng.exponential(scale=1000, size=num_rows),
     "price": rng.exponential(scale=100_000, size=num_rows),
     "year": rng.integers(low=1995, high=2023, size=num_rows),
-    "building_type": rng.choice(a=["A", "B", "C"], size=num_rows),
+    "building_type": rng.choice(["A", "B", "C"], size=num_rows),
 }
 buildings_lazy = pl.LazyFrame(buildings)
 print(buildings_lazy)
