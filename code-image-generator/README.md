@@ -1,6 +1,6 @@
 # Build a Code Image Generator with Flask, Pygments, and Playwright
 
-Follow the [step-by-step instructions](https://realpython.com/code-image-generator/) on Real Python.
+Follow the [step-by-step instructions](https://realpython.com/python-code-image-generator/) on Real Python.
 
 ## Setup
 
@@ -18,7 +18,7 @@ Activate the virtual environment:
 source ./venv/bin/activate
 ```
 
-Navigate to the folder for the step you're currently on.
+Navigate to the folder for the step that you're currently on.
 
 Install the dependencies for this project if you haven't installed them yet:
 
@@ -52,7 +52,7 @@ If you need to create cryptographically sound data like a Flask secret key, then
 '2e9ac41b1e0b66a8d93d66400e2300c4b4c2953f'
 ```
 
-The `.token_hex()` method returns a [hexadecimal](https://en.wikipedia.org/wiki/Hexadecimal) string containing random numbers and letters from `0` to `9` and `a` to `f`. Use the value that `secrets.token_hex()` outputs for you and add it in your Flask project's `app.py` file:
+The `.token_hex()` method returns a [hexadecimal](https://en.wikipedia.org/wiki/Hexadecimal) string containing random numbers and letters from `0` to `9` and `a` to `f`. Use the value that `secrets.token_hex()` outputs for you and add it to your Flask project's `app.py` file:
 
 ```python hl_lines="6"
 # app.py
@@ -65,4 +65,4 @@ app.secret_key = "2e9ac41b1e0b66a8d93d66400e2300c4b4c2953f"
 # ...
 ```
 
-To not save the secret key directly in your code, it may be a good idea to work with [environment variables](https://12factor.net/config). You can learn more about it in the Flask documentation about [Configuration Handling](https://flask.palletsprojects.com/en/2.3.x/config/).
+To avoid saving the secret key directly in your code, it may be a good idea to work with [environment variables](https://12factor.net/config). You can learn more about that in the Flask documentation on [configuration handling](https://flask.palletsprojects.com/en/2.3.x/config/).
