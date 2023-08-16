@@ -24,6 +24,8 @@ def cli(paths, long):
             entry_output = build_output(entry, long)
             click.echo(f"{entry_output:{len(entry_output) + 5}}", nl=long)
         if i < len(paths) - 1:
+            click.echo("" if long else "\n")
+        elif not long:
             click.echo()
 
 

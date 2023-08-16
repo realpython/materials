@@ -22,13 +22,16 @@ import click
     ),
 )
 def cli(paths, long):
-    for path in paths:
+    for i, path in enumerate(paths):
         if len(paths) > 1:
             click.echo(f"{path}/:")
         for entry in path.iterdir():
             entry_output = build_output(entry, long)
             click.echo(f"{entry_output:{len(entry_output) + 5}}", nl=long)
-        click.echo("\n")
+        if i < len(paths) - 1:
+            click.echo("" if long else "\n")
+        elif not long:
+            click.echo()
 
 
 def build_output(entry, long=False):

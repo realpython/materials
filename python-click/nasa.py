@@ -1,5 +1,3 @@
-# nasa.py
-
 import webbrowser
 
 import click
