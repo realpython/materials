@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <title>
+      Code to Image
+      {% block title %}
+      {% endblock title %}
+    </title>
+    <link rel="stylesheet"
+          type="text/css"
+          href="{{ url_for('static', filename='styles.css') }}"/>
+  </head>
+  <body>
+    <h1>
+      <a href="{{ url_for('code') }}">Code to Image</a>: <span>{{ message }}</span>
+    </h1>
+    <main>
+      {% block content %}
+      {% endblock content %}
+    </main>
+  </body>
+</html>
