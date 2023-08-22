@@ -10,7 +10,7 @@ import click
     type=click.File(mode="r"),
 )
 def cli(file, lines):
-    for line in deque(file, lines):
+    for line in deque(file, maxlen=lines):
         click.echo(line, nl=False)
 
 
