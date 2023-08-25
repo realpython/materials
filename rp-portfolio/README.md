@@ -4,7 +4,7 @@ Follow the [step-by-step instructions](https://realpython.com/get-started-with-d
 
 ## Images
 
-You can find the example images for the projects in the [uploads/project_images] folder.
+You can find the example images for the projects in the [uploads/project_images](uploads/project_images) folder.
 
 ## Setup
 
