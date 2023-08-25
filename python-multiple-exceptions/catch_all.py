@@ -1,0 +1,17 @@
+# catch_all.py
+
+exceptions = [ZeroDivisionError(), FileNotFoundError(), NameError()]
+num_zd_errors = num_fnf_errors = num_name_errors = 0
+
+try:
+    raise ExceptionGroup("Errors Occurred", exceptions)
+except* ZeroDivisionError:
+    num_zd_errors += 1
+except* FileNotFoundError:
+    num_fnf_errors += 1
+except* NameError:
+    num_name_errors += 1
+finally:
+    print(f"ZeroDivisionError was raised {num_zd_errors} times.")
+    print(f"FileNotFoundError was raised {num_fnf_errors} times.")
+    print(f"NameError was raised {num_name_errors} times.")
