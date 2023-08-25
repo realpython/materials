@@ -2,8 +2,10 @@
 
 from operator import mul, truediv
 
+
 def calculate(operator, operand1, operand2):
     return operator(operand1, operand2)
+
 
 try:
     first = float(input("What is your first number? "))
