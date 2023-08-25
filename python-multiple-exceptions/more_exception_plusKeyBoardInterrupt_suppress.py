@@ -17,3 +17,4 @@ with suppress(KeyboardInterrupt):
                     print("Found new transactions, updating log, & archiving")
                     main.writelines(transactions.readlines())
             temporary_file.replace(archive_path)
+            
