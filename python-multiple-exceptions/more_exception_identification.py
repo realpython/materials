@@ -16,7 +16,7 @@ try:
     elif operation == "/":
         answer = calculate(truediv, first, second)
     else:
-        raise RuntimeError(f"'{operation}' is an unsupported operation")   
+        raise RuntimeError(f"'{operation}' is an unsupported operation")
 except (RuntimeError, ValueError, ZeroDivisionError) as err:
     print(f"A {type(err).__name__} has occurred")
     match err:
@@ -28,4 +28,3 @@ except (RuntimeError, ValueError, ZeroDivisionError) as err:
             print(f"You can't divide by zero: {err}")
 else:
     print(f"{first} {operation} {second} = {answer}")
-
