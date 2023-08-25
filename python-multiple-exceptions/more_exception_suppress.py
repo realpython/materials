@@ -16,4 +16,3 @@ while True:
                 main.writelines(transactions.readlines())
         temporary_file.replace(archive_path)
     time.sleep(3)
-    
