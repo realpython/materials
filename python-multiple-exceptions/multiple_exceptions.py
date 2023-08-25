@@ -6,4 +6,3 @@ try:
     print(f"{first} divided by {second} is {first / second}")
 except (ZeroDivisionError, ValueError):
     print("There was an error")
-    
