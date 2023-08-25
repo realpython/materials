@@ -16,3 +16,4 @@ finally:
     print(f"ZeroDivisionError was raised {num_zd_errors} times.")
     print(f"FileNotFoundError was raised {num_fnf_errors} times.")
     print(f"NameError was raised {num_name_errors} times.")
+    
