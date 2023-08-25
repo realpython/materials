@@ -7,4 +7,3 @@ try:
         print(f.readlines())
 except OSError as err:
     print(strerror(err.errno))
-    
