@@ -1,4 +1,4 @@
-numbers = {"one": 1, "two": 2, "thee": 3, "four": 4}
+numbers = {"one": 1, "two": 2, "three": 3, "four": 4}
 small_numbers = {}
 
 for key, value in numbers.items():
