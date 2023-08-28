@@ -14,4 +14,4 @@ if __name__ == "__main__":
             future = executor.submit(echo, data)
             future.result()
         t2 = time.perf_counter()
-        print(f"{executor.__class__.__name__:>20s}: {t2 - t1:.2f}s")
+        print(f"{type(executor).__name__:>20s}: {t2 - t1:.2f}s")
