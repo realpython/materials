@@ -1,4 +1,4 @@
-import datetime
+from datetime import datetime
 from pathlib import Path
 
 import click
@@ -37,10 +37,8 @@ def cli(paths, long):
 def build_output(entry, long=False):
     if long:
         size = entry.stat().st_size
-        date = datetime.datetime.fromtimestamp(entry.stat().st_mtime).strftime(
-            "%b %d %H:%M:%S"
-        )
-        return f"{size:>6d} {date} {entry.name}"
+        date = datetime.fromtimestamp(entry.stat().st_mtime)
+        return f"{size:>6d} {date:%b %d %H:%M:%S} {entry.name}"
     return entry.name
 
 

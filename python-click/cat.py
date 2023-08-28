@@ -5,7 +5,7 @@ import click
 @click.argument(
     "files",
     nargs=-1,
-    type=click.File("r"),
+    type=click.File(mode="r"),
 )
 def cli(files):
     for file in files:
