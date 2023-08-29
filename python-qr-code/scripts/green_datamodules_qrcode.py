@@ -2,9 +2,9 @@ import segno
 
 qrcode = segno.make_qr("Hello, World")
 
-# Changing only the color of the dark data modules
+# Changing the color of only the dark data modules
 qrcode.save(
-    "my_green_datadark_qrcode.png",
+    "green_datadark_qrcode.png",
     scale=5,
     light="lightblue",
     dark="darkblue",
@@ -13,7 +13,7 @@ qrcode.save(
 
 # Changing the color of the dark and light data modules
 qrcode.save(
-    "my_green_datamodules_qrcode.png",
+    "green_datamodules_qrcode.png",
     scale=5,
     light="lightblue",
     dark="darkblue",
