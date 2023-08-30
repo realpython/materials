@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>My Personal Blog</title>
+    <link rel="stylesheet" href="https://cdn.simplecss.org/simple.min.css">
+</head>
+<body>
+<h1>My Personal Blog</h1>
+<a href="{% url "blog_index" %}">Home</a>
+<hr>
+{% block page_title %}{% endblock page_title %}
+{% block page_content %}{% endblock page_content %}
+</body>
+</html>
