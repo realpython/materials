@@ -1,8 +1,11 @@
 #!/usr/bin/env python
+"""Django's command-line utility for administrative tasks."""
 import os
 import sys
 
-if __name__ == "__main__":
+
+def main():
+    """Run administrative tasks."""
     os.environ.setdefault(
         "DJANGO_SETTINGS_MODULE", "personal_portfolio.settings"
     )
@@ -15,3 +18,7 @@ if __name__ == "__main__":
             "forget to activate a virtual environment?"
         ) from exc
     execute_from_command_line(sys.argv)
+
+
+if __name__ == "__main__":
+    main()
