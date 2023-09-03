@@ -7635,6 +7635,7 @@ a.anchor-link {
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">icu</span> <span class="kn">import</span> <span class="n">Locale</span>
+
 <span class="nb">list</span><span class="p">(</span><span class="n">Locale</span><span class="o">.</span><span class="n">getAvailableLocales</span><span class="p">())[:</span><span class="mi">5</span><span class="p">]</span>
 </pre></div>
 </div>
@@ -7673,6 +7674,7 @@ a.anchor-link {
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">icu</span> <span class="kn">import</span> <span class="n">RuleBasedCollator</span>
+
 <span class="n">collator</span> <span class="o">=</span> <span class="n">RuleBasedCollator</span><span class="p">(</span>
 <span class="w">    </span><span class="sd">"""</span>
 <span class="sd">    &amp;A&lt;ą&lt;&lt;&lt;Ą</span>
@@ -7793,6 +7795,7 @@ a.anchor-link {
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">unicodedata</span>
 
+
 <span class="k">def</span> <span class="nf">transliterate_v1</span><span class="p">(</span><span class="n">text</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
     <span class="k">return</span> <span class="p">(</span>
         <span class="n">unicodedata</span><span class="o">.</span><span class="n">normalize</span><span class="p">(</span><span class="s2">"NFD"</span><span class="p">,</span> <span class="n">text</span><span class="p">)</span>
@@ -7864,6 +7867,7 @@ Kmi ny oxi her, ykist jofum nu bi vil og adrepa
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">sys</span>
 <span class="kn">import</span> <span class="nn">unicodedata</span>
+
 
 <span class="k">def</span> <span class="nf">transliterate_v2</span><span class="p">(</span><span class="n">text</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">mapping</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
     <span class="n">combining_characters</span> <span class="o">=</span> <span class="s2">""</span><span class="o">.</span><span class="n">join</span><span class="p">(</span>
@@ -7943,6 +7947,7 @@ Kæmi ny oxi her, ykist þjofum nu bæði vil og adrepa
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">unidecode</span>
 
+
 <span class="k">def</span> <span class="nf">transliterate_v3</span><span class="p">(</span><span class="n">text</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
     <span class="k">return</span> <span class="n">unidecode</span><span class="o">.</span><span class="n">unidecode</span><span class="p">(</span><span class="n">text</span><span class="p">)</span>
 </pre></div>
@@ -8009,6 +8014,7 @@ Kaemi ny oxi her, ykist thjofum nu baedi vil og adrepa
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">icu</span>
+
 <span class="n">tr</span> <span class="o">=</span> <span class="n">icu</span><span class="o">.</span><span class="n">Transliterator</span><span class="o">.</span><span class="n">createInstance</span><span class="p">(</span><span class="s2">"Any-ASCII"</span><span class="p">)</span>
 
 <span class="k">for</span> <span class="n">label</span><span class="p">,</span> <span class="n">pangram</span> <span class="ow">in</span> <span class="n">pangrams</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
@@ -8074,6 +8080,7 @@ Kaemi ny oxi her, ykist thjofum nu baedi vil og adrepa
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">functools</span>
 <span class="kn">import</span> <span class="nn">unicodedata</span>
+
 
 <span class="k">def</span> <span class="nf">case_insensitive</span><span class="p">(</span><span class="n">text</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
     <span class="n">nfd</span> <span class="o">=</span> <span class="n">functools</span><span class="o">.</span><span class="n">partial</span><span class="p">(</span><span class="n">unicodedata</span><span class="o">.</span><span class="n">normalize</span><span class="p">,</span> <span class="s2">"NFD"</span><span class="p">)</span>
@@ -8171,6 +8178,7 @@ Kaemi ny oxi her, ykist thjofum nu baedi vil og adrepa
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">pyuca</span> <span class="kn">import</span> <span class="n">Collator</span>
+
 <span class="nb">sorted</span><span class="p">(</span><span class="n">animaux</span><span class="p">,</span> <span class="n">key</span><span class="o">=</span><span class="n">Collator</span><span class="p">()</span><span class="o">.</span><span class="n">sort_key</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -8220,6 +8228,7 @@ Kaemi ny oxi her, ykist thjofum nu baedi vil og adrepa
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">re</span>
+
 
 <span class="k">def</span> <span class="nf">natural_order</span><span class="p">(</span><span class="n">text</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">tuple</span><span class="p">[</span><span class="nb">str</span> <span class="o">|</span> <span class="nb">int</span><span class="p">,</span> <span class="o">...</span><span class="p">]:</span>
     <span class="k">return</span> <span class="nb">tuple</span><span class="p">(</span>
@@ -8299,9 +8308,11 @@ Kaemi ny oxi her, ykist thjofum nu baedi vil og adrepa
 <span class="p">]</span>
 
 <span class="kn">import</span> <span class="nn">locale</span>
+
 <span class="n">locale</span><span class="o">.</span><span class="n">setlocale</span><span class="p">(</span><span class="n">locale</span><span class="o">.</span><span class="n">LC_ALL</span><span class="p">,</span> <span class="s2">"pl_PL.UTF-8"</span><span class="p">)</span>
 
 <span class="kn">from</span> <span class="nn">natsort</span> <span class="kn">import</span> <span class="n">natsorted</span><span class="p">,</span> <span class="n">ns</span>
+
 <span class="n">natsorted</span><span class="p">(</span><span class="n">filenames</span><span class="p">,</span> <span class="n">alg</span><span class="o">=</span><span class="n">ns</span><span class="o">.</span><span class="n">LOCALE</span> <span class="o">|</span> <span class="n">ns</span><span class="o">.</span><span class="n">IGNORECASE</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -8345,12 +8356,14 @@ Kaemi ny oxi her, ykist thjofum nu baedi vil og adrepa
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">NamedTuple</span>
 
+
 <span class="k">class</span> <span class="nc">Person</span><span class="p">(</span><span class="n">NamedTuple</span><span class="p">):</span>
     <span class="n">first_name</span><span class="p">:</span> <span class="nb">str</span>
     <span class="n">last_name</span><span class="p">:</span> <span class="nb">str</span>
 
     <span class="k">def</span> <span class="fm">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">return</span> <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">first_name</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">last_name</span><span class="si">}</span><span class="s2">"</span>
+
 
 <span class="n">people</span> <span class="o">=</span> <span class="p">[</span>
     <span class="n">Person</span><span class="p">(</span><span class="s2">"Zbigniew"</span><span class="p">,</span> <span class="s2">"Nowak"</span><span class="p">),</span>
@@ -8407,11 +8420,13 @@ Kaemi ny oxi her, ykist thjofum nu baedi vil og adrepa
 
 <span class="n">collator</span> <span class="o">=</span> <span class="n">pyuca</span><span class="o">.</span><span class="n">Collator</span><span class="p">()</span>
 
+
 <span class="k">def</span> <span class="nf">compound_key</span><span class="p">(</span><span class="n">person</span><span class="p">:</span> <span class="n">Person</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">tuple</span><span class="p">:</span>
     <span class="k">return</span> <span class="p">(</span>
         <span class="n">collator</span><span class="o">.</span><span class="n">sort_key</span><span class="p">(</span><span class="n">person</span><span class="o">.</span><span class="n">first_name</span><span class="p">),</span>
         <span class="n">collator</span><span class="o">.</span><span class="n">sort_key</span><span class="p">(</span><span class="n">person</span><span class="o">.</span><span class="n">last_name</span><span class="p">),</span>
     <span class="p">)</span>
+
 
 <span class="nb">sorted</span><span class="p">(</span><span class="n">people</span><span class="p">,</span> <span class="n">key</span><span class="o">=</span><span class="n">compound_key</span><span class="p">)</span>
 </pre></div>
@@ -8459,11 +8474,13 @@ Kaemi ny oxi her, ykist thjofum nu baedi vil og adrepa
 
 <span class="n">collator</span> <span class="o">=</span> <span class="n">Collator</span><span class="o">.</span><span class="n">createInstance</span><span class="p">(</span><span class="n">Locale</span><span class="p">(</span><span class="s2">"pl_PL"</span><span class="p">))</span>
 
+
 <span class="k">def</span> <span class="nf">compound_key</span><span class="p">(</span><span class="n">person</span><span class="p">:</span> <span class="n">Person</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">tuple</span><span class="p">:</span>
     <span class="k">return</span> <span class="p">(</span>
-      <span class="n">collator</span><span class="o">.</span><span class="n">getSortKey</span><span class="p">(</span><span class="n">person</span><span class="o">.</span><span class="n">first_name</span><span class="p">),</span>
-      <span class="n">collator</span><span class="o">.</span><span class="n">getSortKey</span><span class="p">(</span><span class="n">person</span><span class="o">.</span><span class="n">last_name</span><span class="p">),</span>
+        <span class="n">collator</span><span class="o">.</span><span class="n">getSortKey</span><span class="p">(</span><span class="n">person</span><span class="o">.</span><span class="n">first_name</span><span class="p">),</span>
+        <span class="n">collator</span><span class="o">.</span><span class="n">getSortKey</span><span class="p">(</span><span class="n">person</span><span class="o">.</span><span class="n">last_name</span><span class="p">),</span>
     <span class="p">)</span>
+
 
 <span class="nb">sorted</span><span class="p">(</span><span class="n">people</span><span class="p">,</span> <span class="n">key</span><span class="o">=</span><span class="n">compound_key</span><span class="p">)</span>
 </pre></div>
