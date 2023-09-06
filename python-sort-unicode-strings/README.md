@@ -29,6 +29,8 @@ In case of problems, you can try installing these dependencies manually:
 - [pyuca](https://pypi.org/project/pyuca/)
 - [Unidecode](https://pypi.org/project/Unidecode/)
 
+**Note:** PyICU requires a C++ compiler and a few third-party libraries to install correctly. Check the official [README](https://gitlab.pyicu.org/main/pyicu/-/blob/48f4f527a344787346e8c10c68859679435e0cb4/README.md) file for more details if needed.
+
 Open the notebook in Jupyter Lab:
 
 ```shell
