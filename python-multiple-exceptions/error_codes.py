@@ -1,5 +1,3 @@
-# error_codes.py
-
 import os
 import errno
 from pprint import pprint
