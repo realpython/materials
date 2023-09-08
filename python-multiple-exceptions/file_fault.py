@@ -1,5 +1,3 @@
-# file_fault.py
-
 from os import strerror
 
 try:
