@@ -1,5 +1,3 @@
-# handler_statement.py
-
 try:
     first = float(input("What is your first number? "))
     second = float(input("What is your second number? "))
