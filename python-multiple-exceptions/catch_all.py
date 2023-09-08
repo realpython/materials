@@ -1,5 +1,3 @@
-# catch_all.py
-
 exceptions = [ZeroDivisionError(), FileNotFoundError(), NameError()]
 num_zd_errors = num_fnf_errors = num_name_errors = 0
 
