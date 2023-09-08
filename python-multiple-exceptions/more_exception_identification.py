@@ -1,5 +1,3 @@
-# more_exception_identification.py
-
 from operator import mul, truediv
 
 
