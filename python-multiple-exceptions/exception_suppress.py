@@ -1,5 +1,3 @@
-# exception_suppress.py
-
 from contextlib import suppress
 
 with suppress(FileNotFoundError, PermissionError):
