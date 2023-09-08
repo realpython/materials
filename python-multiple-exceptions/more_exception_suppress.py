@@ -1,5 +1,3 @@
-# more_exception_suppress.py
-
 import pathlib
 import time
 from contextlib import suppress
