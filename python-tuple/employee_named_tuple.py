@@ -10,7 +10,7 @@ class Employee(NamedTuple):
 
 with open("employees.csv", mode="r") as csv_file:
     reader = csv.reader(csv_file)
-    _ = next(reader)  # Skip headers
+    next(reader)  # Skip headers
     employees = []
     for name, age, position in reader:
         employees.append(Employee(name, int(age), position))
