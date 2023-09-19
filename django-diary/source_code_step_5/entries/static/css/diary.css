@@ -1,0 +1,99 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: sans-serif;
+    font-size: 18px;
+}
+
+a {
+    color: inherit;
+}
+a:hover {
+    opacity: 0.7;
+}
+
+h1 {
+    font-size: 2.8em;
+}
+
+h1 a {
+    text-decoration: none;
+}
+
+h2, h3 {
+    font-size: 1.4em;
+    margin: 0;
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    vertical-align: top;
+}
+
+h2 {
+    /* background-color: lightpink; */
+    background-color: aquamarine;
+}
+
+.mark {
+    background-color: gainsboro;
+}
+.mark a {
+    text-decoration: none;
+}
+
+article {
+    margin-bottom: 0.5rem;
+}
+
+p {
+    font-size: 1.2em;
+    padding-left: 1rem;
+    line-height: 1.3em;
+    max-width: 36rem;
+    color: dimgray;
+}
+
+em {
+    font-style: normal;
+    font-weight: bold;
+}
+
+/* Form */
+
+label {
+    display: block;
+}
+
+button,
+textarea,
+input {
+    font-size: inherit;
+    min-height: 2.5em;
+    padding: 0 1rem;
+}
+
+input[type="text"],
+textarea {
+    width: 100%;
+}
+
+textarea {
+    padding: 0.5rem 1rem;
+    font-family: sans-serif;
+}
+
+button,
+input[type="submit"] {
+    margin: 0 1rem 2px 1rem;
+    cursor: pointer;
+    font-weight: bold;
+    min-width: 8rem;
+}
+
+/* Day coloring */
+
+.Saturday,
+.Sunday {
+    background-color: lightsalmon;
+}

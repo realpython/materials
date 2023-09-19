@@ -1,0 +1,43 @@
+[support_tom] 2023-07-24 : What can I help you with?
+[Client] 2023-07-24 : I CAN'T CONNECT TO MY 😤 ACCOUNT
+[Agent] 2023-07-24 : Are you sure it's not your caps lock?
+[Client] 2023-07-24 : 😤! You're right!
+
+[Agent] 2023-06-15 : Hello! How can I assist you today?
+[Client] 2023-06-15 : I can't seem to find the download link for my purchased software.
+[Agent] 2023-06-15 : No problem, ********. Let me find that for you. Can you please provide your order number?
+[Client] 2023-06-15 : It's ********. Thanks for helping me out!
+
+[Agent] 2023-05-05 : Hi, how can I help you today?
+[Client] 2023-05-05 : MY 😤 ORDER STILL HASN'T ARRIVED AND IT'S BEEN A WEEK!!!
+[Agent] 2023-05-05 : I'm sorry to hear that, ********. Let's look into this issue.
+[Agent] 2023-05-05: Can you please provide your order number so I can check the status for you?
+[Client] 2023-05-05: Fine, it's ********.
+[Agent] 2023-05-05: Thank you, ********. I see there was a delay in shipping. Your order will arrive within the next 2 days.
+
+[Agent] 2023-06-18: Hello! How can I help you today?
+[Client] 2023-06-18: I accidentally placed an order twice, can you help me cancel one?
+[Agent] 2023-06-18: Sure, ********. Can you give me the order number you'd like to cancel?
+[Client] 2023-06-18: Yes, it's ********. Thank you!
+[Agent] 2023-06-18: I've successfully canceled order number ********. You will receive a confirmation email shortly.
+
+[Agent] 2023-06-29: Good morning, what can I assist you with today?
+[Client] 2023-06-29: Hi there, I received a damaged item in my order. Can you help me return it?
+[Agent] 2023-06-29: I'm sorry to hear that, ********. Can you provide your order number and specify the damaged item?
+[Client] 2023-06-29: Sure, order number is ******** and the damaged item is a coffee mug.
+
+[Agent] 2023-05-04: How can I help you today?
+[Client] 2023-05-04: My coupon code isn't working at checkout. Can you help?
+[Agent] 2023-05-04: Of course, ********. Please provide the coupon code you're trying to use.
+[Client] 2023-05-04: It's "********".
+[Agent] 2023-05-04: I've checked the code, and it seems to have expired. I apologize for the inconvenience. Here's a new code for you to use: "********".
+
+[Agent] 2023-06-15: Good evening! How may I assist you?
+[Client] 2023-06-15: Hi there, I'm having trouble logging into my account. I've tried resetting my password, but it's not working.
+[Agent] 2023-06-15: I'm sorry to hear that, ********. Let me help you. Can you please confirm your email address?
+[Client] 2023-06-15: Sure, it's ********.
+
+[Agent] 2023-06-24: Welcome! What can I do for you today?
+[Client] 2023-06-24: Hi, I need to change my delivery address for my recent order.
+[Agent] 2023-06-24: Alright, ********. Please provide your order number.
+[Client] 2023-06-24: It's ********. Thanks for your help!

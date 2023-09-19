@@ -1,0 +1,4 @@
+Django==3.2.6
+django-apscheduler==0.6.0
+feedparser==6.0.8
+python-dateutil==2.8.2

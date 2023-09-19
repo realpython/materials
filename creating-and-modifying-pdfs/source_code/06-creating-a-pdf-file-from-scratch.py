@@ -5,7 +5,7 @@
 from reportlab.pdfgen.canvas import Canvas
 
 canvas = Canvas("hello.pdf")
-canvas.drawString(72, 72, "Hello, World")
+canvas.drawString(72, 72, "Hello, World!")
 canvas.save()
 
 
@@ -13,7 +13,7 @@ canvas.save()
 # Setting the Page Size
 # ---------------------
 
-from reportlab.lib.units import inch, cm  # noqa
+from reportlab.lib.units import cm, inch  # noqa
 
 print(cm)
 print(inch)

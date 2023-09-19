@@ -3,58 +3,48 @@
 # --------------
 
 from pathlib import Path
-from PyPDF2 import PdfFileReader, PdfFileWriter
+
+from pypdf import PdfReader, PdfWriter
 
 pdf_path = (
     Path.home() / "creating-and-modifying-pdfs" / "practice_files" / "ugly.pdf"
 )
 
-pdf_reader = PdfFileReader(str(pdf_path))
-pdf_writer = PdfFileWriter()
+pdf_reader = PdfReader(pdf_path)
+pdf_writer = PdfWriter()
 
-for n in range(pdf_reader.getNumPages()):
-    page = pdf_reader.getPage(n)
-    if n % 2 == 0:
-        page.rotateClockwise(90)
-    pdf_writer.addPage(page)
+for i, page in enumerate(pdf_reader.pages):
+    if i % 2 == 0:
+        page.rotate(90)
+    pdf_writer.add_page(page)
 
-with Path("ugly_rotated.pdf").open(mode="wb") as output_file:
-    pdf_writer.write(output_file)
+pdf_writer.write("ugly_rotated.pdf")
 
-pdf_reader = PdfFileReader(str(pdf_path))
+pdf_reader = PdfReader(pdf_path)
 
-print(pdf_reader.getPage(0))
+first_page = pdf_reader.pages[0]
+print(first_page.rotation)
 
-page = pdf_reader.getPage(0)
-print(page["/Rotate"])
+second_page = pdf_reader.pages[1]
+print(second_page.rotation)
 
-page = pdf_reader.getPage(1)
-print(page["/Rotate"])
-
-page = pdf_reader.getPage(0)
-print(page["/Rotate"])
-
-page.rotateClockwise(90)
-print(page["/Rotate"])
-
-pdf_reader = PdfFileReader(str(pdf_path))
-pdf_writer = PdfFileWriter()
+pdf_reader = PdfReader(pdf_path)
+pdf_writer = PdfWriter()
 
 for page in pdf_reader.pages:
-    if page["/Rotate"] == -90:
-        page.rotateClockwise(90)
-    pdf_writer.addPage(page)
+    if page.rotation != 0:
+        page.rotate(-page.rotation)
+    pdf_writer.add_page(page)
 
-with Path("ugly_rotated2.pdf").open(mode="wb") as output_file:
-    pdf_writer.write(output_file)
-
+pdf_writer.write("ugly_rotated2.pdf")
 
 # --------------
 # Cropping Pages
 # --------------
 
 from pathlib import Path  # noqa
-from PyPDF2 import PdfFileReader, PdfFileWriter  # noqa
+
+from pypdf import PdfReader, PdfWriter  # noqa
 
 pdf_path = (
     Path.home()
@@ -63,42 +53,41 @@ pdf_path = (
     / "half_and_half.pdf"
 )
 
-pdf_reader = PdfFileReader(str(pdf_path))
-first_page = pdf_reader.getPage(0)
+pdf_reader = PdfReader(pdf_path)
+first_page = pdf_reader.pages[0]
 
-print(first_page.mediaBox)
-print(first_page.mediaBox.lowerLeft)
-print(first_page.mediaBox.lowerRight)
-print(first_page.mediaBox.upperLeft)
-print(first_page.mediaBox.upperRight)
-print(first_page.mediaBox.upperRight[0])
-print(first_page.mediaBox.upperRight[1])
+print(first_page.mediabox)
+print(first_page.mediabox.lower_left)
+print(first_page.mediabox.lower_right)
+print(first_page.mediabox.upper_left)
+print(first_page.mediabox.upper_right)
 
-first_page.mediaBox.upperLeft = (0, 480)
-print(first_page.mediaBox.upperLeft)
-print(first_page.mediaBox.upperRight)
+print(first_page.mediabox.upper_right[0])
+print(first_page.mediabox.upper_right[1])
 
-pdf_writer = PdfFileWriter()
-pdf_writer.addPage(first_page)
-with Path("cropped_page.pdf").open(mode="wb") as output_file:
-    pdf_writer.write(output_file)
+first_page.mediabox.upper_left = [0, 480]
+print(first_page.mediabox.upper_left)
+print(first_page.mediabox.upper_right)
 
-pdf_reader = PdfFileReader(str(pdf_path))
-pdf_writer = PdfFileWriter()
+pdf_writer = PdfWriter()
+pdf_writer.add_page(first_page)
+pdf_writer.write("cropped_page.pdf")
 
-first_page = pdf_reader.getPage(0)
+pdf_reader = PdfReader(pdf_path)
+pdf_writer = PdfWriter()
+
+first_page = pdf_reader.pages[0]
 
 import copy  # noqa
 
 left_side = copy.deepcopy(first_page)
-current_coords = left_side.mediaBox.upperRight
-new_coords = (current_coords[0] / 2, current_coords[1])
-left_side.mediaBox.upperRight = new_coords
+current_coords = left_side.mediabox.upper_right
+new_coords = [current_coords[0] / 2, current_coords[1]]
+left_side.mediabox.upper_right = new_coords
 
 right_side = copy.deepcopy(first_page)
-right_side.mediaBox.upperLeft = new_coords
+right_side.mediabox.upper_left = new_coords
 
-pdf_writer.addPage(left_side)
-pdf_writer.addPage(right_side)
-with Path("cropped_pages.pdf").open(mode="wb") as output_file:
-    pdf_writer.write(output_file)
+pdf_writer.add_page(left_side)
+pdf_writer.add_page(right_side)
+pdf_writer.write("cropped_pages.pdf")

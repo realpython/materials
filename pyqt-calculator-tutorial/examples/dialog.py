@@ -1,39 +1,39 @@
-# Filename: dialog.py
-
-"""Dialog-Style application."""
+"""Dialog-style application."""
 
 import sys
 
-from PyQt5.QtWidgets import QApplication
-from PyQt5.QtWidgets import QDialog
-from PyQt5.QtWidgets import QDialogButtonBox
-from PyQt5.QtWidgets import QFormLayout
-from PyQt5.QtWidgets import QLineEdit
-from PyQt5.QtWidgets import QVBoxLayout
+from PyQt6.QtWidgets import (
+    QApplication,
+    QDialog,
+    QDialogButtonBox,
+    QFormLayout,
+    QLineEdit,
+    QVBoxLayout,
+)
 
 
-class Dialog(QDialog):
-    """Dialog."""
-
-    def __init__(self, parent=None):
-        """Initializer."""
-        super().__init__(parent)
+class Window(QDialog):
+    def __init__(self):
+        super().__init__(parent=None)
         self.setWindowTitle("QDialog")
-        dlgLayout = QVBoxLayout()
+        dialogLayout = QVBoxLayout()
         formLayout = QFormLayout()
         formLayout.addRow("Name:", QLineEdit())
         formLayout.addRow("Age:", QLineEdit())
         formLayout.addRow("Job:", QLineEdit())
         formLayout.addRow("Hobbies:", QLineEdit())
-        dlgLayout.addLayout(formLayout)
-        btns = QDialogButtonBox()
-        btns.setStandardButtons(QDialogButtonBox.Cancel | QDialogButtonBox.Ok)
-        dlgLayout.addWidget(btns)
-        self.setLayout(dlgLayout)
+        dialogLayout.addLayout(formLayout)
+        buttons = QDialogButtonBox()
+        buttons.setStandardButtons(
+            QDialogButtonBox.StandardButton.Cancel
+            | QDialogButtonBox.StandardButton.Ok
+        )
+        dialogLayout.addWidget(buttons)
+        self.setLayout(dialogLayout)
 
 
 if __name__ == "__main__":
-    app = QApplication(sys.argv)
-    dlg = Dialog()
-    dlg.show()
-    sys.exit(app.exec_())
+    app = QApplication([])
+    window = Window()
+    window.show()
+    sys.exit(app.exec())

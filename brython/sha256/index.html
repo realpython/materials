@@ -1,0 +1,39 @@
+<!DOCTYPE html >
+<html>
+  <head>
+    <meta charset="utf-8"/>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/pure/2.0.3/pure-min.min.css"
+      integrity="sha256-jYujp4Kf07YDuUF9i1MHo4AnpXUKuHxIUXH7CrHxdKw="
+      crossorigin="anonymous"
+      async />
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/brython/3.8.9/brython.min.js"
+      integrity="sha256-U56d9Sn/Gtf1meSBXazW81LM1bUeyc1jFuoY3CBu6A8="
+      crossorigin="anonymous"
+      async>
+    </script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/brython/3.8.9/brython_stdlib.min.js"
+      integrity="sha256-twMHOlRBOpBkpyGFeXIBWoJqTpqf76Zp8HExOelwyRc="
+      crossorigin="anonymous"
+      async>
+    </script>
+    <script src="main.py" type="text/python" defer></script>
+    <style>
+      body { padding: 30px; }
+    </style>
+  </head>
+  <body onload="brython()">
+    <form class="pure-form" onsubmit="return false;">
+      <fieldset>
+        <legend>SHA-256 Calculator</legend>
+        <input type="text" id="text-src" placeholder="Text to Encode" autocomplete="off"/>
+        <button type="submit" id="submit" class="pure-button pure-button-primary">Ok</button>
+        <button id="clear-btn" class="pure-button">Clear</button>
+      </fieldset>
+    </form>
+    <div id="hash-display"></div>
+  </body>
+</html>

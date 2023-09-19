@@ -1,0 +1,37 @@
+body {
+    background-color: rgb(20, 40, 60);
+    color: rgb(240, 248, 255);
+    font-family: "Helvetica", "Arial", sans-serif;
+    font-size: 1.3em;
+}
+
+a {
+    color: rgb(255, 111, 111);
+}
+
+.gallery {
+    background: rgba(255, 255, 255, 0.2);
+    padding: 1em;
+}
+
+.rounded {
+    border-radius: 15px;
+}
+
+.gallery img {
+    margin-right: 0.2em;
+    width: 150px;
+}
+
+th,
+tr:nth-child(even) {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+td:nth-child(1) {
+    text-align: right;
+}
+
+td:nth-child(2) {
+    text-align: center;
+}
