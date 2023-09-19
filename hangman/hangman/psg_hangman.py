@@ -1,8 +1,9 @@
-"""Hangman for PySimpleGUI"""
+"""Hangman for PySimpleGUI."""
 
 # Imports
-import PySimpleGUI as sg
 from random import choice
+
+import PySimpleGUI as sg
 
 
 # Hangman helper functions from Basic game
@@ -147,7 +148,6 @@ def draw_hangman(graph_element: sg.Graph, guesses_taken: int) -> None:
 
 
 if __name__ == "__main__":
-
     # Create the main window layout
     layout = [
         [
@@ -170,7 +170,11 @@ if __name__ == "__main__":
             sg.Column(
                 [
                     [
-                        sg.Frame("Letters", letter_frame(), font="Any 20",),
+                        sg.Frame(
+                            "Letters",
+                            letter_frame(),
+                            font="Any 20",
+                        ),
                         sg.Sizer(),
                     ]
                 ]
@@ -200,7 +204,9 @@ if __name__ == "__main__":
                     [
                         sg.Sizer(h_pixels=90),
                         sg.Button(
-                            button_text="New", key="-NEW-", font="Any 20",
+                            button_text="New",
+                            key="-NEW-",
+                            font="Any 20",
                         ),
                         sg.Sizer(h_pixels=60),
                         sg.Button(
@@ -210,7 +216,9 @@ if __name__ == "__main__":
                         ),
                         sg.Sizer(h_pixels=60),
                         sg.Button(
-                            button_text="Quit", key="-QUIT-", font="Any 20",
+                            button_text="Quit",
+                            key="-QUIT-",
+                            font="Any 20",
                         ),
                         sg.Sizer(h_pixels=90),
                     ]
@@ -239,7 +247,6 @@ if __name__ == "__main__":
 
     # Start the game/event loop
     while not game_over(guesses_taken, current_word, letters_guessed):
-
         # Display the built word
         window["-DISPLAY-WORD-"].update(displayed_word)
 
@@ -256,7 +263,6 @@ if __name__ == "__main__":
 
         # Was it a letter button?
         elif event[:8] == "-letter-":
-
             # Which letter?
             player_guess = event[8].lower()
 
@@ -277,7 +283,6 @@ if __name__ == "__main__":
 
         # Was it the restart button?
         elif event == "-RESTART-":
-
             # Clear the letters guessed
             letters_guessed.clear()
 
@@ -295,7 +300,6 @@ if __name__ == "__main__":
 
         # Was it the New button?
         elif event == "-NEW-":
-
             # Select a new word
             current_word = select_word()
 
@@ -327,7 +331,9 @@ if __name__ == "__main__":
     # Did the player win?
     elif guesses_taken < 6:
         sg.Popup(
-            "You've won! Congratulations!", title="Winner!", custom_text="OK",
+            "You've won! Congratulations!",
+            title="Winner!",
+            custom_text="OK",
         )
     else:
         sg.Popup(

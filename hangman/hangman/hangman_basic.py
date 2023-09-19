@@ -1,10 +1,8 @@
-"""
-Hangman in Python for the command line
-"""
+"""Hangman in Python for the command line."""
 
 # To select a word at random
-from random import choice
 import string
+from random import choice
 
 
 def select_word() -> str:
@@ -214,7 +212,6 @@ if __name__ == "__main__":
 
     # Begin the game loop
     while not game_over(guesses_taken, current_word, letters_guessed):
-
         # Show the current game state
         show_hangman(guesses_taken)
         print(f"Your word is: {displayed_word}")
