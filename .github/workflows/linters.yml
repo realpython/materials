@@ -33,9 +33,9 @@ jobs:
       uses: actions/cache@v3
       with:
         path: ./venv
-        key: ${{ matrix.name }}-pip-${{ hashFiles('requirements.txt') }}
+        key: ${{ matrix.name }}-v1-pip-${{ hashFiles('requirements.txt') }}
         restore-keys: |
-          ${{ matrix.name }}-pip-
+          ${{ matrix.name }}-v1-pip-
 
     - name: Install dependencies
       if: steps.cache.outputs.cache-hit != 'true'
