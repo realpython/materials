@@ -140,7 +140,7 @@ In this example, you can see how the new implementation of f-strings allows you 
 
 ### Static Typing Improvements
 
-You'll find all static typing examples inside the [`typing/`](typing/) directory. You should install the Pyright type checker for PyPI:
+You'll find all static typing examples inside the [`typing/`](typing/) directory. You should install the Pyright type checker from PyPI:
 
 ```console
 $ python -m pip install pyright
@@ -150,14 +150,14 @@ You can then run type checks by running `pyright`. For some features you need to
 
 #### Type Variables and Generic Classes, Functions, and Type Aliases
 
-You can find comparisons between the old and the new syntax for type variables in the following files:
+You can find comparisons between the old and the new syntax for type variables in the following files. The new 3.12 syntax is shown in the commented part of the code.
 
-- [`generic_queue.py`](typing/generic_queue.py) and [`generic_queue_311.py`](typing/generic_queue_311.py)
-- [`list_helpers.py`](typing/list_helpers.py) and [`list_helpers_311.py`](typing/list_helpers_311.py)
-- [`concatenation.py`](typing/concatenation.py) and [`concatenation_311.py`](typing/concatenation_311.py)
-- [`inspect_string.py`](typing/inspect_string.py) and [`inspect_string_311.py`](typing/inspect_string_311.py)
-- [`deck.py`](typing/deck.py) and [`deck_311.py`](typing/deck_311.py)
-- [`alias.py`](typing/alias.py) and [`alias_311.py`](typing/alias_311.py)
+- [`generic_queue.py`](typing/generic_queue.py)
+- [`list_helpers.py`](typing/list_helpers.py)
+- [`concatenation.py`](typing/concatenation.py)
+- [`inspect_string.py`](typing/inspect_string.py)
+- [`deck.py`](typing/deck.py)
+- [`alias.py`](typing/alias.py)
 
 Additionally, [`typed_queue.py`](typing/typed_queue.py) shows the implementation of typed queues without using type variables.
 
