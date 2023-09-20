@@ -18,7 +18,7 @@ jobs:
       fail-fast: false
       matrix:
         include:
-          - {name: Linux311, python: '3.11.0-rc.1', os: ubuntu-latest}
+          - {name: Linux312, python: '3.12.0-rc.3', os: ubuntu-latest}
     steps:
     - name: Check out repository
       uses: actions/checkout@v2
