@@ -1,6 +1,6 @@
-# How to Sort Unicode Strings Alphabetically in Python?
+# How to Sort Unicode Strings Alphabetically in Python
 
-This folder contains sample code for the Real Python tutorial [How to Sort Unicode Strings Alphabetically in Python?](https://realpython.com/python-sort-unicode-strings/).
+This folder contains sample code for the Real Python tutorial [How to Sort Unicode Strings Alphabetically in Python](https://realpython.com/python-sort-unicode-strings/).
 
 ## Usage
 
