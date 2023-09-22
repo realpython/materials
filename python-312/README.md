@@ -146,11 +146,11 @@ You'll find all static typing examples inside the [`typing/`](typing/) directory
 $ python -m pip install pyright
 ```
 
-You can then run type checks by running `pyright`. For some features you need to specify `--pythonversion 3.12`.
+You can then run type checks by running `pyright`. For some features, you need to specify `--pythonversion 3.12`.
 
 #### Type Variables and Generic Classes, Functions, and Type Aliases
 
-You can find comparisons between the old and the new syntax for type variables in the following files. The new 3.12 syntax is shown in the commented part of the code.
+You can find comparisons between the old and the new syntax for type variables in the following files, with the new 3.12 syntax shown in the commented part of the code:
 
 - [`generic_queue.py`](typing/generic_queue.py)
 - [`list_helpers.py`](typing/list_helpers.py)
