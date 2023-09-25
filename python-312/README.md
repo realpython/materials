@@ -15,8 +15,10 @@ You can learn more about Python 3.12's new features in the following Real Python
 - [Python 3.12 Preview: Ever Better Error Messages](https://realpython.com/python312-error-messages/)
 - [Python 3.12 Preview: Support For the Linux `perf` Profiler](https://realpython.com/python312-perf-profiler/)
 - [Python 3.12 Preview: More Intuitive and Consistent F-Strings](https://realpython.com/python312-f-strings/)
+- [Python 3.12 Preview: Subinterpreters](https://realpython.com/python312-subinterpreters/)
+- [Python 3.12 Preview: Static Typing Improvements](https://realpython.com/python312-typing/)
 
-You'll find examples from all these tutorials in this repository.
+You'll find examples from these tutorials in this repository.
 
 ## Examples
 
@@ -135,6 +137,37 @@ Pythonista!
 ```
 
 In this example, you can see how the new implementation of f-strings allows you to include backslashes in embedded expressions. This wasn't possible with f-strings in earlier versions of Python. 
+
+### Static Typing Improvements
+
+You'll find all static typing examples inside the [`typing/`](typing/) directory. You should install the Pyright type checker from PyPI:
+
+```console
+$ python -m pip install pyright
+```
+
+You can then run type checks by running `pyright`. For some features, you need to specify `--pythonversion 3.12`.
+
+#### Type Variables and Generic Classes, Functions, and Type Aliases
+
+You can find comparisons between the old and the new syntax for type variables in the following files, with the new 3.12 syntax shown in the commented part of the code:
+
+- [`generic_queue.py`](typing/generic_queue.py)
+- [`list_helpers.py`](typing/list_helpers.py)
+- [`concatenation.py`](typing/concatenation.py)
+- [`inspect_string.py`](typing/inspect_string.py)
+- [`deck.py`](typing/deck.py)
+- [`alias.py`](typing/alias.py)
+
+Additionally, [`typed_queue.py`](typing/typed_queue.py) shows the implementation of typed queues without using type variables.
+
+#### Modeling Inheritance With `@override`
+
+The file [`quiz.py`](typing/quiz.py) shows how to use the new `@override` decorator. In addition to the code in the tutorial, this file includes support for reading questions from files. This is done to show that `@override` works well together with other decorators like `@classmethod`.
+
+#### Annotating `**kwargs` With Typed Dictionaries
+
+The file [`options.py`](typing/options.py) shows how you can use a typed dictionary to annotate variable keyword arguments.
 
 ## Authors
 
