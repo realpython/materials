@@ -1,5 +1,9 @@
 import psycopg2
 
+# This code doesn't run because of the missing `psycopg2` library
+# and the assumption of a certain database structure and setup.
+# It's a demonstrative code only.
+
 connection = psycopg2.connect(database="db", user="user", password="password")
 cursor = connection.cursor()
 
