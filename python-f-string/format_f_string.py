@@ -10,7 +10,7 @@ sep = "_"
 print(f"User's thousand separators: {integer:{sep}}")
 
 floating_point = 1234567.9876
-print(f"Comma as thousand separator: {floating_point:,.2f}")
+print(f"Comma as thousand separators and two decimals: {floating_point:,.2f}")
 
 date = (9, 6, 2023)
 print(f"Date: {date[0]:02}-{date[1]:02}-{date[2]}")
