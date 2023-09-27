@@ -1,5 +1,5 @@
 name = "Jane"
 age = 25
 
-"Hello, %s!" % name
-"Hello, %s! You're %s years old." % (name, age)
+print("Hello, %s!" % name)
+print("Hello, %s! You're %s years old." % (name, age))

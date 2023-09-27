@@ -1,4 +1,7 @@
 import logging
 
-msg_template = "Hey %s! You're using logging!"
-logging.warning(msg_template, "Pythonista")
+msg = "This is a %s message!"
+
+logging.warning(msg, "WARNING")
+
+logging.debug(msg, "DEBUGGING")

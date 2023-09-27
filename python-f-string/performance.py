@@ -14,3 +14,6 @@ def run_performance_test(strings):
     for tool, string in strings.items():
         time = timeit.timeit(string, number=1000000, globals=globals()) * 1000
         print(f"{tool}: {time:>{max_length - len(tool) + 6}.2f} ms")
+
+
+run_performance_test(strings)
