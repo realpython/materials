@@ -6,7 +6,7 @@ class Circle:
         self.radius = radius
 
     def area(self):
-        return 2 * pi * radius**2
+        return 2 * pi * radius**2  # noqa: F821
 
 
 if __name__ == "__main__":

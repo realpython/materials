@@ -12,6 +12,7 @@ Note that for the `perf` support, you'll need to build Python from source code w
 
 You can learn more about Python 3.12's new features in the following Real Python tutorials:
 
+- [Python 3.12: Cool New Features for You to Try](https://realpython.com/python312-new-features/)
 - [Python 3.12 Preview: Ever Better Error Messages](https://realpython.com/python312-error-messages/)
 - [Python 3.12 Preview: Support For the Linux `perf` Profiler](https://realpython.com/python312-perf-profiler/)
 - [Python 3.12 Preview: More Intuitive and Consistent F-Strings](https://realpython.com/python312-f-strings/)
@@ -38,7 +39,7 @@ You can swap the import statement to `import d from this` in either of the files
 SyntaxError: Did you mean to use 'from ... import ...' instead?
 ```
 
-In [`local_self.py`](error-messages/local_self.py), you can see a naive reproduction of another improved error message. Pick apart the example code to learn more about how this was implemented in Python 3.12. 
+In [`local_self.py`](error-messages/local_self.py), you can see a naive reproduction of another improved error message. Pick apart the example code to learn more about how this was implemented in Python 3.12. You can also run [`shapes.py`](error-messages/shapes.py) to see the _self_ error message in action.
 
 See [Ever Better Error Messages in Python 3.12](https://realpython.com/python312-error-messages/) for more information.
 
@@ -153,6 +154,7 @@ You can then run type checks by running `pyright`. For some features, you need t
 You can find comparisons between the old and the new syntax for type variables in the following files, with the new 3.12 syntax shown in the commented part of the code:
 
 - [`generic_queue.py`](typing/generic_queue.py)
+- [`generic_stack.py`](typing/generic_stack.py)
 - [`list_helpers.py`](typing/list_helpers.py)
 - [`concatenation.py`](typing/concatenation.py)
 - [`inspect_string.py`](typing/inspect_string.py)
@@ -165,9 +167,23 @@ Additionally, [`typed_queue.py`](typing/typed_queue.py) shows the implementation
 
 The file [`quiz.py`](typing/quiz.py) shows how to use the new `@override` decorator. In addition to the code in the tutorial, this file includes support for reading questions from files. This is done to show that `@override` works well together with other decorators like `@classmethod`.
 
+Similarly, [`accounts.py`](typing/accounts.py) contains the bank account classes annotated with `@override`. To play with the bank account code, you should run it interactively: `python -i accounts.py`.
+
 #### Annotating `**kwargs` With Typed Dictionaries
 
 The file [`options.py`](typing/options.py) shows how you can use a typed dictionary to annotate variable keyword arguments.
+
+### Inlined Comprehensions
+
+You can run benchmarks on comprehensions by running [`comprehension_benchmark.py`](comprehension_benchmark.py). If you have multiple versions of Python, then you should run the benchmarks on all of them and compare the results.
+
+### Group Iterables Into Batches With `itertools.batched()`
+
+Run [`quarters.py`](quarters.py) for an example showing how to group months into quarters.
+
+### List Files and Directories With `Path.walk()`
+
+Run [`pathlib_walk.py`](pathlib_walk.py) to compare `.walk()` and `.rglob()` for listing files and directories.
 
 ## Authors
 

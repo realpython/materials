@@ -4,7 +4,7 @@ data_path = Path(__file__).parent / "pathlib_walk"
 
 
 def headline(text):
-    print(f"\n{text}\n{"-" * len(text)}")
+    print(f"\n{text}\n{'-' * len(text)}")
 
 
 headline("Using .rglob():")

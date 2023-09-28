@@ -2,6 +2,8 @@ import sys
 import timeit
 from functools import partial
 
+NUM_REPEATS = 100
+
 
 def convert_unit(value):
     for unit in ["s", "ms", "μs", "ns"]:
@@ -12,8 +14,10 @@ def convert_unit(value):
 
 def timer(func):
     def _timer(*args, **kwargs):
-        tictoc = timeit.timeit(partial(func, *args, **kwargs), number=1000)
-        print(f"{func.__name__:<20} {convert_unit((tictoc) / 1000)}")
+        tictoc = timeit.timeit(
+            partial(func, *args, **kwargs), number=NUM_REPEATS
+        )
+        print(f"{func.__name__:<20} {convert_unit((tictoc) / NUM_REPEATS)}")
 
     return _timer
 
@@ -40,7 +44,7 @@ repeated_numbers = [1 for _ in range(N)]
 
 print(sys.version)
 
-print(f"\nOne item iterable:")
+print("\nOne item iterable:")
 plain([0])
 square([0])
 filtered([0])
