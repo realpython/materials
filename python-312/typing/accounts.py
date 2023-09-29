@@ -5,8 +5,8 @@ from typing import Self, override
 
 def generate_account_number() -> str:
     """Generate a random eleven-digit account number"""
-    accno = str(random.randrange(10_000_000_000, 100_000_000_000))
-    return f"{accno[:4]}.{accno[4:6]}.{accno[6:]}"
+    account_number = str(random.randrange(10_000_000_000, 100_000_000_000))
+    return f"{account_number[:4]}.{account_number[4:6]}.{account_number[6:]}"
 
 
 @dataclass
