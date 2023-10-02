@@ -13,4 +13,3 @@ def parse_email(email_address: str) -> Union[str, None]:
         username, domain = email_address.split("@")
         return username
     return None
-    

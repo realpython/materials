@@ -13,4 +13,4 @@ def parse_email(email_address: str) -> tuple[str, str] | None:
     return None
 
 
-apply_funct(parse_email, "claudia@realpython.com")
+apply_func(parse_email, "claudia@realpython.com")

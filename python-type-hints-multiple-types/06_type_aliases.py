@@ -12,4 +12,3 @@ def parse_email(email_address: str) -> EmailComponents:
 
 
 EmailComponents: TypeAlias = tuple[str, str] | None
-type EmailComponents = tuple[str, str] | None
