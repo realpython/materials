@@ -2,14 +2,14 @@ from collections.abc import Generator, Iterable, Iterator
 
 
 def parse_email() -> Generator[tuple[str, str], str, str]:
-	sent = yield "", ""
-	while sent != "":
-		if "@" in sent:
-			username, domain = sent.split("@")
-			sent = yield username, domain
-		else:
-			sent = yield "invalid email"
-	return "Done"
+    sent = yield "", ""
+    while sent != "":
+        if "@" in sent:
+            username, domain = sent.split("@")
+            sent = yield username, domain
+        else:
+            sent = yield "invalid email"
+    return "Done"
 
 
 generator = parse_email()
@@ -17,20 +17,20 @@ next(generator)
 generator.send("claudia@realpython.com")
 generator.send("realpython")
 try:
-	generator.send("")
+    generator.send("")
 except StopIteration as ex:
-	print(ex.value)
+    print(ex.value)
 
 
 def parse_emails(emails: list[str]) -> Iterator[tuple[str, str]]:
-	for email in emails:
-		if "@" in email:
-			username, domain = email.split("@")
-			yield username, domain
+    for email in emails:
+        if "@" in email:
+            username, domain = email.split("@")
+            yield username, domain
 
 
 def parse_emails(emails: Iterable[str]) -> Iterable[tuple[str, str]]:
-	for email in emails:
-		if "@" in email:
-			username, domain = email.split("@")
-			yield username, domain
+    for email in emails:
+        if "@" in email:
+            username, domain = email.split("@")
+            yield username, domain
