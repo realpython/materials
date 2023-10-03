@@ -1,4 +1,4 @@
-from collections.abc import Generator, Iterable, Iterator
+from collections.abc import Generator, Iterator
 
 
 def parse_email() -> Generator[tuple[str, str], str, str]:
@@ -29,6 +29,9 @@ def parse_emails(emails: list[str]) -> Iterator[tuple[str, str]]:
             yield username, domain
 
 
+# from collections.abc import Iterable
+# 
+# 
 # def parse_emails(emails: Iterable[str]) -> Iterable[tuple[str, str]]:
 #     for email in emails:
 #         if "@" in email:
