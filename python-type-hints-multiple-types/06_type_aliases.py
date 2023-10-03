@@ -1,7 +1,7 @@
 from typing import TypeAlias
 
 
-EmailComponents = tuple[str, str] | None
+EmailComponents: TypeAlias = tuple[str, str] | None
 
 
 def parse_email(email_address: str) -> EmailComponents:
@@ -9,6 +9,3 @@ def parse_email(email_address: str) -> EmailComponents:
         username, domain = email_address.split("@")
         return username, domain
     return None
-
-
-EmailComponents: TypeAlias = tuple[str, str] | None

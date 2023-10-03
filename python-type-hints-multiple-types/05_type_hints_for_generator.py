@@ -29,8 +29,8 @@ def parse_emails(emails: list[str]) -> Iterator[tuple[str, str]]:
             yield username, domain
 
 
-def parse_emails(emails: Iterable[str]) -> Iterable[tuple[str, str]]:
-    for email in emails:
-        if "@" in email:
-            username, domain = email.split("@")
-            yield username, domain
+# def parse_emails(emails: Iterable[str]) -> Iterable[tuple[str, str]]:
+#     for email in emails:
+#         if "@" in email:
+#             username, domain = email.split("@")
+#             yield username, domain
