@@ -30,8 +30,6 @@ def parse_emails(emails: list[str]) -> Iterator[tuple[str, str]]:
 
 
 # from collections.abc import Iterable
-# 
-# 
 # def parse_emails(emails: Iterable[str]) -> Iterable[tuple[str, str]]:
 #     for email in emails:
 #         if "@" in email:
