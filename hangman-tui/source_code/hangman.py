@@ -14,8 +14,7 @@ def get_player_input(guessed_letters):
     while True:
         player_input = input("Guess a letter: ").lower()
         if _validate_input(player_input, guessed_letters):
-            break
-    return player_input
+            return player_input
 
 
 def _validate_input(player_input, guessed_letters):

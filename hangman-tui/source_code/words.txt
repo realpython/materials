@@ -1,4 +1,4 @@
-ugliest
+prettiest
 close
 dog
 massive
@@ -8,10 +8,10 @@ seashore
 explode
 dizzy
 minister
-incompetent
-thoughtless
+competent
+thoughtful
 harbor
-messy
+tidy
 dance
 children
 zesty
