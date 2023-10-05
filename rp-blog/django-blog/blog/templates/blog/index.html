@@ -7,7 +7,7 @@
 {% block page_content %}
     {% block posts %}
         {% for post in posts %}
-            <h3><a href="{% url 'blog_detail' post.pk%}">{{ post.title }}</a></h3>
+            <h3><a href="{% url 'blog_detail' post.pk %}">{{ post.title }}</a></h3>
             <small>
                 {{ post.created_on.date }} | Categories:
                 {% for category in post.categories.all %}

@@ -1,14 +1,13 @@
 from django.http import HttpResponseRedirect
 from django.shortcuts import render
-from blog.models import Post, Comment
+
 from blog.forms import CommentForm
+from blog.models import Comment, Post
 
 
 def blog_index(request):
     posts = Post.objects.all().order_by("-created_on")
-    context = {
-        "posts": posts,
-    }
+    context = {"posts": posts}
     return render(request, "blog/index.html", context)
 
 
@@ -34,10 +33,6 @@ def blog_detail(request, pk):
             comment.save()
             return HttpResponseRedirect(request.path_info)
     comments = Comment.objects.filter(post=post)
-    context = {
-        "post": post,
-        "comments": comments,
-        "form": form,
-    }
+    context = {"post": post, "comments": comments, "form": form}
 
     return render(request, "blog/detail.html", context)
