@@ -1,37 +1,13 @@
-# Real Python Materials
+# Using JupyterLab
 
-Bonus materials, exercises, and example projects for Real Python's [Python tutorials](https://realpython.com).
+This folder contains completed notebooks and other files used in the Real Python tutorial on [Using JupyterLab](https://realpython.com/using-jupyterlab/). 
 
-Build Status:
-[![GitHub Actions](https://img.shields.io/github/actions/workflow/status/realpython/materials/linters.yml?branch=master)](https://github.com/realpython/materials/actions)
+None of the files are mandatory to complete the tutorial, howevre you may find them of use to continue your learning by experimenting more with them.
 
-## Got a Question?
+## Setup
 
-The best way to get support for Real Python courses, articles, and code in this repository is to join one of our [weekly Office Hours calls](https://realpython.com/office-hours/) or to ask your question in the [RP Community Chat](https://realpython.com/community/).
+The easiest way to incorporate these files into JupyterLab is to copy them into the folder from which you intend starting JupyterLab. They can then be accessed from its File Browser.
+ 
+## Usage
 
-Due to time constraints, we cannot provide 1:1 support via GitHub. See you on Slack or on the next Office Hours call 🙂
-
-## Adding Source Code & Sample Projects to This Repo (RP Contributors)
-
-### Running Code Style Checks
-
-We use [flake8](http://flake8.pycqa.org/en/latest/) and [black](https://black.readthedocs.io/) to ensure a consistent code style for all of our sample code in this repository.
-
-Run the following commands to validate your code against the linters:
-
-```sh
-$ flake8
-$ black --check .
-```
-
-### Running Python Code Formatter
-
-We're using a tool called [black](https://black.readthedocs.io/) on this repo to ensure consistent formatting. On CI it runs in "check" mode to ensure any new files added to the repo follow PEP 8. If you see linter warnings that say something like "would reformat some_file.py" it means that black disagrees with your formatting.
-
-**The easiest way to resolve these errors is to run Black locally on the code and then commit those changes, as explained below.**
-
-To automatically re-format your code to be consistent with our code style guidelines, run [black](https://black.readthedocs.io/) in the repository root folder:
-
-```sh
-$ black .
-```
+After creating and activating your virtual environment, and installing the dependencies, you can load any file into JupyterLab by double-clicking on it.
