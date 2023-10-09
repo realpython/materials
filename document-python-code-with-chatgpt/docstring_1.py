@@ -2,7 +2,7 @@
 Write a single-line docstring for the following function:
 
 def add(a, b):
-    return a + b    
+    return a + b
 """
 
 
