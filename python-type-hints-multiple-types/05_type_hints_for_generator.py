@@ -8,7 +8,7 @@ def parse_email() -> Generator[tuple[str, str], str, str]:
             username, domain = sent.split("@")
             sent = yield username, domain
         else:
-            sent = yield "invalid email"
+            sent = yield "ERROR", "invalid email"
     return "Done"
 
 

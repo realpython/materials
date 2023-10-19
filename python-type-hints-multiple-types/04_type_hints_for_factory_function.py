@@ -1,12 +1,15 @@
 import functools
 import time
 from collections.abc import Callable
-from typing import Any
+from typing import ParamSpec, TypeVar
+
+P = ParamSpec("P")
+T = TypeVar("T")
 
 
-def timeit(function: Callable[..., Any]) -> Callable[..., Any]:
+def timeit(function: Callable[P, T]) -> Callable[P, T]:
     @functools.wraps(function)
-    def wrapper(*args, **kwargs):
+    def wrapper(*args: P.args, **kwargs: P.kwargs):
         start = time.perf_counter()
         result = function(*args, **kwargs)
         end = time.perf_counter()
@@ -17,11 +20,11 @@ def timeit(function: Callable[..., Any]) -> Callable[..., Any]:
 
 
 @timeit
-def parse_email(email_address: str) -> tuple[str, str] | None:
+def parse_email(email_address: str) -> tuple[str, str]:
     if "@" in email_address:
         username, domain = email_address.split("@")
         return username, domain
-    return None
+    return "", ""
 
 
 username, domain = parse_email("claudia@realpython.com")
