@@ -1,5 +1,5 @@
 """Prompt
-Write a Numpy-style docstring for the following function.
+Write a NumPy-style docstring for the following function.
 Add a section with usage examples as doctest tests:
 
 def add(a, b):

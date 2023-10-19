@@ -1,5 +1,5 @@
 """Prompt
-Write Numpy-style docstrings for the following class and its methods:
+Write NumPy-style docstrings for the following class and its methods:
 
 class Circle:
     def __init__(self, radius):
