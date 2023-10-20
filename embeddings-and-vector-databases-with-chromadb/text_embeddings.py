@@ -1,4 +1,5 @@
 from sentence_transformers import SentenceTransformer
+
 from cosine_similarity import compute_cosine_similarity
 
 model = SentenceTransformer("all-MiniLM-L6-v2")

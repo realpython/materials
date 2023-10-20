@@ -1,4 +1,5 @@
 import pathlib
+
 import chromadb
 from chromadb.utils import embedding_functions
 from more_itertools import batched

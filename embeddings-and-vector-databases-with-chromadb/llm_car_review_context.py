@@ -1,7 +1,8 @@
-import os
 import json
-import openai
+import os
+
 import chromadb
+import openai
 from chromadb.utils import embedding_functions
 
 os.environ["TOKENIZERS_PARALLELISM"] = "false"
