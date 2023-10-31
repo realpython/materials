@@ -24,7 +24,7 @@ This is how you stop the exception from crashing the code.
 ## What Are Some Common Exceptions
 
 The Python language supports more than sixty common exceptions.
-Three of the more common are:
+Two of the more common are:
 
 
 | Exception | Cause |
