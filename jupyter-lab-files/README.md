@@ -14,15 +14,14 @@ After creating and activating your virtual environment, installing the dependenc
 
 ## Information Sources
 
-The howto-regex.pdf file is a pdf copy of an article published as part of the Python documentation. [https://docs.python.org/3/howto/regex.html]. The pdf version itself was sourced from the FOSSIES open source archive at https://fossies.org/linux/python-docs-pdf-a4/howto-regex.pdf.
+The `howto-regex.pdf` file is a PDF copy of an [article](https://docs.python.org/3/howto/regex.html) published as part of the Python documentation. The PDF version itself was sourced from the FOSSIES [open source archive](https://fossies.org/linux/python-docs-pdf-a4/howto-regex.pdf).
 
-The population data used in this article was sourced from the Worldometers free reference web site at https://www.worldometers.info/world-population/world-population-by-year/
+The population data used in this article was sourced from the [Worldometers free reference web site](https://www.worldometers.info/world-population/world-population-by-year/).
 
-Information on the effects of the changes in the world's population was sourced in the free learning resources provided by the University of California at https://ugc.berkeley.edu/background-content/population-growth/
+Information on the effects of the changes in the world's population was sourced in the [free learning resources](https://ugc.berkeley.edu/background-content/population-growth/) provided by the University of California.
 
-All movie data was sourced from various Wikipedia articles.
+All movie data was sourced from various Wikipedia articles: [List of James Bond films](https://en.wikipedia.org/wiki/List_of_James_Bond_films), [Dr. No](https://en.wikipedia.org/wiki/Dr._No_(film)), [Pal Joey](https://en.wikipedia.org/wiki/Pal_Joey_(film)), and [The Godfather](https://en.wikipedia.org/wiki/The_Godfather).
 
-The Glasgow.jpg. is a photograph of George Square in Glasgow. (C) Ian Eyre
+`Glasgow.jpg` is a photograph of George Square in Glasgow. (C) Ian Eyre
 
-All other content was written specifically for this article.
-
+All other content was created specifically for this article.
