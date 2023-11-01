@@ -28,9 +28,9 @@ def build_chroma_collection(
         metadata={"hnsw:space": distance_func_name},
     )
 
-    document_indicies = list(range(len(documents)))
+    document_indices = list(range(len(documents)))
 
-    for batch in batched(document_indicies, 166):
+    for batch in batched(document_indices, 166):
         start_idx = batch[0]
         end_idx = batch[-1]
 
