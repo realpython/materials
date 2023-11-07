@@ -1,0 +1,22 @@
+{
+  "Movies": [
+    {
+      "id": 2,
+      "title": "Dr No",
+      "release_year": 1962,
+      "star": "Sean Connery"
+    },
+    {
+      "id": 1,
+      "title": "Pal Joey",
+      "release_year": 1957,
+      "star": "Francis Albert Sinatra"
+    },
+    {
+      "id": 3,
+      "title": "The Godfather",
+      "release_year": 1972,
+      "star": "Marlon Brando"
+    }
+  ]
+}
