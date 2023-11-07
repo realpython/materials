@@ -3,13 +3,13 @@ from time import sleep
 
 from rplife.grid import LifeGrid
 
-__all__ = ["CursesView"]
-
 
 class CursesView:
-    def __init__(self, pattern, gen=10, framerate=7, bbox=(0, 0, 40, 20)):
+    def __init__(self, pattern, gen=10, framerate=7, bbox=(0, 0, 20, 20)):
         self.pattern = pattern
         self.gen = gen
+        self.framerate = framerate
+        self.bbox = bbox
         self.framerate = framerate
         self.bbox = bbox
 
