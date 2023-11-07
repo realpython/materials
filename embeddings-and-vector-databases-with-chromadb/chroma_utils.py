@@ -8,7 +8,7 @@ from more_itertools import batched
 def build_chroma_collection(
     chroma_path: pathlib.Path,
     collection_name: str,
-    embbeding_func_name: str,
+    embedding_func_name: str,
     ids: list[str],
     documents: list[str],
     metadatas: list[dict],
@@ -19,7 +19,7 @@ def build_chroma_collection(
     chroma_client = chromadb.PersistentClient(chroma_path)
 
     embedding_func = embedding_functions.SentenceTransformerEmbeddingFunction(
-        model_name=embbeding_func_name
+        model_name=embedding_func_name
     )
 
     collection = chroma_client.create_collection(
