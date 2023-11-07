@@ -57,6 +57,4 @@ def prepare_car_reviews_data(
     documents = car_review_db_data["Review"].to_list()
     metadatas = car_review_db_data.drop("Review").to_dicts()
 
-    chroma_data = {"ids": ids, "documents": documents, "metadatas": metadatas}
-
-    return chroma_data
+    return {"ids": ids, "documents": documents, "metadatas": metadatas}

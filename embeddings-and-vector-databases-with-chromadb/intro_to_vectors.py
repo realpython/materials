@@ -20,4 +20,4 @@ print(np.linalg.norm(v3))
 
 # Dot product
 print(np.sum(v1 * v2))
-print(v1.dot(v3))
+print(v1 @ v3)
