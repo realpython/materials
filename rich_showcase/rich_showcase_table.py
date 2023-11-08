@@ -33,10 +33,13 @@ def make_table(coin_list):
         pct_change_str = f"{pct_change:2.1f}%"
         if pct_change > 5.0:
             pct_change_str = (
-                f"[white on dark_green]{pct_change_str:>8}[/white on dark_green]"
+                f"[white on dark_green]{pct_change_str:>8}"
+                + "[/white on dark_green]"
             )
         elif pct_change < -5.0:
-            pct_change_str = f"[white on red]{pct_change_str:>8}[/white on red]"
+            pct_change_str = (
+                f"[white on red]{pct_change_str:>8}" + "[/white on red]"
+            )
         table.add_row(symbol, name, price, volume, pct_change_str)
     return table
 
