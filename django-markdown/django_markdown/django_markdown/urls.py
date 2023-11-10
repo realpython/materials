@@ -1,5 +1,6 @@
 from django.contrib import admin
 from django.urls import path
+
 from django_markdown_app.views import markdown_content_view
 
 urlpatterns = [

@@ -1,6 +1,6 @@
 import markdown
-from markdown.inlinepatterns import LinkInlineProcessor, LINK_RE
 from django.urls import reverse
+from markdown.inlinepatterns import LINK_RE, LinkInlineProcessor
 
 
 class SlugFieldLinkInlineProcessor(LinkInlineProcessor):
