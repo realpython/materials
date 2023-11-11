@@ -3,7 +3,7 @@ from django import template
 from django.template.defaultfilters import stringfilter
 from django.utils.safestring import mark_safe
 
-from django_markdown_app.markdown_extensions import SlugFieldExtension
+from dmd_app.markdown_extensions import SlugFieldExtension
 
 register = template.Library()
 
