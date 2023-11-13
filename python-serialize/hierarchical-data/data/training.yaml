@@ -1,0 +1,38 @@
+program:
+  metadata:
+    author: John Doe
+    goals:
+      - health improvement
+      - fat loss
+  exercises:
+    - &plank
+      muscles:
+        - abs
+        - core
+        - shoulders
+    - &pushups
+      muscles:
+        - chest
+        - biceps
+        - triceps
+  days:
+    - &restday
+      type: rest
+    - &workout1
+      type: workout
+      segments:
+        - type: *plank
+          duration:
+            seconds: 60
+        - type: rest
+          duration:
+            seconds: 10
+        - type: *pushups
+          duration:
+            seconds: 60
+  schedule:
+   - day: *workout1
+   - day: *restday
+   - day: *restday
+   - day: *workout1
+   - day: *restday
