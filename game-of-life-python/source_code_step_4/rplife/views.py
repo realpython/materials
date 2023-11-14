@@ -10,8 +10,6 @@ class CursesView:
         self.gen = gen
         self.frame_rate = frame_rate
         self.bbox = bbox
-        self.frame_rate = frame_rate
-        self.bbox = bbox
 
     def show(self):
         curses.wrapper(self._draw)
