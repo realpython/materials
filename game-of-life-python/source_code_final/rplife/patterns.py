@@ -22,13 +22,13 @@ class Pattern:
         )
 
 
-def get_pattern(name, file_name=PATTERNS_FILE):
-    data = tomllib.loads(file_name.read_text(encoding="utf-8"))
+def get_pattern(name, filename=PATTERNS_FILE):
+    data = tomllib.loads(filename.read_text(encoding="utf-8"))
     return Pattern.from_toml(name, toml_data=data[name])
 
 
-def get_all_patterns(file_name=PATTERNS_FILE):
-    data = tomllib.loads(file_name.read_text(encoding="utf-8"))
+def get_all_patterns(filename=PATTERNS_FILE):
+    data = tomllib.loads(filename.read_text(encoding="utf-8"))
     return [
         Pattern.from_toml(name, toml_data) for name, toml_data in data.items()
     ]
