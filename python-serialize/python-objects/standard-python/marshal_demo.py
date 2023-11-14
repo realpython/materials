@@ -1,12 +1,12 @@
 import marshal
 import sysconfig
+from importlib.util import cache_from_source
 from pathlib import Path
 
 
 def main():
-    py_version = sysconfig.get_python_version().replace(".", "")
-    cache_dir = Path(sysconfig.get_path("stdlib")) / "__pycache__"
-    module_path = cache_dir / f"decimal.cpython-{py_version}.pyc"
+    stdlib_dir = Path(sysconfig.get_path("stdlib"))
+    module_path = stdlib_dir / Path(cache_from_source("decimal.py"))
     import_pyc(module_path)
     print(Decimal(3.14))  # noqa
 

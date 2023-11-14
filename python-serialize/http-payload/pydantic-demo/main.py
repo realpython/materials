@@ -15,9 +15,9 @@ class User(Metadata):
 
     @field_validator("name")
     def check_user_name(cls, name):
-        if name.startswith(name.title()):
+        if name[0].isupper():
             return name
-        raise ValueError("Name must start with an uppercase letter")
+        raise ValueError("name must start with an uppercase letter")
 
 
 if __name__ == "__main__":

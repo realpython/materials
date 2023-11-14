@@ -1,18 +1,3 @@
-"""
-GET Example:
-$ curl http://127.0.0.1:5000/users
-
-POST Example:
-$ curl -X POST http://127.0.0.1:5000/users \
-       -H 'Content-Type: application/json' \
-       --data '{"name": "Frank"}'
-{
-  "created_at": "Sun, 05 Nov 2023 17:34:19 GMT",
-  "id": "6f3530f4-2251-49ad-899b-df4c4f47009d",
-  "name": "Frank"
-}
-"""
-
 from dataclasses import dataclass
 from datetime import datetime
 from uuid import UUID, uuid4

@@ -1,7 +1,7 @@
 from models import Language, User
-from users_pb2 import Language as LanguageDao
-from users_pb2 import User as UserDao
-from users_pb2 import Users as UsersDao
+from users_pb2 import Language as LanguageDAO
+from users_pb2 import User as UserDAO
+from users_pb2 import Users as UsersDAO
 
 
 def main():
@@ -13,20 +13,20 @@ def main():
 
 def serialize():
     users = [User.fake() for _ in range(5)]
-    users_dao = UsersDao()
+    users_dao = UsersDAO()
     for user in users:
-        user_dao = UserDao()
+        user_dao = UserDAO()
         user_dao.id = user.id
         user_dao.name = user.name
         user_dao.email = user.email
-        user_dao.language = LanguageDao.Value(user.language.name)
+        user_dao.language = LanguageDAO.Value(user.language.name)
         user_dao.registered_at.FromDatetime(user.registered_at)
         users_dao.users.append(user_dao)
     return users_dao.SerializeToString()
 
 
 def deserialize(buffer):
-    users_dao = UsersDao()
+    users_dao = UsersDAO()
     users_dao.ParseFromString(buffer)
     return [
         User(

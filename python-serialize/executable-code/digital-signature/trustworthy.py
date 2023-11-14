@@ -16,7 +16,7 @@ def safe_load(file, secret_key):
     serialized_data = file.read()
     if signature == sign(serialized_data, secret_key):
         return dill.loads(serialized_data)
-    raise dill.UnpicklingError("Invalid digital signature")
+    raise dill.UnpicklingError("invalid digital signature")
 
 
 def sign(message, secret_key, algorithm=hashlib.sha256):

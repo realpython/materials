@@ -7,7 +7,7 @@ from .serializers import UserSerializerIn, UserSerializerOut
 
 
 @api_view(["GET", "POST"])
-def view_users(request):
+def handle_users(request):
     if request.method == "GET":
         users = User.objects.all()
         serializer = UserSerializerOut(users, many=True)
