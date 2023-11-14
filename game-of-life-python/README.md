@@ -1,6 +1,6 @@
 # `rplife`
 
-Conway's Game of Life in your terminal.
+Conway's Game of Life in your terminal, to accompany the Real Python tutorial [Build Conway's Game of Life With Python](https://realpython.com/conway-game-of-life-python/).
 
 ## Installation
 
