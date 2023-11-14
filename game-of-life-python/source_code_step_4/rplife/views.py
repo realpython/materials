@@ -5,12 +5,12 @@ from rplife.grid import LifeGrid
 
 
 class CursesView:
-    def __init__(self, pattern, gen=10, framerate=7, bbox=(0, 0, 20, 20)):
+    def __init__(self, pattern, gen=10, frame_rate=7, bbox=(0, 0, 20, 20)):
         self.pattern = pattern
         self.gen = gen
-        self.framerate = framerate
+        self.frame_rate = frame_rate
         self.bbox = bbox
-        self.framerate = framerate
+        self.frame_rate = frame_rate
         self.bbox = bbox
 
     def show(self):
@@ -32,4 +32,4 @@ class CursesView:
             current_grid.evolve()
             screen.addstr(0, 0, current_grid.as_string(self.bbox))
             screen.refresh()
-            sleep(1 / self.framerate)
+            sleep(1 / self.frame_rate)
