@@ -4,7 +4,7 @@ Conway's Game of Life in your terminal.
 
 ## Installation
 
-1. Create and activate a Python virtual environment
+1. Create and activate a Python virtual environment:
 
 ```sh
 $ python -m venv ./venv
@@ -12,7 +12,7 @@ $ source venv/bin/activate
 (venv) $
 ```
 
-2. Install the `rplife` in editable mode
+2. Install `rplife` in editable mode:
 
 ```sh
 (venv) $ cd rplife
