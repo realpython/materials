@@ -16,7 +16,7 @@ def main():
 
 def _show_pattern(View, pattern, args):
     try:
-        View(pattern=pattern, gen=args.gen, framerate=args.fps).show()
+        View(pattern=pattern, gen=args.gen, frame_rate=args.fps).show()
     except Exception as error:
         print(error, file=sys.stderr)
 
