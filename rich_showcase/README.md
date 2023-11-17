@@ -21,7 +21,8 @@ If you want to download your own data in real time, you will need the `requests`
 ```console
 (venv) $ python -m pip install requests
 ```
-The code to perform the download is in get_rich_showcase_data.py. This demo code demonstrates a single request, which it then dumps to the screen; for a real-time application you would need to execute this request and process the data in a loop. The [CoinLore website](https://www.coinlore.com/cryptocurrency-data-api) doesn't impose rate limits, but they suggest making one request per second.
+
+The code to perform the download is in `get_rich_showcase_data.py`. This demo code demonstrates a single request, which it then dumps to the screen; for a real-time application you would need to execute this request and process the data in a loop. The [CoinLore website](https://www.coinlore.com/cryptocurrency-data-api) doesn't impose rate limits, but they suggest making one request per second.
 
 There is a Jupyter notebook containing all the sample code from the article.
 
