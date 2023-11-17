@@ -15,16 +15,16 @@ Next, install `rich` with `pip`:
 ```console
 (venv) $ python -m pip install rich
 ```
-The article includes sytatic sample data for the scrolling cryptocurrency table - this is also included in this repository as `rich_showcase_data.py`. 
-If you want to download your own data in real time, you will need the `requests` package:
+The tutorial includes static sample data for the scrolling cryptocurrency table. This is also included in this repository as `rich_showcase_data.py`. 
+If you want to download your own data in real time, then you'll need the `requests` package:
 
 ```console
 (venv) $ python -m pip install requests
 ```
 
-The code to perform the download is in `get_rich_showcase_data.py`. This demo code demonstrates a single request, which it then dumps to the screen; for a real-time application you would need to execute this request and process the data in a loop. The [CoinLore website](https://www.coinlore.com/cryptocurrency-data-api) doesn't impose rate limits, but they suggest making one request per second.
+The code to perform the download is in `get_rich_showcase_data.py`. This demo code demonstrates a single request, which it then dumps to the screen. For a real-time application, you'd need to execute this request and process the data in a loop. The [CoinLore website](https://www.coinlore.com/cryptocurrency-data-api) doesn't impose rate limits, but they suggest making one request per second.
 
-There is a Jupyter notebook containing all the sample code from the article.
+There's a Jupyter notebook containing all the sample code from the tutorial.
 
 ## Author
 
