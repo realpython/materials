@@ -1,0 +1,26 @@
+Avg_User_IMDB,Avg_User_Rtn_Tom,Bond,Bond_Car_MFG,Budget ($ 000s),Film_Length,Kills_Bond,Martinis,Movie,Release,US_Gross,World_Gross,Budget,Release_Year
+7.3,7.7,Sean Connery,Sunbeam," $1,000.00 ",110,4,2,Dr. No,1962-06-01,16067035.0,59567035.0,1000.0,1962
+7.5,8.0,Sean Connery,Bently," $2,000.00 ",115,11,0,From Russia with Love,1963-08-01,24800000.0,78900000.0,2000.0,1963
+7.8,8.4,Sean Connery,Aston Martin," $3,000.00 ",110,9,1,Goldfinger,1964-05-01,51100000.0,124900000.0,3000.0,1964
+7.0,6.8,Sean Connery,Aston Martin," $9,000.00 ",130,20,0,Thunderball,1965-09-01,63600000.0,141200000.0,9000.0,1965
+6.9,6.3,Sean Connery,Toyota," $9,500.00 ",117,21,1,You Only Live Twice,1967-11-01,43100000.0,111600000.0,9500.0,1967
+6.8,6.7,George Lazenby,Mercury," $8,000.00 ",142,5,1,On Her Majesty's Secret Service,1969-07-01,22800000.0,82000000.0,8000.0,1969
+6.7,6.3,Sean Connery,Ford," $7,200.00 ",120,7,0,Diamonds Are Forever,1971-03-01,43800000.0,116000000.0,7200.0,1971
+6.8,5.9,Roger Moore,AMC," $7,000.00 ",121,8,0,Live and Let Die,1973-08-01,35400000.0,161800000.0,7000.0,1973
+6.7,5.1,Roger Moore,AMC," $7,000.00 ",125,1,0,The Man with the Golden Gun,1974-07-01,21000000.0,97600000.0,7000.0,1974
+7.1,6.8,Roger Moore,Lotus," $14,000.00 ",125,31,1,The Spy Who Loved Me,1977-04-01,46800000.0,185400000.0,14000.0,1977
+6.2,5.7,Roger Moore,Lotus," $31,000.00 ",126,12,1,Moonraker,1979-10-01,70300000.0,210300000.0,31000.0,1979
+6.8,6.3,Roger Moore,Citroen," $28,000.00 ",127,18,0,For Your Eyes Only,1981-06-01,54800000.0,195300000.0,28000.0,1981
+6.5,5.3,Roger Moore,Bajaj," $27,500.00 ",131,15,0,Octopussy,1983-03-01,67900000.0,187500000.0,27500.0,1983
+6.2,4.7,Roger Moore,Rolls Royce," $30,000.00 ",131,5,0,A View to a Kill,1985-10-01,50327960.0,152627960.0,30000.0,1985
+6.7,6.3,Timothy Dalton,Rolls Royce," $40,000.00 ",130,13,2,The Living Daylights,1987-05-01,51185000.0,191200000.0,40000.0,1987
+6.5,6.0,Timothy Dalton,Aston Martin," $42,000.00 ",133,10,1,License to Kill,1989-01-01,34667015.0,156167015.0,42000.0,1989
+7.2,6.9,Pierce Brosnan,BMW," $60,000.00 ",130,47,1,GoldenEye,1995-09-01,106429941.0,356429941.0,60000.0,1995
+6.4,6.0,Pierce Brosnan,Aston Martin," $110,000.00 ",119,30,1,Tomorrow Never Dies,1997-07-01,125304276.0,339504276.0,110000.0,1997
+6.3,5.7,Pierce Brosnan,BMW," $135,000.00 ",128,27,1,The World Is Not Enough,1999-06-01,126930660.0,361730660.0,135000.0,1999
+6.0,6.1,Pierce Brosnan,Aston Martin," $142,000.00 ",133,31,2,Die Another Day,2002-08-01,160942139.0,431942139.0,142000.0,2002
+7.9,7.8,Daniel Craig,Aston Martin," $102,000.00 ",144,11,3,Casino Royale,2006-02-01,167365000.0,596365000.0,102000.0,2006
+6.7,6.1,Daniel Craig,Aston Martin," $230,000.00 ",106,16,6,Quantum of Solace,2008-12-01,169368427.0,591692078.0,230000.0,2008
+7.8,8.2,Daniel Craig,Aston Martin," $200,000.00 ",143,26,1,Skyfall,2012-11-01,304360277.0,1108561108.0,200000.0,2012
+6.8,6.4,Daniel Craig,Aston Martin," $245,000.00 ",148,30,1,Spectre,2015-09-01,200074175.0,879620923.0,245000.0,2015
+7.3,7.3,Daniel Craig,Aston Martin," $275,000.00 ",163,14,1,No Time to Die,2021-11-01,160891007.0,759959662.0,275000.0,2021
