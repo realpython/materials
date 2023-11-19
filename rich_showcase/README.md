@@ -15,7 +15,7 @@ Next, install `rich` with `pip`:
 ```console
 (venv) $ python -m pip install rich
 ```
-The tutorial includes static sample data for the scrolling cryptocurrency table. This is also included in this repository as `rich_showcase_data.py`. 
+The tutorial includes static sample data for the scrolling cryptocurrency table. This is also included in this repository as `rich_showcase_data.json`. 
 If you want to download your own data in real time, then you'll need the `requests` package:
 
 ```console
