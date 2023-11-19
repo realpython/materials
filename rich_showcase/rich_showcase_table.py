@@ -4,10 +4,10 @@
 """Sample code for Rich showcase article"""
 
 import time
+import json
 from rich.table import Table
 from rich.live import Live
 from rich.console import Console
-from rich_showcase_data import DEMO_DATA
 
 
 def make_table(coin_list):
@@ -44,7 +44,8 @@ def make_table(coin_list):
     return table
 
 
-coins = DEMO_DATA
+# Load the coins data
+coins = json.load(open("rich_showcase_data.json"))
 console = Console()
 
 
