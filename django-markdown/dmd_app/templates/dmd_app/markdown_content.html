@@ -1,0 +1,15 @@
+{% load static %}
+{% load dmd_extras %}
+
+<!doctype html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8" />
+    <title>Django Markdown</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'dmd_app/styles.css' %}">
+  </head>
+  <body>
+    <h1>{{ markdown_content.title }}</h1>
+    <p>{{ markdown_content.content|render_markdown }}</p>
+  </body>
+</html>
