@@ -6,7 +6,7 @@ The `james_bond_data.csv` file contains the original uncleansed data and is the 
 
 A cleansed version of the original data is available in the `james_bond_data_cleansed.csv` file.
  
-The complete code is available in the `Solution-New.ipynb` Jupyter notebook.
+The complete code is available in the `james_bond_analysis.ipynb` Jupyter notebook.
 
 ## Setup
 
