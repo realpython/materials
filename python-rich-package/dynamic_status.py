@@ -13,4 +13,5 @@ with console.status(
     "Please wait - solving global problems...", spinner="earth"
 ):
     do_something_important()
+
 console.print("All fixed! :sunglasses:")

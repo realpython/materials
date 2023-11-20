@@ -1,5 +1,3 @@
-"""Sample code for Rich showcase article"""
-
 import contextlib
 import json
 import time
@@ -42,9 +40,7 @@ def make_table(coin_list):
 
 
 # Load the coins data
-raw_data = json.loads(
-    Path("rich_showcase_data.json").read_text(encoding="utf-8")
-)
+raw_data = json.loads(Path("crypto_data.json").read_text(encoding="utf-8"))
 num_coins = len(raw_data)
 coins = raw_data + raw_data  # Double the dataset to simulate streaming
 

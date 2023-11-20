@@ -1,5 +1,3 @@
-"""Get sample data from CoinLore API"""
-
 import requests
 
 COINLORE_API = "https://api.coinlore.net/api/tickers/"
