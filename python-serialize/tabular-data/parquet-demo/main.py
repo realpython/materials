@@ -14,7 +14,7 @@ def main():
     print(f"{df1.equals(df2) = }")  # noqa
     print(f"{df2.equals(df3) = }")  # noqa
 
-    df = prun_and_filter("users.parquet")
+    df = prune_and_filter("users.parquet")
     print(df.head())
 
 
@@ -34,7 +34,7 @@ def deserialize_with_fastparquet(filename):
     return fastparquet.ParquetFile(filename).to_pandas()
 
 
-def prun_and_filter(filename):
+def prune_and_filter(filename):
     return pd.read_parquet(
         filename,
         filters=[("language", "=", "fr")],
