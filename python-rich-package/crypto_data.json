@@ -1,0 +1,702 @@
+[
+    {
+        "symbol": "BTC",
+        "name": "Bitcoin",
+        "price_usd": "31252.03",
+        "percent_change_7d": "3.79",
+        "volume24": 20953193815.93972
+    },
+    {
+        "symbol": "ETH",
+        "name": "Ethereum",
+        "price_usd": "1996.94",
+        "percent_change_7d": "7.72",
+        "volume24": 43776094155.557755
+    },
+    {
+        "symbol": "USDT",
+        "name": "Tether",
+        "price_usd": "1.00",
+        "percent_change_7d": "0.07",
+        "volume24": 55137371360.06878
+    },
+    {
+        "symbol": "BNB",
+        "name": "Binance Coin",
+        "price_usd": "254.17",
+        "percent_change_7d": "8.54",
+        "volume24": 788139087.131846
+    },
+    {
+        "symbol": "USDC",
+        "name": "USD Coin",
+        "price_usd": "0.999758",
+        "percent_change_7d": "-0.03",
+        "volume24": 34890207329.59203
+    },
+    {
+        "symbol": "XRP",
+        "name": "XRP",
+        "price_usd": "0.776092",
+        "percent_change_7d": "65.51",
+        "volume24": 13289725792.18076
+    },
+    {
+        "symbol": "BUSD",
+        "name": "Binance USD",
+        "price_usd": "1.00",
+        "percent_change_7d": "-0.01",
+        "volume24": 2982268496.878559
+    },
+    {
+        "symbol": "ADA",
+        "name": "Cardano",
+        "price_usd": "0.348179",
+        "percent_change_7d": "23.40",
+        "volume24": 1317758234.4725194
+    },
+    {
+        "symbol": "SOL",
+        "name": "Solana",
+        "price_usd": "27.96",
+        "percent_change_7d": "37.47",
+        "volume24": 2608578104.9363656
+    },
+    {
+        "symbol": "DOGE",
+        "name": "Dogecoin",
+        "price_usd": "0.070784",
+        "percent_change_7d": "7.82",
+        "volume24": 776208544.8693453
+    },
+    {
+        "symbol": "STETH",
+        "name": "Staked Ether",
+        "price_usd": "1984.92",
+        "percent_change_7d": "8.38",
+        "volume24": 970870.4192054314
+    },
+    {
+        "symbol": "TRX",
+        "name": "TRON",
+        "price_usd": "0.082126",
+        "percent_change_7d": "5.43",
+        "volume24": 294442942.6567772
+    },
+    {
+        "symbol": "LTC",
+        "name": "Litecoin",
+        "price_usd": "100.92",
+        "percent_change_7d": "3.73",
+        "volume24": 2010476368.057925
+    },
+    {
+        "symbol": "DOT",
+        "name": "Polkadot",
+        "price_usd": "5.63",
+        "percent_change_7d": "10.75",
+        "volume24": 282938041.0123782
+    },
+    {
+        "symbol": "WBTC",
+        "name": "Wrapped Bitcoin",
+        "price_usd": "31201.84",
+        "percent_change_7d": "3.62",
+        "volume24": 36161715.175137974
+    },
+    {
+        "symbol": "BCH",
+        "name": "Bitcoin Cash",
+        "price_usd": "272.20",
+        "percent_change_7d": "-4.50",
+        "volume24": 2129638945.9266052
+    },
+    {
+        "symbol": "AVAX",
+        "name": "Avalanche",
+        "price_usd": "15.24",
+        "percent_change_7d": "20.96",
+        "volume24": 500476432.5450047
+    },
+    {
+        "symbol": "UNI",
+        "name": "Uniswap",
+        "price_usd": "5.96",
+        "percent_change_7d": "10.67",
+        "volume24": 122940409.6610347
+    },
+    {
+        "symbol": "SHIB",
+        "name": "Shiba Inu",
+        "price_usd": "0.000008",
+        "percent_change_7d": "10.67",
+        "volume24": 204280913.4426844
+    },
+    {
+        "symbol": "XLM",
+        "name": "Stellar",
+        "price_usd": "0.142132",
+        "percent_change_7d": "46.19",
+        "volume24": 1263932212.2337687
+    },
+    {
+        "symbol": "LEO",
+        "name": "UNUS SED LEO",
+        "price_usd": "3.97",
+        "percent_change_7d": "8.41",
+        "volume24": 2339911.236200216
+    },
+    {
+        "symbol": "LINK",
+        "name": "ChainLink",
+        "price_usd": "7.10",
+        "percent_change_7d": "15.50",
+        "volume24": 484358760.1126672
+    },
+    {
+        "symbol": "XMR",
+        "name": "Monero",
+        "price_usd": "164.65",
+        "percent_change_7d": "-1.88",
+        "volume24": 2038036008.0313425
+    },
+    {
+        "symbol": "ATOM",
+        "name": "Cosmos",
+        "price_usd": "10.01",
+        "percent_change_7d": "7.68",
+        "volume24": 222431999.6788462
+    },
+    {
+        "symbol": "ETC",
+        "name": "Ethereum Classic",
+        "price_usd": "19.89",
+        "percent_change_7d": "4.32",
+        "volume24": 382469987.24052006
+    },
+    {
+        "symbol": "OKB",
+        "name": "OKB",
+        "price_usd": "44.00",
+        "percent_change_7d": "3.71",
+        "volume24": 5182537.475964661
+    },
+    {
+        "symbol": "LDO",
+        "name": "Lido DAO",
+        "price_usd": "2.43",
+        "percent_change_7d": "25.87",
+        "volume24": 200042470.0922766
+    },
+    {
+        "symbol": "TON",
+        "name": "The Open Network",
+        "price_usd": "1.36",
+        "percent_change_7d": "1.87",
+        "volume24": 4290911.169640025
+    },
+    {
+        "symbol": "MATIC",
+        "name": "Matic Network",
+        "price_usd": "0.841325",
+        "percent_change_7d": "25.56",
+        "volume24": 715840267.2564398
+    },
+    {
+        "symbol": "FIL",
+        "name": "Filecoin",
+        "price_usd": "4.61",
+        "percent_change_7d": "5.08",
+        "volume24": 276195488.1582698
+    },
+    {
+        "symbol": "ARB",
+        "name": "Arbitrum",
+        "price_usd": "1.25",
+        "percent_change_7d": "14.98",
+        "volume24": 207234601.30264035
+    },
+    {
+        "symbol": "VET",
+        "name": "VeChain",
+        "price_usd": "0.020024",
+        "percent_change_7d": "7.60",
+        "volume24": 70424000.50503708
+    },
+    {
+        "symbol": "NEAR",
+        "name": "NEAR Protocol",
+        "price_usd": "1.55",
+        "percent_change_7d": "16.68",
+        "volume24": 186510632.14473444
+    },
+    {
+        "symbol": "QNT",
+        "name": "Quant",
+        "price_usd": "105.03",
+        "percent_change_7d": "0.81",
+        "volume24": 32760026.63178301
+    },
+    {
+        "symbol": "AAVE",
+        "name": "Aave",
+        "price_usd": "83.40",
+        "percent_change_7d": "16.36",
+        "volume24": 435033534.55578315
+    },
+    {
+        "symbol": "GRT",
+        "name": "The Graph",
+        "price_usd": "0.124238",
+        "percent_change_7d": "3.75",
+        "volume24": 50745768.31360009
+    },
+    {
+        "symbol": "FRAX",
+        "name": "Frax",
+        "price_usd": "0.999128",
+        "percent_change_7d": "0.54",
+        "volume24": 10112664.516622534
+    },
+    {
+        "symbol": "TUSD",
+        "name": "TrueUSD",
+        "price_usd": "0.999479",
+        "percent_change_7d": "-0.05",
+        "volume24": 3269190962.729144
+    },
+    {
+        "symbol": "STX",
+        "name": "Stacks",
+        "price_usd": "0.680968",
+        "percent_change_7d": "4.52",
+        "volume24": 72956976.43657969
+    },
+    {
+        "symbol": "MKR",
+        "name": "Maker",
+        "price_usd": "913.72",
+        "percent_change_7d": "-9.45",
+        "volume24": 325122162.91072315
+    },
+    {
+        "symbol": "EOS",
+        "name": "EOS",
+        "price_usd": "0.804691",
+        "percent_change_7d": "12.59",
+        "volume24": 218036299.95140857
+    },
+    {
+        "symbol": "USDP",
+        "name": "Pax Dollar",
+        "price_usd": "0.999809",
+        "percent_change_7d": "-0.08",
+        "volume24": 1627155.176109821
+    },
+    {
+        "symbol": "ALGO",
+        "name": "Algorand",
+        "price_usd": "0.118303",
+        "percent_change_7d": "3.50",
+        "volume24": 175432880.12364262
+    },
+    {
+        "symbol": "XTZ",
+        "name": "Tezos",
+        "price_usd": "0.902678",
+        "percent_change_7d": "14.45",
+        "volume24": 17862226.065150194
+    },
+    {
+        "symbol": "FTM",
+        "name": "Fantom",
+        "price_usd": "0.299238",
+        "percent_change_7d": "11.48",
+        "volume24": 187495267.91607383
+    },
+    {
+        "symbol": "THETA",
+        "name": "Theta Token",
+        "price_usd": "0.827153",
+        "percent_change_7d": "14.36",
+        "volume24": 39602951.52502267
+    },
+    {
+        "symbol": "MANA",
+        "name": "Decentraland",
+        "price_usd": "0.433536",
+        "percent_change_7d": "14.95",
+        "volume24": 125883681.50783731
+    },
+    {
+        "symbol": "BCHSV",
+        "name": "Bitcoin SV",
+        "price_usd": "39.35",
+        "percent_change_7d": "-10.48",
+        "volume24": 65176121.64507406
+    },
+    {
+        "symbol": "USDD",
+        "name": "USDD",
+        "price_usd": "1.00",
+        "percent_change_7d": "0.18",
+        "volume24": 10943706.717842644
+    },
+    {
+        "symbol": "SAND",
+        "name": "The Sandbox",
+        "price_usd": "0.467742",
+        "percent_change_7d": "12.10",
+        "volume24": 200640950.97449806
+    },
+    {
+        "symbol": "PEPE",
+        "name": "Pepe",
+        "price_usd": "0.000002",
+        "percent_change_7d": "11.25",
+        "volume24": 406548396.3096544
+    },
+    {
+        "symbol": "APE",
+        "name": "APEcoin",
+        "price_usd": "2.21",
+        "percent_change_7d": "14.72",
+        "volume24": 296669905.1748844
+    },
+    {
+        "symbol": "NEO",
+        "name": "Neo",
+        "price_usd": "9.59",
+        "percent_change_7d": "5.63",
+        "volume24": 87953825.32299156
+    },
+    {
+        "symbol": "FLOW",
+        "name": "Flow",
+        "price_usd": "0.652914",
+        "percent_change_7d": "4.75",
+        "volume24": 88816184.52336611
+    },
+    {
+        "symbol": "AXS",
+        "name": "Axie Infinity",
+        "price_usd": "6.63",
+        "percent_change_7d": "12.65",
+        "volume24": 173301949.07415962
+    },
+    {
+        "symbol": "CRV",
+        "name": "Curve DAO Token",
+        "price_usd": "0.863588",
+        "percent_change_7d": "17.72",
+        "volume24": 34442558.73801766
+    },
+    {
+        "symbol": "INJ",
+        "name": "Injective Protocol",
+        "price_usd": "9.64",
+        "percent_change_7d": "21.61",
+        "volume24": 214944721.17498806
+    },
+    {
+        "symbol": "PHB",
+        "name": "Red Pulse Phoenix",
+        "price_usd": "0.739450",
+        "percent_change_7d": "11.41",
+        "volume24": 2127239.3825587
+    },
+    {
+        "symbol": "XEC",
+        "name": "eCash",
+        "price_usd": "0.000031",
+        "percent_change_7d": "-19.12",
+        "volume24": 17398291.14119232
+    },
+    {
+        "symbol": "CRO",
+        "name": "Crypto.com Chain",
+        "price_usd": "0.060308",
+        "percent_change_7d": "6.23",
+        "volume24": 10125581.086761687
+    },
+    {
+        "symbol": "CHZ",
+        "name": "Chiliz",
+        "price_usd": "0.083790",
+        "percent_change_7d": "10.56",
+        "volume24": 46253360.29975289
+    },
+    {
+        "symbol": "KCS",
+        "name": "KuCoin Shares",
+        "price_usd": "6.24",
+        "percent_change_7d": "-1.52",
+        "volume24": 3496576.426964752
+    },
+    {
+        "symbol": "KLAY",
+        "name": "Klaytn",
+        "price_usd": "0.177168",
+        "percent_change_7d": "5.05",
+        "volume24": 19656059.820330244
+    },
+    {
+        "symbol": "RNDR",
+        "name": "Render Token",
+        "price_usd": "2.14",
+        "percent_change_7d": "10.64",
+        "volume24": 92808359.23988137
+    },
+    {
+        "symbol": "FTT",
+        "name": "FTX Token",
+        "price_usd": "1.64",
+        "percent_change_7d": "10.01",
+        "volume24": 53872321.04347122
+    },
+    {
+        "symbol": "MIOTA",
+        "name": "IOTA",
+        "price_usd": "0.192000",
+        "percent_change_7d": "4.59",
+        "volume24": 8649448.187102558
+    },
+    {
+        "symbol": "ZEC",
+        "name": "Zcash",
+        "price_usd": "32.34",
+        "percent_change_7d": "3.78",
+        "volume24": 234082644.50086042
+    },
+    {
+        "symbol": "PAXG",
+        "name": "PAX Gold",
+        "price_usd": "1935.85",
+        "percent_change_7d": "2.19",
+        "volume24": 812583422.7762803
+    },
+    {
+        "symbol": "LUNC",
+        "name": "Terra Classic",
+        "price_usd": "0.000088",
+        "percent_change_7d": "5.29",
+        "volume24": 29817037.116504386
+    },
+    {
+        "symbol": "HBAR",
+        "name": "Hedera Hashgraph",
+        "price_usd": "0.053269",
+        "percent_change_7d": "14.34",
+        "volume24": 41598576.611335196
+    },
+    {
+        "symbol": "TACO",
+        "name": "Tacos",
+        "price_usd": "78.94",
+        "percent_change_7d": "18.34",
+        "volume24": 6717589.401493353
+    },
+    {
+        "symbol": "EGLD",
+        "name": "Elrond eGold",
+        "price_usd": "37.59",
+        "percent_change_7d": "11.35",
+        "volume24": 22131636.4517117
+    },
+    {
+        "symbol": "GMX",
+        "name": "GMX",
+        "price_usd": "60.02",
+        "percent_change_7d": "9.75",
+        "volume24": 30717637.271570735
+    },
+    {
+        "symbol": "COMP",
+        "name": "Compound",
+        "price_usd": "68.31",
+        "percent_change_7d": "17.87",
+        "volume24": 123188541.96973641
+    },
+    {
+        "symbol": "TKX",
+        "name": "Tokenize Xchange",
+        "price_usd": "6.19",
+        "percent_change_7d": "7.04",
+        "volume24": 11293471.330545316
+    },
+    {
+        "symbol": "XAUT",
+        "name": "Tether Gold",
+        "price_usd": "1959.50",
+        "percent_change_7d": "2.51",
+        "volume24": 6054015.365067729
+    },
+    {
+        "symbol": "KAS",
+        "name": "Kaspa",
+        "price_usd": "0.028860",
+        "percent_change_7d": "33.85",
+        "volume24": 12770039.919820618
+    },
+    {
+        "symbol": "HT",
+        "name": "Huobi Token",
+        "price_usd": "2.78",
+        "percent_change_7d": "3.13",
+        "volume24": 12653864.943357613
+    },
+    {
+        "symbol": "CSPR",
+        "name": "Casper",
+        "price_usd": "0.038206",
+        "percent_change_7d": "1.91",
+        "volume24": 5576587.639663127
+    },
+    {
+        "symbol": "DASH",
+        "name": "Dash",
+        "price_usd": "35.85",
+        "percent_change_7d": "5.28",
+        "volume24": 71757437.09998573
+    },
+    {
+        "symbol": "XDCE",
+        "name": "XinFin Network",
+        "price_usd": "0.032674",
+        "percent_change_7d": "1.71",
+        "volume24": 1776317.812194609
+    },
+    {
+        "symbol": "KAVA",
+        "name": "Kava",
+        "price_usd": "0.967047",
+        "percent_change_7d": "4.15",
+        "volume24": 73097054.46498355
+    },
+    {
+        "symbol": "RPL",
+        "name": "Rocket Pool",
+        "price_usd": "37.84",
+        "percent_change_7d": "-1.74",
+        "volume24": 1054669.705829167
+    },
+    {
+        "symbol": "SUI",
+        "name": "Sui",
+        "price_usd": "0.725466",
+        "percent_change_7d": "11.08",
+        "volume24": 92574462.3637904
+    },
+    {
+        "symbol": "NEXO",
+        "name": "Nexo",
+        "price_usd": "0.658019",
+        "percent_change_7d": "4.53",
+        "volume24": 5663554.267356189
+    },
+    {
+        "symbol": "FLEX",
+        "name": "FLEX Coin",
+        "price_usd": "3.66",
+        "percent_change_7d": "0.04",
+        "volume24": 320013.9077801702
+    },
+    {
+        "symbol": "ZIL",
+        "name": "Zilliqa",
+        "price_usd": "0.022452",
+        "percent_change_7d": "8.17",
+        "volume24": 40085286.38067658
+    },
+    {
+        "symbol": "TWT",
+        "name": "Trust Wallet Token",
+        "price_usd": "0.854440",
+        "percent_change_7d": "-0.84",
+        "volume24": 16348028.542735066
+    },
+    {
+        "symbol": "RUNE",
+        "name": "THORChain",
+        "price_usd": "1.07",
+        "percent_change_7d": "5.55",
+        "volume24": 12001247.683048533
+    },
+    {
+        "symbol": "FEI",
+        "name": "Fei USD",
+        "price_usd": "0.815600",
+        "percent_change_7d": "-11.06",
+        "volume24": 940166.3214333741
+    },
+    {
+        "symbol": "SNX",
+        "name": "Synthetix Network Token",
+        "price_usd": "2.95",
+        "percent_change_7d": "41.08",
+        "volume24": 311179071.90065503
+    },
+    {
+        "symbol": "DYDX",
+        "name": "dYdX",
+        "price_usd": "2.14",
+        "percent_change_7d": "15.76",
+        "volume24": 74017943.36035483
+    },
+    {
+        "symbol": "AGIX",
+        "name": "SingularityNET",
+        "price_usd": "0.274559",
+        "percent_change_7d": "18.35",
+        "volume24": 195860297.72295615
+    },
+    {
+        "symbol": "LRC",
+        "name": "Loopring",
+        "price_usd": "0.243839",
+        "percent_change_7d": "7.30",
+        "volume24": 37783839.42544796
+    },
+    {
+        "symbol": "ENJ",
+        "name": "Enjin Coin",
+        "price_usd": "0.319967",
+        "percent_change_7d": "8.14",
+        "volume24": 22514225.851048034
+    },
+    {
+        "symbol": "BAT",
+        "name": "Basic Attention Token",
+        "price_usd": "0.213415",
+        "percent_change_7d": "11.79",
+        "volume24": 19548090.541221704
+    },
+    {
+        "symbol": "GNO",
+        "name": "Gnosis",
+        "price_usd": "121.48",
+        "percent_change_7d": "7.51",
+        "volume24": 2013836.000557435
+    },
+    {
+        "symbol": "CVX",
+        "name": "Convex Finance",
+        "price_usd": "4.22",
+        "percent_change_7d": "6.44",
+        "volume24": 2635140.659348456
+    },
+    {
+        "symbol": "OP",
+        "name": "Optimism",
+        "price_usd": "1.45",
+        "percent_change_7d": "20.45",
+        "volume24": 272662107.71766526
+    },
+    {
+        "symbol": "QTUM",
+        "name": "Qtum",
+        "price_usd": "2.91",
+        "percent_change_7d": "5.10",
+        "volume24": 41268418.71165733
+    }
+]
