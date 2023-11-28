@@ -1,8 +1,8 @@
 {% extends 'base.html' %}
 
 {% block header %}
-  <h1>{% block title %}Add Post{% endblock %}</h1>
-{% endblock %}
+  <h1>{% block title %}Add Post{% endblock title %}</h1>
+{% endblock header %}
 
 {% block content %}
   <form method="post">
@@ -18,4 +18,4 @@
         <input type="submit" value="Post Message" class="submit-btn">
     </div>
 </form>
-{% endblock %}
+{% endblock content %}

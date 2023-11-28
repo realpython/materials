@@ -1,8 +1,8 @@
 {% extends 'base.html' %}
 
 {% block header %}
-  <h1>{% block title %}Posts{% endblock %}</h1>
-{% endblock %}
+  <h1>{% block title %}Posts{% endblock title %}</h1>
+{% endblock header %}
 
 {% block content %}
   {% for post in posts %}
@@ -11,4 +11,4 @@
       <aside>Posted by {{ post["author"] }} on {{ post["created"].strftime("%b %d, %Y at %-I:%M%p") }}</aside>
     </article>
   {% endfor %}
-{% endblock %}
+{% endblock content %}
