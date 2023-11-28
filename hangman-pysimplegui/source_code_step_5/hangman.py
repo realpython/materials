@@ -165,7 +165,7 @@ class Hangman:
                 self._canvas.DrawLine(*part, color="red", width=2)
 
     def _select_word(self):
-        with open("words.txt", mode="r") as words:
+        with open("words.txt", mode="r", encoding="utf-8") as words:
             word_list = words.readlines()
         return choice(word_list).strip().upper()
 

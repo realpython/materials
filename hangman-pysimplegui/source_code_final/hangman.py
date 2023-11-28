@@ -168,7 +168,7 @@ class Hangman:
                 self._canvas.DrawLine(*part, color="red", width=2)
 
     def _select_word(self):
-        with open("words.txt", mode="r") as words:
+        with open("words.txt", mode="r", encoding="utf-8") as words:
             word_list = words.readlines()
         return choice(word_list).strip().upper()
 
@@ -208,7 +208,7 @@ class Hangman:
 
     def read_event(self):
         event = self._window.read()
-        event_id = event[0] if event is not None else event
+        event_id = event[0] if event is not None else None
         return event_id
 
     def process_event(self, event):
