@@ -1,0 +1,25 @@
+syntax = "proto3";
+
+package com.realpython;
+
+import "google/protobuf/timestamp.proto";
+
+enum Language {
+  DE = 0;
+  EN = 1;
+  ES = 2;
+  FR = 3;
+  IT = 4;
+}
+
+message User {
+  int64 id = 1;
+  string name = 2;
+  string email = 3;
+  Language language = 4;
+  google.protobuf.Timestamp registered_at = 5;
+}
+
+message Users {
+  repeated User users = 1;
+}
