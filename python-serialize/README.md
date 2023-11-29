@@ -1,6 +1,6 @@
-# Data Serialization: Turning Python's Bites Into Bytes
+# Serialize Your Data With Python
 
-This folder contains the sample code for the tutorial [Data Serialization: Turning Python's Bites Into Bytes](https://realpython.com/python-serialize-data/) published on Real Python.
+This folder contains the sample code for the tutorial [Serialize Your Data With Python](https://realpython.com/python-serialize-data/) published on Real Python.
 
 ## Table of Contents
 
