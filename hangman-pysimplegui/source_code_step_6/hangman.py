@@ -232,16 +232,16 @@ class Hangman:
         if self._wrong_guesses < MAX_WRONG_GUESSES:
             self._won_games += 1
             answer = sg.PopupYesNo(
-                f"You've won! Congratulations!\n"
+                "You've won! Congratulations!\n"
                 f"That's {self._won_games} out of {self._played_games}!\n"
-                f"Another round?",
+                "Another round?",
                 title="Winner!",
             )
         else:
             answer = sg.PopupYesNo(
                 f"You've lost! The word was '{self._target_word}'.\n"
                 f"That's {self._won_games} out of {self._played_games}!\n"
-                f"Another round?",
+                "Another round?",
                 title="Sorry!",
             )
         self.quit = answer == "No"
