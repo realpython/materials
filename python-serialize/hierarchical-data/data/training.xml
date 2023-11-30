@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<program>
+    <metadata>
+        <author>John Doe</author>
+        <goals>
+            <goal>health improvement</goal>
+            <goal>fat loss</goal>
+        </goals>
+    </metadata>
+    <exercises>
+        <exercise id="plank">
+            <muscles>
+                <muscle>abs</muscle>
+                <muscle>core</muscle>
+                <muscle>shoulders</muscle>
+            </muscles>
+        </exercise>
+        <exercise id="push-ups">
+            <muscles>
+                <muscle>chest</muscle>
+                <muscle>biceps</muscle>
+                <muscle>triceps</muscle>
+            </muscles>
+        </exercise>
+    </exercises>
+    <days>
+        <day id="rest-day">
+            <type>rest</type>
+        </day>
+        <day id="workout-1">
+            <type>workout</type>
+            <routine>
+                <segment>
+                    <type ref="plank"/>
+                    <duration seconds="60"/>
+                </segment>
+                <segment>
+                    <type>rest</type>
+                    <duration seconds="10"/>
+                </segment>
+                <segment>
+                    <type ref="push-ups"/>
+                    <duration seconds="60"/>
+                </segment>
+            </routine>
+        </day>
+    </days>
+    <schedule>
+        <day ref="workout-1"/>
+        <day ref="rest-day"/>
+        <day ref="rest-day"/>
+        <day ref="workout-1"/>
+        <day ref="rest-day"/>
+    </schedule>
+</program>

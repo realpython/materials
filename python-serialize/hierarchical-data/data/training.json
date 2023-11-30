@@ -1,0 +1,30 @@
+{
+    "program": {
+        "metadata": {
+            "author": "John Doe",
+            "goals": ["health improvement", "fat loss"]
+        },
+        "exercises": {
+            "plank": {"muscles": ["abs", "core", "shoulders"]},
+            "push-ups": {"muscles": ["chest", "biceps", "triceps"]}
+        },
+        "days": {
+            "rest-day": {"type": "rest"},
+            "workout-1": {
+                "type": "workout",
+                "segments": [
+                    {"type": "@plank", "seconds": 60},
+                    {"type": "rest", "seconds": 10},
+                    {"type": "@push-ups", "seconds": 60}
+                ]
+            }
+        },
+        "schedule": [
+            "@workout-1",
+            "@rest-day",
+            "@rest-day",
+            "@workout-1",
+            "@rest-day"
+        ]
+    }
+}
