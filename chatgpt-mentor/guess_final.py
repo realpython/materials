@@ -16,6 +16,7 @@ def guess_the_number(low: int = 1, high: int = 100) -> int:
     """
     random_number = random.randint(low, high)
     user_guess = None
+    attempts = 0
 
     while user_guess != random_number:
         user_guess = int(input(f"Guess a number between {low} and {high}: "))
@@ -24,6 +25,6 @@ def guess_the_number(low: int = 1, high: int = 100) -> int:
         elif user_guess > random_number:
             print("Your guess is too high. Try again!")
         else:
-            print("Congratulations, you guessed the number correctly!")
+            print(f"Congratulations, you guessed the number correctly in {attempts} attempts!\n")
 
     return random_number
