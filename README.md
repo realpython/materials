@@ -1,37 +1,17 @@
-# Real Python Materials
+# Using Python for Data Analysis
 
-Bonus materials, exercises, and example projects for Real Python's [Python tutorials](https://realpython.com).
+This folder contains completed notebooks and other files used in the Real Python tutorial on [Using Python for Data Analysis](https://realpython.com/using-python-for-data-analysis/). 
 
-Build Status:
-[![GitHub Actions](https://img.shields.io/github/actions/workflow/status/realpython/materials/linters.yml?branch=master)](https://github.com/realpython/materials/actions)
+None of the files are mandatory to complete the tutorial, however, you may find them of use for reference during the tutorial.
 
-## Got a Question?
+## Available Files:
 
-The best way to get support for Real Python courses, articles, and code in this repository is to join one of our [weekly Office Hours calls](https://realpython.com/office-hours/) or to ask your question in the [RP Community Chat](https://realpython.com/community/).
+`data analysis findings.ipynb` is a Jupyter Notebook containing all the code used in the tutorial.
+`data analysis results.ipynb` is a Jupyter Notebook containing the final version of the cleansing and analysis code.
+`james_bond_data.csv` contains the data to be cleansed and analyzed in its original form, in CSV format.
+`james_bond_data.json` contains the data to be cleansed and analyzed in its original form, in JSON format.
+`james_bond_data.parquet` contains the data to be cleansed and analyzed in its original form, in parquet format.
+`james_bond_data.xlsx` contains the data to be cleansed and analyzed in its original form, in Microsoft Excel format.
+`james_bond_data_cleansed.csv` contains the cleansed data in its final form.
 
-Due to time constraints, we cannot provide 1:1 support via GitHub. See you on Slack or on the next Office Hours call 🙂
-
-## Adding Source Code & Sample Projects to This Repo (RP Contributors)
-
-### Running Code Style Checks
-
-We use [flake8](http://flake8.pycqa.org/en/latest/) and [black](https://black.readthedocs.io/) to ensure a consistent code style for all of our sample code in this repository.
-
-Run the following commands to validate your code against the linters:
-
-```sh
-$ flake8
-$ black --check .
-```
-
-### Running Python Code Formatter
-
-We're using a tool called [black](https://black.readthedocs.io/) on this repo to ensure consistent formatting. On CI it runs in "check" mode to ensure any new files added to the repo follow PEP 8. If you see linter warnings that say something like "would reformat some_file.py" it means that black disagrees with your formatting.
-
-**The easiest way to resolve these errors is to run Black locally on the code and then commit those changes, as explained below.**
-
-To automatically re-format your code to be consistent with our code style guidelines, run [black](https://black.readthedocs.io/) in the repository root folder:
-
-```sh
-$ black .
-```
+## Although the tutorial can be completed in a range of Python environments, the use of Jupyter Notebook within JupyterLab is highly recommended.
