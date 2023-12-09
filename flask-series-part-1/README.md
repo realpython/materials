@@ -63,16 +63,6 @@ FLASK_DATABASE="board.sqlite"
 
 To avoid saving the secret key directly in your code, it may be a good idea to work with [environment variables](https://12factor.net/config). You can learn more about that in the Flask documentation on [configuration handling](https://flask.palletsprojects.com/en/2.3.x/config/).
 
-### Database
-
-To initialize the database, run this command:
-
-```bash
-(venv) $ python -m flask --app board init-db
-```
-
-If you used the content for the `.env` file from above, then you can find a `board.sqlite` database in the root directory of your project.
-
 ## Development Server
 
 To run the Flask development server, enter this command in your terminal while being in the root directory of your project:
