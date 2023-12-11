@@ -1,0 +1,21 @@
+{
+    "name": "User",
+    "type": "record",
+    "fields": [
+        {"name": "id", "type": "long"},
+        {"name": "name", "type": "string"},
+        {"name": "email", "type": "string"},
+        {
+            "name": "language",
+            "type": {
+                "name": "Language",
+                "type": "enum",
+                "symbols": ["de", "en", "es", "fr", "it"]
+            }
+        },
+        {
+            "name": "registered_at",
+            "type": {"type": "long", "logicalType": "timestamp-millis"}
+        }
+    ]
+}

@@ -15,5 +15,4 @@ class CSVFileManager:
 
     def _read(self, delimiter):
         with open(self.file_path, mode="r") as file:
-            data = [row for row in csv.reader(file, delimiter=delimiter)]
-        return data
+            return [row for row in csv.reader(file, delimiter=delimiter)]
