@@ -7,7 +7,7 @@ class Storage(float):
     def __add__(self, other):
         if not isinstance(other, type(self)):
             raise TypeError(
-                f"unsupported operand for +: "
+                "unsupported operand for +: "
                 f"'{type(self).__name__}' and '{type(other).__name__}'"
             )
         if not self.unit == other.unit:
@@ -20,7 +20,7 @@ class Storage(float):
     def __sub__(self, other):
         if not isinstance(other, type(self)):
             raise TypeError(
-                f"unsupported operand for -: "
+                "unsupported operand for -: "
                 f"'{type(self).__name__}' and '{type(other).__name__}'"
             )
         if not self.unit == other.unit:

@@ -3,7 +3,7 @@ class Number:
         self.value = value
 
     def __add__(self, other):
-        print(f"__add__ called")
+        print("__add__ called")
         if isinstance(other, Number):
             return Number(self.value + other.value)
         elif isinstance(other, int | float):
@@ -12,11 +12,11 @@ class Number:
             raise TypeError("unsupported operand type for +")
 
     def __radd__(self, other):
-        print(f"__radd__ called")
+        print("__radd__ called")
         return self.__add__(other)
 
     def __iadd__(self, other):
-        print(f"__iadd__ called")
+        print("__iadd__ called")
         return self.__add__(other)
 
     def __str__(self):
