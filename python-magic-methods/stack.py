@@ -22,7 +22,7 @@ class Stack:
         return self
 
     def __iter__(self):
-        return iter(self.items)
+        return iter(self.items[::-1])
 
     def __repr__(self):
         return f"{type(self).__name__}({self.items!r})"
