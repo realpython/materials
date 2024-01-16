@@ -2,7 +2,7 @@ import random
 import timeit
 
 TAX_RATE = 0.08
-prices = [random.randrange(100) for _ in range(100000)]
+PRICES = [random.randrange(100) for _ in range(100_000)]
 
 
 def get_price(price):
@@ -10,16 +10,16 @@ def get_price(price):
 
 
 def get_prices_with_map():
-    return list(map(get_price, prices))
+    return list(map(get_price, PRICES))
 
 
 def get_prices_with_comprehension():
-    return [get_price(price) for price in prices]
+    return [get_price(price) for price in PRICES]
 
 
 def get_prices_with_loop():
     prices = []
-    for price in prices:
+    for price in PRICES:
         prices.append(get_price(price))
     return prices
 

@@ -1,4 +1,5 @@
 squares = []
-for i in range(10):
-    squares.append(i * i)
+for number in range(10):
+    squares.append(number * number)
+
 print(squares)
