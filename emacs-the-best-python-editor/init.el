@@ -1,14 +1,10 @@
 ;; .emacs.d/init.el
 
-;; ===================================
 ;; MELPA Package Support
-;; ===================================
-;; Enables packaging support
 (require 'package)
 
 ;; Adds the Melpa archive to the list of available repositories
-(add-to-list 'package-archives
-             '("melpa" . "http://melpa.org/packages/") t)
+(add-to-list 'package-archives '("melpa" . "http://melpa.org/packages/") t)
 
 ;; Initializes the package infrastructure
 (package-initialize)
@@ -17,56 +13,44 @@
 (when (not package-archive-contents)
   (package-refresh-contents))
 
-;; Installs packages
-;;
-;; myPackages contains a list of package names
+;; List of packages to install
 (defvar myPackages
-  '(better-defaults                 ;; Setup some better Emacs defaults
-    elpy                            ;; Emacs Lisp Python Environment
-    ein                             ;; Emacs iPython Notebook
-    flycheck                        ;; On the fly syntax checking
-    py-autopep8                     ;; Run autopep8 on save
-    blacken                         ;; Black formatting on save
-    magit                           ;; Git integration
-    material-theme                  ;; Theme
-    )
-  )
+  '(better-defaults
+    elpy
+    ein
+    flycheck
+    py-autopep8
+    blacken
+    magit
+    material-theme))
 
-;; Scans the list in myPackages
-;; If the package listed is not already installed, install it
-(mapc #'(lambda (package)
-          (unless (package-installed-p package)
-            (package-install package)))
-      myPackages)
+;; Install packages if not already installed
+(dolist (package myPackages)
+  (unless (package-installed-p package)
+    (package-install package)))
 
-;; ====================================
+;; Set the path to virtualenvwrapper.sh
+(setq py-which-bufname " *virtualenvwrapper*")
+(setq py-virtualenvwrapper-works-p t)
+(setq py-virtualenvwrapper-exec-path "/home/vagrant/.local/lib/python3.8/site-packages/virtualenvwrapper.sh")
+
 ;; Basic Customization
-;; ====================================
-
 (setq inhibit-startup-message t)  ;; Hide the startup message
 (load-theme 'material t)          ;; Load material theme
 (global-linum-mode t)             ;; Enable line numbers globally
 
-;; ====================================
-;; DEVELOPMENT SETUP
-;; ====================================
-;; Enable elpy
-(elpy-enable)
+;; Development Setup
+(elpy-enable)  ;; Enable elpy
 
-;; Use IPython for REPL
-;; (setq python-shell-interpreter "jupyter"
-;;       python-shell-interpreter-args "console --simple-prompt"
-;;       python-shell-prompt-detect-failure-warning nil)
-;; (add-to-list 'python-shell-completion-native-disabled-interpreters
-;;              "jupyter")
- 
+;; Set Python indentation offset
+(setq python-indent-offset 4) ; You can change 4 to your preferred indentation level
+
+;; Disable dedicated virtualenv path (use 'current' for the current project directory)
+(setq elpy-rpc-virtualenv-path 'current)
+
 ;; Enable Flycheck
 (when (require 'flycheck nil t)
   (setq elpy-modules (delq 'elpy-module-flymake elpy-modules))
   (add-hook 'elpy-mode-hook 'flycheck-mode))
-
-;; Enable Autopep8
-;; (require 'py-autopep8)
-;; (add-hook 'elpy-mode-hook 'py-autopep8-enable-on-save)
 
 ;; User-Defined init.el ends here
