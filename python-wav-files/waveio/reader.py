@@ -1,14 +1,15 @@
 import wave
 from dataclasses import dataclass
 from functools import cached_property
+from typing import TypeAlias
 
 import numpy as np
 
 from waveio.encoding import PCMEncoding
 from waveio.metadata import WaveMetadata
 
-type Samples = np.ndarray
-type Channels = tuple[Samples, ...]
+Samples: TypeAlias = np.ndarray
+Channels: TypeAlias = tuple[Samples, ...]
 
 
 @dataclass(frozen=True)

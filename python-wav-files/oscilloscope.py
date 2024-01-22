@@ -1,12 +1,13 @@
 from argparse import ArgumentParser
 from pathlib import Path
+from typing import TypeAlias
 
 import numpy as np
 from matplotlib import pyplot as plt
 
 from waveio.reader import WaveReader
 
-type Samples = np.ndarray
+Samples: TypeAlias = np.ndarray
 
 
 def main():
