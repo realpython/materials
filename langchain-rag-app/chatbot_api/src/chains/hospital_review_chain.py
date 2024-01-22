@@ -19,10 +19,12 @@ neo4j_vector_index = Neo4jVector.from_existing_graph(
     password=os.getenv("NEO4J_PASSWORD"),
     index_name="reviews",
     node_label="Review",
-    text_node_properties=["physician_name",
-                          "patient_name",
-                          "text",
-                          "hospital_name"],
+    text_node_properties=[
+        "physician_name",
+        "patient_name",
+        "text",
+        "hospital_name",
+    ],
     embedding_node_property="embedding",
 )
 
@@ -36,7 +38,8 @@ an answer, say you don't know.
 
 review_system_prompt = SystemMessagePromptTemplate(
     prompt=PromptTemplate(
-        input_variables=["context"], template=review_template)
+        input_variables=["context"], template=review_template
+    )
 )
 
 review_human_prompt = HumanMessagePromptTemplate(

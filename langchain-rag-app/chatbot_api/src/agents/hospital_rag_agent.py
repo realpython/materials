@@ -6,7 +6,7 @@ from chains.hospital_review_chain import reviews_vector_chain
 from chains.hospital_cypher_chain import hospital_cypher_chain
 from tools.wait_times import (
     get_current_wait_times,
-    find_most_available_hospital
+    find_most_available_hospital,
 )
 
 HOSPITAL_AGENT_MODEL = os.getenv("HOSPITAL_AGENT_MODEL")

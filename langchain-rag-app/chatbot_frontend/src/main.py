@@ -3,7 +3,8 @@ import requests
 import streamlit as st
 
 CHATBOT_URL = os.getenv(
-    "CHATBOT_URL", "http://localhost:8000/hospital-rag-agent")
+    "CHATBOT_URL", "http://localhost:8000/hospital-rag-agent"
+)
 
 with st.sidebar:
     st.header("About")
@@ -21,7 +22,8 @@ with st.sidebar:
     st.header("Example Questions")
     st.markdown("- Which hospitals are in the hospital system?")
     st.markdown(
-        """- What is the current wait time at wallace-hamilton hospital?""")
+        """- What is the current wait time at wallace-hamilton hospital?"""
+    )
     st.markdown(
         """- At which hospitals are patients complaining about billing and
         insurance issues?"""
@@ -32,23 +34,28 @@ with st.sidebar:
         Castaneda-Hardy?"""
     )
     st.markdown(
-        "- What was the total billing amount charged to each payer for 2023?")
+        "- What was the total billing amount charged to each payer for 2023?"
+    )
     st.markdown("- What is the average billing amount for medicaid visits?")
     st.markdown(
-        "- Which physician has the lowest average visit duration in days?")
+        "- Which physician has the lowest average visit duration in days?"
+    )
     st.markdown("- How much was billed for patient 789's stay?")
     st.markdown(
         """- Which state had the largest percent increase in medicaid visits
         from 2022 to 2023?"""
     )
     st.markdown(
-        "- What is the average billing amount per day for Aetna patients?")
+        "- What is the average billing amount per day for Aetna patients?"
+    )
     st.markdown(
         """- What was the percent change in average billing amount by state
         from 2022 to 2023?"""
     )
-    st.markdown("""- How many reviews have been written from
-                patients in Florida?""")
+    st.markdown(
+        """- How many reviews have been written from
+                patients in Florida?"""
+    )
     st.markdown(
         """- For visits that are not missing chief complaints,
        what percentage have reviews?"""
@@ -106,6 +113,9 @@ if prompt := st.chat_input("What do you want to know?"):
     st.status("How was this generated", state="complete").info(explanation)
 
     st.session_state.messages.append(
-        {"role": "assistant", "output": output_text,
-         "explanation": explanation}
+        {
+            "role": "assistant",
+            "output": output_text,
+            "explanation": explanation,
+        }
     )

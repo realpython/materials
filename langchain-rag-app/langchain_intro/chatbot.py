@@ -28,8 +28,9 @@ an answer, say you don't know.
 """
 
 review_system_prompt = SystemMessagePromptTemplate(
-    prompt=PromptTemplate(input_variables=["context"],
-                          template=review_template_str)
+    prompt=PromptTemplate(
+        input_variables=["context"], template=review_template_str
+    )
 )
 
 review_human_prompt = HumanMessagePromptTemplate(
@@ -47,7 +48,7 @@ output_parser = StrOutputParser()
 
 reviews_vector_db = Chroma(
     persist_directory=REVIEWS_CHROMA_PATH,
-    embedding_function=OpenAIEmbeddings()
+    embedding_function=OpenAIEmbeddings(),
 )
 
 reviews_retriver = reviews_vector_db.as_retriever(k=10)

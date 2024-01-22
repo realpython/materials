@@ -38,10 +38,8 @@ def load_hospital_graph_from_csv() -> None:
 
     LOGGER.info("Setting uniqueness constraints on nodes")
     with driver.session(database="neo4j") as session:
-        query = (
-            """CREATE CONSTRAINT IF NOT EXISTS FOR (h:Hospital)
+        query = """CREATE CONSTRAINT IF NOT EXISTS FOR (h:Hospital)
                REQUIRE h.id IS UNIQUE;"""
-        )
         _ = session.run(query, {})
 
     with driver.session(database="neo4j") as session:
@@ -50,17 +48,13 @@ def load_hospital_graph_from_csv() -> None:
         _ = session.run(query, {})
 
     with driver.session(database="neo4j") as session:
-        query = (
-            """CREATE CONSTRAINT IF NOT EXISTS FOR (p:Physician)
+        query = """CREATE CONSTRAINT IF NOT EXISTS FOR (p:Physician)
                REQUIRE p.id IS UNIQUE;"""
-        )
         _ = session.run(query, {})
 
     with driver.session(database="neo4j") as session:
-        query = (
-            """CREATE CONSTRAINT IF NOT EXISTS FOR (p:Patient)
+        query = """CREATE CONSTRAINT IF NOT EXISTS FOR (p:Patient)
                REQUIRE p.id IS UNIQUE;"""
-        )
         _ = session.run(query, {})
 
     with driver.session(database="neo4j") as session:
