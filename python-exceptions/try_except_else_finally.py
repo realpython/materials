@@ -1,7 +1,7 @@
 def linux_interaction():
     import sys
 
-    if not "linux" in sys.platform:
+    if "linux" not in sys.platform:
         raise RuntimeError("Function can only run on Linux systems.")
     print("Doing Linux things.")
 
