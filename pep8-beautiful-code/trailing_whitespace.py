@@ -1,4 +1,7 @@
-x = 1 + 2 + \ 
-    3 + 4
+# Uncomment the code below
+# for an example of code with a trailing whitespace:
 
-print(x)
+# x = 1 + 2 + \ 
+#     3 + 4
+
+# print(x)
