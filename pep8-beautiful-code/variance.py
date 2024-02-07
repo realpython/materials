@@ -1,12 +1,12 @@
-def calculate_variance(number_list):
-    sum_list = 0
-    for number in number_list:
-        sum_list = sum_list + number
-    mean = sum_list / len(number_list)
+def calculate_variance(numbers):
+    sum_numbers = 0
+    for number in numbers:
+        sum_numbers = sum_numbers + number
+    mean = sum_numbers / len(numbers)
 
     sum_squares = 0
-    for number in number_list:
+    for number in numbers:
         sum_squares = sum_squares + number**2
-    mean_squares = sum_squares / len(number_list)
+    mean_squares = sum_squares / len(numbers)
 
     return mean_squares - mean**2
