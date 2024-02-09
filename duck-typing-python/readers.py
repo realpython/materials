@@ -3,20 +3,20 @@ import json
 from itertools import batched
 
 
-class TextFileReader:
+class TextReader:
     def __init__(self, filename):
         self.filename = filename
 
     def read(self):
-        with open(self.filename) as f:
-            result = []
-            for batch in batched(f.readlines(), 3):
-                record = {}
-                record["name"] = batch[0].strip()
-                record["age"] = batch[1].strip()
-                record["job"] = batch[2].strip()
-                result.append(record)
-            return result
+        with open(self.filename, encoding="utf-8") as file:
+            return [
+                {
+                    "name": batch[0].strip(),
+                    "age": batch[1].strip(),
+                    "job": batch[2].strip(),
+                }
+                for batch in batched(file.readlines(), 3)
+            ]
 
 
 class CSVReader:
@@ -24,8 +24,8 @@ class CSVReader:
         self.filename = filename
 
     def read(self):
-        with open(self.filename) as f:
-            return list(csv.DictReader(f))
+        with open(self.filename, encoding="utf-8", newline="") as file:
+            return list(csv.DictReader(file))
 
 
 class JSONReader:
@@ -33,15 +33,5 @@ class JSONReader:
         self.filename = filename
 
     def read(self):
-        with open(self.filename) as f:
-            return json.load(f)
-
-
-readers = [
-    TextFileReader("file.txt"),
-    CSVReader("file.csv"),
-    JSONReader("file.json"),
-]
-
-for reader in readers:
-    print(reader.read())
+        with open(self.filename, encoding="utf-8") as file:
+            return json.load(file)
