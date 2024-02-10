@@ -1,5 +1,5 @@
 import os
-from langchain.graphs import Neo4jGraph
+from langchain_community.graphs import Neo4jGraph
 from langchain.chains import GraphCypherQAChain
 from langchain_openai import ChatOpenAI
 from langchain.prompts import PromptTemplate
@@ -84,7 +84,10 @@ Payer names are one of: 'Cigna', 'Blue Cross', 'UnitedHealthcare', 'Medicare',
 
 A visit is considered open if its status is 'OPEN' and the discharge date is
 missing.
-Use abbreviations when filtering on hospital states (e.g. "Texas" is "TX
+Use abbreviations when
+filtering on hospital states (e.g. "Texas" is "TX",
+"Colorado" is "CO", "North Carolina" is "NC",
+"Florida" is "FL", "Georgia" is "GA, etc.)
 
 Make sure to use IS NULL or IS NOT NULL when analyzing missing properties.
 Never return embedding properties in your queries. You must never include the
@@ -120,8 +123,8 @@ If the provided information is empty, say you don't know the answer.
 Empty information looks like this: []
 
 If the information is not empty, you must provide an answer. If the
-question involves a time duration, assume this duration is in days
-unless otherwise specified.
+question involves a time duration, assume the query results are in units
+of days unless otherwise specified.
 
 Helpful Answer:
 """

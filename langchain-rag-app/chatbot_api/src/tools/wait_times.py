@@ -1,41 +1,11 @@
 import os
 from typing import Any
 import numpy as np
-from langchain.graphs import Neo4jGraph
+from langchain_community.graphs import Neo4jGraph
 
 
-def get_current_wait_times(
-    hospital: str, validate_hospital: bool = True
-) -> str | float:
-    """Get the current wait time at a hospital"""
-
-    if validate_hospital:
-        graph = Neo4jGraph(
-            url=os.getenv("NEO4J_URI"),
-            username=os.getenv("NEO4J_USERNAME"),
-            password=os.getenv("NEO4J_PASSWORD"),
-        )
-
-        current_hospitals = graph.query(
-            """
-            MATCH (h:Hospital)
-            RETURN h.name AS hospital_name
-            """
-        )
-
-        current_hospitals = [
-            d["hospital_name"].lower() for d in current_hospitals
-        ]
-
-        if hospital.lower() not in current_hospitals:
-            return f"Hospital '{hospital}' does not exist"
-
-    return np.random.randint(low=0, high=600)
-
-
-def find_most_available_hospital(dummy_input: Any) -> dict[str, float]:
-    """Find the hospital with the shortest wait time"""
-
+def _get_current_hospitals() -> list[str]:
+    """Fetch a list of current hospital names from a Neo4j database."""
     graph = Neo4jGraph(
         url=os.getenv("NEO4J_URI"),
         username=os.getenv("NEO4J_USERNAME"),
@@ -51,8 +21,79 @@ def find_most_available_hospital(dummy_input: Any) -> dict[str, float]:
 
     current_hospitals = [d["hospital_name"].lower() for d in current_hospitals]
 
+    return current_hospitals
+
+
+def _get_current_wait_time_minutes(
+    hospital: str, validate_hospital: bool = True
+) -> int:
+    """Get the current wait time at a hospital in minutes."""
+
+    if validate_hospital:
+
+        graph = Neo4jGraph(
+            url=os.getenv("NEO4J_URI"),
+            username=os.getenv("NEO4J_USERNAME"),
+            password=os.getenv("NEO4J_PASSWORD"),
+        )
+
+        current_hospitals = graph.query(
+            """
+            MATCH (h:Hospital)
+            RETURN h.name AS hospital_name
+            """
+        )
+
+        current_hospitals = _get_current_hospitals()
+
+        if hospital.lower() not in current_hospitals:
+            return -1
+
+    return np.random.randint(low=0, high=600)
+
+
+def get_current_wait_times(
+    hospital: str, validate_hospital: bool = True
+) -> str:
+    """Get the current wait time at a hospital formatted as a string."""
+
+    wait_time_in_minutes = _get_current_wait_time_minutes(
+        hospital, validate_hospital
+    )
+
+    if wait_time_in_minutes == -1:
+        return f"Hospital '{hospital}' does not exist."
+
+    hours, minutes = divmod(wait_time_in_minutes, 60)
+
+    if hours > 0:
+        formatted_wait_time = f"{hours} hours {minutes} minutes"
+    else:
+        formatted_wait_time = f"{minutes} minutes"
+
+    return formatted_wait_time
+
+
+def get_most_available_hospital(dummy_input: Any) -> dict[str, float]:
+    """Find the hospital with the shortest wait time."""
+
+    graph = Neo4jGraph(
+        url=os.getenv("NEO4J_URI"),
+        username=os.getenv("NEO4J_USERNAME"),
+        password=os.getenv("NEO4J_PASSWORD"),
+    )
+
+    current_hospitals = graph.query(
+        """
+        MATCH (h:Hospital)
+        RETURN h.name AS hospital_name
+        """
+    )
+
+    current_hospitals = _get_current_hospitals()
+
     current_wait_times = [
-        get_current_wait_times(h, validate_hospital=False)
+        _get_current_wait_time_minutes(h, validate_hospital=False)
         for h in current_hospitals
     ]
 

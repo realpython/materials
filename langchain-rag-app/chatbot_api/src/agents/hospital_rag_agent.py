@@ -6,7 +6,7 @@ from chains.hospital_review_chain import reviews_vector_chain
 from chains.hospital_cypher_chain import hospital_cypher_chain
 from tools.wait_times import (
     get_current_wait_times,
-    find_most_available_hospital,
+    get_most_available_hospital,
 )
 
 HOSPITAL_AGENT_MODEL = os.getenv("HOSPITAL_AGENT_MODEL")
@@ -44,16 +44,15 @@ tools = [
         description="""Use when asked about current wait times
         at a specific hospital. This tool can only get the current
         wait time at a hospital and does not have any information about
-        aggregate or historical wait times. This tool returns wait times
-        in minutes. Do not pass the word "hospital" as input, only the
-        hospital name itself. For example, if the prompt is "What is the
-        current wait time at Jordan Inc Hospital?", the input should be
-        "Jordan Inc".
+        aggregate or historical wait times. Do not pass the word "hospital"
+        as input, only the hospital name itself. For example, if the prompt
+        is "What is the current wait time at Jordan Inc Hospital?", the
+        input should be "Jordan Inc".
         """,
     ),
     Tool(
         name="Availability",
-        func=find_most_available_hospital,
+        func=get_most_available_hospital,
         description="""
         Use when you need to find out which hospital has the shortest
         wait time. This tool does not have any information about aggregate

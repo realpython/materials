@@ -12,9 +12,9 @@ from langchain_openai import OpenAIEmbeddings
 from langchain.schema.runnable import RunnablePassthrough
 from langchain.agents import create_openai_functions_agent, Tool, AgentExecutor
 from langchain import hub
-from tools import get_current_wait_time
+from langchain_intro.tools import get_current_wait_time
 
-REVIEWS_CHROMA_PATH = "../chroma_data"
+REVIEWS_CHROMA_PATH = "chroma_data/"
 
 
 dotenv.load_dotenv()

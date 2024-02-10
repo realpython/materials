@@ -26,6 +26,14 @@ logging.basicConfig(
 
 LOGGER = logging.getLogger(__name__)
 
+NODES = ["Hospital", "Payer", "Physician", "Patient", "Visit", "Review"]
+
+
+def _set_uniqueness_constraints(tx, node):
+    query = f"""CREATE CONSTRAINT IF NOT EXISTS FOR (n:{node})
+        REQUIRE n.id IS UNIQUE;"""
+    _ = tx.run(query, {})
+
 
 @retry(tries=100, delay=10)
 def load_hospital_graph_from_csv() -> None:
@@ -38,34 +46,8 @@ def load_hospital_graph_from_csv() -> None:
 
     LOGGER.info("Setting uniqueness constraints on nodes")
     with driver.session(database="neo4j") as session:
-        query = """CREATE CONSTRAINT IF NOT EXISTS FOR (h:Hospital)
-               REQUIRE h.id IS UNIQUE;"""
-        _ = session.run(query, {})
-
-    with driver.session(database="neo4j") as session:
-        query = """CREATE CONSTRAINT IF NOT EXISTS FOR (p:Payer)
-                   REQUIRE p.id IS UNIQUE;"""
-        _ = session.run(query, {})
-
-    with driver.session(database="neo4j") as session:
-        query = """CREATE CONSTRAINT IF NOT EXISTS FOR (p:Physician)
-               REQUIRE p.id IS UNIQUE;"""
-        _ = session.run(query, {})
-
-    with driver.session(database="neo4j") as session:
-        query = """CREATE CONSTRAINT IF NOT EXISTS FOR (p:Patient)
-               REQUIRE p.id IS UNIQUE;"""
-        _ = session.run(query, {})
-
-    with driver.session(database="neo4j") as session:
-        query = """CREATE CONSTRAINT IF NOT EXISTS FOR (v:Visit)
-                   REQUIRE v.id IS UNIQUE;"""
-        _ = session.run(query, {})
-
-    with driver.session(database="neo4j") as session:
-        query = """CREATE CONSTRAINT IF NOT EXISTS FOR (r:Review)
-                   REQUIRE r.id IS UNIQUE;"""
-        _ = session.run(query, {})
+        for node in NODES:
+            session.execute_write(_set_uniqueness_constraints, node)
 
     LOGGER.info("Loading hospital nodes")
     with driver.session(database="neo4j") as session:

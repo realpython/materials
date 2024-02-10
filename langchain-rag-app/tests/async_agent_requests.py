@@ -46,4 +46,3 @@ outputs = asyncio.run(make_bulk_requests(CHATBOT_URL, request_bodies))
 end_time = time.perf_counter()
 
 print(f"Run time: {end_time - start_time} seconds \n")
-print(outputs[0:3])
