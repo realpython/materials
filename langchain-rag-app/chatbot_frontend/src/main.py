@@ -10,10 +10,12 @@ with st.sidebar:
     st.header("About")
     st.markdown(
         """
-        This chatbot interfaces with a [LangChain](https://python.langchain.com/docs/get_started/introduction) agent
-        designed to answer questions about the hospitals, patients, visits, physicians, and insurance payers in
-        a fake hospital system. The agent uses retrieval-augment generation (RAG)
-        over both structured and unstructured data that has been synthetically generated.
+        This chatbot interfaces with a
+        [LangChain](https://python.langchain.com/docs/get_started/introduction)
+        agent designed to answer questions about the hospitals, patients,
+        visits, physicians, and insurance payers in  a fake hospital system.
+        The agent uses  retrieval-augment generation (RAG) over both
+        structured and unstructured data that has been synthetically generated.
         """
     )
 
