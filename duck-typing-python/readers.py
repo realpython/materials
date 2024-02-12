@@ -1,6 +1,6 @@
 import csv
 import json
-from itertools import batched
+from itertools import batched  # Python >= 3.12
 
 
 class TextReader:

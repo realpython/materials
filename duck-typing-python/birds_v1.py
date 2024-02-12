@@ -1,17 +1,17 @@
 class Duck:
     def swim(self):
-        print("Duck is swimming.")
+        print("Duck is swimming")
 
     def fly(self):
-        print("Duck is flying.")
+        print("Duck is flying")
 
 
 class Swan:
     def swim(self):
-        print("Swan is swimming.")
+        print("Swan is swimming")
 
     def fly(self):
-        print("Swan is flying.")
+        print("Swan is flying")
 
 
 class Albatross:
