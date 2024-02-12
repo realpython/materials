@@ -23,6 +23,6 @@ def validate_json(*expected_args):
 @app.route("/grade", methods=["POST"])
 @validate_json("student_id")
 def update_grade():
-    json_data = request.get_json()
+    json_data = request.get_json()  # noqa
     # Update database.
     return "success!"

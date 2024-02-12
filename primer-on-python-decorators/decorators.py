@@ -44,15 +44,15 @@ def debug(func):
     return wrapper_debug
 
 
-def slow_down(func):
+def slow_down_one_second(func):
     """Sleep 1 second before calling the function"""
 
     @functools.wraps(func)
-    def wrapper_slow_down(*args, **kwargs):
+    def wrapper_slow_down_one_second(*args, **kwargs):
         time.sleep(1)
         return func(*args, **kwargs)
 
-    return wrapper_slow_down
+    return wrapper_slow_down_one_second
 
 
 def register(func):
