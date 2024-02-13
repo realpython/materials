@@ -5,13 +5,13 @@ class Car:
         self.color = color
 
     def start(self):
-        print("Car is starting")
+        print("The car is starting")
 
     def stop(self):
-        print("Car is stopping")
+        print("The car is stopping")
 
     def drive(self):
-        print("Car is driving")
+        print("The car is driving")
 
 
 class Truck:
@@ -21,10 +21,10 @@ class Truck:
         self.color = color
 
     def start(self):
-        print("Truck is starting")
+        print("The truck is starting")
 
     def stop(self):
-        print("Truck is stopping")
+        print("The truck is stopping")
 
     def drive(self):
-        print("Truck is driving")
+        print("The truck is driving")

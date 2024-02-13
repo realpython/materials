@@ -1,11 +1,11 @@
 class Duck:
     def fly(self):
-        print("Duck is flying")
+        print("The duck is flying")
 
     def swim(self):
-        print("Duck is swimming")
+        print("The duck is swimming")
 
 
 class Pigeon:
     def fly(self):
-        print("Pigeon is flying")
+        print("The pigeon is flying")
