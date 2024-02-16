@@ -1,6 +1,10 @@
 # Build a LLM RAG Chatbot With LangChain
 
-This repo contains the source code for [Build a LLM RAG Chatbot With LangChain](https://realpython.com/build-llm-rag-chatbot-with-langchain/#demo-a-llm-rag-chatbot-with-langchain-and-neo4j)
+This repo contains the source code for [Build a LLM RAG Chatbot With LangChain](https://realpython.com/build-llm-rag-chatbot-with-langchain/)
+
+To run the final application that you'll build in this tutorial, you can use the code provide in `source_code_final/`.
+
+## Setup
 
 Create a `.env` file in the root directory and add the following environment variables:
 
