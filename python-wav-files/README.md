@@ -59,7 +59,7 @@ Install the required dependencies:
 ### Record a Radio Stream
 
 ```
-$ RADIO_URL=http://prem2.di.fm:80/classiceurodance?your-secret-token
+(wave) $ RADIO_URL=http://prem2.di.fm:80/classiceurodance?your-secret-token
 (wave) $ python record_stream.py "$RADIO_URL" -o ripped.wav
 ```
 
