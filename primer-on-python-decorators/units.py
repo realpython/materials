@@ -1,15 +1,6 @@
-"""Examples of decorators dealing with units
-
-See https://realpython.com/primer-on-python-decorators/
-
-These decorators depend on the third party package Pint:
-
-    http://pint.readthedocs.io/
-"""
-
 import functools
 
-import pint  # pip install Pint
+import pint
 
 
 def set_unit(unit):
