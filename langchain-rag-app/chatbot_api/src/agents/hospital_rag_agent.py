@@ -19,10 +19,10 @@ tools = [
         func=reviews_vector_chain.invoke,
         description="""Useful when you need to answer questions
         about patient experiences, feelings, or any other qualitative
-        question that could be answered about a patient. Not useful
-        for answering objective questions that involve counting,
-        percentages, or any other aggregation. Use the entire prompt
-        as input to the tool. For instance, if the prompt is
+        question that could be answered about a patient using semantic
+        search. Not useful for answering objective questions that involve
+        counting, percentages, aggregations, or listing facts. Use the
+        entire prompt as input to the tool. For instance, if the prompt is
         "Are patients satisfied with their care?", the input should be
         "Are patients satisfied with their care?".
         """,

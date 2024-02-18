@@ -28,7 +28,9 @@ with st.sidebar:
         """- At which hospitals are patients complaining about billing and
         insurance issues?"""
     )
-    st.markdown("- What is the average duration in days for emergency visits?")
+    st.markdown(
+        "- What is the average duration in days for closed emergency visits?"
+    )
     st.markdown(
         """- What are patients saying about the nursing staff at
         Castaneda-Hardy?"""
@@ -49,10 +51,6 @@ with st.sidebar:
         "- What is the average billing amount per day for Aetna patients?"
     )
     st.markdown(
-        """- What was the percent change in average billing amount by state
-        from 2022 to 2023?"""
-    )
-    st.markdown(
         """- How many reviews have been written from
                 patients in Florida?"""
     )
@@ -69,7 +67,10 @@ with st.sidebar:
         they've attended?"""
     )
     st.markdown("- What is the ID for physician James Cooper?")
-    st.markdown("- Show me the reviews for visits treated by physician 270?")
+    st.markdown(
+        """- List every review for visits treated by physician 270.
+        Don't leave any out."""
+    )
 
 
 st.title("Hospital System Chatbot")
@@ -110,7 +111,7 @@ if prompt := st.chat_input("What do you want to know?"):
             explanation = output_text
 
     st.chat_message("assistant").markdown(output_text)
-    st.status("How was this generated", state="complete").info(explanation)
+    st.status("How was this generated?", state="complete").info(explanation)
 
     st.session_state.messages.append(
         {

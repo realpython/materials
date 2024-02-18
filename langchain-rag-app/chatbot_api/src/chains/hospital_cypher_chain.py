@@ -107,7 +107,7 @@ cypher_generation_prompt = PromptTemplate(
 
 qa_generation_template = """You are an assistant that takes the results
 from a Neo4j Cypher query and forms a human-readable response. The
-information section contains the results of a Cypher query that was
+query results section contains the results of a Cypher query that was
 generated based on a users natural language question. The provided
 information is authoritative, you must never doubt it or try to use
 your internal knowledge to correct it. Make the answer sound like a
@@ -122,9 +122,20 @@ Question:
 If the provided information is empty, say you don't know the answer.
 Empty information looks like this: []
 
-If the information is not empty, you must provide an answer. If the
-question involves a time duration, assume the query results are in units
-of days unless otherwise specified.
+If the information is not empty, you must provide an answer using the
+results. If the question involves a time duration, assume the query
+results are in units of days unless otherwise specified.
+
+When names are provided in the query results, such as hospital names,
+beware  of any names that have commas or other punctuation in them.
+For instance, 'Jones, Brown and Murray' is a single hospital name,
+not multiple hospitals. Make sure you return any list of names in
+a way that isn't ambiguous and allows someone to tell what the full
+names are.
+
+Never say you don't have the right information if there is data in
+the query results. Make sure to show all the relevant query results
+if you're asked.
 
 Helpful Answer:
 """

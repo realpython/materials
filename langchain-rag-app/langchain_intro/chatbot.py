@@ -42,7 +42,7 @@ review_prompt_template = ChatPromptTemplate(
     input_variables=["context", "question"], messages=messages
 )
 
-chat_model = ChatOpenAI(model="gpt-3.5-turbo", temperature=0)
+chat_model = ChatOpenAI(model="gpt-3.5-turbo-0125", temperature=0)
 
 output_parser = StrOutputParser()
 
@@ -51,10 +51,10 @@ reviews_vector_db = Chroma(
     embedding_function=OpenAIEmbeddings(),
 )
 
-reviews_retriver = reviews_vector_db.as_retriever(k=10)
+reviews_retriever = reviews_vector_db.as_retriever(k=10)
 
 review_chain = (
-    {"context": reviews_retriver, "question": RunnablePassthrough()}
+    {"context": reviews_retriever, "question": RunnablePassthrough()}
     | review_prompt_template
     | chat_model
     | StrOutputParser()
