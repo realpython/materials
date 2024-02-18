@@ -2,11 +2,6 @@ from enum import IntEnum
 
 import numpy as np
 
-PCM_U8_MAX = 2**8 - 1
-PCM_16_MAX = 2**15 - 1
-PCM_24_MAX = 2**23 - 1
-PCM_32_MAX = 2**31 - 1
-
 
 class PCMEncoding(IntEnum):
     UNSIGNED_8 = 1
@@ -14,55 +9,58 @@ class PCMEncoding(IntEnum):
     SIGNED_24 = 3
     SIGNED_32 = 4
 
-    def encode(self, normalized_samples):
+    @property
+    def max(self):
+        return 255 if self == 1 else -self.min - 1
+
+    @property
+    def min(self):
+        return 0 if self == 1 else -(2 ** (self.num_bits - 1))
+
+    @property
+    def num_bits(self):
+        return 8 * self
+
+    def decode(self, frames):
         match self:
             case PCMEncoding.UNSIGNED_8:
-                return (
-                    ((normalized_samples + 1) * (PCM_U8_MAX / 2))
-                    .astype(np.uint8)
-                    .tobytes()
-                )
+                return np.frombuffer(frames, "u1") / self.max * 2 - 1
             case PCMEncoding.SIGNED_16:
-                return (
-                    (normalized_samples * PCM_16_MAX)
-                    .astype(np.int16)
-                    .tobytes()
-                )
+                return np.frombuffer(frames, "<i2") / -self.min
             case PCMEncoding.SIGNED_24:
-                return b"".join(
-                    int(sample).to_bytes(3, byteorder="little", signed=True)
-                    for sample in np.clip(
-                        normalized_samples * PCM_24_MAX,
-                        -PCM_24_MAX - 1,
-                        PCM_24_MAX,
-                    )
-                )
+                triplets = np.frombuffer(frames, "u1").reshape(-1, 3)
+                padded = np.pad(triplets, ((0, 0), (0, 1)), mode="constant")
+                samples = padded.flatten().view("<i4")
+                samples[samples > self.max] += 2 * self.min
+                return samples / -self.min
             case PCMEncoding.SIGNED_32:
-                return (
-                    (normalized_samples * PCM_32_MAX)
-                    .astype(np.int32)
-                    .tobytes()
-                )
+                return np.frombuffer(frames, "<i4") / -self.min
             case _:
                 raise TypeError("unsupported encoding")
 
-    def decode(self, data):
+    def encode(self, amplitudes):
         match self:
             case PCMEncoding.UNSIGNED_8:
-                return (
-                    np.frombuffer(data, dtype=np.uint8) / (PCM_U8_MAX / 2)
-                ) - 1
+                samples = np.round((amplitudes + 1) / 2 * self.max)
+                return self._clamp(samples).astype("u1").tobytes()
             case PCMEncoding.SIGNED_16:
-                return np.frombuffer(data, dtype=np.int16) / PCM_16_MAX
+                samples = np.round(-self.min * amplitudes)
+                return self._clamp(samples).astype("<i2").tobytes()
             case PCMEncoding.SIGNED_24:
-                samples = (
-                    int.from_bytes(
-                        data[i : i + 3], byteorder="little", signed=True
-                    )
-                    for i in range(0, len(data), 3)
+                samples = np.round(-self.min * amplitudes)
+                return (
+                    self._clamp(samples)
+                    .astype("<i4")
+                    .view("u1")
+                    .reshape(-1, 4)[:, :3]
+                    .flatten()
+                    .tobytes()
                 )
-                return np.fromiter(samples, dtype=np.int32) / PCM_24_MAX
             case PCMEncoding.SIGNED_32:
-                return np.frombuffer(data, dtype=np.int32) / PCM_32_MAX
+                samples = np.round(-self.min * amplitudes)
+                return self._clamp(samples).astype("<i4").tobytes()
             case _:
                 raise TypeError("unsupported encoding")
+
+    def _clamp(self, samples):
+        return np.clip(samples, self.min, self.max)

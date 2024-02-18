@@ -1,116 +1,112 @@
+import inspect
 import wave
-from dataclasses import dataclass
-from functools import cached_property
-from typing import TypeAlias
-
-import numpy as np
+from functools import cached_property, wraps
 
 from waveio.encoding import PCMEncoding
-from waveio.metadata import WaveMetadata
-
-Samples: TypeAlias = np.ndarray
-Channels: TypeAlias = tuple[Samples, ...]
+from waveio.metadata import WAVMetadata
 
 
-@dataclass(frozen=True)
-class SlicedChannels:
-    channels: Channels
-    begin_seconds: float
-    end_seconds: float
+def reshape(shape):
+    if shape not in ("rows", "columns"):
+        raise ValueError("Shape must be either 'rows' or 'columns'")
 
-    def __len__(self):
-        return len(self.channels)
+    def decorator(method):
+        if inspect.isgeneratorfunction(method):
+
+            @wraps(method)
+            def wrapper(self, *args, **kwargs):
+                for values in method(self, *args, **kwargs):
+                    reshaped = values.reshape(-1, self.metadata.num_channels)
+                    yield reshaped if shape == "rows" else reshaped.T
+
+        else:
+
+            @wraps(method)
+            def wrapper(self, *args, **kwargs):
+                values = method(self, *args, **kwargs)
+                reshaped = values.reshape(-1, self.metadata.num_channels)
+                return reshaped if shape == "rows" else reshaped.T
+
+        return wrapper
+
+    return decorator
+
+
+class ArraySlice:
+    def __init__(self, values, frames_range):
+        self.values = values
+        self.frames_range = frames_range
 
     def __iter__(self):
-        return iter(self.channels)
+        return iter(self.values)
+
+    def __getattr__(self, name):
+        return getattr(self.values, name)
+
+    def reshape(self, *args, **kwargs):
+        reshaped = self.values.reshape(*args, **kwargs)
+        return ArraySlice(reshaped, self.frames_range)
 
     @property
-    def duration_seconds(self):
-        return self.end_seconds - self.begin_seconds
-
-    @property
-    def num_samples(self):
-        return len(self.channels[0])
-
-    @property
-    def x_range(self):
-        return np.arange(
-            self.begin_seconds,
-            self.end_seconds,
-            self.duration_seconds / self.num_samples,
-        )
+    def T(self):
+        return ArraySlice(self.values.T, self.frames_range)
 
 
-class WaveReader:
-    DEFAULT_MAX_FRAMES = 4096
+class WAVReader:
+    DEFAULT_MAX_FRAMES = 1024
 
     def __init__(self, path):
-        self._file = wave.open(str(path))
-        self.metadata = get_metadata(self._file)
+        self._wav_file = wave.open(str(path))
+        self.metadata = WAVMetadata(
+            PCMEncoding(self._wav_file.getsampwidth()),
+            self._wav_file.getframerate(),
+            self._wav_file.getnchannels(),
+            self._wav_file.getnframes(),
+        )
 
     def __enter__(self):
         return self
 
     def __exit__(self, *args, **kwargs):
-        self._file.close()
-
-    def __iter__(self):
-        for channels in self.channels_lazy():
-            yield from zip(*channels)
-
-    @property
-    def stereo(self):
-        return self.metadata.num_channels == 2
+        self._wav_file.close()
 
     @cached_property
+    def stereo(self):
+        return 2 == self.metadata.num_channels
+
+    @cached_property
+    @reshape("rows")
+    def frames(self):
+        return self._read(self.metadata.num_frames, start_frame=0)
+
+    @cached_property
+    @reshape("columns")
     def channels(self):
-        return self._unpack(self._read())
+        return self.frames
 
-    def channels_lazy(self, max_frames=DEFAULT_MAX_FRAMES):
-        return map(self._unpack, self._read_chunks(max_frames))
-
-    def channels_sliced(self, begin_seconds=0.0, end_seconds=None):
-        if begin_seconds < 0:
-            begin_seconds += self.metadata.num_seconds
-
+    @reshape("columns")
+    def channels_sliced(self, start_seconds=0.0, end_seconds=None):
         if end_seconds is None:
             end_seconds = self.metadata.num_seconds
-        elif end_seconds < 0:
-            end_seconds += self.metadata.num_seconds
-
-        if begin_seconds > end_seconds:
-            begin_seconds, end_seconds = end_seconds, begin_seconds
-
-        start_frame = round(begin_seconds * self.metadata.frames_per_second)
-        stop_frame = round(end_seconds * self.metadata.frames_per_second)
-
-        self._file.setpos(start_frame)
-        binary_chunk = self._file.readframes(stop_frame - start_frame)
-        channels = self._unpack(self.metadata.encoding.decode(binary_chunk))
-
-        return SlicedChannels(channels, begin_seconds, end_seconds)
-
-    def _read(self):
-        self._file.rewind()
-        binary_data = self._file.readframes(self.metadata.num_frames)
-        return self.metadata.encoding.decode(binary_data)
-
-    def _read_chunks(self, max_frames):
-        self._file.rewind()
-        while binary_chunk := self._file.readframes(max_frames):
-            yield self.metadata.encoding.decode(binary_chunk)
-
-    def _unpack(self, data):
-        return tuple(
-            data[i :: self.metadata.num_channels]
-            for i in range(self.metadata.num_channels)
+        frames_slice = slice(
+            round(self.metadata.frames_per_second * start_seconds),
+            round(self.metadata.frames_per_second * end_seconds),
         )
+        frames_range = range(*frames_slice.indices(self.metadata.num_frames))
+        values = self._read(len(frames_range), frames_range.start)
+        return ArraySlice(values, frames_range)
 
+    @reshape("columns")
+    def channels_lazy(self, max_frames=DEFAULT_MAX_FRAMES):
+        self._wav_file.rewind()
+        while True:
+            chunk = self._read(max_frames)
+            if chunk.size == 0:
+                break
+            yield chunk
 
-def get_metadata(wave_file):
-    return WaveMetadata(
-        PCMEncoding(wave_file.getsampwidth()),
-        wave_file.getframerate(),
-        wave_file.getnchannels(),
-        wave_file.getnframes(),
-    )
+    def _read(self, max_frames=None, start_frame=None):
+        if start_frame is not None:
+            self._wav_file.setpos(start_frame)
+        frames = self._wav_file.readframes(max_frames)
+        return self.metadata.encoding.decode(frames)

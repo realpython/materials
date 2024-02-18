@@ -3,25 +3,27 @@ import wave
 import numpy as np
 
 
-class WaveWriter:
+class WAVWriter:
     def __init__(self, metadata, path):
         self.metadata = metadata
-        self.file = wave.open(str(path), mode="wb")
-        self.file.setframerate(metadata.frames_per_second)
-        self.file.setnchannels(metadata.num_channels)
-        self.file.setsampwidth(metadata.encoding)
+        self._wav_file = wave.open(str(path), mode="wb")
+        self._wav_file.setframerate(metadata.frames_per_second)
+        self._wav_file.setnchannels(metadata.num_channels)
+        self._wav_file.setsampwidth(metadata.encoding)
 
     def __enter__(self):
         return self
 
     def __exit__(self, *args, **kwargs):
-        self.file.close()
+        self._wav_file.close()
 
     def append_channels(self, *channels):
-        self.append_samples(np.dstack(channels).flatten())
+        match channels:
+            case [combined] if combined.ndim > 1:
+                self.append_amplitudes(combined.T.reshape(-1))
+            case _:
+                self.append_amplitudes(np.dstack(channels).reshape(-1))
 
-    def append_samples(self, samples):
-        self.append_bytes(self.metadata.encoding.encode(samples))
-
-    def append_bytes(self, binary_chunk):
-        self.file.writeframes(binary_chunk)
+    def append_amplitudes(self, amplitudes):
+        frames = self.metadata.encoding.encode(amplitudes)
+        self._wav_file.writeframes(frames)

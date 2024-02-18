@@ -1,27 +1,29 @@
 from argparse import ArgumentParser
 from pathlib import Path
 
-from matplotlib import pyplot as plt
+import matplotlib.pyplot as plt
+import numpy as np
 from matplotlib.ticker import FuncFormatter
 
-from waveio.reader import WaveReader
+from waveio import WAVReader
 
 
 def main():
     args = parse_args()
-    with WaveReader(args.path) as reader:
-        plot(reader.channels_sliced(args.begin, args.end))
+    with WAVReader(args.path) as wav:
+        plot(
+            args.path.name,
+            wav.metadata,
+            wav.channels_sliced(args.start, args.end),
+        )
 
 
 def parse_args():
-    parser = ArgumentParser(
-        description="Plot WAV file waveform",
-        epilog="Example: plot_waveform.py sounds/Bongo_sound.wav -b -2.5",
-    )
+    parser = ArgumentParser(description="Plot the waveform of a WAV file")
     parser.add_argument("path", type=Path, help="path to the WAV file")
     parser.add_argument(
-        "-b",
-        "--begin",
+        "-s",
+        "--start",
         type=float,
         default=0.0,
         help="start time in seconds (default: 0.0)",
@@ -36,14 +38,14 @@ def parse_args():
     return parser.parse_args()
 
 
-def plot(channels):
+def plot(filename, metadata, channels):
     try:
         plt.style.use("fivethirtyeight")
     except OSError:
         pass  # Fall back to the default style
 
     fig, ax = plt.subplots(
-        nrows=len(channels),
+        nrows=metadata.num_channels,
         ncols=1,
         figsize=(16, 9),
         sharex=True,
@@ -53,25 +55,29 @@ def plot(channels):
         ax = [ax]
 
     time_formatter = FuncFormatter(format_time)
+    timeline = np.linspace(
+        channels.frames_range.start / metadata.frames_per_second,
+        channels.frames_range.stop / metadata.frames_per_second,
+        len(channels.frames_range),
+    )
 
     for i, channel in enumerate(channels):
-        ax[i].plot(channels.x_range, channel)
         ax[i].set_title(f"Channel #{i + 1}")
         ax[i].set_yticks([-1, -0.5, 0, 0.5, 1])
         ax[i].xaxis.set_major_formatter(time_formatter)
+        ax[i].plot(timeline, channel)
 
+    fig.canvas.manager.set_window_title(filename)
     plt.tight_layout()
     plt.show()
 
 
-def format_time(seconds, _):
-    minutes = int(seconds // 60)
-    seconds = int(seconds % 60)
-    return f"{minutes:02}:{seconds:02}"
+def format_time(instant, _):
+    if instant < 60:
+        return f"{instant:g}s"
+    minutes, seconds = divmod(instant, 60)
+    return f"{minutes:g}m {seconds:02g}s"
 
 
 if __name__ == "__main__":
-    try:
-        main()
-    except KeyboardInterrupt:
-        print("Aborted")
+    main()
