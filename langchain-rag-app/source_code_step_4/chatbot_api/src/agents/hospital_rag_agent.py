@@ -1,10 +1,6 @@
 import os
 from langchain_openai import ChatOpenAI
-from langchain.agents import (
-    create_openai_functions_agent,
-    Tool,
-    AgentExecutor,
-)
+from langchain.agents import create_openai_functions_agent, Tool, AgentExecutor
 from langchain import hub
 from chains.hospital_review_chain import reviews_vector_chain
 from chains.hospital_cypher_chain import hospital_cypher_chain
@@ -23,10 +19,10 @@ tools = [
         func=reviews_vector_chain.invoke,
         description="""Useful when you need to answer questions
         about patient experiences, feelings, or any other qualitative
-        question that could be answered about a patient. Not useful
-        for answering objective questions that involve counting,
-        percentages, or any other aggregation. Use the entire prompt
-        as input to the tool. For instance, if the prompt is
+        question that could be answered about a patient using semantic
+        search. Not useful for answering objective questions that involve
+        counting, percentages, aggregations, or listing facts. Use the
+        entire prompt as input to the tool. For instance, if the prompt is
         "Are patients satisfied with their care?", the input should be
         "Are patients satisfied with their care?".
         """,
@@ -48,10 +44,10 @@ tools = [
         description="""Use when asked about current wait times
         at a specific hospital. This tool can only get the current
         wait time at a hospital and does not have any information about
-        aggregate or historical wait times. Do not pass the word
-        "hospital" as input, only the hospital name itself. For
-        example, if the prompt is "What is the current wait time
-        at Jordan Inc Hospital?", the input should be "Jordan Inc".
+        aggregate or historical wait times. Do not pass the word "hospital"
+        as input, only the hospital name itself. For example, if the prompt
+        is "What is the current wait time at Jordan Inc Hospital?", the
+        input should be "Jordan Inc".
         """,
     ),
     Tool(

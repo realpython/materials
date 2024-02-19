@@ -6,9 +6,8 @@ from langchain.prompts import (ChatPromptTemplate, HumanMessagePromptTemplate,
 from langchain.schema.runnable import RunnablePassthrough
 from langchain_community.vectorstores import Chroma
 from langchain_core.output_parsers import StrOutputParser
-from langchain_openai import ChatOpenAI, OpenAIEmbeddings
-
 from langchain_intro.tools import get_current_wait_time
+from langchain_openai import ChatOpenAI, OpenAIEmbeddings
 
 REVIEWS_CHROMA_PATH = "chroma_data/"
 
@@ -36,7 +35,7 @@ review_prompt_template = ChatPromptTemplate(
     input_variables=["context", "question"], messages=messages
 )
 
-chat_model = ChatOpenAI(model="gpt-3.5-turbo", temperature=0)
+chat_model = ChatOpenAI(model="gpt-3.5-turbo-0125", temperature=0)
 
 output_parser = StrOutputParser()
 

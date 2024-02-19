@@ -24,24 +24,21 @@ def _get_current_hospitals() -> list[str]:
     return current_hospitals
 
 
-def _get_current_wait_time_minutes(
-    hospital: str, validate_hospital: bool = True
-) -> int:
+def _get_current_wait_time_minutes(hospital: str) -> int:
     """Get the current wait time at a hospital in minutes."""
 
-    if validate_hospital:
-        current_hospitals = _get_current_hospitals()
+    current_hospitals = _get_current_hospitals()
 
-        if hospital.lower() not in current_hospitals:
-            return -1
+    if hospital.lower() not in current_hospitals:
+        return -1
 
     return np.random.randint(low=0, high=600)
 
 
-def get_current_wait_times(hospital: str, validate_hospital: bool = True) -> str:
+def get_current_wait_times(hospital: str) -> str:
     """Get the current wait time at a hospital formatted as a string."""
 
-    wait_time_in_minutes = _get_current_wait_time_minutes(hospital, validate_hospital)
+    wait_time_in_minutes = _get_current_wait_time_minutes(hospital)
 
     if wait_time_in_minutes == -1:
         return f"Hospital '{hospital}' does not exist."
@@ -62,8 +59,7 @@ def get_most_available_hospital(_: Any) -> dict[str, float]:
     current_hospitals = _get_current_hospitals()
 
     current_wait_times = [
-        _get_current_wait_time_minutes(h, validate_hospital=False)
-        for h in current_hospitals
+        _get_current_wait_time_minutes(h) for h in current_hospitals
     ]
 
     best_time_idx = np.argmin(current_wait_times)

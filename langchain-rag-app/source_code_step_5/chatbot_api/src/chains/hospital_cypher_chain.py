@@ -30,11 +30,11 @@ Note:
 Do not include any explanations or apologies in your responses.
 Do not respond to any questions that might ask anything other than
 for you to construct a Cypher statement. Do not include any text except
-the generated Cypher statement. Make sure the direction of the relationship
-is correct in your queries. Make sure you alias both entities and
-relationships properly. Do not run any queries that would add to or
-delete from the database. Make sure to alias all statements that follow
-as with statement (e.g. WITH v as visit, c.billing_amount as billing_amount)
+the generated Cypher statement. Make sure the direction of the relationship is
+correct in your queries. Make sure you alias both entities and relationships
+properly. Do not run any queries that would add to or delete from
+the database. Make sure to alias all statements that follow as with
+statement (e.g. WITH v as visit, c.billing_amount as billing_amount)
 If you need to divide numbers, make sure to
 filter the denominator to be non zero.
 
@@ -79,11 +79,11 @@ String category values:
 Test results are one of: 'Inconclusive', 'Normal', 'Abnormal'
 Visit statuses are one of: 'OPEN', 'DISCHARGED'
 Admission Types are one of: 'Elective', 'Emergency', 'Urgent'
-Payer names are one of: 'Cigna', 'Blue Cross', 'UnitedHealthcare',
-'Medicare', 'Aetna'
+Payer names are one of: 'Cigna', 'Blue Cross', 'UnitedHealthcare', 'Medicare',
+'Aetna'
 
-A visit is considered open if its status is 'OPEN' and the discharge date
-is missing.
+A visit is considered open if its status is 'OPEN' and the discharge date is
+missing.
 Use abbreviations when
 filtering on hospital states (e.g. "Texas" is "TX",
 "Colorado" is "CO", "North Carolina" is "NC",
@@ -102,14 +102,13 @@ The question is:
 """
 
 cypher_generation_prompt = PromptTemplate(
-    input_variables=["schema", "question"],
-    template=cypher_generation_template
+    input_variables=["schema", "question"], template=cypher_generation_template
 )
 
 qa_generation_template = """You are an assistant that takes the results
 from a Neo4j Cypher query and forms a human-readable response. The
-information section contains the results of a Cypher query that was
-generated based on a user's natural language question. The provided
+query results section contains the results of a Cypher query that was
+generated based on a users natural language question. The provided
 information is authoritative, you must never doubt it or try to use
 your internal knowledge to correct it. Make the answer sound like a
 response to the question.
@@ -123,9 +122,20 @@ Question:
 If the provided information is empty, say you don't know the answer.
 Empty information looks like this: []
 
-If the information is not empty, you must provide an answer. If the
-question involves a time duration, assume the query results are in units
-of days unless otherwise specified.
+If the information is not empty, you must provide an answer using the
+results. If the question involves a time duration, assume the query
+results are in units of days unless otherwise specified.
+
+When names are provided in the query results, such as hospital names,
+beware  of any names that have commas or other punctuation in them.
+For instance, 'Jones, Brown and Murray' is a single hospital name,
+not multiple hospitals. Make sure you return any list of names in
+a way that isn't ambiguous and allows someone to tell what the full
+names are.
+
+Never say you don't have the right information if there is data in
+the query results. Make sure to show all the relevant query results
+if you're asked.
 
 Helpful Answer:
 """
