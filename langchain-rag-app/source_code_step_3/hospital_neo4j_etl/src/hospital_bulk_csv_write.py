@@ -1,7 +1,8 @@
-import os
 import logging
-from retry import retry
+import os
+
 from neo4j import GraphDatabase
+from retry import retry
 
 HOSPITALS_CSV_PATH = os.getenv("HOSPITALS_CSV_PATH")
 PAYERS_CSV_PATH = os.getenv("PAYERS_CSV_PATH")
@@ -36,7 +37,9 @@ def load_hospital_graph_from_csv() -> None:
     """Load structured hospital CSV data following
     a specific ontology into Neo4j"""
 
-    driver = GraphDatabase.driver(NEO4J_URI, auth=(NEO4J_USERNAME, NEO4J_PASSWORD))
+    driver = GraphDatabase.driver(
+        NEO4J_URI, auth=(NEO4J_USERNAME, NEO4J_PASSWORD)
+    )
 
     LOGGER.info("Setting uniqueness constraints on nodes")
     with driver.session(database="neo4j") as session:

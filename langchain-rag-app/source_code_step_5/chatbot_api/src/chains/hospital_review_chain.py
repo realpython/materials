@@ -1,14 +1,14 @@
 import os
-from langchain.vectorstores.neo4j_vector import Neo4jVector
-from langchain_openai import OpenAIEmbeddings
+
 from langchain.chains import RetrievalQA
-from langchain_openai import ChatOpenAI
 from langchain.prompts import (
+    ChatPromptTemplate,
+    HumanMessagePromptTemplate,
     PromptTemplate,
     SystemMessagePromptTemplate,
-    HumanMessagePromptTemplate,
-    ChatPromptTemplate,
 )
+from langchain.vectorstores.neo4j_vector import Neo4jVector
+from langchain_openai import ChatOpenAI, OpenAIEmbeddings
 
 HOSPITAL_QA_MODEL = os.getenv("HOSPITAL_QA_MODEL")
 
@@ -39,16 +39,12 @@ say you don't know.
 
 review_system_prompt = SystemMessagePromptTemplate(
     prompt=PromptTemplate(
-        input_variables=["context"], 
-        template=review_template
+        input_variables=["context"], template=review_template
     )
 )
 
 review_human_prompt = HumanMessagePromptTemplate(
-    prompt=PromptTemplate(
-        input_variables=["question"],
-        template="{question}"
-    )
+    prompt=PromptTemplate(input_variables=["question"], template="{question}")
 )
 messages = [review_system_prompt, review_human_prompt]
 

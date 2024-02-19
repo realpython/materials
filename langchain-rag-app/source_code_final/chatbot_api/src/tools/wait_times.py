@@ -1,5 +1,6 @@
 import os
 from typing import Any
+
 import numpy as np
 from langchain_community.graphs import Neo4jGraph
 

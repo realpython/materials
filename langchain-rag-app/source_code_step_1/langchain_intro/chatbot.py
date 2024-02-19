@@ -1,8 +1,12 @@
 import dotenv
 from langchain import hub
 from langchain.agents import AgentExecutor, Tool, create_openai_functions_agent
-from langchain.prompts import (ChatPromptTemplate, HumanMessagePromptTemplate,
-                               PromptTemplate, SystemMessagePromptTemplate)
+from langchain.prompts import (
+    ChatPromptTemplate,
+    HumanMessagePromptTemplate,
+    PromptTemplate,
+    SystemMessagePromptTemplate,
+)
 from langchain.schema.runnable import RunnablePassthrough
 from langchain_community.vectorstores import Chroma
 from langchain_core.output_parsers import StrOutputParser
@@ -23,7 +27,9 @@ you don't know.
 """
 
 review_system_prompt = SystemMessagePromptTemplate(
-    prompt=PromptTemplate(input_variables=["context"], template=review_template_str)
+    prompt=PromptTemplate(
+        input_variables=["context"], template=review_template_str
+    )
 )
 
 review_human_prompt = HumanMessagePromptTemplate(
@@ -40,7 +46,8 @@ chat_model = ChatOpenAI(model="gpt-3.5-turbo-0125", temperature=0)
 output_parser = StrOutputParser()
 
 reviews_vector_db = Chroma(
-    persist_directory=REVIEWS_CHROMA_PATH, embedding_function=OpenAIEmbeddings()
+    persist_directory=REVIEWS_CHROMA_PATH,
+    embedding_function=OpenAIEmbeddings(),
 )
 
 reviews_retriever = reviews_vector_db.as_retriever(k=10)

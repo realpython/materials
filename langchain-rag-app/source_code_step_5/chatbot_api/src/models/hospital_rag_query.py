@@ -1,5 +1,6 @@
 from pydantic import BaseModel
 
+
 class HospitalQueryInput(BaseModel):
     text: str
 
