@@ -16,6 +16,8 @@ class TokenAuth(AuthBase):
 
 if __name__ == "__main__":
     token = "<YOUR_GITHUB_PA_TOKEN>"
-    response = requests.get("https://api.github.com/user", auth=TokenAuth(token))
+    response = requests.get(
+        "https://api.github.com/user", auth=TokenAuth(token)
+    )
     print(response.status_code)
     print(response.text)
