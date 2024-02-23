@@ -16,7 +16,7 @@ class Swan:
 
 class Albatross:
     def swim(self):
-        print("The albatross is swimming.")
+        print("The albatross is swimming")
 
     def fly(self):
-        print("The albatross is flying.")
+        print("The albatross is flying")
