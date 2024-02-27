@@ -12,4 +12,6 @@ class WAVMetadata:
 
     @property
     def num_seconds(self):
+        if self.num_frames is None:
+            raise ValueError("indeterminate stream of audio frames")
         return self.num_frames / self.frames_per_second
