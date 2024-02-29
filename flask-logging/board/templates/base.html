@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Message Board - {% block title %}{% endblock title %}</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+<h1>Message Board</h1>
+{% include("_navigation.html") %}
+<section>
+  <header>
+    {% block header %}{% endblock header %}
+    {% for category, message in get_flashed_messages(with_categories=true) %}
+      <div class="flash {{ category }}">{{ message }}</div>
+    {% endfor %}
+  </header>
+  <main>
+    {% block content %}<p>No messages.</p>{% endblock content %}
+  <main>
+</section>
+</body>
+</html>

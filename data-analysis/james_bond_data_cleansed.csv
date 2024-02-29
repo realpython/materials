@@ -1,0 +1,26 @@
+bond_actor,bond_kills,car_manufacturer,film_length,imdb,income_usa,income_world,martinis_consumed,movie_budget,movie_title,release_date,rotten_tomatoes,release_year
+Sean Connery,4,Sunbeam,110,7.3,16067035.0,59567035.0,2,1000000.0,Dr. No,1962-06-01,7.7,1962
+Sean Connery,11,Bentley,115,7.5,24800000.0,78900000.0,0,2000000.0,From Russia with Love,1963-08-01,8.0,1963
+Sean Connery,9,Aston Martin,110,7.8,51100000.0,124900000.0,1,3000000.0,Goldfinger,1964-05-01,8.4,1964
+Sean Connery,20,Aston Martin,130,7.0,63600000.0,141200000.0,0,9000000.0,Thunderball,1965-09-01,6.8,1965
+Sean Connery,21,Toyota,117,6.9,43100000.0,111600000.0,1,9500000.0,You Only Live Twice,1967-11-01,6.3,1967
+George Lazenby,5,Mercury,142,6.8,22800000.0,82000000.0,1,8000000.0,On Her Majesty's Secret Service,1969-07-01,6.7,1969
+Sean Connery,7,Ford,120,6.7,43800000.0,116000000.0,0,7200000.0,Diamonds Are Forever,1971-03-01,6.3,1971
+Roger Moore,8,AMC,121,6.8,35400000.0,161800000.0,0,7000000.0,Live and Let Die,1973-08-01,5.9,1973
+Roger Moore,1,AMC,125,6.7,21000000.0,97600000.0,0,7000000.0,The Man with the Golden Gun,1974-07-01,5.1,1974
+Roger Moore,31,Lotus,125,7.1,46800000.0,185400000.0,1,14000000.0,The Spy Who Loved Me,1977-04-01,6.8,1977
+Roger Moore,12,Lotus,126,6.2,70300000.0,210300000.0,1,31000000.0,Moonraker,1979-10-01,5.7,1979
+Roger Moore,18,Citroen,127,6.8,54800000.0,195300000.0,0,28000000.0,For Your Eyes Only,1981-06-01,6.3,1981
+Roger Moore,15,Bajaj,131,6.5,67900000.0,187500000.0,0,27500000.0,Octopussy,1983-03-01,5.3,1983
+Roger Moore,5,Rolls Royce,131,6.2,50327960.0,152627960.0,0,30000000.0,A View to a Kill,1985-10-01,4.7,1985
+Timothy Dalton,13,Rolls Royce,130,6.7,51185000.0,191200000.0,2,40000000.0,The Living Daylights,1987-05-01,6.3,1987
+Timothy Dalton,10,Aston Martin,133,6.5,34667015.0,156167015.0,1,42000000.0,License to Kill,1989-01-01,6.0,1989
+Pierce Brosnan,47,BMW,130,7.2,106429941.0,356429941.0,1,60000000.0,GoldenEye,1995-09-01,6.9,1995
+Pierce Brosnan,30,Aston Martin,119,6.4,125304276.0,339504276.0,1,110000000.0,Tomorrow Never Dies,1997-07-01,6.0,1997
+Pierce Brosnan,27,BMW,128,6.3,126930660.0,361730660.0,1,135000000.0,The World Is Not Enough,1999-06-01,5.7,1999
+Pierce Brosnan,31,Aston Martin,133,6.0,160942139.0,431942139.0,2,142000000.0,Die Another Day,2002-08-01,6.1,2002
+Daniel Craig,11,Aston Martin,144,7.9,167365000.0,596365000.0,3,102000000.0,Casino Royale,2006-02-01,7.8,2006
+Daniel Craig,16,Aston Martin,106,6.7,169368427.0,591692078.0,6,230000000.0,Quantum of Solace,2008-12-01,6.1,2008
+Daniel Craig,26,Aston Martin,143,7.8,304360277.0,1108561108.0,1,200000000.0,Skyfall,2012-11-01,8.2,2012
+Daniel Craig,30,Aston Martin,148,6.8,200074175.0,879620923.0,1,245000000.0,Spectre,2015-09-01,6.4,2015
+Daniel Craig,14,Aston Martin,163,7.3,160891007.0,759959662.0,1,275000000.0,No Time to Die,2021-11-01,7.3,2021

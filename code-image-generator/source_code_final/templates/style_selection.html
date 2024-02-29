@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+
+{% block title %}
+  - Style Selection
+{% endblock title %}
+
+{% block content %}
+<style>
+  {{ style_definitions }}
+
+  .code {
+    background-color: {{ style_bg_color }};
+  }
+</style>
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    document.querySelector("select").addEventListener("change", () => {
+      document.querySelector("form").submit();
+    });
+  });
+</script>
+<form method="post" action="{{ url_for("save_style") }}">
+  <div class="controls">
+    <select name="style">
+        {% for style_name in all_styles %}
+          <option value="{{ style_name }}"
+                {% if style_name == style %}selected{% endif %}>
+            {{ style_name }}
+            </option>
+        {% endfor %}
+    </select>
+  </div>
+  <div class="code">
+    {{ highlighted_code | safe }}
+  </div>
+  <div class="controls">
+    <button formmethod="get" formaction="{{ url_for("code") }}">
+      ⬅️ Back
+    </button>
+    <button formmethod="get" formaction="{{ url_for("image") }}">
+      Create Image 📸
+    </button>
+  </div>
+</form>
+{% endblock content %}

@@ -18,7 +18,7 @@ jobs:
       fail-fast: false
       matrix:
         include:
-          - {name: Linux311, python: '3.11.0-rc.1', os: ubuntu-latest}
+          - {name: Linux311, python: '3.11.5', os: ubuntu-latest}
     steps:
     - name: Check out repository
       uses: actions/checkout@v2
@@ -33,9 +33,9 @@ jobs:
       uses: actions/cache@v3
       with:
         path: ./venv
-        key: ${{ matrix.name }}-pip-${{ hashFiles('requirements.txt') }}
+        key: ${{ matrix.name }}-v1-pip-${{ hashFiles('requirements.txt') }}
         restore-keys: |
-          ${{ matrix.name }}-pip-
+          ${{ matrix.name }}-v1-pip-
 
     - name: Install dependencies
       if: steps.cache.outputs.cache-hit != 'true'
