@@ -20,6 +20,12 @@ Create and activate a [virtual environment](https://realpython.com/python-virtua
 (venv) $ python -m pip install openai
 ```
 
+Or, to make sure that you're using the same versions as shown in the tutorial, you can install from `requirements.txt` instead:
+
+```bash
+(venv) $ python -m pip install -r requirements.txt
+```
+
 ## Usage
 
 Read support chat conversations from a file, sanitize the text, classify by sentiment, and format the output as JSON:
