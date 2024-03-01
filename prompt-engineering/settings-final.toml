@@ -1,7 +1,6 @@
 [general]
-chat_models = ["gpt-3.5", "gpt-3.5-turbo", "gpt-4"]
+chat_models = ["gpt-3.5-turbo", "gpt-4"]
 model = "gpt-4"
-max_tokens = 100
 temperature = 0
 
 [prompts]
