@@ -1,6 +1,7 @@
 from django.db import models
 from django.conf import settings
 
+
 class Profile(models.Model):
     user = models.OneToOneField(
         settings.AUTH_USER_MODEL,
@@ -18,7 +19,7 @@ class Tag(models.Model):
 
     def __str__(self):
         return self.name
-    
+
 
 class Post(models.Model):
     title = models.CharField(max_length=255, unique=True)
@@ -33,6 +34,6 @@ class Post(models.Model):
 
     author = models.ForeignKey(Profile, on_delete=models.PROTECT)
     tags = models.ManyToManyField(Tag, blank=True)
-    
+
     class Meta:
         ordering = ["-publish_date"]

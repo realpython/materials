@@ -4,21 +4,26 @@ from graphene_django import DjangoObjectType
 
 from blog import models
 
+
 class UserType(DjangoObjectType):
     class Meta:
         model = get_user_model()
+
 
 class AuthorType(DjangoObjectType):
     class Meta:
         model = models.Profile
 
+
 class PostType(DjangoObjectType):
     class Meta:
         model = models.Post
 
+
 class TagType(DjangoObjectType):
     class Meta:
         model = models.Tag
+
 
 class Query(graphene.ObjectType):
     all_posts = graphene.List(PostType)
@@ -59,5 +64,6 @@ class Query(graphene.ObjectType):
             .select_related("author")
             .filter(tags__name__iexact=tag)
         )
+
 
 schema = graphene.Schema(query=Query)
