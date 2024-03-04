@@ -1,8 +1,8 @@
-# Build a LLM RAG Chatbot With LangChain
+# Build an LLM RAG Chatbot With LangChain
 
-This repo contains the source code for [Build a LLM RAG Chatbot With LangChain](https://realpython.com/build-llm-rag-chatbot-with-langchain/)
+This repo contains the source code for [Build an LLM RAG Chatbot With LangChain](https://realpython.com/build-llm-rag-chatbot-with-langchain/)
 
-To run the final application that you'll build in this tutorial, you can use the code provide in `source_code_final/`.
+To run the final application that you'll build in this tutorial, you can use the code provided in `source_code_final/`.
 
 ## Setup
 
@@ -41,4 +41,4 @@ Once you've filled in all of the environment variables, set up a Neo4j AuraDB in
 $ docker-compose up --build
 ```
 
-After each container finishes building, you'll be able to access the chatbot api at `http://localhost:8000/docs` and the Streamlit app at `http://localhost:8501/`.
+After each container finishes building, you'll be able to access the chatbot API at `http://localhost:8000/docs` and the Streamlit app at `http://localhost:8501/`.
