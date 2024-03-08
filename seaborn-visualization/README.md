@@ -1,6 +1,6 @@
-# Visualizing Data In Python With seaborn
+# Visualizing Data In Python With Seaborn
 
-This folder contains completed Jupyter notebooks and other files used in the Real Python tutorial on [Visualizing Data in Python With seaborn](https://realpython.com/python-seaborn/).
+This folder contains completed Jupyter notebooks and other files used in the Real Python tutorial on [Visualizing Data in Python With Seaborn](https://realpython.com/python-seaborn/).
 
 None of the files are mandatory to complete the tutorial. However, you may find them of use to continue your learning by experimenting more with them.
 
