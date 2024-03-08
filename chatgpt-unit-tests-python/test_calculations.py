@@ -7,7 +7,7 @@ from calculations import (
     median,
     mode,
     multiply,
-    subtract
+    subtract,
 )
 
 
