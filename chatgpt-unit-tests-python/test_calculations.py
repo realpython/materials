@@ -1,6 +1,14 @@
 import unittest
 
-from calculations import add, divide, mean, median, mode, multiply, subtract
+from calculations import (
+    add,
+    divide,
+    mean,
+    median,
+    mode,
+    multiply,
+    subtract
+)
 
 
 class TestFunctions(unittest.TestCase):

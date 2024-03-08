@@ -23,7 +23,7 @@ class TestFizzBuzz(unittest.TestCase):
         self.assertEqual(fizzbuzz(30), "fizz buzz")
 
     def test_number(self):
-        """Test numbers not divisible by 3 or 5 return the same number"""
+        """Test numbers not divisible by 3 or 5 return the number"""
         self.assertEqual(fizzbuzz(1), 1)
         self.assertEqual(fizzbuzz(2), 2)
         self.assertEqual(fizzbuzz(4), 4)
