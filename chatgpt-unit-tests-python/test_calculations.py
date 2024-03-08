@@ -12,7 +12,6 @@ from calculations import (
 
 
 class TestFunctions(unittest.TestCase):
-
     def test_add(self):
         self.assertEqual(add(10, 5), 15)
 
@@ -37,9 +36,7 @@ class TestFunctions(unittest.TestCase):
         self.assertEqual(median([1, 2, 3, 4, 5]), 3)
 
     def test_mode_single(self):
-        self.assertEqual(
-            sorted(mode([1, 2, 2, 3, 4, 4, 4, 5])), [4]
-        )
+        self.assertEqual(sorted(mode([1, 2, 2, 3, 4, 4, 4, 5])), [4])
 
     def test_mode_multi(self):
         self.assertEqual(sorted(mode([1, 1, 2, 3, 3])), [1, 3])
