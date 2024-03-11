@@ -1,21 +1,10 @@
-"""Examples of decorators
-
-See https://realpython.com/primer-on-python-decorators/
-
-The decorators with dependencies outside of the standard library (Flask
-and Pint) are available in separate files.
-"""
-
 import functools
 import time
 
-
-PLUGINS = dict()  # Dictionary used by @register to store plugins
+PLUGINS = dict()
 
 
 def do_twice(func):
-    """Run the decorated function twice"""
-
     @functools.wraps(func)
     def wrapper_do_twice(*args, **kwargs):
         func(*args, **kwargs)
@@ -33,7 +22,7 @@ def timer(func):
         value = func(*args, **kwargs)
         end_time = time.perf_counter()
         run_time = end_time - start_time
-        print(f"Finished {func.__name__!r} in {run_time:.4f} secs")
+        print(f"Finished {func.__name__}() in {run_time:.4f} secs")
         return value
 
     return wrapper_timer
@@ -45,25 +34,25 @@ def debug(func):
     @functools.wraps(func)
     def wrapper_debug(*args, **kwargs):
         args_repr = [repr(a) for a in args]
-        kwargs_repr = [f"{k}={v!r}" for k, v in kwargs.items()]
+        kwargs_repr = [f"{k}={repr(v)}" for k, v in kwargs.items()]
         signature = ", ".join(args_repr + kwargs_repr)
         print(f"Calling {func.__name__}({signature})")
         value = func(*args, **kwargs)
-        print(f"{func.__name__!r} returned {value!r}")
+        print(f"{func.__name__}() returned {repr(value)}")
         return value
 
     return wrapper_debug
 
 
-def slow_down_1sec(func):
+def slow_down_one_second(func):
     """Sleep 1 second before calling the function"""
 
     @functools.wraps(func)
-    def wrapper_slow_down(*args, **kwargs):
+    def wrapper_slow_down_one_second(*args, **kwargs):
         time.sleep(1)
         return func(*args, **kwargs)
 
-    return wrapper_slow_down
+    return wrapper_slow_down_one_second
 
 
 def register(func):
@@ -73,8 +62,6 @@ def register(func):
 
 
 def repeat(_func=None, *, num_times=2):
-    """Run the decorated function the given number of times"""
-
     def decorator_repeat(func):
         @functools.wraps(func)
         def wrapper_repeat(*args, **kwargs):
@@ -91,12 +78,10 @@ def repeat(_func=None, *, num_times=2):
 
 
 def count_calls(func):
-    """Count the number of calls made to the decorated function"""
-
     @functools.wraps(func)
     def wrapper_count_calls(*args, **kwargs):
         wrapper_count_calls.num_calls += 1
-        print(f"Call {wrapper_count_calls.num_calls} of {func.__name__!r}")
+        print(f"Call {wrapper_count_calls.num_calls} of {func.__name__}()")
         return func(*args, **kwargs)
 
     wrapper_count_calls.num_calls = 0
@@ -104,8 +89,6 @@ def count_calls(func):
 
 
 class CountCalls:
-    """Count the number of calls made to the decorated function"""
-
     def __init__(self, func):
         functools.update_wrapper(self, func)
         self.func = func
@@ -113,7 +96,7 @@ class CountCalls:
 
     def __call__(self, *args, **kwargs):
         self.num_calls += 1
-        print(f"Call {self.num_calls} of {self.func.__name__!r}")
+        print(f"Call {self.num_calls} of {self.func.__name__}()")
         return self.func(*args, **kwargs)
 
 
@@ -139,7 +122,7 @@ def singleton(cls):
 
     @functools.wraps(cls)
     def wrapper_singleton(*args, **kwargs):
-        if not wrapper_singleton.instance:
+        if wrapper_singleton.instance is None:
             wrapper_singleton.instance = cls(*args, **kwargs)
         return wrapper_singleton.instance
 
@@ -157,15 +140,5 @@ def cache(func):
             wrapper_cache.cache[cache_key] = func(*args, **kwargs)
         return wrapper_cache.cache[cache_key]
 
-    wrapper_cache.cache = dict()
+    wrapper_cache.cache = {}
     return wrapper_cache
-
-
-def set_unit(unit):
-    """Register a unit on a function"""
-
-    def decorator_set_unit(func):
-        func.unit = unit
-        return func
-
-    return decorator_set_unit
