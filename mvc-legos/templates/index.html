@@ -1,0 +1,21 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lego Builds</title>
+</head>
+<body>
+    <h1>My Favorite Lego Builds</h1>
+    <p>Here's a list of all my favorite Lego builds:</p>
+    <ul>
+        {% for entry in entries %}
+          <li>
+            <strong>{{ entry[1] }}:</strong> <!-- title -->
+            {{ entry[2] }} <!-- text -->
+          </li>
+        {% else %}
+          <li>No entries yet. Add some!</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
