@@ -22,18 +22,3 @@ def send_invoice(
     time.sleep(2)
 
     return email_str
-
-
-send_invoice(
-    client_name="Andrew Jolawson",
-    client_email="ajolawson@fakedomain.com",
-    items_purchased=["pie", "cookie", "cake"],
-    amount_owed=12303,
-)
-
-send_invoice(
-    client_name="",
-    client_email="ajolawsonfakedomain.com",
-    items_purchased=["pie", "cookie", 17],
-    amount_owed=0,
-)

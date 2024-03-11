@@ -21,7 +21,7 @@ class Department(Enum):
 class Employee(BaseModel):
     employee_id: UUID = Field(default_factory=lambda: uuid4(), frozen=True)
     name: str = Field(min_length=1, frozen=True)
-    email: EmailStr = Field(pattern=r".+@company\.com$")
+    email: EmailStr = Field(pattern=r".+@example\.com$")
     date_of_birth: date = Field(alias="birth_date", repr=False, frozen=True)
     salary: float = Field(alias="compensation", gt=0, repr=False)
     department: Department
@@ -50,13 +50,3 @@ class Employee(BaseModel):
                 "IT employees are contractors and don't qualify for benefits."
             )
         return self
-
-
-new_employee = {
-    "name": "Chris DeTuma",
-    "email": "cdetuma@company.com",
-    "birth_date": "1998-04-02",
-    "compensation": 100_000,
-    "department": "IT",
-    "elected_benefits": True,
-}
