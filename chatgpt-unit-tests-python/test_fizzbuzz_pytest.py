@@ -2,48 +2,39 @@ import pytest
 
 from fizzbuzz import fizzbuzz
 
-# def test_fizzbuzz_with_multiples_of_three():
-#     assert fizzbuzz(3) == "fizz"
-#     assert fizzbuzz(6) == "fizz"
+#     assert fizzbuzz(30) == "fizz buzz"
+
+
+# def test_fizzbuzz_with_number_divisible_by_3():
 #     assert fizzbuzz(9) == "fizz"
 
 
-# def test_fizzbuzz_with_multiples_of_five():
-#     assert fizzbuzz(5) == "buzz"
+# def test_fizzbuzz_with_number_divisible_by_5():
 #     assert fizzbuzz(10) == "buzz"
-#     assert fizzbuzz(20) == "buzz"
 
 
-# def test_fizzbuzz_with_multiples_of_fifteen():
-#     assert fizzbuzz(15) == "fizz buzz"
-#     assert fizzbuzz(30) == "fizz buzz"
-#     assert fizzbuzz(45) == "fizz buzz"
-
-
-# def test_fizzbuzz_with_non_multiples_of_three_or_five():
-#     assert fizzbuzz(1) == 1
-#     assert fizzbuzz(2) == 2
+# def test_fizzbuzz_with_number_not_divisible_by_3_or_5():
 #     assert fizzbuzz(4) == 4
-#     assert fizzbuzz(7) == 7
+
+
+# def test_fizzbuzz_with_zero():
+#     assert fizzbuzz(0) == "fizz buzz"
 
 
 @pytest.mark.parametrize(
-    "number, expected",
+    "input,expected",
     [
-        (3, "fizz"),
-        (6, "fizz"),
-        (9, "fizz"),
-        (5, "buzz"),
-        (10, "buzz"),
-        (20, "buzz"),
-        (15, "fizz buzz"),
-        (30, "fizz buzz"),
-        (45, "fizz buzz"),
-        (1, 1),
-        (2, 2),
-        (4, 4),
-        (7, 7),
+        (30, "fizz buzz"),  # Divisible by 15
+        (9, "fizz"),  # Divisible by 3
+        (10, "buzz"),  # Divisible by 5
+        (4, 4),  # Not divisible by 3 or 5
+        (0, "fizz buzz"),  # Edge case: 0 (divisible by 15)
+        (33, "fizz"),  # Additional case: Divisible by 3
+        (55, "buzz"),  # Additional case: Divisible by 5
+        (98, 98),  # Additional case: Not divisible by 3 or 5
     ],
 )
-def test_fizzbuzz(number, expected):
-    assert fizzbuzz(number) == expected
+def test_fizzbuzz(input, expected):
+    assert (
+        fizzbuzz(input) == expected
+    ), f"Expected {expected} for input {input}"

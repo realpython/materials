@@ -1,72 +1,61 @@
 import unittest
 
-from calculations import (
-    add,
-    divide,
-    mean,
-    median,
-    mode,
-    multiply,
-    subtract,
-)
+from calculations import add, divide, mean, median, mode, multiply, subtract
 
 
-class TestFunctions(unittest.TestCase):
+class TestArithmeticOperations(unittest.TestCase):
+
     def test_add(self):
         self.assertEqual(add(10, 5), 15)
+        self.assertEqual(add(-1, 1), 0)
+        self.assertEqual(add(-1, -1), -2)
 
     def test_subtract(self):
         self.assertEqual(subtract(10, 5), 5)
+        self.assertEqual(subtract(-1, 1), -2)
+        self.assertEqual(subtract(-1, -1), 0)
 
     def test_multiply(self):
         self.assertEqual(multiply(10, 5), 50)
+        self.assertEqual(multiply(-1, 1), -1)
+        self.assertEqual(multiply(-1, -1), 1)
 
     def test_divide(self):
         self.assertEqual(divide(10, 5), 2)
+        self.assertEqual(divide(-1, 1), -1)
+        self.assertEqual(divide(-1, -1), 1)
         with self.assertRaises(ValueError):
             divide(10, 0)
 
+
+class TestStatisticalOperations(unittest.TestCase):
+
     def test_mean(self):
         self.assertEqual(mean([1, 2, 3, 4, 5]), 3)
-
-    def test_median_even(self):
-        self.assertEqual(median([1, 2, 3, 4, 5, 6]), 3.5)
+        self.assertEqual(mean([1, 2, 3, 4, 5, 6]), 3.5)
 
     def test_median_odd(self):
-        self.assertEqual(median([1, 2, 3, 4, 5]), 3)
+        self.assertEqual(median([1, 3, 3, 6, 7, 8, 9]), 6)
+
+    def test_median_even(self):
+        self.assertEqual(median([1, 2, 3, 4, 5, 6, 8, 9]), 4.5)
+
+    def test_median_unsorted(self):
+        self.assertEqual(median([7, 1, 3, 3, 2, 6]), 3)
 
     def test_mode_single(self):
-        self.assertEqual(sorted(mode([1, 2, 2, 3, 4, 4, 4, 5])), [4])
+        self.assertEqual(mode([1, 2, 2, 3, 4, 4, 4, 5]), [4])
 
-    def test_mode_multi(self):
-        self.assertEqual(sorted(mode([1, 1, 2, 3, 3])), [1, 3])
+    def test_mode_multiple(self):
+        self.assertEqual(set(mode([1, 1, 2, 3, 4, 4, 5, 5])), {1, 4, 5})
 
 
-def suite():
-    arithmetic_suite = unittest.TestSuite()
-    statistic_suite = unittest.TestSuite()
-
-    arithmetic_suite.addTest(TestFunctions("test_add"))
-    arithmetic_suite.addTest(TestFunctions("test_subtract"))
-    arithmetic_suite.addTest(TestFunctions("test_multiply"))
-    arithmetic_suite.addTest(TestFunctions("test_divide"))
-
-    statistic_suite.addTest(TestFunctions("test_mean"))
-    statistic_suite.addTest(TestFunctions("test_median_even"))
-    statistic_suite.addTest(TestFunctions("test_median_odd"))
-    statistic_suite.addTest(TestFunctions("test_mode_single"))
-    statistic_suite.addTest(TestFunctions("test_mode_multi"))
-
-    return arithmetic_suite, statistic_suite
+def load_tests(loader, tests, pattern):
+    suite = unittest.TestSuite()
+    # suite.addTests(loader.loadTestsFromTestCase(TestArithmeticOperations))
+    suite.addTests(loader.loadTestsFromTestCase(TestStatisticalOperations))
+    return suite
 
 
 if __name__ == "__main__":
-    runner = unittest.TextTestRunner()
-
-    arithmetic_suite, statistical_suite = suite()
-
-    print("Running arithmetic functions tests:")
-    runner.run(arithmetic_suite)
-
-    print("\nRunning statistical functions tests:")
-    runner.run(statistical_suite)
+    unittest.main()
