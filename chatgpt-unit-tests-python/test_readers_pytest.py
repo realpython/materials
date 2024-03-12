@@ -1,5 +1,4 @@
 import json
-import os
 
 import pytest
 
@@ -34,5 +33,6 @@ def test_file_not_found():
         reader.read()
 
 
-# Additional tests can be added to cover more scenarios, such as reading empty files,
+# Additional tests can be added to cover more scenarios,
+# such as reading empty files,
 # files with invalid JSON content, etc.
