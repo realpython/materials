@@ -7,7 +7,6 @@ from readers import JSONReader
 
 
 class TestJSONReader(unittest.TestCase):
-
     def setUp(self):
         # Create a temporary file and write some JSON data to it
         self.temp_file, self.temp_file_path = tempfile.mkstemp(suffix=".json")

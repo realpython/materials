@@ -4,7 +4,6 @@ from calculations import add, divide, mean, median, mode, multiply, subtract
 
 
 class TestArithmeticOperations(unittest.TestCase):
-
     def test_add(self):
         self.assertEqual(add(10, 5), 15)
         self.assertEqual(add(-1, 1), 0)
@@ -29,7 +28,6 @@ class TestArithmeticOperations(unittest.TestCase):
 
 
 class TestStatisticalOperations(unittest.TestCase):
-
     def test_mean(self):
         self.assertEqual(mean([1, 2, 3, 4, 5]), 3)
         self.assertEqual(mean([1, 2, 3, 4, 5, 6]), 3.5)

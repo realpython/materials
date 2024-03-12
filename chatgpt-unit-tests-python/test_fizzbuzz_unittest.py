@@ -4,7 +4,6 @@ from fizzbuzz import fizzbuzz
 
 
 class TestFizzBuzz(unittest.TestCase):
-
     def test_fizz(self):
         """Test numbers divisible by 3 but not by 5"""
         self.assertEqual(fizzbuzz(3), "fizz")
