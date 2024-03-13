@@ -1,6 +1,6 @@
 # Model-View-Controller (MVC) in Python Web Apps: Explained With Legos
 
-This folder contains a minimal Flask example app that supports the explanation of the MVC pattern in [Model-View-Controller (MVC) Explained – With Legos](https://realpython.com/lego-model-view-controller-python/).
+This folder contains a minimal Flask example app that supports the explanation of the MVC pattern in [Model-View-Controller (MVC) Explained – With Lego](https://realpython.com/lego-model-view-controller-python/).
 
 To run the app, you'll need to first install [Flask](https://flask.palletsprojects.com/), preferably into a [virtual environment](https://realpython.com/python-virtual-environments-a-primer/):
 
