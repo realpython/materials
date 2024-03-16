@@ -132,4 +132,4 @@ GRAPHENE = {
     "SCHEMA": "blog.schema.schema",
 }
 
-CORS_ALLOWED_ORIGINS = ("http://localhost:5174",)
+CORS_ALLOWED_ORIGINS = ("http://localhost:5173",)
