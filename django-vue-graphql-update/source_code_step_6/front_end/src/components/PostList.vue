@@ -1,5 +1,5 @@
 <script setup>
-import AuthorLink from './AuthorLink.vue'
+import AuthorLink from "./AuthorLink.vue";
 </script>
 
 <template>

@@ -1,5 +1,5 @@
 <script setup>
-import AuthorLink from '../components/AuthorLink.vue'
+import AuthorLink from "../components/AuthorLink.vue";
 </script>
 
 <template>
@@ -9,6 +9,6 @@ import AuthorLink from '../components/AuthorLink.vue'
 
 <style scoped>
 h2 {
-    color: orange;
+  color: orange;
 }
 </style>

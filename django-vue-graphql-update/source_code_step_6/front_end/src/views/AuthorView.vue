@@ -1,5 +1,5 @@
 <script setup>
-import PostList from '../components/PostList.vue'
+import PostList from "../components/PostList.vue";
 </script>
 
 <template>
@@ -9,6 +9,6 @@ import PostList from '../components/PostList.vue'
 
 <style scoped>
 h2 {
-    color: red;
+  color: red;
 }
 </style>
