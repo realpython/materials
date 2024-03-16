@@ -14,15 +14,15 @@ Navigate to the corresponding folder in this repository to compare your code wit
 - [Step 8](source_code_step_8/)
 - [Step 9](source_code_step_final/)
 
-If you want to install the project on your own machine without following the tutorial, then you need to follow the steps outlined below.
+If you want to install the project on your machine without following the tutorial, then you need to follow the steps outlined below.
 
 ## Setup
 
-Navigate into the `source_code_final/` folder. In this folder, you'll find the folders `backend/` and `frontend/`, which represent both projects of the tutorial.
+Navigate into the `source_code_final/` folder. In this folder, you'll find the folders `back_end/` and `front_end/`, which represent both projects of the tutorial.
 
 ### Back End
 
-Create a new terminal window, navigate into `backend/`, create, activate a [virtual environment](https://realpython.com/python-virtual-environments-a-primer/), and install the necessary dependencies:
+Create a new terminal window, navigate into `back_end/`, create, activate a [virtual environment](https://realpython.com/python-virtual-environments-a-primer/), and install the necessary dependencies:
 
 ```sh
 $ python -m venv venv
@@ -54,7 +54,7 @@ You can visit the GraphiQL platform `http://localhost:8000/graphql` to try out G
 
 ### Front End
 
-Open a new terminal and navigate into `frontend/`. Then, install the front-end requirements:
+Open a new terminal and navigate into `front_end/`. Then, install the front-end requirements:
 
 ```sh
 $ npm install --include dev
