@@ -12,7 +12,7 @@ Navigate to the corresponding folder in this repository to compare your code wit
 - [Step 6](source_code_step_6/)
 - [Step 7](source_code_step_7/)
 - [Step 8](source_code_step_8/)
-- [Step 9](source_code_step_final/)
+- [Step 9](source_code_final/)
 
 If you want to install the project on your machine without following the tutorial, then you need to follow the steps outlined below.
 
