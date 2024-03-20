@@ -48,7 +48,7 @@ The repository contains the following files:
 - [sanitized-chats.txt](sanitized-chats.txt): Sanitized version of `chats.txt` that's used for building few-shot examples for sentiment analysis
 - [sanitized-testing-chats.txt](sanitized-testing-chats.txt): Sanitized version of `testing-chats.txt` that's used for testing the prompt used for sentiment analysis
 - [settings.toml](settings.toml): Main settings file used for iteratively improving the prompts
-- [final-settings.toml](final-settings.toml): Final state of the settings file at the end of the tutorial
+- [settings-final.toml](settings-final.toml): Final state of the settings file at the end of the tutorial
 - [testing-chats.txt](testing-chats.txt): Customer support chats used for testing the prompt on new data
 
 You can find more information about when and how to use the different files [in the tutorial](https://realpython.com/practical-prompt-engineering/).
