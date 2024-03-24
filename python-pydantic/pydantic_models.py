@@ -40,7 +40,6 @@ class Employee(BaseModel):
 
     @model_validator(mode="after")
     def check_it_benefits(self) -> Self:
-
         department = self.department
         elected_benefits = self.elected_benefits
 
