@@ -30,7 +30,6 @@ class Employee(BaseModel):
     @field_validator("date_of_birth")
     @classmethod
     def check_valid_age(cls, date_of_birth: date) -> date:
-
         date_delta = date.today() - date_of_birth
         age = date_delta.days / 365
 
