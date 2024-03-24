@@ -10,7 +10,6 @@ def send_invoice(
     items_purchased: list[str],
     amount_owed: PositiveFloat,
 ) -> str:
-
     email_str = f"""
     Dear {client_name}, \n
     Thank you for choosing xyz inc! You
