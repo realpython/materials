@@ -1,38 +1,41 @@
 [general]
-chat_models = ["gpt-3.5", "gpt-3.5-turbo", "gpt-4"]
+chat_models = ["gpt-3.5-turbo", "gpt-4"]
 model = "gpt-4"
-max_tokens = 100
 temperature = 0
 
 [prompts]
 instruction_prompt = """
-Classify the sentiment of each conversation in >>>>>CONTENT<<<<< as "negative" and "positive".
+Classify the sentiment of each conversation in >>>>>CONTENT<<<<<
+as "negative" and "positive".
 Return the output as valid JSON.
 """
-role_prompt = """You are a thoroughly trained machine learning model that is an expert at sentiment classification.
-You diligently complete tasks as instructed. You never make up any information that isn't there."""
+role_prompt = """You are a thoroughly trained machine learning
+model that is an expert at sentiment classification.
+You diligently complete tasks as instructed.
+You never make up any information that isn't there."""
 positive_example = """
 [Agent] 2023-06-15 : Hello! How can I assist you today?
 [Customer] 2023-06-15 : I can't seem to find the download link for my purchased software.
-[Agent] 2023-06-15 : No problem, ********. Let me find that for you. Can you please provide your order number?
-[Customer] 2023-06-15 : It's ********. Thanks for helping me out!
+[Agent] 2023-06-15 : No problem, ****. Let me find that for you. Can you please provide your order number?
+[Customer] 2023-06-15 : It's ****. Thanks for helping me out!
 """
-positive_reasoning = """The customer does not use any swear words or 😤 emoji
-and does not seem aggravated or angry, so the sentiment is positive."""
+positive_reasoning = """
+- Does the customer use swear words or 😤? No
+- Does the customer seem aggravated or angry? No
+- Sentiment: "positive"
+"""
 positive_output = """
-{
-  "positive": [
-    {
-      "date": "2023-06-15",
-      "conversation": [
-        "A: Hello! How can I assist you today?",
-        "C: I can't seem to find the download link for my purchased software.",
-        "A: No problem, ********. Let me find that for you. Can you please provide your order number?",
-        "C: It's ********. Thanks for helping me out!"
-      ]
-    }
-  ]
-}
+"positive": [
+  {
+    "date": "2023-06-15",
+    "conversation": [
+      "A: Hello! How can I assist you today?",
+      "C: I can't seem to find the download link for my purchased software.",
+      "A: No problem, ****. Let me find that for you. Can you please provide your order number?",
+      "C: It's ****. Thanks for helping me out!"
+    ]
+  }
+]
 """
 negative_example = """
 [Agent] 2023-07-24 : What can I help you with?
@@ -40,20 +43,21 @@ negative_example = """
 [Agent] 2023-07-24 : Are you sure it's not your caps lock?
 [Customer] 2023-07-24 : 😤! You're right!
 """
-negative_reasoning = """The customer uses the 😤 emoji and seems aggravated,
-so the sentiment is negative."""
+negative_reasoning = """
+- Does the customer use swear words or 😤? Yes
+- Does the customer seem aggravated or angry? Yes
+- Sentiment: "negative"
+"""
 negative_output = """
-{
-  "negative": [
-    {
-      "date": "2023-07-24",
-      "conversation": [
-        "A: What can I help you with?",
-        "C: I CAN'T CONNECT TO MY 😤 ACCOUNT",
-        "A: Are you sure it's not your caps lock?",
-        "C: 😤! You're right!"
-      ]
-    }
-  ]
-}
+"negative": [
+  {
+    "date": "2023-07-24",
+    "conversation": [
+      "A: What can I help you with?",
+      "C: I CAN'T CONNECT TO MY 😤 ACCOUNT",
+      "A: Are you sure it's not your caps lock?",
+      "C: 😤! You're right!"
+    ]
+  }
+]
 """

@@ -1,7 +1,6 @@
 [general]
-chat_models = ["gpt-3.5-turbo", "gpt-3.5-turbo-16k", "gpt-4"]
-model = "text-davinci-003"
-max_tokens = 2100
+chat_models = ["gpt-3.5-turbo", "gpt-4"]
+model = "gpt-3.5-turbo"
 temperature = 0
 
 [prompts]
