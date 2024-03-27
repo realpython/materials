@@ -17,7 +17,7 @@ class SkipTestExample(unittest.TestCase):
     def test_windows_support(self):
         from ctypes import WinDLL, windll
 
-        self.assertTrue(type(windll.kernel32) == WinDLL)
+        self.assertIsInstance(windll.kernel32, WinDLL)
 
 
 if __name__ == "__main__":
