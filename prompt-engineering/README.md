@@ -20,6 +20,12 @@ Create and activate a [virtual environment](https://realpython.com/python-virtua
 (venv) $ python -m pip install openai
 ```
 
+Or, to make sure that you're using the same versions as shown in the tutorial, you can install from `requirements.txt` instead:
+
+```bash
+(venv) $ python -m pip install -r requirements.txt
+```
+
 ## Usage
 
 Read support chat conversations from a file, sanitize the text, classify by sentiment, and format the output as JSON:
@@ -42,7 +48,7 @@ The repository contains the following files:
 - [sanitized-chats.txt](sanitized-chats.txt): Sanitized version of `chats.txt` that's used for building few-shot examples for sentiment analysis
 - [sanitized-testing-chats.txt](sanitized-testing-chats.txt): Sanitized version of `testing-chats.txt` that's used for testing the prompt used for sentiment analysis
 - [settings.toml](settings.toml): Main settings file used for iteratively improving the prompts
-- [final-settings.toml](final-settings.toml): Final state of the settings file at the end of the tutorial
+- [settings-final.toml](settings-final.toml): Final state of the settings file at the end of the tutorial
 - [testing-chats.txt](testing-chats.txt): Customer support chats used for testing the prompt on new data
 
 You can find more information about when and how to use the different files [in the tutorial](https://realpython.com/practical-prompt-engineering/).
@@ -399,6 +405,16 @@ instruction_prompt = """
 Classify the sentiment of each conversation in >>>>>CONTENT<<<<<
 with "🔥" for negative and "✅" for positive.
 
+Follow these steps when classifying the conversations:
+1. Does the customer use swear words or 😤?
+2. Does the customer seem aggravated or angry?
+
+If you answer "Yes" to one of the above questions,
+then classify the conversation as negative with "🔥".
+Otherwise classify the conversation as positive with "✅".
+
+Let's think step by step
+
 #### START EXAMPLES
 
 ------ Example Inputs ------
@@ -406,13 +422,17 @@ with "🔥" for negative and "✅" for positive.
 [Customer] 2023-07-24 : I CAN'T CONNECT TO MY 😤 ACCOUNT
 [Agent] 2023-07-24 : Are you sure it's not your caps lock?
 [Customer] 2023-07-24 : 😤! You're right!
-The customer uses the 😤 emoji and seems aggravated, so the sentiment is negative. 🔥
+   - Does the customer use swear words or 😤? Yes
+   - Does the customer seem aggravated or angry? Yes
+   - Sentiment: 🔥
 
 [Agent] 2023-06-15 : Hello! How can I assist you today?
 [Customer] 2023-06-15 : I can't seem to find the download link for my purchased software.
-[Agent] 2023-06-15 : No problem, ********. Let me find that for you. Can you please provide your order number?
-[Customer] 2023-06-15 : It's ********. Thanks for helping me out!
-The customer does not use any swear words or 😤 emoji and does not seem aggravated or angry, so the sentiment is positive. ✅
+[Agent] 2023-06-15 : No problem, ****. Let me find that for you. Can you please provide your order number?
+[Customer] 2023-06-15 : It's ****. Thanks for helping me out!
+   - Does the customer use swear words or 😤? No
+   - Does the customer seem aggravated or angry? No
+   - Sentiment: ✅
 
 ------ Example Outputs ------
 🔥
@@ -424,8 +444,8 @@ The customer does not use any swear words or 😤 emoji and does not seem aggrav
 ✅
 [Agent] 2023-06-15 : Hello! How can I assist you today?
 [Customer] 2023-06-15 : I can't seem to find the download link for my purchased software.
-[Agent] 2023-06-15 : No problem, ********. Let me find that for you. Can you please provide your order number?
-[Customer] 2023-06-15 : It's ********. Thanks for helping me out!
+[Agent] 2023-06-15 : No problem, ****. Let me find that for you. Can you please provide your order number?
+[Customer] 2023-06-15 : It's ****. Thanks for helping me out!
 
 #### END EXAMPLES
 """
@@ -444,21 +464,34 @@ Classify the sentiment of each conversation in >>>>>CONTENT<<<<<
 as "negative" and "positive".
 Return the output as valid JSON.
 
+Follow these steps when classifying the conversations:
+1. Does the customer use swear words or 😤?
+2. Does the customer seem aggravated or angry?
+
+If you answer "Yes" to one of the above questions,
+then classify the conversation as "negative".
+Otherwise classify the conversation as "positive".
+
+Let's think step by step
+
 #### START EXAMPLES
 
------- Example Input ------
-
+------ Example Inputs ------
 [Agent] 2023-07-24 : What can I help you with?
 [Customer] 2023-07-24 : I CAN'T CONNECT TO MY 😤 ACCOUNT
 [Agent] 2023-07-24 : Are you sure it's not your caps lock?
 [Customer] 2023-07-24 : 😤! You're right!
-The customer uses the 😤 emoji and seems aggravated, so the sentiment is negative.
+   - Does the customer use swear words or 😤? Yes
+   - Does the customer seem aggravated or angry? Yes
+   - Sentiment: "negative"
 
 [Agent] 2023-06-15 : Hello! How can I assist you today?
 [Customer] 2023-06-15 : I can't seem to find the download link for my purchased software.
-[Agent] 2023-06-15 : No problem, ********. Let me find that for you. Can you please provide your order number?
-[Customer] 2023-06-15 : It's ********. Thanks for helping me out!
-The customer does not use any swear words or 😤 emoji and does not seem aggravated or angry, so the sentiment is positive.
+[Agent] 2023-06-15 : No problem, ****. Let me find that for you. Can you please provide your order number?
+[Customer] 2023-06-15 : It's ****. Thanks for helping me out!
+   - Does the customer use swear words or 😤? No
+   - Does the customer seem aggravated or angry? No
+   - Sentiment: "positive"
 
 ------ Example Output ------
 
@@ -480,8 +513,8 @@ The customer does not use any swear words or 😤 emoji and does not seem aggrav
       "conversation": [
         "A: Hello! How can I assist you today?",
         "C: I can't seem to find the download link for my purchased software.",
-        "A: No problem, ********. Let me find that for you. Can you please provide your order number?",
-        "C: It's ********. Thanks for helping me out!"
+        "A: No problem, ****. Let me find that for you. Can you please provide your order number?",
+        "C: It's ****. Thanks for helping me out!"
       ]
     }
   ]
@@ -504,32 +537,33 @@ Classify the sentiment of each conversation in >>>>>CONTENT<<<<<
 as "negative" and "positive".
 Return the output as valid JSON.
 """
-role_prompt = """You are a thoroughly trained machine learning model
-that is an expert at sentiment classification.
+role_prompt = """You are a thoroughly trained machine learning
+model that is an expert at sentiment classification.
 You diligently complete tasks as instructed.
 You never make up any information that isn't there."""
 positive_example = """
 [Agent] 2023-06-15 : Hello! How can I assist you today?
 [Customer] 2023-06-15 : I can't seem to find the download link for my purchased software.
-[Agent] 2023-06-15 : No problem, ********. Let me find that for you. Can you please provide your order number?
-[Customer] 2023-06-15 : It's ********. Thanks for helping me out!
+[Agent] 2023-06-15 : No problem, ****. Let me find that for you. Can you please provide your order number?
+[Customer] 2023-06-15 : It's ****. Thanks for helping me out!
 """
-positive_reasoning = """The customer does not use any swear words or 😤 emoji
-and does not seem aggravated or angry, so the sentiment is positive."""
+positive_reasoning = """
+- Does the customer use swear words or 😤? No
+- Does the customer seem aggravated or angry? No
+- Sentiment: "positive"
+"""
 positive_output = """
-{
-  "positive": [
-    {
-      "date": "2023-06-15",
-      "conversation": [
-        "A: Hello! How can I assist you today?",
-        "C: I can't seem to find the download link for my purchased software.",
-        "A: No problem, ********. Let me find that for you. Can you please provide your order number?",
-        "C: It's ********. Thanks for helping me out!"
-      ]
-    }
-  ]
-}
+"positive": [
+  {
+    "date": "2023-06-15",
+    "conversation": [
+      "A: Hello! How can I assist you today?",
+      "C: I can't seem to find the download link for my purchased software.",
+      "A: No problem, ****. Let me find that for you. Can you please provide your order number?",
+      "C: It's ****. Thanks for helping me out!"
+    ]
+  }
+]
 """
 negative_example = """
 [Agent] 2023-07-24 : What can I help you with?
@@ -537,21 +571,22 @@ negative_example = """
 [Agent] 2023-07-24 : Are you sure it's not your caps lock?
 [Customer] 2023-07-24 : 😤! You're right!
 """
-negative_reasoning = """The customer uses the 😤 emoji and seems aggravated,
-so the sentiment is negative."""
+negative_reasoning = """
+- Does the customer use swear words or 😤? Yes
+- Does the customer seem aggravated or angry? Yes
+- Sentiment: "negative"
+"""
 negative_output = """
-{
-  "negative": [
-    {
-      "date": "2023-07-24",
-      "conversation": [
-        "A: What can I help you with?",
-        "C: I CAN'T CONNECT TO MY 😤 ACCOUNT",
-        "A: Are you sure it's not your caps lock?",
-        "C: 😤! You're right!"
-      ]
-    }
-  ]
-}
+"negative": [
+  {
+    "date": "2023-07-24",
+    "conversation": [
+      "A: What can I help you with?",
+      "C: I CAN'T CONNECT TO MY 😤 ACCOUNT",
+      "A: Are you sure it's not your caps lock?",
+      "C: 😤! You're right!"
+    ]
+  }
+]
 """
 ```
