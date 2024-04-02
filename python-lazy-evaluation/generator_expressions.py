@@ -5,18 +5,12 @@ Exploring generator expressions
 import random
 
 # List comprehension
-coin_toss = [
-    "Heads" if random.random() > 0.5 else "Tails"
-    for _ in range(10)
-]
+coin_toss = ["Heads" if random.random() > 0.5 else "Tails" for _ in range(10)]
 
 print(f"List comprehension:\n{coin_toss}")
 
 # Generator expression
-coin_toss = (
-    "Heads" if random.random() > 0.5 else "Tails"
-    for _ in range(10)
-)
+coin_toss = ("Heads" if random.random() > 0.5 else "Tails" for _ in range(10))
 print(f"\nGenerator expression:\n{coin_toss}")
 
 print(f"\nFirst coin toss: {next(coin_toss)}")

@@ -3,6 +3,7 @@ Creating an infinite sequence of elements using generators
 """
 
 import itertools
+
 quarters = itertools.count(start=0, step=0.25)
 # Print the first 8 elements, however, the sequence is infinite
 for _ in range(8):
