@@ -1,6 +1,7 @@
 import time
 from typing import Annotated
-from pydantic import PositiveFloat, validate_call, Field, EmailStr
+
+from pydantic import EmailStr, Field, PositiveFloat, validate_call
 
 
 @validate_call
