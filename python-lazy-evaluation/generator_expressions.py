@@ -27,9 +27,12 @@ for toss_result in coin_toss:
     print(toss_result)
 
 # Defining a generator function
+
+
 def generate_coin_toss(number):
     for _ in range(number):
         yield "Heads" if random.random() > 0.5 else "Tails"
+
 
 coin_toss = generate_coin_toss(10)
 print("\nUsing a generator function:")

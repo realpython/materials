@@ -16,6 +16,7 @@ print(next(rota))
 print(next(rota))
 print(next(rota))
 
+
 # Use a generator function
 def generate_rota(iterable):
     index = 0
@@ -26,6 +27,7 @@ def generate_rota(iterable):
             index = 0
         else:
             index += 1
+
 
 rota = generate_rota(names)
 print("\nUsing a generator function")

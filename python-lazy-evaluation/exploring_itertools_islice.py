@@ -13,10 +13,10 @@ numbers[2] = 999
 
 print(numbers)
 
-print(f"\nStandard slice:")
+print("\nStandard slice:")
 for number in standard_slice:
     print(number)
 
-print(f"\nIterator slice:")
+print("\nIterator slice:")
 for number in iterator_slice:
     print(number)
