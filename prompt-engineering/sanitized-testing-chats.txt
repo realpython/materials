@@ -10,7 +10,7 @@
 
 [Agent] 2023-08-13: Good morning! How may I assist you?
 [Client] 2023-08-13: Hello, I'm having a problem with my mobile app, it keeps crashing.
-[Agent] 2023-08-13: I'm sorry to hear that, ********. Could you tell me what device you're using? 
+[Agent] 2023-08-13: I'm sorry to hear that, ********. Could you tell me what device you're using?
 [Client] 2023-08-13: I have an iPhone 11.
 
 [Agent] 2023-08-30: Good evening! How may I assist you today?
