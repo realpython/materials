@@ -1,6 +1,7 @@
 """
 Exploring 'enumerate()' lazy evaluation
 """
+
 import random
 
 names = ["Sarah", "Matt", "Jim", "Denise", "Kate"]

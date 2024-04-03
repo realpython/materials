@@ -1,6 +1,7 @@
 """
 Exploring 'zip()' lazy evaluation
 """
+
 import random
 
 names = ["Sarah", "Matt", "Jim", "Denise", "Kate"]

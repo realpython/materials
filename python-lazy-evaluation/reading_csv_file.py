@@ -1,6 +1,7 @@
 """
 Eager and lazy options for reading a CSV file
 """
+
 import csv
 import pprint
 
