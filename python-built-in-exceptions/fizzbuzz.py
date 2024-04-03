@@ -21,8 +21,8 @@ def fizzbuzz(number):
 
 
 if __name__ == "__main__":
-    assert fizzbuzz(3) == "fizz"
-    assert fizzbuzz(5) == "buzz"
+    assert fizzbuzz(9) == "fizz"
+    assert fizzbuzz(10) == "buzz"
     assert fizzbuzz(15) == "fizz buzz"
     assert fizzbuzz(7) == 7
     print("All tests pass")

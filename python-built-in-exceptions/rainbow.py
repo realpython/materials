@@ -11,7 +11,7 @@ COLORS = {
 
 class RainbowColor:
     def __init__(self, name="Red"):
-        name = name.lower().title()
+        name = name.title()
         if name not in COLORS:
             raise ValueError(f"{name} is not a valid rainbow color")
         self.name = name

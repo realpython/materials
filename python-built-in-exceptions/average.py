@@ -1,4 +1,4 @@
 def average_grade(grades):
-    if len(grades) == 0:
+    if not grades:
         raise ValueError("empty grades not allowed")
     return sum(grades) / len(grades)
