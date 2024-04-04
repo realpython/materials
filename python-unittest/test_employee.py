@@ -35,9 +35,9 @@ class TestFromCsvFile(unittest.TestCase):
 
     def test_from_csv_file_employee_attributes(self):
         self.assertEqual(self.employees[0].name, "Alice")
-        self.assertEqual(self.employees[0].age, "25")
+        self.assertEqual(self.employees[0].age, 25)
         self.assertEqual(self.employees[0].job, "Engineer")
-        self.assertEqual(self.employees[0].salary, "50000")
+        self.assertEqual(self.employees[0].salary, 50000.0)
 
     def test_from_csv_file_employee_name(self):
         self.assertEqual(self.employees[0].name, "Alice")

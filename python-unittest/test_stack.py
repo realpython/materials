@@ -36,7 +36,7 @@ class TestStack(unittest.TestCase):
         for item in items:
             self.stack.push(item)
         reversed_stack = reversed(self.stack)
-        self.assertEqual(reversed_stack.items, [7, 6, 5])
+        self.assertEqual(list(reversed_stack), [7, 6, 5])
 
 
 if __name__ == "__main__":

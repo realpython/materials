@@ -3,11 +3,10 @@ import unittest
 
 class CustomTestCase(unittest.TestCase):
     def assertAllIntegers(self, values):
-        for index, value in enumerate(values):
+        for value in values:
             self.assertIsInstance(
                 value,
                 int,
-                f"Value at index {index} is not an integer: {value}",
             )
 
 

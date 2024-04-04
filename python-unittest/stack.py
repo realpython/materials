@@ -15,4 +15,4 @@ class Stack:
         return iter(self.items)
 
     def __reversed__(self):
-        return type(self)(reversed(self.items))
+        return reversed(self.items)

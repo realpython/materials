@@ -23,8 +23,8 @@ class TestCollections(unittest.TestCase):
         self.assertDictEqual(a, b)
 
     def test_set_objects(self):
-        a = {1, 2, 3, 4, 5}
-        b = {1, 2, 3, 4, 5}
+        a = {1, 2, 4, 3, 5}
+        b = {1, 5, 3, 4, 2}
         self.assertSetEqual(a, b)
 
 

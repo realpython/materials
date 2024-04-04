@@ -19,7 +19,7 @@ class TestArithmeticOperations(unittest.TestCase):
     def test_divide(self):
         self.assertEqual(divide(10, 5), 2)
         self.assertEqual(divide(-1, 1), -1)
-        with self.assertRaises(ValueError):
+        with self.assertRaises(ZeroDivisionError):
             divide(10, 0)
 
 
@@ -83,7 +83,7 @@ class TestStatisticalOperations(unittest.TestCase):
 #     runner.run(suite)
 
 
-def load_tests(loader, tests, pattern):
+def load_tests(loader, standard_tests, pattern):
     suite = unittest.TestSuite()
     suite.addTests(loader.loadTestsFromTestCase(TestArithmeticOperations))
     suite.addTests(loader.loadTestsFromTestCase(TestStatisticalOperations))

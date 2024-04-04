@@ -11,8 +11,8 @@ class Employee:
         self.salary = salary
 
     def profile(self):
-        for key, value in self.__dict__.items():
-            print(f"{key.capitalize()}: {value}")
+        for attr in self.__slots__:
+            print(f"{attr.capitalize()}: {getattr(self, attr)}")
         print()
 
 
@@ -24,9 +24,9 @@ def from_csv_file(file_path):
             employees.append(
                 Employee(
                     name=row["name"],
-                    age=row["age"],
+                    age=int(row["age"]),
                     job=row["job"],
-                    salary=row["salary"],
+                    salary=float(row["salary"]),
                 )
             )
         return employees
