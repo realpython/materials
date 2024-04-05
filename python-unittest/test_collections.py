@@ -7,6 +7,11 @@ class TestCollections(unittest.TestCase):
         b = "Hello"
         self.assertSequenceEqual(a, b)
 
+    def test_string_objects(self):
+        a = "Hello"
+        b = "Hello"
+        self.assertMultiLineEqual(a, b)
+
     def test_list_objects(self):
         a = [1, 2, 3, 4, 5]
         b = [1, 2, 3, 4, 5]
