@@ -7,7 +7,9 @@ class ShapePoints(MutableSequence):
     def __init__(self, points):
         self.points = list(points)
         if len(self.points) < self.MIN_POINTS:
-            raise ValueError(f"Shape must have at least {self.MIN_POINTS} points")
+            raise ValueError(
+                f"Shape must have at least {self.MIN_POINTS} points"
+            )
         if points and self.points[0] != self.points[-1]:
             self.points.append(self.points[0])
 
@@ -31,7 +33,9 @@ class ShapePoints(MutableSequence):
 
     def __delitem__(self, index):
         if len(self) < self.MIN_POINTS + 1:
-            raise ValueError(f"Shape must have at least {self.MIN_POINTS} points")
+            raise ValueError(
+                f"Shape must have at least {self.MIN_POINTS} points"
+            )
         if index in (0, len(self.points) - 1, -1):
             del self.points[0]
             self.points[-1] = self.points[0]
