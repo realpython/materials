@@ -6,7 +6,7 @@ from employee import from_csv_file
 
 SAMPLE_CSV = """name,age,job,salary
 Alice,25,Engineer,50000
-Bob,30,Doctor,60000
+Bob,30,Analyst,60000
 Jane,35,Manager,80000
 John,40,CEO,100000
 """
