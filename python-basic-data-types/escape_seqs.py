@@ -8,7 +8,7 @@ print("a\nb")
 print("\141")
 
 # Hex
-print(\x61")
+print("\x61")
 
 # Unicode by name
 print("\N{rightwards arrow}")
