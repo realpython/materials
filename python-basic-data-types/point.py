@@ -10,6 +10,6 @@ class Point:
 
 
 origin = Point(0, 0)
-bool(origin)
+print(bool(origin))
 point = Point(2, 4)
-bool(point)
+print(bool(point))
