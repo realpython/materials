@@ -1,55 +1,69 @@
 # Build a Blog Using Django, Vue, and GraphQL
 
-## Starting the back-end Django application
+This repository contains code related to the tutorial on [building a blog using Django, Vue, and GraphQL](https://realpython.com/python-django-blog/).
 
-In a new terminal tab:
+Navigate to the corresponding folder in this repository to compare your code with the code from the tutorial:
 
-1. Install the back-end requirements in the environment of your choice:
-  ```shell
-  $ cd /path/to/repo/tutorial-drafts/articles/django-vue-graphql/source_code/backend/
-  $ python3 -m pip install -r requirements.txt
-  ```
-1. Create the initial Django database by running migrations:
-  ```shell
-  $ python manage.py migrate
-  ```
-1. Create a Django superuser:
-  ```shell
-  $ python manage.py createsuperuser
-  ```
-1. Run the Django project (by default on port 8000):
-  ```shell
-  $ python manage.py runserver
-  ```
+- [Step 1](source_code_step_1/)
+- [Step 2](source_code_step_2/)
+- [Step 3](source_code_step_3/)
+- [Step 4](source_code_step_4/)
+- [Step 5](source_code_step_5/)
+- [Step 6](source_code_step_6/)
+- [Step 7](source_code_step_7/)
+- [Step 8](source_code_step_8/)
+- [Step 9](source_code_final/)
 
-## Starting the front-end Vue application
+If you want to install the project on your machine without following the tutorial, then you need to follow the steps outlined below.
 
-In a new terminal tab:
+## Setup
 
-1. Install the front-end requirements:
-  ```shell
-  $ cd /path/to/repo/tutorial-drafts/articles/django-vue-graphql/source_code/frontend/
-  $ npm install
-  ```
-1. Run the Vue project (by default on port 8080):
-  ```shell
-  $ npm run serve
-  ```
+Navigate into the `source_code_final/` folder. In this folder, you'll find the folders `back_end/` and `front_end/`, which represent both projects of the tutorial.
 
-## Add a few posts
+### Back End
 
-1. Visit [the Django admin](https://localhost:8000/admin)
-1. Log in using the superuser you created earlier
-1. Write a few posts, adding authors and tags as desired
-1. Make sure at least one post is `published` (or no posts will appear)
+Create a new terminal window, navigate into `back_end/`, create, activate a [virtual environment](https://realpython.com/python-virtual-environments-a-primer/), and install the necessary dependencies:
 
-## View the blog
+```sh
+$ python -m venv venv
+$ source venv/bin/activate
+(venv) $ python -m pip install -r requirements.txt
+```
 
-1. Visit [the blog homepage](https://localhost:8080)
-1. Browse the posts, tags, and authors
+Then, create the initial Django database by running migrations:
 
-## Try the GraphQL API yourself
+```sh
+$ python manage.py migrate
+```
 
-1. Visit [the GraphiQL interface](https://localhost:8000/graphql)
-1. View the *Docs* panel on the top right
-1. Create some queries&mdash;the available information should auto-populate!
+Create a Django superuser:
+
+```shell
+$ python manage.py createsuperuser
+```
+
+Run the Django project:
+
+```sh
+$ python manage.py runserver
+```
+
+Before continuing, it's a good idea to create some users, profiles, and blog posts in the Django admin interface at `http://localhost:8000/admin`. You must use your superuser credentials to log in.
+
+You can visit the GraphiQL platform `http://localhost:8000/graphql` to try out GraphQL queries.
+
+### Front End
+
+Open a new terminal and navigate into `front_end/`. Then, install the front-end requirements:
+
+```sh
+$ npm install --include dev
+```
+
+Run the Vite development server:
+
+```sh
+$ npm run dev
+```
+
+You must have the Django development server and the Vite server running at the same time.
