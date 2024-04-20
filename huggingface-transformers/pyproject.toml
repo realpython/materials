@@ -1,0 +1,20 @@
+[tool.poetry]
+name = "huggingface-transformers"
+version = "0.1.0"
+description = "Materials for the RealPython HuggingFace Transformers Showcase"
+authors = ["Harrison Hoffman"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.12"
+transformers = "^4.39.3"
+ipykernel = "^6.29.4"
+torch = "^2.2.2"
+polars = "^0.20.20"
+polars-lts-cpu = "^0.20.21"
+black = "^24.4.0"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
