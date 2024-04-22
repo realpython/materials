@@ -10,7 +10,7 @@ class ShapePoints(MutableSequence):
             raise ValueError(
                 f"Shape must have at least {self.MIN_POINTS} points"
             )
-        if points and self.points[0] != self.points[-1]:
+        if self.points[0] != self.points[-1]:
             self.points.append(self.points[0])
 
     def __repr__(self):
@@ -20,9 +20,7 @@ class ShapePoints(MutableSequence):
         return self.points[index]
 
     def __len__(self):
-        if self.points:
-            return len(self.points) - 1
-        return 0
+        return len(self.points) - 1
 
     def __iter__(self):
         return iter(self.points)
