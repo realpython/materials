@@ -7,9 +7,11 @@ def connect_to_db(db_path):
 
 if __name__ == "__main__":
     with connect_to_db("birds.db") as connection:
-        connection.execute("""
+        connection.execute(
+            """
           CREATE TABLE IF NOT EXISTS bird (
             id INTEGER PRIMARY KEY AUTOINCREMENT,
             name TEXT NOT NULL
           );
-        """)
+        """
+        )
