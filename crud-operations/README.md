@@ -1,6 +1,6 @@
 # What Are CRUD Operations?
 
-This repository contains code related to the Real Python tutorial on [building a front end for a REST API](https://realpython.com/crud-operations/).
+This repository contains code related to the Real Python tutorial on [CRUD operations](https://realpython.com/crud-operations/).
 
 ## Setup
 

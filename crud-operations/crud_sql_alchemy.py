@@ -12,7 +12,7 @@ class Bird(Base):
     name = Column(String)
 
     def __repr__(self):
-        return f"<Bird(id={self.id}, name='{self.name}')>"
+        return f"Bird(id={self.id}, name={self.name!r})"
 
 
 engine = create_engine("sqlite:///birds.db")
