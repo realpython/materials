@@ -87,10 +87,10 @@ def apply_tariff_isin(df):
     df.loc[peak_hours, "cost_cents"] = df.loc[peak_hours, "energy_kwh"] * 28
     df.loc[shoulder_hours, "cost_cents"] = (
         df.loc[shoulder_hours, "energy_kwh"] * 20
-    )  # noqa
+    )
     df.loc[off_peak_hours, "cost_cents"] = (
         df.loc[off_peak_hours, "energy_kwh"] * 12
-    )  # noqa
+    )
 
 
 @timeit(repeat=3, number=1000)

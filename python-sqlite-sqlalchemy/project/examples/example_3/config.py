@@ -1,6 +1,7 @@
-import os
 import json
+import os
 from pathlib import Path
+
 from dotenv import load_dotenv
 
 # Load the environment variables from .env file

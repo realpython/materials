@@ -1,5 +1,5 @@
-import os
 import getpass
+import os
 
 
 def verify_email(email):

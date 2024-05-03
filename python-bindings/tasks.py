@@ -2,14 +2,15 @@
     overview article.
 """
 
+import glob
+import os
+import pathlib
+import re
+import shutil
+import sys
+
 import cffi
 import invoke
-import pathlib
-import sys
-import os
-import shutil
-import re
-import glob
 
 on_win = sys.platform.startswith("win")
 

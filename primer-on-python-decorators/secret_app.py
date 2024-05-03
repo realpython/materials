@@ -1,5 +1,6 @@
 import functools
-from flask import Flask, g, request, redirect, url_for
+
+from flask import Flask, g, redirect, request, url_for
 
 app = Flask(__name__)
 

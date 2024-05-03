@@ -5,8 +5,8 @@ $ python -m stegano
 
 from .bitmap import Bitmap
 from .cli import CommandLineArguments, parse_args
-from .decoder import decode, DecodingError
-from .encoder import encode, EncodingError
+from .decoder import DecodingError, decode
+from .encoder import EncodingError, encode
 from .eraser import erase
 
 

@@ -1,6 +1,6 @@
 from django.views.generic import (
-    ListView,
     DetailView,
+    ListView,
 )
 
 from .models import Entry

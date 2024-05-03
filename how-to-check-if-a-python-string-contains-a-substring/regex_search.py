@@ -1,6 +1,5 @@
 import re
 
-
 file_content = """hi there and welcome.
 this is a special hidden file with a secret secret.
 i don't want to tell you the secret,

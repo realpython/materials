@@ -1,6 +1,6 @@
 # Bokeh Library
 from bokeh.io import output_file
-from bokeh.models.widgets import Tabs, Panel
+from bokeh.models.widgets import Panel, Tabs
 
 # Output to file
 output_file(

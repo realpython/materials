@@ -1,6 +1,6 @@
+import random
 from dataclasses import dataclass
 from typing import TypeVar
-import random
 
 # Create TBankAccount type bound by the BankAccount class
 TBankAccount = TypeVar("TBankAccount", bound="BankAccount")

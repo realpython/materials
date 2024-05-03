@@ -1,10 +1,9 @@
 # hearts.py
 
-from collections import Counter
 import random
 import sys
-from typing import Any, Dict, List, Optional, Sequence, Tuple, Union
-from typing import overload
+from collections import Counter
+from typing import Any, Dict, List, Optional, Sequence, Tuple, Union, overload
 
 
 class Card:
@@ -70,10 +69,10 @@ class Deck(Sequence[Card]):
     def __getitem__(self, key: int) -> Card: ...
 
     @overload
-    def __getitem__(self, key: slice) -> "Deck":  # noqa
+    def __getitem__(self, key: slice) -> "Deck":
         ...
 
-    def __getitem__(  # noqa
+    def __getitem__(
         self, key: Union[int, slice]
     ) -> Union[Card, "Deck"]:
         if isinstance(key, int):

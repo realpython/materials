@@ -5,6 +5,7 @@ Jon Fincher, July 2018
 """
 
 import unittest
+
 from pyeval_expression import Expression
 
 

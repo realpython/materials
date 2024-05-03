@@ -7,9 +7,9 @@ Must have Git installed on the system with the `git` command available.
 If your Python command is `python3`, change the `PYTHON_COMMAND` variable.
 """
 
+import subprocess
 from argparse import ArgumentParser
 from pathlib import Path
-import subprocess
 
 PYTHON_COMMAND = "python"
 

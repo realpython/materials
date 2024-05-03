@@ -1,11 +1,9 @@
 from asyncio.queues import Queue
 
 from js import document
-from pyodide import create_proxy
-
 from players import BrowserPlayer
+from pyodide import create_proxy
 from renderers import BrowserRenderer
-
 from tic_tac_toe.game.engine_async import AsyncTicTacToe
 from tic_tac_toe.game.players_async import (
     AsyncMinimaxComputerPlayer,

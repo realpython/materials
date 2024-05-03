@@ -1,5 +1,6 @@
-from microbit import display, Image, accelerometer, sleep
 from random import randrange
+
+from microbit import Image, accelerometer, display, sleep
 
 # Define left, stay still and right
 directions = ["L", "O", "R"]

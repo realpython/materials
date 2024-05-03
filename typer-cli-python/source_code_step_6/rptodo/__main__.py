@@ -1,6 +1,6 @@
 """RP To-Do entry point script."""
 
-from rptodo import cli, __app_name__
+from rptodo import __app_name__, cli
 
 
 def main():

@@ -1,8 +1,7 @@
 # todo_list/todo_app/models.py
-from django.utils import timezone
-
 from django.db import models
 from django.urls import reverse
+from django.utils import timezone
 
 
 def one_week_hence():

@@ -1,6 +1,7 @@
 # mandelbrot_03.py
 
 from __future__ import annotations  # Union type syntax
+
 from dataclasses import dataclass
 from math import log
 

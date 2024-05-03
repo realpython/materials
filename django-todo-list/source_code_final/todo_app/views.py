@@ -1,12 +1,12 @@
 # todo_list/todo_app/views.py
 from django.urls import reverse, reverse_lazy
-
 from django.views.generic import (
-    ListView,
     CreateView,
-    UpdateView,
     DeleteView,
+    ListView,
+    UpdateView,
 )
+
 from .models import ToDoItem, ToDoList
 
 

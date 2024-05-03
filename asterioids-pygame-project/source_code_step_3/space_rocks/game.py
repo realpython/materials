@@ -1,5 +1,4 @@
 import pygame
-
 from utils import load_sprite
 
 

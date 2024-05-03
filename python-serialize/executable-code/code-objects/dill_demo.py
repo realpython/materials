@@ -4,7 +4,7 @@ import dill
 def main():
     create_plus = deserialize(serialize())
     print(create_plus)
-    print(f"{create_plus(3)(2) = }")  # noqa
+    print(f"{create_plus(3)(2) = }")
 
 
 def serialize():
