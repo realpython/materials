@@ -18,5 +18,4 @@ def login_required(func):
 
 @app.route("/secret")
 @login_required
-def secret():
-    ...
+def secret(): ...

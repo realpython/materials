@@ -1,4 +1,5 @@
 """Generate random data for the project."""
+
 from dataclasses import dataclass, field, asdict
 from typing import Optional
 from random import choice, seed as py_rand_seed

@@ -5,6 +5,7 @@ Associated with the Real Python article
 Scientific Python: Using SciPy for Optimization
 Available at: https://realpython.com/python-scipy-cluster-optimize/
 """
+
 import numpy as np
 from scipy.optimize import minimize, LinearConstraint
 

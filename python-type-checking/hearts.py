@@ -67,8 +67,7 @@ class Deck(Sequence[Card]):
         return len(self.cards)
 
     @overload
-    def __getitem__(self, key: int) -> Card:
-        ...
+    def __getitem__(self, key: int) -> Card: ...
 
     @overload
     def __getitem__(self, key: slice) -> "Deck":  # noqa
