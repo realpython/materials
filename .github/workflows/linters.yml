@@ -48,7 +48,7 @@ jobs:
     - name: Check code style
       run: |
         . venv/bin/activate
-        python -m flake8
+        python -m ruff check .
         python -m black --check .
 
     - name: Check directory layout
