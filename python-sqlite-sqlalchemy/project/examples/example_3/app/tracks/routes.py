@@ -2,7 +2,13 @@ from app import db
 from app.models import Album, Artist, Genre, MediaType, Track
 from flask import Blueprint, render_template
 from flask_wtf import FlaskForm
-from wtforms import FloatField, HiddenField, IntegerField, SelectField, StringField
+from wtforms import (
+    FloatField,
+    HiddenField,
+    IntegerField,
+    SelectField,
+    StringField,
+)
 from wtforms.validators import InputRequired, ValidationError
 
 # Setup the Blueprint

@@ -69,12 +69,9 @@ class Deck(Sequence[Card]):
     def __getitem__(self, key: int) -> Card: ...
 
     @overload
-    def __getitem__(self, key: slice) -> "Deck":
-        ...
+    def __getitem__(self, key: slice) -> "Deck": ...
 
-    def __getitem__(
-        self, key: Union[int, slice]
-    ) -> Union[Card, "Deck"]:
+    def __getitem__(self, key: Union[int, slice]) -> Union[Card, "Deck"]:
         if isinstance(key, int):
             return self.cards[key]
         elif isinstance(key, slice):
