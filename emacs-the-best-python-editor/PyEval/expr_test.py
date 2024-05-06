@@ -3,12 +3,13 @@ Test cases for PyEval
 
 Jon Fincher, July 2018
 """
+
 import unittest
+
 from pyeval_expression import Expression
 
 
 class TestPyEval(unittest.TestCase):
-
     """
     Validation of Expression and Operator classes.
     No setup function is needed

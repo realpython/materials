@@ -1,8 +1,8 @@
-from collections import namedtuple
 import csv
-from datetime import datetime
-import itertools as it
 import functools as ft
+import itertools as it
+from collections import namedtuple
+from datetime import datetime
 
 
 class DataPoint(namedtuple("DataPoint", ["date", "value"])):

@@ -1,6 +1,5 @@
 from dataclasses import dataclass
 
-
 # Point with slots
 # class Point:
 #     __slots__ = ("x", "y")

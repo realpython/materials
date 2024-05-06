@@ -1,6 +1,5 @@
-from django import template
-
 from cards.models import BOXES, Card
+from django import template
 
 register = template.Library()
 

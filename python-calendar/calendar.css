@@ -1,0 +1,11 @@
+body {
+    font: 16px "Helvetica Neue", Arial, Helvetica, Geneva, sans-serif;
+}
+
+table {
+    margin: 10px;
+}
+
+th, td {
+    padding: 5px;
+}

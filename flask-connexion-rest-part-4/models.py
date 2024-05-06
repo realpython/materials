@@ -1,4 +1,5 @@
 from datetime import datetime
+
 from config import db, ma
 from marshmallow import fields
 

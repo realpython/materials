@@ -1,6 +1,7 @@
 # todo_list/todo_app/views.py
 from django.views.generic import ListView
-from .models import ToDoList, ToDoItem
+
+from .models import ToDoItem, ToDoList
 
 
 class ListListView(ListView):

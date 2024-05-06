@@ -1,6 +1,5 @@
 import re
 
-
 ENTRY_PATTERN = (
     r"\[(.+)\] "  # User string, discarding square brackets
     r"[-T:+\d]{25} "  # Time stamp

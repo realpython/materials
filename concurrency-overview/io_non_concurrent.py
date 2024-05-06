@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
-import requests
 import time
+
+import requests
 
 
 def download_site(url, session):

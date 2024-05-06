@@ -22,9 +22,10 @@ def main():
     with open("names.txt", "w", encoding="utf-8") as destination:
         destination.writelines(names())
 
-    with open("names.txt", encoding="utf-8") as source, open(
-        "sorted_names.txt", "w", encoding="utf-8"
-    ) as destination:
+    with (
+        open("names.txt", encoding="utf-8") as source,
+        open("sorted_names.txt", "w", encoding="utf-8") as destination,
+    ):
         destination.writelines(sorted(source.readlines()))
 
     print('Created "names.txt" and "sorted_names.txt"')

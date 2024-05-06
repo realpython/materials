@@ -1,6 +1,6 @@
 import secrets
-import validators
 
+import validators
 from fastapi import Depends, FastAPI, HTTPException, Request
 from fastapi.responses import RedirectResponse
 from sqlalchemy.orm import Session

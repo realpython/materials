@@ -1,7 +1,7 @@
 # Bokeh library
-from bokeh.plotting import show
 from bokeh.io import output_file
 from bokeh.layouts import column
+from bokeh.plotting import show
 
 # Output to file
 output_file(
