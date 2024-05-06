@@ -2,11 +2,11 @@ from django.contrib import messages
 from django.contrib.messages.views import SuccessMessageMixin
 from django.urls import reverse_lazy
 from django.views.generic import (
-    ListView,
-    DetailView,
     CreateView,
-    UpdateView,
     DeleteView,
+    DetailView,
+    ListView,
+    UpdateView,
 )
 
 from .models import Entry

@@ -1,8 +1,8 @@
-from collections import namedtuple
 import csv
 import datetime
 import itertools as it
 import statistics
+from collections import namedtuple
 
 
 class Event(namedtuple("Event", ["stroke", "name", "time"])):

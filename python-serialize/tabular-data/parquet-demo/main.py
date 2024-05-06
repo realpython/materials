@@ -11,8 +11,8 @@ def main():
     df2 = deserialize_with_pyarrow("users.parquet")
     df3 = deserialize_with_fastparquet("users.parquet")
 
-    print(f"{df1.equals(df2) = }")  # noqa
-    print(f"{df2.equals(df3) = }")  # noqa
+    print(f"{df1.equals(df2) = }")
+    print(f"{df2.equals(df3) = }")
 
     df = prune_and_filter("users.parquet")
     print(df.head())

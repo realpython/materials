@@ -1,8 +1,8 @@
-import sys
-import selectors
-import json
 import io
+import json
+import selectors
 import struct
+import sys
 
 
 class Message:

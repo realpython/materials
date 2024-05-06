@@ -1,6 +1,5 @@
 from typing import TypeAlias
 
-
 EmailComponents: TypeAlias = tuple[str, str] | None
 
 

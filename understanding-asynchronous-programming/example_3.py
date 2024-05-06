@@ -1,5 +1,6 @@
-import time
 import queue
+import time
+
 from codetiming import Timer
 
 

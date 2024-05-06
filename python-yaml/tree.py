@@ -54,14 +54,16 @@ def html_list(node):
 
 def html_map(node):
     pairs = "".join(
-        f'<li><span class="key">{visit(key)}:</span> {visit(value)}</li>'
-        if isinstance(value, yaml.ScalarNode)
-        else (
-            "<li>"
-            "<details>"
-            f'<summary class="key">{visit(key)}</summary> {visit(value)}'
-            "</details>"
-            "</li>"
+        (
+            f'<li><span class="key">{visit(key)}:</span> {visit(value)}</li>'
+            if isinstance(value, yaml.ScalarNode)
+            else (
+                "<li>"
+                "<details>"
+                f'<summary class="key">{visit(key)}</summary> {visit(value)}'
+                "</details>"
+                "</li>"
+            )
         )
         for key, value in node.value
     )

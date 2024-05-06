@@ -2,8 +2,9 @@
 #
 
 # Imports
-import arcade
 import random
+
+import arcade
 
 # Constants
 SCREEN_WIDTH = 800

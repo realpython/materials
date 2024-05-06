@@ -10,7 +10,7 @@ from typing import Optional
 
 import yaml
 from fastapi import FastAPI
-from fastapi.responses import JSONResponse, HTMLResponse
+from fastapi.responses import HTMLResponse, JSONResponse
 from fastapi.staticfiles import StaticFiles
 from pydantic import BaseModel
 

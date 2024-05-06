@@ -1,10 +1,9 @@
-from fastapi import FastAPI, HTTPException, Depends
-from sqlalchemy import select
-from sqlalchemy.orm import Session
-from pydantic import BaseModel, ConfigDict
-
 from crud_sql_alchemy import Bird, init_db
 from crud_sql_alchemy import Session as SessionLocal
+from fastapi import Depends, FastAPI, HTTPException
+from pydantic import BaseModel, ConfigDict
+from sqlalchemy import select
+from sqlalchemy.orm import Session
 
 app = FastAPI()
 init_db()

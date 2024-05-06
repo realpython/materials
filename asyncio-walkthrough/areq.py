@@ -7,9 +7,9 @@ import asyncio
 import logging
 import re
 import sys
-from typing import IO
 import urllib.error
 import urllib.parse
+from typing import IO
 
 import aiofiles
 import aiohttp

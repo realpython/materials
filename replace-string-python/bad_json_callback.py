@@ -1,5 +1,5 @@
-import re
 import json
+import re
 
 data = """{
     birthday = 1991

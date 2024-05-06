@@ -1,6 +1,6 @@
 # parse.pyi
 
-from typing import Any, Mapping, Optional, Sequence, Tuple, Union
+from typing import Mapping, Optional, Sequence, Tuple, Union
 
 class Result:
     def __init__(
