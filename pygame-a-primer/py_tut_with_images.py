@@ -1,21 +1,21 @@
 # Import the pygame module
-import pygame
-
 # Import random for random numbers
 import random
+
+import pygame
 
 # Import pygame.locals for easier access to key coordinates
 # Updated to conform to flake8 and black standards
 # from pygame.locals import *
 from pygame.locals import (
-    RLEACCEL,
-    K_UP,
     K_DOWN,
+    K_ESCAPE,
     K_LEFT,
     K_RIGHT,
-    K_ESCAPE,
+    K_UP,
     KEYDOWN,
     QUIT,
+    RLEACCEL,
 )
 
 # Define constants for the screen width and height

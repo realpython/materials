@@ -11,18 +11,17 @@ of adventurelib. It will:
 
 # Import the library contents
 # from adventurelib import *
-import adventurelib as adv
-
-# Import your rooms, which imports your items and characters
-import adventurelib_game_rooms
-
-import adventurelib_game_items
+# To allow you to exit the game
+import sys
 
 # For your battle sequence
 from random import randint
 
-# To allow you to exit the game
-import sys
+import adventurelib as adv
+import adventurelib_game_items
+
+# Import your rooms, which imports your items and characters
+import adventurelib_game_rooms
 
 # Set the first room
 current_room = adventurelib_game_rooms.home

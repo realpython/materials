@@ -3,11 +3,9 @@ from typing import Protocol
 
 
 class Shape(Protocol):
-    def area(self) -> float:
-        ...
+    def area(self) -> float: ...
 
-    def perimeter(self) -> float:
-        ...
+    def perimeter(self) -> float: ...
 
 
 class Circle:

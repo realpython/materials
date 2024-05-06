@@ -1,4 +1,4 @@
-from numpy.random import Generator, PCG64DXSM
+from numpy.random import PCG64DXSM, Generator
 
 rng = Generator(PCG64DXSM())
 

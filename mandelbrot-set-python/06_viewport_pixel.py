@@ -1,7 +1,5 @@
-from PIL import Image
-from PIL import ImageEnhance
-
 from mandelbrot_03 import MandelbrotSet
+from PIL import Image, ImageEnhance
 from viewport import Viewport
 
 if __name__ == "__main__":

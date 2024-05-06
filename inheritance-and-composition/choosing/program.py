@@ -1,6 +1,6 @@
-from hr import calculate_payroll, LTDPolicy
-from productivity import track
 from employees import employee_database
+from hr import LTDPolicy, calculate_payroll
+from productivity import track
 
 employees = employee_database.employees
 

@@ -1,7 +1,7 @@
 # hashtable.py
 
 from collections import deque
-from typing import NamedTuple, Any
+from typing import Any, NamedTuple
 
 
 class Pair(NamedTuple):

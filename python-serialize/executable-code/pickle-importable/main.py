@@ -8,7 +8,7 @@ def main():
     function = pickle.loads(function_raw)
     print(function_raw)
     print(function)
-    print(f"{function(3)(2) = }")  # noqa
+    print(f"{function(3)(2) = }")
 
 
 if __name__ == "__main__":

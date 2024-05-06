@@ -1,9 +1,9 @@
 # core imports
 from chalice import Chalice, Response
-from twilio.base.exceptions import TwilioRestException
 
 # app level imports
 from chalicelib import sms
+from twilio.base.exceptions import TwilioRestException
 
 app = Chalice(app_name="sms-shooter")
 

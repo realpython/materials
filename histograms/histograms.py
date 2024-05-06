@@ -11,16 +11,16 @@ or
 $ python3 -i ./histograms.py
 """
 
-from collections import Counter
 import random
 import sys
 import warnings
+from collections import Counter
 
 import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
-from scipy import stats
 import seaborn as sns
+from scipy import stats
 
 print(__doc__)
 

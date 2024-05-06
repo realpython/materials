@@ -1,16 +1,15 @@
-from concurrent import futures
 import random
+from concurrent import futures
 
 import grpc
+import recommendations_pb2_grpc
 from grpc_interceptor import ExceptionToStatusInterceptor
 from grpc_interceptor.exceptions import NotFound
-
 from recommendations_pb2 import (
     BookCategory,
     BookRecommendation,
     RecommendationResponse,
 )
-import recommendations_pb2_grpc
 
 books_by_category = {
     BookCategory.MYSTERY: [
