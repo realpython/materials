@@ -1,4 +1,5 @@
 """Creates and seeds a SQLite example database."""
+
 import sqlite3
 
 DATABASE = "./database.db"

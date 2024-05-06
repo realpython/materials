@@ -5,7 +5,6 @@ from math import inf as infinity
 from typing import NamedTuple
 
 import networkx as nx
-
 from queues import MutableMinHeap, Queue, Stack
 
 

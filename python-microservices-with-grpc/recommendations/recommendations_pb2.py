@@ -234,16 +234,16 @@ _RECOMMENDATIONRESPONSE = _descriptor.Descriptor(
 )
 
 _RECOMMENDATIONREQUEST.fields_by_name["category"].enum_type = _BOOKCATEGORY
-_RECOMMENDATIONRESPONSE.fields_by_name[
-    "recommendations"
-].message_type = _BOOKRECOMMENDATION
-DESCRIPTOR.message_types_by_name[
-    "RecommendationRequest"
-] = _RECOMMENDATIONREQUEST
+_RECOMMENDATIONRESPONSE.fields_by_name["recommendations"].message_type = (
+    _BOOKRECOMMENDATION
+)
+DESCRIPTOR.message_types_by_name["RecommendationRequest"] = (
+    _RECOMMENDATIONREQUEST
+)
 DESCRIPTOR.message_types_by_name["BookRecommendation"] = _BOOKRECOMMENDATION
-DESCRIPTOR.message_types_by_name[
-    "RecommendationResponse"
-] = _RECOMMENDATIONRESPONSE
+DESCRIPTOR.message_types_by_name["RecommendationResponse"] = (
+    _RECOMMENDATIONRESPONSE
+)
 DESCRIPTOR.enum_types_by_name["BookCategory"] = _BOOKCATEGORY
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
@@ -252,7 +252,7 @@ RecommendationRequest = _reflection.GeneratedProtocolMessageType(
     (_message.Message,),
     {
         "DESCRIPTOR": _RECOMMENDATIONREQUEST,
-        "__module__": "recommendations_pb2"
+        "__module__": "recommendations_pb2",
         # @@protoc_insertion_point(class_scope:RecommendationRequest)
     },
 )
@@ -263,7 +263,7 @@ BookRecommendation = _reflection.GeneratedProtocolMessageType(
     (_message.Message,),
     {
         "DESCRIPTOR": _BOOKRECOMMENDATION,
-        "__module__": "recommendations_pb2"
+        "__module__": "recommendations_pb2",
         # @@protoc_insertion_point(class_scope:BookRecommendation)
     },
 )
@@ -274,7 +274,7 @@ RecommendationResponse = _reflection.GeneratedProtocolMessageType(
     (_message.Message,),
     {
         "DESCRIPTOR": _RECOMMENDATIONRESPONSE,
-        "__module__": "recommendations_pb2"
+        "__module__": "recommendations_pb2",
         # @@protoc_insertion_point(class_scope:RecommendationResponse)
     },
 )

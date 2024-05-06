@@ -1,8 +1,8 @@
 from datetime import datetime
-from sqlalchemy.exc import OperationalError
 
 from config import app, db
 from models import Note, Person
+from sqlalchemy.exc import OperationalError
 
 PEOPLE_NOTES = [
     {

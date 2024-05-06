@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 
-import sys
-import socket
 import selectors
+import socket
+import sys
 import traceback
 
 import libclient

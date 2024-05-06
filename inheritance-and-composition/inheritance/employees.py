@@ -1,5 +1,5 @@
-from hr import SalaryPolicy, CommissionPolicy, HourlyPolicy
-from productivity import ManagerRole, SecretaryRole, SalesRole, FactoryRole
+from hr import CommissionPolicy, HourlyPolicy, SalaryPolicy
+from productivity import FactoryRole, ManagerRole, SalesRole, SecretaryRole
 
 
 class Employee:

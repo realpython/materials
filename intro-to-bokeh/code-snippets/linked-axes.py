@@ -1,8 +1,8 @@
 # Bokeh Libraries
-from bokeh.plotting import figure, show
 from bokeh.io import output_file
-from bokeh.models import ColumnDataSource, CategoricalColorMapper, Div
-from bokeh.layouts import gridplot, column
+from bokeh.layouts import column, gridplot
+from bokeh.models import CategoricalColorMapper, ColumnDataSource, Div
+from bokeh.plotting import figure, show
 
 # Output to file
 output_file("phi-gm-linked-stats.html", title="76ers Game Log")

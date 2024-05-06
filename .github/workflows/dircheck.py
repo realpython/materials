@@ -1,6 +1,7 @@
 """
 Linter to ensure standard folder structure
 """
+
 import pathlib
 import re
 import sys

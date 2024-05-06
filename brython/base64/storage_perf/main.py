@@ -1,6 +1,7 @@
-from browser import document, html, alert
-from browser.local_storage import storage
 import base64
+
+from browser import alert, document, html
+from browser.local_storage import storage
 
 
 def load_data():

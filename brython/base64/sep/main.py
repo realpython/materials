@@ -1,5 +1,6 @@
-from browser import document, prompt, html  # type: ignore
 import base64
+
+from browser import document, html, prompt  # type: ignore
 
 b64_map = {}
 

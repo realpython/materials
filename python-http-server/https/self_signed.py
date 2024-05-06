@@ -36,7 +36,7 @@ class SelfSignedCertificate:
         subject.C = self.country
         subject.ST = self.state
         subject.L = self.locality
-        subject.O = self.organization  # noqa
+        subject.O = self.organization
         subject.OU = self.organizational_unit
 
         certificate.set_serial_number(self.serial_number)

@@ -1,7 +1,6 @@
 #!/usr/bin/env python3
 import concurrent.futures
 
-
 counter = 0
 
 

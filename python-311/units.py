@@ -1,5 +1,4 @@
 import pathlib
-
 import tomllib
 
 with pathlib.Path("units.toml").open(mode="rb") as file:

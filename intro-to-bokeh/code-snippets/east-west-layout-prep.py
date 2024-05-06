@@ -1,6 +1,6 @@
 # Bokeh libraries
+from bokeh.models import CDSView, ColumnDataSource, GroupFilter
 from bokeh.plotting import figure
-from bokeh.models import ColumnDataSource, CDSView, GroupFilter
 
 # Create a ColumnDataSource
 standings_cds = ColumnDataSource(standings)  # noqa

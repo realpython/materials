@@ -1,6 +1,6 @@
-from hr import PayrollSystem, HourlyPolicy
-from productivity import ProductivitySystem
 from employees import EmployeeDatabase
+from hr import HourlyPolicy, PayrollSystem
+from productivity import ProductivitySystem
 
 productivity_system = ProductivitySystem()
 payroll_system = PayrollSystem()
