@@ -1,7 +1,5 @@
-These materials supplement the RealPython tutorial [How to Create a Pivot Table With pandas](https://realpython.com/how-to-pandas-pivot-table/)
+These downloads contain three files for use with the RealPython tutorial [How To Create A Pivot Table With Pandas](https://realpython.com/how-to-pandas-pivot-table/).
 
-The files available are:
-
-code_downloads.ipynb  - Contains the code used in the tutorial.
-solutions.ipynb - Contains solutions to each of the exercises.
-sales_data.csv - Contains the source data used in the tutorial.
+code_downloads.ipynb contains the main code from the tutorial.
+solutions.ipynb contains sample solutions to the various exercises.
+sales_data.csv contains the source data used throughout the tutorial.
