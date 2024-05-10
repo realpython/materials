@@ -15,7 +15,7 @@ def build_sales_report(sales_data, report_template=REPORT_TEMPLATE):
     transactions = len(sales_data)
     avg_transaction = total_sales / transactions
 
-    report = report_template.format(
+    return report_template.format(
         sep=".",
         start_date=sales_data[0]["date"],
         end_date=sales_data[-1]["date"],
@@ -23,8 +23,6 @@ def build_sales_report(sales_data, report_template=REPORT_TEMPLATE):
         transactions=transactions,
         avg_transaction=avg_transaction,
     )
-
-    return report
 
 
 sales_data = [
