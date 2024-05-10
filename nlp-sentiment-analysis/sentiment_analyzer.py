@@ -1,9 +1,10 @@
 import os
 import random
-import spacy
-from spacy.util import minibatch, compounding
+
 import pandas as pd
 
+import spacy
+from spacy.util import compounding, minibatch
 
 TEST_REVIEW = """
 Transcendently beautiful in moments outside the office, it seems almost

@@ -1,6 +1,6 @@
 # test_hashtable.py
 
-from hashtable import HashTable, BLANK
+from hashtable import BLANK, HashTable
 
 
 def test_should_create_hashtable():

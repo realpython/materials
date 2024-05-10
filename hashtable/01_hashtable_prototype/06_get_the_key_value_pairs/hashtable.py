@@ -1,6 +1,6 @@
 # hashtable.py
 
-from typing import NamedTuple, Any
+from typing import Any, NamedTuple
 
 
 class Pair(NamedTuple):

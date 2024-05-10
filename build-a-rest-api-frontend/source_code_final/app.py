@@ -1,6 +1,5 @@
-from flask import render_template
-
 import config
+from flask import render_template
 from models import Person
 
 app = config.connex_app

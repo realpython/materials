@@ -1,2 +1,2 @@
-black[jupyter]==22.6.0
-flake8==6.1.0 
+black[jupyter]==24.4.2
+ruff==0.4.2

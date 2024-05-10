@@ -1,5 +1,4 @@
 import numpy as np
-
 from decks import create_high_cards
 
 NUMBER_OF_SUITES = 4

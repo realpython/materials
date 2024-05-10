@@ -1,5 +1,4 @@
 import pygame
-
 from models import Asteroid, Spaceship
 from utils import get_random_position, load_sprite
 

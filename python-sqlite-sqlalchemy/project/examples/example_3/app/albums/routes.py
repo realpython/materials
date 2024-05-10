@@ -1,11 +1,9 @@
-from flask import Blueprint, render_template, redirect, url_for
-from flask_wtf import FlaskForm
-from wtforms import StringField
-from wtforms import HiddenField
-from wtforms.validators import InputRequired, ValidationError
 from app import db
-from app.models import Artist, Album
-
+from app.models import Album, Artist
+from flask import Blueprint, redirect, render_template, url_for
+from flask_wtf import FlaskForm
+from wtforms import HiddenField, StringField
+from wtforms.validators import InputRequired, ValidationError
 
 # Setup the Blueprint
 albums_bp = Blueprint(

@@ -94,7 +94,7 @@ def get_answers(question, alternatives, num_choices=1, hint=None):
             for answer in answers
         ):
             print(
-                f"{invalid!r} is not a valid choice. "  # noqa
+                f"{invalid!r} is not a valid choice. "
                 f"Please use {', '.join(labeled_alternatives)}"
             )
             continue

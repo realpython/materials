@@ -4,11 +4,11 @@ import sys
 
 import yaml
 from yaml import (
-    ScalarEvent,
-    SequenceStartEvent,
-    SequenceEndEvent,
-    MappingStartEvent,
     MappingEndEvent,
+    MappingStartEvent,
+    ScalarEvent,
+    SequenceEndEvent,
+    SequenceStartEvent,
 )
 
 OPEN_TAG_EVENTS = (ScalarEvent, SequenceStartEvent, MappingStartEvent)

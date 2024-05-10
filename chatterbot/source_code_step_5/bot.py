@@ -1,7 +1,7 @@
-from chatterbot import ChatBot
-from chatterbot.trainers import ListTrainer
 from cleaner import clean_corpus
 
+from chatterbot import ChatBot
+from chatterbot.trainers import ListTrainer
 
 CORPUS_FILE = "chat.txt"
 

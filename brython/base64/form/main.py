@@ -1,5 +1,6 @@
-from browser import document, html, alert
 import base64
+
+from browser import alert, document, html
 
 b64_map = {}
 

@@ -1,5 +1,4 @@
 from recommendations import RecommendationService
-
 from recommendations_pb2 import BookCategory, RecommendationRequest
 
 

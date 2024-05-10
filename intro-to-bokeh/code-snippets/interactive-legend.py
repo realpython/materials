@@ -1,8 +1,8 @@
 # Bokeh Libraries
-from bokeh.plotting import figure, show
 from bokeh.io import output_file
-from bokeh.models import ColumnDataSource, CDSView, GroupFilter
 from bokeh.layouts import row
+from bokeh.models import CDSView, ColumnDataSource, GroupFilter
+from bokeh.plotting import figure, show
 
 # Output inline in the notebook
 output_file("lebron-vs-durant.html", title="LeBron James vs. Kevin Durant")

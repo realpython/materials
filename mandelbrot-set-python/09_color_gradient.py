@@ -1,8 +1,7 @@
 import numpy as np
+from mandelbrot_03 import MandelbrotSet
 from PIL import Image
 from scipy.interpolate import interp1d
-
-from mandelbrot_03 import MandelbrotSet
 from viewport import Viewport
 
 

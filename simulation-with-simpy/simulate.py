@@ -6,9 +6,10 @@ Python version: 3.7.3
 SimPy version: 3.0.11
 """
 
-import simpy
 import random
 import statistics
+
+import simpy
 
 wait_times = []
 

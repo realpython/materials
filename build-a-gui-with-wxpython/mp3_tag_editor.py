@@ -1,5 +1,6 @@
-import eyed3
 import glob
+
+import eyed3
 import wx
 
 

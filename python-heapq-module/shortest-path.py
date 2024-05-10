@@ -1,6 +1,5 @@
 import heapq
 
-
 map = """\
 .......X..
 .......X..

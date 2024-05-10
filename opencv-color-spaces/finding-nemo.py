@@ -4,13 +4,11 @@ Author: Rebecca Stone @ysbecca
 """
 
 import cv2
-import numpy as np
-
 import matplotlib.pyplot as plt
+import numpy as np
 from matplotlib import colors
-
-from mpl_toolkits.mplot3d import Axes3D  # noqa
 from matplotlib.colors import hsv_to_rgb
+from mpl_toolkits.mplot3d import Axes3D  # noqa
 
 # To get a list of all the possible colour conversions
 

@@ -5,9 +5,9 @@ Bitmap read/write operations.
 import pathlib
 from dataclasses import dataclass
 from itertools import islice
-from mmap import mmap, ACCESS_WRITE
+from mmap import ACCESS_WRITE, mmap
 from struct import pack, unpack
-from typing import Any, Union, Iterator
+from typing import Any, Iterator, Union
 
 
 class Bitmap:

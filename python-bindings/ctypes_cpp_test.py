@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 """ Simple examples of calling C functions through ctypes module. """
 import ctypes
-import sys
 import pathlib
+import sys
 
 if __name__ == "__main__":
     libname = pathlib.Path().absolute()

@@ -2,9 +2,9 @@
 The binary search algorithm.
 """
 
-from typing import Optional, Set, Sequence
+from typing import Optional, Sequence, Set
 
-from search import T, S, Key, identity
+from search import Key, S, T, identity
 
 
 def find_index(

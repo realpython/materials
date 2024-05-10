@@ -1,5 +1,5 @@
-import pytest
 import football_pandas as fb
+import pytest
 
 
 @pytest.fixture

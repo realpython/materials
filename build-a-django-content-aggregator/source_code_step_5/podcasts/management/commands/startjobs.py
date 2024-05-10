@@ -1,8 +1,6 @@
-from django.core.management.base import BaseCommand
-
 import feedparser
 from dateutil import parser
-
+from django.core.management.base import BaseCommand
 from podcasts.models import Episode
 
 
