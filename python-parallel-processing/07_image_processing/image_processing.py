@@ -7,10 +7,9 @@ import tkinter as tk
 import tkinter.ttk as ttk
 
 import numpy as np
+import parallel
 import PIL.Image
 import PIL.ImageTk
-
-import parallel
 
 
 class AppWindow(tk.Tk):

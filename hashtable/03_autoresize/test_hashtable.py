@@ -5,7 +5,7 @@ from unittest.mock import patch
 import pytest
 from pytest_unordered import unordered
 
-from hashtable import HashTable, DELETED
+from hashtable import DELETED, HashTable
 
 
 @pytest.fixture

@@ -4,7 +4,7 @@ The linear search algorithm.
 
 from typing import Optional, Sequence
 
-from search import T, S, Key, identity
+from search import Key, S, T, identity
 
 
 def find_index(

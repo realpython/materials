@@ -1,6 +1,7 @@
 # viewport.py
 
 from dataclasses import dataclass
+
 from PIL import Image
 
 

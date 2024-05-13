@@ -1,6 +1,5 @@
 import pandas as pd
 
-
 # Read the CSV data into a pandas dataframe
 companies = pd.read_csv("companies.csv")
 

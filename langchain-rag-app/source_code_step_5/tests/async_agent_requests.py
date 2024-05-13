@@ -23,7 +23,7 @@ async def make_bulk_requests(url, data):
 questions = [
     "What is the current wait time at wallace-hamilton hospital?",
     "Which hospital has the shortest wait time?",
-    "At which hospitals are patients complaining about billing and insurance issues?",  # noqa E501
+    "At which hospitals are patients complaining about billing and insurance issues?",  # E501
     "What is the average duration in days for emergency visits?",
     "What are patients saying about the nursing staff at Castaneda-Hardy?",
     "What was the total billing amount charged to each payer for 2023?",
@@ -34,7 +34,7 @@ questions = [
     "Have any patients complained about noise?",
     "How much was billed for patient 789's stay?",
     "Which physician has billed the most to cigna?",
-    "Which state had the largest percent increase in medicaid visits from 2022 to 2023?",  # noqa E501
+    "Which state had the largest percent increase in medicaid visits from 2022 to 2023?",  # E501
 ]
 
 request_bodies = [{"text": q} for q in questions]

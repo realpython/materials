@@ -15,12 +15,12 @@ Due to time constraints, we cannot provide 1:1 support via GitHub. See you on Sl
 
 ### Running Code Style Checks
 
-We use [flake8](http://flake8.pycqa.org/en/latest/) and [black](https://black.readthedocs.io/) to ensure a consistent code style for all of our sample code in this repository.
+We use [ruff](https://docs.astral.sh/ruff/) and [black](https://black.readthedocs.io/) to ensure a consistent code style for all of our sample code in this repository.
 
 Run the following commands to validate your code against the linters:
 
 ```sh
-$ flake8
+$ ruff check .
 $ black --check .
 ```
 

@@ -3,6 +3,11 @@ import json
 import os
 import sqlite3
 
+import requests
+
+# Internal imports
+from db import init_db_command
+
 # Third party libraries
 from flask import Flask, redirect, request, url_for
 from flask_login import (
@@ -13,10 +18,6 @@ from flask_login import (
     logout_user,
 )
 from oauthlib.oauth2 import WebApplicationClient
-import requests
-
-# Internal imports
-from db import init_db_command
 from user import User
 
 # Configuration

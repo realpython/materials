@@ -1,7 +1,8 @@
 import os
 from datetime import datetime
+
 from config import db
-from models import Person, Note
+from models import Note, Person
 
 # Data to initialize database with
 PEOPLE = [

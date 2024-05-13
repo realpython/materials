@@ -3,8 +3,7 @@ from typing import NamedTuple, Protocol
 
 
 class Primitive(Protocol):
-    def draw(self, **attributes) -> str:
-        ...
+    def draw(self, **attributes) -> str: ...
 
 
 class NullPrimitive:

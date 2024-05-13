@@ -1,8 +1,6 @@
 import json
 
 import pytest
-from typer.testing import CliRunner
-
 from rptodo import (
     DB_READ_ERROR,
     ID_ERROR,
@@ -12,7 +10,7 @@ from rptodo import (
     cli,
     rptodo,
 )
-
+from typer.testing import CliRunner
 
 runner = CliRunner()
 

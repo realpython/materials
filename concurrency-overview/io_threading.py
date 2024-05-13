@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
 import concurrent.futures
-import requests
 import threading
 import time
 
+import requests
 
 thread_local = threading.local()
 
