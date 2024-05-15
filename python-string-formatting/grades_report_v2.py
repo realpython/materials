@@ -1,7 +1,7 @@
 SUBJECT_TEMPLATE = "{name:<15} Grade: {grade:3} Comment: {comment}"
 REPORT_TEMPLATE = """
-"Progress Report. Student: {name}"
-"Average: {average:.2f} / 100"
+Progress Report. Student: {name}
+Average: {average:.2f} / 100
 
 Course Details:
 {subjects_report}

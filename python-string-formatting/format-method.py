@@ -1,9 +1,10 @@
 number_template = "The number is {}"
+sum_template = "{0} plus {1} is {2}"
+
 print(number_template.format(42))
 
 a = 5
 b = 10
-sum_template = "{0} plus {1} is {2}"
 print(sum_template.format(a, b, a + b))
 
 debit = 300.00
