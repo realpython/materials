@@ -1,1 +1,1 @@
-Code defining the classes `PizzaMenu` and `PizzaMenuDict` in the tutorial Python Mappings: A Comprehensive Guide
+Code defining the `PizzaMenu` class in the tutorial Python Mappings: A Comprehensive Guide
