@@ -14,8 +14,7 @@ class PizzaMenu(MutableMapping):
 
     def _raise_duplicate_key_error(self, key):
         raise ValueError(
-            f"'{key}' is invalid."
-            " All pizzas must have unique first letters"
+            f"'{key}' is invalid. All pizzas must have unique first letters"
         )
 
     def __getitem__(self, key):
