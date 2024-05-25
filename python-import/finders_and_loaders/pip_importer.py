@@ -1,8 +1,8 @@
 # pip_importer.py
 
-from importlib import util
 import subprocess
 import sys
+from importlib import util
 
 
 class PipFinder:

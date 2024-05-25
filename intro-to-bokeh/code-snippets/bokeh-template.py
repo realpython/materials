@@ -3,6 +3,7 @@
 This template is a general outline for turning your data into a
 visualization using Bokeh.
 """
+
 # Data handling
 import pandas as pd  # noqa
 import numpy as np  # noqa

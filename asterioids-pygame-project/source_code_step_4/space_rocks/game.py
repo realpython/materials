@@ -1,5 +1,4 @@
 import pygame
-
 from models import GameObject
 from utils import load_sprite
 

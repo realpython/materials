@@ -1,6 +1,6 @@
-from productivity import get_role
-from hr import get_policy
 from contacts import get_employee_address
+from hr import get_policy
+from productivity import get_role
 from representations import AsDictionaryMixin
 
 

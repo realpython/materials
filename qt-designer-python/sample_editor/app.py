@@ -1,9 +1,8 @@
 import sys
 
+from main_window_ui import Ui_MainWindow
 from PyQt5.QtWidgets import QApplication, QDialog, QMainWindow, QMessageBox
 from PyQt5.uic import loadUi
-
-from main_window_ui import Ui_MainWindow
 
 
 class Window(QMainWindow, Ui_MainWindow):

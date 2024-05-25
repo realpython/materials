@@ -1,0 +1,2 @@
+Django==5.0.2
+graphene-django==3.2.0

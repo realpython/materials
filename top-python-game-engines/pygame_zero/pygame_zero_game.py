@@ -12,13 +12,13 @@ Pygame Zero, including:
 # Import pgzrun allows the program to run in Python IDLE
 # You can also run the program from the command line using:
 #   `pgzrun pygame_zero_basic.py`
-import pgzrun
+# To randomize coin placement
+from random import randint
 
 # For type-hinting support
 from typing import Tuple
 
-# To randomize coin placement
-from random import randint
+import pgzrun
 
 # Set the width and height of your output window, in pixels
 WIDTH = 800

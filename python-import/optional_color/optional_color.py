@@ -1,7 +1,7 @@
 # optional_color.py
 
 try:
-    from colorama import init, Back, Cursor, Fore, Style
+    from colorama import Back, Cursor, Fore, Style, init
 except ImportError:
     from collections import UserString
 

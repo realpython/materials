@@ -1,8 +1,7 @@
 import chromadb
-from chromadb.utils import embedding_functions
-
 from car_data_etl import prepare_car_reviews_data
 from chroma_utils import build_chroma_collection
+from chromadb.utils import embedding_functions
 
 DATA_PATH = "data/archive/*"
 CHROMA_PATH = "car_review_embeddings"

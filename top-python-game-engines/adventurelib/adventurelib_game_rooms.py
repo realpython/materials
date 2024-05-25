@@ -5,11 +5,11 @@ Rooms for the adventurelib game
 # Import the library contents
 import adventurelib as adv
 
-# Import your items as well
-import adventurelib_game_items
-
 # And your characters
 import adventurelib_game_characters
+
+# Import your items as well
+import adventurelib_game_items
 
 
 # Create a subclass of Rooms to track some custom properties

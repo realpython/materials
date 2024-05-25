@@ -1,7 +1,7 @@
 # Bokeh libraries
-from bokeh.plotting import figure, show
 from bokeh.io import output_file
-from bokeh.models import ColumnDataSource, CDSView, GroupFilter
+from bokeh.models import CDSView, ColumnDataSource, GroupFilter
+from bokeh.plotting import figure, show
 
 # Output to file
 output_file(

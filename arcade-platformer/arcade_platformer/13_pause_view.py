@@ -8,8 +8,9 @@ All game artwork from www.kenney.nl
 Game sounds and tile maps by author
 """
 
-import arcade
 import pathlib
+
+import arcade
 
 # Game constants
 # Window dimensions

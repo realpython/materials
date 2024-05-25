@@ -1,5 +1,4 @@
 import av
-
 from waveio.encoding import PCMEncoding
 from waveio.metadata import WAVMetadata
 

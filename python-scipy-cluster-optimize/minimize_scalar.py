@@ -5,6 +5,7 @@ Associated with the Real Python article
 Scientific Python: Using SciPy for Optimization
 Available at: https://realpython.com/python-scipy-cluster-optimize/
 """
+
 from scipy.optimize import minimize_scalar
 
 

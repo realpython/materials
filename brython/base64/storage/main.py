@@ -1,7 +1,8 @@
-from browser import document, html, alert
-from browser.local_storage import storage
-import json
 import base64
+import json
+
+from browser import alert, document, html
+from browser.local_storage import storage
 
 
 def load_data():

@@ -1,13 +1,12 @@
 import validators
-
 from fastapi import Depends, FastAPI, HTTPException, Request
 from fastapi.responses import RedirectResponse
 from sqlalchemy.orm import Session
 from starlette.datastructures import URL
 
 from . import crud, models, schemas
-from .database import SessionLocal, engine
 from .config import get_settings
+from .database import SessionLocal, engine
 
 app = FastAPI()
 models.Base.metadata.create_all(bind=engine)
