@@ -13,7 +13,7 @@ print(template % (x, y, x + y))
 print("Hello, %s!" % "Pythonista")
 print("Hello, %s!" % ("Pythonista",))
 
-print("Interpolating a tuple: %s" % (1, 2, 3))  # Raises a TypeError
+print("Interpolating a tuple: %s" % (1, 2, 3))  # noqa (Raises a TypeError)
 print("Interpolating a tuple: %s" % ((1, 2, 3),))
 
 jane = {"name": "Jane", "job": "Python Dev"}
