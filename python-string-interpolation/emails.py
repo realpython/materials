@@ -12,8 +12,8 @@ Best regards,
 """
 
 
-def display_emails(template, data_file):
-    with open(data_file) as file:
+def display_emails(template, path):
+    with open(path) as file:
         for customer in csv.DictReader(file):
             print(template.format(**customer))
 

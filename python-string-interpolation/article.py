@@ -14,9 +14,9 @@ class Article:
     def __repr__(self):
         return (
             f"{type(self).__name__}("
-            f"title={self.title}, "
-            f"author={self.author}, "
-            f"pub_date={self.pub_date})"
+            f"title={self.title!r}, "
+            f"author={self.author!r}, "
+            f"pub_date={self.pub_date!r})"
         )
 
 

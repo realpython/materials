@@ -5,15 +5,15 @@ print("Hello, %s! Today is %s." % (name, day))
 
 x = 5
 y = 10
-print("The sum of %s and %s is %s." % (x, y, x + y))
+print("The sum of %d and %d is %d." % (x, y, x + y))
 
-template = "The sum of %s and %s is %s."
+template = "The sum of %d and %d is %d."
 print(template % (x, y, x + y))
 
 print("Hello, %s!" % "Pythonista")
 print("Hello, %s!" % ("Pythonista",))
 
-# print("Interpolating a tuple: %s" % (1, 2, 3))
+print("Interpolating a tuple: %s" % (1, 2, 3))  # Raises a TypeError
 print("Interpolating a tuple: %s" % ((1, 2, 3),))
 
 jane = {"name": "Jane", "job": "Python Dev"}

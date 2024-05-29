@@ -7,7 +7,7 @@ print(Template("$$$amount").substitute(amount="1,000.00"))
 print(Template("$greeting, $who!").substitute(greeting="Hello", who="World"))
 
 print(Template("${amount}USD").substitute(amount="100"))
-print(Template("$amountUSD").substitute(amount="100"))
+print(Template("$amountUSD").substitute(amount="100"))  # Raises a KeyError
 
 greeting = Template("Hello, $name! Today is $day.")
 print(greeting.substitute(name="John", day="Friday"))
