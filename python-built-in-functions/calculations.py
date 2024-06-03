@@ -10,7 +10,8 @@ for function in functions:
     exec(function)
 
 
-add(1, 2)
-subtract(3, 2)
-multiply(2, 3)
-divide(6, 3)
+# Uncomment the following lines
+# print(add(1, 2))
+# print(subtract(3, 2))
+# print(multiply(2, 3))
+# print(divide(6, 3))
