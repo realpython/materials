@@ -35,3 +35,9 @@ To automatically re-format your code to be consistent with our code style guidel
 ```sh
 $ black .
 ```
+
+### Infrastructure model
+![Infrastructure main model](.infragenie/infrastructure_main_model.svg)
+- [web-service component model](.infragenie/web-service_component_model.svg)
+
+---
