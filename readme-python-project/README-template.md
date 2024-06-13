@@ -52,7 +52,7 @@ from project import Project
 ...
 ```
 
-For more examples, please refer to the project's [Wiki][wiki] or [documentation page](page).
+For more examples, please refer to the project's [Wiki](wiki) or [documentation page](page).
 
 ## Technologies
 
