@@ -1,9 +1,9 @@
-import torch
 from transformers import (
-    AutoTokenizer,
-    AutoModelForSequenceClassification,
     AutoConfig,
+    AutoModelForSequenceClassification,
+    AutoTokenizer,
 )
+import torch
 
 model_name = "cardiffnlp/twitter-roberta-base-sentiment-latest"
 
