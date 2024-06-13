@@ -2,11 +2,12 @@ import torch
 from transformers import (
     AutoTokenizer,
     AutoModelForSequenceClassification,
-    pipeline,
+    AutoConfig,
 )
 
 model_name = "cardiffnlp/twitter-roberta-base-sentiment-latest"
 
+config = AutoConfig.from_pretrained(model_name)
 tokenizer = AutoTokenizer.from_pretrained(model_name)
 model = AutoModelForSequenceClassification.from_pretrained(model_name)
 
@@ -18,10 +19,7 @@ with torch.no_grad():
 
 scores = output.logits[0]
 probabilities = torch.softmax(scores, dim=0)
-predicted_class = probabilities.argmax().item()
 
-print(f"Predicted class: {predicted_class}")
-print(f"Probabilities: {probabilities.tolist()}")
-
-full_pipeline = pipeline(model=model_name)
-print(full_pipeline(text))
+for i, prob in enumerate(probabilities):
+    label = config.id2label[i]
+    print(f"{i + 1}) {label}: {prob}")
