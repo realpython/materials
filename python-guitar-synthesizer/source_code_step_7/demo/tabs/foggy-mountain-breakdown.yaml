@@ -1,0 +1,369 @@
+title: Foggy Mountain Breakdown
+artist: Earl Scruggs
+tracks:
+  acoustic:
+    url: https://www.songsterr.com/a/wsa/earl-scruggs-foggy-mountain-breakdown-tab-s33641
+    weight: 0.8
+    instrument:
+      tuning: [E2, A2, D3, G3, B3, E4]
+      vibration: 10
+      damping: 0.498
+      effects:
+      - Reverb
+      - Convolution:
+          mix: 0.95
+          impulse_response_filename: ../ir/acoustic.wav
+      - LowShelfFilter:
+          cutoff_frequency_hz: 440
+          gain_db: 10
+          q: 1
+      - Gain:
+          gain_db: 6
+    tablature:
+      beats_per_minute: 265
+      measures:
+      - &empty_measure
+        time_signature: 4/4
+        notes: []
+      - &acoustic_measure1
+        time_signature: 4/4
+        notes:
+        - frets: &acoustic_chord1 [~, ~, ~, ~, ~, 3]
+        - offset: 1/4
+          frets: &acoustic_chord2 [3, 3, 0, 0, ~, ~]
+        - offset: 1/4
+          frets: &acoustic_chord3 [~, ~, ~, 0, ~, ~]
+        - offset: 1/4
+          frets: *acoustic_chord2
+      - *acoustic_measure1
+      - *acoustic_measure1
+      - *acoustic_measure1
+      - &acoustic_measure2
+        time_signature: 4/4
+        notes:
+        - frets: [~, ~, ~, ~, ~, 0]
+        - offset: 1/4
+          frets: &acoustic_chord4 [0, 0, 0, 2, ~, ~]
+        - offset: 1/4
+          frets: &acoustic_chord5 [~, ~, ~, 2, ~, ~]
+        - offset: 1/4
+          frets: *acoustic_chord4
+      - *acoustic_measure2
+      - *acoustic_measure1
+      - *acoustic_measure1
+      - *acoustic_measure2
+      - *acoustic_measure2
+      - *acoustic_measure1
+      - *acoustic_measure1
+      - &acoustic_measure3
+        time_signature: 4/4
+        notes:
+        - frets: *acoustic_chord3
+        - offset: 1/4
+          frets: &acoustic_chord6 [2, 3, 2, ~, ~, ~]
+        - offset: 1/4
+          frets: &acoustic_chord7 [~, ~, ~, ~, 0, ~]
+        - offset: 1/4
+          frets: *acoustic_chord6
+      - *acoustic_measure3
+      - time_signature: 4/4
+        notes:
+        - frets: *acoustic_chord1
+        - offset: 1/4
+          frets: *acoustic_chord7
+        - offset: 1/8
+          frets: [~, ~, ~, ~, 1, ~]
+        - offset: 1/8
+          frets: [~, ~, ~, ~, 2, ~]
+        - offset: 1/8
+          frets: *acoustic_chord3
+        - offset: 1/8
+          frets: *acoustic_chord5
+        - offset: 1/8
+          frets: *acoustic_chord3
+      - time_signature: 4/4
+        notes:
+        - frets: [~, ~, 0, ~, ~, ~]
+        - offset: 1/2
+          frets: [3, 3, 0, 0, 2, 3]
+  banjo:
+    url: https://www.songsterr.com/a/wsa/earl-scruggs-foggy-mountain-breakdown-tab-s33641t0
+    weight: 1.0
+    instrument:
+      tuning: [G4, D3, G3, B3, D4]
+      vibration: 2.5
+      damping: 0.4965
+      effects:
+      - Reverb
+      - Convolution:
+          mix: 0.95
+          impulse_response_filename: ../ir/banjo.wav
+      - LowShelfFilter:
+          cutoff_frequency_hz: 440
+          gain_db: 10
+          q: 1
+      - Gain:
+          gain_db: 15
+    tablature:
+      beats_per_minute: 265
+      measures:
+      - time_signature: 4/4
+        notes:
+        - offset: 3/4
+          frets: &banjo_chord1 [0, ~, ~, ~, 0]
+      - time_signature: 4/4
+        notes:
+        - frets: &banjo_chord2 [0, ~, ~, ~, ~]
+        - offset: 1/4
+          frets: &banjo_chord3 [~, 2, ~, ~, ~]
+        - offset: 1/16
+          frets: &banjo_chord4 [~, 3, ~, ~, ~]
+        - offset: 1/16
+          frets: *banjo_chord2
+        - offset: 1/8
+          frets: &banjo_chord5 [~, ~, ~, ~, 0]
+        - offset: 1/8
+          frets: *banjo_chord4
+        - offset: 1/8
+          frets: *banjo_chord2
+        - offset: 1/8
+          frets: *banjo_chord5
+      - time_signature: 4/4
+        notes:
+        - frets: *banjo_chord3
+        - offset: 1/16
+          frets: *banjo_chord4
+        - offset: 1/16
+          frets: *banjo_chord2
+        - offset: 1/8
+          frets: *banjo_chord3
+        - offset: 1/16
+          frets: *banjo_chord4
+        - offset: 1/16
+          frets: *banjo_chord2
+        - offset: 1/8
+          frets: *banjo_chord5
+        - offset: 1/8
+          frets: *banjo_chord4
+        - offset: 1/8
+          frets: *banjo_chord2
+        - offset: 1/8
+          frets: *banjo_chord5
+      - time_signature: 4/4
+        notes:
+        - frets: *banjo_chord3
+        - offset: 1/16
+          frets: *banjo_chord4
+        - offset: 1/16
+          frets: *banjo_chord2
+        - offset: 1/8
+          frets: *banjo_chord3
+        - offset: 1/16
+          frets: *banjo_chord4
+        - offset: 1/16
+          frets: *banjo_chord2
+        - offset: 1/8
+          frets: *banjo_chord5
+        - offset: 1/8
+          frets: &banjo_chord6 [~, 0, ~, ~, ~]
+        - offset: 1/8
+          frets: &banjo_chord7 [~, ~, 3, ~, ~]
+        - offset: 1/16
+          frets: &banjo_chord8 [~, ~, 2, ~, ~]
+        - offset: 1/16
+          frets: *banjo_chord2
+      - &banjo_measure1
+        time_signature: 4/4
+        notes:
+        - frets: &banjo_chord9 [~, ~, 0, ~, ~]
+        - offset: 1/4
+          frets: *banjo_chord5
+        - offset: 1/4
+          frets: *banjo_chord2
+        - offset: 1/8
+          frets: *banjo_chord6
+        - offset: 1/8
+          frets: [~, ~, ~, 1, ~]
+      - &banjo_measure2
+        time_signature: 4/4
+        notes:
+        - frets: &banjo_chord10 [~, ~, ~, 2, ~]
+        - offset: 1/4
+          frets: &banjo_chord11 [2, ~, ~, ~, ~]
+        - offset: 1/4
+          frets: *banjo_chord6
+        - offset: 1/4
+          frets: *banjo_chord9
+      - &banjo_measure3
+        time_signature: 4/4
+        notes:
+        - frets: &banjo_chord12 [~, ~, ~, 0, ~]
+        - offset: 1/16
+          frets: *banjo_chord10
+        - offset: 1/16
+          frets: *banjo_chord6
+        - offset: 1/8
+          frets: *banjo_chord11
+        - offset: 1/8
+          frets: *banjo_chord5
+        - offset: 1/8
+          frets: *banjo_chord11
+        - offset: 1/8
+          frets: *banjo_chord6
+        - offset: 1/8
+          frets: *banjo_chord10
+        - offset: 1/8
+          frets: *banjo_chord11
+      - time_signature: 4/4
+        notes:
+        - frets: *banjo_chord9
+        - offset: 1/4
+          frets: *banjo_chord8
+        - offset: 1/16
+          frets: *banjo_chord7
+        - offset: 1/16
+          frets: *banjo_chord6
+        - offset: 1/8
+          frets: *banjo_chord5
+        - offset: 1/8
+          frets: *banjo_chord2
+        - offset: 1/8
+          frets: *banjo_chord10
+        - offset: 1/16
+          frets: *banjo_chord12
+        - offset: 1/16
+          frets: *banjo_chord2
+      - *banjo_measure1
+      - *banjo_measure2
+      - *banjo_measure3
+      - &banjo_measure4
+        time_signature: 4/4
+        notes:
+        - frets: *banjo_chord9
+        - offset: 1/4
+          frets: *banjo_chord8
+        - offset: 1/16
+          frets: *banjo_chord7
+        - offset: 1/16
+          frets: *banjo_chord6
+        - offset: 1/8
+          frets: *banjo_chord5
+        - offset: 1/8
+          frets: *banjo_chord2
+        - offset: 1/8
+          frets: *banjo_chord7
+        - offset: 1/16
+          frets: *banjo_chord8
+        - offset: 1/16
+          frets: *banjo_chord2
+      - time_signature: 4/4
+        notes:
+        - frets: *banjo_chord9
+        - offset: 1/4
+          frets: *banjo_chord5
+        - offset: 1/4
+          frets: *banjo_chord2
+        - offset: 1/8
+          frets: *banjo_chord6
+        - offset: 1/8
+          frets: *banjo_chord10
+      - time_signature: 4/4
+        notes:
+        - frets: *banjo_chord12
+        - offset: 1/4
+          frets: *banjo_chord2
+        - offset: 1/4
+          frets: *banjo_chord4
+        - offset: 1/4
+          frets: *banjo_chord3
+        - offset: 1/16
+          frets: *banjo_chord4
+        - offset: 1/16
+          frets: *banjo_chord2
+      - time_signature: 4/4
+        notes:
+        - frets: *banjo_chord5
+        - offset: 1/8
+          frets: *banjo_chord4
+        - offset: 1/8
+          frets: *banjo_chord11
+        - offset: 1/8
+          frets: *banjo_chord5
+        - offset: 1/8
+          frets: *banjo_chord2
+        - offset: 1/8
+          frets: *banjo_chord6
+        - offset: 1/8
+          frets: *banjo_chord7
+        - offset: 1/16
+          frets: *banjo_chord8
+        - offset: 1/16
+          frets: *banjo_chord2
+      - *banjo_measure4
+      - time_signature: 4/4
+        notes:
+        - frets: *banjo_chord9
+        - offset: 1/2
+          frets: *banjo_chord1
+  bass:
+    url: https://www.songsterr.com/a/wsa/earl-scruggs-foggy-mountain-breakdown-bass-tab-s33641
+    weight: 0.25
+    instrument:
+      tuning: [E1, A1, D2, G2]
+      vibration: 10
+      damping: 0.4965
+      effects:
+      - Reverb:
+          room_size: 0.25
+      - Convolution:
+          mix: 1.0
+          impulse_response_filename: ../ir/bass.wav
+      - LowShelfFilter:
+        cutoff_frequency_hz: 440
+        gain_db: 10
+        q: 1
+      - Gain:
+          gain_db: 15
+    tablature:
+      beats_per_minute: 265
+      measures:
+      - *empty_measure
+      - &bass_measure1
+        time_signature: 4/4
+        notes:
+        - frets: &bass_chord1 [~, ~, ~, 3]
+        - offset: 1/2
+          frets: &bass_chord2 [~, ~, 5, ~]
+      - *bass_measure1
+      - *bass_measure1
+      - *bass_measure1
+      - &bass_measure2
+        time_signature: 4/4
+        notes:
+        - frets: [~, ~, ~, 0]
+        - offset: 1/2
+          frets: &bass_chord3 [~, ~, 2, ~]
+      - *bass_measure2
+      - *bass_measure1
+      - *bass_measure1
+      - *bass_measure2
+      - *bass_measure2
+      - *bass_measure1
+      - time_signature: 4/4
+        notes:
+        - frets: *bass_chord1
+        - offset: 1/4
+          frets: *bass_chord3
+        - offset: 1/4
+          frets: [~, ~, 3, ~]
+        - offset: 1/4
+          frets: [~, ~, 4, ~]
+      - &bass_measure3
+        time_signature: 4/4
+        notes:
+        - frets: *bass_chord2
+        - offset: 1/2
+          frets: [~, 7, ~, ~]
+      - *bass_measure3
+      - *bass_measure1
+      - *bass_measure1
