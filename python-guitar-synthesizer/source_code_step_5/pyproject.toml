@@ -1,0 +1,19 @@
+[tool.poetry]
+name = "digitar"
+version = "0.1.0"
+description = ""
+authors = ["Bartosz Zaczyński <bartosz@realpython.com>"]
+readme = "README.md"
+packages = [{include = "digitar", from = "src"}]
+
+[tool.poetry.dependencies]
+python = "^3.12"
+numpy = "^1.26.4"
+pedalboard = "^0.9.6"
+pydantic = "^2.7.3"
+pyyaml = "^6.0.1"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
