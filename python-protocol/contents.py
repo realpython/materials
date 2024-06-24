@@ -2,22 +2,19 @@ from typing import List, Protocol
 
 
 class ContentCreator(Protocol):
-    def create_content(self) -> str:
-        ...
+    def create_content(self) -> str: ...
 
 
 class Blogger(ContentCreator, Protocol):
     posts: List[str]
 
-    def add_post(self, title: str, content: str) -> None:
-        ...
+    def add_post(self, title: str, content: str) -> None: ...
 
 
 class Vlogger(ContentCreator, Protocol):
     videos: List[str]
 
-    def add_video(self, title: str, path: str) -> None:
-        ...
+    def add_video(self, title: str, path: str) -> None: ...
 
 
 class Blog:

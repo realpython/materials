@@ -2,8 +2,7 @@ from typing import Protocol
 
 
 class Adder(Protocol):
-    def add(self, x: int | float, y: int | float) -> int | float:
-        ...
+    def add(self, x: int | float, y: int | float) -> int | float: ...
 
 
 class IntAdder:

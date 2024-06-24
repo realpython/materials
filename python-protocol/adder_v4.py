@@ -4,8 +4,7 @@ T = TypeVar("T", bound=int | float | str)
 
 
 class Adder(Protocol[T]):
-    def add(self, x: T, y: T) -> T:
-        ...
+    def add(self, x: T, y: T) -> T: ...
 
 
 class IntAdder:
