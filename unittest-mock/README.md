@@ -2,7 +2,7 @@
 
 This folder contains code examples related to the RealPython tutorial on [Understanding the Python Mock Object Library](https://realpython.com/python-mock-library/).
 
-The example code showcases some of the different use cases of `unittest.mock` in a single test file, `test_my_calendar.py`. When writing your own tests, keep in mind that readability counts and that your test code will be better readable if you keep one consistent approach to mocking.
+The example code showcases some of the different use cases of `unittest.mock` in a single test file, `test_my_calendar.py`. When writing your own tests, keep in mind that readability counts and that your test code will be more readable if you keep one consistent approach to mocking.
 
 ## Installation
 
