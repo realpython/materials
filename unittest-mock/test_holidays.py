@@ -3,9 +3,8 @@ from datetime import datetime
 from unittest.mock import Mock, patch
 
 import requests
-from requests.exceptions import Timeout
-
 from holidays import get_holidays, is_weekday
+from requests.exceptions import Timeout
 
 
 class TestCalendar(unittest.TestCase):
