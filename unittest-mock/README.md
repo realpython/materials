@@ -2,7 +2,7 @@
 
 This folder contains code examples related to the RealPython tutorial on [Understanding the Python Mock Object Library](https://realpython.com/python-mock-library/).
 
-The example code showcases some of the different use cases of `unittest.mock` in a single test file, `test_my_calendar.py`. When writing your own tests, keep in mind that readability counts and that your test code will be more readable if you keep one consistent approach to mocking.
+The example code showcases some of the different use cases of `unittest.mock` in a single test file, `test_holidays.py`. When writing your own tests, keep in mind that readability counts and that your test code will be more readable if you keep one consistent approach to mocking.
 
 ## Installation
 
@@ -23,7 +23,7 @@ $ source venv/bin/activate
 ## Run the Tests
 
 ```sh
-(venv) $ python test_my_calendar.py
+(venv) $ python test_holidays.py
 ```
 
 All the tests should pass. Go ahead and play with the code examples, change them, break them, and practice your understanding of using `unittest.mock` for testing in Python.
@@ -34,4 +34,4 @@ Martin Breuss - Email: martin@realpython.com
 
 ## License
 
-Distributed under the MIT license. See ``LICENSE`` for more information.
+Distributed under the MIT license. See `LICENSE` for more information.
