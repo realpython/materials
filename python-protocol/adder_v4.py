@@ -1,6 +1,6 @@
 from typing import Protocol, TypeVar
 
-T = TypeVar("T", bound=int | float | str)
+T = TypeVar("T", bound=int | float)
 
 
 class Adder(Protocol[T]):
@@ -28,4 +28,4 @@ def add(adder: Adder) -> None:
 
 add(IntAdder())
 add(FloatAdder())
-add(StrAdder())
+# add(StrAdder())

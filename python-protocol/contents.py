@@ -1,4 +1,4 @@
-from typing import List, Protocol
+from typing import Protocol
 
 
 class ContentCreator(Protocol):
@@ -6,13 +6,13 @@ class ContentCreator(Protocol):
 
 
 class Blogger(ContentCreator, Protocol):
-    posts: List[str]
+    posts: list[str]
 
     def add_post(self, title: str, content: str) -> None: ...
 
 
 class Vlogger(ContentCreator, Protocol):
-    videos: List[str]
+    videos: list[str]
 
     def add_video(self, title: str, path: str) -> None: ...
 

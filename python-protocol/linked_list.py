@@ -3,19 +3,23 @@ from typing import Optional, Protocol
 
 class LinkedListNode(Protocol):
     value: int
-    next: Optional["LinkedListNode"]
+    next_node: Optional["LinkedListNode"]
 
     def __str__(self) -> str:
-        return f"{self.value} -> {self.next}"
+        return f"{self.value} -> {self.next_node}"
 
 
 class Node:
-    def __init__(self, value: int, next: Optional["LinkedListNode"] = None):
+    def __init__(
+        self,
+        value: int,
+        next_node: Optional["LinkedListNode"] = None,
+    ):
         self.value = value
-        self.next = next
+        self.next_node = next_node
 
     def __str__(self) -> str:
-        return f"{self.value} -> {self.next}"
+        return f"{self.value} -> {self.next_node}"
 
 
 def print_linked_list(start_node: LinkedListNode):
