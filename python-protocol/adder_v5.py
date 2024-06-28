@@ -15,15 +15,9 @@ class FloatAdder:
         return x + y
 
 
-class StrAdder:
-    def add(self, x: str, y: str) -> str:
-        return x + y
-
-
 def add(adder: Adder) -> None:
     print(adder.add(2, 3))
 
 
 add(IntAdder())
 add(FloatAdder())
-add(StrAdder())

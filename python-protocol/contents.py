@@ -36,7 +36,7 @@ class Vlog:
     def create_content(self) -> str:
         return "Recording a video."
 
-    def add_vide(self, title: str, path: str) -> None:
+    def add_video(self, title: str, path: str) -> None:
         self.videos.append(f"{title}: {path}")
         print(f"Video added: {title}")
 
