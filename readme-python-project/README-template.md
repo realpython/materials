@@ -13,7 +13,7 @@
 **Table of Contents**
 
 - [Installation](#installation)
-- [Execution / Usage](#execution-usage)
+- [Execution / Usage](#execution--usage)
 - [Technologies](#technologies)
 - [Features](#features)
 - [Contributing](#contributing)
@@ -27,13 +27,13 @@
 On macOS and Linux:
 
 ```sh
-$ pip install <project-name>
+$ python -m pip install <project-name>
 ```
 
 On Windows:
 
 ```sh
-PS> pip install <project-name>
+PS> python -m pip install <project-name>
 ```
 
 ## Execution / Usage
@@ -52,7 +52,7 @@ from project import Project
 ...
 ```
 
-For more examples, please refer to the project's [Wiki](wiki) or [documentation page](page).
+For more examples, please refer to the project's [Wiki](wiki) or [documentation page](docs).
 
 ## Technologies
 
@@ -73,7 +73,7 @@ For more examples, please refer to the project's [Wiki](wiki) or [documentation 
 
 To contribute to the development of < project's name >, follow the steps below:
 
-1. Fork < project's name > from (<https://github.com/yourusername/yourproject/fork>)
+1. Fork < project's name > from <https://github.com/yourusername/yourproject/fork>
 2. Create your feature branch (`git checkout -b feature-new`)
 3. Make your changes
 4. Commit your changes (`git commit -am 'Add some new feature'`)
@@ -95,10 +95,10 @@ The < project's name > development team really appreciates and thanks the time a
 
 ## Change log
 
-- 0.0.1
-    * First working version
 - 0.0.2
     - Polish the user interface
+- 0.0.1
+    * First working version
 - ...
 
 ## License
