@@ -21,7 +21,5 @@ file_handler.setFormatter(formatter)
 logger.addHandler(file_handler)
 
 logger.debug("Just checking in!")
-
-
 logger.warning("Stay curious!")
 logger.error("Stay put!")

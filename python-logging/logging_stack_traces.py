@@ -13,5 +13,5 @@ donuts = 5
 guests = 0
 try:
     donuts_per_guest = donuts / guests
-except ZeroDivisionError as _:
+except ZeroDivisionError:
     logging.error("DonutCalculationError", exc_info=True)
