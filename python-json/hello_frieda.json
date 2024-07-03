@@ -1,0 +1,1 @@
+{"name": "Frieda", "is_dog": true, "hobbies": ["eating", "sleeping", "barking"], "age": 8, "address": {"work": null, "home": ["Berlin", "Germany"]}, "friends": [{"name": "Philipp", "hobbies": ["eating", "sleeping", "reading"]}, {"name": "Mitch", "hobbies": ["running", "snacking"]}]}
