@@ -4,7 +4,9 @@ class BankAccount:
         self.balance = balance
 
     def __repr__(self):
-        return f"{type(self).__name__}({self.account_number}, {self.balance})"
+        return (
+          f"{type(self).__name__}({self.account_number}, {self.balance})"
+        )
 
     def _verify_funds(self, amount):
         return self.balance >= amount
