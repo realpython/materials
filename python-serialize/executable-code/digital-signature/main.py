@@ -9,7 +9,7 @@ def main():
     serialize(lambda a, b: a + b, path, b"top-secret")
     code = deserialize(path, b"top-secret")
     print(code)
-    print(f"{code(3, 2) = }")  # noqa
+    print(f"{code(3, 2) = }")
     try:
         deserialize(path, b"incorrect-key")
     except pickle.UnpicklingError as ex:

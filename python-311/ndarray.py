@@ -3,8 +3,7 @@ from typing import Generic, Literal, NewType, TypeVarTuple
 Ts = TypeVarTuple("Ts")
 
 
-class Array(Generic[*Ts]):
-    ...  # Not implemented here
+class Array(Generic[*Ts]): ...  # Not implemented here
 
 
 Height = NewType("Height", int)

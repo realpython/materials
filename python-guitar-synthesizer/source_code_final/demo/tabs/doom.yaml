@@ -1,0 +1,3614 @@
+title: E1M1 - At Doom's Gate
+artist: Bobby Prince
+tracks:
+  overdriven_guitar:
+    url: https://www.songsterr.com/a/wsa/bobby-prince-e1m1-at-dooms-gate-tab-s43926
+    weight: 1.0
+    instrument:
+      tuning: [E2, A2, D3, G3, B3, E4]
+      vibration: 0.09
+      damping: 0.475
+      effects:
+      - Distortion
+      - Chorus:
+          feedback: 0.75
+          mix: 0.25
+      - Convolution:
+          mix: 0.95
+          impulse_response_filename: ../ir/electric.wav
+      - Reverb
+      - LowShelfFilter
+      - Gain:
+          gain_db: 15
+    tablature:
+      beats_per_minute: 220
+      measures:
+      - time_signature: 4/4
+        notes:
+        - frets: [~, ~, ~, ~, ~, 0]
+        - frets: [~, ~, ~, ~, ~, 0]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, 7, ~]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, ~, 0]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, ~, 0]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, 5, ~]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, ~, 0]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, ~, 0]
+          offset: 1/8
+      - time_signature: 4/4
+        notes:
+        - frets: [~, ~, ~, ~, 3, ~]
+        - frets: [~, ~, ~, ~, ~, 0]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, ~, 0]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, 1, ~]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, ~, 0]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, ~, 0]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, 2, ~]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, 3, ~]
+          offset: 1/8
+      - time_signature: 4/4
+        notes:
+        - frets: [~, ~, ~, ~, ~, 0]
+        - frets: [~, ~, ~, ~, ~, 0]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, 7, ~]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, ~, 0]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, ~, 0]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, 5, ~]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, ~, 0]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, ~, 0]
+          offset: 1/8
+      - time_signature: 4/4
+        notes:
+        - frets: [~, ~, ~, ~, 3, ~]
+        - frets: [~, ~, ~, ~, ~, 0]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, ~, 0]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, 1, 0]
+          offset: 1/8
+          vibration: 2.5
+      - time_signature: 4/4
+        notes:
+        - frets: [~, ~, ~, ~, ~, 0]
+        - frets: [~, ~, ~, ~, ~, 0]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, 7, ~]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, ~, 0]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, ~, 0]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, 5, ~]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, ~, 0]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, ~, 0]
+          offset: 1/8
+      - time_signature: 4/4
+        notes:
+        - frets: [~, ~, ~, ~, 3, ~]
+        - frets: [~, ~, ~, ~, ~, 0]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, ~, 0]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, 1, ~]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, ~, 0]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, ~, 0]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, 2, ~]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, 3, ~]
+          offset: 1/8
+      - time_signature: 4/4
+        notes:
+        - frets: [~, ~, ~, ~, ~, 0]
+        - frets: [~, ~, ~, ~, ~, 0]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, 7, ~]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, ~, 0]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, ~, 0]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, 5, ~]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, ~, 0]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, ~, 0]
+          offset: 1/8
+      - time_signature: 4/4
+        notes:
+        - frets: [~, ~, ~, ~, 3, ~]
+        - frets: [~, ~, ~, ~, ~, 0]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, ~, 0]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, 1, 0]
+          offset: 1/8
+          vibration: 2.5
+      - time_signature: 4/4
+        notes:
+        - frets: [~, ~, ~, ~, ~, 0]
+        - frets: [~, ~, ~, ~, ~, 0]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, 7, ~]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, ~, 0]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, ~, 0]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, 5, ~]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, ~, 0]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, ~, 0]
+          offset: 1/8
+      - time_signature: 4/4
+        notes:
+        - frets: [~, ~, ~, ~, 3, ~]
+        - frets: [~, ~, ~, ~, ~, 0]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, ~, 0]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, 1, ~]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, ~, 0]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, ~, 0]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, 2, ~]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, 3, ~]
+          offset: 1/8
+      - time_signature: 4/4
+        notes:
+        - frets: [~, ~, ~, ~, ~, 0]
+        - frets: [~, ~, ~, ~, ~, 0]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, 7, ~]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, ~, 0]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, ~, 0]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, 5, ~]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, ~, 0]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, ~, 0]
+          offset: 1/8
+      - time_signature: 4/4
+        notes:
+        - frets: [~, ~, ~, ~, 3, ~]
+        - frets: [~, ~, ~, ~, ~, 0]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, ~, 0]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, 1, 0]
+          offset: 1/8
+          vibration: 2.5
+      - time_signature: 4/4
+        notes:
+        - frets: [~, ~, ~, ~, ~, 0]
+        - frets: [~, ~, ~, ~, ~, 0]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, 7, ~]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, ~, 0]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, ~, 0]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, 5, ~]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, ~, 0]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, ~, 0]
+          offset: 1/8
+      - time_signature: 4/4
+        notes:
+        - frets: [~, ~, ~, ~, 3, ~]
+        - frets: [~, ~, ~, ~, ~, 0]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, ~, 0]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, 1, ~]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, ~, 0]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, ~, 0]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, 2, ~]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, 3, ~]
+          offset: 1/8
+      - time_signature: 4/4
+        notes:
+        - frets: [~, ~, ~, ~, ~, 0]
+        - frets: [~, ~, ~, ~, ~, 0]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, 7, ~]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, ~, 0]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, ~, 0]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, 5, ~]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, ~, 0]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, ~, 0]
+          offset: 1/8
+      - time_signature: 4/4
+        notes:
+        - frets: [~, 7, ~, ~, ~, ~]
+        - frets: [~, ~, 9, ~, ~, ~]
+          offset: 1/16
+        - frets: [~, ~, 8, ~, ~, ~]
+          offset: 1/16
+        - frets: [~, 7, ~, ~, ~, ~]
+          offset: 1/16
+        - frets: [~, 10, ~, ~, ~, ~]
+          offset: 1/16
+        - frets: [~, 8, ~, ~, ~, ~]
+          offset: 1/16
+        - frets: [~, 7, ~, ~, ~, ~]
+          offset: 1/16
+        - frets: [~, ~, 8, ~, ~, ~]
+          offset: 1/16
+        - frets: [~, 7, ~, ~, ~, ~]
+          offset: 1/16
+        - frets: [~, 8, ~, ~, ~, ~]
+          offset: 1/16
+        - frets: [~, 10, ~, ~, ~, ~]
+          offset: 1/16
+        - frets: [7, ~, ~, ~, ~, ~]
+          offset: 1/16
+        - frets: [~, 10, ~, ~, ~, ~]
+          offset: 1/16
+        - frets: [~, 8, ~, ~, ~, ~]
+          offset: 1/16
+        - frets: [~, 7, ~, ~, ~, ~]
+          offset: 1/16
+        - frets: [~, ~, 8, ~, ~, ~]
+          offset: 1/16
+      - time_signature: 4/4
+        notes:
+        - frets: [~, ~, ~, ~, ~, 0]
+        - frets: [~, ~, ~, ~, ~, 0]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, 7, ~]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, ~, 0]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, ~, 0]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, 5, ~]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, ~, 0]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, ~, 0]
+          offset: 1/8
+      - time_signature: 4/4
+        notes:
+        - frets: [~, ~, ~, ~, 3, ~]
+        - frets: [~, ~, ~, ~, ~, 0]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, ~, 0]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, 1, ~]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, ~, 0]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, ~, 0]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, 2, ~]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, 3, ~]
+          offset: 1/8
+      - time_signature: 4/4
+        notes:
+        - frets: [~, ~, ~, ~, ~, 0]
+        - frets: [~, ~, ~, ~, ~, 0]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, 7, ~]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, ~, 0]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, ~, 0]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, 5, ~]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, ~, 0]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, ~, 0]
+          offset: 1/8
+      - time_signature: 4/4
+        notes:
+        - frets: [~, ~, ~, ~, 3, ~]
+        - frets: [~, ~, ~, ~, ~, 0]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, ~, 0]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, 1, 0]
+          offset: 1/8
+          vibration: 2.5
+      - time_signature: 4/4
+        notes:
+        - frets: [~, ~, ~, ~, ~, 0]
+        - frets: [~, ~, ~, ~, ~, 0]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, 7, ~]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, ~, 0]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, ~, 0]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, 5, ~]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, ~, 0]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, ~, 0]
+          offset: 1/8
+      - time_signature: 4/4
+        notes:
+        - frets: [~, ~, ~, ~, 3, ~]
+        - frets: [~, ~, ~, ~, ~, 0]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, ~, 0]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, 1, ~]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, ~, 0]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, ~, 0]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, 2, ~]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, 3, ~]
+          offset: 1/8
+      - time_signature: 4/4
+        notes:
+        - frets: [~, ~, ~, ~, ~, 0]
+        - frets: [~, ~, ~, ~, ~, 0]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, 7, ~]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, ~, 0]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, ~, 0]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, 5, ~]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, ~, 0]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, ~, 0]
+          offset: 1/8
+      - time_signature: 4/4
+        notes:
+        - frets: [~, 12, ~, ~, ~, ~]
+        - frets: [~, ~, 12, ~, ~, ~]
+          offset: 1/16
+        - frets: [~, ~, ~, 14, ~, ~]
+          offset: 1/16
+        - frets: [~, ~, 12, ~, ~, ~]
+          offset: 1/16
+        - frets: [~, 12, ~, ~, ~, ~]
+          offset: 1/16
+        - frets: [~, ~, 12, ~, ~, ~]
+          offset: 1/16
+        - frets: [~, 12, ~, ~, ~, ~]
+          offset: 1/16
+        - frets: [12, ~, ~, ~, ~, ~]
+          offset: 1/16
+        - frets: [~, 12, ~, ~, ~, ~]
+          offset: 1/16
+        - frets: [~, ~, 12, ~, ~, ~]
+          offset: 1/16
+        - frets: [~, 12, ~, ~, ~, ~]
+          offset: 1/16
+        - frets: [~, ~, 12, ~, ~, ~]
+          offset: 1/16
+        - frets: [~, 12, ~, ~, ~, ~]
+          offset: 1/16
+        - frets: [12, ~, ~, ~, ~, ~]
+          offset: 1/16
+        - frets: [15, ~, ~, ~, ~, ~]
+          offset: 1/16
+        - frets: [19, ~, ~, ~, ~, ~]
+          offset: 1/16
+      - time_signature: 4/4
+        notes:
+        - frets: [~, ~, ~, ~, 0, ~]
+        - frets: [~, ~, ~, ~, 0, ~]
+          offset: 1/8
+        - frets: [~, ~, ~, 7, ~, ~]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, 0, ~]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, 0, ~]
+          offset: 1/8
+        - frets: [~, ~, ~, 5, ~, ~]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, 0, ~]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, 0, ~]
+          offset: 1/8
+      - time_signature: 4/4
+        notes:
+        - frets: [~, ~, ~, 3, ~, ~]
+        - frets: [~, ~, ~, ~, 0, ~]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, 0, ~]
+          offset: 1/8
+        - frets: [~, ~, ~, 1, ~, ~]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, 0, ~]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, 0, ~]
+          offset: 1/8
+        - frets: [~, ~, ~, 2, ~, ~]
+          offset: 1/8
+        - frets: [~, ~, ~, 3, ~, ~]
+          offset: 1/8
+      - time_signature: 4/4
+        notes:
+        - frets: [~, ~, ~, ~, 0, ~]
+        - frets: [~, ~, ~, ~, 0, ~]
+          offset: 1/8
+        - frets: [~, ~, ~, 7, ~, ~]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, 0, ~]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, 0, ~]
+          offset: 1/8
+        - frets: [~, ~, ~, 5, ~, ~]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, 0, ~]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, 0, ~]
+          offset: 1/8
+      - time_signature: 4/4
+        notes:
+        - frets: [~, ~, ~, 3, ~, ~]
+        - frets: [~, ~, ~, ~, 0, ~]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, 0, ~]
+          offset: 1/8
+        - frets: [~, ~, ~, 1, 0, ~]
+          offset: 1/8
+          vibration: 2.5
+      - time_signature: 4/4
+        notes:
+        - frets: [~, ~, ~, ~, 0, ~]
+        - frets: [~, ~, ~, ~, 0, ~]
+          offset: 1/8
+        - frets: [~, ~, ~, 7, ~, ~]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, 0, ~]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, 0, ~]
+          offset: 1/8
+        - frets: [~, ~, ~, 5, ~, ~]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, 0, ~]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, 0, ~]
+          offset: 1/8
+      - time_signature: 4/4
+        notes:
+        - frets: [~, ~, ~, 3, ~, ~]
+        - frets: [~, ~, ~, ~, 0, ~]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, 0, ~]
+          offset: 1/8
+        - frets: [~, ~, ~, 1, ~, ~]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, 0, ~]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, 0, ~]
+          offset: 1/8
+        - frets: [~, ~, ~, 2, ~, ~]
+          offset: 1/8
+        - frets: [~, ~, ~, 3, ~, ~]
+          offset: 1/8
+      - time_signature: 4/4
+        notes:
+        - frets: [~, ~, ~, ~, 0, ~]
+        - frets: [~, ~, ~, ~, 0, ~]
+          offset: 1/8
+        - frets: [~, ~, ~, 7, ~, ~]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, 0, ~]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, 0, ~]
+          offset: 1/8
+        - frets: [~, ~, ~, 5, ~, ~]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, 0, ~]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, 0, ~]
+          offset: 1/8
+      - time_signature: 4/4
+        notes:
+        - frets: [~, ~, ~, 14, ~, ~]
+        - frets: [~, ~, ~, 12, ~, ~]
+          offset: 1/16
+        - frets: [~, ~, ~, 10, ~, ~]
+          offset: 1/16
+        - frets: [~, ~, ~, 14, ~, ~]
+          offset: 1/16
+        - frets: [~, ~, ~, 10, ~, ~]
+          offset: 1/16
+        - frets: [~, ~, ~, ~, 12, ~]
+          offset: 1/16
+        - frets: [~, ~, ~, 10, ~, ~]
+          offset: 1/16
+        - frets: [~, ~, ~, 14, ~, ~]
+          offset: 1/16
+        - frets: [~, ~, 14, ~, ~, ~]
+          offset: 1/16
+        - frets: [~, ~, ~, 14, ~, ~]
+          offset: 1/16
+        - frets: [~, ~, ~, 10, ~, ~]
+          offset: 1/16
+        - frets: [~, ~, ~, 14, ~, ~]
+          offset: 1/16
+        - frets: [~, ~, ~, 10, ~, ~]
+          offset: 1/16
+        - frets: [~, ~, ~, 14, ~, ~]
+          offset: 1/16
+        - frets: [~, ~, ~, 10, ~, ~]
+          offset: 1/16
+        - frets: [~, ~, ~, ~, 12, ~]
+          offset: 1/16
+      - time_signature: 4/4
+        notes:
+        - frets: [~, ~, ~, ~, ~, 0]
+        - frets: [~, ~, ~, ~, ~, 0]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, 7, ~]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, ~, 0]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, ~, 0]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, 5, ~]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, ~, 0]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, ~, 0]
+          offset: 1/8
+      - time_signature: 4/4
+        notes:
+        - frets: [~, ~, ~, ~, 3, ~]
+        - frets: [~, ~, ~, ~, ~, 0]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, ~, 0]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, 1, ~]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, ~, 0]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, ~, 0]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, 2, ~]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, 3, ~]
+          offset: 1/8
+      - time_signature: 4/4
+        notes:
+        - frets: [~, ~, ~, ~, ~, 0]
+        - frets: [~, ~, ~, ~, ~, 0]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, 7, ~]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, ~, 0]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, ~, 0]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, 5, ~]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, ~, 0]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, ~, 0]
+          offset: 1/8
+      - time_signature: 4/4
+        notes:
+        - frets: [~, ~, ~, ~, 3, ~]
+        - frets: [~, ~, ~, ~, ~, 0]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, ~, 0]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, 1, 0]
+          offset: 1/8
+          vibration: 2.5
+      - time_signature: 4/4
+        notes:
+        - frets: [~, ~, ~, ~, ~, 0]
+        - frets: [~, ~, ~, ~, ~, 0]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, 7, ~]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, ~, 0]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, ~, 0]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, 5, ~]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, ~, 0]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, ~, 0]
+          offset: 1/8
+      - time_signature: 4/4
+        notes:
+        - frets: [~, ~, ~, ~, 3, ~]
+        - frets: [~, ~, ~, ~, ~, 0]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, ~, 0]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, 1, ~]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, ~, 0]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, ~, 0]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, 2, ~]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, 3, ~]
+          offset: 1/8
+      - time_signature: 4/4
+        notes:
+        - frets: [~, ~, ~, ~, ~, 0]
+        - frets: [~, ~, ~, ~, ~, 0]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, 7, ~]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, ~, 0]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, ~, 0]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, 5, ~]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, ~, 0]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, ~, 0]
+          offset: 1/8
+      - time_signature: 4/4
+        notes:
+        - frets: [~, ~, ~, ~, 3, ~]
+        - frets: [~, ~, ~, ~, ~, 0]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, ~, 0]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, 1, 0]
+          offset: 1/8
+          vibration: 2.5
+      - time_signature: 4/4
+        notes:
+        - frets: [~, ~, ~, ~, 4, ~]
+        - frets: [~, ~, ~, ~, 4, ~]
+          offset: 1/8
+        - frets: [~, ~, 6, ~, ~, ~]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, 4, ~]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, 4, ~]
+          offset: 1/8
+        - frets: [~, ~, 4, ~, ~, ~]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, 4, ~]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, 4, ~]
+          offset: 1/8
+      - time_signature: 4/4
+        notes:
+        - frets: [~, ~, ~, 7, ~, ~]
+        - frets: [~, ~, ~, ~, 4, ~]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, 4, ~]
+          offset: 1/8
+        - frets: [~, ~, ~, 5, ~, ~]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, 4, ~]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, 4, ~]
+          offset: 1/8
+        - frets: [~, ~, ~, 6, ~, ~]
+          offset: 1/8
+        - frets: [~, ~, ~, 7, ~, ~]
+          offset: 1/8
+      - time_signature: 4/4
+        notes:
+        - frets: [~, ~, ~, ~, 2, ~]
+        - frets: [~, ~, ~, ~, 2, ~]
+          offset: 1/8
+        - frets: [~, ~, 4, ~, ~, ~]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, 2, ~]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, 2, ~]
+          offset: 1/8
+        - frets: [~, ~, 2, ~, ~, ~]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, 2, ~]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, 2, ~]
+          offset: 1/8
+      - time_signature: 4/4
+        notes:
+        - frets: [~, ~, ~, 5, ~, ~]
+        - frets: [~, ~, ~, ~, 0, ~]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, 0, ~]
+          offset: 1/8
+        - frets: [~, ~, ~, 3, 2, ~]
+          offset: 1/8
+          vibration: 2.5
+      - time_signature: 4/4
+        notes:
+        - frets: [~, ~, ~, ~, ~, 0]
+        - frets: [~, ~, ~, ~, ~, 0]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, 7, ~]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, ~, 0]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, ~, 0]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, 5, ~]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, ~, 0]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, ~, 0]
+          offset: 1/8
+      - time_signature: 4/4
+        notes:
+        - frets: [~, ~, ~, ~, 3, ~]
+        - frets: [~, ~, ~, ~, ~, 0]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, ~, 0]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, 1, ~]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, ~, 0]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, ~, 0]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, 2, ~]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, 3, ~]
+          offset: 1/8
+      - time_signature: 4/4
+        notes:
+        - frets: [~, ~, ~, ~, ~, 0]
+        - frets: [~, ~, ~, ~, ~, 0]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, 7, ~]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, ~, 0]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, ~, 0]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, 5, ~]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, ~, 0]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, ~, 0]
+          offset: 1/8
+      - time_signature: 4/4
+        notes:
+        - frets: [~, ~, 9, ~, ~, ~]
+        - frets: [~, 8, ~, ~, ~, ~]
+          offset: 1/16
+        - frets: [~, 0, ~, ~, ~, ~]
+          offset: 1/16
+        - frets: [~, ~, 0, ~, ~, ~]
+          offset: 1/16
+        - frets: [~, ~, 9, ~, ~, ~]
+          offset: 1/16
+        - frets: [~, 0, ~, ~, ~, ~]
+          offset: 1/16
+        - frets: [~, 8, ~, ~, ~, ~]
+          offset: 1/16
+        - frets: [0, ~, ~, ~, ~, ~]
+          offset: 1/16
+        - frets: [3, ~, ~, ~, ~, ~]
+          offset: 1/16
+        - frets: [0, ~, ~, ~, ~, ~]
+          offset: 1/16
+        - frets: [~, 0, ~, ~, ~, ~]
+          offset: 1/16
+        - frets: [~, ~, 0, ~, ~, ~]
+          offset: 1/16
+        - frets: [~, ~, ~, 14, ~, ~]
+          offset: 1/16
+        - frets: [~, ~, 12, ~, ~, ~]
+          offset: 1/16
+        - frets: [~, 12, ~, ~, ~, ~]
+          offset: 1/16
+        - frets: [12, ~, ~, ~, ~, ~]
+          offset: 1/16
+      - time_signature: 4/4
+        notes:
+        - frets: [~, ~, ~, ~, ~, 0]
+        - frets: [~, ~, ~, ~, ~, 0]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, 7, ~]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, ~, 0]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, ~, 0]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, 5, ~]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, ~, 0]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, ~, 0]
+          offset: 1/8
+      - time_signature: 4/4
+        notes:
+        - frets: [~, ~, ~, ~, 3, ~]
+        - frets: [~, ~, ~, ~, ~, 0]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, ~, 0]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, 1, ~]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, ~, 0]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, ~, 0]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, 2, ~]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, 3, ~]
+          offset: 1/8
+      - time_signature: 4/4
+        notes:
+        - frets: [~, ~, ~, ~, ~, 0]
+        - frets: [~, ~, ~, ~, ~, 0]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, 7, ~]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, ~, 0]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, ~, 0]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, 5, ~]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, ~, 0]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, ~, 0]
+          offset: 1/8
+      - time_signature: 4/4
+        notes:
+        - frets: [~, ~, ~, ~, 3, ~]
+        - frets: [~, ~, ~, ~, ~, 0]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, ~, 0]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, 1, 0]
+          offset: 1/8
+          vibration: 2.5
+      - time_signature: 4/4
+        notes:
+        - frets: [~, ~, ~, ~, ~, 0]
+        - frets: [~, ~, ~, ~, ~, 0]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, 7, ~]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, ~, 0]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, ~, 0]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, 5, ~]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, ~, 0]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, ~, 0]
+          offset: 1/8
+      - time_signature: 4/4
+        notes:
+        - frets: [~, ~, ~, ~, 3, ~]
+        - frets: [~, ~, ~, ~, ~, 0]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, ~, 0]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, 1, ~]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, ~, 0]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, ~, 0]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, 2, ~]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, 3, ~]
+          offset: 1/8
+      - time_signature: 4/4
+        notes:
+        - frets: [~, ~, ~, ~, ~, 0]
+        - frets: [~, ~, ~, ~, ~, 0]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, 7, ~]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, ~, 0]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, ~, 0]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, 5, ~]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, ~, 0]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, ~, 0]
+          offset: 1/8
+      - time_signature: 4/4
+        notes:
+        - frets: [~, 4, ~, ~, ~, ~]
+        - frets: [~, ~, 5, ~, ~, ~]
+          offset: 1/16
+        - frets: [~, ~, 4, ~, ~, ~]
+          offset: 1/16
+        - frets: [~, ~, ~, 4, ~, ~]
+          offset: 1/16
+        - frets: [~, 7, ~, ~, ~, ~]
+          offset: 1/16
+        - frets: [~, ~, 8, ~, ~, ~]
+          offset: 1/16
+        - frets: [~, ~, ~, 9, ~, ~]
+          offset: 1/16
+        - frets: [~, ~, ~, 7, ~, ~]
+          offset: 1/16
+        - frets: [~, 10, ~, ~, ~, ~]
+          offset: 1/16
+        - frets: [~, 7, ~, ~, ~, ~]
+          offset: 1/16
+        - frets: [~, ~, 8, ~, ~, ~]
+          offset: 1/16
+        - frets: [~, ~, ~, 9, ~, ~]
+          offset: 1/16
+        - frets: [~, 12, ~, ~, ~, ~]
+          offset: 1/16
+        - frets: [~, 10, ~, ~, ~, ~]
+          offset: 1/16
+        - frets: [~, ~, 11, ~, ~, ~]
+          offset: 1/16
+        - frets: [~, ~, ~, 13, ~, ~]
+          offset: 1/16
+      - time_signature: 4/4
+        notes:
+        - frets: [~, ~, ~, ~, ~, 0]
+        - frets: [~, ~, ~, ~, ~, 0]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, 7, ~]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, ~, 0]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, ~, 0]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, 5, ~]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, ~, 0]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, ~, 0]
+          offset: 1/8
+      - time_signature: 4/4
+        notes:
+        - frets: [~, ~, ~, ~, 3, ~]
+        - frets: [~, ~, ~, ~, ~, 0]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, ~, 0]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, 1, ~]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, ~, 0]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, ~, 0]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, 2, ~]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, 3, ~]
+          offset: 1/8
+      - time_signature: 4/4
+        notes:
+        - frets: [~, ~, ~, ~, ~, 0]
+        - frets: [~, ~, ~, ~, ~, 0]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, 7, ~]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, ~, 0]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, ~, 0]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, 5, ~]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, ~, 0]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, ~, 0]
+          offset: 1/8
+      - time_signature: 4/4
+        notes:
+        - frets: [~, ~, ~, ~, 3, ~]
+        - frets: [~, ~, ~, ~, ~, 0]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, ~, 0]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, 1, 0]
+          offset: 1/8
+          vibration: 2.5
+      - time_signature: 4/4
+        notes:
+        - frets: [~, ~, ~, ~, ~, 0]
+        - frets: [~, ~, ~, ~, ~, 0]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, 7, ~]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, ~, 0]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, ~, 0]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, 5, ~]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, ~, 0]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, ~, 0]
+          offset: 1/8
+      - time_signature: 4/4
+        notes:
+        - frets: [~, ~, ~, ~, 3, ~]
+        - frets: [~, ~, ~, ~, ~, 0]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, ~, 0]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, 1, ~]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, ~, 0]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, ~, 0]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, 2, ~]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, 3, ~]
+          offset: 1/8
+      - time_signature: 4/4
+        notes:
+        - frets: [~, ~, ~, ~, ~, 0]
+        - frets: [~, ~, ~, ~, ~, 0]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, 7, ~]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, ~, 0]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, ~, 0]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, 5, ~]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, ~, 0]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, ~, 0]
+          offset: 1/8
+      - time_signature: 4/4
+        notes:
+        - frets: [12, ~, ~, ~, ~, ~]
+        - frets: [~, 12, ~, ~, ~, ~]
+          offset: 1/16
+        - frets: [~, ~, 12, ~, ~, ~]
+          offset: 1/16
+        - frets: [~, ~, 9, ~, ~, ~]
+          offset: 1/16
+        - frets: [~, 12, ~, ~, ~, ~]
+          offset: 1/16
+        - frets: [12, ~, ~, ~, ~, ~]
+          offset: 1/16
+        - frets: [~, 12, ~, ~, ~, ~]
+          offset: 1/16
+        - frets: [~, ~, 12, ~, ~, ~]
+          offset: 1/16
+        - frets: [~, ~, 9, ~, ~, ~]
+          offset: 1/16
+        - frets: [~, ~, 12, ~, ~, ~]
+          offset: 1/16
+        - frets: [~, 12, ~, ~, ~, ~]
+          offset: 1/16
+        - frets: [~, ~, 12, ~, ~, ~]
+          offset: 1/16
+        - frets: [12, ~, ~, ~, ~, ~]
+          offset: 1/16
+        - frets: [~, 12, ~, ~, ~, ~]
+          offset: 1/16
+        - frets: [~, ~, 12, ~, ~, ~]
+          offset: 1/16
+        - frets: [~, ~, 9, ~, ~, ~]
+          offset: 1/16
+      - time_signature: 4/4
+        notes:
+        - frets: [~, ~, ~, ~, 0, ~]
+        - frets: [~, ~, ~, ~, 0, ~]
+          offset: 1/8
+        - frets: [~, ~, ~, 7, ~, ~]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, 0, ~]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, 0, ~]
+          offset: 1/8
+        - frets: [~, ~, ~, 5, ~, ~]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, 0, ~]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, 0, ~]
+          offset: 1/8
+      - time_signature: 4/4
+        notes:
+        - frets: [~, ~, ~, 3, ~, ~]
+        - frets: [~, ~, ~, ~, 0, ~]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, 0, ~]
+          offset: 1/8
+        - frets: [~, ~, ~, 1, ~, ~]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, 0, ~]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, 0, ~]
+          offset: 1/8
+        - frets: [~, ~, ~, 2, ~, ~]
+          offset: 1/8
+        - frets: [~, ~, ~, 3, ~, ~]
+          offset: 1/8
+      - time_signature: 4/4
+        notes:
+        - frets: [~, ~, ~, ~, 0, ~]
+        - frets: [~, ~, ~, ~, 0, ~]
+          offset: 1/8
+        - frets: [~, ~, ~, 7, ~, ~]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, 0, ~]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, 0, ~]
+          offset: 1/8
+        - frets: [~, ~, ~, 5, ~, ~]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, 0, ~]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, 0, ~]
+          offset: 1/8
+      - time_signature: 4/4
+        notes:
+        - frets: [~, ~, ~, 3, ~, ~]
+        - frets: [~, ~, ~, ~, 0, ~]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, 0, ~]
+          offset: 1/8
+        - frets: [~, ~, ~, 1, 0, ~]
+          offset: 1/8
+          vibration: 2.5
+      - time_signature: 4/4
+        notes:
+        - frets: [~, ~, ~, ~, 0, ~]
+        - frets: [~, ~, ~, ~, 0, ~]
+          offset: 1/8
+        - frets: [~, ~, ~, 7, ~, ~]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, 0, ~]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, 0, ~]
+          offset: 1/8
+        - frets: [~, ~, ~, 5, ~, ~]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, 0, ~]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, 0, ~]
+          offset: 1/8
+      - time_signature: 4/4
+        notes:
+        - frets: [~, ~, ~, 3, ~, ~]
+        - frets: [~, ~, ~, ~, 0, ~]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, 0, ~]
+          offset: 1/8
+        - frets: [~, ~, ~, 1, ~, ~]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, 0, ~]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, 0, ~]
+          offset: 1/8
+        - frets: [~, ~, ~, 2, ~, ~]
+          offset: 1/8
+        - frets: [~, ~, ~, 3, ~, ~]
+          offset: 1/8
+      - time_signature: 4/4
+        notes:
+        - frets: [~, ~, ~, ~, 0, ~]
+        - frets: [~, ~, ~, ~, 0, ~]
+          offset: 1/8
+        - frets: [~, ~, ~, 7, ~, ~]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, 0, ~]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, 0, ~]
+          offset: 1/8
+        - frets: [~, ~, ~, 5, ~, ~]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, 0, ~]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, 0, ~]
+          offset: 1/8
+      - time_signature: 4/4
+        notes:
+        - frets: [~, ~, ~, 14, ~, ~]
+        - frets: [~, ~, ~, 12, ~, ~]
+          offset: 1/16
+        - frets: [~, ~, ~, 10, ~, ~]
+          offset: 1/16
+        - frets: [~, ~, ~, 14, ~, ~]
+          offset: 1/16
+        - frets: [~, ~, ~, 10, ~, ~]
+          offset: 1/16
+        - frets: [~, ~, ~, ~, 12, ~]
+          offset: 1/16
+        - frets: [~, ~, ~, 10, ~, ~]
+          offset: 1/16
+        - frets: [~, ~, ~, 14, ~, ~]
+          offset: 1/16
+        - frets: [~, ~, 14, ~, ~, ~]
+          offset: 1/16
+        - frets: [~, ~, ~, 14, ~, ~]
+          offset: 1/16
+        - frets: [~, ~, ~, 10, ~, ~]
+          offset: 1/16
+        - frets: [~, ~, ~, 14, ~, ~]
+          offset: 1/16
+        - frets: [~, ~, ~, 10, ~, ~]
+          offset: 1/16
+        - frets: [~, ~, ~, 14, ~, ~]
+          offset: 1/16
+        - frets: [~, ~, ~, 10, ~, ~]
+          offset: 1/16
+        - frets: [~, ~, ~, ~, 12, ~]
+          offset: 1/16
+      - time_signature: 4/4
+        notes:
+        - frets: [~, ~, ~, ~, ~, 0]
+        - frets: [~, ~, ~, ~, ~, 0]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, 7, ~]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, ~, 0]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, ~, 0]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, 5, ~]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, ~, 0]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, ~, 0]
+          offset: 1/8
+      - time_signature: 4/4
+        notes:
+        - frets: [~, ~, ~, ~, 3, ~]
+        - frets: [~, ~, ~, ~, ~, 0]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, ~, 0]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, 1, ~]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, ~, 0]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, ~, 0]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, 2, ~]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, 3, ~]
+          offset: 1/8
+      - time_signature: 4/4
+        notes:
+        - frets: [~, ~, ~, ~, ~, 0]
+        - frets: [~, ~, ~, ~, ~, 0]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, 7, ~]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, ~, 0]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, ~, 0]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, 5, ~]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, ~, 0]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, ~, 0]
+          offset: 1/8
+      - time_signature: 4/4
+        notes:
+        - frets: [~, ~, ~, ~, 3, ~]
+        - frets: [~, ~, ~, ~, ~, 0]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, ~, 0]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, 1, 0]
+          offset: 1/8
+          vibration: 2.5
+      - time_signature: 4/4
+        notes:
+        - frets: [~, ~, ~, ~, ~, 0]
+        - frets: [~, ~, ~, ~, ~, 0]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, 7, ~]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, ~, 0]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, ~, 0]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, 5, ~]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, ~, 0]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, ~, 0]
+          offset: 1/8
+      - time_signature: 4/4
+        notes:
+        - frets: [~, ~, ~, ~, 3, ~]
+        - frets: [~, ~, ~, ~, ~, 0]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, ~, 0]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, 1, ~]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, ~, 0]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, ~, 0]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, 2, ~]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, 3, ~]
+          offset: 1/8
+      - time_signature: 4/4
+        notes:
+        - frets: [~, ~, ~, ~, ~, 0]
+        - frets: [~, ~, ~, ~, ~, 0]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, 7, ~]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, ~, 0]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, ~, 0]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, 5, ~]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, ~, 0]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, ~, 0]
+          offset: 1/8
+      - time_signature: 4/4
+        notes:
+        - frets: [~, ~, ~, ~, 3, ~]
+        - frets: [~, ~, ~, ~, ~, 0]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, ~, 0]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, 1, 0]
+          offset: 1/8
+          vibration: 2.5
+      - time_signature: 4/4
+        notes:
+        - frets: [~, ~, ~, ~, 4, ~]
+        - frets: [~, ~, ~, ~, 4, ~]
+          offset: 1/8
+        - frets: [~, ~, 6, ~, ~, ~]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, 4, ~]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, 4, ~]
+          offset: 1/8
+        - frets: [~, ~, 4, ~, ~, ~]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, 4, ~]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, 4, ~]
+          offset: 1/8
+      - time_signature: 4/4
+        notes:
+        - frets: [~, ~, ~, 7, ~, ~]
+        - frets: [~, ~, ~, ~, 4, ~]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, 4, ~]
+          offset: 1/8
+        - frets: [~, ~, ~, 5, ~, ~]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, 4, ~]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, 4, ~]
+          offset: 1/8
+        - frets: [~, ~, ~, 6, ~, ~]
+          offset: 1/8
+        - frets: [~, ~, ~, 7, ~, ~]
+          offset: 1/8
+      - time_signature: 4/4
+        notes:
+        - frets: [~, ~, ~, ~, 2, ~]
+        - frets: [~, ~, ~, ~, 2, ~]
+          offset: 1/8
+        - frets: [~, ~, 4, ~, ~, ~]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, 2, ~]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, 2, ~]
+          offset: 1/8
+        - frets: [~, ~, 2, ~, ~, ~]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, 2, ~]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, 2, ~]
+          offset: 1/8
+      - time_signature: 4/4
+        notes:
+        - frets: [~, ~, ~, 5, ~, ~]
+        - frets: [~, ~, ~, ~, 0, ~]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, 0, ~]
+          offset: 1/8
+        - frets: [~, ~, ~, 3, 2, ~]
+          offset: 1/8
+          vibration: 2.5
+      - time_signature: 4/4
+        notes:
+        - frets: [~, ~, ~, ~, ~, 0]
+        - frets: [~, ~, ~, ~, ~, 0]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, 7, ~]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, ~, 0]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, ~, 0]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, 5, ~]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, ~, 0]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, ~, 0]
+          offset: 1/8
+      - time_signature: 4/4
+        notes:
+        - frets: [~, ~, ~, ~, 3, ~]
+        - frets: [~, ~, ~, ~, ~, 0]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, ~, 0]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, 1, ~]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, ~, 0]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, ~, 0]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, 2, ~]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, 3, ~]
+          offset: 1/8
+      - time_signature: 4/4
+        notes:
+        - frets: [~, ~, ~, ~, ~, 0]
+        - frets: [~, ~, ~, ~, ~, 0]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, 7, ~]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, ~, 0]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, ~, 0]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, 5, ~]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, ~, 0]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, ~, 0]
+          offset: 1/8
+      - time_signature: 4/4
+        notes:
+        - frets: [~, 10, ~, ~, ~, ~]
+        - frets: [~, 7, ~, ~, ~, ~]
+          offset: 1/16
+        - frets: [~, ~, 8, ~, ~, ~]
+          offset: 1/16
+        - frets: [~, ~, ~, 9, ~, ~]
+          offset: 1/16
+        - frets: [~, ~, ~, 7, ~, ~]
+          offset: 1/16
+        - frets: [~, ~, ~, ~, 9, ~]
+          offset: 1/16
+        - frets: [~, ~, ~, ~, ~, 11]
+          offset: 1/16
+        - frets: [~, ~, ~, ~, ~, 7]
+          offset: 1/16
+        - frets: [~, 12, ~, ~, ~, ~]
+          offset: 1/16
+        - frets: [~, 10, ~, ~, ~, ~]
+          offset: 1/16
+        - frets: [~, ~, 11, ~, ~, ~]
+          offset: 1/16
+        - frets: [~, ~, ~, 13, ~, ~]
+          offset: 1/16
+        - frets: [~, ~, ~, 9, ~, ~]
+          offset: 1/16
+        - frets: [~, ~, ~, ~, 12, ~]
+          offset: 1/16
+        - frets: [~, ~, ~, ~, 9, ~]
+          offset: 1/16
+        - frets: [~, ~, ~, ~, ~, 11]
+          offset: 1/16
+  distortion_guitar:
+    url: https://www.songsterr.com/a/wsa/bobby-prince-e1m1-at-dooms-gate-tab-s43926t1
+    weight: 0.8
+    instrument:
+      tuning: [E2, A2, D3, G3, B3, E4]
+      vibration: 0.15
+      damping: 0.475
+      effects:
+      - Distortion:
+          drive_db: 30
+      - Convolution:
+          mix: 0.95
+          impulse_response_filename: ../ir/electric.wav
+      - Reverb
+    tablature:
+      beats_per_minute: 220
+      measures:
+      - time_signature: 4/4
+      - time_signature: 4/4
+      - time_signature: 4/4
+      - time_signature: 4/4
+      - time_signature: 4/4
+      - time_signature: 4/4
+      - time_signature: 4/4
+      - time_signature: 4/4
+      - time_signature: 4/4
+        notes:
+        - frets: [~, ~, ~, ~, ~, 0]
+        - frets: [~, ~, ~, ~, ~, 0]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, 7, ~]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, ~, 0]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, ~, 0]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, 5, ~]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, ~, 0]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, ~, 0]
+          offset: 1/8
+      - time_signature: 4/4
+        notes:
+        - frets: [~, ~, ~, ~, 3, ~]
+        - frets: [~, ~, ~, ~, ~, 0]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, ~, 0]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, 1, ~]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, ~, 0]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, ~, 0]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, 2, ~]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, 3, ~]
+          offset: 1/8
+      - time_signature: 4/4
+        notes:
+        - frets: [~, ~, ~, ~, ~, 0]
+        - frets: [~, ~, ~, ~, ~, 0]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, 7, ~]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, ~, 0]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, ~, 0]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, 5, ~]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, ~, 0]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, ~, 0]
+          offset: 1/8
+      - time_signature: 4/4
+        notes:
+        - frets: [~, ~, ~, ~, 3, ~]
+        - frets: [~, ~, ~, ~, ~, 0]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, ~, 0]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, 1, 0]
+          offset: 1/8
+          vibration: 2.5
+      - time_signature: 4/4
+        notes:
+        - frets: [~, ~, ~, ~, ~, 0]
+        - frets: [~, ~, ~, ~, ~, 0]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, 7, ~]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, ~, 0]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, ~, 0]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, 5, ~]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, ~, 0]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, ~, 0]
+          offset: 1/8
+      - time_signature: 4/4
+        notes:
+        - frets: [~, ~, ~, ~, 3, ~]
+        - frets: [~, ~, ~, ~, ~, 0]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, ~, 0]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, 1, ~]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, ~, 0]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, ~, 0]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, 2, ~]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, 3, ~]
+          offset: 1/8
+      - time_signature: 4/4
+        notes:
+        - frets: [~, ~, ~, ~, ~, 0]
+        - frets: [~, ~, ~, ~, ~, 0]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, 7, ~]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, ~, 0]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, ~, 0]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, 5, ~]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, ~, 0]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, ~, 0]
+          offset: 1/8
+      - time_signature: 4/4
+        notes:
+        - frets: [~, 4, ~, ~, ~, ~]
+        - frets: [~, 1, ~, ~, ~, ~]
+          offset: 1/16
+        - frets: [~, 0, ~, ~, ~, ~]
+          offset: 1/16
+        - frets: [~, 4, ~, ~, ~, ~]
+          offset: 1/16
+        - frets: [2, ~, ~, ~, ~, ~]
+          offset: 1/16
+        - frets: [0, ~, ~, ~, ~, ~]
+          offset: 1/16
+        - frets: [~, 4, ~, ~, ~, ~]
+          offset: 1/16
+        - frets: [~, 0, ~, ~, ~, ~]
+          offset: 1/16
+        - frets: [~, 4, ~, ~, ~, ~]
+          offset: 1/16
+        - frets: [0, ~, ~, ~, ~, ~]
+          offset: 1/16
+        - frets: [2, ~, ~, ~, ~, ~]
+          offset: 1/16
+        - frets: [3, ~, ~, ~, ~, ~]
+          offset: 1/16
+        - frets: [2, ~, ~, ~, ~, ~]
+          offset: 1/16
+        - frets: [0, ~, ~, ~, ~, ~]
+          offset: 1/16
+        - frets: [~, 4, ~, ~, ~, ~]
+          offset: 1/16
+        - frets: [~, 0, ~, ~, ~, ~]
+          offset: 1/16
+      - time_signature: 4/4
+        notes:
+        - frets: [~, ~, ~, ~, ~, 0]
+        - frets: [~, ~, ~, ~, ~, 0]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, 7, ~]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, ~, 0]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, ~, 0]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, 5, ~]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, ~, 0]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, ~, 0]
+          offset: 1/8
+      - time_signature: 4/4
+        notes:
+        - frets: [~, ~, ~, ~, 3, ~]
+        - frets: [~, ~, ~, ~, ~, 0]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, ~, 0]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, 1, ~]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, ~, 0]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, ~, 0]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, 2, ~]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, 3, ~]
+          offset: 1/8
+      - time_signature: 4/4
+        notes:
+        - frets: [~, ~, ~, ~, ~, 0]
+        - frets: [~, ~, ~, ~, ~, 0]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, 7, ~]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, ~, 0]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, ~, 0]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, 5, ~]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, ~, 0]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, ~, 0]
+          offset: 1/8
+      - time_signature: 4/4
+        notes:
+        - frets: [~, ~, ~, ~, 3, ~]
+        - frets: [~, ~, ~, ~, ~, 0]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, ~, 0]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, 1, 0]
+          offset: 1/8
+          vibration: 2.5
+      - time_signature: 4/4
+        notes:
+        - frets: [~, ~, ~, ~, ~, 0]
+        - frets: [~, ~, ~, ~, ~, 0]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, 7, ~]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, ~, 0]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, ~, 0]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, 5, ~]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, ~, 0]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, ~, 0]
+          offset: 1/8
+      - time_signature: 4/4
+        notes:
+        - frets: [~, ~, ~, ~, 3, ~]
+        - frets: [~, ~, ~, ~, ~, 0]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, ~, 0]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, 1, ~]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, ~, 0]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, ~, 0]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, 2, ~]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, 3, ~]
+          offset: 1/8
+      - time_signature: 4/4
+        notes:
+        - frets: [~, ~, ~, ~, ~, 0]
+        - frets: [~, ~, ~, ~, ~, 0]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, 7, ~]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, ~, 0]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, ~, 0]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, 5, ~]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, ~, 0]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, ~, 0]
+          offset: 1/8
+      - time_signature: 4/4
+        notes:
+        - frets: [~, 8, ~, ~, ~, ~]
+        - frets: [~, 5, ~, ~, ~, ~]
+          offset: 1/16
+        - frets: [~, 0, ~, ~, ~, ~]
+          offset: 1/16
+        - frets: [~, 5, ~, ~, ~, ~]
+          offset: 1/16
+        - frets: [~, 8, ~, ~, ~, ~]
+          offset: 1/16
+        - frets: [~, 5, ~, ~, ~, ~]
+          offset: 1/16
+        - frets: [~, 8, ~, ~, ~, ~]
+          offset: 1/16
+        - frets: [7, ~, ~, ~, ~, ~]
+          offset: 1/16
+        - frets: [~, 8, ~, ~, ~, ~]
+          offset: 1/16
+        - frets: [~, 5, ~, ~, ~, ~]
+          offset: 1/16
+        - frets: [~, 8, ~, ~, ~, ~]
+          offset: 1/16
+        - frets: [~, 5, ~, ~, ~, ~]
+          offset: 1/16
+        - frets: [~, 8, ~, ~, ~, ~]
+          offset: 1/16
+        - frets: [~, 12, ~, ~, ~, ~]
+          offset: 1/16
+        - frets: [12, ~, ~, ~, ~, ~]
+          offset: 1/16
+        - frets: [15, ~, ~, ~, ~, ~]
+          offset: 1/16
+      - time_signature: 4/4
+        notes:
+        - frets: [~, ~, ~, ~, 0, ~]
+        - frets: [~, ~, ~, ~, 0, ~]
+          offset: 1/8
+        - frets: [~, ~, ~, 7, ~, ~]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, 0, ~]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, 0, ~]
+          offset: 1/8
+        - frets: [~, ~, ~, 5, ~, ~]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, 0, ~]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, 0, ~]
+          offset: 1/8
+      - time_signature: 4/4
+        notes:
+        - frets: [~, ~, ~, 3, ~, ~]
+        - frets: [~, ~, ~, ~, 0, ~]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, 0, ~]
+          offset: 1/8
+        - frets: [~, ~, ~, 1, ~, ~]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, 0, ~]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, 0, ~]
+          offset: 1/8
+        - frets: [~, ~, ~, 2, ~, ~]
+          offset: 1/8
+        - frets: [~, ~, ~, 3, ~, ~]
+          offset: 1/8
+      - time_signature: 4/4
+        notes:
+        - frets: [~, ~, ~, ~, 0, ~]
+        - frets: [~, ~, ~, ~, 0, ~]
+          offset: 1/8
+        - frets: [~, ~, ~, 7, ~, ~]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, 0, ~]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, 0, ~]
+          offset: 1/8
+        - frets: [~, ~, ~, 5, ~, ~]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, 0, ~]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, 0, ~]
+          offset: 1/8
+      - time_signature: 4/4
+        notes:
+        - frets: [~, ~, ~, 3, ~, ~]
+        - frets: [~, ~, ~, ~, 0, ~]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, 0, ~]
+          offset: 1/8
+        - frets: [~, ~, ~, 1, 0, ~]
+          offset: 1/8
+          vibration: 2.5
+      - time_signature: 4/4
+        notes:
+        - frets: [~, ~, ~, ~, 0, ~]
+        - frets: [~, ~, ~, ~, 0, ~]
+          offset: 1/8
+        - frets: [~, ~, ~, 7, ~, ~]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, 0, ~]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, 0, ~]
+          offset: 1/8
+        - frets: [~, ~, ~, 5, ~, ~]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, 0, ~]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, 0, ~]
+          offset: 1/8
+      - time_signature: 4/4
+        notes:
+        - frets: [~, ~, ~, 3, ~, ~]
+        - frets: [~, ~, ~, ~, 0, ~]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, 0, ~]
+          offset: 1/8
+        - frets: [~, ~, ~, 1, ~, ~]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, 0, ~]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, 0, ~]
+          offset: 1/8
+        - frets: [~, ~, ~, 2, ~, ~]
+          offset: 1/8
+        - frets: [~, ~, ~, 3, ~, ~]
+          offset: 1/8
+      - time_signature: 4/4
+        notes:
+        - frets: [~, ~, ~, ~, 0, ~]
+        - frets: [~, ~, ~, ~, 0, ~]
+          offset: 1/8
+        - frets: [~, ~, ~, 7, ~, ~]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, 0, ~]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, 0, ~]
+          offset: 1/8
+        - frets: [~, ~, ~, 5, ~, ~]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, 0, ~]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, 0, ~]
+          offset: 1/8
+      - time_signature: 4/4
+        notes:
+        - frets: [~, 10, ~, ~, ~, ~]
+        - frets: [~, 8, ~, ~, ~, ~]
+          offset: 1/16
+        - frets: [0, ~, ~, ~, ~, ~]
+          offset: 1/16
+        - frets: [5, ~, ~, ~, ~, ~]
+          offset: 1/16
+        - frets: [0, ~, ~, ~, ~, ~]
+          offset: 1/16
+        - frets: [~, ~, 5, ~, ~, ~]
+          offset: 1/16
+        - frets: [0, ~, ~, ~, ~, ~]
+          offset: 1/16
+        - frets: [5, ~, ~, ~, ~, ~]
+          offset: 1/16
+        - frets: [8, ~, ~, ~, ~, ~]
+          offset: 1/16
+        - frets: [5, ~, ~, ~, ~, ~]
+          offset: 1/16
+        - frets: [0, ~, ~, ~, ~, ~]
+          offset: 1/16
+        - frets: [5, ~, ~, ~, ~, ~]
+          offset: 1/16
+        - frets: [0, ~, ~, ~, ~, ~]
+          offset: 1/16
+        - frets: [5, ~, ~, ~, ~, ~]
+          offset: 1/16
+        - frets: [~, 5, ~, ~, ~, ~]
+          offset: 1/16
+        - frets: [~, ~, 5, ~, ~, ~]
+          offset: 1/16
+      - time_signature: 4/4
+        notes:
+        - frets: [~, ~, ~, ~, ~, 0]
+        - frets: [~, ~, ~, ~, ~, 0]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, 7, ~]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, ~, 0]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, ~, 0]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, 5, ~]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, ~, 0]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, ~, 0]
+          offset: 1/8
+      - time_signature: 4/4
+        notes:
+        - frets: [~, ~, ~, ~, 3, ~]
+        - frets: [~, ~, ~, ~, ~, 0]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, ~, 0]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, 1, ~]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, ~, 0]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, ~, 0]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, 2, ~]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, 3, ~]
+          offset: 1/8
+      - time_signature: 4/4
+        notes:
+        - frets: [~, ~, ~, ~, ~, 0]
+        - frets: [~, ~, ~, ~, ~, 0]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, 7, ~]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, ~, 0]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, ~, 0]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, 5, ~]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, ~, 0]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, ~, 0]
+          offset: 1/8
+      - time_signature: 4/4
+        notes:
+        - frets: [~, ~, ~, ~, 3, ~]
+        - frets: [~, ~, ~, ~, ~, 0]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, ~, 0]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, 1, 0]
+          offset: 1/8
+          vibration: 2.5
+      - time_signature: 4/4
+        notes:
+        - frets: [~, ~, ~, ~, ~, 0]
+        - frets: [~, ~, ~, ~, ~, 0]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, 7, ~]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, ~, 0]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, ~, 0]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, 5, ~]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, ~, 0]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, ~, 0]
+          offset: 1/8
+      - time_signature: 4/4
+        notes:
+        - frets: [~, ~, ~, ~, 3, ~]
+        - frets: [~, ~, ~, ~, ~, 0]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, ~, 0]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, 1, ~]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, ~, 0]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, ~, 0]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, 2, ~]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, 3, ~]
+          offset: 1/8
+      - time_signature: 4/4
+        notes:
+        - frets: [~, ~, ~, ~, ~, 0]
+        - frets: [~, ~, ~, ~, ~, 0]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, 7, ~]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, ~, 0]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, ~, 0]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, 5, ~]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, ~, 0]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, ~, 0]
+          offset: 1/8
+      - time_signature: 4/4
+        notes:
+        - frets: [~, ~, ~, ~, 3, ~]
+        - frets: [~, ~, ~, ~, ~, 0]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, ~, 0]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, 1, 0]
+          offset: 1/8
+          vibration: 2.5
+      - time_signature: 4/4
+        notes:
+        - frets: [~, ~, ~, ~, 4, ~]
+        - frets: [~, ~, ~, ~, 4, ~]
+          offset: 1/8
+        - frets: [~, ~, 6, ~, ~, ~]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, 4, ~]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, 4, ~]
+          offset: 1/8
+        - frets: [~, ~, 4, ~, ~, ~]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, 4, ~]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, 4, ~]
+          offset: 1/8
+      - time_signature: 4/4
+        notes:
+        - frets: [~, ~, ~, 7, ~, ~]
+        - frets: [~, ~, ~, ~, 4, ~]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, 4, ~]
+          offset: 1/8
+        - frets: [~, ~, ~, 5, ~, ~]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, 4, ~]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, 4, ~]
+          offset: 1/8
+        - frets: [~, ~, ~, 6, ~, ~]
+          offset: 1/8
+        - frets: [~, ~, ~, 7, ~, ~]
+          offset: 1/8
+      - time_signature: 4/4
+        notes:
+        - frets: [~, ~, ~, ~, 2, ~]
+        - frets: [~, ~, ~, ~, 2, ~]
+          offset: 1/8
+        - frets: [~, ~, 4, ~, ~, ~]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, 2, ~]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, 2, ~]
+          offset: 1/8
+        - frets: [~, ~, 2, ~, ~, ~]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, 2, ~]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, 2, ~]
+          offset: 1/8
+      - time_signature: 4/4
+        notes:
+        - frets: [~, ~, ~, 5, ~, ~]
+        - frets: [~, ~, ~, ~, 0, ~]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, 0, ~]
+          offset: 1/8
+        - frets: [~, ~, ~, 3, 2, ~]
+          offset: 1/8
+          vibration: 2.5
+      - time_signature: 4/4
+        notes:
+        - frets: [~, ~, ~, ~, ~, 0]
+        - frets: [~, ~, ~, ~, ~, 0]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, 7, ~]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, ~, 0]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, ~, 0]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, 5, ~]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, ~, 0]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, ~, 0]
+          offset: 1/8
+      - time_signature: 4/4
+        notes:
+        - frets: [~, ~, ~, ~, 3, ~]
+        - frets: [~, ~, ~, ~, ~, 0]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, ~, 0]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, 1, ~]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, ~, 0]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, ~, 0]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, 2, ~]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, 3, ~]
+          offset: 1/8
+      - time_signature: 4/4
+        notes:
+        - frets: [~, ~, ~, ~, ~, 0]
+        - frets: [~, ~, ~, ~, ~, 0]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, 7, ~]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, ~, 0]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, ~, 0]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, 5, ~]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, ~, 0]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, ~, 0]
+          offset: 1/8
+      - time_signature: 4/4
+        notes:
+        - frets: [~, 8, ~, ~, ~, ~]
+        - frets: [7, ~, ~, ~, ~, ~]
+          offset: 1/16
+        - frets: [0, ~, ~, ~, ~, ~]
+          offset: 1/16
+        - frets: [~, 0, ~, ~, ~, ~]
+          offset: 1/16
+        - frets: [~, 8, ~, ~, ~, ~]
+          offset: 1/16
+        - frets: [0, ~, ~, ~, ~, ~]
+          offset: 1/16
+        - frets: [7, ~, ~, ~, ~, ~]
+          offset: 1/16
+        - frets: [~, 8, ~, ~, ~, ~]
+          offset: 1/16
+        - frets: [7, ~, ~, ~, ~, ~]
+          offset: 1/16
+        - frets: [~, 8, ~, ~, ~, ~]
+          offset: 1/16
+        - frets: [~, ~, 9, ~, ~, ~]
+          offset: 1/16
+        - frets: [~, 0, ~, ~, ~, ~]
+          offset: 1/16
+        - frets: [~, 8, ~, ~, ~, ~]
+          offset: 1/16
+        - frets: [~, 12, ~, ~, ~, ~]
+          offset: 1/16
+        - frets: [12, ~, ~, ~, ~, ~]
+          offset: 1/16
+        - frets: [15, ~, ~, ~, ~, ~]
+          offset: 1/16
+      - time_signature: 4/4
+        notes:
+        - frets: [~, ~, ~, ~, ~, 0]
+        - frets: [~, ~, ~, ~, ~, 0]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, 7, ~]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, ~, 0]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, ~, 0]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, 5, ~]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, ~, 0]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, ~, 0]
+          offset: 1/8
+      - time_signature: 4/4
+        notes:
+        - frets: [~, ~, ~, ~, 3, ~]
+        - frets: [~, ~, ~, ~, ~, 0]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, ~, 0]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, 1, ~]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, ~, 0]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, ~, 0]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, 2, ~]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, 3, ~]
+          offset: 1/8
+      - time_signature: 4/4
+        notes:
+        - frets: [~, ~, ~, ~, ~, 0]
+        - frets: [~, ~, ~, ~, ~, 0]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, 7, ~]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, ~, 0]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, ~, 0]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, 5, ~]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, ~, 0]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, ~, 0]
+          offset: 1/8
+      - time_signature: 4/4
+        notes:
+        - frets: [~, ~, ~, ~, 3, ~]
+        - frets: [~, ~, ~, ~, ~, 0]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, ~, 0]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, 1, 0]
+          offset: 1/8
+          vibration: 2.5
+      - time_signature: 4/4
+        notes:
+        - frets: [~, ~, ~, ~, ~, 0]
+        - frets: [~, ~, ~, ~, ~, 0]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, 7, ~]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, ~, 0]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, ~, 0]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, 5, ~]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, ~, 0]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, ~, 0]
+          offset: 1/8
+      - time_signature: 4/4
+        notes:
+        - frets: [~, ~, ~, ~, 3, ~]
+        - frets: [~, ~, ~, ~, ~, 0]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, ~, 0]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, 1, ~]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, ~, 0]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, ~, 0]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, 2, ~]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, 3, ~]
+          offset: 1/8
+      - time_signature: 4/4
+        notes:
+        - frets: [~, ~, ~, ~, ~, 0]
+        - frets: [~, ~, ~, ~, ~, 0]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, 7, ~]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, ~, 0]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, ~, 0]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, 5, ~]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, ~, 0]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, ~, 0]
+          offset: 1/8
+      - time_signature: 4/4
+        notes:
+        - frets: [~, 7, ~, ~, ~, ~]
+        - frets: [~, 5, ~, ~, ~, ~]
+          offset: 1/16
+        - frets: [~, 4, ~, ~, ~, ~]
+          offset: 1/16
+        - frets: [~, 0, ~, ~, ~, ~]
+          offset: 1/16
+        - frets: [~, 10, ~, ~, ~, ~]
+          offset: 1/16
+        - frets: [~, 7, ~, ~, ~, ~]
+          offset: 1/16
+        - frets: [~, ~, 8, ~, ~, ~]
+          offset: 1/16
+        - frets: [~, 0, ~, ~, ~, ~]
+          offset: 1/16
+        - frets: [~, 12, ~, ~, ~, ~]
+          offset: 1/16
+        - frets: [~, 10, ~, ~, ~, ~]
+          offset: 1/16
+        - frets: [~, ~, 11, ~, ~, ~]
+          offset: 1/16
+        - frets: [~, ~, ~, 13, ~, ~]
+          offset: 1/16
+        - frets: [~, 16, ~, ~, ~, ~]
+          offset: 1/16
+        - frets: [~, 14, ~, ~, ~, ~]
+          offset: 1/16
+        - frets: [~, ~, 16, ~, ~, ~]
+          offset: 1/16
+        - frets: [~, ~, 14, ~, ~, ~]
+          offset: 1/16
+      - time_signature: 4/4
+        notes:
+        - frets: [~, ~, ~, ~, ~, 0]
+        - frets: [~, ~, ~, ~, ~, 0]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, 10, ~]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, ~, 0]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, ~, 0]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, 9, ~]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, ~, 0]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, ~, 0]
+          offset: 1/8
+      - time_signature: 4/4
+        notes:
+        - frets: [~, ~, ~, ~, 6, ~]
+        - frets: [~, ~, ~, ~, ~, 0]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, ~, 0]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, 5, ~]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, ~, 0]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, ~, 0]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, 5, ~]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, 7, ~]
+          offset: 1/8
+      - time_signature: 4/4
+        notes:
+        - frets: [~, ~, ~, ~, ~, 0]
+        - frets: [~, ~, ~, ~, ~, 0]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, 10, ~]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, ~, 0]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, ~, 0]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, 9, ~]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, ~, 0]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, ~, 0]
+          offset: 1/8
+      - time_signature: 4/4
+        notes:
+        - frets: [~, ~, ~, ~, 7, ~]
+        - frets: [~, ~, ~, ~, ~, 0]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, ~, 0]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, 4, 3]
+          offset: 1/8
+          vibration: 2.5
+      - time_signature: 4/4
+        notes:
+        - frets: [~, ~, ~, ~, ~, 0]
+        - frets: [~, ~, ~, ~, ~, 0]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, 10, ~]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, ~, 0]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, ~, 0]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, 9, ~]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, ~, 0]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, ~, 0]
+          offset: 1/8
+      - time_signature: 4/4
+        notes:
+        - frets: [~, ~, ~, ~, 6, ~]
+        - frets: [~, ~, ~, ~, ~, 0]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, ~, 0]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, 5, ~]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, ~, 0]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, ~, 0]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, 5, ~]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, 7, ~]
+          offset: 1/8
+      - time_signature: 4/4
+        notes:
+        - frets: [~, ~, ~, ~, ~, 0]
+        - frets: [~, ~, ~, ~, ~, 0]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, 10, ~]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, ~, 0]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, ~, 0]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, 9, ~]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, ~, 0]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, ~, 0]
+          offset: 1/8
+      - time_signature: 4/4
+        notes:
+        - frets: [15, ~, ~, ~, ~, ~]
+        - frets: [12, ~, ~, ~, ~, ~]
+          offset: 1/16
+        - frets: [~, 12, ~, ~, ~, ~]
+          offset: 1/16
+        - frets: [~, ~, 12, ~, ~, ~]
+          offset: 1/16
+        - frets: [12, ~, ~, ~, ~, ~]
+          offset: 1/16
+        - frets: [15, ~, ~, ~, ~, ~]
+          offset: 1/16
+        - frets: [12, ~, ~, ~, ~, ~]
+          offset: 1/16
+        - frets: [~, 12, ~, ~, ~, ~]
+          offset: 1/16
+        - frets: [~, ~, 12, ~, ~, ~]
+          offset: 1/16
+        - frets: [~, 12, ~, ~, ~, ~]
+          offset: 1/16
+        - frets: [12, ~, ~, ~, ~, ~]
+          offset: 1/16
+        - frets: [~, 12, ~, ~, ~, ~]
+          offset: 1/16
+        - frets: [15, ~, ~, ~, ~, ~]
+          offset: 1/16
+        - frets: [12, ~, ~, ~, ~, ~]
+          offset: 1/16
+        - frets: [~, 12, ~, ~, ~, ~]
+          offset: 1/16
+        - frets: [~, ~, 12, ~, ~, ~]
+          offset: 1/16
+      - time_signature: 4/4
+        notes:
+        - frets: [~, ~, ~, ~, 0, ~]
+        - frets: [~, ~, ~, ~, 0, ~]
+          offset: 1/8
+        - frets: [~, ~, ~, 10, ~, ~]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, 0, ~]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, 0, ~]
+          offset: 1/8
+        - frets: [~, ~, ~, 9, ~, ~]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, 0, ~]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, 0, ~]
+          offset: 1/8
+      - time_signature: 4/4
+        notes:
+        - frets: [~, ~, ~, 6, ~, ~]
+        - frets: [~, ~, ~, ~, 0, ~]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, 0, ~]
+          offset: 1/8
+        - frets: [~, ~, ~, 5, ~, ~]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, 0, ~]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, 0, ~]
+          offset: 1/8
+        - frets: [~, ~, ~, 5, ~, ~]
+          offset: 1/8
+        - frets: [~, ~, ~, 7, ~, ~]
+          offset: 1/8
+      - time_signature: 4/4
+        notes:
+        - frets: [~, ~, ~, ~, 0, ~]
+        - frets: [~, ~, ~, ~, 0, ~]
+          offset: 1/8
+        - frets: [~, ~, ~, 10, ~, ~]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, 0, ~]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, 0, ~]
+          offset: 1/8
+        - frets: [~, ~, ~, 9, ~, ~]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, 0, ~]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, 0, ~]
+          offset: 1/8
+      - time_signature: 4/4
+        notes:
+        - frets: [~, ~, ~, 7, ~, ~]
+        - frets: [~, ~, ~, ~, 0, ~]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, 0, ~]
+          offset: 1/8
+        - frets: [~, ~, ~, 5, 4, ~]
+          offset: 1/8
+          vibration: 2.5
+      - time_signature: 4/4
+        notes:
+        - frets: [~, ~, ~, ~, 0, ~]
+        - frets: [~, ~, ~, ~, 0, ~]
+          offset: 1/8
+        - frets: [~, ~, ~, 10, ~, ~]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, 0, ~]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, 0, ~]
+          offset: 1/8
+        - frets: [~, ~, ~, 9, ~, ~]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, 0, ~]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, 0, ~]
+          offset: 1/8
+      - time_signature: 4/4
+        notes:
+        - frets: [~, ~, ~, 6, ~, ~]
+        - frets: [~, ~, ~, ~, 0, ~]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, 0, ~]
+          offset: 1/8
+        - frets: [~, ~, ~, 5, ~, ~]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, 0, ~]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, 0, ~]
+          offset: 1/8
+        - frets: [~, ~, ~, 5, ~, ~]
+          offset: 1/8
+        - frets: [~, ~, ~, 7, ~, ~]
+          offset: 1/8
+      - time_signature: 4/4
+        notes:
+        - frets: [~, ~, ~, ~, 0, ~]
+        - frets: [~, ~, ~, ~, 0, ~]
+          offset: 1/8
+        - frets: [~, ~, ~, 10, ~, ~]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, 0, ~]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, 0, ~]
+          offset: 1/8
+        - frets: [~, ~, ~, 9, ~, ~]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, 0, ~]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, 0, ~]
+          offset: 1/8
+      - time_signature: 4/4
+        notes:
+        - frets: [5, ~, ~, ~, ~, ~]
+        - frets: [1, ~, ~, ~, ~, ~]
+          offset: 1/16
+        - frets: [0, ~, ~, ~, ~, ~]
+          offset: 1/16
+        - frets: [5, ~, ~, ~, ~, ~]
+          offset: 1/16
+        - frets: [0, ~, ~, ~, ~, ~]
+          offset: 1/16
+        - frets: [~, ~, 5, ~, ~, ~]
+          offset: 1/16
+        - frets: [0, ~, ~, ~, ~, ~]
+          offset: 1/16
+        - frets: [5, ~, ~, ~, ~, ~]
+          offset: 1/16
+        - frets: [8, ~, ~, ~, ~, ~]
+          offset: 1/16
+        - frets: [5, ~, ~, ~, ~, ~]
+          offset: 1/16
+        - frets: [0, ~, ~, ~, ~, ~]
+          offset: 1/16
+        - frets: [5, ~, ~, ~, ~, ~]
+          offset: 1/16
+        - frets: [0, ~, ~, ~, ~, ~]
+          offset: 1/16
+        - frets: [5, ~, ~, ~, ~, ~]
+          offset: 1/16
+        - frets: [0, ~, ~, ~, ~, ~]
+          offset: 1/16
+        - frets: [~, ~, 5, ~, ~, ~]
+          offset: 1/16
+      - time_signature: 4/4
+        notes:
+        - frets: [~, ~, ~, ~, ~, 0]
+        - frets: [~, ~, ~, ~, ~, 0]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, 10, ~]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, ~, 0]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, ~, 0]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, 9, ~]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, ~, 0]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, ~, 0]
+          offset: 1/8
+      - time_signature: 4/4
+        notes:
+        - frets: [~, ~, ~, ~, 6, ~]
+        - frets: [~, ~, ~, ~, ~, 0]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, ~, 0]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, 5, ~]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, ~, 0]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, ~, 0]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, 5, ~]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, 7, ~]
+          offset: 1/8
+      - time_signature: 4/4
+        notes:
+        - frets: [~, ~, ~, ~, ~, 0]
+        - frets: [~, ~, ~, ~, ~, 0]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, 10, ~]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, ~, 0]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, ~, 0]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, 9, ~]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, ~, 0]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, ~, 0]
+          offset: 1/8
+      - time_signature: 4/4
+        notes:
+        - frets: [~, ~, ~, ~, 7, ~]
+        - frets: [~, ~, ~, ~, ~, 0]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, ~, 0]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, 4, 3]
+          offset: 1/8
+          vibration: 2.5
+      - time_signature: 4/4
+        notes:
+        - frets: [~, ~, ~, ~, ~, 0]
+        - frets: [~, ~, ~, ~, ~, 0]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, 10, ~]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, ~, 0]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, ~, 0]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, 9, ~]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, ~, 0]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, ~, 0]
+          offset: 1/8
+      - time_signature: 4/4
+        notes:
+        - frets: [~, ~, ~, ~, 6, ~]
+        - frets: [~, ~, ~, ~, ~, 0]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, ~, 0]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, 5, ~]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, ~, 0]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, ~, 0]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, 5, ~]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, 7, ~]
+          offset: 1/8
+      - time_signature: 4/4
+        notes:
+        - frets: [~, ~, ~, ~, ~, 0]
+        - frets: [~, ~, ~, ~, ~, 0]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, 10, ~]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, ~, 0]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, ~, 0]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, 9, ~]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, ~, 0]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, ~, 0]
+          offset: 1/8
+      - time_signature: 4/4
+        notes:
+        - frets: [~, ~, ~, ~, 7, ~]
+        - frets: [~, ~, ~, ~, ~, 0]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, ~, 0]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, 4, 3]
+          offset: 1/8
+          vibration: 2.5
+      - time_signature: 4/4
+        notes:
+        - frets: [~, ~, ~, ~, ~, 9]
+        - frets: [~, ~, ~, ~, ~, 9]
+          offset: 1/8
+        - frets: [~, ~, 12, ~, ~, ~]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, ~, 9]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, ~, 9]
+          offset: 1/8
+        - frets: [~, ~, 11, ~, ~, ~]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, ~, 9]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, ~, 9]
+          offset: 1/8
+      - time_signature: 4/4
+        notes:
+        - frets: [~, ~, ~, 14, ~, ~]
+        - frets: [~, ~, ~, ~, ~, 9]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, ~, 9]
+          offset: 1/8
+        - frets: [~, ~, ~, 11, ~, ~]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, ~, 9]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, ~, 9]
+          offset: 1/8
+        - frets: [~, ~, ~, 11, ~, ~]
+          offset: 1/8
+        - frets: [~, ~, 9, ~, ~, ~]
+          offset: 1/8
+      - time_signature: 4/4
+        notes:
+        - frets: [~, ~, ~, ~, ~, 7]
+        - frets: [~, ~, ~, ~, ~, 7]
+          offset: 1/8
+        - frets: [~, ~, 11, ~, ~, ~]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, ~, 7]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, ~, 7]
+          offset: 1/8
+        - frets: [~, ~, 9, ~, ~, ~]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, ~, 7]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, ~, 7]
+          offset: 1/8
+      - time_signature: 4/4
+        notes:
+        - frets: [~, ~, ~, 13, ~, ~]
+        - frets: [~, ~, ~, ~, 0, ~]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, 0, ~]
+          offset: 1/8
+        - frets: [~, ~, ~, 9, 8, ~]
+          offset: 1/8
+          vibration: 2.5
+      - time_signature: 4/4
+        notes:
+        - frets: [~, ~, ~, ~, ~, 0]
+        - frets: [~, ~, ~, ~, ~, 0]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, 10, ~]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, ~, 0]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, ~, 0]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, 9, ~]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, ~, 0]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, ~, 0]
+          offset: 1/8
+      - time_signature: 4/4
+        notes:
+        - frets: [~, ~, ~, ~, 6, ~]
+        - frets: [~, ~, ~, ~, ~, 0]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, ~, 0]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, 5, ~]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, ~, 0]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, ~, 0]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, 5, ~]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, 7, ~]
+          offset: 1/8
+      - time_signature: 4/4
+        notes:
+        - frets: [~, ~, ~, ~, ~, 0]
+        - frets: [~, ~, ~, ~, ~, 0]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, 10, ~]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, ~, 0]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, ~, 0]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, 9, ~]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, ~, 0]
+          offset: 1/8
+        - frets: [~, ~, ~, ~, ~, 0]
+          offset: 1/8
+      - time_signature: 4/4
+        notes:
+        - frets: [7, ~, ~, ~, ~, ~]
+        - frets: [~, 10, ~, ~, ~, ~]
+          offset: 1/16
+        - frets: [~, 7, ~, ~, ~, ~]
+          offset: 1/16
+        - frets: [~, ~, 8, ~, ~, ~]
+          offset: 1/16
+        - frets: [~, ~, ~, 9, ~, ~]
+          offset: 1/16
+        - frets: [~, ~, ~, 7, ~, ~]
+          offset: 1/16
+        - frets: [~, ~, ~, ~, 9, ~]
+          offset: 1/16
+        - frets: [~, ~, ~, ~, ~, 11]
+          offset: 1/16
+        - frets: [11, ~, ~, ~, ~, ~]
+          offset: 1/16
+        - frets: [~, 14, ~, ~, ~, ~]
+          offset: 1/16
+        - frets: [~, 12, ~, ~, ~, ~]
+          offset: 1/16
+        - frets: [~, ~, 14, ~, ~, ~]
+          offset: 1/16
+        - frets: [~, ~, 11, ~, ~, ~]
+          offset: 1/16
+        - frets: [~, ~, ~, 13, ~, ~]
+          offset: 1/16
+        - frets: [~, ~, ~, ~, 14, ~]
+          offset: 1/16
+        - frets: [~, ~, ~, ~, 12, ~]
+          offset: 1/16
+  bass:
+    url: https://www.songsterr.com/a/wsa/bobby-prince-e1m1-at-dooms-gate-bass-tab-s43926
+    weight: 0.5
+    instrument:
+      tuning: [E1, A1, D2, G2]
+      vibration: 0.25
+      damping: 0.4965
+      effects:
+      - Reverb:
+          room_size: 0.25
+      - Convolution:
+          mix: 0.5
+          impulse_response_filename: ../ir/bass.wav
+      - LowShelfFilter:
+          cutoff_frequency_hz: 200
+          gain_db: 2
+          q: 1
+      - Gain:
+          gain_db: 6
+    tablature:
+      beats_per_minute: 220
+      measures:
+      - time_signature: 4/4
+        notes:
+        - frets: [~, ~, 7, ~]
+      - time_signature: 4/4
+      - time_signature: 4/4
+        notes:
+        - frets: [~, ~, 7, ~]
+      - time_signature: 4/4
+      - time_signature: 4/4
+        notes:
+        - frets: [~, ~, 7, ~]
+      - time_signature: 4/4
+      - time_signature: 4/4
+        notes:
+        - frets: [~, ~, 7, ~]
+      - time_signature: 4/4
+      - time_signature: 4/4
+        notes:
+        - frets: [~, ~, 7, ~]
+      - time_signature: 4/4
+      - time_signature: 4/4
+        notes:
+        - frets: [~, ~, 7, ~]
+      - time_signature: 4/4
+      - time_signature: 4/4
+        notes:
+        - frets: [~, ~, 7, ~]
+      - time_signature: 4/4
+      - time_signature: 4/4
+        notes:
+        - frets: [~, ~, 7, ~]
+      - time_signature: 4/4
+      - time_signature: 4/4
+        notes:
+        - frets: [~, ~, 7, ~]
+        - frets: [~, ~, 7, ~]
+          offset: 1/4
+        - frets: [~, ~, 7, ~]
+          offset: 1/4
+        - frets: [~, ~, 7, ~]
+          offset: 1/4
+      - time_signature: 4/4
+        notes:
+        - frets: [~, ~, 7, ~]
+        - frets: [~, ~, 7, ~]
+          offset: 1/4
+        - frets: [~, ~, 7, ~]
+          offset: 1/4
+        - frets: [~, ~, 7, ~]
+          offset: 1/4
+      - time_signature: 4/4
+        notes:
+        - frets: [~, ~, 7, ~]
+        - frets: [~, ~, 7, ~]
+          offset: 1/4
+        - frets: [~, ~, 7, ~]
+          offset: 1/4
+        - frets: [~, ~, 7, ~]
+          offset: 1/4
+      - time_signature: 4/4
+        notes:
+        - frets: [~, ~, 7, ~]
+        - frets: [~, ~, 7, ~]
+          offset: 1/4
+        - frets: [~, ~, 7, ~]
+          offset: 1/4
+        - frets: [~, ~, 7, ~]
+          offset: 1/4
+      - time_signature: 4/4
+        notes:
+        - frets: [~, ~, 7, ~]
+        - frets: [~, ~, 7, ~]
+          offset: 1/4
+        - frets: [~, ~, 7, ~]
+          offset: 1/4
+        - frets: [~, ~, 7, ~]
+          offset: 1/4
+      - time_signature: 4/4
+        notes:
+        - frets: [~, ~, 7, ~]
+        - frets: [~, ~, 7, ~]
+          offset: 1/4
+        - frets: [~, ~, 7, ~]
+          offset: 1/4
+        - frets: [~, ~, 7, ~]
+          offset: 1/4
+      - time_signature: 4/4
+        notes:
+        - frets: [~, ~, 7, ~]
+        - frets: [~, ~, 7, ~]
+          offset: 1/4
+        - frets: [~, ~, 7, ~]
+          offset: 1/4
+        - frets: [~, ~, 7, ~]
+          offset: 1/4
+      - time_signature: 4/4
+        notes:
+        - frets: [~, ~, 7, ~]
+        - frets: [~, ~, 7, ~]
+          offset: 1/4
+        - frets: [~, ~, 7, ~]
+          offset: 1/4
+        - frets: [~, ~, 7, ~]
+          offset: 1/4
+      - time_signature: 4/4
+        notes:
+        - frets: [~, ~, ~, 5]
+        - frets: [~, ~, ~, 5]
+          offset: 1/4
+        - frets: [~, ~, ~, 5]
+          offset: 1/4
+        - frets: [~, ~, ~, 5]
+          offset: 1/4
+      - time_signature: 4/4
+        notes:
+        - frets: [~, ~, ~, 5]
+        - frets: [~, ~, ~, 5]
+          offset: 1/4
+        - frets: [~, ~, ~, 5]
+          offset: 1/4
+        - frets: [~, ~, ~, 5]
+          offset: 1/4
+      - time_signature: 4/4
+        notes:
+        - frets: [~, ~, ~, 5]
+        - frets: [~, ~, ~, 5]
+          offset: 1/4
+        - frets: [~, ~, ~, 5]
+          offset: 1/4
+        - frets: [~, ~, ~, 5]
+          offset: 1/4
+      - time_signature: 4/4
+        notes:
+        - frets: [~, ~, ~, 5]
+        - frets: [~, ~, ~, 5]
+          offset: 1/4
+        - frets: [~, ~, ~, 5]
+          offset: 1/4
+        - frets: [~, ~, ~, 5]
+          offset: 1/4
+      - time_signature: 4/4
+        notes:
+        - frets: [~, ~, ~, 5]
+        - frets: [~, ~, ~, 5]
+          offset: 1/4
+        - frets: [~, ~, ~, 5]
+          offset: 1/4
+        - frets: [~, ~, ~, 5]
+          offset: 1/4
+      - time_signature: 4/4
+        notes:
+        - frets: [~, ~, ~, 5]
+        - frets: [~, ~, ~, 5]
+          offset: 1/4
+        - frets: [~, ~, ~, 5]
+          offset: 1/4
+        - frets: [~, ~, ~, 5]
+          offset: 1/4
+      - time_signature: 4/4
+        notes:
+        - frets: [~, ~, ~, 5]
+        - frets: [~, ~, ~, 5]
+          offset: 1/4
+        - frets: [~, ~, ~, 5]
+          offset: 1/4
+        - frets: [~, ~, ~, 5]
+          offset: 1/4
+      - time_signature: 4/4
+        notes:
+        - frets: [~, ~, ~, 5]
+        - frets: [~, ~, ~, 5]
+          offset: 1/4
+        - frets: [~, ~, ~, 5]
+          offset: 1/4
+        - frets: [~, ~, ~, 5]
+          offset: 1/4
+      - time_signature: 4/4
+        notes:
+        - frets: [~, ~, 7, ~]
+        - frets: [~, ~, 7, ~]
+          offset: 1/4
+        - frets: [~, ~, 7, ~]
+          offset: 1/4
+        - frets: [~, ~, 7, ~]
+          offset: 1/4
+      - time_signature: 4/4
+        notes:
+        - frets: [~, ~, 7, ~]
+        - frets: [~, ~, 7, ~]
+          offset: 1/4
+        - frets: [~, ~, 7, ~]
+          offset: 1/4
+        - frets: [~, ~, 7, ~]
+          offset: 1/4
+      - time_signature: 4/4
+        notes:
+        - frets: [~, ~, 7, ~]
+        - frets: [~, ~, 7, ~]
+          offset: 1/4
+        - frets: [~, ~, 7, ~]
+          offset: 1/4
+        - frets: [~, ~, 7, ~]
+          offset: 1/4
+      - time_signature: 4/4
+        notes:
+        - frets: [~, ~, 7, ~]
+        - frets: [~, ~, 7, ~]
+          offset: 1/4
+        - frets: [~, ~, 7, ~]
+          offset: 1/4
+        - frets: [~, ~, 7, ~]
+          offset: 1/4
+      - time_signature: 4/4
+        notes:
+        - frets: [~, ~, 7, ~]
+        - frets: [~, ~, 7, ~]
+          offset: 1/4
+        - frets: [~, ~, 7, ~]
+          offset: 1/4
+        - frets: [~, ~, 7, ~]
+          offset: 1/4
+      - time_signature: 4/4
+        notes:
+        - frets: [~, ~, 7, ~]
+        - frets: [~, ~, 7, ~]
+          offset: 1/4
+        - frets: [~, ~, 7, ~]
+          offset: 1/4
+        - frets: [~, ~, 7, ~]
+          offset: 1/4
+      - time_signature: 4/4
+        notes:
+        - frets: [~, ~, 7, ~]
+        - frets: [~, ~, 7, ~]
+          offset: 1/4
+        - frets: [~, ~, 7, ~]
+          offset: 1/4
+        - frets: [~, ~, 7, ~]
+          offset: 1/4
+      - time_signature: 4/4
+        notes:
+        - frets: [~, ~, 7, ~]
+        - frets: [~, ~, 7, ~]
+          offset: 1/4
+        - frets: [~, ~, 7, ~]
+          offset: 1/4
+        - frets: [~, ~, 7, ~]
+          offset: 1/4
+      - time_signature: 4/4
+        notes:
+        - frets: [~, ~, 4, ~]
+        - frets: [~, ~, 4, ~]
+          offset: 1/4
+        - frets: [~, ~, 4, ~]
+          offset: 1/4
+        - frets: [~, ~, 4, ~]
+          offset: 1/4
+      - time_signature: 4/4
+        notes:
+        - frets: [~, ~, 4, ~]
+        - frets: [~, ~, 4, ~]
+          offset: 1/4
+        - frets: [~, ~, 4, ~]
+          offset: 1/4
+        - frets: [~, ~, 4, ~]
+          offset: 1/4
+      - time_signature: 4/4
+        notes:
+        - frets: [~, ~, 2, ~]
+        - frets: [~, ~, 2, ~]
+          offset: 1/4
+        - frets: [~, ~, 2, ~]
+          offset: 1/4
+        - frets: [~, ~, 2, ~]
+          offset: 1/4
+      - time_signature: 4/4
+        notes:
+        - frets: [~, ~, 0, ~]
+        - frets: [~, ~, 0, ~]
+          offset: 1/4
+        - frets: [~, ~, 0, ~]
+          offset: 1/4
+        - frets: [~, ~, 0, ~]
+          offset: 1/4
+      - time_signature: 4/4
+        notes:
+        - frets: [~, ~, 7, ~]
+        - frets: [~, ~, 7, ~]
+          offset: 1/4
+        - frets: [~, ~, 7, ~]
+          offset: 1/4
+        - frets: [~, ~, 7, ~]
+          offset: 1/4
+      - time_signature: 4/4
+        notes:
+        - frets: [~, ~, 7, ~]
+        - frets: [~, ~, 7, ~]
+          offset: 1/4
+        - frets: [~, ~, 7, ~]
+          offset: 1/4
+        - frets: [~, ~, 7, ~]
+          offset: 1/4
+      - time_signature: 4/4
+        notes:
+        - frets: [~, ~, 7, ~]
+        - frets: [~, ~, 7, ~]
+          offset: 1/4
+        - frets: [~, ~, 7, ~]
+          offset: 1/4
+        - frets: [~, ~, 7, ~]
+          offset: 1/4
+      - time_signature: 4/4
+        notes:
+        - frets: [~, ~, 7, ~]
+      - time_signature: 4/4
+        notes:
+        - frets: [~, ~, 7, ~]
+      - time_signature: 4/4
+      - time_signature: 4/4
+        notes:
+        - frets: [~, ~, 7, ~]
+      - time_signature: 4/4
+      - time_signature: 4/4
+        notes:
+        - frets: [~, ~, 7, ~]
+      - time_signature: 4/4
+      - time_signature: 4/4
+        notes:
+        - frets: [~, ~, 7, ~]
+      - time_signature: 4/4
+      - time_signature: 4/4
+        notes:
+        - frets: [~, ~, 7, ~]
+        - frets: [~, ~, 7, ~]
+          offset: 1/4
+        - frets: [~, ~, 7, ~]
+          offset: 1/4
+        - frets: [~, ~, 7, ~]
+          offset: 1/4
+      - time_signature: 4/4
+        notes:
+        - frets: [~, ~, 7, ~]
+        - frets: [~, ~, 7, ~]
+          offset: 1/4
+        - frets: [~, ~, 7, ~]
+          offset: 1/4
+        - frets: [~, ~, 7, ~]
+          offset: 1/4
+      - time_signature: 4/4
+        notes:
+        - frets: [~, ~, 7, ~]
+        - frets: [~, ~, 7, ~]
+          offset: 1/4
+        - frets: [~, ~, 7, ~]
+          offset: 1/4
+        - frets: [~, ~, 7, ~]
+          offset: 1/4
+      - time_signature: 4/4
+        notes:
+        - frets: [~, ~, 7, ~]
+        - frets: [~, ~, 7, ~]
+          offset: 1/4
+        - frets: [~, ~, 7, ~]
+          offset: 1/4
+        - frets: [~, ~, 7, ~]
+          offset: 1/4
+      - time_signature: 4/4
+        notes:
+        - frets: [~, ~, 7, ~]
+        - frets: [~, ~, 7, ~]
+          offset: 1/4
+        - frets: [~, ~, 7, ~]
+          offset: 1/4
+        - frets: [~, ~, 7, ~]
+          offset: 1/4
+      - time_signature: 4/4
+        notes:
+        - frets: [~, ~, 7, ~]
+        - frets: [~, ~, 7, ~]
+          offset: 1/4
+        - frets: [~, ~, 7, ~]
+          offset: 1/4
+        - frets: [~, ~, 7, ~]
+          offset: 1/4
+      - time_signature: 4/4
+        notes:
+        - frets: [~, ~, 7, ~]
+        - frets: [~, ~, 7, ~]
+          offset: 1/4
+        - frets: [~, ~, 7, ~]
+          offset: 1/4
+        - frets: [~, ~, 7, ~]
+          offset: 1/4
+      - time_signature: 4/4
+        notes:
+        - frets: [~, ~, 7, ~]
+        - frets: [~, ~, 7, ~]
+          offset: 1/4
+        - frets: [~, ~, 7, ~]
+          offset: 1/4
+        - frets: [~, ~, 7, ~]
+          offset: 1/4
+      - time_signature: 4/4
+        notes:
+        - frets: [~, ~, ~, 5]
+        - frets: [~, ~, ~, 5]
+          offset: 1/4
+        - frets: [~, ~, ~, 5]
+          offset: 1/4
+        - frets: [~, ~, ~, 5]
+          offset: 1/4
+      - time_signature: 4/4
+        notes:
+        - frets: [~, ~, ~, 5]
+        - frets: [~, ~, ~, 5]
+          offset: 1/4
+        - frets: [~, ~, ~, 5]
+          offset: 1/4
+        - frets: [~, ~, ~, 5]
+          offset: 1/4
+      - time_signature: 4/4
+        notes:
+        - frets: [~, ~, ~, 5]
+        - frets: [~, ~, ~, 5]
+          offset: 1/4
+        - frets: [~, ~, ~, 5]
+          offset: 1/4
+        - frets: [~, ~, ~, 5]
+          offset: 1/4
+      - time_signature: 4/4
+        notes:
+        - frets: [~, ~, ~, 5]
+        - frets: [~, ~, ~, 5]
+          offset: 1/4
+        - frets: [~, ~, ~, 5]
+          offset: 1/4
+        - frets: [~, ~, ~, 5]
+          offset: 1/4
+      - time_signature: 4/4
+        notes:
+        - frets: [~, ~, ~, 5]
+        - frets: [~, ~, ~, 5]
+          offset: 1/4
+        - frets: [~, ~, ~, 5]
+          offset: 1/4
+        - frets: [~, ~, ~, 5]
+          offset: 1/4
+      - time_signature: 4/4
+        notes:
+        - frets: [~, ~, ~, 5]
+        - frets: [~, ~, ~, 5]
+          offset: 1/4
+        - frets: [~, ~, ~, 5]
+          offset: 1/4
+        - frets: [~, ~, ~, 5]
+          offset: 1/4
+      - time_signature: 4/4
+        notes:
+        - frets: [~, ~, ~, 5]
+        - frets: [~, ~, ~, 5]
+          offset: 1/4
+        - frets: [~, ~, ~, 5]
+          offset: 1/4
+        - frets: [~, ~, ~, 5]
+          offset: 1/4
+      - time_signature: 4/4
+        notes:
+        - frets: [~, ~, ~, 5]
+        - frets: [~, ~, ~, 5]
+          offset: 1/4
+        - frets: [~, ~, ~, 5]
+          offset: 1/4
+        - frets: [~, ~, ~, 5]
+          offset: 1/4
+      - time_signature: 4/4
+        notes:
+        - frets: [~, ~, 7, ~]
+        - frets: [~, ~, 7, ~]
+          offset: 1/4
+        - frets: [~, ~, 7, ~]
+          offset: 1/4
+        - frets: [~, ~, 7, ~]
+          offset: 1/4
+      - time_signature: 4/4
+        notes:
+        - frets: [~, ~, 7, ~]
+        - frets: [~, ~, 7, ~]
+          offset: 1/4
+        - frets: [~, ~, 7, ~]
+          offset: 1/4
+        - frets: [~, ~, 7, ~]
+          offset: 1/4
+      - time_signature: 4/4
+        notes:
+        - frets: [~, ~, 7, ~]
+        - frets: [~, ~, 7, ~]
+          offset: 1/4
+        - frets: [~, ~, 7, ~]
+          offset: 1/4
+        - frets: [~, ~, 7, ~]
+          offset: 1/4
+      - time_signature: 4/4
+        notes:
+        - frets: [~, ~, 7, ~]
+        - frets: [~, ~, 7, ~]
+          offset: 1/4
+        - frets: [~, ~, 7, ~]
+          offset: 1/4
+        - frets: [~, ~, 7, ~]
+          offset: 1/4
+      - time_signature: 4/4
+        notes:
+        - frets: [~, ~, 7, ~]
+        - frets: [~, ~, 7, ~]
+          offset: 1/4
+        - frets: [~, ~, 7, ~]
+          offset: 1/4
+        - frets: [~, ~, 7, ~]
+          offset: 1/4
+      - time_signature: 4/4
+        notes:
+        - frets: [~, ~, 7, ~]
+        - frets: [~, ~, 7, ~]
+          offset: 1/4
+        - frets: [~, ~, 7, ~]
+          offset: 1/4
+        - frets: [~, ~, 7, ~]
+          offset: 1/4
+      - time_signature: 4/4
+        notes:
+        - frets: [~, ~, 7, ~]
+        - frets: [~, ~, 7, ~]
+          offset: 1/4
+        - frets: [~, ~, 7, ~]
+          offset: 1/4
+        - frets: [~, ~, 7, ~]
+          offset: 1/4
+      - time_signature: 4/4
+        notes:
+        - frets: [~, ~, 7, ~]
+        - frets: [~, ~, 7, ~]
+          offset: 1/4
+        - frets: [~, ~, 7, ~]
+          offset: 1/4
+        - frets: [~, ~, 7, ~]
+          offset: 1/4
+      - time_signature: 4/4
+        notes:
+        - frets: [~, ~, 4, ~]
+        - frets: [~, ~, 4, ~]
+          offset: 1/4
+        - frets: [~, ~, 4, ~]
+          offset: 1/4
+        - frets: [~, ~, 4, ~]
+          offset: 1/4
+      - time_signature: 4/4
+        notes:
+        - frets: [~, ~, 4, ~]
+        - frets: [~, ~, 4, ~]
+          offset: 1/4
+        - frets: [~, ~, 4, ~]
+          offset: 1/4
+        - frets: [~, ~, 4, ~]
+          offset: 1/4
+      - time_signature: 4/4
+        notes:
+        - frets: [~, ~, 2, ~]
+        - frets: [~, ~, 2, ~]
+          offset: 1/4
+        - frets: [~, ~, 2, ~]
+          offset: 1/4
+        - frets: [~, ~, 2, ~]
+          offset: 1/4
+      - time_signature: 4/4
+        notes:
+        - frets: [~, ~, 0, ~]
+        - frets: [~, ~, 0, ~]
+          offset: 1/4
+        - frets: [~, ~, 0, ~]
+          offset: 1/4
+        - frets: [~, ~, 0, ~]
+          offset: 1/4
+      - time_signature: 4/4
+        notes:
+        - frets: [~, ~, 7, ~]
+        - frets: [~, ~, 7, ~]
+          offset: 1/4
+        - frets: [~, ~, 7, ~]
+          offset: 1/4
+        - frets: [~, ~, 7, ~]
+          offset: 1/4
+      - time_signature: 4/4
+        notes:
+        - frets: [~, ~, 7, ~]
+        - frets: [~, ~, 7, ~]
+          offset: 1/4
+        - frets: [~, ~, 7, ~]
+          offset: 1/4
+        - frets: [~, ~, 7, ~]
+          offset: 1/4
+      - time_signature: 4/4
+        notes:
+        - frets: [~, ~, 7, ~]
+        - frets: [~, ~, 7, ~]
+          offset: 1/4
+        - frets: [~, ~, 7, ~]
+          offset: 1/4
+        - frets: [~, ~, 7, ~]
+          offset: 1/4
+      - time_signature: 4/4
+        notes:
+        - frets: [~, ~, 7, ~]

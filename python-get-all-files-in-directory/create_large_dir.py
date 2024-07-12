@@ -3,7 +3,6 @@ from __future__ import annotations
 from dataclasses import dataclass, field
 from pathlib import Path
 
-
 NUM_JUNK_FILES_LARGE = 300
 NUM_JUNK_FILES_MEDIUM = 25
 NUM_JUNK_FILES_SMALL = 5

@@ -1,7 +1,6 @@
+from mandelbrot_03 import MandelbrotSet
 from PIL import Image
 from PIL.ImageColor import getrgb
-
-from mandelbrot_03 import MandelbrotSet
 from viewport import Viewport
 
 

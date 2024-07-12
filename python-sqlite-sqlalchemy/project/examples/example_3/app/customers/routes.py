@@ -1,11 +1,8 @@
-from flask import Blueprint
-from flask import render_template
-from sqlalchemy import func
-from app import db
-from app.models import Customer
-from app.models import Invoice
-from sqlalchemy import desc
+from flask import Blueprint, render_template
+from sqlalchemy import desc, func
 
+from app import db
+from app.models import Customer, Invoice
 
 # Setup the Blueprint
 customers_bp = Blueprint(

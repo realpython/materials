@@ -9,13 +9,13 @@ Arcade, including:
 """
 
 # Import arcade allows the program to run in Python IDLE
-import arcade
+# To locate your assets
+from pathlib import Path
 
 # To randomize coin placement
 from random import randint
 
-# To locate your assets
-from pathlib import Path
+import arcade
 
 # Set the width and height of your game window, in pixels
 WIDTH = 800

@@ -1,6 +1,6 @@
-from productivity import ProductivitySystem
-from hr import PayrollSystem
 from contacts import AddressBook
+from hr import PayrollSystem
+from productivity import ProductivitySystem
 
 
 class EmployeeDatabase:

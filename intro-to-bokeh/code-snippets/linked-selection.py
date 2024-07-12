@@ -1,12 +1,12 @@
 # Bokeh Libraries
-from bokeh.plotting import figure, show
 from bokeh.io import output_file
+from bokeh.layouts import gridplot
 from bokeh.models import (
-    ColumnDataSource,
     CategoricalColorMapper,
+    ColumnDataSource,
     NumeralTickFormatter,
 )
-from bokeh.layouts import gridplot
+from bokeh.plotting import figure, show
 
 # Output inline in the notebook
 output_file(

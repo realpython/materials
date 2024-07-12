@@ -15,7 +15,6 @@ from typing import Callable, Iterable, Iterator
 
 import numpy as np
 from PIL import Image
-
 from spatial_splitting import Bounds, split_multi
 
 IMAGE_WIDTH, IMAGE_HEIGHT = 1920, 1080

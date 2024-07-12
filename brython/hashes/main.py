@@ -1,5 +1,6 @@
-from browser import document, html, alert
 import hashlib
+
+from browser import alert, document, html
 
 hashes = {
     "sha-1": hashlib.sha1,
