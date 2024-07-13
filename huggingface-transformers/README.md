@@ -1,6 +1,6 @@
 # Hugging Face Transformers: Leverage Open-Source AI in Python
 
-This folder contains the materials for the tutorial (Hugging Face Transformers: Leverage Open-Source AI in Python)[https://realpython.com/huggingface-transformers-open-source-ai-in-python/].
+This folder contains the materials for the tutorial (Hugging Face Transformers: Leverage Open-Source AI in Python)[https://realpython.com/huggingface-transformers/].
 
 Transformers is available on [PyPI](https://pypi.org/) and you can install it with [pip](https://realpython.com/what-is-pip/). Open a terminal or command prompt, create a new virtual environment, and then run the following command:
 

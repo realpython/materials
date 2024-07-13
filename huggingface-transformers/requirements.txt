@@ -1,4 +1,4 @@
 transformers==4.41.1
 torch==2.2.0
 accelerate==0.30.1
-polars==0.20.31
+polars==1.1.0
