@@ -1,6 +1,5 @@
 from pygame.math import Vector2
 from pygame.transform import rotozoom
-
 from utils import load_sprite, wrap_position
 
 UP = Vector2(0, -1)

@@ -1,6 +1,7 @@
 """
 Linter to ensure standard folder structure
 """
+
 import pathlib
 import re
 import sys
@@ -45,7 +46,7 @@ for f in sorted(pathlib.Path(".").glob("*")):
             f"{f}: ensure folder name only uses "
             f"lowercase letters, numbers, and hyphens"
         )
-        has_error = True
+        has_errors = True
 
     files = sorted(_.name for _ in f.glob("*"))
     if "README.md" not in files:

@@ -1,7 +1,7 @@
 # Bokeh libraries
-from bokeh.plotting import figure, show
 from bokeh.io import output_file
 from bokeh.models import ColumnDataSource
+from bokeh.plotting import figure, show
 
 # Output to file
 output_file(

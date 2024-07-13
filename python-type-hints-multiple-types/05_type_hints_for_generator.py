@@ -1,7 +1,7 @@
 from collections.abc import Generator, Iterator
 
 
-def parse_email() -> Generator[tuple[str, str], str, str]:
+def parse_email() -> Generator[tuple[str, str] | str, str, str]:
     sent = yield "", ""
     while sent != "":
         if "@" in sent:

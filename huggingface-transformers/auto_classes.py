@@ -5,7 +5,6 @@ from transformers import (
     AutoTokenizer,
 )
 
-
 model_name = "cardiffnlp/twitter-roberta-base-sentiment-latest"
 
 config = AutoConfig.from_pretrained(model_name)

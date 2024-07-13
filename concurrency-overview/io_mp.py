@@ -1,7 +1,8 @@
 #!/usr/bin/env python3
-import requests
 import multiprocessing
 import time
+
+import requests
 
 session = None
 

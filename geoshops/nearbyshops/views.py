@@ -1,7 +1,8 @@
 # from django.shortcuts import render
-from django.views import generic
-from django.contrib.gis.geos import Point
 from django.contrib.gis.db.models.functions import Distance
+from django.contrib.gis.geos import Point
+from django.views import generic
+
 from .models import Shop
 
 # hardcoded user location

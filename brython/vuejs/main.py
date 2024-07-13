@@ -1,6 +1,7 @@
+import hashlib
+
 from browser import alert, window
 from javascript import this
-import hashlib
 
 hashes = {
     "sha-1": hashlib.sha1,

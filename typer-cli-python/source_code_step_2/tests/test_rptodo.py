@@ -1,6 +1,5 @@
-from typer.testing import CliRunner
-
 from rptodo import __app_name__, __version__, cli
+from typer.testing import CliRunner
 
 runner = CliRunner()
 

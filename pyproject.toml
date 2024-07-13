@@ -1,6 +1,6 @@
 [tool.black]
 line-length = 79
-target-version = ["py310"]
+target-version = ["py312"]
 exclude = '''
 /(
   \.git
@@ -9,3 +9,12 @@ exclude = '''
   | node_modules
 )/
 '''
+
+
+[tool.ruff]
+target-version = "py312"
+exclude        = [".git", "venv", "migrations", "node_modules"]
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "RUF100"]
+ignore = ["E501"]                  # Line length is controlled by Black

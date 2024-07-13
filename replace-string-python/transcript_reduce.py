@@ -1,6 +1,5 @@
 from functools import reduce
 
-
 REPLACEMENTS = [
     ("BLASTED", "😤"),
     ("Blast", "😤"),

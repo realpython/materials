@@ -2,7 +2,7 @@
 
 import pytest
 
-from hashtable import HashTable, BLANK
+from hashtable import BLANK, HashTable
 
 
 @pytest.fixture

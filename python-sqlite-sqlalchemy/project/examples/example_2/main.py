@@ -5,11 +5,10 @@ SQLite database file
 
 from importlib import resources
 
+from project.modules.models import Author, Book, Publisher
 from sqlalchemy import and_, create_engine
 from sqlalchemy.orm import sessionmaker
 from sqlalchemy.sql import asc, desc, func
-
-from project.modules.models import Author, Book, Publisher
 from treelib import Tree
 
 

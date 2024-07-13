@@ -1,13 +1,15 @@
 """Generate random data for the project."""
-from dataclasses import dataclass, field, asdict
-from typing import Optional
-from random import choice, seed as py_rand_seed
+
+from dataclasses import asdict, dataclass, field
 from pathlib import Path
+from random import choice
+from random import seed as py_rand_seed
+from typing import Optional
 
 import numpy as np
-from faker import Faker
 import pandas as pd
 from dateutil import parser, rrule
+from faker import Faker
 
 fake = Faker()
 

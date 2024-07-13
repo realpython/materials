@@ -9,16 +9,16 @@ Pygame, including:
 """
 
 # Import and initialize the pygame library
-import pygame
+# To find your assets
+from pathlib import Path
 
 # To randomize coin placement
 from random import randint
 
-# To find your assets
-from pathlib import Path
-
 # For type hinting
 from typing import Tuple
+
+import pygame
 
 # Set the width and height of the output window, in pixels
 WIDTH = 800

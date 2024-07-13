@@ -1,6 +1,5 @@
-from datetime import datetime
 import time
-
+from datetime import datetime
 
 datetime_unixtime = datetime.now().timestamp()
 time_unixtime = time.time()

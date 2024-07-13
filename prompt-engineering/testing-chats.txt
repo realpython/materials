@@ -10,7 +10,7 @@
 
 [support_luke] 2023-08-13T11:34:02+00:00: Good morning! How may I assist you?
 [anna_s] 2023-08-13T11:34:30+00:00: Hello, I'm having a problem with my mobile app, it keeps crashing.
-[support_luke] 2023-08-13T11:34:58+00:00: I'm sorry to hear that, Anna. Could you tell me what device you're using? 
+[support_luke] 2023-08-13T11:34:58+00:00: I'm sorry to hear that, Anna. Could you tell me what device you're using?
 [anna_s] 2023-08-13T11:35:22+00:00: I have an iPhone 11.
 
 [support_lisa] 2023-08-30T20:38:00+00:00: Good evening! How may I assist you today?

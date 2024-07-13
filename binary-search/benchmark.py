@@ -16,8 +16,8 @@ from statistics import median
 from typing import List
 
 from search.binary import find_index as binary_search
-from search.random import find_index as random_search
 from search.linear import find_index as linear_search
+from search.random import find_index as random_search
 
 
 def main(args: argparse.Namespace) -> None:

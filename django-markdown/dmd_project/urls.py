@@ -1,6 +1,5 @@
 from django.contrib import admin
 from django.urls import path
-
 from dmd_app.views import markdown_content_view
 
 urlpatterns = [

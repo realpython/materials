@@ -1,5 +1,4 @@
 import pygame
-
 from models import Spaceship
 from utils import load_sprite
 

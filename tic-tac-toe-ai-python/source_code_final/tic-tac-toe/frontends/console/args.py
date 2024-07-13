@@ -2,9 +2,9 @@ import argparse
 from typing import NamedTuple
 
 from tic_tac_toe.game.players import (
+    MinimaxComputerPlayer,
     Player,
     RandomComputerPlayer,
-    MinimaxComputerPlayer,
 )
 from tic_tac_toe.logic.models import Mark
 

@@ -24,5 +24,5 @@ print(
     f"""\
 {sorting_list_time=:.2f} seconds
 {sorting_dict_time=:.2f} seconds
-list is {(sorting_dict_time/sorting_list_time):.2f} times faster"""
+list is {(sorting_dict_time / sorting_list_time):.2f} times faster"""
 )
