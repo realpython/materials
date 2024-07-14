@@ -1,0 +1,25 @@
+[tool.poetry]
+name = "realpython-hugging-face"
+version = "0.1.0"
+description = ""
+authors = ["hfhoffman1144 <hfh160130@utdallas.edu>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.12"
+transformers = "^4.41.1"
+torch = "2.2.0"
+ipykernel = "^6.29.4"
+accelerate = "^0.30.1"
+packaging = "^24.0"
+setuptools = "^70.0.0"
+wheel = "^0.43.0"
+black = "^24.4.2"
+flake8 = "^7.0.0"
+ruff = "^0.4.8"
+polars = "^1.1.0"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
