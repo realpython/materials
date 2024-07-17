@@ -1,24 +1,42 @@
 # Hugging Face Transformers: Leverage Open-Source AI in Python
 
-This folder contains the materials for the tutorial (Hugging Face Transformers: Leverage Open-Source AI in Python)[https://realpython.com/huggingface-transformers/].
+This folder contains the materials for the tutorial [Hugging Face Transformers: Leverage Open-Source AI in Python](https://realpython.com/huggingface-transformers/).
 
-Transformers is available on [PyPI](https://pypi.org/) and you can install it with [pip](https://realpython.com/what-is-pip/). Open a terminal or command prompt, create a new virtual environment, and then run the following command:
+## Installation
 
-```console
-(venv) $ python -m pip install transformers
+Create and activate a virtual environment, and then install the required dependencies:
+
+```sh
+(venv) $ python -m pip install transformers torch pillow notebook ipywidgets
 ```
 
-This command will install the latest version of Transformers from PyPI onto your machine. Throughout this tutorial, you'll also leverage [PyTorch](https://realpython.com/pytorch-vs-tensorflow/) to interact with models at a lower level. You can install PyTorch with the following command:
+Alternatively, if you use [Poetry](https://realpython.com/dependency-management-python-poetry/), then you can issue the following command to handle the installation process for you:
 
-```console
-(venv) $ python -m pip install torch
+```sh
+$ poetry install
 ```
 
-To verify that the installations were successful, start a [Python REPL](https://realpython.com/python-repl/) and import `transformers` and `torch`:
+## Usage
 
-```pycon
->>> import transformers
->>> import torch
+Run the sample Python scripts:
+
+```sh
+(venv) $ python auto_classes.py
+(venv) $ python running_pipelines.py
 ```
 
-If the imports run without errors, then you've successfully installed the dependencies needed for this tutorial.
+Run the sample Jupyter notebook:
+
+```sh
+(venv) $ python -m jupyter notebook gpus_google_colab.ipynb
+```
+
+Note that if you run this notebook in Google Colab, then you'll need to update the path to the `requirements.txt` file and the `DATA_PATH` constant accordingly:
+
+```diff
+-!pip install -r requirements.txt
++!pip install -r /content/requirements.txt
+
+-DATA_PATH = "Scraped_Car_Review_dodge.csv"
++DATA_PATH = "/content/Scraped_Car_Review_dodge.csv"
+```
