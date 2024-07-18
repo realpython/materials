@@ -12,11 +12,10 @@ async def stream_generator(files):
 
 
 async def main(directory, zip_name="output.zip"):
-    files = [{"file": file} for file in directory.iterdir()]
-
-    async with aiofiles.open(zip_name, mode="wb") as z:
+    files = [{"file": path} for path in directory.iterdir() if path.is_file()]
+    async with aiofiles.open(zip_name, mode="wb") as archive:
         async for chunk in stream_generator(files):
-            await z.write(chunk)
+            await archive.write(chunk)
 
 
 directory = Path()

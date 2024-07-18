@@ -4,12 +4,12 @@ import aiofiles
 
 
 class AsyncFileIterable:
-    def __init__(self, filename, chunk_size=1024):
-        self.filename = filename
+    def __init__(self, path, chunk_size=1024):
+        self.path = path
         self.chunk_size = chunk_size
 
     async def __aiter__(self):
-        async with aiofiles.open(self.filename, mode="rb") as file:
+        async with aiofiles.open(self.path, mode="rb") as file:
             while True:
                 chunk = await file.read(self.chunk_size)
                 if not chunk:

@@ -4,8 +4,8 @@ import aiofiles
 
 
 class AsyncFileIterator:
-    def __init__(self, filename, chunk_size=1024):
-        self.filename = filename
+    def __init__(self, path, chunk_size=1024):
+        self.path = path
         self.chunk_size = chunk_size
         self.file = None
 
@@ -14,7 +14,7 @@ class AsyncFileIterator:
 
     async def __anext__(self):
         if self.file is None:
-            self.file = await aiofiles.open(self.filename, mode="rb")
+            self.file = await aiofiles.open(self.path, mode="rb")
         chunk = await self.file.read(self.chunk_size)
         if not chunk:
             await self.file.close()
