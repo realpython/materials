@@ -7,20 +7,20 @@ import aiofiles
 class AsyncCSVIterator:
     def __init__(self, path):
         self.path = path
-        self.file = None
+        self.file_was_read = False
 
     def __aiter__(self):
         return self
 
     async def __anext__(self):
-        if self.file is None:
-            self.file = await aiofiles.open(self.path, mode="r")
-            lines = await self.file.readlines()
-            self.reader = csv.reader(lines)
+        if not self.file_was_read:
+            async with aiofiles.open(self.path, mode="r") as file:
+                lines = await file.readlines()
+                self.reader = csv.reader(lines)
+                self.file_was_read = True
         try:
             return next(self.reader)
         except StopIteration:
-            await self.file.close()
             raise StopAsyncIteration
 
 
