@@ -1,10 +1,9 @@
 import unittest
 from pathlib import Path
 
-from scrapy.http import HtmlResponse, Request
-
 from books.items import BookItem
 from books.spiders.book import BookSpider
+from scrapy.http import HtmlResponse, Request
 
 
 def _get_sample_html_content():
