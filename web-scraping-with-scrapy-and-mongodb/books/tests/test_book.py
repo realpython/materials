@@ -29,9 +29,7 @@ class BookSpiderTest(unittest.TestCase):
         results = list(self.spider.parse(self.response))
 
         # There should be two book items and one pagination request
-        book_items = [
-            item for item in results if isinstance(item, BookItem)
-        ]
+        book_items = [item for item in results if isinstance(item, BookItem)]
         pagination_requests = [
             item for item in results if isinstance(item, Request)
         ]
