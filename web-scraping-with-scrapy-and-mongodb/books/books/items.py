@@ -1,7 +1,7 @@
 import scrapy
 
 
-class BookItem(scrapy.Item):
+class BooksItem(scrapy.Item):
     _id = scrapy.Field()
     url = scrapy.Field()
     title = scrapy.Field()
