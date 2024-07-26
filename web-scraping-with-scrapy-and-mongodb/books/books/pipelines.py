@@ -6,7 +6,7 @@ from scrapy.exceptions import DropItem
 
 
 class MongoPipeline:
-    collection_name = "books"
+    COLLECTION_NAME = "books"
 
     def __init__(self, mongo_uri, mongo_db):
         self.mongo_uri = mongo_uri
@@ -28,11 +28,11 @@ class MongoPipeline:
 
     def process_item(self, item, spider):
         item_id = self.compute_item_id(item)
-        if self.db[self.collection_name].find_one({"_id": item_id}):
+        if self.db[self.COLLECTION_NAME].find_one({"_id": item_id}):
             raise DropItem(f"Duplicate item found: {item}")
         else:
             item["_id"] = item_id
-            self.db[self.collection_name].insert_one(
+            self.db[self.COLLECTION_NAME].insert_one(
                 ItemAdapter(item).asdict()
             )
             return item
