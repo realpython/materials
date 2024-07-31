@@ -1,6 +1,6 @@
 # Functional Programming in Python: When and How to Use It
 
-This repository contains the example code snippets shown in the RealPython tutorial on [Functional Programming in Python: When and How to Use It](https://realpython.com/python-functional-programming/).
+This folder contains the sample code used in the RealPython tutorial [Functional Programming in Python: When and How to Use It](https://realpython.com/python-functional-programming/).
 
 ## Run the Scrips
 
