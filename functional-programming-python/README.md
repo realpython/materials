@@ -2,7 +2,7 @@
 
 This folder contains the sample code used in the RealPython tutorial [Functional Programming in Python: When and How to Use It](https://realpython.com/python-functional-programming/).
 
-## Run the Scrips
+## Run the Scripts
 
 You can run the individual files as Python scripts:
 
