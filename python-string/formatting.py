@@ -1,33 +1,5 @@
-debit = 300.00
-credit = 450.00
+from datetime import datetime
 
-template = """
-Account Report
-Credit:  ${credit:.2f}
-Debit:  -${debit:.2f}
-________________
-Balance: ${balance:.2f}"""
-
-print(
-    template.format(
-        credit=credit,
-        debit=debit,
-        balance=credit - debit,
-    )
-)
-
-template = """
-Account Report
-Credit:  $%(credit).2f
-Debit:  -$%(debit).2f
-________________
-Balance: $%(balance).2f"""
-
-print(
-    template
-    % {
-        "credit": credit,
-        "debit": debit,
-        "balance": credit - debit,
-    }
-)
+print(format(1000000, ",.2f"))  # Thousand separators
+print(format("Header", "=^30"))  # Centered and filled
+print(format(datetime.now(), "%a %b %d, %Y"))  # Date
