@@ -25,8 +25,6 @@ def multiply(x, y):
 
 
 def factorial_with_reduce(n):
-    from functools import reduce
-
     return reduce(multiply, range(1, n + 1))
 
 
@@ -54,5 +52,5 @@ print(reduce(greater, [23, 49, 6, 32]))
 
 # Use lambda expressions to complete the tasks.
 print(reduce(lambda x, y: x + y, [1, 2, 3, 4, 5]))
-print(reduce(lambda x, y: x + y, ["foo", "bar", "baz", "quz"]))
+print(reduce(lambda x, y: x + y, ["cat", "dog", "hedgehog", "gecko"]))
 print(reduce((lambda x, y: x if x > y else y), [23, 49, 6, 32]))

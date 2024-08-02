@@ -17,18 +17,16 @@ print(iterator)
 
 # Consume the iterator with a for loop.
 iterator = map(reverse, animals)
-for i in iterator:
-    print(i)
+for animal in iterator:
+    print(animal)
 
 # Consume the iterator with a call to `list()`.
 iterator = map(reverse, animals)
 print(list(iterator))
 
-
 # Use a lambda expression.
 iterator = map(lambda s: s[::-1], animals)
 print(list(iterator))
-
 
 # All the code in a single line.
 print(list(map(lambda s: s[::-1], ["cat", "dog", "hedgehog", "gecko"])))
