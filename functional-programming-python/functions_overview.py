@@ -8,7 +8,7 @@ def func():
     print("I am function func()!")
 
 
-print(func())
+func()
 
 
 # Assign it to a new name.
@@ -20,9 +20,9 @@ print("cat", func, 42)
 
 # Access a function object in a list.
 objects = ["cat", func, 42]
-objects[1]
+print(objects[1])
 
-print(objects[1]())
+objects[1]()
 
 # Use a function object as a key in a dictionary.
 # Note that this is probably not a good idea.

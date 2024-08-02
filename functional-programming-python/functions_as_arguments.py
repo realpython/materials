@@ -19,4 +19,4 @@ def reverse_len(s):
 print(sorted(animals, key=reverse_len))
 
 # Using a lambda expression
-sorted(animals, key=lambda s: -len(s))
+print(sorted(animals, key=lambda s: -len(s)))

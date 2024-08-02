@@ -8,8 +8,7 @@ def reverse(s):
     return s[::-1]
 
 
-reverse("I am a string")
-
+print(reverse("I am a string"))
 
 reverse = lambda s: s[::-1]  # noqa E731
 print(reverse("I am a string"))
