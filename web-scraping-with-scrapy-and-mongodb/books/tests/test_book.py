@@ -8,8 +8,7 @@ from scrapy.http import HtmlResponse, Request
 
 def _get_sample_html_content():
     html_file_path = Path(__file__).parent / "sample.html"
-    with html_file_path.open() as html_file:
-        return html_file.read()
+    return html_file_path.read_text("utf-8")
 
 
 class BookSpiderTest(unittest.TestCase):
