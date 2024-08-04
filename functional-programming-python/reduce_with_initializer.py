@@ -17,4 +17,4 @@ print(reduce(add_two_values, [1, 2, 3, 4, 5], 100))
 print(reduce(lambda x, y: x + y, [1, 2, 3, 4, 5], 100))
 
 # Use `sum()` and add a value instead.
-print(100 + sum([1, 2, 3, 4, 5]))
+print(sum([1, 2, 3, 4, 5], start=100))
