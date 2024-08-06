@@ -30,7 +30,7 @@ def main():
         except EOFError:
             print()
             exit()
-        except:
+        except:  # noqa
             traceback.print_exc(file=sys.stdout)
 
 
