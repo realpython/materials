@@ -25,7 +25,9 @@ def sample_function():
 def optimize(node):
     match node:
         case ast.Module(body, type_ignores):
-            return ast.Module([optimize(child) for child in body], type_ignores)
+            return ast.Module(
+                [optimize(child) for child in body], type_ignores
+            )
         case ast.FunctionDef():
             return ast.FunctionDef(
                 name=node.name,
