@@ -19,9 +19,7 @@ for num in numbers:
 print(results)
 
 print("\nfilter()")
-results = list(
-    filter(lambda value: value > 0, (slow(num) for num in numbers))
-)
+results = list(filter(lambda value: value > 0, (slow(num) for num in numbers)))
 print(results)
 
 print("\nDouble List Comprehension")
