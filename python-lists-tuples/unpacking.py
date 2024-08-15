@@ -12,9 +12,10 @@ b = "bar"
 temp = a
 a = b
 b = temp
-(a, b)
+print(a, b)
+
 a = "foo"
 b = "bar"
 # Using unpacking
 a, b = b, a
-a, b
+print(a, b)
