@@ -13,4 +13,4 @@ class Square:
         self._side = value
 
     def calculate_area(self):
-        return round(self._side**2, 2)
+        return self._side**2
