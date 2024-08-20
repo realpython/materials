@@ -1,6 +1,6 @@
-# Generate Images With DALL·E 2 and the OpenAI API
+# Generate Images With DALL·E and the OpenAI API
 
-Learn to use the OpenAI Python library to create images with DALL·E, a state-of-the-art latent diffusion model. In the associated tutorial on [generating images with DALL·E and the OpenAI API](https://realpython.com/generate-images-with-dalle-openai-api/), you explore image creation and generating image variations. You learn how to interact with DALL·E using API calls and incorporate this functionality into your Python scripts.
+Learn to use the OpenAI Python library to create images with DALL·E, a state-of-the-art latent diffusion model. In the associated tutorial on [generating images with DALL·E and the OpenAI API](https://realpython.com/generate-images-with-dalle-openai-api/), you'll explore image creation and generating image variations. You'll learn how to interact with DALL·E using API calls and incorporate this functionality into your Python scripts.
 
 ## Setup
 
