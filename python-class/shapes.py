@@ -21,7 +21,7 @@ class Circle:
         self.radius = radius
 
     def area(self):
-        return round(math.pi * self.radius**2, 2)
+        return math.pi * self.radius**2
 
 
 class Square:
@@ -31,4 +31,4 @@ class Square:
         self.side = side
 
     def area(self):
-        return round(self.side**2, 2)
+        return self.side**2
