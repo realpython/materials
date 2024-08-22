@@ -22,7 +22,7 @@ Follow the instructions in [the tutorial](https://realpython.com/generate-images
 
 You can find the code for each of these steps in dedicated scripts:
 
-- `create_dalle3.py`: Create an image from a text prompt using DALL·E 3 and save the image data to a file.
+- `create_dalle3.py`: Create an image from a text prompt using DALL·E 3 and display the URL to the image.
 - `create.py`: Create an image from a text prompt using DALL·E 2 and save the image data to a file.
 - `convert.py`: Convert a Base64-encoded PNG image delivered in a JSON response to a PNG image file.
 - `vary.py`: Read Base64-encoded image data and make an API request to receive variations of that image.
