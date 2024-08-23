@@ -1,3 +1,3 @@
-# A Guide to the Newer Python String Format Techniques
+# A Guide to Modern Python String Formatting Tools
 
-This folder provides the code examples for the Real Python tutorial [A Guide to the Newer Python String Format Techniques](https://realpython.com/python-formatted-output/).
+This folder provides the code examples for the Real Python tutorial [A Guide to Modern Python String Formatting Tools](https://realpython.com/python-formatted-output/).

@@ -1,16 +1,16 @@
-print(f"Hello, Pythonista!")
-print(f"Hello, Pythonista!")
+# print(f"Hello, Pythonista!")
+# print(f"Hello, Pythonista!")
 
-print(f"Single-line f-string with single quotes")
-print(f"Single-line f-string with double quotes")
-print(
-    f"""Multiline triple-quoted f-string
-with single quotes"""
-)
-print(
-    f"""Multiline triple-quoted f-string
-with double quotes"""
-)
+# print(f"Single-line f-string with single quotes")
+# print(f"Single-line f-string with double quotes")
+# print(
+#     f"""Multiline triple-quoted f-string
+# with single quotes"""
+# )
+# print(
+#     f"""Multiline triple-quoted f-string
+# with double quotes"""
+# )
 
 site = "Real Python"
 print(f"Welcome to {site}!")
