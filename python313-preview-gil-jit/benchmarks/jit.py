@@ -48,7 +48,9 @@ def timed(function):
         duration = t2 - t1
         print(f"\b\b\b: {duration:.2f}s")
         if jit.supported:
-            Record(python_short(), "on" if jit.enabled else "off", n, duration).save()
+            Record(
+                python_short(), "on" if jit.enabled else "off", n, duration
+            ).save()
         else:
             Record(python_short(), "unsupported", n, duration).save()
         return result
