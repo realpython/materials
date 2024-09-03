@@ -61,7 +61,7 @@ def benchmark(num_threads, n):
         if num_threads > 1:
             print(f"Running {num_threads} threads...", end="", flush=True)
         else:
-            print(f"Running 1 thread...", end="", flush=True)
+            print("Running 1 thread...", end="", flush=True)
 
 
 def fib(n):
