@@ -12,7 +12,7 @@ print("{:g}".format(-123456789.8765))
 print(f"{-123456789.8765:G}")
 print("{:G}".format(-123456789.8765))
 
-infinite = 1e300 * 1e300
+infinite = float("inf")
 not_a_number = infinite * 0
 print(f"{infinite:g}")
 print(f"{not_a_number:g}")

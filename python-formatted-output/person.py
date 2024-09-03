@@ -11,7 +11,7 @@ class Person:
 
 
 jane = Person("Jane", 25)
-f"{jane!s}"
-f"{jane!r}"
-"{jane!s}".format(jane=jane)
-"{jane!r}".format(jane=jane)
+print(f"{jane!s}")
+print(f"{jane!r}")
+print("{jane!s}".format(jane=jane))
+print("{jane!r}".format(jane=jane))
