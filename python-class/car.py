@@ -34,7 +34,7 @@ class Car:
         print(f"Braking to {self.speed} km/h...")
 
     def __str__(self):
-        return f"{self.make}, {self.model}, {self.color}: ({self.year})"
+        return f"{self.make} {self.model}, {self.color} ({self.year})"
 
     def __repr__(self):
         return (

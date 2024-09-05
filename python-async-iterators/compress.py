@@ -18,5 +18,5 @@ async def main(directory, zip_name="output.zip"):
             await archive.write(chunk)
 
 
-directory = Path()
+directory = Path.cwd()
 asyncio.run(main(directory))
