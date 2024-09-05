@@ -112,7 +112,7 @@ def main() -> None:
         except EOFError:
             print()
             sys.exit()
-        except:  # noqa
+        except Exception:
             traceback.print_exc(file=sys.stdout)
             console.indentation_level = 0
             block.lines = []
