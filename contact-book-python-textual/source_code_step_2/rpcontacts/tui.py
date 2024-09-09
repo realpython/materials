@@ -10,7 +10,7 @@ class ContactsApp(App):
         ("m", "toggle_dark", "Toggle dark mode"),
         ("a", "add", "Add"),
         ("d", "delete", "Delete"),
-        ("c", "clear", "Clear All"),
+        ("c", "clear_all", "Clear All"),
         ("q", "request_quit", "Quit"),
     ]
 

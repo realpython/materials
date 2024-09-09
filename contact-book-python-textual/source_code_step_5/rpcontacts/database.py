@@ -50,12 +50,3 @@ class Database:
 
     def clear_all_contacts(self):
         self._run_query("DELETE FROM contacts;")
-
-
-data = [
-    ("Linda", "111-2222-3333", "linda@example.com"),
-    ("Joe", "111-2222-3333", "joe@example.com"),
-    ("Lara", "111-2222-3333", "lara@example.com"),
-    ("David", "111-2222-3333", "david@example.com"),
-    ("Jane", "111-2222-3333", "jane@example.com"),
-]
