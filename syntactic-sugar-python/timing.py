@@ -1,7 +1,9 @@
+import functools
 import time
 
 
 def timer(func):
+    @functools.wraps(func)
     def _timer(*args, **kwargs):
         start = time.time()
         result = func(*args, **kwargs)
