@@ -5,9 +5,9 @@ import time
 def timer(func):
     @functools.wraps(func)
     def _timer(*args, **kwargs):
-        start = time.time()
+        start = time.perf_counter()
         result = func(*args, **kwargs)
-        end = time.time()
+        end = time.perf_counter()
         print(f"Execution time: {end - start:.4f} seconds")
         return result
 
