@@ -20,4 +20,4 @@ def delayed_mean(sample):
     return sum(sample) / len(sample)
 
 
-delayed_mean([10, 2, 4, 7, 9, 3, 9, 8, 6, 7])
+print(delayed_mean([10, 2, 4, 7, 9, 3, 9, 8, 6, 7]))

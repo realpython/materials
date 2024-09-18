@@ -17,3 +17,14 @@ class Stack:
     # def __iter__(self):
     #     for item in self.items:
     #         yield item
+
+
+stack = Stack()
+stack.push("one")
+stack.push("two")
+stack.push("three")
+
+for item in stack:
+    print(item)
+
+print(stack.pop())
