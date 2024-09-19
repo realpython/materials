@@ -18,5 +18,5 @@ class Circle:
         fget=_get_radius,
         fset=_set_radius,
         fdel=_del_radius,
-        doc="The radius property."
+        doc="The radius property.",
     )

@@ -3,8 +3,9 @@ import logging
 logging.basicConfig(
     format="%(asctime)s: %(message)s",
     level=logging.INFO,
-    datefmt="%H:%M:%S"
+    datefmt="%H:%M:%S",
 )
+
 
 class Circle:
     def __init__(self, radius):

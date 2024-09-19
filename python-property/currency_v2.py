@@ -1,5 +1,6 @@
 CENTS_PER_UNIT = 100
 
+
 class Currency:
     def __init__(self, units, cents):
         self._total_cents = units * CENTS_PER_UNIT + cents
