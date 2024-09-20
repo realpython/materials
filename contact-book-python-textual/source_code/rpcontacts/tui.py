@@ -102,7 +102,7 @@ class ContactsApp(App):
                 self.query_one(DataTable).clear()
 
         self.push_screen(
-            QuestionDialog("Are you sure you want te remove all contacts?"),
+            QuestionDialog("Are you sure you want to remove all contacts?"),
             check_answer,
         )
 
