@@ -1,0 +1,25 @@
+QuestionDialog {
+    align: center middle;
+}
+
+#question-dialog {
+    grid-size: 2;
+    grid-gutter: 1 2;
+    grid-rows: 1fr 3;
+    padding: 0 1;
+    width: 60;
+    height: 11;
+    border: solid red;
+    background: $surface;
+}
+
+#question {
+    column-span: 2;
+    height: 1fr;
+    width: 1fr;
+    content-align: center middle;
+}
+
+Button {
+    width: 100%;
+}
