@@ -81,14 +81,20 @@ class Discover(WebComponent):
     CSS_TRANSITION_SECONDS = 0.5
 
     track_items: list[TrackItem] = FindBy(
-        By.CSS_SELECTOR, ".discover-result.result-current .discover-item", cache=False
+        By.CSS_SELECTOR,
+        ".discover-result.result-current .discover-item",
+        cache=False,
     )
     _page_number = FindBy(By.CSS_SELECTOR, ".item-page.selected", cache=False)
     _previous: PagerButton = FindBy(
-        By.XPATH, "//a[contains(@class, 'item-page')][text()='previous']", cache=False
+        By.XPATH,
+        "//a[contains(@class, 'item-page')][text()='previous']",
+        cache=False,
     )
     _next: PagerButton = FindBy(
-        By.XPATH, "//a[contains(@class, 'item-page')][text()='next']", cache=False
+        By.XPATH,
+        "//a[contains(@class, 'item-page')][text()='next']",
+        cache=False,
     )
 
     @property
