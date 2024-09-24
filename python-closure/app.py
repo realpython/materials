@@ -2,7 +2,7 @@ import tkinter as tk
 
 app = tk.Tk()
 app.title("GUI App")
-app.geometry("200x60")
+app.geometry("320x240")
 
 label = tk.Label(app, font=("Helvetica", 16, "bold"))
 label.pack()
