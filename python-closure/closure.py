@@ -9,7 +9,7 @@
 
 def outer_func():
     name = "Pythonista"
-    return lambda name=name: print(f"Hello, {name}!")
+    return lambda: print(f"Hello, {name}!")
 
 
 inner_func = outer_func()
