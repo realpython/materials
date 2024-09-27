@@ -1,12 +1,15 @@
 """Demonstration of PEP 702: Marking deprecations using the type system
 
+The deprecations should be marked in PyCharm and VS Code.
+
 Use PyLance in VS Code by setting Python › Analysis: Type Checking Mode or run
 the Pyright CLI:
 
-    $ python -m pip install pyright $ pyright --pythonversion 3.13 .
+    $ python -m pip install pyright
+    $ pyright --pythonversion 3.13 .
 
-Note that showing warnings requires setting the reportDeprecated option in
-Pyright. This is done in pyproject.toml.
+Note that showing warnings with Pyright requires setting the reportDeprecated
+option. This is done in the accompanying pyproject.toml.
 """
 
 from typing import overload

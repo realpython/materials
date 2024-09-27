@@ -11,6 +11,8 @@ https://realpython.com/python38-new-features/#more-precise-types
 
 from typing import NotRequired, ReadOnly, TypedDict
 
+# %% Without ReadOnly
+
 # class Version(TypedDict):
 #     version: str
 #     release_year: NotRequired[int | None]
@@ -21,22 +23,24 @@ from typing import NotRequired, ReadOnly, TypedDict
 #     release_year: int
 
 
+# %% Using ReadOnly
+#
+# Can only use PythonVersion as a Version if the differing fields are ReadOnly
 class Version(TypedDict):
-    version: ReadOnly[str]
+    version: str
     release_year: ReadOnly[NotRequired[int | None]]
+
+    # Note that ReadOnly can be nested with other special forms in any order
+    # release_year: NotRequired[ReadOnly[int | None]]
 
 
 class PythonVersion(TypedDict):
-    version: ReadOnly[str]
+    version: str
     release_year: ReadOnly[int]
 
 
-py313 = PythonVersion(version="3.13", release_year=2024)
-
-# Alternative syntax, using TypedDict as an annotation
-# py313: PythonVersion = {"version": "3.13", "release_year": 2024}
-
-
+# %% Work with Version and PythonVersion
+#
 def get_version_info(ver: Version) -> str:
     if "release_year" in ver:
         return f"Version {ver['version']} released in {ver['release_year']}"
@@ -44,5 +48,9 @@ def get_version_info(ver: Version) -> str:
         return f"Version {ver['version']}"
 
 
-# Only allowed to use PythonVersion instead of Version if the fields are ReadOnly
+py313 = PythonVersion(version="3.13", release_year=2024)
+
+# Alternative syntax, using TypedDict as an annotation
+# py313: PythonVersion = {"version": "3.13", "release_year": 2024}
+
 print(get_version_info(py313))
