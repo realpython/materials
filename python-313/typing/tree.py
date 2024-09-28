@@ -4,7 +4,9 @@ type Tree = list[Tree | int]
 
 
 def is_tree(obj: object) -> TypeGuard[Tree]:
-    return isinstance(obj, list)
+    return isinstance(obj, list) and all(
+        is_tree(elem) or isinstance(elem, int) for elem in obj
+    )
 
 
 def get_left_leaf_value(tree_or_leaf: Tree | int) -> int:
@@ -21,7 +23,9 @@ def get_left_leaf_value(tree_or_leaf: Tree | int) -> int:
 # type Tree = list[Tree | int]
 #
 # def is_tree(obj: object) -> TypeIs[Tree]:
-#     return isinstance(obj, list)
+#     return isinstance(obj, list) and all(
+#         is_tree(elem) or isinstance(elem, int) for elem in obj
+#     )
 #
 # def get_left_leaf_value(tree_or_leaf: Tree | int) -> int:
 #     if is_tree(tree_or_leaf):
