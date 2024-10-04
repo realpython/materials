@@ -8,11 +8,11 @@ class Point:
 
     @property
     def distance(self):
-        return round(math.dist((0, 0), (self.x, self.y)))
+        return math.dist((0, 0), (self.x, self.y))
 
     @property
     def angle(self):
-        return round(math.degrees(math.atan(self.y / self.x)), 1)
+        return math.degrees(math.atan2(self.y, self.x))
 
     def as_cartesian(self):
         return self.x, self.y
