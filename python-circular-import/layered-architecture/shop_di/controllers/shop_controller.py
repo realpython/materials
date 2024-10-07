@@ -7,7 +7,7 @@ class ShopController:
         return cls._instance
 
     def __init__(self, service):
-        if not hasattr(self, 'service'):
+        if not hasattr(self, "service"):
             self.service = service
 
     def handle_request(self):

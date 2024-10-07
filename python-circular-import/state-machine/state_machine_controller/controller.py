@@ -8,10 +8,9 @@ class Controller:
 
     def on_event(self, event):
         match event:
-            case 'to_a':
+            case "to_a":
                 self.state = StateA()
-            case 'to_b':
+            case "to_b":
                 self.state = StateB()
             case _:
                 self.state = self.state
-                

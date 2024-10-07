@@ -6,11 +6,13 @@ class ShopController:
 
     def __new__(cls, *args, **kwargs):
         if not cls._instance:
-            cls._instance = super(ShopController, cls).__new__(cls, *args, **kwargs)
+            cls._instance = super(ShopController, cls).__new__(
+                cls, *args, **kwargs
+            )
         return cls._instance
 
     def __init__(self):
-        if not hasattr(self, 'service'):
+        if not hasattr(self, "service"):
             self.service = ShopService()
 
     def handle_request(self):

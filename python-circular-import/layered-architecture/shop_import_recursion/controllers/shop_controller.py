@@ -7,14 +7,18 @@ class ShopController:
 
     def __new__(cls, *args, **kwargs):
         if not cls._instance:
-            cls._instance = super(ShopController, cls).__new__(cls, *args, **kwargs)
+            cls._instance = super(ShopController, cls).__new__(
+                cls, *args, **kwargs
+            )
         return cls._instance
 
     def __init__(self):
-        if not hasattr(self, 'service'):
+        if not hasattr(self, "service"):
             # self.service = shop_service.ShopService()
             print(dir(shop_import_recursion))
-            self.service = shop_import_recursion.services.shop_service.ShopService()
+            self.service = (
+                shop_import_recursion.services.shop_service.ShopService()
+            )
 
     def handle_request(self):
         print("Handling request")
