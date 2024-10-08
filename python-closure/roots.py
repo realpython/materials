@@ -8,7 +8,7 @@ def make_root_calculator(root_degree, precision=2):
 square_root = make_root_calculator(2, 4)
 print(square_root(42))
 
-cubic_root = make_root_calculator(3, 2)
+cubic_root = make_root_calculator(3)
 print(cubic_root(42))
 
 
@@ -24,5 +24,5 @@ class RootCalculator:
 square_root = RootCalculator(2, 4)
 print(square_root(42))
 
-cubic_root = RootCalculator(3, 2)
+cubic_root = RootCalculator(3)
 print(cubic_root(42))
