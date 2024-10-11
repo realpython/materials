@@ -11,7 +11,7 @@ class BankAccount:
     def deposit(self, amount):
         print(
             f"Thread {threading.current_thread().name} waiting "
-            f"to acquire lock for deposit()"
+            "to acquire lock for deposit()"
         )
         with self.lock:
             print(
@@ -24,7 +24,7 @@ class BankAccount:
     def _update_balance(self, amount):
         print(
             f"Thread {threading.current_thread().name} waiting to acquire "
-            f"lock for _update_balance()"
+            "lock for _update_balance()"
         )
         with self.lock:  # This will cause a deadlock
             print(
@@ -36,16 +36,11 @@ class BankAccount:
 
 account = BankAccount()
 
-
-def make_deposit():
-    account.deposit(100)
-
-
 with ThreadPoolExecutor(
     max_workers=3, thread_name_prefix="Worker"
 ) as executor:
     for _ in range(3):
-        executor.submit(make_deposit)
+        executor.submit(account.deposit, 100)
 
 
 print(f"Final balance: {account.balance}")

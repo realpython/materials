@@ -9,26 +9,30 @@ customer_available_condition = threading.Condition()
 customer_queue = []
 
 
+def now():
+    return time.strftime("%H:%M:%S")
+
+
 def serve_customers():
     while True:
         with customer_available_condition:
             # Wait for a customer to arrive
             while not customer_queue:
-                print(f"{int(time.time())}: Teller is waiting for a customer.")
+                print(f"{now()}: Teller is waiting for a customer.")
                 customer_available_condition.wait()
 
             # Serve the customer
             customer = customer_queue.pop(0)
-            print(f"{int(time.time())}: Teller is serving {customer}.")
+            print(f"{now()}: Teller is serving {customer}.")
 
         # Simulate the time taken to serve the customer
-        time.sleep(random.randint(1, 3))
-        print(f"{int(time.time())}: Teller has finished serving {customer}.")
+        time.sleep(random.randint(1, 5))
+        print(f"{now()}: Teller has finished serving {customer}.")
 
 
 def add_customer_to_queue(name):
     with customer_available_condition:
-        print(f"{int(time.time())}: {name} has arrived at the bank.")
+        print(f"{now()}: {name} has arrived at the bank.")
         customer_queue.append(name)
 
         customer_available_condition.notify()
@@ -43,11 +47,8 @@ customer_names = [
 ]
 
 with ThreadPoolExecutor(max_workers=6) as executor:
-
     teller_thread = executor.submit(serve_customers)
-
     for name in customer_names:
         # Simulate customers arriving at random intervals
-        time.sleep(random.randint(2, 5))
-
+        time.sleep(random.randint(1, 3))
         executor.submit(add_customer_to_queue, name)
