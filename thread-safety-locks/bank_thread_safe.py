@@ -16,7 +16,7 @@ class BankAccount:
                 time.sleep(0.1)  # Simulate a delay
                 self.balance = new_balance
             else:
-                raise Exception("Insufficient balance")
+                raise ValueError("Insufficient balance")
 
     def deposit(self, amount):
         with self.account_lock:
@@ -29,7 +29,6 @@ class BankAccount:
 account = BankAccount(1000)
 
 with ThreadPoolExecutor(max_workers=3) as executor:
-
     executor.submit(account.withdraw, 700)
     executor.submit(account.deposit, 1000)
     executor.submit(account.withdraw, 300)

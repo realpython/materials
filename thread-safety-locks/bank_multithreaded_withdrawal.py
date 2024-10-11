@@ -12,7 +12,7 @@ class BankAccount:
             time.sleep(0.1)  # Simulate a delay
             self.balance = new_balance
         else:
-            raise Exception("Insufficient balance")
+            raise ValueError("Insufficient balance")
 
 
 account = BankAccount()

@@ -7,13 +7,17 @@ from concurrent.futures import ThreadPoolExecutor
 teller_semaphore = threading.Semaphore(2)
 
 
+def now():
+    return time.strftime("%H:%M:%S")
+
+
 def serve_customer(name):
-    print(f"{int(time.time())}: {name} is waiting for a teller.")
+    print(f"{now()}: {name} is waiting for a teller.")
     with teller_semaphore:
-        print(f"{int(time.time())}: {name} is being served by a teller.")
+        print(f"{now()}: {name} is being served by a teller.")
         # Simulate the time taken for the teller to serve the customer
         time.sleep(random.randint(1, 3))
-        print(f"{int(time.time())}: {name} is done being served.")
+        print(f"{now()}: {name} is done being served.")
 
 
 customers = [
@@ -29,4 +33,4 @@ with ThreadPoolExecutor(max_workers=5) as executor:
         thread = executor.submit(serve_customer, customer_name)
 
 
-print("All customers have been served.")
+print(f"{now()}: All customers have been served.")
