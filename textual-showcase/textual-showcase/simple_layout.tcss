@@ -1,0 +1,47 @@
+Screen {
+    align: center middle;
+    padding: 1;
+}
+
+#buttons {
+    height:3;
+    width: auto;
+}
+ContentSwitcher {
+    background: $panel;
+    border: round $primary;
+    width: 90%;
+    height: 1fr;
+    
+}
+
+
+MarkdownH2 {
+    background: $primary;
+    color: yellow;
+    border: round $secondary;
+    padding: 0;
+}
+
+.sparkline--max-color {
+    color:#F00;
+}
+
+.sparkline--min-color {
+    color:#800;
+}
+#wordcounts-table {
+    padding:1;
+    margin:1;
+    background: $panel;
+    height:30%;
+    border: round $secondary;
+}
+
+
+#pub-dates-table {
+    background: $panel;
+    border:round $secondary;
+}
+
+
