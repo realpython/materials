@@ -7,6 +7,6 @@ codes = {
     "1201": "Greenfield",
     "1202": "Sunnydale",
     "1301": "Meadowbrook",
-    "1302": "Creekwood"
+    "1302": "Creekwood",
 }
-{code: town for code, town in codes.items() if "1100" <= code <= "1300"}
+print({code: town for code, town in codes.items() if "1100" <= code <= "1300"})
