@@ -5,7 +5,7 @@ class Employee:
         self.name = name
         self.position = position
         self.salary = salary
-        type(self).count += 1
+        Employee.count += 1
 
     def display_profile(self):
         print(f"Name: {self.name}")
