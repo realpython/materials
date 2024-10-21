@@ -1,3 +1,5 @@
+# flake8: noqa
+
 from .assertions import *
 from .constants import *
 from .hooks import *

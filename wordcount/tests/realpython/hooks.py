@@ -11,8 +11,12 @@ from _pytest.outcomes import OutcomeException
 from pytest import Config, Item, Parser, Session, TestReport
 
 from . import RealPythonAssertionError
-from .constants import (COMMAND_TASK, MIN_FAILURES_BEFORE_HINT,
-                        STASH_REPORT_KEY, TEST_TIMEOUT_SECONDS)
+from .constants import (
+    COMMAND_TASK,
+    MIN_FAILURES_BEFORE_HINT,
+    STASH_REPORT_KEY,
+    TEST_TIMEOUT_SECONDS,
+)
 from .models import ExerciseProgress, TestRun, TestStatus
 from .resources import Resource
 from .view import Display

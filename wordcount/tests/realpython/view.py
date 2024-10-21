@@ -4,9 +4,8 @@ from pytest import Config
 from rich.console import Console, Group
 from rich.markdown import Markdown
 from rich.panel import Panel
-from rich.progress import BarColumn
+from rich.progress import BarColumn, TextColumn
 from rich.progress import Progress as ProgressBar
-from rich.progress import TextColumn
 from rich.table import Table
 from rich.tree import Tree
 
