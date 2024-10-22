@@ -3,7 +3,7 @@ from realpython import assert_equals, assert_equals_if, task, tutorial
 
 @task(
     number=2,
-    name="Read Data from Standard Input",
+    name="Read Data From Standard Input",
     url="https://realpython.com/lessons/wordcount-read-data-from-standard-input-task/",
 )
 @tutorial("python-command-line-arguments", section="standard-input")
