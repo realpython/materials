@@ -4,7 +4,7 @@ from realpython import assert_equals, task, tutorial
 @task(
     number=5,
     name="Read Data From a File",
-    url="https://realpython.com/lessons/wordcount-read-data-from-a-file-task/",
+    url="https://realpython.com/lessons/wordcount-read-data-from-file-task/",
 )
 @tutorial("python-conditional-statements", "Conditional Statements in Python")
 @tutorial(

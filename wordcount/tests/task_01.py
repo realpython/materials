@@ -7,7 +7,7 @@ from realpython import assert_equals, course, task, tutorial
 @task(
     number=1,
     name="Run the wordcount Command",
-    url="https://realpython.com/lessons/wordcount-run-the-wordcount-command-task/",
+    url="https://realpython.com/lessons/wordcount-run-command-task/",
 )
 @tutorial("defining-your-own-python-function")
 @tutorial("terminal-commands", "The Terminal: First Steps and Useful Commands")

@@ -7,7 +7,7 @@ from realpython import TEST_TIMEOUT_SECONDS, assert_equals, task
 @task(
     number=10,
     name="Add Support for Counting the Characters",
-    url="https://realpython.com/lessons/wordcount-add-support-for-counting-the-characters-task/",
+    url="https://realpython.com/lessons/wordcount-add-support-for-counting-characters-task/",
 )
 class Test:
     def test_only_counts_characters(self, wc, runner):
