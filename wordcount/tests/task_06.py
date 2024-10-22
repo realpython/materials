@@ -4,7 +4,7 @@ from realpython import task, tutorial
 @task(
     number=6,
     name="Ignore Directories and Missing Files",
-    url="https://realpython.com/lessons/wordcount-ignore-directories-and-missing-files-task/",
+    url="https://realpython.com/lessons/wordcount-ignore-invalid-paths-task/",
 )
 @tutorial("python-exceptions", "Python Exceptions: An Introduction")
 @tutorial(

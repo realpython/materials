@@ -4,7 +4,7 @@ from realpython import task, tutorial
 @task(
     number=4,
     name="Format Numbers in Displayed Counts",
-    url="https://realpython.com/lessons/wordcount-format-numbers-in-displayed-counts-task/",
+    url="https://realpython.com/lessons/wordcount-format-numbers-task/",
 )
 @tutorial(
     "how-to-python-f-string-format-float",

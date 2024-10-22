@@ -6,7 +6,7 @@ from realpython import assert_equals, task, tutorial
 @task(
     number=9,
     name="Select Counts With Command-Line Options",
-    url="https://realpython.com/lessons/wordcount-select-counts-with-command-line-options-task/",
+    url="https://realpython.com/lessons/wordcount-select-counts-task/",
 )
 @tutorial("python-bitwise-operators", "Bitwise Operators in Python")
 @tutorial(

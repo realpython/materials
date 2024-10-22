@@ -4,7 +4,7 @@ from realpython import external, task, tutorial
 @task(
     number=3,
     name="Handle Non-ASCII Unicode Characters",
-    url="https://realpython.com/lessons/wordcount-handle-non-ascii-unicode-characters-task/",
+    url="https://realpython.com/lessons/wordcount-handle-non-ascii-characters-task/",
 )
 @external(
     url="https://docs.python.org/3/howto/unicode.html#python-s-unicode-support",
