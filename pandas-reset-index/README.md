@@ -1,6 +1,6 @@
 # How to Reset a pandas DataFrame Index
 
-These are the download files you can use with the Real Python tutorial [How to Reset a pandas DataFrame Index](https://realpython.com/how-to-pandas-reset-index-dataframe/):
+These are the download files you can use with the Real Python tutorial [How to Reset a pandas DataFrame Index](https://realpython.com/pandas-reset-index/):
 
 - `Main_Code.ipynb` contains the main code from the tutorial.
 - `Solutions.ipynb` contains sample solutions to the various exercises.
