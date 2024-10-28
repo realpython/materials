@@ -4,11 +4,11 @@ from selenium.webdriver.firefox.options import Options
 from bandcamp.web.element import TrackElement
 from bandcamp.web.page import HomePage
 
-BANDCAMP_FRONTPAGE = "https://bandcamp.com/"
+BANDCAMP_FRONTPAGE_URL = "https://bandcamp.com/"
 
 
 class Player:
-    """Plays tracks from Bandcamp's Discover section."""
+    """Play tracks from Bandcamp's Discover section."""
 
     def __init__(self) -> None:
         self._driver = self._set_up_driver()
@@ -22,11 +22,11 @@ class Player:
         return self
 
     def __exit__(self, exc_type, exc_value, exc_tb):
-        """Closes the headless browser."""
+        """Close the headless browser."""
         self._driver.close()
 
     def play(self, track_number=None):
-        """Plays the first track, or one of the available numbered tracks."""
+        """Play the first track, or one of the available numbered tracks."""
         if track_number:
             self._current_track = TrackElement(
                 self.home.discover_tracklist.available_tracks[
@@ -37,9 +37,9 @@ class Player:
         self._current_track.play()
 
     def _set_up_driver(self):
-        """Creates a headless browser pointing to Bandcamp."""
+        """Create a headless browser pointing to Bandcamp."""
         options = Options()
         options.add_argument("--headless")
         browser = Firefox(options=options)
-        browser.get(BANDCAMP_FRONTPAGE)
+        browser.get(BANDCAMP_FRONTPAGE_URL)
         return browser

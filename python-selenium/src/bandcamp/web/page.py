@@ -2,11 +2,11 @@ from selenium.webdriver.remote.webdriver import WebDriver
 
 from bandcamp.web.base import WebPage
 from bandcamp.web.element import DiscoverTrackList
-from bandcamp.web.locators import HomePageLocatorMixin
+from bandcamp.web.locators import HomePageLocator
 
 
-class HomePage(WebPage, HomePageLocatorMixin):
-    """Models the relevant parts of the Bandcamp home page."""
+class HomePage(WebPage, HomePageLocator):
+    """Model the relevant parts of the Bandcamp home page."""
 
     def __init__(self, driver: WebDriver) -> None:
         super().__init__(driver)

@@ -12,21 +12,23 @@ Then, install the requirements:
 (venv) $ python -m pip install -r requirements.txt
 ```
 
-The only direct dependency for this project is [Selenium](https://selenium-python.readthedocs.io/). You should use a Python version of at least 3.8.
+The only direct dependency for this project is [Selenium](https://selenium-python.readthedocs.io/). You should use a Python version of at least 3.10, which is necessary to support [structural pattern matching](https://realpython.com/structural-pattern-matching/).
+
+You'll need a [Firefox Selenium driver](https://selenium-python.readthedocs.io/installation.html#drivers) called `geckodriver` to run the project as-is. Make sure to [download and install](https://github.com/mozilla/geckodriver/releases) it before running the project.
 
 ## Run the Bandcamp Discover Player
 
-To run the music placer, navigate to the `src/` folder, then execute the module from your command-line:
+To run the music player, install the package, then use the entry point command from your command-line:
 
 ```sh
-(venv) $ cd src/
-(venv) $ python -m bandcamp
+(venv) $ python -m pip install .
+(venv) $ bandcamp-player
 ```
 
 You'll see a text-based user interface that allows you to interact with the music player:
 
 ```
-Type: [play <track number>], [tracks], [more], [exit]
+Type: play [<track_number>] | tracks | more | exit
 >
 ```
 
@@ -39,4 +41,4 @@ Bartosz Zaczyński - Email: bartosz@realpython.com
 
 ## License
 
-Distributed under the MIT license. See ``LICENSE`` for more information.
+Distributed under the MIT license. See `LICENSE` for more information.
