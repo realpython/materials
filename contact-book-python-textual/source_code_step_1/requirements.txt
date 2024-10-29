@@ -1,0 +1,2 @@
+textual==0.75.1
+textual-dev==1.5.1
