@@ -1,7 +1,7 @@
 from textual import on
 from textual.app import App, ComposeResult
 from textual.containers import Center
-from textual.widgets import Button, Header, ProgressBar, RadioSet
+from textual.widgets import Button, Footer, Header, ProgressBar, RadioSet
 
 
 class ProgressRadioApp(App[None]):
@@ -17,6 +17,7 @@ class ProgressRadioApp(App[None]):
         with Center():
             yield RadioSet("Stop", "Slow", "Medium", "Fast")
             yield Button("Reset", id="reset")
+        yield Footer()
 
     def on_mount(self) -> None:
         self.step = 1

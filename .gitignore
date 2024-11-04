@@ -114,3 +114,6 @@ ENV/
 
 # VS Code workspace
 *.code-workspace
+textual-showcase/emoji.txt
+textual-showcase/notes.txt
+textual-showcase/textual_outline.md

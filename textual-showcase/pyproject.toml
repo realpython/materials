@@ -9,6 +9,7 @@ readme = "README.md"
 python = "^3.12"
 textual-dev = "^1.6.1"
 ipython = "^8.28.0"
+textual = {extras = ["dev"], version = "^0.85.1"}
 
 
 [build-system]
