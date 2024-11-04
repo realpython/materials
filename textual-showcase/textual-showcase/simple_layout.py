@@ -1,68 +1,43 @@
 from textual.app import App, ComposeResult
-from textual.containers import Horizontal, Vertical, VerticalScroll
-from textual.widgets import (Static, Button, ContentSwitcher, 
-DataTable, Markdown, Sparkline)
-
-HARRY_POTTER_BOOKS = [
-# Title, Publication date, Pages, Words, Sales
-
-    ("Harry Potter and the Philosopher's Stone", 1997, 223, 76944, "120 million"),
-    ("Harry Potter and the Chamber of Secrets",  1998, 251, 85141 , "77 million"),
-    ("Harry Potter and the Prisoner of Azkaban", 1999, 317, 107253, "65 million"),
-    ("Harry Potter and the Goblet of Fire", 2000, 636 , 190637 , "65 million"),
-    ("Harry Potter and the Order of the Phoenix", 2003, 766, 257045 , "65 million"),
-    ("Harry Potter and the Half-Blood Prince", 2005,  607,  168923 , "65 million"),
-    ("Harry Potter and the Deathly Hallows", 2007, 607 , 198227 , "65 million"),
-]
+from textual.containers import Horizontal, Vertical
+from textual.widgets import Static
 
 
-def markdown_example() -> str:
-    example =  """
-# Harry Potter
-
-Harry Potter is a boy wizard in a series of adventures created by JK Rowling.
-
-| Title | Publication Date | Pages | Words | Sales |
-| --- | --- | --- | --- | --- |
-"""
-    for book in HARRY_POTTER_BOOKS:
-        example += f"| {book[0]} | {book[1]} | {book[2]} | {book[3]} | {book[4]} |\n"
-    return example
-
-class HarryPotterApp(App[None]):
-    CSS_PATH = "simple_layout.tcss"
-
+class SimpleLayoutApp(App):
     def compose(self) -> ComposeResult:
-        with Horizontal(id="buttons"):  
-            yield Button("Publication Dates", id="pub-dates")  
-            yield Button("Statistics", id="stats") 
-            yield Button("Words per Book", id="words")   
-        with ContentSwitcher(initial="pub-dates"):
-                with Static(id="pub-dates"):  
-                    yield DataTable(id="pub-dates-table")
-                with VerticalScroll(id="stats"):
-                    yield Markdown(markdown_example())
-                
-                with Vertical(id="words"):
-                    yield DataTable(id="wordcounts-table")
-                    words_per_book = [book[3] for book in HARRY_POTTER_BOOKS]                    
-                    yield Sparkline(words_per_book, summary_function=max, )
-
-
-
-    def on_button_pressed(self, event: Button.Pressed) -> None:
-        self.query_one(ContentSwitcher).current = event.button.id  
+        with Vertical():
+            self.widget1 = Static("   :point_up:\nCentered")
+            yield self.widget1
+            with Horizontal():
+                self.widget2 = Static(":point_left: Left Aligned")
+                yield self.widget2
+                self.widget3 = Static("Right Aligned :point_right:")
+                yield self.widget3
 
     def on_mount(self) -> None:
-        pub_dates_table = self.query_one("#pub-dates-table")
-        pub_dates_table.add_columns("Book", "Year")
-        pub_dates_table.add_rows((book[0].ljust(35), book[1]) for book in HARRY_POTTER_BOOKS)
-        word_counts_table = self.query_one("#wordcounts-table")
-        for title in [book[0] for book in HARRY_POTTER_BOOKS]:
-            short_title = ' '.join(title.split()[4:])
-            word_counts_table.add_column(short_title)
-        word_counts_table.add_row(*[book[3] for book in HARRY_POTTER_BOOKS])
+        self.screen.styles.border = ("panel", "gray")
+        self.screen.styles.padding = 1
 
+        
+        self.widget1.styles.color = "yellow"
+        self.widget1.styles.background = "darkblue"
+        self.widget1.styles.border = ("heavy", "white")
+        self.widget1.styles.content_align = ("center", "middle")
+        self.widget1.styles.height = "1fr"
+        
+        self.widget2.styles.background = "darkgreen"
+        self.widget2.styles.border = ("double", "white")
+        self.widget2.styles.content_align = ("left", "middle")
+        self.widget2.styles.width = "1fr"
+        self.widget2.styles.height = "1fr"
+
+        self.widget3.styles.background = "darkgreen"
+        self.widget3.styles.border = ("double", "white")
+        self.widget3.styles.content_align = ("right", "middle")
+        self.widget3.styles.width = "1fr"
+        self.widget3.styles.height = "1fr"
+    
 
 if __name__ == "__main__":
-    HarryPotterApp().run()
+    app = SimpleLayoutApp()
+    app.run()

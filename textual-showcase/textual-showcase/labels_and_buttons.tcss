@@ -1,0 +1,23 @@
+Screen {
+    background: $background;
+    content-align: center middle;
+    width:80;
+}
+#mainlabel {
+    color: yellow;
+    border: solid $secondary;
+    border-title-align: center;
+    padding: 1;
+    width: 50%;
+    content-align: center middle;
+    dock:bottom;
+}
+Button {
+    padding: 1;
+    margin:10;
+    background: $panel;
+}
+Button:hover {
+    background: darkblue;
+}
+

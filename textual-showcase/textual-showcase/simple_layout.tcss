@@ -1,47 +1,26 @@
 Screen {
-    align: center middle;
+    border: panel gray;
     padding: 1;
 }
-
-#buttons {
-    height:3;
-    width: auto;
-}
-ContentSwitcher {
-    background: $panel;
-    border: round $primary;
-    width: 90%;
-    height: 1fr;
-    
-}
-
-
-MarkdownH2 {
-    background: $primary;
+#widget1 {
     color: yellow;
-    border: round $secondary;
-    padding: 0;
+    background: darkblue;
+    border: heavy white;
+    content_align: center middle;
+    height: 1fr;
 }
 
-.sparkline--max-color {
-    color:#F00;
+#widget2, #widget3 {
+    background: darkgreen;
+    border: double white;
+    height: 1fr;
+    width: 1fr;
 }
 
-.sparkline--min-color {
-    color:#800;
-}
-#wordcounts-table {
-    padding:1;
-    margin:1;
-    background: $panel;
-    height:30%;
-    border: round $secondary;
+#widget2 {
+content_align: left middle;
 }
 
-
-#pub-dates-table {
-    background: $panel;
-    border:round $secondary;
+#widget3 {
+content_align: right middle;
 }
-
-
