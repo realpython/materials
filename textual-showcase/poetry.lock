@@ -891,13 +891,13 @@ tests = ["cython", "littleutils", "pygments", "pytest", "typeguard"]
 
 [[package]]
 name = "textual"
-version = "0.82.0"
+version = "0.85.1"
 description = "Modern Text User Interface framework"
 optional = false
 python-versions = "<4.0.0,>=3.8.1"
 files = [
-    {file = "textual-0.82.0-py3-none-any.whl", hash = "sha256:4ce00dc898fab3a829aa835071f4e8284aad57f13870e871d0ac516cc34b3645"},
-    {file = "textual-0.82.0.tar.gz", hash = "sha256:db93a2bb3ba9fdb2a536272cd5c8144c9c9682df0370a99361b670c6191b0a4d"},
+    {file = "textual-0.85.1-py3-none-any.whl", hash = "sha256:a1a064c67b9b81cfa0c1b14298aa52221855aa4a56ad17a9b89a5594c73657a8"},
+    {file = "textual-0.85.1.tar.gz", hash = "sha256:9966214390fad9a84c3f69d49398487897577f5fa788838106dd77bd7babc9cd"},
 ]
 
 [package.dependencies]
@@ -1105,4 +1105,4 @@ multidict = ">=4.0"
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.12"
-content-hash = "2ffa684743c02f0f2bf01c1091fbd546007082486ed656b063bbc7479de7d64c"
+content-hash = "786a7cc751c3b7c36a27119cfc62dc7d0ed35c992d4730324ab7fce7578987ce"
