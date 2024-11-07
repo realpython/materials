@@ -1,6 +1,6 @@
 # Python 3.13 Demos
 
-This repository contains sample code and data files that demos some of the new features in Python 3.13.
+This repository contains sample code and data files that demonstrate some of the new features in Python 3.13.
 
 ## Introduction
 
@@ -12,7 +12,7 @@ Note that for testing the free-threading and JIT features, you'll need to build 
 
 You can learn more about Python 3.13's new features in the following Real Python tutorials:
 
-<!-- - [Python 3.13: Cool New Features for You to Try](https://realpython.com/python313-new-features/) -->
+- [Python 3.13: Cool New Features for You to Try](https://realpython.com/python313-new-features/)
 - [Python 3.13 Preview: Free Threading and a JIT Compiler](https://realpython.com/python313-free-threading-jit/) 
 - [Python 3.13 Preview: A Modern REPL](https://realpython.com/python313-repl)
 
@@ -24,8 +24,39 @@ This section only contains brief instructions on how you can run the examples. S
 
 ### REPL
 
+The following examples are used to demonstrate different features of the new REPL:
 
+- [`tab_completion.py`](repl/tab_completion.py)
+- [`multiline_editing.py`](repl/multiline_editing.py)
+- [`power_factory.py](repl/power_factory.py)
+- [`guessing_game.py](repl/guessing_game.py)
+- [`roll_dice.py`](repl/roll_dice.py)
+
+### Error messages
+
+Run the scripts in the `errors/` folder to see different error messages produced by Python 3.13.
 
 ### Free-Threading and JIT
 
 You need to enable a few build options to try out the free-threading and JIT features in Python 3.13. You can find more information in the dedicated [README file](free-threading-jit/README.md).
+
+## Static typing
+
+Run the scripts in the `typing/` folder to try out the new static typing features.
+
+## Other features
+
+The following scripts illustrate other new features in Python 3.13:
+
+- [`replace.py`](replace.py): Use `copy.replace()` to update immutable data structures.
+- [`paths.py`](paths.py) and [`music/`](music/): Glob patterns are more consistent.
+- [`docstrings.py`](docstrings.py): Common leading whitespace in docstrings is stripped.
+
+## Authors
+
+- **Bartosz Zaczyński**, E-mail: [bartosz@realpython.com](bartosz@realpython.com)
+- **Geir Arne Hjelle**, E-mail: [geirarne@realpython.com](geirarne@realpython.com)
+
+## License
+
+Distributed under the MIT license. See [`LICENSE`](../LICENSE) for more information.
