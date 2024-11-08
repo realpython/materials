@@ -1,6 +1,6 @@
-# Expressions vs Statements in Python: What's the Difference?
+# Expression vs Statement in Python: What's the Difference?
 
-This folder contains sample code from the Real Python tutorial [Expressions vs Statements in Python: What's the Difference?](https://realpython.com/python-expression-vs-statement/) 
+This folder contains sample code from the Real Python tutorial [Expression vs Statement in Python: What's the Difference?](https://realpython.com/python-expression-vs-statement/)
 
 ## Code Inspector
 
@@ -19,7 +19,7 @@ invalid
 
 ## GUI App
 
-Register a lambda expression as a callback, which delegates to a function with statements: 
+Register a lambda expression as a callback, which delegates to a function with statements:
 
 ```shell
 $ python gui_app.py
@@ -49,7 +49,7 @@ ca fe ba be 00 00 00 41
 
 ## Generators
 
-Generate a random signal and use a low-pass filter to make it smooth:  
+Generate a random signal and use a low-pass filter to make it smooth:
 
 ```shell
 $ python generators.py 
