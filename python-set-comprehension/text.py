@@ -1,10 +1,10 @@
 unique_words = set()
 text = """
-Beautiful is better than ugly.
-Explicit is better than implicit.
-Simple is better than complex.
-Complex is better than complicated.
-"""
+Beautiful is better than ugly
+Explicit is better than implicit
+Simple is better than complex
+Complex is better than complicated
+""".lower()
 
 for word in text.split():
     unique_words.add(word)
