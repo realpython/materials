@@ -1,6 +1,6 @@
-import concurrent.futures
 import threading
 import time
+from concurrent.futures import ThreadPoolExecutor
 
 import requests
 
@@ -19,7 +19,7 @@ def main():
 
 
 def download_all_sites(sites):
-    with concurrent.futures.ThreadPoolExecutor(max_workers=5) as executor:
+    with ThreadPoolExecutor(max_workers=5) as executor:
         executor.map(download_site, sites)
 
 
