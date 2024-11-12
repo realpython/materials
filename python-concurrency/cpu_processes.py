@@ -1,10 +1,10 @@
-import concurrent.futures
 import time
+from concurrent.futures import ProcessPoolExecutor
 
 
 def main():
     start_time = time.perf_counter()
-    with concurrent.futures.ProcessPoolExecutor() as executor:
+    with ProcessPoolExecutor() as executor:
         executor.map(fib, [35] * 20)
     duration = time.perf_counter() - start_time
     print(f"Computed in {duration} seconds")
