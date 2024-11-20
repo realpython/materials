@@ -1,6 +1,6 @@
 MLB_teams = {
     "Colorado": "Rockies",
-    "Chicago": "White Sox",
+    # "Chicago": "White Sox",
     "Chicago": "Chicago Cubs",
     "Boston": "Red Sox",
     "Minnesota": "Twins",
