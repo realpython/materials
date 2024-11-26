@@ -1,0 +1,11 @@
+order,last_name,first_name,term_start,term_end,party
+1,Washington,George,April 30 1789,March 04 1797,10
+2,Adams,John,March 4 1797,March 04 1801,20
+3,Jefferson,Thomas,March 4 1801,March 04 1809,30
+4,Madison,James,March 4 1809,March 04 1817,30
+5,Monroe,James,March 4 1817,March 04 1825,30
+6,Adams,John Quincy,March 4 1825,March 4 1829,30
+7,Jackson,Andrew,March 4 1829,March 4 1837,30
+8,Van Buren,Martin,March 4 1837,March 4 1841,40
+9,Harrison,William Henry,March 4 1841,April 4 1841,50
+10,Tyler,John,April 4 1841,March 04 1845,50
