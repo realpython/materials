@@ -1,4 +1,4 @@
-configs = {
+config = {
     "color": "green",
     "width": 42,
     "height": 100,
@@ -6,57 +6,57 @@ configs = {
 }
 
 # Access a value through its key
-print(configs["color"])
+print(config["color"])
 
 # Update a value
-configs["font"] = "Helvetica"
-print(configs)
+config["font"] = "Helvetica"
+print(config)
 
-configs = {
+config = {
     "color": "green",
     "width": 42,
     "height": 100,
     "font": "Courier",
 }
-user_configs = {
+user_config = {
     "path": "/home",
     "color": "red",
     "font": "Arial",
     "position": (200, 100),
 }
-configs.update(user_configs)
-print(configs)
-configs.update([("width", 200), ("api_key", 1234)])
-print(configs)
-configs.update(color="yellow", script="__main__.py")
-print(configs)
+config.update(user_config)
+print(config)
+config.update([("width", 200), ("api_key", 1234)])
+print(config)
+config.update(color="yellow", script="__main__.py")
+print(config)
 
-default_configs = {
+default_config = {
     "color": "green",
     "width": 42,
     "height": 100,
     "font": "Courier",
 }
-user_configs = {
+user_config = {
     "path": "/home",
     "color": "red",
     "font": "Arial",
     "position": (200, 100),
 }
-configs = default_configs | user_configs
-print(configs)
+config = default_config | user_config
+print(config)
 
-configs = {
+config = {
     "color": "green",
     "width": 42,
     "height": 100,
     "font": "Courier",
 }
-user_configs = {
+user_config = {
     "path": "/home",
     "color": "red",
     "font": "Arial",
     "position": (200, 100),
 }
-configs |= user_configs
-print(configs)
+config |= user_config
+print(config)
