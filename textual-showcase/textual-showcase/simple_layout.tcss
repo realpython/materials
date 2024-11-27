@@ -2,25 +2,30 @@ Screen {
     border: panel gray;
     padding: 1;
 }
+     
+Static {
+    height: 1fr;
+    width: 1fr;
+    border-title-style: bold;
+
+}
 #widget1 {
-    color: yellow;
+    color: darkorange;
     background: darkblue;
     border: heavy white;
     content_align: center middle;
-    height: 1fr;
-}
-
-#widget2, #widget3 {
-    background: darkgreen;
-    border: double white;
-    height: 1fr;
-    width: 1fr;
 }
 
 #widget2 {
-content_align: left middle;
+    color: black;
+    background: darkgreen;
+    border: double white;
+    content_align: left middle;
 }
 
 #widget3 {
-content_align: right middle;
+    color: ansi_bright_white;
+    background: darkred;
+    border: dashed black;
+    content_align: right middle;
 }
