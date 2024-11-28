@@ -3,10 +3,8 @@ import sys
 
 def echo(text: str, repetitions: int = 3) -> str:
     """Imitate a real-world echo."""
-    echoed_text = ""
-    for i in range(repetitions, 0, -1):
-        echoed_text += f"{text[-i:]}\n"
-    return f"{echoed_text.lower()}."
+    echoes = [text[-i:].lower() for i in range(repetitions, 0, -1)]
+    return "\n".join(echoes + ["."])
 
 
 def main() -> None:
