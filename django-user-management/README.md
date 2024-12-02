@@ -24,6 +24,12 @@ Install the dependencies for this project if you haven't installed them yet:
 (venv) $ python -m pip install -r requirements.txt
 ```
 
+Navigate into the project's directory:
+
+```bash
+(venv) $ cd user_auth_intro/
+```
+
 Make and apply the migrations for the project to build your local database:
 
 ```bash
