@@ -1,3 +1,3 @@
-# Python's F-String: An Improved String Interpolation and Formatting Tool
+# Python's F-String for String Interpolation and Formatting
 
-This folder provides the code examples for the Real Python tutorial [Python's F-String: An Improved String Interpolation and Formatting Tool](https://realpython.com/python-f-string/).
+This folder provides the code examples for the Real Python tutorial [Python's F-String for String Interpolation and Formatting](https://realpython.com/python-f-strings/).
