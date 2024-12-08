@@ -8,16 +8,34 @@ Screen {
     border: solid $secondary;
     border-title-align: center;
     padding: 1;
+    height: auto;
+    content-align: left middle;
+}
+
+#countinglabel {
+    color: white;
+    border: solid $secondary;
+    border-title-align: center;
+    padding: 1;
     width: 50%;
     content-align: center middle;
-    dock:bottom;
 }
 Button {
     padding: 1;
-    margin:10;
-    background: $panel;
+    margin:2 2 ;
+    background: $secondary;
 }
 Button:hover {
-    background: darkblue;
+    border: round white;
+}
+#colorbutton {
+    background: $primary;
+}
+#layoutbutton {
+    background: $secondary;
 }
 
+Input{
+    border: solid $secondary;
+    width: 40%;
+}

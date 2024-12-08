@@ -1,0 +1,37 @@
+Button {    
+    background: $secondary;
+    border: solid $primary;
+    margin: 2 2;
+}
+
+Button:hover {
+    border: round white;
+}
+
+Input {
+    width: 50%;
+    border: solid $primary;
+    margin: 2 2;
+}
+Input:hover {
+    border: round white;
+    width: 55%;
+}
+
+Label {
+    content-align: center middle;   
+    background:darkslategray;
+    margin: 2 2;
+}
+    
+#mainlabel {
+    border: double $primary;
+    width: 40%;
+}
+
+#countinglabel {
+    border: double $warning;
+    width: 25%;
+}
+
+

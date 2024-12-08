@@ -1,0 +1,14 @@
+Static{
+    background: blue;
+    border:  solid white;
+    padding: 1 1;
+    margin: 4 4;
+    text-align: center;
+}
+
+Label{
+    background: darkgreen;
+    border:  double red;
+    padding: 1 1;
+    margin: 2 4;
+}
