@@ -1,9 +1,9 @@
 SNAKE = r"""  \
-   \    __
-    \  {oo}
-       (__)\
-         λ \\
-           _\\__
+   \    ___
+    \  (o o)
+        \_/ \
+         λ \ \
+           _\ \_
           (_____)_
          (________)=Oo°
 """
@@ -18,5 +18,5 @@ def bubble(message):
 
 
 def say(message):
-    print(bubble(message))
+    print(bubble(message.replace("s", "ss").replace("S", "SS")))
     print(SNAKE)
