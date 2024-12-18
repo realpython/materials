@@ -1,0 +1,25 @@
+Static {
+    height: 1fr;
+    width: 1fr;
+    background:$panel;
+    border: double green;
+}
+
+#maingrid {
+    layout: grid;
+    grid-size: 2 2;
+}
+#subgrid {
+    layout: grid;
+    grid-size: 3 2;
+    border: dashed yellow;
+}
+#right {
+    row-span: 2;
+}
+#bottomleft1 {
+    row-span: 2;
+}
+#bottomleft4 {
+    column-span: 2;
+}

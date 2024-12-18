@@ -1,0 +1,10 @@
+#output {
+    color:auto;
+    background:darkslategray;
+    border:ansi_white;
+    padding:1;
+}
+Button{
+    background:$primary;
+    border:round black; 
+}

@@ -1,1 +1,1 @@
-This directory contains code for the textual-showcase article.
+This directory contains sample code for the textual-showcase article.

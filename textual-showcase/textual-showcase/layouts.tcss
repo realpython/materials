@@ -1,0 +1,39 @@
+.box {
+    height: 1fr;
+    width: 1fr;
+    background:$panel;
+    border: solid white;
+}
+.bluebox {
+    border:solid blue;
+}
+.greenbox {
+    border:solid green;
+}
+.redbox {
+    border:heavy red;
+    height:5;
+}
+.yellowbox {
+    border:heavy yellow;
+    width:12;
+}
+
+#grid {
+    layout: grid;
+    grid-size: 3 2;
+    grid-gutter: 1 1;
+    border: dashed white;
+}
+
+#twocol {
+    column-span: 2;
+}
+#tworow {
+    row-span: 2;
+}
+#docked-label {
+    dock: bottom;
+    border:solid dodgerblue;
+}
+

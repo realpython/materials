@@ -1,4 +1,4 @@
-Button {    
+Button {
     background: $secondary;
     border: solid $primary;
     margin: 2 2;
@@ -18,20 +18,26 @@ Input:hover {
     width: 55%;
 }
 
-Label {
-    content-align: center middle;   
+#mainlabel {
+    content-align: center middle;
     background:darkslategray;
     margin: 2 2;
-}
-    
-#mainlabel {
     border: double $primary;
     width: 40%;
+    color:auto;
 }
 
-#countinglabel {
-    border: double $warning;
-    width: 25%;
+Container {
+    border: double $secondary;
+    width: 15%;
+    height: auto;
+
+}
+
+#digits {
+    color: green;
+    border: solid white;
+    padding: 1
 }
 
 
