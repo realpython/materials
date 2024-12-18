@@ -19,9 +19,9 @@ books = ["Dragonsbane", "The Hobbit", "Wonder", "Jaws"]
 books.remove("The Hobbit")
 print(books)
 
-books = ["Dragonsbane", "The Hobbit", "Wonder", "Jaws"]
-books.remove("The Two Towers")
-print(books)
+# books = ["Dragonsbane", "The Hobbit", "Wonder", "Jaws"]
+# books.remove("The Two Towers")
+# print(books)
 
 books = ["Dragonsbane", "The Hobbit", "Wonder", "Jaws"]
 del books[0:3]
