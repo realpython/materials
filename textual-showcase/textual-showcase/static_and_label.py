@@ -7,7 +7,9 @@ class StaticAndLabelApp(App):
     def compose(self) -> ComposeResult:
         self.static = Static("I am a [bold red]Static[/bold red] widget!")
         yield self.static
-        self.label =Label("I am a [yellow italic]Label[/yellow italic] widget!")
+        self.label = Label(
+            "I am a [yellow italic]Label[/yellow italic] widget!"
+        )
         yield self.label
 
     def on_mount(self) -> None:
@@ -20,6 +22,7 @@ class StaticAndLabelApp(App):
         self.label.styles.border = ("double", "red")
         self.label.styles.padding = 1, 1
         self.label.styles.margin = 2, 4
-   
+
+
 if __name__ == "__main__":
     StaticAndLabelApp().run()

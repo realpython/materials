@@ -1,0 +1,42 @@
+Button {
+    background: $secondary;
+    border: solid $primary;
+    margin: 2 2;
+}
+
+Button:hover {
+    border: round white;
+}
+
+Input {
+    width: 50%;
+    border: solid $primary;
+    margin: 2 2;
+}
+
+Input:hover {
+    border: round white;
+    width: 55%;
+}
+
+#mainlabel {
+    content-align: center middle;
+    background:darkslategray;
+    margin: 2 2;
+    border: double $primary;
+    width: 40%;
+    color:auto;
+}
+
+Container {
+    border: double $secondary;
+    width: 15%;
+    height: auto;
+
+}
+
+#digits {
+    color: green;
+    border: solid white;
+    padding: 1
+}
