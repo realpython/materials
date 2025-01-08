@@ -1,13 +1,8 @@
-# Django Diary
-
-> **Note:** The project is built with `Python 3.9.1`, but should work with any Python3 version.
-
-## About this repository
+# Build Your Personal Diary With Django
 
 This is a companion project to the ["Build Your Personal Diary With Django"](https://realpython.com/django-diary-project-python/) tutorial on Real Python.
 Visit the article to follow along or download the content of `source_code_final` folder from this repository.
 
-## How To Run `django-diary`
 
 Type the following commands into a terminal to create and activate a virtual environment and install the requirements:
 
@@ -16,8 +11,7 @@ $ python -m venv venv
 $ source venv/bin/activate
 $ python -m pip install -r requirements.txt
 ```
-
-Then run the database migrations and create a superuser:
+Then you can navigate into a step folder, run the database migrations, and create a superuser:
 
 ```sh
 $ python manage.py migrate
@@ -30,6 +24,3 @@ Finally, run the local Django development server:
 $ python manage.py runserver
 ```
 
-## License
-
-Distributed under the MIT license.
