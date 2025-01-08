@@ -1,1 +1,3 @@
-# Content will be added in the next step
+from django.shortcuts import render
+
+# Create your views here.
