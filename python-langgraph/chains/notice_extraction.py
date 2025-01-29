@@ -1,7 +1,8 @@
-from langchain_openai import ChatOpenAI
-from langchain_core.prompts import ChatPromptTemplate
-from pydantic import BaseModel, EmailStr, Field
 from datetime import date
+
+from langchain_core.prompts import ChatPromptTemplate
+from langchain_openai import ChatOpenAI
+from pydantic import BaseModel, EmailStr, Field
 
 
 class NoticeEmailExtract(BaseModel):

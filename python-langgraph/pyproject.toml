@@ -10,4 +10,5 @@ dependencies = [
     "langchain-openai>=0.3.2",
     "langgraph>=0.2.67",
     "pydantic[email]>=2.10.6",
+    "ruff>=0.9.3",
 ]

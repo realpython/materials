@@ -1,11 +1,12 @@
 import logging
 from typing import TypedDict
-from langgraph.graph import StateGraph, START, END
-from pydantic import EmailStr
-from chains.notice_extraction import NoticeEmailExtract, NOTICE_PARSER_CHAIN
-from chains.escalation_check import ESCALATION_CHECK_CHAIN
+
 from chains.binary_questions import BINARY_QUESTION_CHAIN
-from utils.graph_utils import send_escalation_email, create_legal_ticket
+from chains.escalation_check import ESCALATION_CHECK_CHAIN
+from chains.notice_extraction import NOTICE_PARSER_CHAIN, NoticeEmailExtract
+from langgraph.graph import END, START, StateGraph
+from pydantic import EmailStr
+from utils.graph_utils import create_legal_ticket, send_escalation_email
 
 logging.basicConfig(
     level=logging.INFO, format="%(asctime)s - %(levelname)s - %(message)s"

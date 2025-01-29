@@ -1,8 +1,9 @@
-import time
-import random
 import logging
-from pydantic import EmailStr
+import random
+import time
+
 from chains.notice_extraction import NoticeEmailExtract
+from pydantic import EmailStr
 
 logging.basicConfig(
     level=logging.INFO, format="%(asctime)s - %(levelname)s - %(message)s"
