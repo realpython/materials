@@ -1,5 +1,6 @@
-import polars as pl
 import time
+
+import polars as pl
 
 start = time.perf_counter()
 
