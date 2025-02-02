@@ -25,5 +25,5 @@ teams = {
 for team in teams.values():
     print(team)
 
-for city, team in teams.items():
-    print(city, "->", team)
+for place, team in teams.items():
+    print(place, "->", team)
