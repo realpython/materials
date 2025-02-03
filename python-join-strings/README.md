@@ -1,6 +1,6 @@
-# How to Join a String in Python
+# How to Join Strings in Python
 
-This folder contains code associated with the Real Python tutorial on [How to Join a String in Python](https://realpython.com/python-join-string/).
+This folder contains code associated with the Real Python tutorial [How to Join Strings in Python](https://realpython.com/python-join-string/).
 
 ## About the Author
 
