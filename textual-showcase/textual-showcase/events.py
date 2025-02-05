@@ -1,51 +1,43 @@
-from itertools import cycle
 
-from textual import on
+# from textual import on
 from textual.app import App
-from textual.containers import Container, Horizontal
-from textual.widgets import Button, Input, Label, Digits
-
-COLORS = cycle(["red", "green", "orange", "blue", "yellow"])
-
+from textual.widgets import Button, Digits, Footer
 
 class EventsApp(App):
     CSS_PATH = "events.tcss"
-    BUTTON_PRESSES = 0
+    BINDINGS = [("q", "quit", "Quit"), ("b", "toggle_border", "Toggle border")] 
 
+    presses_count = 0
+    double_border = False
     def compose(self):
-        with Horizontal():
-            yield Button(
-                "Click me!",
-                id="colorbutton",
-                tooltip="I change the label colors\nand update the counter",
-            )
-            yield Input(
-                placeholder="Type here", tooltip="I change the label text"
-            )
-        with Horizontal():
-            label = Label("Hello, Textual!", id="mainlabel")
-            label.border_title = "You can change this label"
-            yield label
-            digits_container = Container()
-            digits_container.border_title = "Button counter"
-            with digits_container:
-                yield Digits("0", id="digits")
+        yield Button(
+            "Click me!",
+            id="button",
+        )
+        self.digits = Digits("0", id="digits")
+        self.digits.border_subtitle = "Button presses"
+        yield self.digits
+        yield Footer()
 
-    @on(Button.Pressed)
-    def change_label_style(self, event):
-        self.BUTTON_PRESSES += 1
-        mainlabel = self.query_one("#mainlabel")
-        mainlabel.styles.color = next(COLORS)
-        mainlabel.styles.border_title_color = next(COLORS)
-        digits = self.query_one("#digits")
-        digits.update(f"{self.BUTTON_PRESSES}")
+    def on_button_pressed(self, event):
+        self.presses_count += 1
+        if event.button.id == "button":
+            self.digits.update(f"{self.presses_count}")
 
-    @on(Input.Changed)
-    def change_label_text(self, event):
-        mainlabel = self.query_one("#mainlabel")
-        mainlabel.update(event.value)
+    # Alternatively
+    # @on(Button.Pressed, "#button")
+    # def change_digit(self, event):
+    #     self.presses_count += 1
+    #     digits = self.query_one("#digits")
+    #     digits.update(f"{self.presses_count}")
 
-
+    def action_toggle_border(self):
+        self.double_border = not self.double_border
+        if self.double_border:
+            self.digits.styles.border = ("double", "yellow")
+        else:
+            self.digits.styles.border = ("solid", "white")
+ 
 if __name__ == "__main__":
     app = EventsApp()
     app.run()

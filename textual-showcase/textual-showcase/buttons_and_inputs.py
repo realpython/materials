@@ -14,7 +14,7 @@ class ButtonsAndInputsApp(App):
         yield Input(
             placeholder="Type your text here",
         )
-        yield Input(placeholder="Password:", password=True)
+        yield Input(placeholder="Password", password=True)
         yield Input(
             placeholder="Type a number here",
             type="number",

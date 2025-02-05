@@ -1,0 +1,4 @@
+Static {
+    width: 10%;
+    border: solid green;
+}
