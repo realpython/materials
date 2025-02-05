@@ -1,4 +1,5 @@
-# Use case 1: If the student fails 2 or more tests, the student must go to tutoring (for-loop)
+# Use case 1: If the student fails 2 or more tests,
+# the student must go to tutoring (for-loop)
 scores = [90, 30, 50, 70, 85, 35]
 
 num_failed_scores = 0

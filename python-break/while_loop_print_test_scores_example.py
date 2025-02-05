@@ -4,7 +4,8 @@ i = 0
 
 while i < 5:
     if i > len(scores) - 1:
-        # If there are less than 5 scores, break out of the loop when all scores are printed
+        # If there are less than 5 scores,
+        # break out of the loop when all scores are printed
         break
     print("Score: " + str(scores[i]))
     i += 1
