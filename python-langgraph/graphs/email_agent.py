@@ -1,6 +1,4 @@
-import logging
 import time
-
 from chains.notice_extraction import NoticeEmailExtract
 from graphs.notice_extraction import NOTICE_EXTRACTION_GRAPH
 from langchain_core.messages import AIMessage
@@ -8,11 +6,7 @@ from langchain_core.tools import tool
 from langchain_openai import ChatOpenAI
 from langgraph.graph import END, START, MessagesState, StateGraph
 from langgraph.prebuilt import ToolNode
-
-logging.basicConfig(
-    level=logging.INFO, format="%(asctime)s - %(levelname)s - %(message)s"
-)
-LOGGER = logging.getLogger(__name__)
+from utils.logging_config import LOGGER
 
 
 @tool

@@ -1,13 +1,14 @@
-from datetime import date
-
+from datetime import datetime, date
 from langchain_core.prompts import ChatPromptTemplate
 from langchain_openai import ChatOpenAI
-from pydantic import BaseModel, EmailStr, Field
+from pydantic import BaseModel, Field, computed_field
 
 
 class NoticeEmailExtract(BaseModel):
-    date_of_notice: date | None = Field(
+    date_of_notice_str: str | None = Field(
         default=None,
+        exclude=True,
+        repr=False,
         description="""The date of the notice (if any) reformatted
         to match YYYY-mm-dd""",
     )
@@ -21,7 +22,7 @@ class NoticeEmailExtract(BaseModel):
         description="""The phone number of the entity sending the notice
         (if present in the message)""",
     )
-    entity_email: EmailStr | None = Field(
+    entity_email: str | None = Field(
         default=None,
         description="""The email of the entity sending the notice
         (if present in the message)""",
@@ -46,8 +47,10 @@ class NoticeEmailExtract(BaseModel):
         description="""The required changes specified by the entity
         (if present in the message)""",
     )
-    compliance_deadline: date | None = Field(
+    compliance_deadline_str: str | None = Field(
         default=None,
+        exclude=True,
+        repr=False,
         description="""The date that the company must comply (if any)
         reformatted to match YYYY-mm-dd""",
     )
@@ -56,6 +59,28 @@ class NoticeEmailExtract(BaseModel):
         description="""The maximum potential fine
         (if any)""",
     )
+
+    @computed_field
+    @property
+    def date_of_notice(self) -> date | None:
+        try:
+            return datetime.strptime(
+                self.date_of_notice_str, "%Y-%m-%d"
+            ).date()
+        except Exception as e:
+            print(e)
+            return None
+
+    @computed_field
+    @property
+    def compliance_deadline(self) -> date | None:
+        try:
+            return datetime.strptime(
+                self.compliance_deadline_str, "%Y-%m-%d"
+            ).date()
+        except Exception as e:
+            print(e)
+            return None
 
 
 info_parse_prompt = ChatPromptTemplate.from_messages(
