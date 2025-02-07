@@ -9,8 +9,7 @@ random_number = random.randint(1, 10)
 while True:
     if guesses_left <= 0:
         print(
-            "You ran out of guesses! The correct number was "
-            + str(random_number)
+            f"You ran out of guesses! The correct number was {random_number}"
         )
         break
     guess = input("Guess a number between 1 and 10, or enter q to quit:")
@@ -26,4 +25,4 @@ while True:
         else:
             print("Sorry, your guess was incorrect.")
             guesses_left -= 1
-            print("You have " + str(guesses_left) + " guesses left.")
+            print(f"You have {guesses_left} guesses left.")
