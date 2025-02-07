@@ -1,1 +1,1 @@
-# Content will be added in the next step
+# This file will be used in the next step

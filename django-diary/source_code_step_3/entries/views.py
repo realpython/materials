@@ -1,7 +1,4 @@
-from django.views.generic import (
-    DetailView,
-    ListView,
-)
+from django.views.generic import DetailView, ListView
 
 from .models import Entry
 
