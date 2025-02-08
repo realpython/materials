@@ -35,7 +35,7 @@ class NoticeEmailExtract(BaseModel):
     site_location: str | None = Field(
         default=None,
         description="""The site location of the project (if present
-        in the message)""",
+        in the message). Use the full address if possible.""",
     )
     violation_type: str | None = Field(
         default=None,

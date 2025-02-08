@@ -1,11 +1,39 @@
 EMAILS = [
     # Email 1
     """
+    Date: October 15, 2024
+    From: Occupational Safety and Health Administration (OSHA)
+    To: Blue Ridge Construction, project 111232345 - Downtown Office Complex
+    Location: Dallas, TX
+
+    During a recent inspection of your construction site at 123 Main Street,
+    the following safety violations were identified:
+
+    Lack of fall protection: Workers on scaffolding above 10 feet were
+    without required harnesses or other fall protection equipment.
+    Unsafe scaffolding setup: Several scaffolding structures were noted as
+    lacking secure base plates and bracing, creating potential collapse risks.
+    Inadequate personal protective equipment (PPE): Multiple workers were found
+    without proper PPE, including hard hats and safety glasses.
+    Required Corrective Actions:
+
+    Install guardrails and fall arrest systems on all scaffolding over 10 feet.
+    Conduct an inspection of all scaffolding structures and reinforce unstable
+    sections. Ensure all workers on-site are provided with necessary PPE and conduct
+    safety training on proper usage.
+    Deadline for Compliance: All violations must be rectified by November 10, 2024.
+    Failure to comply may result in fines of up to $25,000 per violation.
+
+    Contact: For questions or to confirm compliance, please reach out to the OSHA
+    regional office at (555) 123-4567 or email compliance.osha@osha.gov.
+    """,
+    # Email 2
+    """
     From: debby@stack.com
     Hey Betsy,
     Here's your invoice for $1000 for the cookies you ordered.
     """,
-    # Email 2
+    # Email 3
     """
     From: tdavid@companyxyz.com
     Hi Paul,
@@ -14,7 +42,7 @@ EMAILS = [
     Thanks,
     Terrance
     """,
-    # Email 3
+    # Email 4
     """
     Date: January 10, 2025
     From: City of Los Angeles Building and Safety Department

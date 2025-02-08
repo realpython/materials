@@ -89,17 +89,14 @@ def answer_follow_up_question_node(state: GraphState) -> GraphState:
     BINARY_QUESTION_CHAIN"""
 
     if state["current_follow_up"]:
-
         question = state["current_follow_up"] + " " + state["notice_message"]
 
         answer = BINARY_QUESTION_CHAIN.invoke({"question": question})
 
         if state.get("follow_ups"):
-
             state["follow_ups"][state["current_follow_up"]] = answer
 
         else:
-
             state["follow_ups"] = {state["current_follow_up"]: answer}
 
     return state
@@ -122,7 +119,6 @@ def route_follow_up_edge(state: GraphState) -> str:
     """Determine whether a follow-up question is required"""
 
     if state.get("current_follow_up"):
-
         return "answer_follow_up_question"
 
     return END

@@ -32,15 +32,11 @@ def create_legal_ticket(
     ]
 
     if current_follow_ups:
-
-        follow_ups = [
-            f for f in follow_ups if f not in current_follow_ups.keys()
-        ]
+        follow_ups = [f for f in follow_ups if f not in current_follow_ups.keys()]
 
     follow_up = random.choice(follow_ups)
 
     if not follow_up:
-
         LOGGER.info("Legal ticket created!")
         return follow_up
 
