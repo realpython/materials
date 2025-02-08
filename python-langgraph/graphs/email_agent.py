@@ -26,7 +26,9 @@ def forward_email(email_message: str, send_to_email: str) -> bool:
 
 
 @tool
-def send_wrong_email_notification_to_sender(sender_email: str, correct_department: str):
+def send_wrong_email_notification_to_sender(
+    sender_email: str, correct_department: str
+):
     """
     Send an email back to the sender informing them that
     they have the wrong address. The email should be sent
@@ -41,7 +43,9 @@ def send_wrong_email_notification_to_sender(sender_email: str, correct_departmen
 
 
 @tool
-def extract_notice_data(email: str, escalation_criteria: str) -> NoticeEmailExtract:
+def extract_notice_data(
+    email: str, escalation_criteria: str
+) -> NoticeEmailExtract:
     """
     Extract structured fields from a regulatory notice.
     This should be used when the email message comes from
@@ -105,7 +109,9 @@ tools = [
 ]
 tool_node = ToolNode(tools)
 
-EMAIL_AGENT_MODEL = ChatOpenAI(model="gpt-4o-mini", temperature=0).bind_tools(tools)
+EMAIL_AGENT_MODEL = ChatOpenAI(model="gpt-4o-mini", temperature=0).bind_tools(
+    tools
+)
 
 
 def call_agent_model_node(state: MessagesState) -> dict[str, list[AIMessage]]:

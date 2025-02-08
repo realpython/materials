@@ -20,4 +20,25 @@ OPENAI_API_KEY=<YOUR-OPENAI-API-KEY>
 
 ## Usage
 
-TODO: A short note on how to run the project. You can tell them to go to the tutorial for more information.
+Once your environment is set up, you can run the final graph agent on an example input with the following code:
+
+```python
+from graphs.email_agent import email_agent_graph
+from example_emails import EMAILS
+
+escalation_criteria = """"There's an immediate risk of electrical,
+water, or fire damage"""
+
+message_with_criteria = f"""
+The escalation criteria is: {escalation_criteria}
+
+Here's the email:
+{EMAILS[3]}
+"""
+message_3 = {"messages": [("human", message_with_criteria)]}
+ 
+for chunk in email_agent_graph.stream(message_3, stream_mode="values"):
+    chunk["messages"][-1].pretty_print()
+```
+
+See the tutorial for all the details on what's going on here.
