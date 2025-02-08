@@ -28,6 +28,5 @@ escalation_prompt = ChatPromptTemplate.from_messages(
 escalation_check_model = ChatOpenAI(model="gpt-4o-mini", temperature=0)
 
 ESCALATION_CHECK_CHAIN = (
-    escalation_prompt
-    | escalation_check_model.with_structured_output(EscalationCheck)
+    escalation_prompt | escalation_check_model.with_structured_output(EscalationCheck)
 )
