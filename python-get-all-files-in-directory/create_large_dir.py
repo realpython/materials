@@ -66,18 +66,18 @@ folder_structure = Item(
 
 def create_item(item: Item, path_to: Path = Path.cwd()) -> None:
 
-    if not item.children and not item.junk_files:
-        path_to.joinpath(item.name).touch()
+    if not item.children and not item.num_junk_files:
+        path_to.joinpath(item.name).touch(exist_ok=True)
         return
 
     root = path_to.joinpath(item.name)
-    root.mkdir()
+    root.mkdir(exist_ok=True)
 
     for child in item.children:
         create_item(child, path_to=root)
 
     for i in range(item.num_junk_files):
-        root.joinpath(f"{i}.txt").touch()
+        root.joinpath(f"{i}.txt").touch(exist_ok=True)
 
 
 create_item(folder_structure)
