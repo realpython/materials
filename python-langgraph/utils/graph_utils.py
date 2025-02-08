@@ -1,7 +1,7 @@
+from chains.notice_extraction import NoticeEmailExtract
+from pydantic import EmailStr
 import random
 import time
-from pydantic import EmailStr
-from chains.notice_extraction import NoticeEmailExtract
 from utils.logging_config import LOGGER
 
 

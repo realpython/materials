@@ -1,7 +1,7 @@
-from datetime import datetime, date
+from datetime import date, datetime
 from langchain_core.prompts import ChatPromptTemplate
 from langchain_openai import ChatOpenAI
-from pydantic import BaseModel, Field, computed_field
+from pydantic import BaseModel, computed_field, Field
 
 
 class NoticeEmailExtract(BaseModel):
@@ -64,7 +64,9 @@ class NoticeEmailExtract(BaseModel):
     @property
     def date_of_notice(self) -> date | None:
         try:
-            return datetime.strptime(self.date_of_notice_str, "%Y-%m-%d").date()
+            return datetime.strptime(
+                self.date_of_notice_str, "%Y-%m-%d"
+            ).date()
         except Exception as e:
             print(e)
             return None
@@ -73,7 +75,9 @@ class NoticeEmailExtract(BaseModel):
     @property
     def compliance_deadline(self) -> date | None:
         try:
-            return datetime.strptime(self.compliance_deadline_str, "%Y-%m-%d").date()
+            return datetime.strptime(
+                self.compliance_deadline_str, "%Y-%m-%d"
+            ).date()
         except Exception as e:
             print(e)
             return None
@@ -99,6 +103,7 @@ info_parse_prompt = ChatPromptTemplate.from_messages(
 
 notice_parser_model = ChatOpenAI(model="gpt-4o-mini", temperature=0)
 
-NOTICE_PARSER_CHAIN = info_parse_prompt | notice_parser_model.with_structured_output(
-    NoticeEmailExtract
+NOTICE_PARSER_CHAIN = (
+    info_parse_prompt
+    | notice_parser_model.with_structured_output(NoticeEmailExtract)
 )

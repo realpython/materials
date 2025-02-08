@@ -1,9 +1,9 @@
-from typing import TypedDict
 from chains.binary_questions import BINARY_QUESTION_CHAIN
 from chains.escalation_check import ESCALATION_CHECK_CHAIN
 from chains.notice_extraction import NOTICE_PARSER_CHAIN, NoticeEmailExtract
 from langgraph.graph import END, START, StateGraph
 from pydantic import EmailStr
+from typing import TypedDict
 from utils.graph_utils import create_legal_ticket, send_escalation_email
 from utils.logging_config import LOGGER
 
