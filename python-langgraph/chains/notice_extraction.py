@@ -61,27 +61,23 @@ class NoticeEmailExtract(BaseModel):
         (if any)""",
     )
 
-    @computed_field
-    @property
-    def date_of_notice(self) -> date | None:
+    @staticmethod
+    def _convert_string_to_date(date: str | None) -> date | None:
         try:
-            return datetime.strptime(
-                self.date_of_notice_str, "%Y-%m-%d"
-            ).date()
+            return datetime.strptime(date, "%Y-%m-%d").date()
         except Exception as e:
             print(e)
             return None
 
     @computed_field
     @property
+    def date_of_notice(self) -> date | None:
+        return self._convert_string_to_date(self.date_of_notice_str)
+
+    @computed_field
+    @property
     def compliance_deadline(self) -> date | None:
-        try:
-            return datetime.strptime(
-                self.compliance_deadline_str, "%Y-%m-%d"
-            ).date()
-        except Exception as e:
-            print(e)
-            return None
+        return self._convert_string_to_date(self.compliance_deadline_str)
 
 
 info_parse_prompt = ChatPromptTemplate.from_messages(
