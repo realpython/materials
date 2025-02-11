@@ -1,0 +1,5 @@
+{
+    "2025-01-24 10:00": ["click", "add_to_cart", "purchase"],
+    "2025-01-24 10:05": ["click", "page_view"],
+    "2025-01-24 10:10": ["page_view", "click", "add_to_cart"]
+}
