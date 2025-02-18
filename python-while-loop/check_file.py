@@ -10,6 +10,6 @@ while not filename.exists():
     time.sleep(1)
 
 print(f"{filename} found! Proceeding with processing.")
-with open(filename) as file:
+with open(filename, mode="r") as file:
     print("File contents:")
     print(file.read())
