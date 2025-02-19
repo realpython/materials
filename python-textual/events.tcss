@@ -1,0 +1,16 @@
+Button {
+    background: $secondary;
+    border: solid $primary;
+    margin: 2 2;
+}
+
+Button:hover {
+    border: round white;
+}
+
+#digits {
+    color: green;
+    border: solid white;
+    padding: 1;
+    width: 30;
+}
