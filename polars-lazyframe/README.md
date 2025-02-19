@@ -1,6 +1,6 @@
-# How to Work With a Polars LazyFrame
+# How to Work With Polars LazyFrames
 
-This folder contains completed notebooks and other files used in the Real Python tutorial [How to Work With a Polars LazyFrame](https://realpython.com/how-to-work-with-polars-lazyframe/). 
+This folder contains completed notebooks and other files used in the Real Python tutorial [How to Work With Polars LazyFrames](https://realpython.com/how-to-work-with-polars-lazyframe/). 
 
 **The following files are included:**
 
