@@ -2,6 +2,7 @@
 from textual.app import App
 from textual.widgets import Button, Digits, Footer
 
+
 class EventsApp(App):
     CSS_PATH = "events.tcss"
     BINDINGS = [
@@ -41,6 +42,7 @@ class EventsApp(App):
     #     self.presses_count += 1
     #     digits = self.query_one("#digits")
     #     digits.update(f"{self.presses_count}")
+
 
 if __name__ == "__main__":
     app = EventsApp()

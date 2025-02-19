@@ -4,6 +4,7 @@ from textual.widgets import Static
 
 NUM_BOXES = 4
 
+
 class VerticalLayoutExample(App):
     def compose(self):
         with Vertical():
@@ -16,6 +17,7 @@ class VerticalLayoutExample(App):
         #     static = Static(f"Static {i}")
         #     static.styles.border = ("solid", "green")
         #     yield static
+
 
 if __name__ == "__main__":
     app = VerticalLayoutExample()

@@ -2,6 +2,7 @@ from textual.app import App
 from textual.containers import Grid
 from textual.widgets import Static
 
+
 class GridLayoutExample(App):
     def compose(self):
         grid = Grid()
@@ -15,6 +16,7 @@ class GridLayoutExample(App):
                     static.styles.width = "1fr"
                     static.styles.height = "1fr"
                     yield static
+
 
 if __name__ == "__main__":
     app = GridLayoutExample()

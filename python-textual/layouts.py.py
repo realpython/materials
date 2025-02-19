@@ -8,6 +8,7 @@ from textual.widgets import Label, Static
 
 NUM_BOXES = 12
 
+
 class NestedContainersExample(App):
     CSS_PATH = "layouts.tcss"
 
@@ -30,6 +31,7 @@ class NestedContainersExample(App):
                     "I am a docked label.\nI don't move!",
                     id="docked-label",
                 )
+
 
 if __name__ == "__main__":
     app = NestedContainersExample()

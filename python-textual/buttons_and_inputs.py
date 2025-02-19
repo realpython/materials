@@ -1,6 +1,7 @@
 from textual.app import App
 from textual.widgets import Button, Input
 
+
 class ButtonsAndInputsApp(App):
     def compose(self):
         # Buttons
@@ -17,6 +18,7 @@ class ButtonsAndInputsApp(App):
             type="number",
             tooltip="Digits only please!",
         )
+
 
 if __name__ == "__main__":
     app = ButtonsAndInputsApp()
