@@ -1,0 +1,48 @@
+sequence,last_name,first_name,term_start,term_end,party_id
+1,Washington,George,April 30 1789,March 04 1797,10
+2,Adams,John,March 04 1797,March 04 1801,20
+3,Jefferson,Thomas,March 04 1801,March 04 1809,30
+4,Madison,James,March 04 1809,March 04 1817,30
+5,Monroe,James,March 04 1817,March 04 1825,30
+6,Adams,John Quincy,March 04 1825,March 04 1829,30
+7,Jackson,Andrew,March 04 1829,March 04 1837,40
+8,Van Buren,Martin,March 04 1837,March 04 1841,40
+9,Harrison,William Henry,March 04 1841,April 04 1841,50
+10,Tyler,John,April 04 1841,March 04 1845,50
+11,Polk,James K.,March 04 1845,March 04 1849,40
+12,Taylor,Zachary,March 04 1849,July 09 1850,50
+13,Fillmore,Millard,July 09 1850,March 04 1853,50
+14,Pierce,Franklin,March 04 1853,March 04 1857,40
+15,Buchanan,James,March 04 1857,March 04 1861,40
+16,Lincoln,Abraham,March 04 1861,April 15 1865,60
+17,Johnson,Andrew,April 15 1865,March 04 1869,40
+18,Grant,Ulysses S,March 04 1869,March 04 1877,60
+19,Hayes,Rutherford B,March 04 1877,March 04 1881,60
+20,Garfield,James,March 04 1881,September 19 1881,60
+21,Arthur,Chester A,September 19 1881,March 04 1885,60
+22,Cleveland,Grover,March 04 1885,March 04 1889,40
+23,Harrison,Benjamin,March 04 1889,March 04 1893,60
+24,Cleveland,Grover,March 04 1893,March 04 1897,40
+25,McKinlay,William,March 04 1897,September 14 1901,60
+26,Roosevelt,Theodore,September 14 1901,March 04 1909,60
+27,Taft,Willam H.,March 04 1909,March 04 1913,60
+28,Wilson,Woodrow,March 04 1913,March 04 1921,40
+29,Harding,Warren G.,March 04 1921,August 02 1923,60
+30,Coolidge,Calvin,August 02 1923,March 04 1929,60
+31,Hoover,Herbert,March 04 1929,March 04 1933,60
+32,Roosevelt,Franklin D.,March 04 1933,April 12 1945,40
+33,Truman,Harry S,April 12 1945,January 20 1953,40
+34,Eisenhower,Dwight D.,January 20 1953,January 20 1961,60
+35,Kennedy,John F.,January 20 1961,November 22 1963,40
+36,Johnson,Lyndon,November 22 1963,January 20 1969,40
+37,Nixon,Richard,January 20 1969,August 09 1974,60
+38,Ford,Gerald,August 09 1974,January 20 1977,60
+39,Carter,Jimmy,January 20 1977,January 20 1981,40
+40,Reagan,Ronald,January 20 1981,January 20 1989,60
+41,Bush,George H. W.,January 20 1989,January 20 1993,60
+42,Clinton,Bill,January 20 1993,January 20 2001,40
+43,Bush,George W.,January 20 2001,January 20 2009,60
+44,Obama,Barack,January 20 2009,January 20 2017,40
+45,Trump,Donald,January 20 2017,January 20 2021,60
+46,Biden,Joe,January 20 2021,January 20 2025,40
+47,Trump,Donald,January 20 2025,January 20 2029,60
