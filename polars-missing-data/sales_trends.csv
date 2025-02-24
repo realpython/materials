@@ -1,0 +1,6 @@
+product,last_year,current_year,next_year
+A,17,19,29.0
+B,35,35,NaN
+C,21,19,
+D,42,50,-inf
+E,23,25,inf
