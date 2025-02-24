@@ -1,6 +1,6 @@
 # Python Project: Build a Word Count Command-Line App
 
-This folder contains supporting materials for the [wordcount coding challenge](https://realpython.com/courses/wordcount/) on Real Python.
+This folder contains supporting materials for the [wordcount coding challenge](https://realpythonom/courses/word-count-app-project/) on Real Python.
 
 ## How to Get Started?
 
