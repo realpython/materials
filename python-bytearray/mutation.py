@@ -86,10 +86,3 @@ print(">>> pixels_copy = pixels.copy()")
 pixels_copy = pixels.copy()
 print(">>> list(pixels)")
 print(list(pixels))
-
-
-# binary_data = bytearray(b"Real Python")
-# print(f"{binary_data.upper() = }\n")
-
-# binary_data = bytearray(b"Monty Python")
-# print(f"{binary_data.upper() = }\n")
