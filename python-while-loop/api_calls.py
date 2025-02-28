@@ -4,7 +4,6 @@ import time
 
 def is_api_available():
     """Simulate API availability."""
-    time.sleep(1)
     return random.choice([True, False, False, False])
 
 
@@ -19,6 +18,7 @@ request = next(requests)
 while True:
     if not is_api_available():
         print("API not available. Retrying in 1 sec...")
+        time.sleep(1)
         continue
     make_api_call(request)
     try:

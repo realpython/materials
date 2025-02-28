@@ -12,5 +12,5 @@ with open("file.log", mode="r") as file:
                 break
             print(f"Processing line content: {line_content}")
         else:
-            time.sleep(1)
             print("No new content. Retrying in 1 second...")
+            time.sleep(1)
