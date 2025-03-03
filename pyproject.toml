@@ -16,5 +16,5 @@ target-version = "py312"
 exclude        = [".git", "venv", "migrations", "node_modules"]
 
 [tool.ruff.lint]
-select = ["E", "F", "I", "RUF100"]
+select = ["E", "F", "I", "RUF100", "W292"]
 ignore = ["E501"]                  # Line length is controlled by Black
