@@ -1,7 +1,10 @@
-user_input = input("Enter number: ")
-try:
-    number = int(user_input)
-except ValueError:
-    print("Error: invalid input")
+user_input = "Amount to withdraw? "
+amount = int(input(user_input))
+available_balance = 1000
+if amount > available_balance:
+    print("Insufficient funds")
+    amount = 0
 else:
-    print(f"Duplicate: {number * 2}")
+    print(f"Here are your {amount:.2f}USD")
+
+print(f"Your available balance is {available_balance - amount:.2f}USD")
