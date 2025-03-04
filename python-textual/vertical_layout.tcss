@@ -1,0 +1,3 @@
+Static {
+    border: solid green;
+}
