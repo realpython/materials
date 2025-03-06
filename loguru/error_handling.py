@@ -4,6 +4,7 @@ from loguru import logger
 logger.remove()
 logger.add(sys.stderr, format="{time} | {level} | {message} | {extra}", level="TRACE")
 
+
 @logger.catch
 def perform_action(user, action):
     with logger.contextualize(user=user, action=action):
@@ -13,5 +14,6 @@ def perform_action(user, action):
             logger.trace("Invalid action detected")
             raise ValueError("Invalid action")
         logger.success("Action completed")
+
 
 perform_action("alice", "delete")
