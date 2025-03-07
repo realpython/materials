@@ -1,15 +1,11 @@
 from textual.app import App
-from textual.containers import (
-    Horizontal,
-    HorizontalScroll,
-    VerticalScroll,
-)
+from textual.containers import Horizontal, HorizontalScroll, VerticalScroll
 from textual.widgets import Label, Static
 
 NUM_BOXES = 12
 
 
-class NestedContainersExample(App):
+class NestedContainersApp(App):
     CSS_PATH = "layouts.tcss"
 
     def compose(self):
@@ -18,13 +14,13 @@ class NestedContainersExample(App):
             with HorizontalScroll(id="horizontalscroll"):
                 for i in range(NUM_BOXES):
                     yield Static(
-                        f"Center.{i+1}",
+                        f"Center.{i + 1}",
                         classes="box yellowbox",
                     )
             with VerticalScroll(id="verticalscroll"):
                 for i in range(NUM_BOXES):
                     yield Static(
-                        f"Right.{i+1}",
+                        f"Right.{i + 1}",
                         classes="box redbox",
                     )
                 yield Label(
@@ -34,5 +30,5 @@ class NestedContainersExample(App):
 
 
 if __name__ == "__main__":
-    app = NestedContainersExample()
+    app = NestedContainersApp()
     app.run()

@@ -14,10 +14,7 @@ class EventsApp(App):
     double_border = False
 
     def compose(self):
-        yield Button(
-            "Click me!",
-            id="button",
-        )
+        yield Button("Click me!", id="button")
         digits = Digits("0", id="digits")
         digits.border_subtitle = "Button presses"
         yield digits
