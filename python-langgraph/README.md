@@ -1,6 +1,6 @@
 # LangGraph: Build Stateful AI Agents in Python
 
-This folder contains the source code for [LangGraph: Build Stateful AI Agents in Python](https://realpython.com/langgraph-build-stateful-ai-agents-in-python/)
+This folder contains the source code for [LangGraph: Build Stateful AI Agents in Python](https://realpython.com/langgraph-python/)
 
 ## Setup
 

@@ -1,7 +1,7 @@
 [project]
 name = "python-langgraph"
 version = "0.1.0"
-description = "Add your description here"
+description = "Companion code to Real Python tutorial"
 readme = "README.md"
 requires-python = ">=3.12"
 dependencies = [
