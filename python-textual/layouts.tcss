@@ -1,7 +1,7 @@
 .box {
     height: 1fr;
     width: 1fr;
-    background:$panel;
+    background: $panel;
     border: solid white;
 }
 

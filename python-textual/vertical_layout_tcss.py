@@ -5,7 +5,7 @@ from textual.widgets import Static
 NUM_BOXES = 4
 
 
-class VerticalLayoutExampleWithTCSS(App):
+class VerticalLayoutAppWithTCSS(App):
     CSS_PATH = "vertical_layout.tcss"
 
     def compose(self):
@@ -15,5 +15,5 @@ class VerticalLayoutExampleWithTCSS(App):
 
 
 if __name__ == "__main__":
-    app = VerticalLayoutExampleWithTCSS()
+    app = VerticalLayoutAppWithTCSS()
     app.run()

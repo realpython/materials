@@ -3,7 +3,7 @@ from textual.containers import Grid
 from textual.widgets import Static
 
 
-class GridLayoutExample(App):
+class GridLayoutApp(App):
     def compose(self):
         grid = Grid()
         grid.styles.grid_size_rows = rows = 6
@@ -19,5 +19,5 @@ class GridLayoutExample(App):
 
 
 if __name__ == "__main__":
-    app = GridLayoutExample()
+    app = GridLayoutApp()
     app.run()
