@@ -62,9 +62,9 @@ class NoticeEmailExtract(BaseModel):
     )
 
     @staticmethod
-    def _convert_string_to_date(date: str | None) -> date | None:
+    def _convert_string_to_date(date_str: str | None) -> date | None:
         try:
-            return datetime.strptime(date, "%Y-%m-%d").date()
+            return datetime.strptime(date_str, "%Y-%m-%d").date()
         except Exception as e:
             print(e)
             return None
@@ -100,7 +100,6 @@ info_parse_prompt = ChatPromptTemplate.from_messages(
 
 notice_parser_model = ChatOpenAI(model="gpt-4o-mini", temperature=0)
 
-NOTICE_PARSER_CHAIN = (
-    info_parse_prompt
-    | notice_parser_model.with_structured_output(NoticeEmailExtract)
+NOTICE_PARSER_CHAIN = info_parse_prompt | notice_parser_model.with_structured_output(
+    NoticeEmailExtract
 )
