@@ -100,6 +100,7 @@ info_parse_prompt = ChatPromptTemplate.from_messages(
 
 notice_parser_model = ChatOpenAI(model="gpt-4o-mini", temperature=0)
 
-NOTICE_PARSER_CHAIN = info_parse_prompt | notice_parser_model.with_structured_output(
-    NoticeEmailExtract
+NOTICE_PARSER_CHAIN = (
+    info_parse_prompt
+    | notice_parser_model.with_structured_output(NoticeEmailExtract)
 )
