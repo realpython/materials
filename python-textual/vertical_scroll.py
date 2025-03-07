@@ -5,7 +5,7 @@ from textual.widgets import Static
 NUM_BOXES = 20
 
 
-class VerticalScrollExample(App):
+class VerticalScrollApp(App):
     CSS_PATH = "vertical_layout.tcss"
 
     def compose(self):
@@ -15,5 +15,5 @@ class VerticalScrollExample(App):
 
 
 if __name__ == "__main__":
-    app = VerticalScrollExample()
+    app = VerticalScrollApp()
     app.run()

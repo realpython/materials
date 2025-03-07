@@ -18,13 +18,13 @@ class StaticAndLabelApp(App):
         self.static.styles.background = "blue"
         self.static.styles.border = ("solid", "white")
         self.static.styles.text_align = "center"
-        self.static.styles.padding = 1, 1
-        self.static.styles.margin = 4, 4
+        self.static.styles.padding = (1, 1)
+        self.static.styles.margin = (4, 4)
         # Styling the label
         self.label.styles.background = "darkgreen"
         self.label.styles.border = ("double", "red")
-        self.label.styles.padding = 1, 1
-        self.label.styles.margin = 2, 4
+        self.label.styles.padding = (1, 1)
+        self.label.styles.margin = (2, 4)
 
 
 if __name__ == "__main__":
