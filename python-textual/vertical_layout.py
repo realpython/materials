@@ -5,20 +5,20 @@ from textual.widgets import Static
 NUM_BOXES = 4
 
 
-class VerticalLayoutExample(App):
+class VerticalLayoutApp(App):
     def compose(self):
         with Vertical():
             for i in range(NUM_BOXES):
-                static = Static(f"Static {i+1}")
+                static = Static(f"Static {i + 1}")
                 static.styles.border = ("solid", "green")
                 yield static
 
-        # for i in range(1, NUM_BOXES):
-        #     static = Static(f"Static {i}")
+        # for i in range(NUM_BOXES):
+        #     static = Static(f"Static {i + 1}")
         #     static.styles.border = ("solid", "green")
         #     yield static
 
 
 if __name__ == "__main__":
-    app = VerticalLayoutExample()
+    app = VerticalLayoutApp()
     app.run()
