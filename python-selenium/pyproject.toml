@@ -16,3 +16,6 @@ dependencies = [
 ]
 [project.scripts]
 bandcamp-player = "bandcamp.__main__:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]

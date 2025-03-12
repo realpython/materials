@@ -1,6 +1,11 @@
-from bandcamp.app.tui import interact
+from bandcamp.app.tui import TUI
 
 
 def main():
-    """Provide the main entry point for the app."""
-    interact()
+    """Provides the main entry point for the app."""
+    tui = TUI()
+    tui.interact()
+
+
+if __name__ == "__main__":
+    main()

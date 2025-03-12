@@ -2,44 +2,46 @@ from selenium.webdriver import Firefox
 from selenium.webdriver.firefox.options import Options
 
 from bandcamp.web.element import TrackElement
-from bandcamp.web.page import HomePage
+from bandcamp.web.page import DiscoverPage
 
-BANDCAMP_FRONTPAGE_URL = "https://bandcamp.com/"
+BANDCAMP_DISCOVER = "https://bandcamp.com/discover/"
 
 
 class Player:
-    """Play tracks from Bandcamp's Discover section."""
+    """Plays tracks from Bandcamp's Discover page."""
 
     def __init__(self) -> None:
         self._driver = self._set_up_driver()
-        self.home = HomePage(self._driver)
-        self.discover = self.home.discover_tracklist
+        self.page = DiscoverPage(self._driver)
+        self.tracklist = self.page.discover_tracklist
         self._current_track = TrackElement(
-            self.home.discover_tracklist.available_tracks[0], self._driver
+            self.tracklist.available_tracks[0], self._driver
         )
 
     def __enter__(self):
         return self
 
     def __exit__(self, exc_type, exc_value, exc_tb):
-        """Close the headless browser."""
-        self._driver.close()
+        """Closes the headless browser."""
+        self._driver.quit()
 
     def play(self, track_number=None):
-        """Play the first track, or one of the available numbered tracks."""
+        """Plays the first track, or one of the available numbered tracks."""
         if track_number:
             self._current_track = TrackElement(
-                self.home.discover_tracklist.available_tracks[
-                    track_number - 1
-                ],
+                self.tracklist.available_tracks[track_number - 1],
                 self._driver,
             )
         self._current_track.play()
 
+    def pause(self):
+        """Pauses the current track."""
+        self._current_track.pause()
+
     def _set_up_driver(self):
-        """Create a headless browser pointing to Bandcamp."""
+        """Creates a headless browser pointing to Bandcamp."""
         options = Options()
         options.add_argument("--headless")
         browser = Firefox(options=options)
-        browser.get(BANDCAMP_FRONTPAGE_URL)
+        browser.get(BANDCAMP_DISCOVER)
         return browser
