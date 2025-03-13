@@ -1,7 +1,7 @@
 from selenium.webdriver.common.by import By
 
 
-class DiscoverPageLocatorMixin:
+class DiscoverPageLocator:
     DISCOVER_RESULTS = (By.CLASS_NAME, "results-grid")
     ITEM = (By.CLASS_NAME, "results-grid-item")
     PAGINATION_BUTTON = (By.ID, "view-more")
@@ -11,7 +11,7 @@ class DiscoverPageLocatorMixin:
     )
 
 
-class TrackLocatorMixin:
+class TrackLocator:
     PLAY_BUTTON = (By.CSS_SELECTOR, "button.play-pause-button")
     URL = (By.CSS_SELECTOR, "div.meta p a")
     ALBUM = (By.CSS_SELECTOR, "div.meta p a strong")

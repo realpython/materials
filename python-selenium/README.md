@@ -28,7 +28,7 @@ To run the music player, install the package, then use the entry point command f
 You'll see a text-based user interface that allows you to interact with the music player:
 
 ```
-Type: play [<track_number>] | tracks | more | exit
+Type: play [<track_number>] | pause | tracks | more | exit
 >
 ```
 

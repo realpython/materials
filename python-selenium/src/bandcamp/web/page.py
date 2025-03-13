@@ -2,11 +2,11 @@ from selenium.webdriver.remote.webdriver import WebDriver
 
 from bandcamp.web.base import WebPage
 from bandcamp.web.element import DiscoverTrackList
-from bandcamp.web.locators import DiscoverPageLocatorMixin
+from bandcamp.web.locators import DiscoverPageLocator
 
 
-class DiscoverPage(WebPage, DiscoverPageLocatorMixin):
-    """Models the relevant parts of the Bandcamp Discover page."""
+class DiscoverPage(WebPage, DiscoverPageLocator):
+    """Model the relevant parts of the Bandcamp Discover page."""
 
     def __init__(self, driver: WebDriver) -> None:
         super().__init__(driver)
@@ -16,5 +16,5 @@ class DiscoverPage(WebPage, DiscoverPageLocatorMixin):
         )
 
     def _accept_cookie_consent(self) -> None:
-        """Accepts the necessary cookie consent."""
+        """Accept the necessary cookie consent."""
         self._driver.find_element(*self.COOKIE_ACCEPT_NECESSARY).click()
