@@ -8,7 +8,9 @@ def interact():
     """Control the player through user interactions."""
     with Player() as player:
         while True:
-            print("\nType: play [<track number>] | pause | tracks | more | exit")
+            print(
+                "\nType: play [<track number>] | pause | tracks | more | exit"
+            )
             match input("> ").strip().lower().split():
                 case ["play"]:
                     play(player)
@@ -22,8 +24,12 @@ def interact():
                     pause(player)
                 case ["tracks"]:
                     display_tracks(player)
-                case ["more"] if len(player.tracklist.available_tracks) >= MAX_TRACKS:
-                    print("Can't load more tracks. Pick one from the track list.")
+                case ["more"] if len(
+                    player.tracklist.available_tracks
+                ) >= MAX_TRACKS:
+                    print(
+                        "Can't load more tracks. Pick one from the track list."
+                    )
                 case ["more"]:
                     player.tracklist.load_more()
                     display_tracks(player)
@@ -50,13 +56,17 @@ def display_tracks(player):
     header = f"{'#':<5} {'Album':<{CW}} {'Artist':<{CW}} {'Genre':<{CW}}"
     print(header)
     print("-" * 100)
-    for track_number, track in enumerate(player.tracklist.available_tracks, start=1):
+    for track_number, track in enumerate(
+        player.tracklist.available_tracks, start=1
+    ):
         if track.text:
             album, artist, *genre = track.text.split("\n")
             album = _truncate(album, CW)
             artist = _truncate(artist, CW)
             genre = _truncate(genre[0], CW) if genre else ""
-            print(f"{track_number:<5} {album:<{CW}} {artist:<{CW}} {genre:<{CW}}")
+            print(
+                f"{track_number:<5} {album:<{CW}} {artist:<{CW}} {genre:<{CW}}"
+            )
 
 
 def _truncate(text, width):

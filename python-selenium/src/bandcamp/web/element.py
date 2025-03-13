@@ -78,5 +78,7 @@ class DiscoverTrackList(WebComponent, DiscoverPageLocator, TrackLocator):
 
         # Filter tracks that are displayed and have text.
         return [
-            track for track in all_tracks if track.is_displayed() and track.text.strip()
+            track
+            for track in all_tracks
+            if track.is_displayed() and track.text.strip()
         ]
