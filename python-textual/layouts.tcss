@@ -1,0 +1,21 @@
+.box {
+    height: 1fr;
+    width: 1fr;
+    background: $panel;
+    border: solid white;
+}
+
+.redbox {
+    border: heavy red;
+    height: 5;
+}
+
+.yellowbox {
+    border: heavy yellow;
+    width: 10;
+}
+
+#docked-label {
+    dock: bottom;
+    border: solid dodgerblue;
+}

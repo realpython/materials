@@ -2,6 +2,22 @@
 
 This repository holds the code for Real Python's [Python `range()`: Represent Numerical Ranges](https://realpython.com/python-range/) tutorial.
 
+## reverse_range()
+
+In [`reverse_range.py`](reverse_range.py), you can find an explicit implementation of a function that can reverse a general range.
+
+```python
+>>> from reverse_range import reverse_range
+
+>>> reverse_range(range(1, 20, 4))
+range(17, 0, -4)
+
+>>> list(reverse_range(range(1, 20, 4)))
+[17, 13, 9, 5, 1]
+```
+
+In practical applications, you should use `reversed(range(1, 20, 4))` or `range(1, 20, 4)[::-1]` instead.
+
 ## PiDigits
 
 The file [`pi_digits.py`](pi_digits.py) shows the implementation of `PiDigits` which is an integer-like type that can be used as arguments to `range()`:

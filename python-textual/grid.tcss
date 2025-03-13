@@ -1,0 +1,9 @@
+Grid {
+    grid_size: 4 6;
+}
+
+Static {
+    height: 1fr;
+    width: 1fr;
+    border: solid green;
+}
