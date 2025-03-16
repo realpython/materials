@@ -18,4 +18,6 @@ class DiscoverPage(WebPage):
 
     def _accept_cookie_consent(self) -> None:
         """Accept the necessary cookie consent."""
-        self._driver.find_element(*DiscoverPageLocator.COOKIE_ACCEPT_NECESSARY).click()
+        self._driver.find_element(
+            *DiscoverPageLocator.COOKIE_ACCEPT_NECESSARY
+        ).click()
