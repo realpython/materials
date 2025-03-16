@@ -20,3 +20,10 @@ class Person:
 
     def as_tuple(self):
         return tuple(self.__dict__.values())
+
+
+person = Person("John", "Doe", 30)
+print(repr(person))
+print(person)
+print(person.as_dict())
+print(person.as_tuple())

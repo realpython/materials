@@ -9,13 +9,13 @@ class Config:
         return getattr(self, key, None)
 
     def remove_option(self, key):
-        if key in self.__dict__:
+        if hasattr(self, key):
             delattr(self, key)
             print(f"'{key}' removed!")
         else:
             print(f"'{key}' does not exist.")
 
     def clear(self):
-        for key in self.__dict__:
+        for key in list(self.__dict__.keys()):
             delattr(self, key)
         print("All options removed!")
