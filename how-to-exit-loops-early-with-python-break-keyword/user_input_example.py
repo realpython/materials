@@ -1,6 +1,3 @@
-# Use case 3: Getting user input
-
-# Import the random module for generating random numbers
 import random
 
 guesses_left = 4
