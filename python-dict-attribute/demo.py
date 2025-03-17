@@ -9,3 +9,5 @@ class DemoClass:
 
 
 print(DemoClass.__dict__)
+demo_object = DemoClass()
+print(demo_object.__dict__)

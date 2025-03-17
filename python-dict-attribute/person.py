@@ -22,8 +22,9 @@ class Person:
         return tuple(self.__dict__.values())
 
 
-person = Person("John", "Doe", 30)
-print(repr(person))
-print(person)
-print(person.as_dict())
-print(person.as_tuple())
+john = Person("John", "Doe", 30)
+print(repr(john))
+Person("John", "Doe", 30)
+print(john)
+print(john.as_dict())
+print(john.as_tuple())
