@@ -1,0 +1,45 @@
+[build-system]
+requires = ["setuptools>=75.3.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "snakesay"
+dependencies = ["rich>=13.9.0"]
+authors = [{name = "Jin Doe", email = "jindoe@example.com"}]
+keywords = ["CLI", "ASCII Art"]
+readme = {file = "README.md", content-type = "text/markdown"}
+requires-python = ">=3.9"
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+]
+dynamic = ["version"]
+
+[project.urls]
+Repository = "https://github.com/me/spam.git"
+Issues = "https://github.com/me/spam/issues"
+
+[project.optional-dependencies]
+dev = ["black>=24.1.0", "isort>=5.13.0", "build", "twine"]
+
+[project.scripts]
+ssay = "snakesay.__main__:main"
+
+[tool.setuptools.packages.find]
+where = ["."]
+
+[tool.setuptools.dynamic]
+version = {attr = "snakesay.__version__"}
+
+[tool.black]
+line-length = 88
+
+[tool.isort]
+profile = "black"
