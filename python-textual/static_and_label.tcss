@@ -1,0 +1,23 @@
+Static {
+    background: blue;
+    border: solid white;
+    padding: 1 1;
+    margin: 2 2;
+    text-align: center;
+}
+
+#label_id {
+    color: black;
+    background: red;
+    border: solid black;
+    padding: 1 1;
+    margin: 2 4;
+}
+
+.label_class {
+    color: black;
+    background: green;
+    border: dashed purple;
+    padding: 1 1;
+    margin: 2 6;
+}
