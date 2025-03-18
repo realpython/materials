@@ -4,6 +4,7 @@ You should create a new folder named marimo on your computer and place each of t
 
 Your download bundle contains the following files:
 
+hypotenuse_calculator.py                      - This file contains the original hypotenuse_calculator code
 hypotenuse_calculator_before_update.py        - This file contains the code before any updating is attempted.  The code has been deliberately placed out of order, however it runs cleanly.
 hypotenuse_calculator_duplicate_variable.py   - This file shows the effect of re-defining a variable. This file produces an error.
 hypotenuse_calculator_after_update.py         - This file contains the code after the `adjacent` variable was updated to `10`. This file runs cleanly.
@@ -17,5 +18,7 @@ packages.py    - This file contains the code used to demonstrate sandboxing.
 quadratic.py   - This file contains the marimo notebook version of the quadratic formula example.
 equation.py    - This file contains the Python script version of quadratic.py.
 
+simultaneous_equations.py     - This file contains the code used to demonstrate marimo's UI elements.
+simultaneous_equations_ui.py  - This file contains a possible solution to the challenge skills test.
 
 hidden_state.ipynb - This file contains a Jupyter Notebook that can be used as a starting point for the investigation of its problems. You should adjust it as instructed in the tutorial. 

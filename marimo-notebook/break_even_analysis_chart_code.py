@@ -11,12 +11,12 @@ def _():
     fixed_cost = 50000
     unit_cost = 2
     selling_price = 10
-    unit_range = 10
+    upper_production_quantity = 10000
 
     break_even_quantity = fixed_cost / (selling_price - unit_cost)
     break_even_income = fixed_cost + break_even_quantity * unit_cost
 
-    units = [x * 1000 for x in range(unit_range)]
+    units = range(0, upper_production_quantity + 1, 1000)
     unit_costs = [(x * unit_cost) + fixed_cost for x in units]
     sales_income = [unit * selling_price for unit in units]
 
@@ -50,7 +50,7 @@ def _():
         selling_price,
         unit_cost,
         unit_costs,
-        unit_range,
+        upper_production_quantity,
         units,
     )
 

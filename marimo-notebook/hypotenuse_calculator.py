@@ -7,7 +7,7 @@ app = marimo.App(width="medium")
 @app.cell
 def _(math):
     def calculate_hypotenuse(opposite, adjacent):
-        return return math.sqrt(opposite**2 + adjacent**2)
+        return math.sqrt(opposite**2 + adjacent**2)
 
     return (calculate_hypotenuse,)
 
@@ -20,7 +20,7 @@ def _():
 
 @app.cell
 def _():
-    adjacent = 10
+    adjacent = 4
     return (adjacent,)
 
 
