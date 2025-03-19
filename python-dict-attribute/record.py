@@ -30,3 +30,19 @@ class Record:
             logging.warning(
                 f"[DEL] Attempted to delete non-existent field '{key}'"
             )
+
+
+jane = Record(first_name="Jane", last_name="Doe", age=25)
+
+# Access
+print(jane.first_name)
+print(jane.age)
+
+# Mutations
+jane.age = 26
+jane.job = "Software Engineer"
+print(jane.__dict__)
+
+# Deletion
+del jane.age
+print(jane.__dict__)

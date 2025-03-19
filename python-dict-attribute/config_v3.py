@@ -19,3 +19,15 @@ class Config:
         for key in list(self.__dict__.keys()):
             delattr(self, key)
         print("All options removed!")
+
+
+conf = Config("GUI App")
+conf.set_option("theme", "dark")
+conf.set_option("size", "200x400")
+print(conf.__dict__)
+conf.remove_option("size")
+print(conf.__dict__)
+conf.remove_option("autosave")  # Raises KeyError
+print(conf.__dict__)
+conf.clear()
+print(conf.__dict__)

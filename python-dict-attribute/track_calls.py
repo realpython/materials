@@ -1,6 +1,6 @@
 def track_calls():
     track_calls.__dict__["calls"] = track_calls.__dict__.get("calls", 0) + 1
-    print(f"Calls {track_calls.calls}")
+    print(f"Calls: {track_calls.calls}")
 
 
 track_calls()

@@ -24,7 +24,6 @@ class Person:
 
 john = Person("John", "Doe", 30)
 print(repr(john))
-Person("John", "Doe", 30)
 print(john)
 print(john.as_dict())
 print(john.as_tuple())
