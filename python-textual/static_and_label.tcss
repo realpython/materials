@@ -1,6 +1,6 @@
 Static {
     background: blue;
-    border:  solid white;
+    border: solid white;
     padding: 1 1;
     margin: 2 2;
     text-align: center;
@@ -8,16 +8,16 @@ Static {
 
 #label_id {
     color: black;
-    background: yellow;
-    border:  solid black;
+    background: red;
+    border: solid black;
     padding: 1 1;
     margin: 2 4;
 }
 
 .label_class {
-    color:black;
+    color: black;
     background: green;
-    border:  dashed purple;
+    border: dashed purple;
     padding: 1 1;
     margin: 2 6;
 }

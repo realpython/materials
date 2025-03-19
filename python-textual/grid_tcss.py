@@ -3,7 +3,7 @@ from textual.containers import Grid
 from textual.widgets import Static
 
 
-class GridLayoutWithTCSS(App):
+class GridLayoutAppWithTCSS(App):
     CSS_PATH = "grid.tcss"
 
     def compose(self):
@@ -14,5 +14,5 @@ class GridLayoutWithTCSS(App):
 
 
 if __name__ == "__main__":
-    app = GridLayoutWithTCSS()
+    app = GridLayoutAppWithTCSS()
     app.run()
