@@ -27,6 +27,7 @@ conf.set_option("size", "200x400")
 print(conf.__dict__)
 conf.remove_option("size")
 print(conf.__dict__)
-# conf.remove_option("autosave")  # Raises KeyError
+conf.remove_option("autosave")
+print(conf.__dict__)
 conf.clear()
 print(conf.__dict__)
