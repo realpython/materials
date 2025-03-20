@@ -55,9 +55,8 @@ def slots():
     person = Person("John Doe", 42)
     person_copy = copy.replace(person, age=24, name="Alice Smith")
 
-    vars_slots = lambda obj: {
-        name: getattr(obj, name) for name in obj.__slots__
-    }
+    def vars_slots(obj):
+        return {name: getattr(obj, name) for name in obj.__slots__}
 
     print(vars_slots(person))
     print(vars_slots(person_copy))
