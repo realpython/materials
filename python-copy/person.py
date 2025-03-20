@@ -56,8 +56,7 @@ def slots():
     person_copy = copy.replace(person, age=24, name="Alice Smith")
 
     vars_slots = lambda obj: {
-        name: getattr(obj, name)
-        for name in obj.__slots__
+        name: getattr(obj, name) for name in obj.__slots__
     }
 
     print(vars_slots(person))
@@ -84,7 +83,9 @@ def derived():
                     setattr(instance, name, value)
 
             if age and dob:
-                raise AttributeError("can't set both 'age' and 'date_of_birth'")
+                raise AttributeError(
+                    "can't set both 'age' and 'date_of_birth'"
+                )
             elif age:
                 dob = copy.replace(date.today(), year=date.today().year - age)
                 instance.date_of_birth = dob
