@@ -1,0 +1,13 @@
+{
+    "name": "John Doe",
+    "age": 42,
+    "email": "johndoe@example.com",
+    "is_subscribed": true,
+    "hobbies": ["reading", "cycling", "traveling"],
+    "address": {
+        "street": "123 Main St",
+        "city": "New York",
+        "zip": "10001"
+    }
+}
+
