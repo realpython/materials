@@ -1,6 +1,6 @@
 # How to Strip Characters From a Python String
 
-This folder contains code snippets from the Real Python tutorial on [How to Strip Characters From a Python String](https://realpython.com/how-to-use-python-strip-remove-characters/).
+This folder contains code snippets from the Real Python tutorial on [How to Strip Characters From a Python String](https://realpython.com/python-strip/).
 
 ## License
 

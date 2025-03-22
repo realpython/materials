@@ -1,4 +1,4 @@
-submitted_username = "_!__YoJohnDoe!__!!"
+submitted_username = "_!__Yo_JohnDoe!__!!"
 cleaned_username = submitted_username.strip("!_")
 print(cleaned_username)
 
