@@ -1,4 +1,4 @@
-def func(x, y):  # noqa
+def func(x, y):
     message = "Hello!"
     print(locals())
 

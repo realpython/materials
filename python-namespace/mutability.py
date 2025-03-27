@@ -1,7 +1,7 @@
 x = 20
 
 
-def f():  # noqa
+def f():
     x = 40
     print(x)
 
@@ -13,7 +13,7 @@ print(x)
 fruits = ["apple", "banana", "cherry", "mango"]
 
 
-def f():  # noqa
+def f():
     fruits[1] = "peach"
 
 

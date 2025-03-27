@@ -1,7 +1,7 @@
 x = 20
 
 
-def f():  # noqa
+def f():
     global x
     x = 40
     print(x)
