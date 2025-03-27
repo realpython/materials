@@ -1,5 +1,5 @@
 globals()["message"] = "Welcome to Real Python!"
 
-# print(message)
-# globals()["message"] = "Hello, World!"
-# print(message)
+print(message)  # noga
+globals()["message"] = "Hello, World!"
+print(message)  # noga

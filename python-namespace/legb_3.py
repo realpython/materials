@@ -2,7 +2,7 @@ x = "global"
 
 
 def outer():
-    # x = "enclosing"
+    x = "enclosing"  # noga
 
     def inner():
         x = "local"
