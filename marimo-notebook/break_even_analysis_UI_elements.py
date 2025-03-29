@@ -4,29 +4,31 @@ __generated_with = "0.11.0"
 app = marimo.App(width="medium")
 
 
-app._unparsable_cell(
-    r"""
-    oimport marimo as mo
-    """,
-    name="_",
-)
+@app.cell
+def _():
+    import matplotlib.pyplot as plt
+    import marimo as mo
+    return mo, plt
 
 
 @app.cell
-def _(
-    ui_color_costs,
-    ui_fixed_cost,
-    ui_quantity,
-    ui_selling_price,
-    ui_unit_cost,
-):
-    import matplotlib.pyplot as plt
-
+def _(ui_fixed_cost, ui_quantity, ui_selling_price, ui_unit_cost):
     fixed_cost = int(ui_fixed_cost.value)
     unit_cost = ui_unit_cost.value
     selling_price = float(ui_selling_price.value)
     upper_production_quantity = ui_quantity.value
+    return fixed_cost, selling_price, unit_cost, upper_production_quantity
 
+
+@app.cell
+def _(
+    fixed_cost,
+    plt,
+    selling_price,
+    ui_color_costs,
+    unit_cost,
+    upper_production_quantity,
+):
     break_even_quantity = fixed_cost / (selling_price - unit_cost)
     break_even_income = break_even_quantity * selling_price
 
@@ -58,28 +60,22 @@ def _(
     return (
         break_even_income,
         break_even_quantity,
-        fixed_cost,
-        plt,
         sales_income,
-        selling_price,
-        unit_cost,
         unit_costs,
         units,
-        upper_production_quantity,
     )
 
 
 @app.cell
 def _(mo):
-    options = ["40000", "50000"]
-    ui_fixed_cost = mo.ui.radio(options=options, value="50000")
+    ui_fixed_cost = mo.ui.radio(options=["40000", "50000"], value="50000")
 
     ui_unit_cost = mo.ui.slider(start=2, stop=5, step=1)
 
     ui_selling_price = mo.ui.text(value="10")
 
     ui_quantity = mo.ui.dropdown(
-        options={"10000": 10000, "12000": 12000, "15000": 15000}, value="10000"
+        options={"10000": 10000, "12000": 12000, "15000": 15000}, value="10000",
     )
 
     ui_disply_break_even = mo.ui.switch()
@@ -90,17 +86,16 @@ def _(mo):
 
     mo.md(
         f"""
-        Select Fixed Costs: {ui_fixed_cost}
+        Fixed Costs: {ui_fixed_cost}
 
-        Select Unit Cost Price: {ui_unit_cost}
+        Unit Cost Price: {ui_unit_cost}
 
-        Enter Selling Price: {ui_selling_price}
+        Selling Price: {ui_selling_price}
 
-        Select a Maximum Production Quantity: {ui_quantity}
+        Maximum Production Quantity: {ui_quantity}
         """
     )
     return (
-        options,
         ui_color_costs,
         ui_disply_break_even,
         ui_fixed_cost,

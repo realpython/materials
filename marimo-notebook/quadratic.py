@@ -7,7 +7,6 @@ app = marimo.App(width="medium")
 @app.cell
 def _():
     import marimo as mo
-
     return (mo,)
 
 
@@ -48,7 +47,6 @@ def _():
 @app.cell
 def _():
     import math
-
     return (math,)
 
 

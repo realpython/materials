@@ -6,27 +6,30 @@ app = marimo.App(width="medium")
 
 @app.cell
 def _():
+    import matplotlib.pyplot as plt
     import marimo as mo
-
-    return (mo,)
+    return mo, plt
 
 
 @app.cell
-def _(
-    ui_break_even,
-    ui_fixed_cost,
-    ui_plot_color,
-    ui_quantity,
-    ui_selling_price,
-    ui_unit_cost,
-):
-    import matplotlib.pyplot as plt
-
+def _(ui_fixed_cost, ui_quantity, ui_selling_price, ui_unit_cost):
     fixed_cost = int(ui_fixed_cost.value)
     unit_cost = ui_unit_cost.value
     selling_price = float(ui_selling_price.value)
     upper_production_quantity = ui_quantity.value
+    return fixed_cost, selling_price, unit_cost, upper_production_quantity
 
+
+@app.cell
+def _(
+    fixed_cost,
+    plt,
+    selling_price,
+    ui_break_even,
+    ui_plot_color,
+    unit_cost,
+    upper_production_quantity,
+):
     break_even_quantity = fixed_cost / (selling_price - unit_cost)
     break_even_income = break_even_quantity * selling_price
 
@@ -61,21 +64,15 @@ def _(
     return (
         break_even_income,
         break_even_quantity,
-        fixed_cost,
-        plt,
         sales_income,
-        selling_price,
         total_costs,
-        unit_cost,
         units,
-        upper_production_quantity,
     )
 
 
 @app.cell
 def _(mo):
-    options = ["40000", "50000"]
-    ui_fixed_cost = mo.ui.radio(options=options, value="50000")
+    ui_fixed_cost = mo.ui.radio(options=["40000", "50000"], value="50000")
 
     ui_unit_cost = mo.ui.slider(start=2, stop=5, step=1)
 
@@ -93,21 +90,20 @@ def _(mo):
 
     mo.md(
         f"""
-        Select Fixed Costs: {ui_fixed_cost}
+        Fixed Costs: {ui_fixed_cost}
 
-        Select Unit Cost Price: {ui_unit_cost}
+        Unit Cost Price: {ui_unit_cost}
 
-        Enter Selling Price: {ui_selling_price}
+        Selling Price: {ui_selling_price}
 
-        Select a Maximum Quantity: {ui_quantity}
+        Maximum Quantity: {ui_quantity}
 
         Display Break-Even Data: {ui_break_even}
 
-        Select Total Costs Plot Color: {ui_plot_color}
+        Total Costs Plot Color: {ui_plot_color}
         """
     )
     return (
-        options,
         ui_break_even,
         ui_fixed_cost,
         ui_plot_color,

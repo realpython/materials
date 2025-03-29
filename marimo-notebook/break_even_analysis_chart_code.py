@@ -1,18 +1,33 @@
 import marimo
 
-__generated_with = "0.10.14"
+__generated_with = "0.11.0"
 app = marimo.App(width="medium")
 
 
 @app.cell
 def _():
     import matplotlib.pyplot as plt
+    import marimo as mo
+    return mo, plt
 
+
+@app.cell
+def _():
     fixed_cost = 50000
     unit_cost = 2
     selling_price = 10
     upper_production_quantity = 10000
+    return fixed_cost, selling_price, unit_cost, upper_production_quantity
 
+
+@app.cell
+def _(
+    fixed_cost,
+    plt,
+    selling_price,
+    unit_cost,
+    upper_production_quantity,
+):
     break_even_quantity = fixed_cost / (selling_price - unit_cost)
     break_even_income = fixed_cost + break_even_quantity * unit_cost
 
@@ -44,13 +59,8 @@ def _():
     return (
         break_even_income,
         break_even_quantity,
-        fixed_cost,
-        plt,
         sales_income,
-        selling_price,
-        unit_cost,
         unit_costs,
-        upper_production_quantity,
         units,
     )
 
