@@ -1,0 +1,21 @@
+[project]
+name = "rpweather"
+version = "0.1.0"
+description = "Display weather information for the specified city."
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = [
+    "requests>=2.32.3",
+]
+
+[dependency-groups]
+dev = [
+    "pytest>=8.3.5",
+]
+
+[project.scripts]
+rpweather = "main:main"
+
+[build-system]
+requires = ["setuptools>=78.1.0", "wheel>=0.45.1"]
+build-backend = "setuptools.build_meta"
