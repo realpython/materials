@@ -5,7 +5,7 @@ from selenium.webdriver.remote.webelement import WebElement
 from selenium.webdriver.support.wait import WebDriverWait
 
 MAX_WAIT_SECONDS = 10.0
-DEFAULT_WINDOW_SIZE = (1920, 3000)  # Shows 60 tracks
+DEFAULT_WINDOW_SIZE = (1920, 3000)
 
 
 @dataclass
