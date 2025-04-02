@@ -25,7 +25,9 @@ class Player:
     def play(self, track_number=None):
         """Play the first track, or one of the available numbered tracks."""
         if track_number:
-            self._current_track = self.tracklist.available_tracks[track_number - 1]
+            self._current_track = self.tracklist.available_tracks[
+                track_number - 1
+            ]
         self._current_track.play()
 
     def pause(self):

@@ -21,7 +21,9 @@ class TrackListElement(WebComponent):
         )
         view_more_button.click()
         # The button is disabled until all new tracks are loaded.
-        self._wait.until(EC.element_to_be_clickable(TrackListLocator.PAGINATION_BUTTON))
+        self._wait.until(
+            EC.element_to_be_clickable(TrackListLocator.PAGINATION_BUTTON)
+        )
         self.available_tracks = self._get_available_tracks()
 
     def _get_available_tracks(self) -> list:
@@ -70,7 +72,9 @@ class TrackElement(WebComponent):
 
     def _get_track_info(self) -> Track:
         """Create a representation of the track's relevant information."""
-        full_url = self._parent.find_element(*TrackLocator.URL).get_attribute("href")
+        full_url = self._parent.find_element(*TrackLocator.URL).get_attribute(
+            "href"
+        )
         # Cut off the referrer query parameter
         clean_url = full_url.split("?")[0] if full_url else ""
         # Some tracks don't have a genre
