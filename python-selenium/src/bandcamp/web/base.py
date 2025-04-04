@@ -24,6 +24,7 @@ class WebPage:
     def __init__(self, driver: WebDriver) -> None:
         self._driver = driver
         self._driver.set_window_size(*DEFAULT_WINDOW_SIZE)
+        self._driver.implicitly_wait(5)
         self._wait = WebDriverWait(driver, MAX_WAIT_SECONDS)
 
 
