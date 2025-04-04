@@ -61,7 +61,7 @@ def display_tracks(player):
     """Display information about the currently playable tracks."""
     header = f"{'#':<5} {'Album':<{CW}} {'Artist':<{CW}} {'Genre':<{CW}}"
     print(header)
-    print("-" * 100)
+    print("-" * 80)
     for track_number, track_element in enumerate(
         player.tracklist.available_tracks, start=1
     ):

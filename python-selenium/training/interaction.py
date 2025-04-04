@@ -7,6 +7,8 @@ from selenium.webdriver.firefox.options import Options
 options = Options()
 options.add_argument("--headless")
 driver = webdriver.Firefox(options=options)
+driver.implicitly_wait(5)
+
 driver.get("https://bandcamp.com/discover/")
 
 tracks = driver.find_elements(By.CLASS_NAME, "results-grid-item")

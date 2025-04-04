@@ -1,4 +1,5 @@
 from dataclasses import dataclass
+from pprint import pformat
 
 from selenium.webdriver.remote.webdriver import WebDriver
 from selenium.webdriver.remote.webelement import WebElement
@@ -14,6 +15,9 @@ class Track:
     artist: str
     genre: str
     url: str
+
+    def __str__(self):
+        return pformat(self)
 
 
 class WebPage:

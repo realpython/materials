@@ -15,4 +15,4 @@ dependencies = [
     "selenium",
 ]
 [project.scripts]
-bandcamp-player = "bandcamp.__main__:main"
+discover = "bandcamp.__main__:main"

@@ -1,7 +1,7 @@
 from selenium.webdriver import Firefox
 from selenium.webdriver.firefox.options import Options
 
-from bandcamp.web.page import DiscoverPage
+from bandcamp.web.pages import DiscoverPage
 
 BANDCAMP_DISCOVER_URL = "https://bandcamp.com/discover/"
 
