@@ -24,9 +24,9 @@ def interact():
                     pause(player)
                 case ["tracks"]:
                     display_tracks(player)
-                case ["more"] if len(
-                    player.tracklist.available_tracks
-                ) >= MAX_TRACKS:
+                case ["more"] if (
+                    len(player.tracklist.available_tracks) >= MAX_TRACKS
+                ):
                     print(
                         "Can't load more tracks. Pick one from the track list."
                     )
