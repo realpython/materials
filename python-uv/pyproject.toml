@@ -1,7 +1,7 @@
 [project]
-name = "rpweather"
+name = "rpcats"
 version = "0.1.0"
-description = "Display weather information for the specified city."
+description = "Add your description here"
 readme = "README.md"
 requires-python = ">=3.13"
 dependencies = [
@@ -14,8 +14,14 @@ dev = [
 ]
 
 [project.scripts]
-rpweather = "main:main"
+rpcats = "main:main"
 
 [build-system]
 requires = ["setuptools>=78.1.0", "wheel>=0.45.1"]
 build-backend = "setuptools.build_meta"
+
+[[tool.uv.index]]
+name = "testpypi"
+url = "https://test.pypi.org/simple/"
+publish-url = "https://test.pypi.org/legacy/"
+explicit = true
