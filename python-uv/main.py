@@ -29,7 +29,9 @@ def display_breed_profile(breed):
 
 
 def parse_args():
-    parser = argparse.ArgumentParser(description="Get information about cat breeds")
+    parser = argparse.ArgumentParser(
+        description="Get information about cat breeds",
+    )
     parser.add_argument(
         "breed",
         help="Name of cat breed (e.g., 'Siamese')",
