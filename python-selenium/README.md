@@ -36,18 +36,18 @@ Type one of the available commands to interact with Bandcamp's Discover section 
 
 ## Troubleshooting
 
-If the music player seems to hang when you run the script, confirm whether you've correctly set up your webdriver based on the following points.
+If the music player seems to hang when you run the script, confirm whether you've correctly set up your WebDriver based on the following points.
 
 ### Version Compatibility
 
-Confirm that your browser and corresponding webdriver are in sync. If you followed the previous suggestion, then you should be using Firefox and geckodriver. If that doesn't work for any reason, you may need to switch browser _and_ webdriver.
+Confirm that your browser and corresponding WebDriver are in sync. If you followed the previous suggestion, then you should be using Firefox and geckodriver. If that doesn't work for any reason, you may need to switch browser _and_ WebDriver.
 
 For example, if you're using Chrome, then you need to install ChromeDriver and it must match your Chrome version. Otherwise, you may run into errors like `SessionNotCreatedException`.
 For more details, refer to the official [ChromeDriver documentation](https://sites.google.com/chromium.org/driver/) or [geckodriver releases](https://github.com/mozilla/geckodriver/releases).
 
 ### Driver Installation and Path Issues
 
-Once you've confirmed that your browser and driver match, make sure that the webdriver executable is properly installed:
+Once you've confirmed that your browser and driver match, make sure that the WebDriver executable is properly installed:
 
 - **Path Configuration:** The driver must be in your system's PATH, or you need to specify its full path in your code.
 - **Permissions:** Ensure the driver file has the necessary execution permissions.
@@ -61,4 +61,4 @@ Bartosz Zaczyński - Email: bartosz@realpython.com
 
 ## License
 
-Distributed under the MIT license. See `LICENSE` for more information.
+Distributed under the MIT license.

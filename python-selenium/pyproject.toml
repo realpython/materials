@@ -3,10 +3,15 @@ requires = ["setuptools", "wheel"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "bandcamp_player"
-version = "0.1.0"
+name = "pycamp"
+version = "0.1.1"
 requires-python = ">=3.10"
-description = "A web player for Bandcamp using Selenium"
+description = "A CLI music player for Bandcamp's Discover page using Python and Selenium"
+license = "MIT"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Operating System :: OS Independent"
+]
 authors = [
     { name = "Martin Breuss", email = "martin@realpython.com" },
     { name = "Bartosz Zaczyński", email = "bartosz@realpython.com" },
@@ -16,3 +21,4 @@ dependencies = [
 ]
 [project.scripts]
 discover = "bandcamp.__main__:main"
+pycamp = "bandcamp.__main__:main"
