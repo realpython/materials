@@ -50,6 +50,7 @@ def main():
     except Exception as e:
         print(f"Error: {e}")
         return 1
+
     return 0
 
 
