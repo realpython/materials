@@ -3,7 +3,7 @@ from pathlib import Path
 filename = "txt_transcript.txt"
 
 # Incorrect: .strip() doesn't remove sequences
-print(filename.strip("txt_"))
+print(filename.strip(".txt"))
 # Correct: Use .removesuffix() for this task
 print(filename.removesuffix(".txt"))
 
