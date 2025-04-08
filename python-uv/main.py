@@ -15,7 +15,7 @@ def find_breed_info(breed_name):
     for breed in json_response:
         if breed["name"] == breed_name:
             return breed
-    return {}
+    return None
 
 
 def display_breed_profile(breed):
@@ -50,7 +50,6 @@ def main():
     except Exception as e:
         print(f"Error: {e}")
         return 1
-
     return 0
 
 
