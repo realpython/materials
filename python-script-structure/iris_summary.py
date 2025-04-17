@@ -18,7 +18,7 @@ from pprint import pformat
 
 import click
 import pandas as pd
-from rich.console import Console, RenderableType, Text
+from rich.console import Console, Text
 from rich.logging import RichHandler
 from rich.table import Table
 from ucimlrepo import fetch_ucirepo
@@ -81,7 +81,6 @@ class DescriptiveStatistics:
 )
 def main(operation, variable):
     """Fetch the Iris dataset from UCI."""
-    console = Console()
     iris = fetch_iris()
     if operation is Operation.SUMMARY:
         if variable:
