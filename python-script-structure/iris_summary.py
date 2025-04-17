@@ -26,11 +26,13 @@ from ucimlrepo import fetch_ucirepo
 logging.basicConfig(
     level=logging.INFO,
     format="%(levelname)s - %(message)s",
-    handlers=[RichHandler(rich_tracebacks=True)]
+    handlers=[RichHandler(rich_tracebacks=True)],
 )
+
 
 class UCIDataset(IntEnum):
     IRIS = 53
+
 
 class IrisVariable(StrEnum):
     PETAL_LENGTH = "petal length"
@@ -38,9 +40,11 @@ class IrisVariable(StrEnum):
     SEPAL_WIDTH = "sepal width"
     SEPAL_LENGTH = "sepal length"
 
+
 class Operation(StrEnum):
     SUMMARY = auto()
     METADATA = auto()
+
 
 @dataclass
 class DescriptiveStatistics:
@@ -60,6 +64,7 @@ class DescriptiveStatistics:
 
     def __str__(self):
         return pformat(self)
+
 
 @click.command()
 @click.option(
@@ -95,19 +100,22 @@ def main(operation, variable):
         logging.info("Metadata summary:")
         logging.info(pformat(iris.metadata))
 
+
 def fetch_iris():
     """Return the Iris dataset from the UCI ML Repository."""
     logging.info("Fetching Iris dataset...")
     try:
         iris_data = fetch_ucirepo(id=UCIDataset.IRIS.value)
-        assert "data" in iris_data.keys(), \
-            "Object does not have expected structure"
+        assert (
+            "data" in iris_data.keys()
+        ), "Object does not have expected structure"
     except Exception as e:
         logging.critical(f"Failed to correctly fetch Iris dataset: {e}")
         sys.exit(1)
     else:
         logging.info("Iris dataset fetched successfully")
         return iris_data
+
 
 def generate_table(dataset, variable):
     """Generate a formatted table of descriptive statistics for a variable."""
@@ -121,12 +129,14 @@ def generate_table(dataset, variable):
     table.add_row("Mean-Median Diff", f"{stats.mm_diff:.2f}")
     return table
 
+
 def format_rich_for_log(renderable, width=100):
     """Render a rich object to a plain text string suitable for logging."""
     console = Console(width=width)
     with console.capture() as capture:
         console.print(renderable)
     return Text.from_ansi(capture.get())
+
 
 if __name__ == "__main__":
     main()
