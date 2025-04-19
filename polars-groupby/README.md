@@ -4,10 +4,11 @@ You should create a new folder named aggregations on your computer and place eac
 
 Your download bundle contains the following files:
 
-course.parquet           - This file contains all data from both `maths.parquet` and `portuguese.parquet`.
-maths.parquet            - This file contains data relating to a mathematics class.
+course.parquet           - This file contains all data from both `math.parquet` and `portuguese.parquet`.
+math.parquet             - This file contains data relating to a mathematics class.
 portuguese.parquet       - This file contains data relating to a Portuguese language class.
-maths_classes.parquet    - This file contains data used in the time series analysis examples.
+student.txt              - This file defines every field in the above three files.
+math_classes.parquet     - This file contains data used in the time series analysis examples.
 
 tutorial_code.ipynb      - This file contains the code used in the tutorial.
 solutions.ipynb          - This file contains the solutions to the exercises.
