@@ -18,7 +18,7 @@ You'll need a [Firefox Selenium driver](https://selenium-python.readthedocs.io/i
 
 ## Run the Bandcamp Discover Player
 
-To run the music player, install the package, then use the entry point command from your command-line:
+To run the music player, install the package, then use the entry-point command from your command line:
 
 ```sh
 (venv) $ python -m pip install .
@@ -32,7 +32,7 @@ Type: play [<track_number>] | pause | tracks | more | exit
 >
 ```
 
-Type one of the available commands to interact with Bandcamp's Discover section through your headless browser. Listen to songs with `play`, pause the current song with `pause` and restart it with `play`. List available tracks with `tracks`, and load more songs using `more`. You can exit the music player by typing `exit`.
+Type one of the available commands to interact with Bandcamp's Discover section through your headless browser. Listen to songs with `play`, pause the current song with `pause`, and restart it with `play`. List available tracks with `tracks`, and load more songs using `more`. You can exit the music player by typing `exit`.
 
 ## Troubleshooting
 
@@ -40,7 +40,7 @@ If the music player seems to hang when you run the script, confirm whether you'v
 
 ### Version Compatibility
 
-Confirm that your browser and corresponding WebDriver are in sync. If you followed the previous suggestion, then you should be using Firefox and geckodriver. If that doesn't work for any reason, you may need to switch browser _and_ WebDriver.
+Confirm that your browser and corresponding WebDriver are in sync. If you followed the previous suggestion, then you should be using Firefox and geckodriver. If that doesn't work for some reason, then you may need to switch your browser _and_ WebDriver.
 
 For example, if you're using Chrome, then you need to install ChromeDriver and it must match your Chrome version. Otherwise, you may run into errors like `SessionNotCreatedException`.
 For more details, refer to the official [ChromeDriver documentation](https://sites.google.com/chromium.org/driver/) or [geckodriver releases](https://github.com/mozilla/geckodriver/releases).
@@ -52,7 +52,7 @@ Once you've confirmed that your browser and driver match, make sure that the Web
 - **Path Configuration:** The driver must be in your system's PATH, or you need to specify its full path in your code.
 - **Permissions:** Ensure the driver file has the necessary execution permissions.
 
-If you're still running into issues executing the script, then consult the [Selenium Documentation](https://www.selenium.dev/documentation/) for additional troubleshooting tips or leave a comment on the tutorial.
+If you're still running into issues executing the script, then consult the [Selenium Documentation](https://www.selenium.dev/documentation/) for additional troubleshooting tips or leave a comment in the tutorial.
 
 ## About the Authors
 
