@@ -1,6 +1,6 @@
 def verify_purchase(age, selection, restricted_products):
     if age < 21 and not selection.isdisjoint(restricted_products):
-        print("Purchase denied: products restricted to underage users")
+        print("Purchase denied: selection includes age-restricted products")
     else:
         print("Purchase approved")
 
