@@ -5,5 +5,5 @@ Grid {
 Static {
     height: 1fr;
     width: 1fr;
-    border:  solid green;
+    border: solid green;
 }
