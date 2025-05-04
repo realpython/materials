@@ -1,6 +1,6 @@
-The materials contained in this download are designed to complement the RealPython tutorial [Marimo: A Reactive, Reproducible Notebook](https://realpython.com/marimo-notebook-reactive-reproducible/).
+The materials contained in this download are designed to complement the Real Python tutorial [Marimo: A Reactive, Reproducible Notebook](https://realpython.com/marimo-notebook-reactive-reproducible/).
 
-You should create a new folder named marimo on your computer and place each of these files inside it. You may also consider creating a [Python virtual environment](https://realpython.com/python-virtual-environments-a-primer/) within this folder.
+You should create a new folder named marimo on your computer and place each of these files inside it. You might also consider creating a [Python virtual environment](https://realpython.com/python-virtual-environments-a-primer/) within this folder.
 
 Your download bundle contains the following files:
 
