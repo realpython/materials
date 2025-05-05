@@ -1,3 +1,4 @@
+# flake8: noqa
 
 __generated_with = "0.11.0"
 
