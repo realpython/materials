@@ -10,6 +10,7 @@ app = marimo.App(width="medium")
 def _():
     import matplotlib.pyplot as plt
     import marimo as mo
+
     return mo, plt
 
 

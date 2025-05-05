@@ -10,6 +10,7 @@ app = marimo.App(width="medium")
 def _():
     import matplotlib.pyplot as plt
     import marimo as mo
+
     return mo, plt
 
 
@@ -77,7 +78,8 @@ def _(mo):
     ui_selling_price = mo.ui.text(value="10")
 
     ui_quantity = mo.ui.dropdown(
-        options={"10000": 10000, "12000": 12000, "15000": 15000}, value="10000",
+        options={"10000": 10000, "12000": 12000, "15000": 15000},
+        value="10000",
     )
 
     ui_disply_break_even = mo.ui.switch()
