@@ -1,6 +1,6 @@
 import marimo
 
-__generated_with = "0.11.0"
+__generated_with = "0.13.6"
 app = marimo.App(width="medium")
 
 
@@ -15,14 +15,14 @@ def _():
 def _(mo):
     mo.md(
         r"""
-        A quadratic equation is one of the form **$ax^2 + bx + c = 0$**, where a, b and c are constants, and a $\neq$ 0.
+    A quadratic equation is one of the form **$ax^2 + bx + c = 0$**, where a, b and c are constants, and a $\neq$ 0.
 
-        You can solve it using the *quadratic formula*:
+    You can solve it using the *quadratic formula*:
 
-        $$x = \frac {-b \pm \sqrt{b^2 -4ac}} {2a}$$
+    $$x = \frac {-b \pm \sqrt{b^2 -4ac}} {2a}$$
 
-        For example, suppose you wanted to solve: **$2x^2 - 3x - 2 = 0$**
-        """
+    For example, suppose you wanted to solve: **$2x^2 - 3x - 2 = 0$**
+    """
     )
     return
 

@@ -1,6 +1,6 @@
 import marimo
 
-__generated_with = "0.11.0"
+__generated_with = "0.13.6"
 app = marimo.App(width="medium")
 
 
@@ -15,14 +15,14 @@ def _():
 def _(mo):
     mo.md(
         r"""
-        **Problem:**
+    **Problem:**
 
-        Solve the following simultaneous equations using Python:
+    Solve the following simultaneous equations using Python:
 
-        $4x + 2y = 34$
+    $4x + 2y = 34$
 
-        $2x - y = 31$
-        """
+    $2x - y = 31$
+    """
     )
     return
 
@@ -35,19 +35,19 @@ def _():
     results = np.array([34, 31])
     solution = np.linalg.solve(coefficients, results)
     solution
-    return coefficients, np, results, solution
+    return (solution,)
 
 
 @app.cell
 def _(mo, solution):
     mo.md(
         f"""
-        The solution to these simultaneous equations is:
+    The solution to these simultaneous equations is:
 
-        **x = {solution[0]}**
+    **x = {solution[0]}**
 
-        **y = {solution[1]}**
-        """
+    **y = {solution[1]}**
+    """
     )
     return
 

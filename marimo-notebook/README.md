@@ -1,24 +1,34 @@
-The materials contained in this download are designed to complement the Real Python tutorial [Marimo: A Reactive, Reproducible Notebook](https://realpython.com/marimo-notebook-reactive-reproducible/).
+# Marimo: A Reactive, Reproducible Notebook
 
-You should create a new folder named marimo on your computer and place each of these files inside it. You might also consider creating a [Python virtual environment](https://realpython.com/python-virtual-environments-a-primer/) within this folder.
+The materials contained in this download are designed to complement the Real Python tutorial [Marimo: A Reactive, Reproducible Notebook](https://realpython.com/marimo-notebook/).
+
+## Installation
+
+Create a [Python virtual environment](https://realpython.com/python-virtual-environments-a-primer/), activate it, and install marimo along with its dependencies into it:
+
+```sh
+$ python -m venv venv/
+$ source venv/bin/activate
+(venv) $ python -m pip install -r requirements.txt
+```
+
+## Contents
 
 Your download bundle contains the following files:
 
-hypotenuse_calculator.py                      - This file contains the original hypotenuse_calculator code
-hypotenuse_calculator_before_update.py        - This file contains the code before any updating is attempted.  The code has been deliberately placed out of order, however it runs cleanly.
-hypotenuse_calculator_duplicate_variable.py   - This file shows the effect of re-defining a variable. This file produces an error.
-hypotenuse_calculator_after_update.py         - This file contains the code after the `adjacent` variable was updated to `10`. This file runs cleanly.
-hypotenuse_calculator_after_deletion.py       - This file contains the code after the `opposite variable` was deleted. This file produces an error.
-
-break_even_analysis_chart_code.py             - This file contains the basic chart code.  It will produce a break-even analysis for a fixed set of input data.
-break_even_analysis_UI_elements.py            - This file contains includes the four UI interface elements to allow the plot to be adjusted. 
-break_even_analysis_solution.py               - This file contains a possible solution to the skills test. 
-
-packages.py    - This file contains the code used to demonstrate sandboxing.
-quadratic.py   - This file contains the marimo notebook version of the quadratic formula example.
-equation.py    - This file contains the Python script version of quadratic.py.
-
-simultaneous_equations.py     - This file contains the code used to demonstrate marimo's UI elements.
-simultaneous_equations_ui.py  - This file contains a possible solution to the challenge skills test.
-
-hidden_state.ipynb - This file contains a Jupyter Notebook that can be used as a starting point for the investigation of its problems. You should adjust it as instructed in the tutorial. 
+| Filename                                   | Description                                                                                     |
+|--------------------------------------------|-------------------------------------------------------------------------------------------------|
+| `hypotenuse_calculator.py`                 | The original `hypotenuse_calculator` code.                                     |
+| `hypotenuse_calculator_before_update.py`   | The code before any updating is attempted. The code is out of order but runs cleanly. |
+| `hypotenuse_calculator_duplicate_variable.py` | Shows the effect of redefining a variable. This file produces an error.              |
+| `hypotenuse_calculator_after_update.py`    | The code after the `adjacent` variable was updated to `10`. Runs cleanly.    |
+| `hypotenuse_calculator_after_deletion.py`  | The code after the `opposite` variable was deleted. This file produces an error. |
+| `break_even_analysis_chart_code.py`        | The basic chart code for a break-even analysis with fixed input data.        |
+| `break_even_analysis_ui_elements.py`       | Includes four UI interface elements to allow the plot to be adjusted.                 |
+| `break_even_analysis_solution.py`          | A possible solution to the skills test.                                      |
+| `packages.py`                              | The code used to demonstrate sandboxing.                                     |
+| `quadratic.py`                             | The marimo notebook version of the quadratic formula example.                |
+| `equation.py`                              | The Python script version of `quadratic.py`.                                 |
+| `simultaneous_equations.py`               | The code used to demonstrate marimo's UI elements.                           |
+| `simultaneous_equations_ui.py`            | A possible solution to the challenge skills test.                            |
+| `hidden_state.ipynb`                       | This Jupyter Notebook is a starting point for investigating its problems, to be adjusted per tutorial. |

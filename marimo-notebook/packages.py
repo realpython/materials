@@ -5,9 +5,10 @@
 #     "pandas==2.2.3",
 # ]
 # ///
+
 import marimo
 
-__generated_with = "0.11.0"
+__generated_with = "0.13.6"
 app = marimo.App(width="medium")
 
 
@@ -19,8 +20,7 @@ def _():
     languages = pd.DataFrame(data)
 
     languages
-
-    return data, languages, pd
+    return
 
 
 if __name__ == "__main__":

@@ -1,6 +1,6 @@
 import marimo
 
-__generated_with = "0.11.0"
+__generated_with = "0.13.6"
 app = marimo.App(width="medium")
 
 
@@ -60,7 +60,7 @@ def _(
         [float(equation_1_result.value), float(equation_2_result.value)]
     )
     solution = np.linalg.solve(coefficients, results)
-    return coefficients, np, results, solution
+    return (solution,)
 
 
 @app.cell
@@ -76,17 +76,17 @@ def _(
 ):
     mo.md(
         f"""
-        The solution to the simultaneous equations:
+    The solution to the simultaneous equations:
 
-        **{float(equation_1_x.value):.2f}$x${float(equation_1_y.value):+.2f}$y$ = {equation_1_result.value}**
+    **{float(equation_1_x.value):.2f}$x${float(equation_1_y.value):+.2f}$y$ = {equation_1_result.value}**
 
-        **{float(equation_2_x.value):.2f}$x${float(equation_2_y.value):.2f}$y$ = {equation_2_result.value}**
+    **{float(equation_2_x.value):.2f}$x${float(equation_2_y.value):.2f}$y$ = {equation_2_result.value}**
 
-        is
+    is
 
-        **$x$ = {solution[0]}**
-        **$y$ = {solution[1]}**
-        """
+    **$x$ = {solution[0]}**
+    **$y$ = {solution[1]}**
+    """
     )
     return
 

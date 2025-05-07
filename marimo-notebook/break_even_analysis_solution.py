@@ -2,14 +2,14 @@
 
 import marimo
 
-__generated_with = "0.11.0"
+__generated_with = "0.13.6"
 app = marimo.App(width="medium")
 
 
 @app.cell
 def _():
-    import matplotlib.pyplot as plt
     import marimo as mo
+    import matplotlib.pyplot as plt
 
     return mo, plt
 
@@ -64,29 +64,18 @@ def _(
 
     plt.grid()
     plt.show()
-    return (
-        break_even_income,
-        break_even_quantity,
-        sales_income,
-        total_costs,
-        units,
-    )
+    return
 
 
 @app.cell
 def _(mo):
     ui_fixed_cost = mo.ui.radio(options=["40000", "50000"], value="50000")
-
     ui_unit_cost = mo.ui.slider(start=2, stop=5, step=1)
-
     ui_selling_price = mo.ui.text(value="10")
-
     ui_quantity = mo.ui.dropdown(
         options={"10000": 10000, "12000": 12000, "15000": 15000}, value="10000"
     )
-
     ui_break_even = mo.ui.switch()
-
     ui_plot_color = mo.ui.dropdown(
         options={"Red": "red", "Green": "green", "Blue": "blue"}, value="Red"
     )
