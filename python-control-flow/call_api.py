@@ -2,14 +2,6 @@ import os
 import random
 
 
-def run_api_call(api_key):
-    # Simulate an API call
-    if random.choice([True, False]):
-        print(f"Running API call with key: {api_key}")
-    else:
-        raise Exception("API call failed.")
-
-
 def main():
     user_key = input("Please enter your API key: ")
     os.environ["API_KEY"] = user_key
@@ -24,6 +16,14 @@ def main():
     finally:
         del os.environ["API_KEY"]
         print("API key cleaned up!")
+
+
+def run_api_call(api_key):
+    # Simulate an API call
+    if random.choice([True, False]):
+        print(f"Running API call with key: {api_key}")
+    else:
+        raise Exception("API call failed.")
 
 
 if __name__ == "__main__":
