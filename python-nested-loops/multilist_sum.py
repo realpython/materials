@@ -3,4 +3,5 @@ total_resources = 0
 for planet in resource_donators:
     for resource in planet:
         total_resources += resource
-print(f"Total resources gotten for interstellar travels: {total_resources}")
+
+print(f"All resources gathered for interstellar travels: {total_resources}")

@@ -15,5 +15,5 @@ for layer in blt_sandwich:
         break
 
     if found:
+        print("Enjoying the crunch and worth it.")
         break
-print("Enjoying the crunch and worth it.")
