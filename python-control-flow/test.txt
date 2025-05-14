@@ -1,0 +1,7 @@
+name: John Doe
+job: Software Engineer
+country: USA
+
+name: Jane Doe
+job: Data Scientist
+country: Canada
