@@ -1,4 +1,4 @@
-from balls import Ball, FootBall, PoolBall
+from balls import Ball, PoolBall
 
 eight_ball = PoolBall("black", 8)
 

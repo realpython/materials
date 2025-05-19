@@ -1,4 +1,5 @@
 from collections.abc import Iterable
+
 from customiterables import CustomIterableTwo
 
 for number in CustomIterableTwo(4):
