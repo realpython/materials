@@ -1,3 +1,9 @@
+from balls import Ball, FootBall, PoolBall
+
+football = FootBall("brown")
+ball = Ball("green", "sphere")
+
+
 isinstance(football, FootBall)
 
 isinstance(football, PoolBall)

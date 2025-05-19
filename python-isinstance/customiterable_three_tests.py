@@ -1,3 +1,4 @@
+from collections.abc import Iterable
 from customiterables import CustomIterableThree
 
 for number in CustomIterableThree(4):

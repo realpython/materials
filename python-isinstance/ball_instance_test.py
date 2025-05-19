@@ -1,3 +1,5 @@
+from balls import Ball, FootBall, PoolBall
+
 eight_ball = PoolBall("black", 8)
 football = FootBall("brown")
 ball = Ball("green", "sphere")
