@@ -1,4 +1,4 @@
-from customiterables import *
+from customiterables import CustomIterableOne, CustomIterableTwo, CustomIterableThree 
 
 iter(CustomIterableOne(4))
 
