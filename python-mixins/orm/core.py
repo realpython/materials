@@ -55,18 +55,14 @@ class ActiveRecord(metaclass=ActiveRecordMeta):
     def find_by(cls: type[_T], **parameters) -> Iterator[_T]:
         if not parameters:
             raise ValueError("missing query conditions")
-        return recursive_fetch(
-            cls, cls.__table__.select_where(**parameters)
-        )
+        return recursive_fetch(cls, cls.__table__.select_where(**parameters))
 
     @classmethod
     def find(cls: type[_T], *, pk: int) -> _T:
         try:
             return next(cls.find_by(pk=pk))
         except StopIteration as ex:
-            raise ValueError(
-                f"{cls.__name__} with pk={pk} not found"
-            ) from ex
+            raise ValueError(f"{cls.__name__} with pk={pk} not found") from ex
 
     def save(self) -> None:
         if self.pk is None:
@@ -221,9 +217,7 @@ class SQLQueryGenerator:
         )
 
     def insert(self, record: _T) -> SQLQuery:
-        column_names = ", ".join(
-            column.name for column in self.table.columns
-        )
+        column_names = ", ".join(column.name for column in self.table.columns)
         placeholders = ", ".join(
             f":{column.name}" for column in self.table.columns
         )
@@ -237,8 +231,7 @@ class SQLQueryGenerator:
 
     def update(self, record: _T) -> SQLQuery:
         placeholders = ", ".join(
-            f"{column.name}=:{column.name}"
-            for column in self.table.columns
+            f"{column.name}=:{column.name}" for column in self.table.columns
         )
         return SQLQuery(
             (
