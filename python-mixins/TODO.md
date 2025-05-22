@@ -1,0 +1,2 @@
+- Add nullable foreign key handling
+- Implement examples to test and demonstrate
