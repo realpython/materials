@@ -8,6 +8,8 @@ emails = [
     "DAVID@Example.net",
 ]
 
-# emails = [email.strip().lower() for email in emails]
+clean_emails = [email.strip().lower() for email in emails]
+print(clean_emails)
 
-emails = {email.strip().lower() for email in emails}
+unique_emails = {email.strip().lower() for email in emails}
+print(unique_emails)

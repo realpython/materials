@@ -8,5 +8,11 @@ def odd_even(numbers):
 
 # Example usage
 numbers = [2, 2, 3, 11, 4, 5, 7, 4]
-for result in odd_even(numbers):
+generator = odd_even(numbers)
+
+print(next(generator))
+print(next(generator))
+print(next(generator))
+
+for result in generator:
     print(result)
