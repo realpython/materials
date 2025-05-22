@@ -12,6 +12,4 @@ def read_file_contents(file_path):
         print(f"Error: '{file_path}' is not a file.")
         return
 
-    with path.open("r", encoding="utf-8") as f:
-        contents = f.read()
-    return contents
+    return path.read_text(encoding="utf-8")
