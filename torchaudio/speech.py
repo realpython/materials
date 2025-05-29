@@ -10,15 +10,16 @@ from pathlib import Path
 from typing import Callable, NamedTuple, Self
 
 import sounddevice as sd
-import torchaudio
 from IPython.display import Audio
 from torch import Tensor, clamp, randn_like
 from torch.nn import functional as F
 from torch.utils.data import Dataset
+from tqdm import tqdm
+
+import torchaudio
 from torchaudio import functional as AF
 from torchaudio.datasets import SPEECHCOMMANDS
 from torchaudio.datasets.speechcommands import FOLDER_IN_ARCHIVE
-from tqdm import tqdm
 
 
 class SpeechSample(NamedTuple):
