@@ -1,0 +1,11 @@
+[project]
+name = "python-langgraph"
+version = "0.1.0"
+description = "Companion code to Real Python tutorial"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "langchain-openai>=0.3.2",
+    "langgraph>=0.2.67",
+    "pydantic[email]>=2.10.6",
+]
