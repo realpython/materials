@@ -1,6 +1,6 @@
 {
   "name": "wordcount",
-  "image": "mcr.microsoft.com/devcontainers/python:3.12-bookworm",
+  "image": "mcr.microsoft.com/devcontainers/python:3.13-bookworm",
   "workspaceFolder": "/workspaces/wordcount",
   "workspaceMount": "source=${localWorkspaceFolder}/wordcount,target=/workspaces/wordcount,type=bind",
   "postCreateCommand": {
