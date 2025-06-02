@@ -1,26 +1,29 @@
 {
-  "editor.fontSize": 20,
-  "markdown.preview.fontSize": 20,
-  "terminal.integrated.fontSize": 20,
-  "editor.mouseWheelZoom": true,
-  "terminal.integrated.mouseWheelZoom": true,
   "breadcrumbs.enabled": false,
   "editor.dragAndDrop": false,
+  "editor.fontSize": 20,
   "editor.minimap.enabled": false,
+  "editor.mouseWheelZoom": true,
   "editor.renderWhitespace": "all",
   "files.exclude": {
     "**/.*": true,
     "**/__pycache__": true
   },
+  "git.detectSubmodules": false,
+  "git.openRepositoryInParentFolders": "never",
+  "markdown.preview.fontSize": 20,
+  "python.testing.pytestArgs": [
+    "tests"
+  ],
+  "python.testing.pytestEnabled": true,
+  "terminal.integrated.fontSize": 20,
+  "terminal.integrated.mouseWheelZoom": true,
+  "window.autoDetectColorScheme": true,
   "window.commandCenter": false,
   "workbench.editorAssociations": {
     "*.md": "vscode.markdown.preview.editor"
   },
   "workbench.layoutControl.enabled": false,
-  "python.testing.pytestArgs": ["tests"],
-  "python.testing.pytestEnabled": true,
-  "window.autoDetectColorScheme": true,
   "workbench.preferredDarkColorTheme": "GitHub Dark",
   "workbench.preferredLightColorTheme": "GitHub Light"
 }
-

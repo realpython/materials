@@ -1,8 +1,8 @@
 {
   "name": "wordcount",
   "image": "mcr.microsoft.com/devcontainers/python:3.13-bookworm",
-  "workspaceFolder": "/workspaces/wordcount",
-  "workspaceMount": "source=${localWorkspaceFolder}/wordcount,target=/workspaces/wordcount,type=bind",
+  "workspaceFolder": "/workspaces/materials/wordcount",
+  "workspaceMount": "source=${localWorkspaceFolder},target=/workspaces/materials,type=bind",
   "postCreateCommand": {
     "project": "python -m pip install -r requirements.txt -e . && rm -rf src/*.egg-info/",
     "help": "echo 'echo -e \"💡 Run \\e[1mpytest --task\\e[0m to display instructions for the current task.\n💡 Run \\e[1mpytest\\e[0m to evaluate your solution and track your progress.\"' >> ~/.bashrc"
