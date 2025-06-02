@@ -8,7 +8,8 @@ async def get_name():
 
 
 async def greeting_template():
-    return t"Hello, {await get_name()}!"  # noqa
+    "Uncomment in Python 3.14+"
+    # return t"Hello, {await get_name()}!"
 
 
 async def main():

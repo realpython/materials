@@ -4,15 +4,15 @@ def to_string(template):
         if isinstance(part, str):
             parts.append(part)
         else:
-            value = {
-                "a": ascii,
-                "r": repr,
-                "s": str}.get(part.conversion, lambda _: part.conversion)(part.value)
+            value = {"a": ascii, "r": repr, "s": str}.get(
+                part.conversion, lambda _: part.conversion
+            )(part.value)
             value = format(value, part.format_spec)
             parts.append(value)
     return "".join(parts)
 
 
-price = 234.8765
-print(to_string(t"The price is ${price:.2f}"))  # noqa
-print(to_string(t"The price is ${price!s:.2f}"))  # noqa
+# Uncomment in Python 3.14+
+# price = 234.8765
+# print(to_string(t"The price is ${price:.2f}"))
+# print(to_string(t"The price is ${price!s:.2f}"))

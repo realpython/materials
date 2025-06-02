@@ -1,7 +1,7 @@
 import json
 import logging
 
-logging.basicConfig(level=logging.INFO, format='%(message)s')
+logging.basicConfig(level=logging.INFO, format="%(message)s")
 
 
 class TemplateMessage:
@@ -17,7 +17,7 @@ class TemplateMessage:
             else:
                 parts.append(str(item.value))
         return "".join(parts)
-    
+
     @property
     def values_dict(self):
         values = {}
@@ -30,6 +30,7 @@ class TemplateMessage:
         return f"{self.message} >>> {json.dumps(self.values_dict)}"
 
 
-action, amount, item = "refund", 7, "keyboard"
-msg_template = TemplateMessage(t"Process {action}: {amount:.2f} {item}")  # noqa
-logging.info(msg_template)
+# Uncomment in Python 3.14+
+# action, amount, item = "refund", 7, "keyboard"
+# msg_template = TemplateMessage(t"Process {action}: {amount:.2f} {item}")
+# logging.info(msg_template)
