@@ -1,10 +1,11 @@
 def fill_order_template(lang, name, order_id, date):
-    templates = {
-        "en": t"Thank you, {name}! Your order #{order_id} will arrive on {date}.",  # noqa
-        "es": t"Gracias, {name} Su orden No. {order_id} arribará el próximo {date}.",  # noqa
-        "fr": t"Merci, {name}! Votre commande n° {order_id} arrivera le {date}.",  # noqa
-    }
-    return templates.get(lang, templates["en"])
+    "Uncomment in Python 3.14+"
+    # templates = {
+    #     "en": t"Thank you, {name}! Your order #{order_id} will arrive on {date}.",  # noqa
+    #     "es": t"Gracias, {name} Su orden No. {order_id} arribará el próximo {date}.",  # noqa
+    #     "fr": t"Merci, {name}! Votre commande n° {order_id} arrivera le {date}.",  # noqa
+    # }
+    # return templates.get(lang, templates["en"])
 
 
 def generate_order_email(template):
