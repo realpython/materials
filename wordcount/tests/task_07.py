@@ -7,7 +7,7 @@ from realpython import assert_equals_if, task, tutorial
     name="Read Data From Multiple Files",
     url="https://realpython.com/lessons/wordcount-read-data-from-multiple-files-task/",
 )
-@tutorial("python-for-loop", 'Python "for" Loops (Definite Iteration)')
+@tutorial("python-for-loop", 'Python for Loops: The Pythonic Way')
 @tutorial("python-list", "Python's list Data Type: A Deep Dive With Examples")
 @tutorial(
     "list-comprehension-python", "When to Use a List Comprehension in Python"
