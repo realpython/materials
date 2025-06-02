@@ -1,5 +1,3 @@
-from collections.abc import Iterable
-
 from player_iterables import PlayersFour, PlayersOne, PlayersThree, PlayersTwo
 
 iter(PlayersOne(["Fast Eddy", "Slow Jo", "Static Pat"]))

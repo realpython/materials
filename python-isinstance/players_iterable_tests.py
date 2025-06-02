@@ -15,5 +15,5 @@ isinstance(PlayersTwo(["Fast Eddy", "Slow Jo", "Static Pat"]), Iterable)
 isinstance(PlayersThree(["Fast Eddy", "Slow Jo", "Static Pat"]), Iterable)
 
 # This will fail.
-for player in PlayersThree(["Fast Eddy", "Slow Jo", "Static Pat"]):
+for player in PlayersFour(["Fast Eddy", "Slow Jo", "Static Pat"]):
     print(player)

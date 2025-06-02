@@ -14,5 +14,5 @@ for element in test_data:
 for element in test_data:
     "bool" if isinstance(element, bool) else "int"
 
-for element in test_data:
-    "bool" if type(element) is bool else "int"
+# for element in test_data:
+#    "bool" if type(element) is bool else "int"
