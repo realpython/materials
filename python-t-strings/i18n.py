@@ -1,9 +1,9 @@
 name = input("Enter your name please: ")
 
 translations = {
-    "en": t"Hello, {name}! Welcome back!",
-    "es": t"¡Hola, {name}! ¡Bienvenido de vuelta!",
-    "fr": t"Bonjour, {name}! Bon retour!"
+    "en": t"Hello, {name}! Welcome back!",  # noqa
+    "es": t"¡Hola, {name}! ¡Bienvenido de vuelta!",  # noqa
+    "fr": t"Bonjour, {name}! Bon retour!"  # noqa
 }
 
 

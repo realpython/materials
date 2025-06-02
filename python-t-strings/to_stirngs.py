@@ -14,7 +14,7 @@ def to_string(template):
 
 
 price = 234.8765
-print(to_string(t"The price is ${price:.2f}"))
+print(to_string(t"The price is ${price:.2f}"))  # noqa
 
 header = "Report"
-print(to_string(t"{header:=^20}"))
+print(to_string(t"{header:=^20}"))  # noqa

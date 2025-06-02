@@ -31,5 +31,5 @@ class TemplateMessage:
 
 
 action, amount, item = "refund", 7, "keyboard"
-msg_template = TemplateMessage(t"Process {action}: {amount:.2f} {item}")
+msg_template = TemplateMessage(t"Process {action}: {amount:.2f} {item}")  # noqa
 logging.info(msg_template)

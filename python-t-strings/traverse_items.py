@@ -2,7 +2,7 @@ from string.templatelib import Interpolation
 
 name = "Pythonista"
 site = "realpython.com"
-template = t"Hello, {name}! Welcome to {site}!"
+template = t"Hello, {name}! Welcome to {site}!"  # noqa
 
 # for item in template:
 #     print(item)
@@ -16,7 +16,7 @@ for value in template.values:
 debit = 300.4344
 credit = 450.5676
 balance = credit - debit
-template = t"Credit: {credit:.2f}, Debit: {debit:.2f}, Balance: {balance:.2f}"
+template = t"Credit: {credit:.2f}, Debit: {debit:.2f}, Balance: {balance:.2f}"  # noqa
 
 
 # def build_report(template):

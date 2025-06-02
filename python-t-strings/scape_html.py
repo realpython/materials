@@ -12,7 +12,7 @@ def render_safe_html(template):
 
 
 username = "<script>alert('Hacked!')</script>"
-template = t"<p>Hello, {username}!</p>"
+template = t"<p>Hello, {username}!</p>"  # noqa
 
 safe_html = render_safe_html(template)
 print(safe_html)

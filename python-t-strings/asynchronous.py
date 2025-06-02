@@ -8,7 +8,7 @@ async def get_name():
 
 
 async def greeting_template():
-    return t"Hello, {await get_name()}!"
+    return t"Hello, {await get_name()}!"  # noqa
 
 
 async def main():
