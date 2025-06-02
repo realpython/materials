@@ -1,11 +1,11 @@
-from customiterables import (CustomIterableOne, CustomIterableThree,
-                             CustomIterableTwo)
+from collections.abc import Iterable
 
-iter(CustomIterableOne(4))
+from player_iterables import PlayersFour, PlayersOne, PlayersThree, PlayersTwo
 
-iter(CustomIterableTwo(4))
+iter(PlayersOne(["Fast Eddy", "Slow Jo", "Static Pat"]))
 
-iter(CustomIterableThree(4))
+iter(PlayersTwo(["Fast Eddy", "Slow Jo", "Static Pat"]))
 
-iter(100)
+iter(PlayersThree(["Fast Eddy", "Slow Jo", "Static Pat"]))
 
+iter(PlayersFour(["Fast Eddy", "Slow Jo", "Static Pat"]))
