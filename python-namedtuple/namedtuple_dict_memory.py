@@ -1,4 +1,5 @@
 from collections import namedtuple
+
 from pympler import asizeof
 
 Point = namedtuple("Point", "x y z")
