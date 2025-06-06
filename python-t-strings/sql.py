@@ -1,4 +1,9 @@
+from string.templatelib import Template
+
+
 def sanitized_sql(template):
+    if not isinstance(template, Template):
+        raise TypeError("t-string expected")
     parts = []
     params = []
 
@@ -14,7 +19,9 @@ def sanitized_sql(template):
 
 
 # Uncomment in Python 3.14+
-# template = t"SELECT * FROM students WHERE name = '{username}';"
+# username = "john'); DROP TABLE students;--"
+# template = t"SELECT * FROM students WHERE name = {username}"
 # query, params = sanitized_sql(template)
 # print("Sanitized SQL Query:", query)
+
 # print("Parameters:", params)

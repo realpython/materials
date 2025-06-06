@@ -1,11 +1,14 @@
 import json
 import logging
+from string.templatelib import Template
 
 logging.basicConfig(level=logging.INFO, format="%(message)s")
 
 
 class TemplateMessage:
     def __init__(self, template):
+        if not isinstance(template, Template):
+            raise TypeError("t-string expected")
         self.template = template
 
     @property
