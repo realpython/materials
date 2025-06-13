@@ -1,7 +1,7 @@
 from collections.abc import Iterable
 
 
-class PlayersOne(Iterable):
+class PlayersVersionOne(Iterable):
     def __init__(self, players):
         self.players = players
 
@@ -9,7 +9,7 @@ class PlayersOne(Iterable):
         return iter(self.players)
 
 
-class PlayersTwo:
+class PlayersVersionTwo:
 
     def __init__(self, players):
         self.players = players
@@ -18,7 +18,7 @@ class PlayersTwo:
         return iter(self.players)
 
 
-class PlayersThree:
+class PlayersVersionThree:
 
     def __init__(self, players):
         self.players = players
@@ -29,7 +29,7 @@ class PlayersThree:
         return self.players[index]
 
 
-class PlayersFour:
+class PlayersVersionFour:
 
     def __init__(self, players):
         self.players = players

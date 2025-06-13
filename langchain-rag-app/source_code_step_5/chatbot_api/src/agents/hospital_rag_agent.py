@@ -5,10 +5,8 @@ from chains.hospital_review_chain import reviews_vector_chain
 from langchain import hub
 from langchain.agents import AgentExecutor, Tool, create_openai_functions_agent
 from langchain_openai import ChatOpenAI
-from tools.wait_times import (
-    get_current_wait_times,
-    get_most_available_hospital,
-)
+from tools.wait_times import (get_current_wait_times,
+                              get_most_available_hospital)
 
 HOSPITAL_AGENT_MODEL = os.getenv("HOSPITAL_AGENT_MODEL")
 

@@ -1,7 +1,6 @@
 import json
 
 import pytest
-
 # Assuming JSONReader is defined in 'your_module.py'
 from readers import JSONReader
 

@@ -6,17 +6,18 @@ from balls_v2 import AmericanFootBall, PoolBall
 eight_ball = PoolBall("black", 8)
 football = AmericanFootBall("brown")
 
-# Question 1
+# a)
 
 isinstance(eight_ball, ABC)
 isinstance(football, ABC)
 
-# Question 2
+# b)
 
 isinstance(isinstance, Callable)
+isinstance(PoolBall, Callable)
 
-# Question 3
+# c)
 
-isinstance(eight_ball.get_shape, Callable)
+isinstance(eight_ball.get_state, Callable)
 
 isinstance(PoolBall, Callable)

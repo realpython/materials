@@ -2,7 +2,6 @@ import os
 import random
 
 import pandas as pd
-
 import spacy
 from spacy.util import compounding, minibatch
 

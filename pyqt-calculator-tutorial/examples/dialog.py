@@ -2,14 +2,8 @@
 
 import sys
 
-from PyQt6.QtWidgets import (
-    QApplication,
-    QDialog,
-    QDialogButtonBox,
-    QFormLayout,
-    QLineEdit,
-    QVBoxLayout,
-)
+from PyQt6.QtWidgets import (QApplication, QDialog, QDialogButtonBox,
+                             QFormLayout, QLineEdit, QVBoxLayout)
 
 
 class Window(QDialog):

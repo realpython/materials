@@ -3,20 +3,11 @@
 import random
 
 import pygame
-
 # Import pygame.locals for easier access to key coordinates
 # Updated to conform to flake8 and black standards
 # from pygame.locals import *
-from pygame.locals import (
-    K_DOWN,
-    K_ESCAPE,
-    K_LEFT,
-    K_RIGHT,
-    K_UP,
-    KEYDOWN,
-    QUIT,
-    RLEACCEL,
-)
+from pygame.locals import (K_DOWN, K_ESCAPE, K_LEFT, K_RIGHT, K_UP, KEYDOWN,
+                           QUIT, RLEACCEL)
 
 # Define constants for the screen width and height
 SCREEN_WIDTH = 800

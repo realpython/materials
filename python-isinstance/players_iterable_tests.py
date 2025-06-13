@@ -1,19 +1,29 @@
 from collections.abc import Iterable
 
-from player_iterables import PlayersFour, PlayersOne, PlayersThree, PlayersTwo
+from player_iterables import (
+    PlayersVersionOne,
+    PlayersVersionTwo,
+    PlayersVersionThree,
+    PlayersVersionFour,
+)
 
-for player in PlayersOne(["Fast Eddy", "Slow Jo", "Static Pat"]):
+for player in PlayersVersionOne(["Fast Ed", "Slow Jo", "Still Su"]):
     print(player)
 
-isinstance(PlayersOne(["Fast Eddy", "Slow Jo", "Static Pat"]), Iterable)
+isinstance(PlayersVersionOne(["Fast Ed", "Slow Jo", "Still Su"]), Iterable)
 
-for player in PlayersTwo(["Fast Eddy", "Slow Jo", "Static Pat"]):
+for player in PlayersVersionTwo(["Fast Ed", "Slow Jo", "Still Su"]):
     print(player)
 
-isinstance(PlayersTwo(["Fast Eddy", "Slow Jo", "Static Pat"]), Iterable)
+isinstance(PlayersVersionTwo(["Fast Ed", "Slow Jo", "Still Su"]), Iterable)
 
-isinstance(PlayersThree(["Fast Eddy", "Slow Jo", "Static Pat"]), Iterable)
+for player in PlayersVersionThree(["Fast Ed", "Slow Jo", "Still Su"]):
+    print(player)
+
+isinstance(PlayersVersionThree(["Fast Ed", "Slow Jo", "Still Su"]), Iterable)
 
 # This will fail.
-for player in PlayersFour(["Fast Eddy", "Slow Jo", "Static Pat"]):
+for player in PlayersVersionFour(["Fast Ed", "Slow Jo", "Still Su"]):
     print(player)
+
+isinstance(PlayersVersionFour(["Fast Ed", "Slow Jo", "Still Su"]), Iterable)

@@ -1,15 +1,15 @@
-from balls import Ball, FootBall, PoolBall
+from balls import AmericanFootBall, Ball, PoolBall
 
 ball = Ball("green", "sphere")
-football = FootBall("brown")
+football = AmericanFootBall("brown")
 
-isinstance(football, FootBall)
+isinstance(football, AmericanFootBall)
 
 isinstance(football, PoolBall)
 
 isinstance(ball, Ball)
 
-isinstance(ball, FootBall)
+isinstance(ball, AmericanFootBall)
 
 isinstance(football, Ball)
 

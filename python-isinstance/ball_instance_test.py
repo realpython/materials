@@ -1,12 +1,12 @@
-from balls import Ball, FootBall, PoolBall
+from balls import AmericanFootBall, Ball, PoolBall
 
 eight_ball = PoolBall("black", 8)
-football = FootBall("brown")
+football = AmericanFootBall("brown")
 ball = Ball("green", "sphere")
 
 isinstance(eight_ball, PoolBall)
 isinstance(eight_ball, Ball)
-isinstance(eight_ball, FootBall)
+isinstance(eight_ball, AmericanFootBall)
 
 isinstance(eight_ball, object)
 isinstance(football, object)

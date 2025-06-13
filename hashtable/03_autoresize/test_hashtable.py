@@ -3,9 +3,8 @@
 from unittest.mock import patch
 
 import pytest
-from pytest_unordered import unordered
-
 from hashtable import DELETED, HashTable
+from pytest_unordered import unordered
 
 
 @pytest.fixture

@@ -1,15 +1,8 @@
 from textual.app import App, on
 from textual.containers import Grid, Horizontal, Vertical
 from textual.screen import Screen
-from textual.widgets import (
-    Button,
-    DataTable,
-    Footer,
-    Header,
-    Input,
-    Label,
-    Static,
-)
+from textual.widgets import (Button, DataTable, Footer, Header, Input, Label,
+                             Static)
 
 
 class ContactsApp(App):

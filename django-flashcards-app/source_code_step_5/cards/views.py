@@ -1,9 +1,5 @@
 from django.urls import reverse_lazy
-from django.views.generic import (
-    CreateView,
-    ListView,
-    UpdateView,
-)
+from django.views.generic import CreateView, ListView, UpdateView
 
 from .models import Card
 

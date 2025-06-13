@@ -2,13 +2,8 @@
 
 import sys
 
-from PyQt6.QtWidgets import (
-    QApplication,
-    QLabel,
-    QMainWindow,
-    QStatusBar,
-    QToolBar,
-)
+from PyQt6.QtWidgets import (QApplication, QLabel, QMainWindow, QStatusBar,
+                             QToolBar)
 
 
 class Window(QMainWindow):

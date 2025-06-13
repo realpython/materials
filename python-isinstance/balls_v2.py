@@ -7,7 +7,7 @@ class Ball(ABC):
         self.shape = shape
 
     @abstractmethod
-    def get_shape(self):
+    def get_state(self):
         pass
 
 
@@ -16,13 +16,13 @@ class PoolBall(Ball):
         super().__init__(color, shape="sphere")
         self.number = number
 
-    def get_shape(self):
-        return self.shape
+    def get_state(self):
+        print(f"Color = {self.color}, Number = {self.number}, Shape = {self.shape}")
 
 
 class AmericanFootBall(Ball):
     def __init__(self, color):
-        super().__init__(color, shape="elongated ellipsoid")
+        super().__init__(color, shape="prolate spheroid")
 
-    def get_shape(self):
-        return "Elongated Ellipsoid"
+    def get_state(self):
+        print(f"Color = {self.color}, Shape = {self.shape}")

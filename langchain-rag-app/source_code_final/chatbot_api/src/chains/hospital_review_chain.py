@@ -1,12 +1,8 @@
 import os
 
 from langchain.chains import RetrievalQA
-from langchain.prompts import (
-    ChatPromptTemplate,
-    HumanMessagePromptTemplate,
-    PromptTemplate,
-    SystemMessagePromptTemplate,
-)
+from langchain.prompts import (ChatPromptTemplate, HumanMessagePromptTemplate,
+                               PromptTemplate, SystemMessagePromptTemplate)
 from langchain.vectorstores.neo4j_vector import Neo4jVector
 from langchain_openai import ChatOpenAI, OpenAIEmbeddings
 

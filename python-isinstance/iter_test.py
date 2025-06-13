@@ -1,9 +1,14 @@
-from player_iterables import PlayersFour, PlayersOne, PlayersThree, PlayersTwo
+from player_iterables import (
+    PlayersVersionOne,
+    PlayersVersionTwo,
+    PlayersVersionThree,
+    PlayersVersionFour,
+)
 
-iter(PlayersOne(["Fast Eddy", "Slow Jo", "Static Pat"]))
+iter(PlayersVersionOne(["Fast Ed", "Slow Jo", "Still Su"]))
 
-iter(PlayersTwo(["Fast Eddy", "Slow Jo", "Static Pat"]))
+iter(PlayersVersionTwo(["Fast Ed", "Slow Jo", "Still Su"]))
 
-iter(PlayersThree(["Fast Eddy", "Slow Jo", "Static Pat"]))
+iter(PlayersVersionThree(["Fast Ed", "Slow Jo", "Still Su"]))
 
-iter(PlayersFour(["Fast Eddy", "Slow Jo", "Static Pat"]))
+iter(PlayersVersionFour(["Fast Ed", "Slow Jo", "Still Su"]))

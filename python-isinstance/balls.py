@@ -10,6 +10,6 @@ class PoolBall(Ball):
         self.number = number
 
 
-class FootBall(Ball):
+class AmericanFootBall(Ball):
     def __init__(self, color):
-        super().__init__(color, shape="elongated ellipsoid")
+        super().__init__(color, shape="prolate spheroid")
