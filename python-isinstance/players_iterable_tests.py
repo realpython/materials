@@ -1,10 +1,10 @@
 from collections.abc import Iterable
 
 from player_iterables import (
-    PlayersVersionOne,
-    PlayersVersionTwo,
-    PlayersVersionThree,
     PlayersVersionFour,
+    PlayersVersionOne,
+    PlayersVersionThree,
+    PlayersVersionTwo,
 )
 
 for player in PlayersVersionOne(["Fast Ed", "Slow Jo", "Still Su"]):

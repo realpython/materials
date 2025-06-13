@@ -1,8 +1,8 @@
 from player_iterables import (
-    PlayersVersionOne,
-    PlayersVersionTwo,
-    PlayersVersionThree,
     PlayersVersionFour,
+    PlayersVersionOne,
+    PlayersVersionThree,
+    PlayersVersionTwo,
 )
 
 iter(PlayersVersionOne(["Fast Ed", "Slow Jo", "Still Su"]))
