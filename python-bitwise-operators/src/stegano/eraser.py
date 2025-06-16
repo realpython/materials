@@ -5,7 +5,7 @@ Secret file eraser.
 from itertools import islice
 from random import random
 
-from .bitmap import Bitmap
+from stegano.bitmap import Bitmap
 
 
 def erase(bitmap: Bitmap) -> None:

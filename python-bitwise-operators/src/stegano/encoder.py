@@ -5,7 +5,7 @@ Secret file encoder.
 import pathlib
 from typing import Iterator
 
-from .bitmap import Bitmap
+from stegano.bitmap import Bitmap
 
 
 class EncodingError(Exception):
