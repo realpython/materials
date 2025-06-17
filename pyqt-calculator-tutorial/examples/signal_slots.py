@@ -2,13 +2,8 @@
 
 import sys
 
-from PyQt6.QtWidgets import (
-    QApplication,
-    QLabel,
-    QPushButton,
-    QVBoxLayout,
-    QWidget,
-)
+from PyQt6.QtWidgets import (QApplication, QLabel, QPushButton, QVBoxLayout,
+                             QWidget)
 
 
 def greet():

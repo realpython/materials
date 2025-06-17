@@ -1,6 +1,5 @@
-from cosine_similarity import compute_cosine_similarity
-
 import spacy
+from cosine_similarity import compute_cosine_similarity
 
 # Load the medium-size English model
 nlp = spacy.load("en_core_web_md")

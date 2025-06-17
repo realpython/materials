@@ -1,8 +1,7 @@
-from django.http import HttpResponseRedirect
-from django.shortcuts import render
-
 from blog.forms import CommentForm
 from blog.models import Comment, Post
+from django.http import HttpResponseRedirect
+from django.shortcuts import render
 
 
 def blog_index(request):

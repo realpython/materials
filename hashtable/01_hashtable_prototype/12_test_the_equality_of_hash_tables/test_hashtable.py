@@ -1,9 +1,8 @@
 # test_hashtable.py
 
 import pytest
-from pytest_unordered import unordered
-
 from hashtable import HashTable
+from pytest_unordered import unordered
 
 
 @pytest.fixture

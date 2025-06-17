@@ -1,12 +1,8 @@
 import dotenv
 from langchain import hub
 from langchain.agents import AgentExecutor, Tool, create_openai_functions_agent
-from langchain.prompts import (
-    ChatPromptTemplate,
-    HumanMessagePromptTemplate,
-    PromptTemplate,
-    SystemMessagePromptTemplate,
-)
+from langchain.prompts import (ChatPromptTemplate, HumanMessagePromptTemplate,
+                               PromptTemplate, SystemMessagePromptTemplate)
 from langchain.schema.runnable import RunnablePassthrough
 from langchain_community.vectorstores import Chroma
 from langchain_core.output_parsers import StrOutputParser
