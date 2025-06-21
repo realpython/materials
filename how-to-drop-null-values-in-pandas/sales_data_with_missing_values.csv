@@ -1,0 +1,12 @@
+order_number,order_date,customer_name,product_purchased,discount,sale_price
+,09/02/2025,Skipton Fealty,Chili Extra Virgin Olive Oil,TRUE,135.00
+70041,,Carmine Priestnall,,,150.00
+70042,09/02/2025,,Rosemary Olive Oil Candle,FALSE,78.00
+70043,10/02/2025,Lanni D'Ambrogi,,TRUE,19.50
+70044,10/02/2025,Tann Angear,Vanilla and Olive Oil Candle,,13.98
+70045,10/02/2025,Skipton Fealty,Basil Extra Virgin Olive Oil,TRUE,
+70046,11/02/2025,Far Pow,Chili Extra Virgin Olive Oil,FALSE,150.00
+70047,11/02/2025,Hill Group,Chili Extra Virgin Olive Oil,TRUE,135.00
+70048,11/02/2025,Devlin Nock,Lavender and Olive Oil Lotion,FALSE,39.96
+,,,,,
+70049,12/02/2025,Swift Inc,Garlic Extra Virgin Olive Oil,TRUE,936.00
