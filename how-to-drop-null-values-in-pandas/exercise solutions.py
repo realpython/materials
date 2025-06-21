@@ -1,3 +1,5 @@
+import pandas as pd
+
 grades = pd.read_csv(
     "grades.csv",
 ).convert_dtypes(dtype_backend="pyarrow")
