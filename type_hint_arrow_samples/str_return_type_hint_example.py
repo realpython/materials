@@ -1,3 +1,5 @@
+import random
+
 def get_game_recommendation(list) -> str:
     return random.choice(list)
 
