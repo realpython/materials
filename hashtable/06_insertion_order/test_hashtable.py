@@ -4,7 +4,6 @@ from collections import deque
 from unittest.mock import patch
 
 import pytest
-
 from hashtable import HashTable
 
 

@@ -1,6 +1,5 @@
 from django.views.generic.base import TemplateView
 from django.views.generic.edit import FormView
-
 from feedback.forms import FeedbackForm
 
 

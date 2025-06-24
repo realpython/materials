@@ -1,9 +1,8 @@
 import os
 
+from board import database, pages, posts
 from dotenv import load_dotenv
 from flask import Flask
-
-from board import database, pages, posts
 
 load_dotenv()
 

@@ -1,7 +1,6 @@
 # test_hashtable.py
 
 import pytest
-
 from hashtable import BLANK, HashTable
 
 

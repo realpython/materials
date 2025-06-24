@@ -4,15 +4,8 @@ import sys
 from functools import partial
 
 from PyQt6.QtCore import Qt
-from PyQt6.QtWidgets import (
-    QApplication,
-    QGridLayout,
-    QLineEdit,
-    QMainWindow,
-    QPushButton,
-    QVBoxLayout,
-    QWidget,
-)
+from PyQt6.QtWidgets import (QApplication, QGridLayout, QLineEdit, QMainWindow,
+                             QPushButton, QVBoxLayout, QWidget)
 
 ERROR_MSG = "ERROR"
 WINDOW_SIZE = 235

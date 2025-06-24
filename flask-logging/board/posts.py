@@ -1,14 +1,6 @@
-from flask import (
-    Blueprint,
-    current_app,
-    flash,
-    redirect,
-    render_template,
-    request,
-    url_for,
-)
-
 from board.database import get_db
+from flask import (Blueprint, current_app, flash, redirect, render_template,
+                   request, url_for)
 
 bp = Blueprint("posts", __name__)
 
