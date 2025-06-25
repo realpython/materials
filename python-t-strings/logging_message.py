@@ -1,5 +1,3 @@
-# noqa
-
 import json
 import logging
 from string.templatelib import Template
@@ -35,6 +33,7 @@ class TemplateMessage:
         return f"{self.message} >>> {json.dumps(self.values_dict)}"
 
 
-action, amount, item = "refund", 7, "keyboard"
-msg_template = TemplateMessage(t"Process {action}: {amount:.2f} {item}")
-logging.info(msg_template)
+# Uncomment in Python 3.14+
+# action, amount, item = "refund", 7, "keyboard"
+# msg_template = TemplateMessage(t"Process {action}: {amount:.2f} {item}")
+# logging.info(msg_template)

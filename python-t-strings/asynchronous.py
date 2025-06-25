@@ -1,5 +1,3 @@
-# noqa
-
 import asyncio
 
 
@@ -9,7 +7,8 @@ async def main():
 
 
 async def greeting_template():
-    return t"Hello, {await get_name()}!"
+    """Uncomment in Python 3.14+"""
+    # return t"Hello, {await get_name()}!"
 
 
 async def get_name():

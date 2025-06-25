@@ -1,5 +1,3 @@
-# noqa
-
 import html
 from string.templatelib import Template
 
@@ -16,8 +14,9 @@ def generate_safe_html(template):
     return "".join(parts)
 
 
-username = "<script>alert('Hacked!')</script>"
-template = t"<p>Hello, {username}!</p>"
-
-safe_html = generate_safe_html(template)
-print(safe_html)
+# Uncomment in Python 3.14+
+# username = "<script>alert('Hacked!')</script>"
+# template = t"<p>Hello, {username}!</p>"
+#
+# safe_html = generate_safe_html(template)
+# print(safe_html)
