@@ -14,9 +14,8 @@ def generate_safe_html(template):
     return "".join(parts)
 
 
-# Uncomment in Python 3.14+
-# username = "<script>alert('Hacked!')</script>"
-# template = t"<p>Hello, {username}!</p>"
+username = "<script>alert('Hacked!')</script>"
+template = t"<p>Hello, {username}!</p>"
 
-# safe_html = render_safe_html(template)
-# print(safe_html)
+safe_html = generate_safe_html(template)
+print(safe_html)

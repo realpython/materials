@@ -18,10 +18,9 @@ def sanitized_sql(template):
     return query, tuple(params)
 
 
-# Uncomment in Python 3.14+
-# username = "john'); DROP TABLE students;--"
-# template = t"SELECT * FROM students WHERE name = {username}"
-# query, params = sanitized_sql(template)
-# print("Sanitized SQL Query:", query)
+username = "'; DROP TABLE students;--"
+template = t"SELECT * FROM students WHERE name = {username}"
+query, params = sanitized_sql(template)
 
-# print("Parameters:", params)
+print("Sanitized SQL Query:", query)
+print("Parameters:", params)

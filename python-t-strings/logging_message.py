@@ -33,7 +33,6 @@ class TemplateMessage:
         return f"{self.message} >>> {json.dumps(self.values_dict)}"
 
 
-# Uncomment in Python 3.14+
-# action, amount, item = "refund", 7, "keyboard"
-# msg_template = TemplateMessage(t"Process {action}: {amount:.2f} {item}")
-# logging.info(msg_template)
+action, amount, item = "refund", 7, "keyboard"
+msg_template = TemplateMessage(t"Process {action}: {amount:.2f} {item}")
+logging.info(msg_template)
