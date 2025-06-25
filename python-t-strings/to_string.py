@@ -1,3 +1,5 @@
+# noqa
+
 from string.templatelib import Template
 
 

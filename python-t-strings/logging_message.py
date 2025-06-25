@@ -1,3 +1,5 @@
+# noqa
+
 import json
 import logging
 from string.templatelib import Template

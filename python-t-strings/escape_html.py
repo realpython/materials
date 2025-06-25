@@ -1,3 +1,5 @@
+# noqa
+
 import html
 from string.templatelib import Template
 
