@@ -11,3 +11,8 @@ class Person:
 
     def __iter__(self):
         return iter(astuple(self))
+
+
+jane = Person("Jane", 25, 1.75, 67)
+for field in jane:
+    print(field)

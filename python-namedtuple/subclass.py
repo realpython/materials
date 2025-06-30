@@ -11,7 +11,7 @@ class Person(BasePerson):
 
     __slots__ = ()
 
-    def __repr__(self):
+    def __str__(self):
         return f"Name: {self.name}, age: {self.age} years old."
 
     @property
@@ -19,7 +19,7 @@ class Person(BasePerson):
         return (date.today() - self.birthdate).days // 365
 
 
-Person.__doc__
+print(Person.__doc__)
 
 jane = Person("Jane", date(1996, 3, 5))
 print(jane.age)

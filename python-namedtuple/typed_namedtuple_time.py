@@ -34,7 +34,6 @@ namedtuple_time = average_time(PointNamedTuple(x=1, y=2, z=3), time_structure)
 typed_namedtuple_time = average_time(
     PointTypedNamedTuple(x=1, y=2, z=3), time_structure
 )
-gain = typed_namedtuple_time / namedtuple_time
 
 print(f"namedtuple:        {namedtuple_time:.2f} ns")
 print(f"typing.NamedTuple: {typed_namedtuple_time:.2f} ns")
