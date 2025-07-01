@@ -15,4 +15,4 @@ for element in test_data:
     print("bool") if isinstance(element, bool) else print("int")
 
 for element in test_data:
-    print("bool") if type(element) is bool else print("int")
+    print("bool") if type(element) is bool else print("int")  # noqa
