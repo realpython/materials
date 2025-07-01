@@ -17,7 +17,9 @@ class PoolBall(Ball):
         self.number = number
 
     def get_state(self):
-        print(f"Color = {self.color}, Number = {self.number}, Shape = {self.shape}")
+        print(
+            f"Color = {self.color}, Number = {self.number}, Shape = {self.shape}"
+        )
 
 
 class AmericanFootBall(Ball):
