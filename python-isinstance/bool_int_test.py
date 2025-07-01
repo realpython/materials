@@ -14,7 +14,6 @@ for element in test_data:
 for element in test_data:
     print("bool") if isinstance(element, bool) else print("int")
 
-# Code commented out to appease RealPython linters
-# Remove comments before running these two lines of code.
-# for element in test_data:
-#    print("bool") if type(element) is bool else print("int")
+
+for element in test_data:
+    print("bool") if type(element) is bool else print("int")
