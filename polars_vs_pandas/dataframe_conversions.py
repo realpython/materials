@@ -1,5 +1,4 @@
 import narwhals as nw
-import pandas as pd
 import polars as pl
 
 polars_df = pl.DataFrame(

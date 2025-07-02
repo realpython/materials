@@ -3,7 +3,6 @@ import time
 
 import pandas as pd
 import polars as pl
-
 from data_generation import data_generation
 
 # Data Generation
