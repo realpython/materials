@@ -6,7 +6,7 @@ from itertools import islice, takewhile
 from pathlib import Path
 from typing import Iterator
 
-from .bitmap import Bitmap
+from stegano.bitmap import Bitmap
 
 
 class DecodingError(Exception):
