@@ -1,5 +1,5 @@
-def get_number_of_titles(list) -> str:
-    return len(list)
+def get_number_of_titles(titles: list) -> str:
+    return len(titles)
 
 
 game_titles_list = ["Dragon Quest", "Final Fantasy", "Age of Empires"]
