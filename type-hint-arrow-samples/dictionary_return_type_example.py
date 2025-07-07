@@ -1,7 +1,7 @@
 game_stock = {"Dragon Quest": 5, "Final Fantasy": 1, "Age of Empires": 5}
 
 
-def get_highest_stock_game() -> dict[str, int]:
+def get_highest_stock_games() -> dict[str, int]:
     stock_quantities = game_stock.values()
     high = 0
     for quantity in stock_quantities:
@@ -15,4 +15,4 @@ def get_highest_stock_game() -> dict[str, int]:
     return game_results
 
 
-print(f"Games with the highest stock: {get_highest_stock_game()}")
+print(f"Games with the highest stock: {get_highest_stock_games()}")
