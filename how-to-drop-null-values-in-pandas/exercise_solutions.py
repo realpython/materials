@@ -18,7 +18,7 @@ grades.dropna(axis=1)
 
 # 4. Display the exams sat by at least five students.
 
-grades.dropna(axis=0, thresh=6) # Remember there are seven columns.
+grades.dropna(axis=0, thresh=6)  # Remember there are seven columns.
 
 # 5. Who else was in in every exam that both S2 and S4 sat?
 
