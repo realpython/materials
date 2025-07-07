@@ -1,5 +1,5 @@
 class Game:
-    def __init__(self, name, genre, price) -> None:
+    def __init__(self, name: str, genre: str, price: float) -> None:
         self.name = name
         self.genre = genre
         self.price = price
