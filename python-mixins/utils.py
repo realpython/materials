@@ -3,11 +3,11 @@ from collections import UserDict
 
 class DebugMixin:
     def __setitem__(self, key, value):
-        super().__setitem__(key.lower(), value)
+        super().__setitem__(key, value)
         print(f"Item set: {key=!r}, {value=!r}")
 
     def __delitem__(self, key):
-        super().__delitem__(key.lower())
+        super().__delitem__(key)
         print(f"Item deleted: {key=!r}")
 
 
