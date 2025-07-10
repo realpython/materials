@@ -5,5 +5,5 @@ def find_keyword_in_titles(titles: list, keyword: str) -> None:
             print(f"{game_title}")
 
 
-game_titles_list = ["Dragon Quest", "Final Fantasy", "Age of Empires"]
-find_keyword_in_titles(game_titles_list, "Final")
+games = ["Dragon Quest", "Final Fantasy", "Age of Empires"]
+find_keyword_in_titles(games, "Final")
