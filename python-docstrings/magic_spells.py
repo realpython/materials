@@ -9,4 +9,4 @@ def undo_spell(spell):
     >>> undo_spell("Lumos")
     "somuL"
     """
-    return spell[::1]
+    return spell[::-1]
