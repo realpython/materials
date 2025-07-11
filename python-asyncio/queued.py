@@ -3,6 +3,19 @@ import random
 import time
 
 
+async def main():
+    queue = asyncio.Queue()
+    user_ids = [1, 2, 3]
+
+    start = time.perf_counter()
+    await asyncio.gather(
+        producer(queue, user_ids),
+        *(consumer(queue) for _ in user_ids),
+    )
+    end = time.perf_counter()
+    print(f"\n==> Total time: {end - start:.2f} seconds")
+
+
 async def producer(queue, user_ids):
     async def fetch_user(user_id):
         delay = random.uniform(0.5, 2.0)
@@ -32,19 +45,6 @@ async def consumer(queue):
         )
         for post in posts:
             print(f"  - {post}")
-
-
-async def main():
-    queue = asyncio.Queue()
-    user_ids = [1, 2, 3]
-
-    start = time.perf_counter()
-    await asyncio.gather(
-        producer(queue, user_ids),
-        *(consumer(queue) for _ in user_ids),
-    )
-    end = time.perf_counter()
-    print(f"\n==> Total time: {end - start:.2f} seconds")
 
 
 if __name__ == "__main__":

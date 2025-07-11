@@ -8,8 +8,8 @@ async def coro(numbers):
 
 
 async def main():
-    task1 = asyncio.create_task(coro([3, 2, 1]))
-    task2 = asyncio.create_task(coro([10, 5, 2]))
+    task1 = asyncio.create_task(coro([10, 5, 2]))
+    task2 = asyncio.create_task(coro([3, 2, 1]))
     print("Start:", time.strftime("%X"))
     for task in asyncio.as_completed([task1, task2]):
         result = await task

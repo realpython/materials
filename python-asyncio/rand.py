@@ -9,6 +9,14 @@ COLORS = (
 )
 
 
+async def main():
+    return await asyncio.gather(
+        makerandom(1, 9),
+        makerandom(2, 8),
+        makerandom(3, 8),
+    )
+
+
 async def makerandom(delay, threshold=6):
     color = COLORS[delay]
     print(f"{color}Initiated makerandom({delay}).")
@@ -17,15 +25,6 @@ async def makerandom(delay, threshold=6):
         await asyncio.sleep(delay)
     print(f"{color}---> Finished: makerandom({delay}) == {number}" + COLORS[0])
     return number
-
-
-async def main():
-    result = await asyncio.gather(
-        makerandom(1, 9),
-        makerandom(2, 8),
-        makerandom(3, 8),
-    )
-    return result
 
 
 if __name__ == "__main__":

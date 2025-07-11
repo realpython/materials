@@ -8,8 +8,8 @@ async def coro(numbers):
 
 async def main():
     task = asyncio.create_task(coro([3, 2, 1]))
-    print(f"task: type -> {type(task)}")
-    print(f"task: done -> {task.done()}")
+    print(f"{type(task) = }")
+    print(f"{task.done() = }")
     return await task
 
 

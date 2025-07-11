@@ -3,6 +3,21 @@ import random
 import time
 
 
+async def main():
+    user_ids = [1, 2, 3]
+    start = time.perf_counter()
+    await asyncio.gather(
+        *(get_user_with_posts(user_id) for user_id in user_ids)
+    )
+    end = time.perf_counter()
+    print(f"\n==> Total time: {end - start:.2f} seconds")
+
+
+async def get_user_with_posts(user_id):
+    user = await fetch_user(user_id)
+    await fetch_posts(user)
+
+
 async def fetch_user(user_id):
     delay = random.uniform(0.5, 2.0)
     print(f"User coro: fetching user by {user_id=}...")
@@ -23,21 +38,6 @@ async def fetch_posts(user):
     )
     for post in posts:
         print(f" - {post}")
-
-
-async def get_user_with_posts(user_id):
-    user = await fetch_user(user_id)
-    await fetch_posts(user)
-
-
-async def main():
-    user_ids = [1, 2, 3]
-    start = time.perf_counter()
-    await asyncio.gather(
-        *(get_user_with_posts(user_id) for user_id in user_ids)
-    )
-    end = time.perf_counter()
-    print(f"\n==> Total time: {end - start:.2f} seconds")
 
 
 if __name__ == "__main__":
