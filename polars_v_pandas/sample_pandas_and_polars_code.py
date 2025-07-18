@@ -19,10 +19,10 @@ orders_pandas[["InvoiceNo", "Quantity", "UnitPrice", "Total"]][
 
 
 (
-    orders_pandas
-    .assign(Total=orders_pandas["Quantity"] * orders_pandas["UnitPrice"])
-    .filter(["InvoiceNo", "Quantity", "UnitPrice", "Total"])
-#   .query("Total > 100")
+    orders_pandas.assign(
+        Total=orders_pandas["Quantity"] * orders_pandas["UnitPrice"]
+    ).filter(["InvoiceNo", "Quantity", "UnitPrice", "Total"])
+    #   .query("Total > 100")
 ).head(3)
 
 
