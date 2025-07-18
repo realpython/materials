@@ -28,4 +28,3 @@ def agnositic_groupby(df):
 agnositic_groupby(pandas_df)
 
 agnositic_groupby(polars_df)
-

@@ -21,9 +21,7 @@ def create_polars_lazyframe(test_data):
 
 
 def analyze_pandas_dataframe(pandas_df):
-    pandas_df.groupby(["region", "product", "sales_person"])[
-        "sales_income"
-    ].sum()
+    pandas_df.groupby(["region", "product", "sales_person"])["sales_income"].sum()
 
 
 def analyze_polars_dataframe(polars_df):
@@ -56,18 +54,12 @@ polars_df = create_polars_dataframe(test_data)
 polars_lf = create_polars_lazyframe(test_data)
 
 print(f"Pandas dataframe analysis time for {int(sys.argv[1])} rows:")
-print(
-    Timer(functools.partial(analyze_pandas_dataframe, pandas_df)).timeit(100)
-)
+print(Timer(functools.partial(analyze_pandas_dataframe, pandas_df)).timeit(100))
 
 print()
 print(f"Polars dataframe analysis time for {int(sys.argv[1])} rows:")
-print(
-    Timer(functools.partial(analyze_polars_dataframe, polars_df)).timeit(100)
-)
+print(Timer(functools.partial(analyze_polars_dataframe, polars_df)).timeit(100))
 
 print()
 print(f"Polars lazyframe analysis time for {int(sys.argv[1])} rows:")
-print(
-    Timer(functools.partial(analyze_polars_lazyframe, polars_lf)).timeit(100)
-)
+print(Timer(functools.partial(analyze_polars_lazyframe, polars_lf)).timeit(100))
