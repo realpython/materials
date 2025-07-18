@@ -28,7 +28,11 @@ polars_lf = create_polars_lazyframe(test_data)
 
 print()
 print(f"Polars lazyframe analysis time for {int(sys.argv[1])} rows:")
-print(Timer(functools.partial(analyze_polars_lazyframe, polars_lf)).timeit(100))
+print(
+    Timer(functools.partial(analyze_polars_lazyframe, polars_lf)).timeit(100)
+)
 
 print(f"Polars streaming analysis time for {int(sys.argv[1])} rows:")
-print(Timer(functools.partial(analyze_polars_streaming, polars_lf)).timeit(100))
+print(
+    Timer(functools.partial(analyze_polars_streaming, polars_lf)).timeit(100)
+)
