@@ -1,6 +1,5 @@
 import narwhals as nw
 import polars as pl
-
 from data_generation import data_generation
 
 polars_df = pl.DataFrame(data_generation(4))
