@@ -5,6 +5,7 @@ from timeit import Timer
 import polars as pl
 from data_generation import data_generation
 
+
 def create_polars_lazyframe(test_data):
     return pl.LazyFrame(test_data)
 
