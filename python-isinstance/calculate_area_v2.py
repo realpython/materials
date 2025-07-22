@@ -4,6 +4,6 @@ def calculate_area(length, breadth):
     raise TypeError("Both arguments must be integers")
 
 
-calculate_area(5, 3)
-calculate_area(5, "3")
-calculate_area("5", "3")
+print(f"{calculate_area(5, 3) = }")
+print(f"{calculate_area(5, "3") = }")
+print(f"{calculate_area("5", "3") = }")

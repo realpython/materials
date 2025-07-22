@@ -11,4 +11,4 @@ class Bottom(Middle):
 
 
 Bottom.mro()
-isinstance(Bottom(), Top)
+print(f"{isinstance(Bottom(), Top) = }")

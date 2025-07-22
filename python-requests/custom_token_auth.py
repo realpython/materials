@@ -8,10 +8,10 @@ class TokenAuth(AuthBase):
     def __init__(self, token):
         self.token = token
 
-    def __call__(self, r):
+    def __call__(self, request):
         """Attach an API token to the Authorization header."""
-        r.headers["Authorization"] = f"Bearer {self.token}"
-        return r
+        request.headers["Authorization"] = f"Bearer {self.token}"
+        return request
 
 
 if __name__ == "__main__":

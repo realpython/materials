@@ -5,10 +5,7 @@ from player_iterables import (
     PlayersVersionTwo,
 )
 
-iter(PlayersVersionOne(["Fast Ed", "Slow Jo", "Still Su"]))
-
-iter(PlayersVersionTwo(["Fast Ed", "Slow Jo", "Still Su"]))
-
-iter(PlayersVersionThree(["Fast Ed", "Slow Jo", "Still Su"]))
-
-iter(PlayersVersionFour(["Fast Ed", "Slow Jo", "Still Su"]))
+print(f"{iter(PlayersVersionOne(["Fast Ed", "Slow Jo", "Still Su"])) = }")
+print(f"{iter(PlayersVersionTwo(["Fast Ed", "Slow Jo", "Still Su"])) = }")
+print(f"{iter(PlayersVersionThree(["Fast Ed", "Slow Jo", "Still Su"])) = }")
+print(f"{iter(PlayersVersionFour(["Fast Ed", "Slow Jo", "Still Su"])) = }")
