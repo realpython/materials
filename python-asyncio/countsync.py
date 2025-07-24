@@ -1,16 +1,16 @@
 import time
 
 
+def main():
+    for _ in range(3):
+        count()
+
+
 def count():
     print("One")
     time.sleep(1)
     print("Two")
     time.sleep(1)
-
-
-def main():
-    for _ in range(3):
-        count()
 
 
 if __name__ == "__main__":

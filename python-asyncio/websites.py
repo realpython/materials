@@ -3,12 +3,6 @@ import asyncio
 import aiohttp
 
 
-async def check(url):
-    async with aiohttp.ClientSession() as session:
-        async with session.get(url) as response:
-            print(f"{url}: status -> {response.status}")
-
-
 async def main():
     websites = [
         "https://realpython.com",
@@ -18,4 +12,11 @@ async def main():
     await asyncio.gather(*(check(url) for url in websites))
 
 
-asyncio.run(main())
+async def check(url):
+    async with aiohttp.ClientSession() as session:
+        async with session.get(url) as response:
+            print(f"{url}: status -> {response.status}")
+
+
+if __name__ == "__main__":
+    asyncio.run(main())

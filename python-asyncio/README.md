@@ -1,3 +1,3 @@
-# Async I/O in Python: A Complete Walkthrough
+# Python's `asyncio`: A Hands-On Walkthrough
 
-This folder provides the code examples for the Real Python tutorial [Async I/O in Python: A Complete Walkthrough](https://realpython.com/async-io-python/).
+This folder provides the code examples for the Real Python tutorial [Python's `asyncio`: A Hands-On Walkthrough](https://realpython.com/async-io-python/).
