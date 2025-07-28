@@ -20,10 +20,10 @@ def parse(lines):
     #   - We can do a "/".join(path)[1:] to get the full path, and drop the "/"
     # - We maintain a dictionary of paths to files
     #   - The key is the full path
-    #   - The value is a list of tuples.
+    #   - The value is a list of tuples
     #     - Each tuple contains the name and file size
     #
-    # Here's the plan when we get to each line.
+    # Here's the plan when we get to each line
     # - if it's a cd command
     #   - If it's a directory name, we push that onto the end of the path list
     #   - If it's a .., we pop the last item off the path list
