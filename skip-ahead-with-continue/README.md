@@ -1,3 +1,3 @@
-# Skip Ahead with Continue
+# Skip Ahead in Loops With Python's Continue Keyword
 
-This folder provides the code examples for the Real Python tutorial [Skip Ahead with `continue`](https://realpython.com/skip-ahead-with-continue/).
+This folder provides the code examples for the Real Python tutorial [Skip Ahead in Loops With Python's Continue Keyword](https://realpython.com/skip-ahead-with-continue/).
