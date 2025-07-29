@@ -1,3 +1,3 @@
-# Shallow vs Deep Copying of Python Objects
+# How to Copy Objects in Python: Shallow vs Deep Copy Explained
 
-This folder contains code associated with the Real Python tutorial [Shallow vs Deep Copying of Python Objects](https://realpython.com/python-copy/).
+This folder contains code associated with the Real Python tutorial [How to Copy Objects in Python: Shallow vs Deep Copy Explained](https://realpython.com/python-copy/).
