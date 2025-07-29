@@ -12,5 +12,4 @@ popular_repositories = json_response["items"]
 for repo in popular_repositories[:3]:
     print(f"Name: {repo['name']}")
     print(f"Description: {repo['description']}")
-    print(f"Stars: {repo['stargazers_count']}")
-    print()
+    print(f"Stars: {repo['stargazers_count']}\n")
