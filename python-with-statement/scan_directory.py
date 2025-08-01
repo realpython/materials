@@ -1,5 +1,5 @@
 import os
 
-with os.scandir(".") as dir_entries:
-    for entry in dir_entries:
+with os.scandir(".") as entries:
+    for entry in entries:
         print(entry.name, "->", entry.stat().st_size, "bytes")

@@ -11,3 +11,10 @@ class StandardOutputRedirector:
 
     def __exit__(self, *_):
         sys.stdout = self.std_output
+
+
+if __name__ == "__main__":
+    with open("hello.txt", "w") as file:
+        with StandardOutputRedirector(file):
+            print("Hello, World!")
+        print("Back to the standard output...")

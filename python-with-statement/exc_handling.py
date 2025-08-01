@@ -12,8 +12,9 @@ class HelloContextManager:
             return True
 
 
-with HelloContextManager() as hello:
-    print(hello)
-    hello[100]
+if __name__ == "__main__":
+    with HelloContextManager() as hello:
+        print(hello)
+        hello[100]
 
-print("Continue normally from here...")
+    print("Continue normally from here...")

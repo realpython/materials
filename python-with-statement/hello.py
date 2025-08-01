@@ -5,15 +5,16 @@ class HelloContextManager:
 
     def __exit__(self, exc_type, exc_value, exc_tb):
         print("Leaving the context...")
-        if isinstance(exc_value, IndexError):
-            print(f"An exception occurred in with block: {exc_type}")
-            print(f"Exception message: {exc_value}")
-            return True
-        return False
+        print(f"{exc_type  = }")
+        print(f"{exc_value = }")
+        print(f"{exc_tb    = }")
 
 
-with HelloContextManager() as hello:
-    print(hello)
-    # hello[100]
+if __name__ == "__main__":
+    with HelloContextManager() as hello:
+        print(hello)
 
-print("Continue normally from here...")
+    print("Continue normally from here...")
+
+    with HelloContextManager() as hello:
+        hello[100]

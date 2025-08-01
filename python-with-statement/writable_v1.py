@@ -11,5 +11,6 @@ class WritableFile:
             self.file_obj.close()
 
 
-with WritableFile("hello.txt") as file:
-    file.write("Hello, World!\n")
+if __name__ == "__main__":
+    with WritableFile("hello.txt") as file:
+        file.write("Hello, World!\n")

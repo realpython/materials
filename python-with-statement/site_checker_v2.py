@@ -16,13 +16,6 @@ class AsyncSession:
         await self.session.close()
 
 
-async def check(url):
-    async with AsyncSession(url) as response:
-        print(f"{url}: status -> {response.status}")
-        html = await response.text()
-        print(f"{url}: type -> {html[:17].strip()}")
-
-
 async def main():
     await asyncio.gather(
         check("https://realpython.com"),
@@ -30,4 +23,12 @@ async def main():
     )
 
 
-asyncio.run(main())
+async def check(url):
+    async with AsyncSession(url) as response:
+        print(f"{url}: status -> {response.status}")
+        html = await response.text()
+        print(f"{url}: type -> {html[:17].strip()}")
+
+
+if __name__ == "__main__":
+    asyncio.run(main())
