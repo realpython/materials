@@ -1,7 +1,7 @@
 def cast_spell(wand, incantation, target=None):
     """
     Cast a magical spell using a wand and incantation.
-    This function stimulates casting a spell. With no
+    This function simulates casting a spell. With no
     target specified, it is cast into the void.
 
     :param wand: The wand used to do the spell-casting deed.
@@ -18,7 +18,7 @@ def cast_spell(wand, incantation, target=None):
     if not wand:
         raise ValueError("You can't cast spells without a wand!")
     if incantation not in valid_incantations:
-        raise ValueError("Incantation not recognozed.")
+        raise ValueError("Incantation not recognized.")
     if target:
         return f"{incantation} hits {target} with magic speed!"
     return f"{incantation} is cast into the void...sparkles shimmer faintly"

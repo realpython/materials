@@ -8,3 +8,4 @@ def generate_shield(strength):
     Returns:
         str: A human-readable description of the generated shield.
     """
+    return f"Shield with strength {strength}"

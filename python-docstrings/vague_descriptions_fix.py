@@ -8,3 +8,4 @@ def brew(potion_ingredients):
     Returns:
         str: The name of the completed potion.
     """
+    return f"Magical potion brewed from {', '.join(potion_ingredients)}"
