@@ -7,4 +7,3 @@ def find_keyword_in_titles(titles: list[str], keyword: str) -> None:
 
 games = ["Dragon Quest", "Final Fantasy", "Age of Empires"]
 find_keyword_in_titles(games, "Final")
-
