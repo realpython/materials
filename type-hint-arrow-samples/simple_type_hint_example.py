@@ -1,4 +1,4 @@
-def get_number_of_titles(titles: list) -> int:
+def get_number_of_titles(titles: list[str]) -> int:
     return len(titles)
 
 
