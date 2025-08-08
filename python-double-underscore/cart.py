@@ -1,6 +1,5 @@
 class ShoppingCart:
-    def __init__(self, customer_id):
-        self.customer_id = customer_id
+    def __init__(self):
         self.products = []
 
     def add_product(self, product):
@@ -11,5 +10,3 @@ class ShoppingCart:
 
     def __len__(self):
         return len(self.products)
-
-    # Implementation...
