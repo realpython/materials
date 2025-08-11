@@ -2,11 +2,6 @@ import asyncio
 import time
 
 
-async def coro(numbers):
-    await asyncio.sleep(min(numbers))
-    return list(reversed(numbers))
-
-
 async def main():
     task1 = asyncio.create_task(coro([10, 5, 2]))
     task2 = asyncio.create_task(coro([3, 2, 1]))
@@ -17,5 +12,11 @@ async def main():
     return result
 
 
-result = asyncio.run(main())
-print(f"result: {result}")
+async def coro(numbers):
+    await asyncio.sleep(min(numbers))
+    return list(reversed(numbers))
+
+
+if __name__ == "__main__":
+    result = asyncio.run(main())
+    print(f"result: {result}")
