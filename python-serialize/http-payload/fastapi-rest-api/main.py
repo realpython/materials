@@ -1,9 +1,8 @@
 from datetime import datetime
 from uuid import UUID, uuid4
 
-from pydantic import BaseModel, Field
-
 from fastapi import FastAPI
+from pydantic import BaseModel, Field
 
 app = FastAPI()
 
