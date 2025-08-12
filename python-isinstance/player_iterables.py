@@ -10,7 +10,6 @@ class PlayersVersionOne(Iterable):
 
 
 class PlayersVersionTwo:
-
     def __init__(self, players):
         self.players = players
 
@@ -19,7 +18,6 @@ class PlayersVersionTwo:
 
 
 class PlayersVersionThree:
-
     def __init__(self, players):
         self.players = players
 
@@ -30,7 +28,6 @@ class PlayersVersionThree:
 
 
 class PlayersVersionFour:
-
     def __init__(self, players):
         self.players = players
 

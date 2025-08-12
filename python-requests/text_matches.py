@@ -6,7 +6,7 @@ response = requests.get(
     headers={"Accept": "application/vnd.github.text-match+json"},
 )
 
-# View the new `text-matches` list which provides information
+# View the new 'text_matches' list which provides information
 # about your search term within the results.
 json_response = response.json()
 first_repository = json_response["items"][0]

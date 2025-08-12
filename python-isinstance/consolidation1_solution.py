@@ -3,18 +3,11 @@ from balls import AmericanFootBall, Ball, PoolBall
 ball = Ball("green", "sphere")
 football = AmericanFootBall("brown")
 
-isinstance(football, AmericanFootBall)
-
-isinstance(football, PoolBall)
-
-isinstance(ball, Ball)
-
-isinstance(ball, AmericanFootBall)
-
-isinstance(football, Ball)
-
-isinstance(ball, PoolBall)
-
-isinstance(1, bool)
-
-isinstance(0, bool)
+print(f"{isinstance(football, AmericanFootBall) = }")
+print(f"{isinstance(football, PoolBall) = }")
+print(f"{isinstance(ball, Ball) = }")
+print(f"{isinstance(ball, AmericanFootBall) = }")
+print(f"{isinstance(football, Ball) = }")
+print(f"{isinstance(ball, PoolBall) = }")
+print(f"{isinstance(1, bool) = }")
+print(f"{isinstance(0, bool) = }")
