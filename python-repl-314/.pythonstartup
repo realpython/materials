@@ -1,0 +1,18 @@
+try:
+    from dataclasses import replace
+
+    from _colorize import ANSIColors, default_theme, set_theme
+except Exception:
+    # Running on an older Python or environment without _colorize
+    pass
+else:
+    theme = default_theme.copy_with(
+        syntax=replace(
+            default_theme.syntax,
+            keyword=ANSIColors.BOLD_YELLOW,
+            string=ANSIColors.INTENSE_BLUE,
+            number=ANSIColors.RED,
+            comment=ANSIColors.GREY,
+        ),
+    )
+    set_theme(theme)
