@@ -1,8 +1,9 @@
 import validators
-from fastapi import Depends, FastAPI, HTTPException, Request
-from fastapi.responses import RedirectResponse
 from sqlalchemy.orm import Session
 from starlette.datastructures import URL
+
+from fastapi import Depends, FastAPI, HTTPException, Request
+from fastapi.responses import RedirectResponse
 
 from . import crud, models, schemas
 from .config import get_settings
