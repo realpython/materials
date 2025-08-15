@@ -1,82 +1,88 @@
+import functools
 import sys
-import time
+from timeit import Timer
 
 import pandas as pd
 import polars as pl
-from data_generation import data_generation
 
-# Data Generation
+from data_generation import generate_data
 
-test_data = data_generation(int(sys.argv[1]))
 
-# Polars DataFrame Test
+def create_pandas_dataframe(test_data):
+    return pd.DataFrame(test_data).convert_dtypes(dtype_backend="pyarrow")
 
-overall_time_start = time.time()
 
-polars_dataframe = pl.DataFrame(test_data)
+def create_polars_dataframe(test_data):
+    return pl.DataFrame(test_data)
 
-processing_time_start = time.time()
 
-(
-    polars_dataframe.group_by(["region", "product", "sales_person"]).agg(
+def create_polars_lazyframe(test_data):
+    return pl.LazyFrame(test_data)
+
+
+def analyze_pandas_dataframe(pandas_df):
+    return pandas_df.groupby(["region", "product", "sales_person"])[
+        "sales_income"
+    ].sum()
+
+
+def analyze_polars_dataframe(polars_df):
+    return polars_df.group_by(["region", "product", "sales_person"]).agg(
         total_sales=pl.col("sales_income").sum()
+    )
+
+
+def analyze_polars_lazyframe(polars_lf):
+    return (
+        polars_lf.group_by(["region", "product", "sales_person"])
+        .agg(total_sales=pl.col("sales_income").sum())
+        .collect()
+    )
+
+
+test_data = generate_data(int(sys.argv[1]))
+
+print("Creating Dataframes...")
+print(f"Pandas dataframe creation time for {int(sys.argv[1])} rows:")
+print(Timer(functools.partial(create_pandas_dataframe, test_data)).timeit(100))
+print(f"\nPolars dataframe creation time for {int(sys.argv[1])} rows:")
+print(Timer(functools.partial(create_polars_dataframe, test_data)).timeit(100))
+print(f"\nPolars lazyframe creation time for {int(sys.argv[1])} rows:")
+print(Timer(functools.partial(create_polars_lazyframe, test_data)).timeit(100))
+
+pandas_df = create_pandas_dataframe(test_data)
+polars_df = create_polars_dataframe(test_data)
+polars_lf = create_polars_lazyframe(test_data)
+
+print("\nAnalyzing Dataframes...")
+print(f"Pandas dataframe analysis time for {int(sys.argv[1])} rows:")
+print(Timer(functools.partial(analyze_pandas_dataframe, pandas_df)).timeit(100))
+
+print(f"\nPolars dataframe analysis time for {int(sys.argv[1])} rows:")
+print(Timer(functools.partial(analyze_polars_dataframe, polars_df)).timeit(100))
+
+print(f"\nPolars lazyframe analysis time for {int(sys.argv[1])} rows:")
+print(Timer(functools.partial(analyze_polars_lazyframe, polars_lf)).timeit(100))
+
+print("\nShow Boots sales in the East region for pandas DataFrame")
+print(analyze_pandas_dataframe(pandas_df)["East"]["Boots"])
+
+print("\nShow Boots sales in the East region for polars DataFrame")
+print(
+    (
+        analyze_polars_dataframe(polars_df).filter(
+            pl.col("region") == "East",
+            pl.col("product") == "Boots",
+        )
     )
 )
 
-end_time = time.time()
-
-del polars_dataframe
-
+print("\nShow Boots sales in the East region for pandas LazyFrame")
 print(
-    f"Polars DataFrame creation: {processing_time_start - overall_time_start}"
-)
-print(f"Polars DataFrame query runtime: {end_time - processing_time_start}")
-print(f"Polars DataFrame overall time: {end_time - overall_time_start}")
-print()
-
-# Polars LazyFrame Test
-
-overall_time_start = time.time()
-
-polars_lazyframe = pl.LazyFrame(test_data)
-
-processing_time_start = time.time()
-
-(
-    polars_lazyframe.group_by(["region", "product", "sales_person"]).agg(
-        total_sales=pl.col("sales_income").sum()
+    (
+        analyze_polars_lazyframe(polars_lf).filter(
+            pl.col("region") == "East",
+            pl.col("product") == "Boots",
+        )
     )
-).collect()
-
-end_time = time.time()
-
-del polars_lazyframe
-
-print(
-    f"Polars LazyFrame creation: {processing_time_start - overall_time_start}"
 )
-print(f"Polars LazyFrame query runtime: {end_time - processing_time_start}")
-print(f"Polars LazyFrame overall time: {end_time - overall_time_start}")
-print()
-
-# Pandas DataFrame Test
-
-overall_time_start = time.time()
-
-pandas_dataframe = pd.DataFrame(test_data)
-
-processing_time_start = time.time()
-
-pandas_dataframe.groupby(["region", "product", "sales_person"])[
-    "sales_income"
-].sum()
-
-end_time = time.time()
-
-del pandas_dataframe
-
-print(
-    f"Pandas DataFrame creation: {processing_time_start - overall_time_start}"
-)
-print(f"Pandas DataFrame query runtime: {end_time - processing_time_start}")
-print(f"Pandas DataFrame overall time: {end_time - overall_time_start}")
