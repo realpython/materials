@@ -6,7 +6,9 @@ def generate_data(number_of_rows):
 
     return {
         "order_id": range(1, number_of_rows + 1),
-        "region": rng.choice(["North", "South", "East", "West"], size=number_of_rows),
+        "region": rng.choice(
+            ["North", "South", "East", "West"], size=number_of_rows
+        ),
         "sales_person": rng.choice(
             ["Armstrong", "Aldrin", "Collins"], size=number_of_rows
         ),

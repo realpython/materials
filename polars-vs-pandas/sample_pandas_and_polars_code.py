@@ -14,7 +14,9 @@ orders_pandas[["InvoiceNo", "Quantity", "UnitPrice", "Total"]][
 orders_pandas = pd.read_parquet("online_retail.parquet")
 
 (
-    orders_pandas.assign(Total=orders_pandas["Quantity"] * orders_pandas["UnitPrice"])
+    orders_pandas.assign(
+        Total=orders_pandas["Quantity"] * orders_pandas["UnitPrice"]
+    )
     .filter(["InvoiceNo", "Quantity", "UnitPrice", "Total"])
     .query("Total > 100")
 ).head(3)

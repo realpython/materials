@@ -4,7 +4,6 @@ from timeit import Timer
 
 import pandas as pd
 import polars as pl
-
 from data_generation import generate_data
 
 
@@ -56,13 +55,19 @@ polars_lf = create_polars_lazyframe(test_data)
 
 print("\nAnalyzing Dataframes...")
 print(f"Pandas dataframe analysis time for {int(sys.argv[1])} rows:")
-print(Timer(functools.partial(analyze_pandas_dataframe, pandas_df)).timeit(100))
+print(
+    Timer(functools.partial(analyze_pandas_dataframe, pandas_df)).timeit(100)
+)
 
 print(f"\nPolars dataframe analysis time for {int(sys.argv[1])} rows:")
-print(Timer(functools.partial(analyze_polars_dataframe, polars_df)).timeit(100))
+print(
+    Timer(functools.partial(analyze_polars_dataframe, polars_df)).timeit(100)
+)
 
 print(f"\nPolars lazyframe analysis time for {int(sys.argv[1])} rows:")
-print(Timer(functools.partial(analyze_polars_lazyframe, polars_lf)).timeit(100))
+print(
+    Timer(functools.partial(analyze_polars_lazyframe, polars_lf)).timeit(100)
+)
 
 print("\nShow Boots sales in the East region for pandas DataFrame")
 print(analyze_pandas_dataframe(pandas_df)["East"]["Boots"])
