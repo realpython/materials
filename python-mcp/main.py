@@ -1,4 +1,3 @@
-from typing import Any
 import asyncio
 from mcp.server.fastmcp import FastMCP
 from transactional_db import CUSTOMERS_TABLE, ORDERS_TABLE, PRODUCTS_TABLE

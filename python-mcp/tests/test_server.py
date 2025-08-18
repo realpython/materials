@@ -1,8 +1,7 @@
+from contextlib import AsyncExitStack
 import pytest
 from mcp import ClientSession, StdioServerParameters
 from mcp.client.stdio import stdio_client
-import asyncio
-from contextlib import AsyncExitStack
 
 SERVER_PATH = "/path/to/your/python-mcp/main.py"
 EXPECTED_TOOLS = [
