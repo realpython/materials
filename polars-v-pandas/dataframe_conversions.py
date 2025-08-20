@@ -2,7 +2,7 @@ import narwhals as nw
 import polars as pl
 from data_generation import generate_data
 
-polars_df = pl.DataFrame(data_generation(4))
+polars_df = pl.DataFrame(generate_data(4))
 polars_df
 
 pandas_df = polars_df.to_pandas()
