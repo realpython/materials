@@ -1,12 +1,12 @@
 def undo_spell(spell):
     """
-    Reverses characters in a spell incantation thereby undoing a spell.
+    Reverses characters in a spell incantation, thereby undoing a spell.
 
     Example:
     >>> undo_spell("Expelliarmus")
-    "sumraillepxE"
+    'sumraillepxE'
 
     >>> undo_spell("Lumos")
-    "somuL"
+    'somuL'
     """
     return spell[::-1]
