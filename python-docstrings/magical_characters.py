@@ -1,4 +1,4 @@
-"""A magical module for adding and listing magical characters."""
+"""A module for adding and listing magical characters."""
 
 
 def add_characters(magical_being):
