@@ -1,2 +1,2 @@
-black[jupyter]==24.4.2
+black[jupyter]==24.10.0
 ruff==0.4.2
