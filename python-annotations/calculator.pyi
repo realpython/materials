@@ -1,0 +1,9 @@
+type Number = int | float
+
+class Calculator:
+    history: list[Number]
+
+    def __init__(self) -> None: ...
+    def add(self, a: Number, b: Number) -> Number: ...
+
+def add(a: Number, b: Number) -> Number: ...

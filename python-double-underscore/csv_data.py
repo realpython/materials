@@ -1,5 +1,3 @@
-# csv_data.py
-
 import csv
 
 

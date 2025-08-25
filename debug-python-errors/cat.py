@@ -1,0 +1,3 @@
+cat = "Siamese"
+
+print(cat)
