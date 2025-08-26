@@ -6,4 +6,4 @@ sales_data = pd.read_csv(
     date_format="%d/%m/%Y",
 ).convert_dtypes(dtype_backend="pyarrow")
 
-sales_data.dropna(axis="columns")
+print(sales_data.dropna(axis="columns"))

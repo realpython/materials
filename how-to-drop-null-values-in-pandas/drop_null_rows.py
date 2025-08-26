@@ -8,12 +8,12 @@ sales_data = pd.read_csv(
     date_format="%d/%m/%Y",
 ).convert_dtypes(dtype_backend="pyarrow")
 
-sales_data
-
-sales_data.isna().sum()
-
-sales_data.dropna()
+print(sales_data)
+print(sales_data.isna().sum())
+print(sales_data.dropna())
 
 clean_sales_data = sales_data.dropna()
+print(clean_sales_data)
 
-clean_sales_data = sales_data.dropna(inplace=True)
+sales_data.dropna(inplace=True)
+print(sales_data)
