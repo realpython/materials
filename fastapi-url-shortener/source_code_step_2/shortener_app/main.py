@@ -1,9 +1,10 @@
 import secrets
 
 import validators
+from sqlalchemy.orm import Session
+
 from fastapi import Depends, FastAPI, HTTPException, Request
 from fastapi.responses import RedirectResponse
-from sqlalchemy.orm import Session
 
 from . import models, schemas
 from .database import SessionLocal, engine
