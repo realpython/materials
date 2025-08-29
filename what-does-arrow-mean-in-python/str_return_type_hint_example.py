@@ -6,4 +6,4 @@ def get_game_recommendation(titles: list[str]) -> str:
 
 
 games = ["Dragon Quest", "Final Fantasy", "Age of Empires"]
-print(f"Random recommendation: {get_game_recommendation(games)}")
+print("Random recommendation:", get_game_recommendation(games))
