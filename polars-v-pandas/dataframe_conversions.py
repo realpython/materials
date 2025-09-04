@@ -14,7 +14,7 @@ type(polars_df)
 polars_df
 
 
-def agnositic_groupby(df):
+def universal_groupby(df):
     return (
         nw.from_native(df)
         .group_by("region")
@@ -24,6 +24,6 @@ def agnositic_groupby(df):
     )
 
 
-agnositic_groupby(pandas_df)
+universal_groupby(pandas_df)
 
-agnositic_groupby(polars_df)
+universal_groupby(polars_df)
