@@ -4,7 +4,7 @@ def get_magic_items(user_id, include_potions=False):
 
     Args:
         user_id (int): The ID of the user whose items should be retrieved.
-        include_potions (bool, optional): Whether to include potions in the result.
+        include_potions (bool, optional): Whether to include potions.
 
     Returns:
         list[str]: A list of item names associated with the user.
