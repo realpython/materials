@@ -1,6 +1,6 @@
 # Python MCP: Connect Your LLM With the World
 
-This repo contains the source code for [Python MCP: Connect Your LLM With the World](https://realpython.com/python-mcp-connect-your-llm-with-world/)
+This folder contains the source code for [Python MCP: Connect Your LLM With the World](https://realpython.com/python-mcp-connect-your-llm-with-world/).
 
 ## Setup
 
