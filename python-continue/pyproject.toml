@@ -1,0 +1,7 @@
+[project]
+name = "python-continue"
+version = "0.1.0"
+description = "Code for the Real Python tutorial on Python's `continue` keyword"
+readme = "README.md"
+requires-python = ">=3.9"
+dependencies = ["instaviz"]

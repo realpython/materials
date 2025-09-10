@@ -1,0 +1,16 @@
+[build-system]
+requires = ["setuptools>=64.0.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "stegano"
+version = "1.0.0"
+description = "Least Significant Bit Steganography in Python"
+authors = [
+    { name="Bartosz Zaczyński", email="bartosz@realpython.com" }
+]
+readme = "README.md"
+license = { text = "MIT" }
+
+[project.scripts]
+stegano = "stegano.__main__:entry_point"
