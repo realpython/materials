@@ -1,5 +1,3 @@
-from typing import Optional
-
 from pydantic import BaseModel
 
 from fastapi import FastAPI
@@ -24,7 +22,7 @@ class Book(BaseModel):
 
 
 @app.get("/books")
-def get_books(limit: Optional[int] = None):
+def get_books(limit: int | None = None):
     """Get all books, optionally limited by count."""
     if limit:
         return {"books": books[:limit]}
