@@ -1,8 +1,7 @@
 try:
     from dataclasses import replace
-
     from _colorize import ANSIColors, default_theme, set_theme
-except Exception:
+except ImportError:
     # Running on an older Python or environment without _colorize
     pass
 else:
