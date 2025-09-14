@@ -1,5 +1,6 @@
 import numpy as np
 
+
 def generate_data(number_of_rows):
     rng = np.random.default_rng()
 
