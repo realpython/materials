@@ -9,7 +9,6 @@ from timeit import Timer
 
 import pandas as pd
 import polars as pl
-
 from data_generation import generate_data
 
 

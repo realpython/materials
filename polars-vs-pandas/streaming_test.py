@@ -3,7 +3,6 @@ import sys
 from timeit import Timer
 
 import polars as pl
-
 from data_generation import generate_data
 
 

@@ -1,6 +1,5 @@
 import narwhals as nw
 import polars as pl
-
 from data_generation import generate_data
 
 
