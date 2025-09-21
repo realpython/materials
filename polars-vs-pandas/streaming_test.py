@@ -3,6 +3,7 @@ import sys
 from timeit import Timer
 
 import polars as pl
+
 from data_generation import generate_data
 
 
@@ -22,20 +23,16 @@ def analyze_polars_streaming(polars_lf):
     ).collect(engine="streaming")
 
 
-if __name__ == "__main__":
-    test_data = generate_data(int(sys.argv[1]))
-    polars_lf = create_polars_lazyframe(test_data)
+test_data = generate_data(int(sys.argv[1]))
 
-    print(f"Polars lazyframe analysis time for {int(sys.argv[1])} rows:")
-    print(
-        Timer(functools.partial(analyze_polars_lazyframe, polars_lf)).timeit(
-            100
-        )
-    )
+polars_lf = create_polars_lazyframe(test_data)
 
-    print(f"\nPolars streaming analysis time for {int(sys.argv[1])} rows:")
-    print(
-        Timer(functools.partial(analyze_polars_streaming, polars_lf)).timeit(
-            100
-        )
-    )
+print(f"Polars lazyframe analysis time for {int(sys.argv[1]):,} rows:")
+print(
+    Timer(functools.partial(analyze_polars_lazyframe, polars_lf)).timeit(100)
+)
+
+print(f"\nPolars streaming analysis time for {int(sys.argv[1]):,} rows:")
+print(
+    Timer(functools.partial(analyze_polars_streaming, polars_lf)).timeit(100)
+)
