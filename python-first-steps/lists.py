@@ -32,7 +32,7 @@ print(mixed_types[1][2])
 
 # Concatenation
 fruits = ["apples", "grapes", "oranges"]
-veggies = ["corn", "kale", "mushrooms"]
+veggies = ["corn", "kale", "spinach"]
 print(fruits + veggies)
 
 # Built-in functions

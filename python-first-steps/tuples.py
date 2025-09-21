@@ -22,7 +22,10 @@ print(letters.count("c"))
 print(letters.count("d"))
 print(letters.index("a"))
 print(letters.index("c"))
-print(letters.index("d"))
+try:
+    print(letters.index("d"))
+except Exception as e:
+    print(repr(e))
 
 # Indexing and slicing
 employee = ("Jane", "Doe", 31, "Software Developer")
