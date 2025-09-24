@@ -35,14 +35,20 @@ def add_item(item_name, quantity, shopping_list=None):
 def add_items_args(shopping_list, *item_names):
     """Add any number of item names with default quantity 1 using *args."""
     for item_name in item_names:
-        shopping_list[item_name] = 1
+        if item_name in shopping_list:
+            shopping_list[item_name] += 1
+        else:
+            shopping_list[item_name] = 1
     return shopping_list
 
 
 def add_items_kwargs(shopping_list, **things_to_buy):
     """Add any number of items with explicit quantities using **kwargs."""
     for item_name, quantity in things_to_buy.items():
-        shopping_list[item_name] = quantity
+        if item_name in shopping_list:
+            shopping_list[item_name] += quantity
+        else:
+            shopping_list[item_name] = quantity
     return shopping_list
 
 
