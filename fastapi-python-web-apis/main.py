@@ -1,18 +1,13 @@
 import random
-from string import ascii_letters, hexdigits
 from typing import Annotated
-
-from jinja2 import Template
-from pydantic import BaseModel, Field
-
 from fastapi import FastAPI, HTTPException, Query
 from fastapi.middleware.cors import CORSMiddleware
-from fastapi.responses import HTMLResponse, PlainTextResponse
+from pydantic import BaseModel, Field
 
 tags_metadata = [
     {
         "name": "Random Playground",
-        "description": "Operations for generating random stuff",
+        "description": "Generate random numbers",
     },
     {
         "name": "Random Items Management",
@@ -22,7 +17,7 @@ tags_metadata = [
 
 app = FastAPI(
     title="Randomizer API",
-    description="Generate random numbers and manage a list of items",
+    description="Shuffle lists, pick random items, and generate random numbers.",
     version="1.0.0",
     openapi_tags=tags_metadata,
 )
@@ -44,19 +39,9 @@ class Item(BaseModel):
     )
 
 
-class ItemList(BaseModel):
-    items: list[str] = Field(min_items=1, description="List of items")
-
-
-class ItemUpdate(BaseModel):
-    old_item: str = Field(min_length=1, description="Item to replace")
-    new_item: str = Field(min_length=1, description="New item name")
-
-
 class ItemResponse(BaseModel):
     message: str
     item: str
-    total_items: int
 
 
 class ItemListResponse(BaseModel):
@@ -74,7 +59,7 @@ class ItemUpdateResponse(BaseModel):
 class ItemDeleteResponse(BaseModel):
     message: str
     deleted_item: str
-    remaining_items: int
+    remaining_items_count: int
 
 
 @app.get("/", tags=["Random Playground"])
@@ -82,8 +67,8 @@ async def home():
     return {"message": "Welcome to the Randomizer API"}
 
 
-@app.get("/random/{max_value}", tags=["Random Playground"])
-async def get_random_number(max_value: int):
+@app.get("/random/{max_value}")
+async def get_random_number(max_value: int, tags=["Random Playground"]):
     return {"max": max_value, "random_number": random.randint(1, max_value)}
 
 
@@ -95,7 +80,7 @@ def get_random_number_between(
             title="Minimum Value",
             description="The minimum random number",
             ge=1,
-            le=99,
+            le=1000,
         ),
     ] = 1,
     max_value: Annotated[
@@ -109,55 +94,15 @@ def get_random_number_between(
     ] = 99,
 ):
     if min_value > max_value:
-        return {"error": "min_value cannot be greater than max_value"}
+        raise HTTPException(
+            status_code=400, detail="min_value can't be greater than max_value"
+        )
 
     return {
         "min": min_value,
         "max": max_value,
         "random_number": random.randint(min_value, max_value),
     }
-
-
-@app.get("/random-string/{length}", tags=["Random Playground"])
-def generate_random_string(length: int):
-    return PlainTextResponse("".join(random.choices(ascii_letters, k=length)))
-
-
-@app.get(
-    "/random-color", response_class=HTMLResponse, tags=["Random Playground"]
-)
-def random_color():
-    hex_chars = "".join(random.choice(hexdigits.lower()) for _ in range(6))
-    hex_color = f"#{hex_chars}"
-    template_string = """
-    <!DOCTYPE html>
-    <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <title>Random Color: {{ color }}</title>
-        <style>
-            body {
-                height: 100vh;
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                background-color: {{ color }};
-                color: white;
-                font-size: 120px;
-                font-family: monospace;
-            }
-        </style>
-    </head>
-    <body>
-        <div>{{ color }}</div>
-    </body>
-    </html>
-    """
-
-    template = Template(template_string)
-    html_content = template.render(color=hex_color)
-
-    return html_content
 
 
 @app.post(
@@ -168,24 +113,13 @@ def add_item(item: Item):
         raise HTTPException(status_code=400, detail="Item already exists")
 
     items_db.append(item.name)
-    return ItemResponse(
-        message="Item added successfully",
-        item=item.name,
-        total_items=len(items_db),
-    )
+    return ItemResponse(message="Item added successfully", item=item.name)
 
 
 @app.get(
-    "/items/random",
-    response_model=ItemListResponse,
-    tags=["Random Items Management"],
+    "/items", response_model=ItemListResponse, tags=["Random Items Management"]
 )
 def get_randomized_items():
-    if not items_db:
-        return ItemListResponse(
-            original_order=[], randomized_order=[], count=0
-        )
-
     randomized = items_db.copy()
     random.shuffle(randomized)
 
@@ -197,21 +131,26 @@ def get_randomized_items():
 
 
 @app.put(
-    "/items",
+    "/items/{update_item_name}",
     response_model=ItemUpdateResponse,
     tags=["Random Items Management"],
 )
-def update_item(item_update: ItemUpdate):
-    if item_update.old_item not in items_db:
+def update_item(update_item_name: str, item: Item):
+    if update_item_name not in items_db:
         raise HTTPException(status_code=404, detail="Item not found")
 
-    index = items_db.index(item_update.old_item)
-    items_db[index] = item_update.new_item
+    if item.name in items_db:
+        raise HTTPException(
+            status_code=409, detail="An item with that name already exists"
+        )
+
+    index = items_db.index(update_item_name)
+    items_db[index] = item.name
 
     return ItemUpdateResponse(
         message="Item updated successfully",
-        old_item=item_update.old_item,
-        new_item=item_update.new_item,
+        old_item=update_item_name,
+        new_item=item.name,
     )
 
 
@@ -229,5 +168,5 @@ def delete_item(item: str):
     return ItemDeleteResponse(
         message="Item deleted successfully",
         deleted_item=item,
-        remaining_items=len(items_db),
+        remaining_items_count=len(items_db),
     )
