@@ -1,5 +1,6 @@
 import random
 from typing import Annotated
+
 from fastapi import FastAPI, HTTPException, Query
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel, Field
@@ -17,7 +18,7 @@ tags_metadata = [
 
 app = FastAPI(
     title="Randomizer API",
-    description="Shuffle lists, pick random items, and generate random numbers.",
+    description="Shuffle lists, pick random items, generate random numbers.",
     version="1.0.0",
     openapi_tags=tags_metadata,
 )
