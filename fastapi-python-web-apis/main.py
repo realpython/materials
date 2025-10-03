@@ -65,19 +65,19 @@ class ItemDeleteResponse(BaseModel):
 
 
 @app.get("/", tags=["Random Playground"])
-async def home():
+def home():
     return {"message": "Welcome to the Randomizer API"}
 
 
 @app.get("/random/{max_value}", tags=["Random Playground"])
-async def get_random_number(max_value: int):
+def get_random_number(max_value: int):
     return {"max": max_value, "random_number": random.randint(1, max_value)}
 
 
 @app.get("/random-between", tags=["Random Playground"])
 def get_random_number_between(
     min_value: Annotated[
-        int | None,
+        int,
         Query(
             title="Minimum Value",
             description="The minimum random number",
@@ -86,7 +86,7 @@ def get_random_number_between(
         ),
     ] = 1,
     max_value: Annotated[
-        int | None,
+        int,
         Query(
             title="Maximum Value",
             description="The maximum random number",
