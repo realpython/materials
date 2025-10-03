@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+
+{% block title %}Random Color: {{ color }}{% endblock %}
+
+{% block content %}
+    <style>
+        body {
+            background-color: {{ color }};
+        }
+    </style>
+    <div id="color-code">{{ color }}</div>
+    <button id="copy-button">Copy Hex Code</button>
+{% endblock %}
