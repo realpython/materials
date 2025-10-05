@@ -20,8 +20,8 @@ class SQLQuery:
                         converted = format(converted, format_spec)
                     params.append(converted)
                     items.append("?")
-        object.__setattr__(self, "statement", "".join(items))
-        object.__setattr__(self, "params", params)
+        super().__setattr__("statement", "".join(items))
+        super().__setattr__("params", params)
 
 
 def find_users_query_v1(name: str) -> str:
@@ -48,6 +48,17 @@ def render(template: Template) -> str:
     )
 
 
+def safer_render(template: Template) -> str:
+    items = []
+    for item in template:
+        if isinstance(item, str):
+            items.append(item)
+        else:
+            sanitized = str(item.value).replace("'", "''")
+            items.append(sanitized)
+    return "".join(items)
+
+
 if __name__ == "__main__":
     # Insecure f-strings
     print(find_users_query_v1("' OR '1'='1"))
@@ -59,6 +70,9 @@ if __name__ == "__main__":
     #
     # # Insecure way of rendering t-strings into plain strings
     # print(render(find_users_query_v2("' OR '1'='1")))
+    #
+    # # More secure way of rendering t-strings
+    # print(safer_render(find_users_query_v2("' OR '1'='1")))
     #
     # # Rendering t-strings into an alternative representation
     # print(find_users("' OR '1'='1"))
