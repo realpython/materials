@@ -18,7 +18,7 @@ def add_item(item_name, quantity, shopping_list={}):
 clothes_shop_list = add_item("Shirt", 3)  # Uses the shared default dict
 electronics_store_list = add_item("USB cable", 1)  # Same shared dict!
 
-print("\nclothes_shop_list:")
+print("clothes_shop_list:")
 for k, v in clothes_shop_list.items():
     print(f"{v}x {k}")
 

@@ -13,12 +13,12 @@ Run the module directly to see a short demo.
 
 
 def show_list(shopping_list, include_quantities=True):
-    print()
     for item_name, quantity in shopping_list.items():
         if include_quantities:
             print(f"{quantity}x {item_name}")
         else:
             print(item_name)
+    print()
 
 
 def add_item(item_name, quantity, shopping_list=None):
