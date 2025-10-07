@@ -23,10 +23,7 @@ def system_details():
     cpu = platform.processor()
     cores = os.cpu_count()
     endian = f"{sys.byteorder} Endian".title()
-    return (
-        f"\N{PERSONAL COMPUTER} {name} {arch} with "
-        f"{cores}x CPU cores ({cpu} {endian})"
-    )
+    return f"\N{PERSONAL COMPUTER} {name} {arch} with {cores}x CPU cores ({cpu} {endian})"
 
 
 def python_details():

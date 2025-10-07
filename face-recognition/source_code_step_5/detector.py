@@ -65,7 +65,7 @@ def recognize_faces(
     draw = ImageDraw.Draw(pillow_image)
 
     for bounding_box, unknown_encoding in zip(
-        input_face_locations, input_face_encodings
+        input_face_locations, input_face_encodings, strict=False
     ):
         name = _recognize_face(unknown_encoding, loaded_encodings)
         if not name:
@@ -86,7 +86,9 @@ def _recognize_face(unknown_encoding, loaded_encodings):
     )
     votes = Counter(
         name
-        for match, name in zip(boolean_matches, loaded_encodings["names"])
+        for match, name in zip(
+            boolean_matches, loaded_encodings["names"], strict=False
+        )
         if match
     )
     if votes:

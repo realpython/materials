@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
-""" Pytest functions for CSV Weather problem """
+"""Pytest functions for CSV Weather problem"""
+
 import pytest
 
 # import weather_v1 as wthr

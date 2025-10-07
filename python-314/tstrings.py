@@ -44,7 +44,7 @@ def find_users_query_v1(name: str) -> str:
 def render(template: Template) -> str:
     return "".join(
         f"{text}{value}"
-        for text, value in zip(template.strings, template.values)
+        for text, value in zip(template.strings, template.values, strict=False)
     )
 
 

@@ -234,9 +234,9 @@ _RECOMMENDATIONRESPONSE = _descriptor.Descriptor(
 )
 
 _RECOMMENDATIONREQUEST.fields_by_name["category"].enum_type = _BOOKCATEGORY
-_RECOMMENDATIONRESPONSE.fields_by_name["recommendations"].message_type = (
-    _BOOKRECOMMENDATION
-)
+_RECOMMENDATIONRESPONSE.fields_by_name[
+    "recommendations"
+].message_type = _BOOKRECOMMENDATION
 DESCRIPTOR.message_types_by_name["RecommendationRequest"] = (
     _RECOMMENDATIONREQUEST
 )

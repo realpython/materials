@@ -1,4 +1,4 @@
-colors = {"blue", "red", "green", "orange", "green"}
+colors = {"blue", "red", "green", "orange"}
 print(colors)
 colors.add("purple")
 print(colors)

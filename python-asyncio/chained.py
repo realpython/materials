@@ -33,8 +33,7 @@ async def fetch_posts(user):
     await asyncio.sleep(delay)
     posts = [f"Post {i} by {user['name']}" for i in range(1, 3)]
     print(
-        f"Post coro: got {len(posts)} posts by {user['name']}"
-        f" (done in {delay:.1f}s):"
+        f"Post coro: got {len(posts)} posts by {user['name']} (done in {delay:.1f}s):"
     )
     for post in posts:
         print(f" - {post}")

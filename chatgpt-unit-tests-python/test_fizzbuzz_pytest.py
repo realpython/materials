@@ -35,6 +35,6 @@ from fizzbuzz import fizzbuzz
     ],
 )
 def test_fizzbuzz(input, expected):
-    assert (
-        fizzbuzz(input) == expected
-    ), f"Expected {expected} for input {input}"
+    assert fizzbuzz(input) == expected, (
+        f"Expected {expected} for input {input}"
+    )

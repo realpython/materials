@@ -18,10 +18,7 @@ class Comment:
 
     @property
     def footer(self):
-        return (
-            f"Comment by [{self.user}]({self.user_url})"
-            f" on [{self.when}]({self.url})"
-        )
+        return f"Comment by [{self.user}]({self.user_url}) on [{self.when}]({self.url})"
 
     def render(self):
         return Panel(

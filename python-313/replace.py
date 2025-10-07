@@ -44,7 +44,7 @@ class NamedContainer:
 
     def __repr__(self):
         items = [f"{key}={value!r}" for key, value in self.items.items()]
-        return f"{type(self).__name__}(name='{self.name}', {", ".join(items)})"
+        return f"{type(self).__name__}(name='{self.name}', {', '.join(items)})"
 
 
 capitals = NamedContainer(

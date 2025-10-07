@@ -17,5 +17,5 @@ print(game_name[:4])
 pets = ["Leo", "Aubrey", "Frieda"]
 owners = ["Bartosz", "Sarah Jane", "Philipp"]
 
-for pet, owner in zip(pets, owners):
+for pet, owner in zip(pets, owners, strict=False):
     print(f"{pet} & {owner}")

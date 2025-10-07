@@ -27,6 +27,5 @@ for k, v in electronics_store_list.items():
     print(f"{v}x {k}")
 
 print(
-    "\nNote how both lists contain the same combined items "
-    "due to the shared default."
+    "\nNote how both lists contain the same combined items due to the shared default."
 )

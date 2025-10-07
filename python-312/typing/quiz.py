@@ -39,7 +39,9 @@ class MultipleChoiceQuestion(Question):
         alternatives = random.sample(
             self.distractors + [self.answer], k=len(self.distractors) + 1
         )
-        labeled_alternatives = dict(zip(ascii_lowercase, alternatives))
+        labeled_alternatives = dict(
+            zip(ascii_lowercase, alternatives, strict=False)
+        )
         for label, alternative in labeled_alternatives.items():
             print(f"   {label}) {alternative}", end="")
 

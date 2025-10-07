@@ -3,12 +3,12 @@ import pathlib
 from collections import Counter
 
 import textacy
-
-import spacy
-from spacy import displacy
 from spacy.language import Language
 from spacy.matcher import Matcher
 from spacy.tokenizer import Tokenizer
+
+import spacy
+from spacy import displacy
 
 nlp = spacy.load("en_core_web_sm")
 

@@ -1,4 +1,4 @@
-""""Prompt
+""" "Prompt
 Write a single-line docstring for the following function:
 
 def add(a, b):

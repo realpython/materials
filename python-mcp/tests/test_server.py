@@ -38,7 +38,9 @@ async def test_mcp_server_connection():
     tool_descriptions = [tool.description for tool in tools]
 
     print("\nYour server has the follow tools:")
-    for tool_name, tool_description in zip(tool_names, tool_descriptions):
+    for tool_name, tool_description in zip(
+        tool_names, tool_descriptions, strict=False
+    ):
         print(f"{tool_name}: {tool_description}")
 
     assert sorted(EXPECTED_TOOLS) == sorted(tool_names)

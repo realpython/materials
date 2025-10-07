@@ -30,7 +30,10 @@ class Bounds:
         7500
         """
         return prod(
-            map(lambda x: x[1] - x[0], zip(self.start_point, self.end_point))
+            map(
+                lambda x: x[1] - x[0],
+                zip(self.start_point, self.end_point, strict=False),
+            )
         )
 
     def __iter__(self) -> Iterator[tuple[int, ...]]:
@@ -48,7 +51,11 @@ class Bounds:
         149 98
         149 99
         """
-        return product(*starmap(range, zip(self.start_point, self.end_point)))
+        return product(
+            *starmap(
+                range, zip(self.start_point, self.end_point, strict=False)
+            )
+        )
 
     def slices(self) -> tuple[slice, ...]:
         """Return the slice for each dimension.
@@ -60,7 +67,9 @@ class Bounds:
         """
         return tuple(
             slice(start, end)
-            for start, end in zip(self.start_point, self.end_point)
+            for start, end in zip(
+                self.start_point, self.end_point, strict=False
+            )
         )
 
     @cached_property
@@ -116,7 +125,9 @@ def split_multi(num_chunks: int, *dimensions: int) -> Iterator[Bounds]:
     """Return a sequence of n-dimensional slices."""
     num_chunks_along_axis = find_most_even(num_chunks, len(dimensions))
     for slices_by_dimension in product(
-        *starmap(get_slices, zip(dimensions, num_chunks_along_axis))
+        *starmap(
+            get_slices, zip(dimensions, num_chunks_along_axis, strict=False)
+        )
     ):
         yield Bounds(
             start_point=tuple(s.start for s in slices_by_dimension),

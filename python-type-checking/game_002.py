@@ -40,7 +40,7 @@ def play() -> None:
     """Play a 4-player card game"""
     deck = create_deck(shuffle=True)
     names = "P1 P2 P3 P4".split()
-    hands = {n: h for n, h in zip(names, deal_hands(deck))}
+    hands = {n: h for n, h in zip(names, deal_hands(deck), strict=False)}
     start_player = choose(names)
     turn_order = player_order(names, start=start_player)
 

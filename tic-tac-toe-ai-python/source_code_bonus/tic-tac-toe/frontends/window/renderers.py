@@ -29,13 +29,15 @@ class WindowRenderer(Renderer):
         self.window = window
 
     def render(self, game_state: GameState) -> None:
-        for label, button in zip(game_state.grid.cells, self.window.buttons):
+        for label, button in zip(
+            game_state.grid.cells, self.window.buttons, strict=False
+        ):
             button.config(text=label)
         if game_state.winner:
-            self.window.title(f"{game_state.winner} wins \N{party popper}")
+            self.window.title(f"{game_state.winner} wins \N{PARTY POPPER}")
             bold_style = ttk.Style()
             bold_style.configure("Bold.TButton", font=(None, 9, "bold"))
             for i in game_state.winning_cells:
                 self.window.buttons[i].config(style="Bold.TButton")
         elif game_state.tie:
-            self.window.title("Tie \N{neutral face}")
+            self.window.title("Tie \N{NEUTRAL FACE}")
