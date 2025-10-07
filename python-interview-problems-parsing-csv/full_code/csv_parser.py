@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
-""" Reusable CSV parser for both football and weather data.  """
+"""Reusable CSV parser for both football and weather data."""
+
 import csv
 
 

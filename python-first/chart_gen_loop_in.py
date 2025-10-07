@@ -95,9 +95,12 @@ plt.show()
 
 looping_ratio = [loop / loop for loop in looping_times]
 generator_ratio = [
-    gen / loop for gen, loop in zip(generator_times, looping_times)
+    gen / loop
+    for gen, loop in zip(generator_times, looping_times, strict=False)
 ]
-in_ratio = [in_ / loop for in_, loop in zip(in_times, looping_times)]
+in_ratio = [
+    in_ / loop for in_, loop in zip(in_times, looping_times, strict=False)
+]
 
 fig, ax = plt.subplots()
 

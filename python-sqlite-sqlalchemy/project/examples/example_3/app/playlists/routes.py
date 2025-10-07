@@ -15,7 +15,6 @@ playlists_bp = Blueprint(
 @playlists_bp.route("/playlists", methods=["GET"])
 @playlists_bp.route("/playlists/<int:playlist_id>", methods=["GET"])
 def playlists(playlist_id=None):
-
     # Start the query for playlists
     query = db.session.query(Playlist)
 

@@ -44,7 +44,7 @@ def get_random_word(word_list):
 def show_guesses(guesses, word):
     for guess in guesses:
         styled_guess = []
-        for letter, correct in zip(guess, word):
+        for letter, correct in zip(guess, word, strict=False):
             if letter == correct:
                 style = "bold white on green"
             elif letter in word:

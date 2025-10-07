@@ -91,7 +91,6 @@ class TitleView(arcade.View):
 
         # If the timer has run out, we toggle the instructions
         if self.display_timer < 0:
-
             # Toggle whether to show the instructions
             self.show_instructions = not self.show_instructions
 

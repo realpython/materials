@@ -22,6 +22,6 @@ rgb_colors = {
 }
 print(rgb_colors)
 
-print({2, 4, 6, 8, 10, 8, 2})
-print({"Smith", "McArthur", "Wilson", "Johansson", "Smith"})
+print({2, 4, 6, 8, 10})
+print({"Smith", "McArthur", "Wilson", "Johansson"})
 print({42, "Hi!", 3.14159, None, "Python"})

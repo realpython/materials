@@ -14,8 +14,7 @@ def download_file(url):
 
 
 template_url = (
-    "https://api.worldbank.org/v2/en/indicator/"
-    "{resource}?downloadformat=csv"
+    "https://api.worldbank.org/v2/en/indicator/{resource}?downloadformat=csv"
 )
 
 urls = [

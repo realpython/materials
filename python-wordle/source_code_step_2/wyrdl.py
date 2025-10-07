@@ -18,7 +18,9 @@ for guess_num in range(1, 7):
         break
 
     correct_letters = {
-        letter for letter, correct in zip(guess, word) if letter == correct
+        letter
+        for letter, correct in zip(guess, word, strict=False)
+        if letter == correct
     }
     misplaced_letters = set(guess) & set(word) - correct_letters
     wrong_letters = set(guess) - set(word)

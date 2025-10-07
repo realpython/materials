@@ -26,7 +26,9 @@ def main(screen):
 
         # Move the snake
         snake.pop()
-        snake.insert(0, tuple(map(sum, zip(snake[0], direction))))
+        snake.insert(
+            0, tuple(map(sum, zip(snake[0], direction, strict=False)))
+        )
 
         # Change direction on arrow keystroke
         direction = directions.get(screen.getch(), direction)

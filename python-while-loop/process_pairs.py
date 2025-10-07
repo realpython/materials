@@ -28,5 +28,5 @@ for first, second in process_pairs(scientists):
 
 
 print("\nWith zip()")
-for first, second in zip(scientists[::2], scientists[1::2]):
+for first, second in zip(scientists[::2], scientists[1::2], strict=False):
     print(f"- {first} and {second}")

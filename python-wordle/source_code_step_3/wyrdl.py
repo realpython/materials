@@ -32,7 +32,9 @@ def get_random_word(word_list):
 
 def show_guess(guess, word):
     correct_letters = {
-        letter for letter, correct in zip(guess, word) if letter == correct
+        letter
+        for letter, correct in zip(guess, word, strict=False)
+        if letter == correct
     }
     misplaced_letters = set(guess) & set(word) - correct_letters
     wrong_letters = set(guess) - set(word)

@@ -5,5 +5,5 @@ class Person:
 
 
 jane = Person("Jane", 25)
-print(getattr(jane, "name"))
-print(getattr(jane, "age"))
+print(jane.name)
+print(jane.age)

@@ -1,4 +1,4 @@
-""" Country data obtained from https://github.com/samayo/country-json """
+"""Country data obtained from https://github.com/samayo/country-json"""
 
 countries = [
     {"country": "Austria", "population": 8_840_521},

@@ -12,11 +12,7 @@ class Dweet(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
-        return (
-            f"{self.user} "
-            f"({self.created_at:%Y-%m-%d %H:%M}): "
-            f"{self.body[:30]}..."
-        )
+        return f"{self.user} ({self.created_at:%Y-%m-%d %H:%M}): {self.body[:30]}..."
 
 
 class Profile(models.Model):
