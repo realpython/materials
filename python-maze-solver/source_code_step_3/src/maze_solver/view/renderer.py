@@ -11,10 +11,10 @@ from maze_solver.view.decomposer import decompose
 from maze_solver.view.primitives import Point, Polyline, Rect, Text, tag
 
 ROLE_EMOJI = {
-    Role.ENTRANCE: "\N{pedestrian}",
-    Role.EXIT: "\N{chequered flag}",
-    Role.ENEMY: "\N{ghost}",
-    Role.REWARD: "\N{white medium star}",
+    Role.ENTRANCE: "\N{PEDESTRIAN}",
+    Role.EXIT: "\N{CHEQUERED FLAG}",
+    Role.ENEMY: "\N{GHOST}",
+    Role.REWARD: "\N{WHITE MEDIUM STAR}",
 }
 
 

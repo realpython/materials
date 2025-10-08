@@ -27,7 +27,13 @@ def tok_to_trans(length):
 
 if __name__ == "__main__":
     for nbytes in range(10):
-        d = dict(zip(("tok", "enc", "trans", "res"), token_urlsafe(nbytes)))
+        d = dict(
+            zip(
+                ("tok", "enc", "trans", "res"),
+                token_urlsafe(nbytes),
+                strict=False,
+            )
+        )
         print(d)
         print("\tlengths:", {k: len(v) for k, v in d.items()})
 

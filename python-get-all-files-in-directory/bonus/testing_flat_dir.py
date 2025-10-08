@@ -64,5 +64,4 @@ try:
     )
 
 finally:
-
     recursive_rmdir(flat_dir)

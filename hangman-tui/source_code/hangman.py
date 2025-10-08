@@ -158,8 +158,7 @@ if __name__ == "__main__":
         draw_hanged_man(wrong_guesses)
         print(f"Your word is: {guessed_word}")
         print(
-            "Current guessed letters: "
-            f"{join_guessed_letters(guessed_letters)}\n"
+            f"Current guessed letters: {join_guessed_letters(guessed_letters)}\n"
         )
 
         player_guess = get_player_input(guessed_letters)

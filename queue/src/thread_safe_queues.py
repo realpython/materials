@@ -122,7 +122,6 @@ class View:
                 live.update(self.render())
 
     def render(self):
-
         match self.buffer:
             case PriorityQueue():
                 title = "Priority Queue"

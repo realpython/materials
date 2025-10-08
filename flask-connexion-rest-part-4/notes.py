@@ -100,7 +100,6 @@ def update(person_id, note_id, note):
 
     # Did we find an existing note?
     if update_note is not None:
-
         # turn the passed in note into a db object
         schema = NoteSchema()
         update = schema.load(note, session=db.session).data

@@ -9,11 +9,11 @@ http://127.0.0.1:8000/
 from typing import Optional
 
 import yaml
+from fastapi.responses import HTMLResponse, JSONResponse
+from fastapi.staticfiles import StaticFiles
 from pydantic import BaseModel
 
 from fastapi import FastAPI
-from fastapi.responses import HTMLResponse, JSONResponse
-from fastapi.staticfiles import StaticFiles
 
 TEST_DATA = {
     "person": {

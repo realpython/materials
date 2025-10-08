@@ -15,7 +15,6 @@ events = Queue()
 
 
 async def main() -> None:
-
     player_x = document.querySelector("#playerX").value
     player_o = document.querySelector("#playerO").value
 

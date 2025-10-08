@@ -1,7 +1,4 @@
-sentence = (
-    "The rocket, who was named Ted, came back "
-    "from Mars because he missed his friends."
-)
+sentence = "The rocket, who was named Ted, came back from Mars because he missed his friends."
 
 
 def is_consonant(letter):

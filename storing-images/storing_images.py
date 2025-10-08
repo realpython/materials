@@ -288,7 +288,7 @@ def plot_with_legend(
         )
 
     all_plots = []
-    for data, label in zip(y_data, legend_labels):
+    for data, label in zip(y_data, legend_labels, strict=False):
         if log:
             (temp,) = plt.loglog(x_range, data, label=label)
         else:

@@ -16,7 +16,6 @@ customers_bp = Blueprint(
 @customers_bp.route("/customers", methods=["GET"])
 @customers_bp.route("/customers/<int:customer_id>", methods=["GET"])
 def customers(customer_id=None):
-
     # Start the query for customers
     query = db.session.query(
         Customer, func.sum(Invoice.total).label("invoices_total")

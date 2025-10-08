@@ -13,6 +13,6 @@ part_costs = [250, 500, 150, 80, 100, 120, 70, 25]
 print(
     {
         part: stock * cost
-        for part, stock, cost in zip(parts, stocks, part_costs)
+        for part, stock, cost in zip(parts, stocks, part_costs, strict=False)
     }
 )

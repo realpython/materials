@@ -2,9 +2,9 @@ import random
 
 MIN, MAX = 1, 100
 MAX_TRIES = 5
-PROMPT_1 = f"\N{mage} Guess a number between {MIN} and {MAX}: "
-PROMPT_2 = "\N{mage} Try again: "
-BYE = "Bye \N{waving hand sign}"
+PROMPT_1 = f"\N{MAGE} Guess a number between {MIN} and {MAX}: "
+PROMPT_2 = "\N{MAGE} Try again: "
+BYE = "Bye \N{WAVING HAND SIGN}"
 
 
 def main():
@@ -39,9 +39,9 @@ def play_game():
                             prompt = PROMPT_2
                             print(f"Too high! {num_tries} tries left.")
                         case _:
-                            print("You won \N{party popper}")
+                            print("You won \N{PARTY POPPER}")
                             return
-    print("You lost \N{pensive face}")
+    print("You lost \N{PENSIVE FACE}")
 
 
 def want_again():

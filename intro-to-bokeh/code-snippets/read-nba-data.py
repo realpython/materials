@@ -29,7 +29,7 @@ three_takers = player_stats[player_stats["play3PA"] > 0]
 
 # Clean up the player names, placing them in a single column
 three_takers["name"] = [
-    f'{p["playFNm"]} {p["playLNm"]}' for _, p in three_takers.iterrows()
+    f"{p['playFNm']} {p['playLNm']}" for _, p in three_takers.iterrows()
 ]
 
 # Aggregate the total three-point attempts and makes for each player
@@ -66,7 +66,6 @@ phi_gm_stats["game_num"] = range(1, len(phi_gm_stats) + 1)
 # Derive a win_loss column
 win_loss = []
 for _, row in phi_gm_stats.iterrows():
-
     # If the 76ers score more points, it's a win
     if row["teamPTS"] > row["opptPTS"]:
         win_loss.append("W")
@@ -95,7 +94,6 @@ phi_gm_stats_2["game_num"] = range(1, len(phi_gm_stats_2) + 1)
 # Derive a win_loss column
 win_loss = []
 for _, row in phi_gm_stats_2.iterrows():
-
     # If the 76ers score more points, it's a win
     if row["teamPTS"] > row["opptPTS"]:
         win_loss.append("W")

@@ -53,7 +53,7 @@ def split_into_pairs(
 def split_drop_last(
     iterable: Iterable[Any], chunk_size: int
 ) -> Iterator[tuple[Any, ...]]:
-    return zip(*[iter(iterable)] * chunk_size)
+    return zip(*[iter(iterable)] * chunk_size, strict=False)
 
 
 def split_sequence(

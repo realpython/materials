@@ -2,7 +2,7 @@ import ast
 import sys
 import traceback
 
-PROMPT = "\N{snake} "
+PROMPT = "\N{SNAKE} "
 COMMANDS = ("help", "exit", "quit")
 
 

@@ -1,5 +1,6 @@
 #!/usr/bin/env python
-""" Simple examples of calling C functions through ctypes module. """
+"""Simple examples of calling C functions through ctypes module."""
+
 import ctypes
 import pathlib
 import sys

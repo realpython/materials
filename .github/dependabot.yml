@@ -6,5 +6,4 @@ updates:
     interval: monthly
   open-pull-requests-limit: 10
   allow:
-  - dependency-name: flake8
-  - dependency-name: black
+  - dependency-name: ruff

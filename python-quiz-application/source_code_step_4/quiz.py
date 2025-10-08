@@ -48,7 +48,9 @@ def ask_question(question):
 
 def get_answer(question, alternatives):
     print(f"{question}?")
-    labeled_alternatives = dict(zip(ascii_lowercase, alternatives))
+    labeled_alternatives = dict(
+        zip(ascii_lowercase, alternatives, strict=False)
+    )
     for label, alternative in labeled_alternatives.items():
         print(f"  {label}) {alternative}")
 

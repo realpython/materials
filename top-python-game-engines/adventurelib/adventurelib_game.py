@@ -277,7 +277,6 @@ def answer_riddle():
 
 @adv.when("fight CHARACTER", context="giant")
 def fight_giant(character: str):
-
     global giant_hit_points, hit_points
 
     sword = inventory.find("sword")
@@ -316,7 +315,6 @@ def fight_giant(character: str):
 
 
 def print_giant_condition():
-
     if giant_hit_points < 10:
         print("The giant staggers, his eyes unfocused.")
     elif giant_hit_points < 20:
@@ -330,7 +328,6 @@ def print_giant_condition():
 
 
 def print_player_condition():
-
     if hit_points < 4:
         print("Your eyes lose focus on the giant as you sway unsteadily.")
     elif hit_points < 8:
@@ -410,7 +407,6 @@ def flee():
 @adv.when("adios")
 @adv.when("later")
 def goodbye():
-
     # Are you fighting the giant?
     if adv.get_context() == "giant":
         # Not so fast!

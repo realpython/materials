@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
-""" Pytest functions for CSV Football problem """
+"""Pytest functions for CSV Football problem"""
+
 import pytest
 
 # import football_v1 as fb

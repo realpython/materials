@@ -87,7 +87,6 @@ class Expression:
             self._current_position < len(self._expr_string)
             and current_char != "$"
         ):
-
             # Skip any leading whitespace characters
             while current_char.isspace():
                 self._current_position += 1

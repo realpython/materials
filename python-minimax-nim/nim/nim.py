@@ -62,7 +62,7 @@ def import_game_engine(game_name):
 
 def input_choice(choices, text="Please choose: "):
     """Get input from the player"""
-    inputs = dict(zip(string.ascii_letters, choices))
+    inputs = dict(zip(string.ascii_letters, choices, strict=False))
     for letter, choice in inputs.items():
         print(f"{letter}) {str(choice).replace('_', ' ').title()}")
 

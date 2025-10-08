@@ -2,9 +2,9 @@ import os
 import random
 
 import pandas as pd
+from spacy.util import compounding, minibatch
 
 import spacy
-from spacy.util import compounding, minibatch
 
 TEST_REVIEW = """
 Transcendently beautiful in moments outside the office, it seems almost
@@ -53,7 +53,7 @@ def train_model(
             random.shuffle(training_data)
             batches = minibatch(training_data, size=batch_sizes)
             for batch in batches:
-                text, labels = zip(*batch)
+                text, labels = zip(*batch, strict=False)
                 nlp.update(text, labels, drop=0.2, sgd=optimizer, losses=loss)
             with textcat.model.use_params(optimizer.averages):
                 evaluation_results = evaluate_model(
@@ -73,7 +73,7 @@ def train_model(
 
 
 def evaluate_model(tokenizer, textcat, test_data: list) -> dict:
-    reviews, labels = zip(*test_data)
+    reviews, labels = zip(*test_data, strict=False)
     reviews = (tokenizer(review) for review in reviews)
     true_positives = 0
     false_positives = 1e-8  # Can't be 0 because of presence in denominator
@@ -117,8 +117,7 @@ def test_model(input_data: str = TEST_REVIEW):
         prediction = "Negative"
         score = parsed_text.cats["neg"]
     print(
-        f"Review text: {input_data}\nPredicted sentiment: {prediction}"
-        f"\tScore: {score}"
+        f"Review text: {input_data}\nPredicted sentiment: {prediction}\tScore: {score}"
     )
 
 
