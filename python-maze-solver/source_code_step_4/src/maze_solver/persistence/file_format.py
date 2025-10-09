@@ -14,9 +14,9 @@ class FileHeader:
 
     @classmethod
     def read(cls, file: BinaryIO) -> "FileHeader":
-        assert (
-            file.read(len(MAGIC_NUMBER)) == MAGIC_NUMBER
-        ), "Unknown file type"
+        assert file.read(len(MAGIC_NUMBER)) == MAGIC_NUMBER, (
+            "Unknown file type"
+        )
         (format_version,) = struct.unpack("B", file.read(1))
         width, height = struct.unpack("<2I", file.read(2 * 4))
         return cls(format_version, width, height)

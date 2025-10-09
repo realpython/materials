@@ -16,7 +16,9 @@ left_channel = sound_wave(440, 2.5)
 right_channel = sound_wave(480, 2.5)
 
 stereo_frames = array.array("h")
-for left_sample, right_sample in zip(left_channel, right_channel):
+for left_sample, right_sample in zip(
+    left_channel, right_channel, strict=False
+):
     stereo_frames.append(left_sample)
     stereo_frames.append(right_sample)
 

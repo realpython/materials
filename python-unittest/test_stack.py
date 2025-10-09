@@ -28,7 +28,7 @@ class TestStack(unittest.TestCase):
         items = [5, 6, 7]
         for item in items:
             self.stack.push(item)
-        for stack_item, test_item in zip(self.stack, items):
+        for stack_item, test_item in zip(self.stack, items, strict=False):
             self.assertEqual(stack_item, test_item)
 
     def test_reversed(self):

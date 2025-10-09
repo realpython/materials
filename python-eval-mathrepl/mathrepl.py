@@ -25,7 +25,7 @@ Usage:
 Build math expressions using numeric values and operators.
 Use any of the following functions and constants:
 
-{', '.join(ALLOWED_NAMES.keys())}
+{", ".join(ALLOWED_NAMES.keys())}
 """
 
 

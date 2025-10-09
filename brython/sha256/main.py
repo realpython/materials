@@ -24,8 +24,7 @@ def compute(evt):
         return
     if value in hash_map:
         alert(
-            f"The SHA-256 value of '{value}' "
-            f"already exists: '{hash_map[value]}'"
+            f"The SHA-256 value of '{value}' already exists: '{hash_map[value]}'"
         )
         return
     hash = hashlib.sha256()

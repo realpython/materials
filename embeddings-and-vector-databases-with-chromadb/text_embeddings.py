@@ -15,7 +15,7 @@ print(type(text_embeddings))
 
 print(text_embeddings.shape)
 
-text_embeddings_dict = dict(zip(texts, list(text_embeddings)))
+text_embeddings_dict = dict(zip(texts, list(text_embeddings), strict=False))
 
 dog_text_1 = "The canine barked loudly."
 dog_text_2 = "The dog made a noisy bark."

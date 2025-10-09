@@ -14,4 +14,4 @@ sorted_students = sorted(
 )
 
 for name, grade in sorted_students:
-    print(f"{name}'s average grade: {grade:->{20-len(name)}.1f}")
+    print(f"{name}'s average grade: {grade:->{20 - len(name)}.1f}")

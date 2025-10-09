@@ -8,7 +8,7 @@ class Card(models.Model):
     question = models.CharField(max_length=100)
     answer = models.CharField(max_length=100)
     box = models.IntegerField(
-        choices=zip(BOXES, BOXES),
+        choices=zip(BOXES, BOXES, strict=False),
         default=BOXES[0],
     )
     date_created = models.DateTimeField(auto_now_add=True)

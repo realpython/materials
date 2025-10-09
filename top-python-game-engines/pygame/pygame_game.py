@@ -109,7 +109,6 @@ player.update(pygame.mouse.get_pos())
 # Run until you get to an end condition
 running = True
 while running:
-
     # Did the user click the window close button?
     for event in pygame.event.get():
         if event.type == pygame.QUIT:

@@ -57,6 +57,8 @@ class PluckedStringInstrument:
             )
         return tuple(
             string.press_fret(fret_number)
-            for string, fret_number in zip(self.tuning.strings, chord)
+            for string, fret_number in zip(
+                self.tuning.strings, chord, strict=False
+            )
             if fret_number is not None
         )

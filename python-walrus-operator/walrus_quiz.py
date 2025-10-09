@@ -21,7 +21,7 @@ for question, answers in QUESTIONS.items():
     correct = answers[0]
     random.shuffle(answers)
 
-    coded_answers = dict(zip(string.ascii_lowercase, answers))
+    coded_answers = dict(zip(string.ascii_lowercase, answers, strict=False))
     valid_answers = sorted(coded_answers.keys())
 
     for code, answer in coded_answers.items():

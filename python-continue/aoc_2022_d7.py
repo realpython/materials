@@ -13,7 +13,6 @@ def get_path_name(folder_name):
 
 
 def parse(lines):
-
     # We read each line and create some structures
     # - We maintain a path list stack, which tells us how deep the structure is
     #   - It starts with ["/"]
@@ -94,7 +93,6 @@ def parse(lines):
 
 
 def get_file_sizes(tree):
-
     # We've got the tree, so we need all the keys
     paths = sorted([k for k in tree.keys()], reverse=True)
 
@@ -122,7 +120,6 @@ def get_file_sizes(tree):
 
 
 def part1(file_sizes):
-
     total = 0
 
     # Now we can go through them all in this order
@@ -154,7 +151,6 @@ def part2(file_sizes):
 
 
 if __name__ == "__main__":
-
     with open(root_path / "input", "r") as f:
         # with open(root_path / "sample", "r") as f:
         lines = [line.strip() for line in f.readlines()]

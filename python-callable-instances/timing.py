@@ -28,8 +28,7 @@ class ExecutionTimer:
                 total_time += end - start
             average_time = total_time / self.repetitions
             print(
-                f"{func.__name__}() takes "
-                f"{average_time * 1000:.4f} ms on average"
+                f"{func.__name__}() takes {average_time * 1000:.4f} ms on average"
             )
             return result
 

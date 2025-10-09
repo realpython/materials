@@ -26,7 +26,6 @@ def get_author_book_publisher_data(filepath):
 def populate_database(session, author_book_publisher_data):
     # insert the data
     for row in author_book_publisher_data:
-
         author = (
             session.query(Author)
             .filter(Author.last_name == row["last_name"])

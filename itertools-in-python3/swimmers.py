@@ -41,7 +41,9 @@ for stroke, evts in sort_and_group(events, key=lambda evt: evt.stroke):
     events_by_name = sort_and_group(evts, key=lambda evt: evt.name)
     best_times = (min(evt) for _, evt in events_by_name)
     sorted_by_time = sorted(best_times, key=lambda evt: evt.time)
-    teams = zip(("A", "B"), it.islice(grouper(sorted_by_time, 4), 2))
+    teams = zip(
+        ("A", "B"), it.islice(grouper(sorted_by_time, 4), 2), strict=False
+    )
     for team, swimmers in teams:
         print(
             "{stroke} {team}: {names}".format(

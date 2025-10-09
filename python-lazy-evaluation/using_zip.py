@@ -10,11 +10,11 @@ random.shuffle(names)
 print(names)
 
 # Using 'zip()' in a 'for' loop
-for day, name in zip(weekdays, names):
+for day, name in zip(weekdays, names, strict=False):
     print(f"{day}: {name}")
 
 # Using 'zip()' with 'next()'
-day_name_pairs = zip(weekdays, names)
+day_name_pairs = zip(weekdays, names, strict=False)
 print(next(day_name_pairs))
 print(next(day_name_pairs))
 

@@ -38,7 +38,7 @@ class _Population:
     def get_country(self, country):
         """Get population data for one country"""
         country = self.data[country]
-        years, population = zip(*country.items())
+        years, population = zip(*country.items(), strict=False)
         return years, population
 
     def plot_country(self, country):

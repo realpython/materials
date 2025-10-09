@@ -1,8 +1,7 @@
+import _testinternalcapi
 import abc
 import sys
 import sysconfig
-
-import _testinternalcapi
 
 
 class Feature(abc.ABC):

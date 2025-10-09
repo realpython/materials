@@ -1,4 +1,4 @@
 categories = ["color", "fruit", "pet"]
 objects = ["blue", "apple", "dog"]
 
-dict(zip(categories, objects))
+dict(zip(categories, objects, strict=False))

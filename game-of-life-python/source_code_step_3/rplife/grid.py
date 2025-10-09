@@ -45,7 +45,4 @@ class LifeGrid:
         return "\n ".join(display)
 
     def __str__(self):
-        return (
-            f"{self.pattern.name}:\n"
-            f"Alive cells -> {sorted(self.pattern.alive_cells)}"
-        )
+        return f"{self.pattern.name}:\nAlive cells -> {sorted(self.pattern.alive_cells)}"

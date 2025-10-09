@@ -72,7 +72,7 @@ def add(
         raise typer.Exit(1)
     else:
         typer.secho(
-            f"""to-do: "{todo['Description']}" was added """
+            f"""to-do: "{todo["Description"]}" was added """
             f"""with priority: {priority}""",
             fg=typer.colors.GREEN,
         )
@@ -125,6 +125,6 @@ def main(
         help="Show the application's version and exit.",
         callback=_version_callback,
         is_eager=True,
-    )
+    ),
 ) -> None:
     return

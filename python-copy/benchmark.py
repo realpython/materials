@@ -41,7 +41,7 @@ def sliceable(instance):
 def random_dict(size):
     keys = random_set(size)
     values = random_set(size)
-    return dict(zip(keys, values))
+    return dict(zip(keys, values, strict=False))
 
 
 def random_set(size):

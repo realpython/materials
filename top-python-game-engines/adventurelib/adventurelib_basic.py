@@ -53,7 +53,6 @@ current_room = bedroom
 
 # Define functions to use items
 def unlock_living_room(current_room):
-
     if current_room == living_room:
         print("You unlock the door.")
         current_room.locked["east"] = False
@@ -133,7 +132,6 @@ def look():
 @adv.when("look at ITEM")
 @adv.when("inspect ITEM")
 def look_at(item: str):
-
     # Check if the item is in your inventory or not
     obj = inventory.find(item)
     if not obj:

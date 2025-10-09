@@ -64,9 +64,9 @@ class Student:
                 f"{self.first_name.lower()}.{self.last_name.lower()}@univ.edu"
             )
 
-        assert (
-            len(str(self.psid)) == 7
-        ), f"PSID not 7 digits for {self.first_name} {self.last_name}"
+        assert len(str(self.psid)) == 7, (
+            f"PSID not 7 digits for {self.first_name} {self.last_name}"
+        )
 
         self.full_name = f"{self.last_name}"
         if self.modifier is not None:
@@ -259,5 +259,11 @@ for col in range(1, n_quizzes + 1):
     )
 
 print(
-    dict(zip((f"Quiz {n}" for n in range(1, n_quizzes + 1)), quiz_max_scores))
+    dict(
+        zip(
+            (f"Quiz {n}" for n in range(1, n_quizzes + 1)),
+            quiz_max_scores,
+            strict=False,
+        )
+    )
 )

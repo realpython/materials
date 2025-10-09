@@ -1,23 +1,24 @@
 #!/usr/bin/env python3
-""" Caesar Cipher
-    A caesar cipher is a simple substitution cipher where each letter of the
-    plain text is substituted with a letter found by moving 'n' places down the
-    alphabet. For an example, if the input plain text is:
+"""Caesar Cipher
+A caesar cipher is a simple substitution cipher where each letter of the
+plain text is substituted with a letter found by moving 'n' places down the
+alphabet. For an example, if the input plain text is:
 
-        abcd xyz
+    abcd xyz
 
-    and the shift value, n, is 4. The encrypted text would be:
+and the shift value, n, is 4. The encrypted text would be:
 
-        efgh bcd
+    efgh bcd
 
-    You are to write a function which accepts two arguments, a plain-text
-    message and a number of letters to shift in the cipher. The function will
-    return an encrypted string with all letters being transformed while all
-    punctuation and whitespace remains unchanged.
+You are to write a function which accepts two arguments, a plain-text
+message and a number of letters to shift in the cipher. The function will
+return an encrypted string with all letters being transformed while all
+punctuation and whitespace remains unchanged.
 
-    Note: You can assume the plain text is all lowercase ascii, except for
-    whitespace and punctuation.
+Note: You can assume the plain text is all lowercase ascii, except for
+whitespace and punctuation.
 """
+
 import unittest
 
 

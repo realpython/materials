@@ -27,4 +27,4 @@ def test_should_handle_redis_connection_error(mock_redis, http_client):
 
     # Then
     assert response.status_code == 500
-    assert response.text == "Sorry, something went wrong \N{pensive face}"
+    assert response.text == "Sorry, something went wrong \N{PENSIVE FACE}"

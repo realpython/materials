@@ -15,7 +15,6 @@ employees_bp = Blueprint(
 @employees_bp.route("/employees", methods=["GET"])
 @employees_bp.route("/employees/<int:employee_id>", methods=["GET"])
 def employees(employee_id=None):
-
     # Start the query for employees
     query = db.session.query(Employee)
 

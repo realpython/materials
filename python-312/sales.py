@@ -15,6 +15,5 @@ sales = {
 for month in calendar.Month:
     if month in sales:
         print(
-            f"{month.value:2d} {month.name:<10}"
-            f" {sales[month]:2d} {'*' * sales[month]}"
+            f"{month.value:2d} {month.name:<10} {sales[month]:2d} {'*' * sales[month]}"
         )

@@ -126,8 +126,7 @@ class Message:
             self.selector.unregister(self.sock)
         except Exception as e:
             print(
-                f"Error: selector.unregister() exception for "
-                f"{self.addr}: {e!r}"
+                f"Error: selector.unregister() exception for {self.addr}: {e!r}"
             )
 
         try:
@@ -197,8 +196,7 @@ class Message:
             # Binary or unknown content-type
             self.response = data
             print(
-                f"Received {self.jsonheader['content-type']} "
-                f"response from {self.addr}"
+                f"Received {self.jsonheader['content-type']} response from {self.addr}"
             )
             self._process_response_binary_content()
         # Close when response has been processed
