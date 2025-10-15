@@ -1,5 +1,3 @@
-import os
-
 from markitdown import MarkItDown
 from openai import OpenAI
 
