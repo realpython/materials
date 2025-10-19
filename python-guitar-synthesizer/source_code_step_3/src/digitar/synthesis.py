@@ -3,7 +3,6 @@ from itertools import cycle
 from typing import Iterator, Sequence
 
 import numpy as np
-
 from digitar.burst import BurstGenerator, WhiteNoise
 from digitar.processing import normalize, remove_dc
 from digitar.temporal import Hertz, Time
