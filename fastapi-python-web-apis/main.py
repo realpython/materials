@@ -1,9 +1,10 @@
 import random
 from typing import Annotated
 
+from pydantic import BaseModel, Field
+
 from fastapi import FastAPI, HTTPException, Query
 from fastapi.middleware.cors import CORSMiddleware
-from pydantic import BaseModel, Field
 
 tags_metadata = [
     {

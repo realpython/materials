@@ -2,11 +2,7 @@
 
 """This module provides views to manage the contacts table."""
 
-from PyQt5.QtWidgets import (
-    QHBoxLayout,
-    QMainWindow,
-    QWidget,
-)
+from PyQt5.QtWidgets import QHBoxLayout, QMainWindow, QWidget
 
 
 class Window(QMainWindow):

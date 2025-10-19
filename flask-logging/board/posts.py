@@ -1,3 +1,4 @@
+from board.database import get_db
 from flask import (
     Blueprint,
     current_app,
@@ -7,8 +8,6 @@ from flask import (
     request,
     url_for,
 )
-
-from board.database import get_db
 
 bp = Blueprint("posts", __name__)
 

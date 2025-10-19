@@ -1,7 +1,6 @@
-from flask import Blueprint, render_template
-
 from app import db
 from app.models import Playlist
+from flask import Blueprint, render_template
 
 # Setup the Blueprint
 playlists_bp = Blueprint(
