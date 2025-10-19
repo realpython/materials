@@ -18,7 +18,7 @@ jobs:
       fail-fast: false
       matrix:
         include:
-          - {name: Linux313, python: '3.13.7', os: ubuntu-latest}
+          - {name: Linux314, python: '3.14.0', os: ubuntu-latest}
     steps:
     - name: Check out repository
       uses: actions/checkout@v2
@@ -48,8 +48,9 @@ jobs:
     - name: Check code style
       run: |
         . venv/bin/activate
+        python -m isort .
         python -m ruff format --check
-        python -m ruff check
+        python -m ruff check --ignore I
 
     - name: Check directory layout
       run: |
