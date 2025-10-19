@@ -48,9 +48,8 @@ jobs:
     - name: Check code style
       run: |
         . venv/bin/activate
-        python -m isort .
         python -m ruff format --check
-        python -m ruff check --ignore I
+        python -m ruff check
 
     - name: Check directory layout
       run: |
