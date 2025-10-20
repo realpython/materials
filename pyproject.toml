@@ -1,5 +1,5 @@
 [tool.ruff]
-target-version = "py313"
+target-version = "py314"
 line-length = 79
 exclude = [
     ".devcontainers",
@@ -8,5 +8,9 @@ exclude = [
 ]
 
 [tool.ruff.lint]
-select = ["E", "F", "I", "RUF100"]
-ignore = ["E501"]
+select = ["E", "F", "RUF100"]
+ignore = ["E501", "I"]
+
+[tool.ruff.lint.isort]
+force-sort-within-sections = true
+

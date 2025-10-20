@@ -1,4 +1,5 @@
 import imghdr
+
 import magic
 
 print(imghdr.what("python-311.jpg"))

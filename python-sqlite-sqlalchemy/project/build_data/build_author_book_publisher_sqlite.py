@@ -7,10 +7,9 @@ import csv
 import os
 from importlib import resources
 
+from project.modules.models import Author, Base, Book, Publisher
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
-
-from project.modules.models import Author, Base, Book, Publisher
 
 
 def get_author_book_publisher_data(filepath):
