@@ -1,10 +1,9 @@
+from bandcamp.web.base import Track, WebComponent
+from bandcamp.web.locators import TrackListLocator, TrackLocator
 from selenium.common.exceptions import NoSuchElementException
 from selenium.webdriver.remote.webdriver import WebDriver
 from selenium.webdriver.remote.webelement import WebElement
 from selenium.webdriver.support import expected_conditions as EC
-
-from bandcamp.web.base import Track, WebComponent
-from bandcamp.web.locators import TrackListLocator, TrackLocator
 
 
 class TrackListElement(WebComponent):

@@ -29,16 +29,14 @@ def find_users_query_v1(name: str) -> str:
     return f"SELECT * FROM users WHERE name = '{name}'"
 
 
-# Uncomment for Python 3.14:
-#
-# def find_users_query_v2(name: str) -> Template:
-#     """Return a SQL query to find users by name."""
-#     return t"SELECT * FROM users WHERE name = '{name}'"
-#
-#
-# def find_users(name: str) -> SQLQuery:
-#     """Return a SQL query to find users by name."""
-#     return SQLQuery(t"SELECT * FROM users WHERE name = {name}")
+def find_users_query_v2(name: str) -> Template:
+    """Return a SQL query to find users by name."""
+    return t"SELECT * FROM users WHERE name = '{name}'"
+
+
+def find_users(name: str) -> SQLQuery:
+    """Return a SQL query to find users by name."""
+    return SQLQuery(t"SELECT * FROM users WHERE name = {name}")
 
 
 def render(template: Template) -> str:
@@ -63,16 +61,14 @@ if __name__ == "__main__":
     # Insecure f-strings
     print(find_users_query_v1("' OR '1'='1"))
 
-    # Uncomment for Python 3.14:
-    #
-    # # More secure t-strings
-    # print(find_users_query_v2("' OR '1'='1"))
-    #
-    # # Insecure way of rendering t-strings into plain strings
-    # print(render(find_users_query_v2("' OR '1'='1")))
-    #
-    # # More secure way of rendering t-strings
-    # print(safer_render(find_users_query_v2("' OR '1'='1")))
-    #
-    # # Rendering t-strings into an alternative representation
-    # print(find_users("' OR '1'='1"))
+    # More secure t-strings
+    print(find_users_query_v2("' OR '1'='1"))
+
+    # Insecure way of rendering t-strings into plain strings
+    print(render(find_users_query_v2("' OR '1'='1")))
+
+    # More secure way of rendering t-strings
+    print(safer_render(find_users_query_v2("' OR '1'='1")))
+
+    # Rendering t-strings into an alternative representation
+    print(find_users("' OR '1'='1"))

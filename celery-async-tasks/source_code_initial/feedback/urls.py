@@ -1,5 +1,4 @@
 from django.urls import path
-
 from feedback.views import FeedbackFormView, SuccessView
 
 app_name = "feedback"

@@ -14,7 +14,6 @@ from digitar.synthesis import Synthesizer
 from digitar.temporal import MeasuredTimeline, Time
 from digitar.track import AudioTrack
 from pedalboard.io import AudioFile
-
 from tablature import models
 
 SAMPLING_RATE = 44100

@@ -4,10 +4,10 @@ from typing import Any, Optional
 
 @dataclass
 class LinkedList:
-    head: Node  # noqa
+    head: Node
 
 
 @dataclass
 class Node:
     value: Any
-    next: Optional[Node] = None  # noqa
+    next: Optional[Node] = None
