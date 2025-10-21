@@ -2,11 +2,7 @@ import random
 
 from django.shortcuts import get_object_or_404, redirect
 from django.urls import reverse_lazy
-from django.views.generic import (
-    CreateView,
-    ListView,
-    UpdateView,
-)
+from django.views.generic import CreateView, ListView, UpdateView
 
 from .forms import CardCheckForm
 from .models import Card

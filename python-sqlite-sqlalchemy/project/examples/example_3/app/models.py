@@ -1,8 +1,7 @@
 # coding: utf-8
 
-from sqlalchemy.ext.hybrid import hybrid_property
-
 from app import db
+from sqlalchemy.ext.hybrid import hybrid_property
 
 
 class Artist(db.Model):

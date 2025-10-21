@@ -1,7 +1,6 @@
 from typing import Protocol
 
 import numpy as np
-
 from digitar.temporal import Hertz
 
 

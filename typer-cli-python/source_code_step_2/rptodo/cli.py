@@ -3,7 +3,6 @@
 from typing import Optional
 
 import typer
-
 from rptodo import __app_name__, __version__
 
 app = typer.Typer()

@@ -1,7 +1,6 @@
-from flask import Blueprint, render_template
-
 from app import db
 from app.models import Employee
+from flask import Blueprint, render_template
 
 # Setup the Blueprint
 employees_bp = Blueprint(
