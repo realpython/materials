@@ -1,6 +1,6 @@
 # How to Serve a Website With FastAPI Using HTML and Jinja2
 
-This repository contains the code discussed in the tutorial [How to Serve a Website With FastAPI Using HTML and Jinja2](https://realpython.com/fastapi-jinja2-template/).
+This folder contains the code discussed in the tutorial [How to Serve a Website With FastAPI Using HTML and Jinja2](https://realpython.com/fastapi-jinja2-template/).
 
 ## Installation
 
