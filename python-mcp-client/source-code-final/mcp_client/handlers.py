@@ -89,7 +89,10 @@ class OpenAIQueryHandler:
         tool_args = json.loads(tool_call.function.arguments or "{}")
 
         try:
-            result = await self.client_session.call_tool(tool_name, tool_args)
+            result = await self.client_session.call_tool(
+                tool_name,
+                tool_args,
+            )
             content = result.content[0].text if result.content else ""
             log = f"[Used {tool_name}({tool_args})]"
         except Exception as e:

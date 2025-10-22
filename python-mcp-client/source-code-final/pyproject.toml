@@ -10,7 +10,7 @@ dependencies = [
 ]
 
 [project.scripts]
-mcp-client = "mcp_client.__main__:main"
+mcp-client = "mcp_client.__main__:cli_main"
 
 [build-system]
 requires = ["setuptools>=61.0", "wheel"]
