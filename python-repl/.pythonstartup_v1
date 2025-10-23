@@ -1,0 +1,10 @@
+from importlib import reload
+from pprint import pp
+
+try:
+    from rich import pretty, traceback
+except ModuleNotFoundError:
+    pass
+else:
+    pretty.install()
+    traceback.install(show_locals=False)
