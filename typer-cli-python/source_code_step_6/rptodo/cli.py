@@ -4,7 +4,6 @@ from pathlib import Path
 from typing import List, Optional
 
 import typer
-
 from rptodo import ERRORS, __app_name__, __version__, config, database, rptodo
 
 app = typer.Typer()
@@ -72,7 +71,7 @@ def add(
         raise typer.Exit(1)
     else:
         typer.secho(
-            f"""to-do: "{todo['Description']}" was added """
+            f"""to-do: "{todo["Description"]}" was added """
             f"""with priority: {priority}""",
             fg=typer.colors.GREEN,
         )
@@ -123,7 +122,7 @@ def set_done(todo_id: int = typer.Argument(...)) -> None:
         raise typer.Exit(1)
     else:
         typer.secho(
-            f"""to-do # {todo_id} "{todo['Description']}" completed!""",
+            f"""to-do # {todo_id} "{todo["Description"]}" completed!""",
             fg=typer.colors.GREEN,
         )
 
@@ -143,6 +142,6 @@ def main(
         help="Show the application's version and exit.",
         callback=_version_callback,
         is_eager=True,
-    )
+    ),
 ) -> None:
     return

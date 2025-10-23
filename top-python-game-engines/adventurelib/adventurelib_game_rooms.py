@@ -15,7 +15,6 @@ import adventurelib_game_items
 # Create a subclass of Rooms to track some custom properties
 class GameArea(adv.Room):
     def __init__(self, description: str):
-
         super().__init__(description)
 
         # All areas can have locked exits

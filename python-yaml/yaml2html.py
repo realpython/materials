@@ -25,7 +25,6 @@ class HTMLBuilder:
         return "".join(self._html)
 
     def process(self, event):
-
         if isinstance(event, OPEN_TAG_EVENTS):
             self._handle_tag()
 

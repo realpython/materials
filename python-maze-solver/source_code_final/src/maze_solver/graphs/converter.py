@@ -2,7 +2,6 @@ import math
 from typing import NamedTuple, TypeAlias
 
 import networkx as nx
-
 from maze_solver.models.border import Border
 from maze_solver.models.maze import Maze
 from maze_solver.models.role import Role

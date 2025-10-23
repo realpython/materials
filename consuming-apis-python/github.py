@@ -77,8 +77,7 @@ def print_user_info(access_token=None):
     username = response["login"]
     private_repos_count = response["total_private_repos"]
     print(
-        f"{name} ({username}) | "
-        f"number of private repositories: {private_repos_count}"
+        f"{name} ({username}) | number of private repositories: {private_repos_count}"
     )
 
 

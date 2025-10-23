@@ -15,4 +15,4 @@ for element in test_data:
 
 print()
 for element in test_data:
-    print("bool") if type(element) is bool else print("int")  # noqa
+    print("bool") if type(element) is bool else print("int")

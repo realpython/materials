@@ -19,4 +19,4 @@ for _ in range(10):
 
 end = time.perf_counter()
 
-f"Code finished in {(end - start)/10:0.4f} seconds."
+f"Code finished in {(end - start) / 10:0.4f} seconds."

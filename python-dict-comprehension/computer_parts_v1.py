@@ -9,4 +9,4 @@ parts = [
     "Cooling Fan",
 ]
 stocks = [15, 8, 12, 30, 25, 10, 5, 20]
-print({part: stock for part, stock in zip(parts, stocks)})
+print({part: stock for part, stock in zip(parts, stocks, strict=False)})

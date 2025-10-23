@@ -4,7 +4,6 @@ from pathlib import Path
 from typing import Optional
 
 import typer
-
 from rptodo import ERRORS, __app_name__, __version__, config, database
 
 app = typer.Typer()
@@ -53,6 +52,6 @@ def main(
         help="Show the application's version and exit.",
         callback=_version_callback,
         is_eager=True,
-    )
+    ),
 ) -> None:
     return

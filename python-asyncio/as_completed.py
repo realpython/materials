@@ -8,7 +8,7 @@ async def main():
     print("Start:", time.strftime("%X"))
     for task in asyncio.as_completed([task1, task2]):
         result = await task
-        print(f'result: {result} completed at {time.strftime("%X")}')
+        print(f"result: {result} completed at {time.strftime('%X')}")
     print("End:", time.strftime("%X"))
     print(f"Both tasks done: {all((task1.done(), task2.done()))}")
 

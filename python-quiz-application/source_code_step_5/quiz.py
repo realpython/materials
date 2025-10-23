@@ -57,7 +57,9 @@ def ask_question(question):
 
 def get_answers(question, alternatives, num_choices=1, hint=None):
     print(f"{question}?")
-    labeled_alternatives = dict(zip(ascii_lowercase, alternatives))
+    labeled_alternatives = dict(
+        zip(ascii_lowercase, alternatives, strict=False)
+    )
     if hint:
         labeled_alternatives["?"] = "Hint"
 

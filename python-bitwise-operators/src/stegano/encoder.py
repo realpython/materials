@@ -42,12 +42,16 @@ def encode(bitmap: Bitmap, path: pathlib.Path) -> None:
         raise EncodingError("Not enough pixels to embed a secret file")
 
     bitmap.reserved_field = file.size_bytes
-    for secret_byte, eight_bytes in zip(file.secret_bytes, bitmap.byte_slices):
+    for secret_byte, eight_bytes in zip(
+        file.secret_bytes, bitmap.byte_slices, strict=False
+    ):
         secret_bits = [(secret_byte >> i) & 1 for i in reversed(range(8))]
         bitmap[eight_bytes] = bytes(
             [
                 byte | 1 if bit else byte & ~1
-                for byte, bit in zip(bitmap[eight_bytes], secret_bits)
+                for byte, bit in zip(
+                    bitmap[eight_bytes], secret_bits, strict=False
+                )
             ]
         )
 

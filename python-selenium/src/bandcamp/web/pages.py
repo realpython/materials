@@ -1,9 +1,8 @@
-from selenium.common.exceptions import NoSuchElementException
-from selenium.webdriver.remote.webdriver import WebDriver
-
 from bandcamp.web.base import WebPage
 from bandcamp.web.elements import TrackListElement
 from bandcamp.web.locators import DiscoverPageLocator
+from selenium.common.exceptions import NoSuchElementException
+from selenium.webdriver.remote.webdriver import WebDriver
 
 
 class DiscoverPage(WebPage):

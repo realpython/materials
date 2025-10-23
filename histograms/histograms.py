@@ -68,7 +68,7 @@ vals = [1, 3, 4, 6, 8, 9, 10]
 freq = [random.randint(5, 15) for _ in vals]
 
 data = []
-for f, v in zip(freq, vals):
+for f, v in zip(freq, vals, strict=False):
     data.extend([v] * f)
 print("ASCII histogram of `data`:")
 ascii_histogram(data)
@@ -93,7 +93,7 @@ assert np.array_equal(hist, bcounts), "Bincounts unequal."
 # Reproducing `collections.Counter`
 print(
     "Reproducing `collections.Counter`:",
-    dict(zip(np.unique(a), bcounts[bcounts.nonzero()])),
+    dict(zip(np.unique(a), bcounts[bcounts.nonzero()], strict=False)),
 )
 
 

@@ -121,8 +121,10 @@ class ExerciseProgress:
                 node[test.id] = {status.value: self.num_failures(test) + 1}
 
     def num_failures(self, test: Test) -> int:
-        match self.root.get("statuses", {}).get(str(test.task_number), {}).get(
-            test.id
+        match (
+            self.root.get("statuses", {})
+            .get(str(test.task_number), {})
+            .get(test.id)
         ):
             case None | "skipped" | "passed":
                 return 0

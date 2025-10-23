@@ -63,7 +63,10 @@ def points(line):
         case (x1, y1, x2, y2) if y1 == y2:
             return [(x, y1) for x in coords(x1, x2)]
         case (x1, y1, x2, y2):
-            return [(x, y) for x, y in zip(coords(x1, x2), coords(y1, y2))]
+            return [
+                (x, y)
+                for x, y in zip(coords(x1, x2), coords(y1, y2), strict=False)
+            ]
 
 
 def coords(start, stop):

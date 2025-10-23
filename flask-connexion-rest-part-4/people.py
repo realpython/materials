@@ -41,7 +41,6 @@ def read_one(person_id):
 
     # Did we find a person?
     if person is not None:
-
         # Serialize the data for the response
         person_schema = PersonSchema()
         data = person_schema.dump(person).data
@@ -71,7 +70,6 @@ def create(person):
 
     # Can we insert this person?
     if existing_person is None:
-
         # Create a person instance using the schema and the passed in person
         schema = PersonSchema()
         new_person = schema.load(person, session=db.session).data
@@ -105,7 +103,6 @@ def update(person_id, person):
 
     # Did we find an existing person?
     if update_person is not None:
-
         # turn the passed in person into a db object
         schema = PersonSchema()
         update = schema.load(person, session=db.session).data

@@ -11,4 +11,4 @@ print("\141")
 print("\x61")
 
 # Unicode by name
-print("\N{rightwards arrow}")
+print("\N{RIGHTWARDS ARROW}")

@@ -16,7 +16,8 @@ west_fig.title.text = "Western Conference"  # noqa
 
 # Configure the gridplot
 east_west_gridplot = gridplot(
-    [[west_fig, east_fig]], toolbar_location="right"  # noqa
+    [[west_fig, east_fig]],  # noqa: F821
+    toolbar_location="right",
 )
 
 # Plot the two visualizations in a horizontal configuration

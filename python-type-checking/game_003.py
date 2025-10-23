@@ -53,7 +53,8 @@ class Game:
         deck = Deck.create(shuffle=True)
         self.names = (list(names) + "P1 P2 P3 P4".split())[:4]
         self.hands = {
-            n: Player(n, h) for n, h in zip(self.names, deck.deal(4))
+            n: Player(n, h)
+            for n, h in zip(self.names, deck.deal(4), strict=False)
         }
 
     def play(self):

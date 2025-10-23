@@ -14,7 +14,9 @@ def sound_wave(frequency, num_seconds):
 
 left_channel = sound_wave(440, 2.5)
 right_channel = sound_wave(480, 2.5)
-stereo_frames = itertools.chain(*zip(left_channel, right_channel))
+stereo_frames = itertools.chain(
+    *zip(left_channel, right_channel, strict=False)
+)
 
 with wave.open("output.wav", mode="wb") as wav_file:
     wav_file.setnchannels(2)

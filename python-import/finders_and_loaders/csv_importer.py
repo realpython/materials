@@ -36,8 +36,8 @@ class CsvImporter:
             fieldnames = tuple(_identifier(f) for f in rows.fieldnames)
 
         # Create a dict with each field
-        values = zip(*(row.values() for row in data))
-        fields = dict(zip(fieldnames, values))
+        values = zip(*(row.values() for row in data), strict=False)
+        fields = dict(zip(fieldnames, values, strict=False))
 
         # Add the data to the module
         module.__dict__.update(fields)

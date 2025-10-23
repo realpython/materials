@@ -1,45 +1,46 @@
 #!/usr/bin/env python3
-""" Sudoku Solver
-    NOTE: A description of the Sudoku puzzle can be found at:
+"""Sudoku Solver
+NOTE: A description of the Sudoku puzzle can be found at:
 
-        https://en.wikipedia.org/wiki/Sudoku
+    https://en.wikipedia.org/wiki/Sudoku
 
-    Given a string in SDM format, described below, write a program to find and
-    return the solution for the Sudoku puzzle given in the string. The solution
-    should be returned in the same SDM format as the input.
+Given a string in SDM format, described below, write a program to find and
+return the solution for the Sudoku puzzle given in the string. The solution
+should be returned in the same SDM format as the input.
 
-    Some puzzles will not be solvable. In that case, return the string
-    "Unsolvable".
+Some puzzles will not be solvable. In that case, return the string
+"Unsolvable".
 
-    The general sdx format is described here:
+The general sdx format is described here:
 
-        http://www.sudocue.net/fileformats.php
+    http://www.sudocue.net/fileformats.php
 
-    For our purposes, each SDX string will be a sequence of 81 digits, one for
-    each position on the Sudoku puzzle. Known numbers will be given and unknown
-    positions will have a zero value.
+For our purposes, each SDX string will be a sequence of 81 digits, one for
+each position on the Sudoku puzzle. Known numbers will be given and unknown
+positions will have a zero value.
 
-    For example, this string of digits (split onto two lines for readability):
+For example, this string of digits (split onto two lines for readability):
 
-        0040060790000006020560923000780610305090004
-             06020540890007410920105000000840600100
+    0040060790000006020560923000780610305090004
+         06020540890007410920105000000840600100
 
-    represents this starting Sudoku puzzle:
+represents this starting Sudoku puzzle:
 
-             0 0 4   0 0 6   0 7 9
-             0 0 0   0 0 0   6 0 2
-             0 5 6   0 9 2   3 0 0
+         0 0 4   0 0 6   0 7 9
+         0 0 0   0 0 0   6 0 2
+         0 5 6   0 9 2   3 0 0
 
-             0 7 8   0 6 1   0 3 0
-             5 0 9   0 0 0   4 0 6
-             0 2 0   5 4 0   8 9 0
+         0 7 8   0 6 1   0 3 0
+         5 0 9   0 0 0   4 0 6
+         0 2 0   5 4 0   8 9 0
 
-             0 0 7   4 1 0   9 2 0
-             1 0 5   0 0 0   0 0 0
-             8 4 0   6 0 0   1 0 0
+         0 0 7   4 1 0   9 2 0
+         1 0 5   0 0 0   0 0 0
+         8 4 0   6 0 0   1 0 0
 
-    The unit tests provide may take a while to run, so be patient.
+The unit tests provide may take a while to run, so be patient.
 """
+
 import unittest
 
 
@@ -91,7 +92,7 @@ class SudokuSolverTestCase(unittest.TestCase):
 
     def test_solver(self):
         for index, problem in enumerate(self.problems):
-            print(f"Testing puzzle {index+1}")
+            print(f"Testing puzzle {index + 1}")
             result = sudoku_solve(problem)
             self.assertEqual(result, self.expected[index])
 

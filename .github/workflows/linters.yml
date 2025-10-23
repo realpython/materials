@@ -4,7 +4,7 @@
 # https://raw.githubusercontent.com/actions/python-versions/main/versions-manifest.json
 
 name: linters
-on: 
+on:
   push:
     branches:
       - master
@@ -18,12 +18,12 @@ jobs:
       fail-fast: false
       matrix:
         include:
-          - {name: Linux312, python: '3.12.3', os: ubuntu-latest}
+          - {name: Linux314, python: '3.14.0', os: ubuntu-latest}
     steps:
     - name: Check out repository
       uses: actions/checkout@v2
 
-    - name: Set up Python 
+    - name: Set up Python
       uses: actions/setup-python@v2
       with:
         python-version: ${{ matrix.python }}
@@ -48,8 +48,8 @@ jobs:
     - name: Check code style
       run: |
         . venv/bin/activate
-        python -m ruff check .
-        python -m black --check .
+        python -m ruff format --check
+        python -m ruff check
 
     - name: Check directory layout
       run: |

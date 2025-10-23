@@ -4,7 +4,6 @@ from itertools import cycle
 from typing import Iterator, Sequence
 
 import numpy as np
-
 from digitar.burst import BurstGenerator, WhiteNoise
 from digitar.chord import Chord
 from digitar.instrument import PluckedStringInstrument

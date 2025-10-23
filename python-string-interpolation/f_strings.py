@@ -10,7 +10,7 @@ print(f"The sum of {x} and {y} is {x + y}.")
 
 
 radius = 16
-print(f"The area of your circle is {math.pi * radius ** 2}")
+print(f"The area of your circle is {math.pi * radius**2}")
 
 name = "Pythonista"
 site = "real python"

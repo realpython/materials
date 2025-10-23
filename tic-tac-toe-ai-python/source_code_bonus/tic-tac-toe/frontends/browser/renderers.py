@@ -15,11 +15,11 @@ class BrowserRenderer(Renderer):
             for select in document.querySelectorAll("select"):
                 select.removeAttribute("disabled")
             if game_state.winner:
-                status.innerHTML = f"{game_state.winner} wins \N{party popper}"
+                status.innerHTML = f"{game_state.winner} wins \N{PARTY POPPER}"
                 for i in game_state.winning_cells:
                     button = document.querySelector(f"[data-id='{i}'] text")
                     button.classList.add("win")
             elif game_state.tie:
-                status.innerHTML = "Tie \N{neutral face}"
+                status.innerHTML = "Tie \N{NEUTRAL FACE}"
         else:
             document.querySelector("#status").innerHTML = ""

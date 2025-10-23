@@ -28,7 +28,6 @@ stat_figs = {}
 
 # For each stat in the dict
 for stat_label, stat_col in stat_names.items():
-
     # Create a figure
     fig = figure(
         y_axis_label=stat_label,

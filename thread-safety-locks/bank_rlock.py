@@ -15,8 +15,7 @@ class BankAccount:
         )
         with self.lock:
             print(
-                f"Thread {threading.current_thread().name} "
-                "acquired lock for .deposit()"
+                f"Thread {threading.current_thread().name} acquired lock for .deposit()"
             )
             time.sleep(0.1)
             self._update_balance(amount)
