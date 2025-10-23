@@ -1,0 +1,2 @@
+Hello, World!
+Welcome to MCP Client programming!
