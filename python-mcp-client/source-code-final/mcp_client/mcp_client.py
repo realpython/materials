@@ -1,6 +1,6 @@
 import sys
 from contextlib import AsyncExitStack
-from typing import Any, Awaitable, Callable, Self
+from typing import Any, Awaitable, Callable, ClassVar, Self
 
 from mcp import ClientSession, StdioServerParameters
 from mcp.client.stdio import stdio_client
@@ -17,12 +17,15 @@ class MCPClient:
             # Call client methods here...
     """
 
+    client_session: ClassVar[ClientSession]
+
     def __init__(self, server_path: str):
         self.server_path = server_path
         self.exit_stack = AsyncExitStack()
 
     async def __aenter__(self) -> Self:
-        self.client_session = await self._connect_to_server()
+        cls = type(self)
+        cls.client_session = await self._connect_to_server()
         return self
 
     async def __aexit__(self, *_) -> None:
