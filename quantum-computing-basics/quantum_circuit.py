@@ -1,4 +1,4 @@
-from qiskit import QuantumCircuit, QuantumRegister, ClassicalRegister
+from qiskit import ClassicalRegister, QuantumCircuit, QuantumRegister
 
 qr = QuantumRegister(1, name="quantum")
 cr = ClassicalRegister(1, name="classical")
