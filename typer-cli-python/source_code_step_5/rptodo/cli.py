@@ -4,7 +4,6 @@ from pathlib import Path
 from typing import List, Optional
 
 import typer
-
 from rptodo import ERRORS, __app_name__, __version__, config, database, rptodo
 
 app = typer.Typer()

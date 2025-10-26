@@ -1,5 +1,6 @@
-from crud_sql_alchemy import Bird, init_db
+from crud_sql_alchemy import Bird
 from crud_sql_alchemy import Session as SessionLocal
+from crud_sql_alchemy import init_db
 from pydantic import BaseModel, ConfigDict
 from sqlalchemy import select
 from sqlalchemy.orm import Session

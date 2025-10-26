@@ -1,5 +1,4 @@
 import networkx as nx
-
 from maze_solver.graphs.converter import make_graph
 from maze_solver.models.maze import Maze
 from maze_solver.models.solution import Solution

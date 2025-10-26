@@ -1,6 +1,6 @@
-import _opcode
 import dis
 
+import _opcode
 from pyinfo import print_details
 
 
