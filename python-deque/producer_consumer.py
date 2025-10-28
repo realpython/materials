@@ -1,69 +1,42 @@
-import collections
 import logging
 import random
 import threading
 import time
+from collections import deque
 
-logging.basicConfig(
-    level=logging.INFO,
-    format="%(threadName)s %(message)s",
-)
+logging.basicConfig(level=logging.INFO, format="%(message)s")
 
 
-class SynchronizedBuffer:
-    def __init__(self, capacity):
-        self.values = collections.deque(maxlen=capacity)
-        self.lock = threading.RLock()
-        self.consumed = threading.Condition(self.lock)
-        self.produced = threading.Condition(self.lock)
-
-    def __repr__(self):
-        return repr(list(self.values))
-
-    @property
-    def empty(self):
-        return len(self.values) == 0
-
-    @property
-    def full(self):
-        return len(self.values) == self.values.maxlen
-
-    def put(self, value):
-        with self.lock:
-            self.consumed.wait_for(lambda: not self.full)
-            self.values.append(value)
-            self.produced.notify()
-
-    def get(self):
-        with self.lock:
-            self.produced.wait_for(lambda: not self.empty)
-            try:
-                return self.values.popleft()
-            finally:
-                self.consumed.notify()
+def wait_seconds(mins, maxs):
+    time.sleep(mins + random.random() * (maxs - mins))
 
 
-def producer(buffer):
+def produce(queue, size):
     while True:
-        value = random.randint(1, 10)
-        buffer.put(value)
-        logging.info("produced %d: %s", value, buffer)
-        time.sleep(random.random())
+        if len(queue) < size:
+            value = random.randint(0, 9)
+            queue.append(value)
+            logging.info("Produced: %d -> %s", value, str(queue))
+        else:
+            logging.info("Queue is saturated")
+        wait_seconds(0.1, 0.5)
 
 
-def consumer(buffer):
+def consume(queue):
     while True:
-        value = buffer.get()
-        logging.info("consumed %d: %s", value, buffer)
-        time.sleep(random.random())
+        try:
+            value = queue.popleft()
+        except IndexError:
+            logging.info("Queue is empty")
+        else:
+            logging.info("Consumed: %d -> %s", value, str(queue))
+        wait_seconds(0.2, 0.7)
 
 
-if __name__ == "__main__":
+logging.info("Starting Threads...\n")
+logging.info("Press Ctrl+C to interrupt the execution\n")
 
-    buffer = SynchronizedBuffer(5)
+shared_queue = deque()
 
-    for _ in range(3):
-        threading.Thread(target=producer, args=(buffer,)).start()
-
-    for _ in range(2):
-        threading.Thread(target=consumer, args=(buffer,)).start()
+threading.Thread(target=produce, args=(shared_queue, 10)).start()
+threading.Thread(target=consume, args=(shared_queue,)).start()
