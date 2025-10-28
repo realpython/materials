@@ -4,7 +4,10 @@ import random
 import threading
 import time
 
-logging.basicConfig(level=logging.INFO, format="%(threadName)s %(message)s")
+logging.basicConfig(
+    level=logging.INFO,
+    format="%(threadName)s %(message)s",
+)
 
 
 class SynchronizedBuffer:
