@@ -3,10 +3,10 @@ name = "mcp-client"
 version = "0.1.0"
 description = "MCP client for testing MCP servers."
 readme = "README.md"
-requires-python = ">=3.13"
+requires-python = ">=3.14"
 dependencies = [
-    "mcp>=1.17.0",
-    "openai>=2.3.0",
+    "mcp>=1.20.0",
+    "openai>=2.6.1",
 ]
 
 [project.scripts]
