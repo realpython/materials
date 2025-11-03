@@ -77,7 +77,7 @@ def show(list_name: str) -> None:
         render_long(status)
     else:
         if list_name.lower() == "default":
-            print(f"You're all caught up :sparkles:")
+            print("You're all caught up :sparkles:")
         else:
             print(f"List not found: {list_name!r}")
 

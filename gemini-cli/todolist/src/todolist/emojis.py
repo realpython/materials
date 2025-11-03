@@ -36,7 +36,7 @@ def find_matching_emojis(phrases: Sequence[str]) -> tuple[str | None, ...]:
 
     if client := _get_client():
         phrases_text = "\n".join(
-            f"{i+1}. {phrase}" for i, phrase in enumerate(phrases)
+            f"{i + 1}. {phrase}" for i, phrase in enumerate(phrases)
         )
         user_prompt = BATCH_USER_PROMPT + f"\n\nPHRASES:\n{phrases_text}"
         try:

@@ -4,7 +4,7 @@ from dataclasses import asdict
 from datetime import datetime
 from typing import Any, Iterator, Protocol, TypedDict
 
-from rich.console import Console, Text
+from rich.console import Console
 from rich.markdown import Markdown
 from rich.panel import Panel
 
