@@ -1,3 +1,3 @@
-# SOLID Principles: Improve Object-Oriented Design in Python
+# SOLID Design Principles: Improve Object-Oriented Code in Python
 
-This folder provides the code examples for the Real Python tutorial [SOLID Principles: Improve Object-Oriented Design in Python](https://realpython.com/solid-principles-python/).
+This folder contains the code examples for the Real Python article [SOLID Design Principles: Improve Object-Oriented Code in Python](https://realpython.com/solid-principles-python/).
