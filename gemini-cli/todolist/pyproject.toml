@@ -17,3 +17,12 @@ dependencies = [
 
 [project.scripts]
 todo = "todolist.__main__:main"
+
+[dependency-groups]
+dev = [
+    "pytest>=9.0.0",
+    "ruff>=0.14.4",
+]
+
+[tool.ruff.lint]
+select = ["ALL"]
