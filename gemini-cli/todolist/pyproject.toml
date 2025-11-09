@@ -24,5 +24,3 @@ dev = [
     "ruff>=0.14.4",
 ]
 
-[tool.ruff.lint]
-select = ["ALL"]
