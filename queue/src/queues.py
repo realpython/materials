@@ -8,6 +8,13 @@ from typing import Any
 
 
 class IterableMixin:
+    """
+    A simple FIFO (First-In-First-Out) queue implemented using deque.
+
+    Methods:
+        enqueue(element): Add an element to the end of the queue.
+        dequeue(): Remove and return the element at the front of the queue.
+    """
     def __len__(self):
         return len(self._elements)
 
