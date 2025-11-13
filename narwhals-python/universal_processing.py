@@ -38,7 +38,7 @@ def universal_pivot_v1(df: IntoFrameT) -> IntoFrameT:
             on="party_name",
             index="century",
             values="last_name",
-            aggregate_function="count"
+            aggregate_function="count",
         )
         .to_native()
     )
@@ -53,7 +53,7 @@ def universal_pivot_v2(df: IntoFrameT) -> IntoFrameT:
             on="party_name",
             index="century",
             values="last_name",
-            aggregate_function="count"
+            aggregate_function="count",
         )
         .to_native()
     )
