@@ -1,0 +1,21 @@
+[project]
+name = "mcp-client"
+version = "0.1.0"
+description = "MCP client for testing MCP servers."
+readme = "README.md"
+requires-python = ">=3.14"
+dependencies = [
+    "mcp>=1.20.0",
+    "openai>=2.6.1",
+]
+
+[project.scripts]
+mcp-client = "mcp_client.__main__:cli_main"
+
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+include = ["mcp_client*"]  # Only include mcp_client package
+exclude = ["mcp_server*"]  # Explicitly exclude mcp_server

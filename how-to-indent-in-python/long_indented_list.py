@@ -1,0 +1,17 @@
+long_list_of_names = [
+    "Amy",
+    "Brian",
+    "Carol",
+    "Dennis",
+    "Emma",
+    "Frank",
+    "Georgia",
+    "Herbert",
+    "Isabelle",
+    "Joshua",
+    "Kimberly",
+    "Laurence",
+    "Megan",
+    "Nicolas",
+    "Ophelia",
+]

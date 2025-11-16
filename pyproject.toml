@@ -4,7 +4,8 @@ line-length = 79
 exclude = [
     ".devcontainers",
     ".github",
-    "migrations"
+    "migrations",
+    "how-to-indent-in-python/sample_code.py"
 ]
 
 [tool.ruff.lint]
