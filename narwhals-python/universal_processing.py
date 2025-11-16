@@ -45,15 +45,12 @@ def universal_pivot_v1(df: IntoFrameT) -> IntoFrameT:
 
 
 def universal_pivot_v2(df: IntoFrameT) -> IntoFrameT:
-    if isinstance(nw.from_native(df), nw.LazyFrame):
-        df = nw.from_native(df).collect()
-    return (
-        nw.from_native(df)
-        .pivot(
-            on="party_name",
-            index="century",
-            values="last_name",
-            aggregate_function="count",
-        )
-        .to_native()
-    )
+    df = nw.from_native(df)
+    if isinstance(df, nw.LazyFrame):
+        df = df.collect()
+    return df.pivot(
+        on="party_name",
+        index="century",
+        values="last_name",
+        aggregate_function="count",
+    ).to_native()
