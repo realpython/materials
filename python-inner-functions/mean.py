@@ -1,16 +1,16 @@
 def mean():
-    sample = []
+    samples = []
 
     def inner_mean(number):
-        sample.append(number)
-        return sum(sample) / len(sample)
+        samples.append(number)
+        return sum(samples) / len(samples)
 
     return inner_mean
 
 
-sample_mean = mean()
+sample_means = mean()
 
-print(sample_mean(100))
-print(sample_mean(105))
-print(sample_mean(101))
-print(sample_mean(98))
+print(sample_means(100))
+print(sample_means(105))
+print(sample_means(101))
+print(sample_means(98))
