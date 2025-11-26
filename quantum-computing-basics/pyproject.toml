@@ -1,0 +1,7 @@
+[project]
+name = "quantum-computing-basics"
+version = "0.1.0"
+requires-python = ">=3.10"
+dependencies = [
+    "qiskit[visualization]==2.2.3"
+]
