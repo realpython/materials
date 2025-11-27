@@ -10,12 +10,16 @@ from math import pi
 #             self.height = kwargs["height"]
 #         elif self.shape_type == "circle":
 #             self.radius = kwargs["radius"]
+#         else:
+#             raise TypeError("Unsupported shape type")
 
 #     def calculate_area(self):
 #         if self.shape_type == "rectangle":
 #             return self.width * self.height
 #         elif self.shape_type == "circle":
 #             return pi * self.radius**2
+#         else:
+#             raise TypeError("Unsupported shape type")
 
 
 # Good example
