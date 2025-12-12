@@ -3,25 +3,28 @@ from pydantic import BaseModel
 
 client = OpenAI()
 
+
 class CodeOutput(BaseModel):
     function_name: str
     code: str
     explanation: str
     example_usage: str
 
+
 code_response = client.responses.parse(
     model="gpt-5",
     input=[
         {
             "role": "developer",
-            "content": ("You are a coding assistant. Generate clean,"
-                        "well-documented Python code."
-                       )
+            "content": (
+                "You are a coding assistant. Generate clean,"
+                "well-documented Python code."
+            ),
         },
         {
             "role": "user",
-            "content": "Write a simple Python function to add two numbers"
-        }
+            "content": "Write a simple Python function to add two numbers",
+        },
     ],
     text_format=CodeOutput,
 )
