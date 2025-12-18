@@ -37,7 +37,7 @@ async def main():
 
     queries = [
         "What is this document about?",
-        "Summarize the naming conventions in Python?",
+        "Summarize the naming conventions in Python.",
     ]
 
     # Run queries asynchronously
