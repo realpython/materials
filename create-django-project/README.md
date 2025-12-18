@@ -2,7 +2,7 @@
 
 Follow tutorial on [How to Create a Django Project](https://realpython.com/django-setup/) on Real Python to create a new Django project with one Django app from scratch.
 
-> **Note:** This project targets Python 3.10 or later.
+> **Note:** This project targets Python 3.12 or later.
 
 ## Setup
 
@@ -31,7 +31,7 @@ Install the dependencies for this project:
 Navigate into the Django project folder:
 
 ```bash
-(venv) $ cd setup
+(venv) $ cd setup/
 ```
 
 Run the Django development server:
