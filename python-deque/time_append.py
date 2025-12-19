@@ -2,6 +2,7 @@ from collections import deque
 from time import perf_counter
 
 TIMES = 10_000
+NANOSECONDS_PER_SECOND = 1e9
 a_list = []
 a_deque = deque()
 
@@ -11,7 +12,8 @@ def average_time(func, times):
     for i in range(times):
         start = perf_counter()
         func(i)
-        total += (perf_counter() - start) * 1e9
+        # Convert to ns to improve readability
+        total += (perf_counter() - start) * NANOSECONDS_PER_SECOND
     return total / times
 
 

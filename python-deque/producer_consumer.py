@@ -7,7 +7,7 @@ from collections import deque
 logging.basicConfig(level=logging.INFO, format="%(message)s")
 
 
-def wait_seconds(mins, maxs):
+def _wait_seconds(mins, maxs):
     time.sleep(mins + random.random() * (maxs - mins))
 
 
@@ -19,7 +19,7 @@ def produce(queue, size):
             logging.info("Produced: %d -> %s", value, str(queue))
         else:
             logging.info("Queue is saturated")
-        wait_seconds(0.1, 0.5)
+        _wait_seconds(0.1, 0.5)
 
 
 def consume(queue):
@@ -30,7 +30,7 @@ def consume(queue):
             logging.info("Queue is empty")
         else:
             logging.info("Consumed: %d -> %s", value, str(queue))
-        wait_seconds(0.2, 0.7)
+        _wait_seconds(0.2, 0.7)
 
 
 logging.info("Starting Threads...\n")
