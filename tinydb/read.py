@@ -1,4 +1,5 @@
 from pprint import pprint
+
 from tinydb import Query, TinyDB
 
 countries_db = TinyDB("ten_countries.json")
