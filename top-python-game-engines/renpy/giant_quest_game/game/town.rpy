@@ -12,7 +12,6 @@ image blacksmith confused = "blacksmith2.png"
 image blacksmith happy = "blacksmith3.png"
 image blacksmith shocked = "blacksmith4.png"
 
-
 label town:
 
     scene distant town
@@ -20,16 +19,23 @@ label town:
 
     show expression current_weapon at left
 
-    "Crossing the bridge, you stride away from the river along a well worn path. The way is pleasant, and you find yourself humming a tune as you break into a small clearing."
+    "Crossing the bridge, you stride away from the river along a
+    well worn path. The way is pleasant, and you find yourself humming
+    a tune as you break into a small clearing."
 
-    "From here, you can make out the county seat of Fetheron. You feel confident you can find help for your quest here."
+    "From here, you can make out the county seat of Fetheron.
+    You feel confident you can find help for your quest here."
 
     scene within town
     with fade
 
     show expression current_weapon at left
 
-    "As you enter town, you immediately begin seeking the local blacksmith. After asking one of the townsfolk, you find the smithy on the far south end of town. You approach the smithy, smelling the smoke of the furnace long before you  hear the pounding of hammer on steel."
+    "As you enter town, you immediately begin seeking the local blacksmith.
+    After asking one of the townsfolk, you find the smithy on the far
+    south end of town. You approach the smithy,
+    smelling the smoke of the furnace long before you hear
+    the pounding of hammer on steel."
 
     player "Hello! Is the smith in?"
 
@@ -37,8 +43,9 @@ label town:
 
     show blacksmith greeting
 
-    "The blacksmith appears from her bellows. She greet you with a warm smile."
-    
+    "The blacksmith appears from her bellows.
+    She greets you with a warm smile."
+
     smith "Oh, hello! You're from the next town over, right?"
 
     menu:
@@ -51,14 +58,14 @@ label town:
             show blacksmith shocked
 
             smith "Hey, just trying to make conversation"
-        
+
     smith "So, what can I do for you?"
 
-    player "I need a better weapon that this wooden thing."
+    player "I need a better weapon than this wooden thing."
 
     show blacksmith confused
 
-    smith "Are you going be doing something dangerous?"
+    smith "Are you going to be doing something dangerous?"
 
     player "Have you heard about the missing livestock in town?"
 
@@ -70,9 +77,12 @@ label town:
 
     player "Exactly! Can you help?"
 
-    smith "I've got just the thing. Been working on it for a while, but didn't know what to do with it. Now I know"
+    smith "I've got just the thing. Been working on it for a while,
+    but didn't know what to do with it. Now I know."
 
-    "Miranda walks back past the furnace to a small rack. On it, a gleaming steel sword rests. She picks it up and walks back to you."
+    "Miranda walks back past the furnace to a small rack.
+    On it, a gleaming steel sword rests.
+    She picks it up and walks back to you."
 
     smith "Will this do?"
 
@@ -80,7 +90,8 @@ label town:
         "It's perfect!":
             show blacksmith happy
 
-            smith "Wonderful! Give me the wooden one - I can use it in the furnace!"
+            smith "Wonderful! Give me the wooden one -
+            I can use it in the furnace!"
 
             $ current_weapon = "steel sword"
             $ base_damage = 6
@@ -89,8 +100,9 @@ label town:
         "Is that piece of junk it?":
             show blacksmith confused
 
-            smith "I worked on this for weeks. If you don't want it, then don't take it."
-    
+            smith "I worked on this for weeks.
+            If you don't want it, then don't take it."
+
     # Show the current weapon
     show expression current_weapon at left
 
@@ -100,12 +112,13 @@ label town:
 
     smith "Alright. Good luck!"
 
-
     scene distant town
     with fade
 
     show expression current_weapon at left
 
-    "You make your way back through town. Glancing back at the town, you hope you wonder if you can keep them safe too."
+    "You make your way back through town.
+    Glancing back at the town, you wonder if
+    you can keep them safe too."
 
     jump path
