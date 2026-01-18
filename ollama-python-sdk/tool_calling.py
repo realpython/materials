@@ -24,7 +24,7 @@ messages = [
 ]
 
 response = chat(
-    model="llama3.2:latest",
+    model="llama3.2:latest",  # You may want to try this model: llama3.1:8b
     messages=messages,
     tools=[square_root],  # Pass the tools along with the prompt
 )
