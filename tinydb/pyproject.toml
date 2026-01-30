@@ -1,21 +1,5 @@
-[tool.black]
-line-length = 70
-target-version = ["py312"]
-exclude = '''
-/(
-  \.git
-  | venv
-  | migrations
-  | node_modules
-)/
-'''
-
-
-[tool.ruff]
-target-version = "py312"
-exclude        = [".git", "venv", "migrations", "node_modules"]
-line-length = 70
-
-[tool.ruff.lint]
-select = ["E", "F", "I", "RUF100"]
-ignore = ["E501"]                  # Line length is handled by Black
+[project]
+name = "tinydb"
+version = "0.1.0"
+requires-python = ">=3.13"
+dependencies = ["tinydb"]
