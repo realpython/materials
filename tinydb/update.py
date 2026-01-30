@@ -27,6 +27,4 @@ with TinyDB("ten_countries.json") as countries_db:
         ]
     )
 
-    countries_tb.update(
-        {"source": "Official estimate"}, doc_ids=[7, 9]
-    )
+    countries_tb.update({"source": "Official estimate"}, doc_ids=[7, 9])

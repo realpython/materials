@@ -6,9 +6,7 @@ from tinydb import TinyDB
 with TinyDB("countries.json", indent=4) as countries:
     countries_table = countries.table(name="countries")
 
-    countries_table.insert(
-        {"location": "Vatican City", "population": 501}
-    )
+    countries_table.insert({"location": "Vatican City", "population": 501})
 
     countries_table.insert_multiple(
         [
