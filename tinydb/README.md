@@ -4,13 +4,17 @@ This file contains the downloadable code from the RealPython tutorial: \[TinyDB:
 
 
 
-create.py             	- File containing all code from the CREATE section of the tutorial.
+create\_db.py            - SCRIPT file containing code from the CREATE section of the tutorial.
 
-read.py               	- File containing all code from the READ section of the tutorial.
+read.py               	- REPL code file containing code from the READ section of the tutorial.
 
-update.py 		- File containing all code from the UPDATE section of the tutorial.
+update\_db.py 		- SCRIPT file containing code from the UPDATE section of the tutorial.
 
-delete.py 		- File containing all code from the DELETE section of the tutorial.
+update\_db\_v2.py 	- SCRIPT file containing code from the UPDATE section of the tutorial.
+
+update\_db\_v3.py 	- SCRIPT file containing code from the UPDATE section of the tutorial.
+
+delete.py 		- REPL code file containing code from the DELETE section of the tutorial.
 
 
 

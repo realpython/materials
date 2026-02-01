@@ -1,10 +1,9 @@
 from csv import DictReader
-from pprint import pprint
 
 from tinydb import TinyDB
 
-with TinyDB("countries.json", indent=4) as countries:
-    countries_table = countries.table(name="countries")
+with TinyDB("countries.json", indent=4) as countries_db:
+    countries_table = countries_db.table(name="countries")
 
     countries_table.insert(
         {"location": "Vatican City", "population": 501}
@@ -21,6 +20,6 @@ with TinyDB("countries.json", indent=4) as countries:
         reader = DictReader(csv_source)
 
         for row in reader:
+            row["population"] = int(row["population"])
             countries_table.insert(row)
 
-    pprint(countries_table.get(doc_ids=[3, 4]))
