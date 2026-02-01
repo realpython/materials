@@ -22,4 +22,3 @@ with TinyDB("countries.json", indent=4) as countries_db:
         for row in reader:
             row["population"] = int(row["population"])
             countries_table.insert(row)
-
