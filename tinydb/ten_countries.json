@@ -1,0 +1,74 @@
+{
+    "countries": {
+        "1": {
+            "location": "India",
+            "population": 1417492000,
+            "% of world": 17.3,
+            "date": "1 Jul 2025",
+            "source": "Official projection"
+        },
+        "2": {
+            "location": "China",
+            "population": 1408280000,
+            "% of world": 17.2,
+            "date": "31 Dec 2024",
+            "source": "Official estimate"
+        },
+        "3": {
+            "location": "United States",
+            "population": 340110988,
+            "% of world": 4.1,
+            "date": "1 Jul 2024",
+            "source": "Official estimate"
+        },
+        "4": {
+            "location": "Indonesia",
+            "population": 284438782,
+            "% of world": 3.5,
+            "date": "30 Jun 2025",
+            "source": "National annual projection"
+        },
+        "5": {
+            "location": "Pakistan",
+            "population": 241499431,
+            "% of world": 2.9,
+            "date": "1 Mar 2023",
+            "source": "2023 Census result"
+        },
+        "6": {
+            "location": "Nigeria",
+            "population": 223800000,
+            "% of world": 2.7,
+            "date": "1 Jul 2023",
+            "source": "Official projection"
+        },
+        "7": {
+            "location": "Brazil",
+            "population": 213421037,
+            "% of world": 2.6,
+            "date": "1 Jul 2025",
+            "source": "Unknown"
+        },
+        "8": {
+            "location": "Bangladesh",
+            "population": 169828911,
+            "% of world": 2.1,
+            "date": "14 Jun 2022",
+            "source": "2022 Census result"
+        },
+        "9": {
+            "location": "Russia",
+            "population": 146028325,
+            "% of world": 1.8,
+            "date": "1 Jan 2025",
+            "source": "???"
+        },
+        "10": {
+            "location": "Mexico",
+            "population": 0,
+            "% of world": 1.6,
+            "date": "30 Jun 2025",
+            "source": "???"
+        }
+    }
+}
