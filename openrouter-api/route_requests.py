@@ -7,7 +7,10 @@ api_key = os.getenv("OPENROUTER_API_KEY")
 
 
 def make_request(model, messages, provider_config=None):
-    headers = {"Authorization": f"Bearer {api_key}", "Content-Type": "application/json"}
+    headers = {
+        "Authorization": f"Bearer {api_key}",
+        "Content-Type": "application/json",
+    }
     payload = {"model": model, "messages": messages}
     if provider_config:
         payload["provider"] = provider_config

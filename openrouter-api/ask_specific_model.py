@@ -5,7 +5,10 @@ OPENROUTER_API_URL = "https://openrouter.ai/api/v1/chat/completions"
 
 api_key = os.getenv("OPENROUTER_API_KEY")
 
-headers = {"Authorization": f"Bearer {api_key}", "Content-Type": "application/json"}
+headers = {
+    "Authorization": f"Bearer {api_key}",
+    "Content-Type": "application/json",
+}
 payload = {
     "model": "openai/gpt-3.5-turbo",
     "messages": [{"role": "user", "content": "Say hello in one sentence."}],
