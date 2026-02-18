@@ -24,7 +24,7 @@ agent = Agent(
     "google-gla:gemini-2.5-flash",
     output_type=UserSummary,
     deps_type=UserDatabase,
-    system_prompt=(
+    instructions=(
         "You retrieve user information from an external database. "
         "Use the available tools to gather user info, "
         "then return a structured summary."

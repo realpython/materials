@@ -3,7 +3,7 @@ from pydantic_ai import Agent
 
 agent = Agent(
     "google-gla:gemini-2.5-flash",
-    system_prompt="Help users with cat breeds. Be concise.",
+    instructions="Help users with cat breeds. Be concise.",
 )
 
 
