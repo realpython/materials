@@ -1,0 +1,19 @@
+[project]
+name = "rpcontacts"
+version = "0.1.0"
+description = "RP Contacts is a contact book application built with Python and Textual."
+readme = "README.md"
+authors = [
+    { name = "Real Python", email = "office@realpython.com" }
+]
+requires-python = ">=3.14"
+dependencies = [
+    "textual==8.0.0",
+]
+
+[project.scripts]
+rpcontacts = "rpcontacts.__main__:main"
+
+[build-system]
+requires = ["uv_build>=0.10.6,<0.11.0"]
+build-backend = "uv_build"
