@@ -72,8 +72,9 @@ DIE_FACE_SEPARATOR = " "
 def parse_input(input_string: str) -> int:
     """Validate input string and return as an integer.
 
-    Check if `input_string` is an integer number between MIN_DICE and MAX_DICE.
-    If so, return the integer value. Otherwise, raise a ValueError.
+    Check if `input_string` is an integer number between MIN_DICE
+    and MAX_DICE. If so, return the integer value. Otherwise, raise
+    a ValueError.
     """
     try:
         val = int(input_string.strip())
@@ -86,7 +87,8 @@ def parse_input(input_string: str) -> int:
 
 
 def roll_dice(num_dice: int) -> List[int]:
-    """Return a list of random integers between 1 and 6 with length `num_dice`.
+    """Return a list of random integers between 1 and 6 with length
+    `num_dice`.
 
     Args:
         num_dice: The number of dice to roll.
@@ -144,10 +146,12 @@ def _generate_dice_faces_rows(
     """Combine dice face tuples into horizontal rows of strings.
 
     Args:
-        dice_faces: A list of tuples, where each tuple is the ASCII art for a die.
+        dice_faces: A list of tuples, where each tuple is the ASCII
+        art for a die.
 
     Returns:
-        A list of strings, each representing a horizontal row of the dice diagram.
+        A list of strings, each representing a horizontal row of the
+        dice diagram.
     """
     dice_faces_rows = []
     for row_idx in range(DIE_HEIGHT):
