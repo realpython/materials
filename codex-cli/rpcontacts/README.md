@@ -7,7 +7,7 @@ RP Contacts is a contact book application built with Python and Textual.
 Using uv:
 
 ```sh
-(venv) $ uv run rpcontacts
+$ uv run rpcontacts
 ```
 
 ## About the Author

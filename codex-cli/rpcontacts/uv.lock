@@ -1,6 +1,6 @@
 version = 1
 revision = 3
-requires-python = ">=3.14"
+requires-python = ">=3.12"
 
 [[package]]
 name = "linkify-it-py"

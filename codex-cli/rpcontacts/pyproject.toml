@@ -6,7 +6,7 @@ readme = "README.md"
 authors = [
     { name = "Real Python", email = "office@realpython.com" }
 ]
-requires-python = ">=3.14"
+requires-python = ">=3.12"
 dependencies = [
     "textual==8.0.0",
 ]
