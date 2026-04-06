@@ -1,0 +1,10 @@
+[
+    {
+        "description": "Task 2",
+        "completed": false
+    },
+    {
+        "description": "Paint a picture",
+        "completed": true
+    }
+]
