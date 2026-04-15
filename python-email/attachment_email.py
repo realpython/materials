@@ -2,7 +2,7 @@
 
 from send_msg import send
 from email.message import EmailMessage
-from os.path import basename
+from pathlib import Path
 
 sender_email = "my@gmail.com"
 receiver_email = "your@gmail.com"
@@ -14,14 +14,16 @@ msg["from"] = sender_email
 msg["subject"] = "Attachment Test Message"
 
 text = "Please find a JPG attached."
-msg.add_alternative(text, subtype="plain")
+msg.set_content(text)
 
-attachment_filename = "smiley-small.jpg"
-with open("smiley-small.jpg", "rb") as attachment:
-    attachment_data = attachment.read()
-    attachment_file = basename(attachment_filename)
+attachment_file = Path("smiley-small.jpg")
+with open(attachment_file, "rb") as attachment:
+    # Add attachment to message
     msg.add_attachment(
-        attachment_data, maintype="image", subtype="jpeg", filename=attachment_file
+        attachment.read(),
+        maintype="image",
+        subtype="jpeg",
+        filename=attachment_file.name,
     )
 
 # Send message
