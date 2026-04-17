@@ -8,6 +8,7 @@ class FunctionDescription(BaseModel):
     code: str
     explanation: str
 
+
 client = anthropic.Anthropic()
 
 response = client.messages.parse(
