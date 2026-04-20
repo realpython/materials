@@ -1,11 +1,16 @@
 import argparse
+import io
 import os
+import sys
 import tomllib
 from pathlib import Path
 
 from openai import OpenAI
 
 __all__ = ["get_chat_completion"]
+
+# Force UTF-8 output to avoid encoding issues
+sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding="utf-8")
 
 # Authenticate
 client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
