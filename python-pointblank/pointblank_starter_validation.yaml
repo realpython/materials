@@ -1,0 +1,24 @@
+# Starter Pointblank template for adapting to your own pipeline.
+#
+# You can run this template against a real file with:
+# uv run --no-project --with 'pointblank[pl]' -- pb run pointblank_starter_validation.yaml --data your_data.csv --fail-on critical
+
+tbl: small_table
+df_library: polars
+tbl_name: "Starter Validation"
+label: "Adapt this template to your data"
+thresholds:
+  warning: 0.02
+  error: 0.05
+  critical: 0.10
+steps:
+  - col_exists:
+      columns: [record_id, status, amount]
+  - col_vals_not_null:
+      columns: record_id
+  - col_vals_in_set:
+      columns: status
+      set: [pending, shipped, delivered]
+  - col_vals_gt:
+      columns: amount
+      value: 0
