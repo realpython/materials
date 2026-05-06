@@ -11,7 +11,11 @@ steps:
       columns: symbol
       set: [Cu, Pt]
   - col_vals_not_null:
-      columns: x
+      columns: [x, y, z]
+  - col_vals_between:
+      columns: [x, y, z]
+      left: 0
+      right: 20
   - col_vals_between:
       columns: fx
       left: -1000

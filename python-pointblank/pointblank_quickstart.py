@@ -21,17 +21,18 @@ def main() -> None:
         .interrogate()
     )
 
-    print("Validation summary:\n")
-    for step in validation.validation_info:
-        print(
-            f"{step.assertion_type:>20}  "
-            f"passed={step.n_passed:>2}  "
-            f"failed={step.n_failed:>2}"
-        )
+    report = validation.get_dataframe_report()
+    summary = report.select(
+        ["step_description", "pass_n", "failed_n"]
+    ).iter_rows(named=True)
 
-    print(
-        "\nRun this same object in a notebook to see the interactive report."
-    )
+    print("Validation summary:\n")
+    for step in summary:
+        print(
+            f"{step['step_description']:20}"
+            f"passed={step['pass_n']:<4}"
+            f"failed={step['failed_n']}"
+        )
 
 
 if __name__ == "__main__":

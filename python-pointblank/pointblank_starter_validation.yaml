@@ -1,7 +1,7 @@
 # Starter Pointblank template for adapting to your own pipeline.
 #
 # You can run this template against a real file with:
-# uv run --no-project --with 'pointblank[pl]' -- pb run pointblank_starter_validation.yaml --data your_data.csv --fail-on critical
+# uv run --no-project --with 'pointblank[pl]' pb run pointblank_starter_validation.yaml --data your_data.csv --fail-on critical
 
 tbl: small_table
 df_library: polars
