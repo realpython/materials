@@ -61,7 +61,7 @@ Type this into a file and let each editor complete it:
 ```python
 @dataclass
 class RetryMetadata:
-    attempts_made:
+    attempts_made: int
 # ...
 ```
 
