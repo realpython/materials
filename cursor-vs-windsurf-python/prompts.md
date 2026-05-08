@@ -24,7 +24,7 @@ called fetch_json that:
 - Retries up to max_retries times with exponential backoff (1s, 2s, 4s)
   on any httpx.HTTPError
 - Returns the JSON response as a typed dataclass called FetchResult
-  with fields: url (str), status_code (int), and data (dict)
+  with fields: url (str), status_code (int), and data (dict[str, Any])
 - Uses proper type hints throughout
 ```
 
