@@ -1,15 +1,18 @@
-from chatterbot.trainers import ListTrainer
-from cleaner import clean_corpus
-
 from chatterbot import ChatBot
 
-CORPUS_FILE = "chat.txt"
-
-chatbot = ChatBot("Chatpot")
-
-trainer = ListTrainer(chatbot)
-cleaned_corpus = clean_corpus(CORPUS_FILE)
-trainer.train(cleaned_corpus)
+chatbot = ChatBot(
+    "Chatpot",
+    logic_adapters=[
+        {
+            "import_path": "chatterbot.logic.BestMatch",
+        },
+        {
+            "import_path": "chatterbot.logic.OllamaLogicAdapter",
+            "model": "llama3.2:latest",
+            "host": "http://localhost:11434",
+        },
+    ],
+)
 
 exit_conditions = (":q", "quit", "exit")
 while True:
