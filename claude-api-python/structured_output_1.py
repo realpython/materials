@@ -32,7 +32,7 @@ response = client.messages.create(
 
 result = json.loads(response.content[0].text)
 
-print("--- Approach 1: Hand-written JSON schema ---")
+print("--- Approach 1: Handwritten JSON schema ---")
 print(f"Function: {result['function_name']}")
 print(f"\nCode:\n{result['code']}")
 print(f"\nExplanation: {result['explanation']}")
