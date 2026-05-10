@@ -15,6 +15,6 @@ with open("contacts.csv") as file:
         msg["to"] = f"{name} <{email}>"
         msg["from"] = f"Me <{sender_email}>"
         msg["Subject"] = "Your grade"
-        msg.set_content(f"Congratulations, {name}, your grade is {grade}.")
+        msg.set_content(f"Congratulations, {name}, you got a {grade}.")
 
         send(msg, sender_email)

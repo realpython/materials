@@ -1,7 +1,7 @@
 [project]
-name = "python-email"
+name = "python-send-email"
 version = "0.1.0"
-description = "Source files supporting 'Sending Emails with Python' article on RealPython"
+description = "Source files supporting 'Sending Emails With Python' tutorial on Real Python"
 readme = "README.md"
 requires-python = ">=3.12"
 dependencies = [

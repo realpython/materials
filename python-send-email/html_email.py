@@ -23,7 +23,7 @@ html = """\
   <body>
     <p>Hi,<br>
        How are you?<br>
-       <a href="http://realpython.com">Real Python</a>
+       <a href="https://realpython.com">Real Python</a>
        has many great tutorials.
     </p>
   </body>

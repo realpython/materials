@@ -163,7 +163,7 @@ wheels = [
 ]
 
 [[package]]
-name = "python-email"
+name = "python-send-email"
 version = "0.1.0"
 source = { virtual = "." }
 dependencies = [
