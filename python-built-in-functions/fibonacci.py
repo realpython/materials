@@ -1,4 +1,4 @@
-class Fibonaccish:
+class Fibonacci:
     def __init__(self, initial_value=1):
         self._cache = [0, initial_value]
 

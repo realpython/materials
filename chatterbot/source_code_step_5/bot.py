@@ -1,15 +1,6 @@
-from chatterbot.trainers import ListTrainer
-from cleaner import clean_corpus
-
 from chatterbot import ChatBot
 
-CORPUS_FILE = "chat.txt"
-
 chatbot = ChatBot("Chatpot")
-
-trainer = ListTrainer(chatbot)
-cleaned_corpus = clean_corpus(CORPUS_FILE)
-trainer.train(cleaned_corpus)
 
 exit_conditions = (":q", "quit", "exit")
 while True:
