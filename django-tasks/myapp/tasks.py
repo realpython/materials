@@ -10,6 +10,7 @@ def say_hello(name):
 @task(queue_name="emails", priority=2)
 def send_welcome_email(user_id):
     from myapp.models import User
+
     user = User.objects.get(pk=user_id)
     send_mail(
         subject="Welcome!",
@@ -27,5 +28,6 @@ def generate_monthly_report(month):
 @task
 def process_order(order_id):
     from myapp.models import Order
+
     order = Order.objects.get(pk=order_id)
     return f"processed order {order.pk} ({order.item})"

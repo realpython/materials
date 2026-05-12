@@ -2,7 +2,7 @@ from functools import partial
 
 from django.db import transaction
 from django.http import JsonResponse
-from django.tasks import default_task_backend, TaskResultStatus
+from django.tasks import TaskResultStatus, default_task_backend
 
 from myapp.models import Order, User
 from myapp.tasks import process_order, send_welcome_email
@@ -30,7 +30,5 @@ def task_status(request, task_id):
 def checkout(request):
     with transaction.atomic():
         order = Order.objects.create()
-        transaction.on_commit(
-            partial(process_order.enqueue, order.id)
-        )
+        transaction.on_commit(partial(process_order.enqueue, order.id))
     return JsonResponse({"order_id": order.id})
