@@ -1,6 +1,8 @@
 from django.core.mail import send_mail
 from django.tasks import task
 
+from myapp.models import Order, User
+
 
 @task
 def say_hello(name):
@@ -9,8 +11,6 @@ def say_hello(name):
 
 @task(queue_name="emails", priority=2)
 def send_welcome_email(user_id):
-    from myapp.models import User
-
     user = User.objects.get(pk=user_id)
     send_mail(
         subject="Welcome!",
@@ -27,7 +27,5 @@ def generate_monthly_report(month):
 
 @task
 def process_order(order_id):
-    from myapp.models import Order
-
     order = Order.objects.get(pk=order_id)
     return f"processed order {order.pk} ({order.item})"
