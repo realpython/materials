@@ -13,7 +13,8 @@ services:
     env_file:
       - .env
     depends_on:
-      - hospital_neo4j_etl
+      hospital_neo4j_etl:
+        condition: service_completed_successfully
     ports:
       - "8000:8000"
 
