@@ -15,7 +15,7 @@ def remove_chat_metadata(chat_export_file):
 
      date    time    username  message
     ---------------------------------------
-    8/26/22, 17:47 - Jane Doe: Message text
+    1/16/26, 06:34 - Jane Doe: Message text
 
     This function removes all the metadata up to the text of each message.
 
@@ -25,7 +25,7 @@ def remove_chat_metadata(chat_export_file):
     Returns:
         tuple: The text of each message in the conversation
     """
-    date_time = r"(\d+\/\d+\/\d+,\s\d+:\d+)"  # e.g. "8/26/22, 17:47"
+    date_time = r"(\d+\/\d+\/\d+,\s\d+:\d+)"  # e.g. "1/16/26, 06:34"
     dash_whitespace = r"\s-\s"  # " - "
     username = r"([\w\s]+)"  # e.g. "Jane Doe"
     metadata_end = r":\s"  # ": "
