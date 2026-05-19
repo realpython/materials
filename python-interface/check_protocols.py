@@ -1,4 +1,4 @@
-from readers_protocols import FileReaderProtocol, PdfReader, EmailReader
+from readers_protocol import FileReaderProtocol, PdfReader, EmailReader
 
 
 def read(reader: FileReaderProtocol, path: str) -> str:

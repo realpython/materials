@@ -1,7 +1,7 @@
-from typing import Protocol
+from typing import Protocol, runtime_checkable
 
 
-# @runtime_checkable # Uncomment for runtime checks of protocol adherence
+# @runtime_checkable  # Uncomment for runtime checks of protocol adherence
 class FileReaderProtocol(Protocol):
     """Protocol for file readers."""
 
