@@ -1,1 +1,1 @@
-# Demo Bedrock Script for ClAUDE.md How To Article
+# Demo Bedrock Script for CLAUDE.md How To Article
