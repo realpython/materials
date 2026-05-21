@@ -1,4 +1,5 @@
 import asyncio
+
 import aiohttp
 
 RATE_LIMIT_DELAY = 1  # Seconds between API requests

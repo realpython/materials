@@ -1,5 +1,5 @@
-import tkinter
 import time
+import tkinter
 
 DELAY = 3  # Sleep for 3 seconds
 
