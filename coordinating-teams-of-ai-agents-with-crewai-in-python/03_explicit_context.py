@@ -26,10 +26,10 @@ writer = Agent(
 
 research_task = Task(
     description=(
-        "Research the current state of electric vehicle adoption" " worldwide"
+        "Research the current state of electric vehicle adoption worldwide"
     ),
     expected_output=(
-        "A bullet-point list of key statistics and trends" " in EV adoption"
+        "A bullet-point list of key statistics and trends in EV adoption"
     ),
     agent=researcher,
 )

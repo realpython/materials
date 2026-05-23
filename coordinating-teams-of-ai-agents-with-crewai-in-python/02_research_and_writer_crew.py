@@ -27,7 +27,8 @@ writer = Agent(
 research_task = Task(
     description="Research the latest trends in renewable energy technology",
     expected_output=(
-        "A detailed list of the top five renewable energy trends" " with explanations"
+        "A detailed list of the top five renewable energy trends"
+        " with explanations"
     ),
     agent=researcher,
 )
