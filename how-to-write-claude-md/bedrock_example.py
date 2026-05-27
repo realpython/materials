@@ -2,6 +2,13 @@
 Demonstrate the utility of CLAUDE.md
 """
 
+# /// script
+# requires-python = ">=3.10"
+# dependencies = [
+#   "boto3==1.43.15",
+# ]
+# ///
+
 import boto3
 from botocore.config import Config
 
