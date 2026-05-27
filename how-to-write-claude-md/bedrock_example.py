@@ -1,7 +1,3 @@
-"""
-Demonstrate the utility of CLAUDE.md
-"""
-
 # /// script
 # requires-python = ">=3.10"
 # dependencies = [
