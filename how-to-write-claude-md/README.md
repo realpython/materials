@@ -1,4 +1,4 @@
-# Demo Bedrock Script for CLAUDE.md How To Article
+# Demo Bedrock Script for How to Write a CLAUDE.md File for Claud Code Tutorial
 
 This folder contains sample code for the Real Python tutorial on [How to Write a CLAUDE.md File for Claude Code](https://realpython.com/python-claude-md/).
 
