@@ -9,13 +9,13 @@ class PdfReader:
 
 
 class EmailReader:
-    """Extract text from an Email."""
+    """Extract text from an email."""
 
     def load_file(self, path: str) -> None:
-        print(f"Loading Email from {path}")
+        print(f"Loading email from {path}")
 
     def extract_text(self) -> str:
-        return "Extracted Email text"
+        return "Extracted email text"
 
 
 def read(reader, path: str) -> str:
@@ -27,10 +27,10 @@ print(read(PdfReader(), "/reports/report.pdf"))
 print(read(EmailReader(), "/mail/message.eml"))
 
 # class EmailReader:
-#     """Extract text from an Email."""
-
+#     """Extract text from an email."""
+#
 #     def load_file(self, path: str) -> None:
-#         print(f"Loading Email from {path}")
-
+#         print(f"Loading email from {path}")
+#
 #     def extract_email_text(self) -> str:
-#         return "Extracted Email text"
+#         return "Extracted email text"

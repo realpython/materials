@@ -30,8 +30,8 @@ class EmailReader(FileReaderInterface):
 
     def load_file(self, path: str) -> None:
         """Load an EML file for text extraction."""
-        print(f"Loading Email from {path}")
+        print(f"Loading email from {path}")
 
     def extract_email_text(self) -> str:
-        """Return text extracted from the loaded Email."""
-        return "Extracted Email text"
+        """Return text extracted from the loaded email."""
+        return "Extracted email text"

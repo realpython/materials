@@ -19,11 +19,11 @@ class PdfReader:
 
     def load_file(self, path: str) -> None:
         """Load a PDF file for text extraction."""
-        print("Loading your PDF...")
+        print(f"Loading PDF from {path}")
 
     def extract_text(self) -> str:
         """Return text extracted from the loaded PDF."""
-        return "Your PDF content"
+        return "Extracted PDF text"
 
 
 class EmailReader:
@@ -31,8 +31,8 @@ class EmailReader:
 
     def load_file(self, path: str) -> None:
         """Load an EML file for text extraction."""
-        print("Loading your Email...")
+        print(f"Loading email from {path}")
 
     def extract_text(self) -> str:
-        """Return text extracted from the loaded Email."""
-        return "Your Email content"
+        """Return text extracted from the loaded email."""
+        return "Extracted email text"
