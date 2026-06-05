@@ -38,7 +38,7 @@ Once you have a running Neo4j instance, and have filled out all the environment 
 Once you've filled in all of the environment variables, set up a Neo4j AuraDB instance, and installed Docker Compose, open a terminal and run:
 
 ```console
-$ docker-compose up --build
+$ docker compose up --build
 ```
 
 After each container finishes building, you'll be able to access the chatbot API at `http://localhost:8000/docs` and the Streamlit app at `http://localhost:8501/`.
