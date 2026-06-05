@@ -2,7 +2,7 @@ import os
 from typing import Any
 
 import numpy as np
-from langchain_community.graphs import Neo4jGraph
+from langchain_neo4j import Neo4jGraph
 
 
 def _get_current_hospitals() -> list[str]:
@@ -20,14 +20,11 @@ def _get_current_hospitals() -> list[str]:
         """
     )
 
-    current_hospitals = [d["hospital_name"].lower() for d in current_hospitals]
-
-    return current_hospitals
+    return [d["hospital_name"].lower() for d in current_hospitals]
 
 
 def _get_current_wait_time_minutes(hospital: str) -> int:
     """Get the current wait time at a hospital in minutes."""
-
     current_hospitals = _get_current_hospitals()
 
     if hospital.lower() not in current_hospitals:
@@ -38,7 +35,6 @@ def _get_current_wait_time_minutes(hospital: str) -> int:
 
 def get_current_wait_times(hospital: str) -> str:
     """Get the current wait time at a hospital formatted as a string."""
-
     wait_time_in_minutes = _get_current_wait_time_minutes(hospital)
 
     if wait_time_in_minutes == -1:
@@ -47,16 +43,13 @@ def get_current_wait_times(hospital: str) -> str:
     hours, minutes = divmod(wait_time_in_minutes, 60)
 
     if hours > 0:
-        formatted_wait_time = f"{hours} hours {minutes} minutes"
+        return f"{hours} hours {minutes} minutes"
     else:
-        formatted_wait_time = f"{minutes} minutes"
-
-    return formatted_wait_time
+        return f"{minutes} minutes"
 
 
 def get_most_available_hospital(_: Any) -> dict[str, float]:
     """Find the hospital with the shortest wait time."""
-
     current_hospitals = _get_current_hospitals()
 
     current_wait_times = [
