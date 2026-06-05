@@ -1,0 +1,6 @@
+pandas==3.0.3
+matplotlib==3.10.9
+scikit-learn==1.9.0
+openpyxl==3.1.5
+pyarrow==24.0.0
+lxml==6.1.1
