@@ -1,6 +1,6 @@
-# Django Tasks: Exploring the Built-in Task Framework in Django 6
+# Django Tasks: Exploring the Built-in Tasks Framework
 
-Example project for the Real Python tutorial [Django Tasks: Exploring the Built-in Task Framework in Django 6](https://realpython.com/django-tasks/).
+Example project for the Real Python tutorial [Django Tasks: Exploring the Built-in Tasks Framework](https://realpython.com/django-tasks/).
 
 The project demonstrates Django 6's `@task` decorator, the `django-tasks-db` database-backed worker, named queues with priorities, and the `transaction.on_commit` pattern for safe enqueueing inside an atomic block.
 
