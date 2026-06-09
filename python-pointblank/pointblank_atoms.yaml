@@ -1,7 +1,7 @@
 tbl: pointblank_atoms.csv
 df_library: polars
-tbl_name: "Atom Validation"
-label: "Tutorial YAML validation"
+tbl_name: "atoms"
+label: "Atom data validation"
 thresholds:
   warning: 0.02
   error: 0.05
@@ -17,6 +17,6 @@ steps:
       left: 0
       right: 20
   - col_vals_between:
-      columns: fx
+      columns: [fx, fy, fz]
       left: -1000
       right: 1000

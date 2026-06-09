@@ -5,6 +5,8 @@
 # ]
 # ///
 
+import json
+
 import pointblank as pb
 
 
@@ -21,17 +23,14 @@ def main() -> None:
         .interrogate()
     )
 
-    report = validation.get_dataframe_report()
-    summary = report.select(
-        ["step_description", "pass_n", "failed_n"]
-    ).iter_rows(named=True)
+    report = json.loads(validation.get_json_report())
 
     print("Validation summary:\n")
-    for step in summary:
+    for step in report:
         print(
-            f"{step['step_description']:20}"
-            f"passed={step['pass_n']:<4}"
-            f"failed={step['failed_n']}"
+            f"{step['assertion_type']:20}"
+            f"passed={step['n_passed']:<4}"
+            f"failed={step['n_failed']}"
         )
 
 
