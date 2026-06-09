@@ -1,1 +1,1 @@
-crewai[tools,google-genai]
+crewai[tools,google-genai]==1.14.6
