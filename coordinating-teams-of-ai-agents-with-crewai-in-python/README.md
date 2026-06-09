@@ -1,7 +1,7 @@
 # Coordinating Teams of AI Agents with CrewAI in Python
 
 Sample code for the Real Python tutorial
-[Coordinating Teams of AI Agents with CrewAI in Python](https://realpython.com/coordinating-teams-of-ai-agents-with-crewai-in-python/).
+[CrewAI in Python: Coordinating Teams of AI Agents](https://realpython.com/crewai-python/).
 
 ## Requirements
 
