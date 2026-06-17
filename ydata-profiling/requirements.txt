@@ -1,2 +1,2 @@
-setuptools<82
-ydata-profiling==4.18.1
+setuptools<81
+ydata-profiling==4.18.4
