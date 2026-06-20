@@ -25,7 +25,7 @@ escalation_prompt = ChatPromptTemplate.from_messages(
     ]
 )
 
-escalation_check_model = ChatOpenAI(model="gpt-4o-mini", temperature=0)
+escalation_check_model = ChatOpenAI(model="gpt-5.4-nano", temperature=0)
 
 ESCALATION_CHECK_CHAIN = (
     escalation_prompt

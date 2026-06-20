@@ -1,6 +1,6 @@
 # Using Python for Data Analysis
 
-This folder contains completed notebooks and other files used in the Real Python tutorial on [Using Python for Data Analysis](https://realpython.com/python-for-data-analysis/). 
+This folder contains completed notebooks and other files used in the Real Python tutorial [Python for Data Analysis: A Practical Guide](https://realpython.com/python-for-data-analysis/). 
 
 **The following files are included:**
 
