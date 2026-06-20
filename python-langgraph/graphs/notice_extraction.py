@@ -51,7 +51,7 @@ def check_escalation_status_node(state: GraphState) -> GraphState:
 
     if (
         text_check
-        or state["notice_email_extract"].max_potential_fine
+        or (state["notice_email_extract"].max_potential_fine or 0)
         >= state["escalation_dollar_criteria"]
     ):
         state["requires_escalation"] = True
@@ -95,10 +95,10 @@ def answer_follow_up_question_node(state: GraphState) -> GraphState:
         answer = BINARY_QUESTION_CHAIN.invoke({"question": question})
 
         if state.get("follow_ups"):
-            state["follow_ups"][state["current_follow_up"]] = answer
+            state["follow_ups"][state["current_follow_up"]] = answer.is_true
 
         else:
-            state["follow_ups"] = {state["current_follow_up"]: answer}
+            state["follow_ups"] = {state["current_follow_up"]: answer.is_true}
 
     return state
 
