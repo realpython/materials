@@ -23,7 +23,7 @@ binary_question_prompt = ChatPromptTemplate.from_messages(
     ]
 )
 
-binary_question_model = ChatOpenAI(model="gpt-4o-mini", temperature=0)
+binary_question_model = ChatOpenAI(model="gpt-5.4-nano", temperature=0)
 
 BINARY_QUESTION_CHAIN = (
     binary_question_prompt
