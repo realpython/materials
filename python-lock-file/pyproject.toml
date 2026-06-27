@@ -1,0 +1,8 @@
+[project]
+name = "examples"
+version = "0.1.0"
+requires-python = ">=3.14"
+dependencies = [
+    "pandas>=3.0.2",
+    "scipy>=1.17.1",
+]
