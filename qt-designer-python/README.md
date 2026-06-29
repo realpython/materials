@@ -1,30 +1,26 @@
-# Sample Text Editor
+# Qt Designer and Python: Build Your GUI Applications Faster
 
-A **sample text editor** that shows how to use Qt Designer to create GUI applications.
+This folder provides the code examples for the Real Python tutorial [Qt Designer and Python: Build Your GUI Applications Faster](https://realpython.com/qt-designer-python/)
 
-## How to Run this Application
+## How to Run This Application
 
-To run this application, you need to [install `PyQt6`](https://realpython.com/python-pyqt-gui-calculator/#installing-pyqt) on your Python environment. To do that, you can run the following commands in a terminal or command prompt:
+Create and activate a Python virtual environment, then install [PyQt6](https://pypi.org/project/PyQt6/):
 
 ```sh
 $ python3 -m venv ./venv
 $ source venv/bin/activate
-(venv) $ pip install PyQt6
+(venv) $ python -m pip install pyqt6
 ```
 
-Once you have [PyQt](https://www.riverbankcomputing.com/static/Docs/PyQt6/) installed, you can run the application by executing the following command:
+Then launch the sample text editor from the `sample_editor/` directory:
 
 ```sh
 (venv) $ cd sample_editor/
 (venv) $ python app.py
 ```
 
-This command will launch the application, so you'll be able to experiment with it.
-
-## About the Author
-
-Leodanis Pozo Ramos – [@lpozo78](https://twitter.com/lpozo78) – lpozor78@gmail.com
+Run `app.py` from inside `sample_editor/`, because the application loads its `.ui` files and icons through relative paths.
 
 ## License
 
-The set of icons used in this application are part of the [TurkinOS](https://github.com/llamaret/turkinos-icon) icon theme, which is distributed under the [GPL v3.0 license](https://github.com/llamaret/turkinos-icon/blob/master/LICENSE). See `ui/resources/LICENSE` for details.
+The icons used in this application are part of the [TurkinOS](https://github.com/llamaret/turkinos-icon) icon theme, distributed under the [GPL v3.0 license](https://github.com/llamaret/turkinos-icon/blob/master/LICENSE). See `ui/resources/LICENSE` for details.
