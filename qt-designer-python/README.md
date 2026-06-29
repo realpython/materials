@@ -4,15 +4,15 @@ A **sample text editor** that shows how to use Qt Designer to create GUI applica
 
 ## How to Run this Application
 
-To run this application, you need to [install `PyQt5`](https://realpython.com/python-pyqt-gui-calculator/#installing-pyqt) on your Python environment. To do that, you can run the following commands in a terminal or command prompt:
+To run this application, you need to [install `PyQt6`](https://realpython.com/python-pyqt-gui-calculator/#installing-pyqt) on your Python environment. To do that, you can run the following commands in a terminal or command prompt:
 
 ```sh
 $ python3 -m venv ./venv
 $ source venv/bin/activate
-(venv) $ pip install PyQt5
+(venv) $ pip install PyQt6
 ```
 
-Once you have [PyQt](https://www.riverbankcomputing.com/static/Docs/PyQt5/) installed, you can run the application by executing the following command:
+Once you have [PyQt](https://www.riverbankcomputing.com/static/Docs/PyQt6/) installed, you can run the application by executing the following command:
 
 ```sh
 (venv) $ cd sample_editor/
