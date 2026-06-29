@@ -36,7 +36,7 @@ Each script corresponds to one section of the tutorial:
 
 | File | Tutorial Section |
 |------|------------------|
-| `01_single_agent.py` | Start Using CrewAI to Create Agent Teams |
+| `01_single_agent.py` | Get Started With CrewAI in Python |
 | `02_research_and_writer_crew.py` | Build Your First Multi-Agent Team |
 | `03_explicit_context.py` | Control Task Dependencies Explicitly |
 | `04_agent_with_tools.py` | Expand Agent Capabilities With Tools |
