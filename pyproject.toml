@@ -5,7 +5,8 @@ exclude = [
     ".devcontainers",
     ".github",
     "migrations",
-    "how-to-indent-in-python/sample_code.py"
+    "how-to-indent-in-python/sample_code.py",
+    "qt-designer-python/sample_editor/main_window_ui.py"
 ]
 
 [tool.ruff.lint]
