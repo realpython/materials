@@ -1,7 +1,7 @@
-from crewai import Agent, Task, Crew, LLM
+from crewai import LLM, Agent, Crew, Task
 from crewai_tools import ScrapeWebsiteTool
 
-llm = LLM(model="gemini/gemini-2.5-flash")
+llm = LLM(model="gemini/gemini-2.5-pro")
 
 scrape_tool = ScrapeWebsiteTool()
 

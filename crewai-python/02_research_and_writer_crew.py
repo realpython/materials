@@ -1,4 +1,4 @@
-from crewai import Agent, Task, Crew, Process, LLM
+from crewai import LLM, Agent, Crew, Process, Task
 
 llm = LLM(model="gemini/gemini-2.5-flash")
 
