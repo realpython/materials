@@ -2,7 +2,7 @@ import requests
 from pydantic_ai import Agent
 
 agent = Agent(
-    "google-gla:gemini-2.5-flash",
+    "google:gemini-2.5-flash",
     instructions="Help users with cat breeds. Be concise.",
 )
 
