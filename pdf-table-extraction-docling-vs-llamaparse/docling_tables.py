@@ -17,15 +17,11 @@ def main() -> None:
         frame = table.export_to_dataframe(doc=document)
         print(f"Table {index}: pages {pages}, shape {frame.shape}")
 
-    index_table = document.tables[0].export_to_dataframe(
-        doc=document
-    )
+    index_table = document.tables[0].export_to_dataframe(doc=document)
     print("\nFinancial statement index (table 0):")
     print(index_table.to_string(index=False), end="\n\n")
 
-    operations_table = document.tables[1].export_to_dataframe(
-        doc=document
-    )
+    operations_table = document.tables[1].export_to_dataframe(doc=document)
     print("Operations statement preview (table 1, first 4 rows):")
     print(operations_table.head(4).to_string())
 

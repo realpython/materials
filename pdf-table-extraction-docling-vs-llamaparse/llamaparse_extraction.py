@@ -27,5 +27,6 @@ def main() -> None:
     print(pages[:3000])
     print(f"Pages parsed: {len(result.markdown.pages)}")
 
+
 if __name__ == "__main__":
     main()

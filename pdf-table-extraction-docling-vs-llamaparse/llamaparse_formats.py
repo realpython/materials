@@ -22,6 +22,7 @@ class RevenueRow(BaseModel):
         description="Year-over-year growth percentage if stated",
     )
 
+
 class RevenueTable(BaseModel):
     rows: list[RevenueRow] = Field(
         description="One row per quarter in the table"
@@ -43,21 +44,13 @@ def main() -> None:
     markdown_pages = "\n\n".join(
         page.markdown for page in parsed.markdown.pages
     )
-    Path("output_llamaparse.md").write_text(
-        markdown_pages, encoding="utf-8"
-    )
+    Path("output_llamaparse.md").write_text(markdown_pages, encoding="utf-8")
 
     if parsed.text and parsed.text.pages:
-        text_pages = "\n".join(
-            page.text for page in parsed.text.pages
-        )
-        Path("output_llamaparse.text").write_text(
-            text_pages, encoding="utf-8"
-        )
+        text_pages = "\n".join(page.text for page in parsed.text.pages)
+        Path("output_llamaparse.text").write_text(text_pages, encoding="utf-8")
 
-    extract_file = client.files.create(
-        file=PDF_PATH, purpose="extract"
-    )
+    extract_file = client.files.create(file=PDF_PATH, purpose="extract")
     job = client.extract.run(
         file_input=extract_file.id,
         configuration={
