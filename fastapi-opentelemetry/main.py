@@ -1,13 +1,10 @@
 import logging
 
 from opentelemetry import trace
-from opentelemetry.instrumentation.fastapi import FastAPIInstrumentor
 
 from fastapi import FastAPI
 
 app = FastAPI()
-FastAPIInstrumentor.instrument_app(app)
-
 tracer = trace.get_tracer(__name__)
 
 logging.basicConfig(level=logging.INFO)
@@ -23,25 +20,26 @@ def simulate_db_query(user_id: int):
         span_id = format(span.get_span_context().span_id, "016x")
 
         if user_id == 999:
-            span.record_exception(Exception("Database connection lost!"))
-            span.set_status(trace.status.Status(trace.status.StatusCode.ERROR))
             logger.error(
-                "Database connection lost! "
-                f"trace_id={trace_id}, span_id={span_id}"
+                "DB query failed for user %s. trace_id=%s, span_id=%s",
+                user_id,
+                trace_id,
+                span_id,
             )
-            raise ValueError("DB Error")
+            raise ValueError("Database connection lost!")
 
         logger.info(
-            f"Executing DB query for user {user_id}. "
-            f"trace_id={trace_id}, span_id={span_id}"
+            "Executing DB query for user %s. trace_id=%s, span_id=%s",
+            user_id,
+            trace_id,
+            span_id,
         )
         return {"name": "Demo User", "role": "admin"}
 
 
 @app.get("/users/{user_id}")
 def get_user(user_id: int):
-    logger.info(f"Received request for user {user_id}")
-
+    logger.info("Received request for user %s", user_id)
     try:
         data = simulate_db_query(user_id)
         return {"status": "success", "data": data}
