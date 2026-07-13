@@ -9,7 +9,7 @@ class CityInfo(BaseModel):
     fun_fact: str
 
 
-agent = Agent("google-gla:gemini-2.5-flash", output_type=CityInfo)
+agent = Agent("google:gemini-2.5-flash", output_type=CityInfo)
 
 result = agent.run_sync("Tell me about Tokyo")
 print(result.output)

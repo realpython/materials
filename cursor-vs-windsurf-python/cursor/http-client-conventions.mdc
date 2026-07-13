@@ -1,0 +1,11 @@
+---
+globs: "**/*.py"
+alwaysApply: false
+---
+# Instructions
+- Use type hints for all functions, return values, and dataclass fields
+- Use `httpx.AsyncClient` for HTTP requests; do not use `requests`
+  or `aiohttp`
+- Use `await asyncio.sleep()` for delays; do not use `time.sleep()`
+- Return dataclasses for HTTP responses, not raw dictionaries
+- Follow PEP 8 style conventions

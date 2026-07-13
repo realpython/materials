@@ -1,0 +1,2 @@
+django==6.0.3
+django-tasks-db==0.12.0

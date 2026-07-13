@@ -21,7 +21,7 @@ class UserSummary(BaseModel):
 
 
 agent = Agent(
-    "google-gla:gemini-2.5-flash",
+    "google:gemini-2.5-flash",
     output_type=UserSummary,
     deps_type=UserDatabase,
     instructions=(
