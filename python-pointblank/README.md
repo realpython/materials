@@ -1,12 +1,10 @@
 # Validating Data With Pointblank in Python
 
-Supporting code and sample data for the Real Python tutorial
-"Validating Data With Pointblank in Python".
+Supporting code and sample data for the Real Python tutorial [Validating Data With Pointblank in Python](https://realpython.com/python-pointblank/).
 
 ## Requirements
 
-The Python scripts use PEP 723 dependency metadata and run with
-[uv](https://docs.astral.sh/uv/):
+The Python scripts use PEP 723 dependency metadata and run with [uv](https://docs.astral.sh/uv/):
 
 ```console
 $ uv run pointblank_quickstart.py
@@ -21,4 +19,3 @@ $ uv run --no-project --with 'pointblank[pl]' -- pb scan pointblank_atoms.csv
 $ uv run --no-project --with 'pointblank[pl]' -- pb missing pointblank_atoms.csv
 $ uvx --from 'pointblank[pl]' pb run pointblank_atoms.yaml --output-html pointblank_report.html
 ```
-
