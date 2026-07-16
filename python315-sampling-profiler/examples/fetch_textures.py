@@ -9,19 +9,19 @@ CATALOG = {
 }
 
 
-async def download_texture(name, latency):
+async def download_texture(name: str, latency: float) -> bytes:
     await asyncio.sleep(latency)
     return name.encode() * 100_000
 
 
-async def decode_texture(payload):
+async def decode_texture(payload: bytes) -> int:
     checksum = 0
     for byte in payload:
         checksum = (checksum * 31 + byte) % 1_000_003
     return checksum
 
 
-async def main():
+async def main() -> None:
     async with asyncio.TaskGroup() as group:
         downloads = {
             name: group.create_task(

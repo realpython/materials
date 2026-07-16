@@ -2,14 +2,24 @@
 
 import time
 import tkinter as tk
+from typing import Final
 
+from pretzel.engine import Mesh
 from pretzel.render import compute_frame
+from pretzel.streaming import BackgroundStreamer
+from pretzel.telemetry import FrameLog
 
-WIDTH, HEIGHT = 512, 512
+WIDTH: Final = 512
+HEIGHT: Final = 512
 
 
 class Viewer:
-    def __init__(self, mesh, streamer, frame_log):
+    def __init__(
+        self,
+        mesh: Mesh,
+        streamer: BackgroundStreamer,
+        frame_log: FrameLog,
+    ) -> None:
         self.mesh = mesh
         self.streamer = streamer
         self.frame_log = frame_log
@@ -27,11 +37,11 @@ class Viewer:
             0, 0, image=self.wallpaper, anchor=tk.NW
         )
 
-    def run(self):
+    def run(self) -> None:
         self.window.after(1, self.render_next_frame)
         self.window.mainloop()
 
-    def render_next_frame(self):
+    def render_next_frame(self) -> None:
         frame_started = time.perf_counter()
         background = self.streamer.background
         if background.path != str(self.wallpaper.cget("file")):

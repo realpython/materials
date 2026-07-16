@@ -19,7 +19,7 @@ class Mesh:
     faces: list[Face]
 
 
-def rotation_matrix(pitch, yaw, roll):
+def rotation_matrix(pitch: float, yaw: float, roll: float) -> Matrix:
     sin_p, cos_p = math.sin(pitch), math.cos(pitch)
     sin_y, cos_y = math.sin(yaw), math.cos(yaw)
     sin_r, cos_r = math.sin(roll), math.cos(roll)
@@ -38,7 +38,9 @@ def rotation_matrix(pitch, yaw, roll):
     )
 
 
-def transform_vertices(vertices, matrix, distance):
+def transform_vertices(
+    vertices: list[Vertex], matrix: Matrix, distance: float
+) -> list[Vertex]:
     (xx, xy, xz), (yx, yy, yz), (zx, zy, zz) = matrix
     transformed = []
     for x, y, z in vertices:
@@ -49,7 +51,9 @@ def transform_vertices(vertices, matrix, distance):
     return transformed
 
 
-def project_vertices(transformed, width, height, focal_length):
+def project_vertices(
+    transformed: list[Vertex], width: int, height: int, focal_length: float
+) -> list[Point]:
     half_width, half_height = width / 2, height / 2
     projected = []
     for x, y, z in transformed:
@@ -58,7 +62,7 @@ def project_vertices(transformed, width, height, focal_length):
     return projected
 
 
-def cull_backfaces(faces, projected):
+def cull_backfaces(faces: list[Face], projected: list[Point]) -> list[Face]:
     visible = []
     for face in faces:
         a, b, c = face
@@ -70,8 +74,10 @@ def cull_backfaces(faces, projected):
     return visible
 
 
-def sort_back_to_front(faces, transformed):
-    def face_depth(face):
+def sort_back_to_front(
+    faces: list[Face], transformed: list[Vertex]
+) -> list[Face]:
+    def face_depth(face: Face) -> float:
         a, b, c = face
         return transformed[a][2] + transformed[b][2] + transformed[c][2]
 

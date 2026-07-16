@@ -1,13 +1,25 @@
 """Turn a mesh, a background, and a clock tick into shaded polygons."""
 
 import math
+from typing import Final
 
 from pretzel import engine, shading
+from pretzel.assets import Background
+from pretzel.engine import Mesh
 
-CAMERA_DISTANCE = 7.0
+CAMERA_DISTANCE: Final = 7.0
+
+type Polygon = tuple[list[float], str]
 
 
-def compute_frame(mesh, background, tick, width, height, cache_colors=False):
+def compute_frame(
+    mesh: Mesh,
+    background: Background,
+    tick: float,
+    width: int,
+    height: int,
+    cache_colors: bool = False,
+) -> list[Polygon]:
     matrix = engine.rotation_matrix(
         pitch=0.45 * math.sin(tick * 0.6),
         yaw=tick * 0.9,
@@ -23,9 +35,9 @@ def compute_frame(mesh, background, tick, width, height, cache_colors=False):
     ordered = engine.sort_back_to_front(visible, transformed)
     ambient = shading.sample_ambient_light(background.pixels, tick)
     channels = shading.shade_faces(ordered, transformed, ambient)
-    polygons = []
+    polygons: list[Polygon] = []
     for face, (red, green, blue) in zip(ordered, channels):
-        coordinates = []
+        coordinates: list[float] = []
         for index in face:
             coordinates.extend(projected[index])
         polygons.append(
@@ -39,10 +51,10 @@ def compute_frame(mesh, background, tick, width, height, cache_colors=False):
     return polygons
 
 
-_HEX_CACHE = {}
+_HEX_CACHE: dict[tuple[int, int, int], str] = {}
 
 
-def hex_color(red, green, blue):
+def hex_color(red: int, green: int, blue: int) -> str:
     key = (red, green, blue)
     color = _HEX_CACHE.get(key)
     if color is None:

@@ -8,22 +8,27 @@ $ uv run make_assets.py
 
 import math
 import pathlib
+from typing import Final
+
+type Vector = tuple[float, float, float]
+type Face = tuple[int, int, int]
+type Color = tuple[int, int, int]
 
 ASSETS_DIR = pathlib.Path(__file__).parent / "src" / "pretzel" / "assets"
 
-SEGMENTS = 240
-RING_POINTS = 16
-TUBE_RADIUS = 0.62
+SEGMENTS: Final = 240
+RING_POINTS: Final = 16
+TUBE_RADIUS: Final = 0.62
 
-WALLPAPER_SIZE = 512
-WALLPAPERS = {
+WALLPAPER_SIZE: Final = 512
+WALLPAPERS: Final = {
     "bakery_dawn.ppm": ((252, 210, 153), (146, 90, 118), (255, 236, 179)),
     "bakery_noon.ppm": ((214, 235, 251), (245, 232, 201), (255, 255, 224)),
     "bakery_dusk.ppm": ((94, 63, 107), (233, 156, 90), (255, 214, 138)),
 }
 
 
-def trace_trefoil(t):
+def trace_trefoil(t: float) -> Vector:
     return (
         math.sin(t) + 2.0 * math.sin(2.0 * t),
         math.cos(t) - 2.0 * math.cos(2.0 * t),
@@ -31,11 +36,11 @@ def trace_trefoil(t):
     )
 
 
-def subtract(a, b):
+def subtract(a: Vector, b: Vector) -> Vector:
     return (a[0] - b[0], a[1] - b[1], a[2] - b[2])
 
 
-def cross(a, b):
+def cross(a: Vector, b: Vector) -> Vector:
     return (
         a[1] * b[2] - a[2] * b[1],
         a[2] * b[0] - a[0] * b[2],
@@ -43,16 +48,16 @@ def cross(a, b):
     )
 
 
-def dot(a, b):
+def dot(a: Vector, b: Vector) -> float:
     return a[0] * b[0] + a[1] * b[1] + a[2] * b[2]
 
 
-def normalize(vector):
+def normalize(vector: Vector) -> Vector:
     length = math.sqrt(dot(vector, vector)) or 1.0
     return (vector[0] / length, vector[1] / length, vector[2] / length)
 
 
-def sweep_tube():
+def sweep_tube() -> tuple[list[Vector], list[Face]]:
     step = 2.0 * math.pi / SEGMENTS
     centers = [trace_trefoil(index * step) for index in range(SEGMENTS)]
     tangents = [
@@ -96,7 +101,7 @@ def sweep_tube():
     return vertices, faces
 
 
-def write_mesh(path):
+def write_mesh(path: pathlib.Path) -> None:
     vertices, faces = sweep_tube()
     with path.open("w", encoding="utf-8") as file:
         file.write(f"# Trefoil-knot pretzel: {len(vertices)} vertices,")
@@ -108,14 +113,16 @@ def write_mesh(path):
     print(f"Wrote {path} ({len(vertices)} vertices, {len(faces)} faces)")
 
 
-def blend(low, high, amount):
+def blend(low: Color, high: Color, amount: float) -> Color:
     return tuple(
         round(low[channel] + (high[channel] - low[channel]) * amount)
         for channel in range(3)
     )
 
 
-def write_wallpaper(path, top, bottom, glow):
+def write_wallpaper(
+    path: pathlib.Path, top: Color, bottom: Color, glow: Color
+) -> None:
     size = WALLPAPER_SIZE
     lights = [
         (size * 0.25, size * 0.3, size * 0.22),
@@ -139,7 +146,7 @@ def write_wallpaper(path, top, bottom, glow):
     print(f"Wrote {path} ({size}x{size})")
 
 
-def main():
+def main() -> None:
     ASSETS_DIR.mkdir(parents=True, exist_ok=True)
     write_mesh(ASSETS_DIR / "pretzel.mdl")
     for name, (top, bottom, glow) in WALLPAPERS.items():

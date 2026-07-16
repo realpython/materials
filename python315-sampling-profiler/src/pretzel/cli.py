@@ -2,16 +2,18 @@
 
 import argparse
 import time
+from typing import Final
 
 from pretzel import assets
+from pretzel.engine import Mesh
 from pretzel.render import compute_frame
 from pretzel.streaming import BackgroundStreamer
 from pretzel.telemetry import FrameLog
 
-MODEL = "pretzel.mdl"
+MODEL: Final = "pretzel.mdl"
 
 
-def main():
+def main() -> None:
     parser = argparse.ArgumentParser(prog="pretzel", description=__doc__)
     parser.add_argument(
         "--frames",
@@ -47,15 +49,22 @@ def main():
         frame_log.close()
 
 
-def show_window(mesh, streamer, frame_log):
+def show_window(
+    mesh: Mesh, streamer: BackgroundStreamer, frame_log: FrameLog
+) -> None:
     from pretzel.viewer import Viewer
 
     Viewer(mesh, streamer, frame_log).run()
 
 
 def render_headlessly(
-    mesh, streamer, frame_log, frames, cache_colors=False, size=512
-):
+    mesh: Mesh,
+    streamer: BackgroundStreamer,
+    frame_log: FrameLog,
+    frames: int,
+    cache_colors: bool = False,
+    size: int = 512,
+) -> None:
     started = time.perf_counter()
     for frame in range(frames):
         frame_started = time.perf_counter()
