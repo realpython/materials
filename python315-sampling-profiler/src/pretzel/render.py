@@ -28,7 +28,14 @@ def compute_frame(mesh, background, tick, width, height, cache_colors=False):
         coordinates = []
         for index in face:
             coordinates.extend(projected[index])
-        polygons.append((coordinates, hex_color(red, green, blue) if cache_colors else f"#{red:02x}{green:02x}{blue:02x}"))
+        polygons.append(
+            (
+                coordinates,
+                hex_color(red, green, blue)
+                if cache_colors
+                else f"#{red:02x}{green:02x}{blue:02x}",
+            )
+        )
     return polygons
 
 
