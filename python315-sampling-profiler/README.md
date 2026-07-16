@@ -37,7 +37,7 @@ Both modes accept `--fast`, which switches to the optimized asset loader and buf
 $ uv run pretzel --frames 300 --fast
 ```
 
-Headless mode also accepts `--cache-colors`, which memoizes the polygon color formatting in `render.py`. It's the in-place fix showcased by the tutorial's first differential flame graph:
+You can also use `--cache-colors` to memoize the polygon color formatting in `render.py`. It's the in-place fix showcased by the tutorial's first differential flame graph:
 
 ```sh
 $ uv run pretzel --frames 300 --cache-colors
