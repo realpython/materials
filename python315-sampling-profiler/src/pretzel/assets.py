@@ -19,10 +19,6 @@ class Background:
     pixels: npt.NDArray[np.float32]
 
 
-def asset_path(name: str) -> str:
-    return str(ASSETS_DIR / name)
-
-
 def load_mesh(name: str) -> Mesh:
     vertices: list[Vertex] = []
     faces: list[Face] = []
@@ -60,10 +56,6 @@ def decode_ppm_pixel_by_pixel(path: str) -> npt.NDArray[np.float32]:
     return np.array(rows, dtype=np.float32)
 
 
-def to_linear(value: int) -> float:
-    return 255.0 * (value / 255.0) ** 2.2
-
-
 def decode_ppm(path: str) -> npt.NDArray[np.float32]:
     with open(path, "rb") as file:
         width, height = read_ppm_header(file)
@@ -80,3 +72,11 @@ def read_ppm_header(file: BinaryIO) -> tuple[int, int]:
     width, height = map(int, file.readline().split())
     file.readline()
     return width, height
+
+
+def to_linear(value: int) -> float:
+    return 255.0 * (value / 255.0) ** 2.2
+
+
+def asset_path(name: str) -> str:
+    return str(ASSETS_DIR / name)

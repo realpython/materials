@@ -19,10 +19,12 @@ class Viewer:
         mesh: Mesh,
         streamer: BackgroundStreamer,
         frame_log: FrameLog,
+        cache_colors: bool = False,
     ) -> None:
         self.mesh = mesh
         self.streamer = streamer
         self.frame_log = frame_log
+        self.cache_colors = cache_colors
         self.frame = 0
         self.started = time.perf_counter()
         self.window = tk.Tk()
@@ -47,7 +49,9 @@ class Viewer:
         if background.path != str(self.wallpaper.cget("file")):
             self.wallpaper.configure(file=background.path)
         tick = frame_started - self.started
-        polygons = compute_frame(self.mesh, background, tick, WIDTH, HEIGHT)
+        polygons = compute_frame(
+            self.mesh, background, tick, WIDTH, HEIGHT, self.cache_colors
+        )
         self.canvas.delete("model")
         for coordinates, color in polygons:
             self.canvas.create_polygon(

@@ -40,14 +40,11 @@ def compute_frame(
         coordinates: list[float] = []
         for index in face:
             coordinates.extend(projected[index])
-        polygons.append(
-            (
-                coordinates,
-                hex_color(red, green, blue)
-                if cache_colors
-                else f"#{red:02x}{green:02x}{blue:02x}",
-            )
-        )
+        if cache_colors:
+            color = hex_color(red, green, blue)
+        else:
+            color = f"#{red:02x}{green:02x}{blue:02x}"
+        polygons.append((coordinates, color))
     return polygons
 
 

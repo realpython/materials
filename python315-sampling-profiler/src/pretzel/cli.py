@@ -14,33 +14,14 @@ MODEL: Final = "pretzel.mdl"
 
 
 def main() -> None:
-    parser = argparse.ArgumentParser(prog="pretzel", description=__doc__)
-    parser.add_argument(
-        "--frames",
-        metavar="N",
-        type=int,
-        default=None,
-        help="render N frames headlessly instead of opening a window",
-    )
-    parser.add_argument(
-        "--fast",
-        action="store_true",
-        help="use the optimized asset loader and buffered telemetry",
-    )
-    parser.add_argument(
-        "--cache-colors",
-        action="store_true",
-        help="memoize polygon color formatting in headless mode",
-    )
-    args = parser.parse_args()
-
+    args = parse_args()
     mesh = assets.load_mesh(MODEL)
     streamer = BackgroundStreamer(fast=args.fast)
     streamer.start()
     frame_log = FrameLog("telemetry.csv", durable=not args.fast)
     try:
         if args.frames is None:
-            show_window(mesh, streamer, frame_log)
+            show_window(mesh, streamer, frame_log, args.cache_colors)
         else:
             render_headlessly(
                 mesh, streamer, frame_log, args.frames, args.cache_colors
@@ -50,11 +31,14 @@ def main() -> None:
 
 
 def show_window(
-    mesh: Mesh, streamer: BackgroundStreamer, frame_log: FrameLog
+    mesh: Mesh,
+    streamer: BackgroundStreamer,
+    frame_log: FrameLog,
+    cache_colors: bool = False,
 ) -> None:
     from pretzel.viewer import Viewer
 
-    Viewer(mesh, streamer, frame_log).run()
+    Viewer(mesh, streamer, frame_log, cache_colors).run()
 
 
 def render_headlessly(
@@ -78,3 +62,25 @@ def render_headlessly(
     print(
         f"Rendered {frames} frames in {total:.2f}s ({frames / total:.1f} fps)"
     )
+
+
+def parse_args() -> argparse.Namespace:
+    parser = argparse.ArgumentParser(prog="pretzel", description=__doc__)
+    parser.add_argument(
+        "--frames",
+        metavar="N",
+        type=int,
+        default=None,
+        help="render N frames headlessly instead of opening a window",
+    )
+    parser.add_argument(
+        "--fast",
+        action="store_true",
+        help="use the optimized asset loader and buffered telemetry",
+    )
+    parser.add_argument(
+        "--cache-colors",
+        action="store_true",
+        help="memoize polygon color formatting",
+    )
+    return parser.parse_args()
