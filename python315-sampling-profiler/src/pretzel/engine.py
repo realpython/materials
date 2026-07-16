@@ -1,12 +1,22 @@
 """Pure-Python 3D math: rotation, projection, culling, and sorting."""
 
 import math
+from dataclasses import dataclass
+
+type Vertex = tuple[float, float, float]
+type Face = tuple[int, int, int]
+type Point = tuple[float, float]
+type Matrix = tuple[
+    tuple[float, float, float],
+    tuple[float, float, float],
+    tuple[float, float, float],
+]
 
 
+@dataclass
 class Mesh:
-    def __init__(self, vertices, faces):
-        self.vertices = vertices
-        self.faces = faces
+    vertices: list[Vertex]
+    faces: list[Face]
 
 
 def rotation_matrix(pitch, yaw, roll):

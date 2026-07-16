@@ -1,13 +1,21 @@
 """Load Pretzel's model and background assets from disk."""
 
+from dataclasses import dataclass
 from importlib.resources import files
-from types import SimpleNamespace
 
 import numpy as np
+import numpy.typing as npt
 
 from pretzel.engine import Mesh
 
 ASSETS_DIR = files("pretzel") / "assets"
+
+
+@dataclass
+class Background:
+    name: str
+    path: str
+    pixels: npt.NDArray[np.float32]
 
 
 def asset_path(name):
@@ -31,7 +39,7 @@ def load_mesh(name):
 def load_background(name, fast=False):
     path = asset_path(name)
     decode = decode_ppm if fast else decode_ppm_pixel_by_pixel
-    return SimpleNamespace(name=name, path=path, pixels=decode(path))
+    return Background(name=name, path=path, pixels=decode(path))
 
 
 def decode_ppm_pixel_by_pixel(path):
