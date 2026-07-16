@@ -82,10 +82,10 @@ $ uv run python -m profiling.sampling run --diff-flamegraph slow.bin \
 To attach to a running viewer, start `uv run pretzel` in one terminal and run one of the following commands in another terminal. The attaching interpreter must be the same Python version as the target, which is why these commands point `sudo` at the interpreter inside `.venv`:
 
 ```sh
-$ sudo .venv/bin/python -m profiling.sampling attach $(pgrep -f "pretzel$")
-$ sudo .venv/bin/python -m profiling.sampling dump $(pgrep -f "pretzel$")
+$ sudo .venv/bin/python -m profiling.sampling attach $(pgrep -n -f "pretzel$")
+$ sudo .venv/bin/python -m profiling.sampling dump $(pgrep -n -f "pretzel$")
 $ sudo .venv/bin/python -m profiling.sampling attach --live \
-    $(pgrep -f "pretzel$")
+    $(pgrep -n -f "pretzel$")
 ```
 
 ## Profiling the Async Example
@@ -109,4 +109,4 @@ $ uv run make_assets.py
 
 ## About the .mdl Format
 
-`pretzel.mdl` uses a minimal text format inspired by Wavefront OBJ: lines starting with `v` define `x y z` vertices, and lines starting with `f` define triangles as 1-based vertex indices.
+`pretzel.mdl` uses a minimal text format inspired by Wavefront OBJ: lines starting with `v` define `x y z` vertices, and lines starting with `f` define faces or triangles as 1-based vertex indices.
