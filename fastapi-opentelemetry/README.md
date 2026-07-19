@@ -1,3 +1,3 @@
-# How to Integrate OpenTelemetry With FastAPI App
+# How to Integrate OpenTelemetry With a FastAPI App
 
-This folder contains sample code for the Real Python tutorial [How to Integrate OpenTelemetry With FastAPI App](https://realpython.com/).
+This folder contains sample code for the Real Python tutorial [How to Integrate OpenTelemetry With a FastAPI App]([https://realpython.com/](https://realpython.com/fastapi-opentelemetry/)).
