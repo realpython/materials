@@ -1,8 +1,7 @@
 import logging
 
-from opentelemetry import trace
-
 from fastapi import FastAPI
+from opentelemetry import trace
 
 app = FastAPI()
 tracer = trace.get_tracer(__name__)
