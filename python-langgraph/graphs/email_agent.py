@@ -62,7 +62,6 @@ def extract_notice_data(
     initial_state = {
         "notice_message": email,
         "notice_email_extract": None,
-        "critical_fields_missing": False,
         "escalation_text_criteria": escalation_criteria,
         "escalation_dollar_criteria": 100_000,
         "requires_escalation": False,
@@ -110,7 +109,7 @@ tools = [
 ]
 tool_node = ToolNode(tools)
 
-EMAIL_AGENT_MODEL = ChatOpenAI(model="gpt-4o-mini", temperature=0).bind_tools(
+EMAIL_AGENT_MODEL = ChatOpenAI(model="gpt-5.4-nano", temperature=0).bind_tools(
     tools
 )
 

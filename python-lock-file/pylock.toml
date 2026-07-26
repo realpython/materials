@@ -1,0 +1,57 @@
+lock-version = "1.0"
+created-by = "pip"
+
+[[packages]]
+name = "numpy"
+version = "2.4.4"
+
+[[packages.wheels]]
+name = "numpy-2.4.4-cp314-cp314-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl"
+url = "https://files.pythonhosted.org/packages/98/7c/21252050676612625449b4807d6b695b9ce8a7c9e1c197ee6216c8a65c7c/numpy-2.4.4-cp314-cp314-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl"
+
+[packages.wheels.hashes]
+sha256 = "27a8d92cd10f1382a67d7cf4db7ce18341b66438bdd9f691d7b0e48d104c2a9d"
+
+[[packages]]
+name = "pandas"
+version = "3.0.3"
+
+[[packages.wheels]]
+name = "pandas-3.0.3-cp314-cp314-manylinux_2_24_x86_64.manylinux_2_28_x86_64.whl"
+url = "https://files.pythonhosted.org/packages/58/3b/1cdec6772bdbaf7b25dab360c59f03cadf05492dd724c6540af905389b07/pandas-3.0.3-cp314-cp314-manylinux_2_24_x86_64.manylinux_2_28_x86_64.whl"
+
+[packages.wheels.hashes]
+sha256 = "9d71c63ae4ebdbf70209742096f1fc46a83a0613c99d4b23766cced9ff8cd62a"
+
+[[packages]]
+name = "python-dateutil"
+version = "2.9.0.post0"
+
+[[packages.wheels]]
+name = "python_dateutil-2.9.0.post0-py2.py3-none-any.whl"
+url = "https://files.pythonhosted.org/packages/ec/57/56b9bcc3c9c6a792fcbaf139543cee77261f3651ca9da0c93f5c1221264b/python_dateutil-2.9.0.post0-py2.py3-none-any.whl"
+
+[packages.wheels.hashes]
+sha256 = "a8b2bc7bffae282281c8140a97d3aa9c14da0b136dfe83f850eea9a5f7470427"
+
+[[packages]]
+name = "scipy"
+version = "1.17.1"
+
+[[packages.wheels]]
+name = "scipy-1.17.1-cp314-cp314-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl"
+url = "https://files.pythonhosted.org/packages/0b/2e/7eea398450457ecb54e18e9d10110993fa65561c4f3add5e8eccd2b9cd41/scipy-1.17.1-cp314-cp314-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl"
+
+[packages.wheels.hashes]
+sha256 = "eee2cfda04c00a857206a4330f0c5e3e56535494e30ca445eb19ec624ae75118"
+
+[[packages]]
+name = "six"
+version = "1.17.0"
+
+[[packages.wheels]]
+name = "six-1.17.0-py2.py3-none-any.whl"
+url = "https://files.pythonhosted.org/packages/b7/ce/149a00dd41f10bc29e5921b496af8b574d8413afcd5e30dfa0ed46c2cc5e/six-1.17.0-py2.py3-none-any.whl"
+
+[packages.wheels.hashes]
+sha256 = "4721f391ed90541fddacab5acf947aa0d3dc7d27b2e1e8eda2be8970586c3274"
