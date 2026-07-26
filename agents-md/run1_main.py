@@ -5,7 +5,7 @@ from fastapi import FastAPI, HTTPException
 
 app = FastAPI()
 
-data_file = os.path.join(os.path.dirname(__file__), "cars.json")
+data_file = os.path.join(os.path.dirname(__file__), 'cars.json')
 with open(data_file) as f:
     cars = json.load(f)
 
@@ -27,15 +27,15 @@ def get_car(car_id: int) -> dict:
 
 @app.post("/cars")
 def create_car(car: dict):
-    car["id"] = len(cars) + 1
+    car['id'] = len(cars) + 1
     cars.append(car)
-    return {"message": "Car created successfully", "car": car}
+    return {'message': 'Car created successfully', 'car': car}
 
 
 @app.delete("/cars/{car_id}")
 def delete_car(car_id: int):
     for i in range(len(cars)):
-        if cars[i]["id"] == car_id:
+        if cars[i]['id'] == car_id:
             cars.pop(i)
-            return {"message": "Car deleted"}
-    return {"error": "Car not found"}
+            return {'message': 'Car deleted'}
+    return {'error': 'Car not found'}
