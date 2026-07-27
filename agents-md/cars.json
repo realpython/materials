@@ -1,0 +1,92 @@
+[
+  {
+    "id": 1,
+    "make": "Ford",
+    "model": "Mustang",
+    "year": 1969,
+    "horsepower": 290,
+    "engine_cc": 5752,
+    "transmission": "Manual"
+  },
+  {
+    "id": 2,
+    "make": "Chevrolet",
+    "model": "Corvette",
+    "year": 2020,
+    "horsepower": 490,
+    "engine_cc": 6162,
+    "transmission": "Automatic"
+  },
+  {
+    "id": 3,
+    "make": "Dodge",
+    "model": "Charger",
+    "year": 2023,
+    "horsepower": 370,
+    "engine_cc": 5654,
+    "transmission": "Automatic"
+  },
+  {
+    "id": 4,
+    "make": "Tesla",
+    "model": "Model S",
+    "year": 2022,
+    "horsepower": 670,
+    "engine_cc": 0,
+    "transmission": "Automatic"
+  },
+  {
+    "id": 5,
+    "make": "Jeep",
+    "model": "Wrangler",
+    "year": 2021,
+    "horsepower": 285,
+    "engine_cc": 3604,
+    "transmission": "Automatic"
+  },
+  {
+    "id": 6,
+    "make": "Ford",
+    "model": "F-150",
+    "year": 2024,
+    "horsepower": 400,
+    "engine_cc": 3496,
+    "transmission": "Automatic"
+  },
+  {
+    "id": 7,
+    "make": "Cadillac",
+    "model": "Escalade",
+    "year": 2023,
+    "horsepower": 420,
+    "engine_cc": 6162,
+    "transmission": "Automatic"
+  },
+  {
+    "id": 8,
+    "make": "Chevrolet",
+    "model": "Camaro",
+    "year": 2018,
+    "horsepower": 455,
+    "engine_cc": 6162,
+    "transmission": "Manual"
+  },
+  {
+    "id": 9,
+    "make": "GMC",
+    "model": "Sierra",
+    "year": 2022,
+    "horsepower": 355,
+    "engine_cc": 5328,
+    "transmission": "Automatic"
+  },
+  {
+    "id": 10,
+    "make": "Chrysler",
+    "model": "300",
+    "year": 2019,
+    "horsepower": 292,
+    "engine_cc": 3604,
+    "transmission": "Automatic"
+  }
+]
