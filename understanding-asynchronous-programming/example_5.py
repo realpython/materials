@@ -25,29 +25,25 @@ def main():
 
     # Put some work in the queue
     for url in [
-        "http://google.com",
-        "http://yahoo.com",
-        "http://linkedin.com",
-        "http://apple.com",
-        "http://microsoft.com",
-        "http://facebook.com",
-        "http://twitter.com",
+        "https://www.google.com",
+        "https://www.linkedin.com",
+        "https://www.apple.com",
+        "https://www.microsoft.com",
+        "https://www.facebook.com",
+        "https://x.com",
     ]:
         work_queue.put(url)
 
     tasks = [task("One", work_queue), task("Two", work_queue)]
 
     # Run the tasks
-    done = False
     with Timer(text="\nTotal elapsed time: {:.1f}"):
-        while not done:
-            for t in tasks:
+        while tasks:
+            for t in tasks.copy():
                 try:
                     next(t)
                 except StopIteration:
                     tasks.remove(t)
-                if len(tasks) == 0:
-                    done = True
 
 
 if __name__ == "__main__":

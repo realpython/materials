@@ -1,10 +1,9 @@
 import queue
-from builtins import range
 
 
-def task(name, queue):
-    while not queue.empty():
-        count = queue.get()
+def task(name, work_queue):
+    while not work_queue.empty():
+        count = work_queue.get()
         total = 0
         print(f"Task {name} running")
         for x in range(count):
@@ -28,15 +27,12 @@ def main():
     tasks = [task("One", work_queue), task("Two", work_queue)]
 
     # Run the tasks
-    done = False
-    while not done:
-        for t in tasks:
+    while tasks:
+        for t in tasks.copy():
             try:
                 next(t)
             except StopIteration:
                 tasks.remove(t)
-            if len(tasks) == 0:
-                done = True
 
 
 if __name__ == "__main__":

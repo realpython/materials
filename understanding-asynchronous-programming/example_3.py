@@ -4,10 +4,10 @@ import time
 from codetiming import Timer
 
 
-def task(name, queue):
+def task(name, work_queue):
     timer = Timer(text=f"Task {name} elapsed time: {{:.1f}}")
-    while not queue.empty():
-        delay = queue.get()
+    while not work_queue.empty():
+        delay = work_queue.get()
         print(f"Task {name} running")
         timer.start()
         time.sleep(delay)
@@ -29,16 +29,13 @@ def main():
     tasks = [task("One", work_queue), task("Two", work_queue)]
 
     # Run the tasks
-    done = False
     with Timer(text="\nTotal elapsed time: {:.1f}"):
-        while not done:
-            for t in tasks:
+        while tasks:
+            for t in tasks.copy():
                 try:
                     next(t)
                 except StopIteration:
                     tasks.remove(t)
-                if len(tasks) == 0:
-                    done = True
 
 
 if __name__ == "__main__":

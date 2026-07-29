@@ -11,8 +11,9 @@ async def task(name, work_queue):
             url = await work_queue.get()
             print(f"Task {name} getting URL: {url}")
             timer.start()
-            async with session.get(url) as response:
-                await response.text()
+            async with asyncio.timeout(10):
+                async with session.get(url) as response:
+                    await response.text()
             timer.stop()
 
 
@@ -25,22 +26,20 @@ async def main():
 
     # Put some work in the queue
     for url in [
-        "http://google.com",
-        "http://yahoo.com",
-        "http://linkedin.com",
-        "http://apple.com",
-        "http://microsoft.com",
-        "http://facebook.com",
-        "http://twitter.com",
+        "https://www.google.com",
+        "https://www.linkedin.com",
+        "https://www.apple.com",
+        "https://www.microsoft.com",
+        "https://www.facebook.com",
+        "https://x.com",
     ]:
         await work_queue.put(url)
 
     # Run the tasks
     with Timer(text="\nTotal elapsed time: {:.1f}"):
-        await asyncio.gather(
-            asyncio.create_task(task("One", work_queue)),
-            asyncio.create_task(task("Two", work_queue)),
-        )
+        async with asyncio.TaskGroup() as group:
+            group.create_task(task("One", work_queue))
+            group.create_task(task("Two", work_queue))
 
 
 if __name__ == "__main__":
