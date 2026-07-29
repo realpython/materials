@@ -18,24 +18,19 @@ async def task(name, work_queue):
 
 
 async def main():
-    """
-    This is the main entry point for the program
-    """
-    # Create the queue of work
-    work_queue = asyncio.Queue()
-
-    # Put some work in the queue
-    for url in [
+    urls = [
         "https://www.google.com",
         "https://www.linkedin.com",
         "https://www.apple.com",
         "https://www.microsoft.com",
         "https://www.facebook.com",
         "https://x.com",
-    ]:
+    ]
+
+    work_queue = asyncio.Queue()
+    for url in urls:
         await work_queue.put(url)
 
-    # Run the tasks
     with Timer(text="\nTotal elapsed time: {:.1f}"):
         async with asyncio.TaskGroup() as group:
             group.create_task(task("One", work_queue))
