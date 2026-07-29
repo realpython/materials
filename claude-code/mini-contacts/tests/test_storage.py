@@ -13,7 +13,9 @@ class StorageTests(unittest.TestCase):
 
     def test_round_trip(self):
         path = self.tmp_path / "contacts.csv"
-        storage.add_contact(str(path), "Alice", "alice@example.com", "555-1234")
+        storage.add_contact(
+            str(path), "Alice", "alice@example.com", "555-1234"
+        )
         expected = {
             "name": "Alice",
             "email": "alice@example.com",
@@ -23,7 +25,9 @@ class StorageTests(unittest.TestCase):
 
     def test_header_written_once(self):
         path = self.tmp_path / "contacts.csv"
-        storage.add_contact(str(path), "Alice", "alice@example.com", "555-1234")
+        storage.add_contact(
+            str(path), "Alice", "alice@example.com", "555-1234"
+        )
         storage.add_contact(str(path), "Bob", "bob@example.com", "555-5678")
         self.assertEqual(path.read_text().count("name,email,phone"), 1)
 
@@ -39,4 +43,6 @@ class StorageTests(unittest.TestCase):
 
     def test_add_blank_field_raises(self):
         with self.assertRaises(ValueError):
-            storage.add_contact(str(self.tmp_path / "c.csv"), "Alice", "", "555-1234")
+            storage.add_contact(
+                str(self.tmp_path / "c.csv"), "Alice", "", "555-1234"
+            )

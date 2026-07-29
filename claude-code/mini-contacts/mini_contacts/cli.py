@@ -10,10 +10,14 @@ def _print_table(contacts: list[dict[str, str]]) -> None:
         return
     headers = {"name": "Name", "email": "Email", "phone": "Phone"}
     widths = {
-        field: max(len(headers[field]), max(len(row[field]) for row in contacts))
+        field: max(
+            len(headers[field]), max(len(row[field]) for row in contacts)
+        )
         for field in storage.FIELDNAMES
     }
-    header_line = " | ".join(headers[f].ljust(widths[f]) for f in storage.FIELDNAMES)
+    header_line = " | ".join(
+        headers[f].ljust(widths[f]) for f in storage.FIELDNAMES
+    )
     separator = "-+-".join("-" * widths[f] for f in storage.FIELDNAMES)
     print(header_line)
     print(separator)
