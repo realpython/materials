@@ -1,6 +1,8 @@
+import json
+
 from constants import ENCODING
 
 with open("data.json", encoding=ENCODING) as f:
-    data = f.read()
+    data = json.load(f)
 
 print(f"Loaded {len(data)} entries")
