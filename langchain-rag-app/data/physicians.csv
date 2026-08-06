@@ -1,0 +1,501 @@
+physician_name,physician_id,physician_dob,physician_grad_year,medical_school,salary
+Joseph Johnson,0,1970-02-22,2000-02-22,Johns Hopkins University School of Medicine,309534.15507605654
+Jason Williams,1,1982-12-22,2012-12-22,Mayo Clinic Alix School of Medicine,281114.5035585275
+Jesse Gordon,2,1959-06-03,1989-06-03,David Geffen School of Medicine at UCLA,305845.5846360554
+Heather Smith,3,1965-06-15,1995-06-15,NYU Grossman Medical School,295239.7666886809
+Kayla Hunter DDS,4,1978-10-19,2008-10-19,David Geffen School of Medicine at UCLA,298751.35520122456
+Christopher Jordan,5,1989-11-04,2019-11-04,NYU Grossman Medical School,316681.6994348657
+Elaine Medina,6,1957-12-24,1987-12-24,Baylor College of Medicine,283743.02626834356
+Donna Mcintyre,7,1987-03-12,2017-03-12,Perelman School of Medicine (University of Pennsylvania),319166.7313781032
+Richard Tucker,8,1983-04-02,2013-04-02,Perelman School of Medicine (University of Pennsylvania),347019.2359991686
+Kimberly Oliver,9,1989-06-02,2019-06-02,Stanford University School of Medicine,310293.2724885527
+Christopher Williamson,10,1974-01-22,2004-01-22,"University of California, San Francisco School of Medicine",276537.12944182596
+Cory Campbell,11,1988-11-08,2018-11-08,Stanford University School of Medicine,281549.4596598061
+Cathy Church,12,1951-12-30,1981-12-30,NYU Grossman Medical School,292552.1129764465
+Kristopher Wiley Jr.,13,1951-11-30,1981-11-30,Yale School of Medicine,282153.29108791304
+Denise Chavez,14,1969-09-04,1999-09-04,Columbia University Vagelos College of Physicians and Surgeons,270264.5907116985
+Jason Merritt,15,1989-09-25,2019-09-25,Johns Hopkins University School of Medicine,304632.2183088508
+Jacqueline Mcneil DVM,16,1988-02-14,2018-02-14,Columbia University Vagelos College of Physicians and Surgeons,293364.08004822605
+Veronica Moore,17,1970-04-06,2000-04-06,University of Chicago Pritzker School of Medicine,305691.62650674174
+Steven Watson,18,1961-06-03,1991-06-03,Columbia University Vagelos College of Physicians and Surgeons,335591.62236645864
+Ryan Brown,19,1961-12-09,1991-12-09,Harvard Medical School,292909.4149822692
+Ashley Pena,20,1956-11-07,1986-11-07,Columbia University Vagelos College of Physicians and Surgeons,264437.3998595907
+Erin Grimes,21,1965-01-08,1995-01-08,Stanford University School of Medicine,288033.2252323935
+Kimberly Johnson,22,1972-10-27,2002-10-27,Mayo Clinic Alix School of Medicine,323112.75651349925
+Tyler Lopez,23,1962-04-19,1992-04-19,University of Texas Southwestern Medical School,320303.1081215087
+Karen Clark,24,1980-06-22,2010-06-22,Mayo Clinic Alix School of Medicine,315559.189428407
+Abigail Fuller,25,1970-12-13,2000-12-13,Perelman School of Medicine (University of Pennsylvania),281258.7983051369
+Ryan Vasquez,26,1953-03-13,1983-03-13,University of Texas Southwestern Medical School,322557.07854098093
+Lisa Wilkinson,27,1952-11-28,1982-11-28,University of Michigan Medical School,329306.972341112
+Jason Little,28,1980-08-05,2010-08-05,Johns Hopkins University School of Medicine,279137.3511033007
+Heather Smith,29,1962-12-13,1992-12-13,Johns Hopkins University School of Medicine,298752.89707372425
+Denise Perez,30,1975-08-06,2005-08-06,Harvard Medical School,360612.05891046335
+Joseph Roman,31,1964-08-09,1994-08-09,Yale School of Medicine,277803.7717060984
+Elizabeth Beck,32,1974-06-08,2004-06-08,Stanford University School of Medicine,248847.39992268826
+Deborah Wright,33,1961-11-09,1991-11-09,Perelman School of Medicine (University of Pennsylvania),341487.13303394394
+Renee Hicks,34,1968-08-15,1998-08-15,Baylor College of Medicine,334098.1431511368
+Keith Reed,35,1963-04-09,1993-04-09,University of Chicago Pritzker School of Medicine,286290.98029267724
+Beverly Jordan,36,1968-06-06,1998-06-06,Yale School of Medicine,296610.2465439574
+Ronald Hernandez Jr.,37,1992-01-29,2022-01-29,Johns Hopkins University School of Medicine,263251.94849433145
+Colleen Ward,38,1956-12-14,1986-12-14,Mayo Clinic Alix School of Medicine,302668.5681782911
+Lauren Rojas,39,1969-04-27,1999-04-27,Columbia University Vagelos College of Physicians and Surgeons,334977.411461142
+Logan Diaz,40,1981-07-13,2011-07-13,Columbia University Vagelos College of Physicians and Surgeons,283721.85474725167
+Joshua Jenkins,41,1981-06-20,2011-06-20,University of Michigan Medical School,326313.0593635888
+Joyce Brown,42,1954-03-23,1984-03-23,Perelman School of Medicine (University of Pennsylvania),313911.715721713
+Christina Richards,43,1988-03-26,2018-03-26,Stanford University School of Medicine,317334.50672643416
+Ryan Curry,44,1967-04-15,1997-04-15,Stanford University School of Medicine,285470.72458240896
+Lauren Williams,45,1987-10-21,2017-10-21,"University of California, San Francisco School of Medicine",289361.27451199514
+Nathan Fischer,46,1976-03-25,2006-03-25,NYU Grossman Medical School,244596.82696585794
+Tanya Sharp,47,1973-10-18,2003-10-18,Washington University in St. Louis School of Medicine,282999.91762469686
+Amber Thomas,48,1970-07-09,2000-07-09,Johns Hopkins University School of Medicine,334904.5637409378
+Alan Watkins,49,1961-10-22,1991-10-22,Stanford University School of Medicine,272120.0341769318
+Derek Phillips,50,1953-08-17,1983-08-17,University of Michigan Medical School,276590.95038429287
+Patricia Quinn,51,1958-08-08,1988-08-08,Mayo Clinic Alix School of Medicine,319205.6947112137
+Brian Rivera,52,1954-12-16,1984-12-16,Perelman School of Medicine (University of Pennsylvania),312083.0487597928
+Raymond Berry,53,1968-01-15,1998-01-15,University of Chicago Pritzker School of Medicine,320695.89749388903
+Sabrina Rodriguez,54,1964-07-07,1994-07-07,"University of California, San Francisco School of Medicine",265103.3837972879
+Tonya Warner,55,1992-05-25,2022-05-25,University of Michigan Medical School,376921.7384790104
+Lori Burns,56,1982-01-27,2012-01-27,David Geffen School of Medicine at UCLA,263527.3987749825
+Michael Olson,57,1963-01-01,1993-01-01,Harvard Medical School,304627.41941202205
+Jesse Hall,58,1975-11-01,2005-11-01,University of Chicago Pritzker School of Medicine,295240.3351239424
+Jonathan Lucas,59,1960-02-27,1990-02-27,NYU Grossman Medical School,264400.7544790486
+Jenna Taylor,60,1985-11-29,2015-11-29,David Geffen School of Medicine at UCLA,288893.7173156025
+Denise Murray,61,1976-03-21,2006-03-21,Baylor College of Medicine,300699.2280265761
+Stephanie Vargas,62,1977-10-16,2007-10-16,NYU Grossman Medical School,280500.8036440959
+Gabrielle Pitts,63,1967-11-18,1997-11-18,Columbia University Vagelos College of Physicians and Surgeons,328116.7086460455
+Breanna Cruz,64,1977-11-23,2007-11-23,Harvard Medical School,295151.22763612587
+Dean Hart,65,1990-03-15,2020-03-15,Johns Hopkins University School of Medicine,259761.7598694514
+Kim Gray,66,1951-05-20,1981-05-20,Mayo Clinic Alix School of Medicine,257216.2340199211
+Jonathan Decker,67,1953-04-29,1983-04-29,Harvard Medical School,318184.9527183437
+Scott Barton,68,1954-03-12,1984-03-12,NYU Grossman Medical School,255396.8765189899
+Terry Leon,69,1952-04-03,1982-04-03,Washington University in St. Louis School of Medicine,309492.78219147254
+Gerald Smith,70,1963-10-09,1993-10-09,David Geffen School of Medicine at UCLA,313339.6555700088
+Jennifer Baldwin MD,71,1986-10-07,2016-10-07,Johns Hopkins University School of Medicine,270139.3390822795
+Amy Smith,72,1955-10-07,1985-10-07,University of Texas Southwestern Medical School,326722.14251324674
+Carmen Larsen,73,1959-12-07,1989-12-07,Washington University in St. Louis School of Medicine,248466.19128715104
+Robert Pratt,74,1985-07-08,2015-07-08,Columbia University Vagelos College of Physicians and Surgeons,308893.76801995677
+David Lopez,75,1955-01-27,1985-01-27,Washington University in St. Louis School of Medicine,298774.2619921197
+Miguel Davidson,76,1963-06-12,1993-06-12,"University of California, San Francisco School of Medicine",296430.0607280732
+Zachary Campbell,77,1980-02-16,2010-02-16,"University of California, San Francisco School of Medicine",264663.1007105828
+Dr. Parker Joseph,78,1987-11-26,2017-11-26,Baylor College of Medicine,271889.3398680022
+Catherine Haynes,79,1982-01-17,2012-01-17,NYU Grossman Medical School,348564.06075061794
+John Johnson,80,1993-02-25,2023-02-25,Perelman School of Medicine (University of Pennsylvania),336454.65026615263
+Casey Reyes,81,1966-12-13,1996-12-13,University of Chicago Pritzker School of Medicine,322262.53765571397
+Rebecca Wallace,82,1965-06-16,1995-06-16,University of Chicago Pritzker School of Medicine,328195.44310589065
+Kayla Lawson,83,1976-04-02,2006-04-02,University of Texas Southwestern Medical School,325380.40634013806
+Zachary Turner,84,1982-05-22,2012-05-22,University of Texas Southwestern Medical School,290299.31363141374
+Jesus Snyder,85,1972-01-19,2002-01-19,Johns Hopkins University School of Medicine,301428.10655443056
+Kyle Nichols,86,1959-02-13,1989-02-13,Columbia University Vagelos College of Physicians and Surgeons,255824.74865876973
+Nancy Nichols,87,1973-09-19,2003-09-19,Stanford University School of Medicine,297309.13119577424
+Andrew King,88,1969-06-24,1999-06-24,Baylor College of Medicine,335502.4274861756
+Bryan Jones,89,1986-06-24,2016-06-24,"University of California, San Francisco School of Medicine",280178.78255228593
+Jordan Sparks,90,1953-09-15,1983-09-15,Johns Hopkins University School of Medicine,330694.2361406168
+Madison Hardin,91,1980-01-19,2010-01-19,Stanford University School of Medicine,302747.5721608129
+Doris Rodriguez,92,1980-03-07,2010-03-07,University of Chicago Pritzker School of Medicine,258438.84402990804
+Jose Carroll,93,1951-10-30,1981-10-30,Perelman School of Medicine (University of Pennsylvania),266780.41459961067
+Johnny White MD,94,1975-07-26,2005-07-26,Washington University in St. Louis School of Medicine,327579.08609123266
+Karen Collier,95,1987-05-26,2017-05-26,"University of California, San Francisco School of Medicine",316575.7225577516
+Julie Zimmerman,96,1960-03-08,1990-03-08,Johns Hopkins University School of Medicine,303052.92218962876
+Timothy Martinez,97,1970-06-28,2000-06-28,Harvard Medical School,291779.0455725616
+Jennifer Walker,98,1951-06-24,1981-06-24,Stanford University School of Medicine,306317.03932885756
+Joel Copeland,99,1963-08-05,1993-08-05,Washington University in St. Louis School of Medicine,326408.88747759745
+Lisa Brewer,100,1963-03-29,1993-03-29,"University of California, San Francisco School of Medicine",344275.5984146185
+Edward Miller,101,1966-07-18,1996-07-18,University of Chicago Pritzker School of Medicine,345710.52598321816
+Leslie Williams,102,1990-08-16,2020-08-16,University of Michigan Medical School,311158.79702275497
+Miss Maria King,103,1970-01-08,2000-01-08,Columbia University Vagelos College of Physicians and Surgeons,294842.04928906437
+Kristin Phillips,104,1964-07-26,1994-07-26,Stanford University School of Medicine,304387.44023456564
+Maria Thompson,105,1986-03-09,2016-03-09,University of Chicago Pritzker School of Medicine,315663.61071765237
+Mark Vang,106,1957-08-11,1987-08-11,"University of California, San Francisco School of Medicine",315542.0083153527
+Elizabeth Henderson,107,1954-05-01,1984-05-01,Stanford University School of Medicine,339239.5991142031
+Troy Wilson,108,1984-09-16,2014-09-16,Baylor College of Medicine,363472.6716574996
+Candice Manning,109,1965-08-23,1995-08-23,Washington University in St. Louis School of Medicine,293842.3611115774
+Deborah Sampson,110,1963-02-26,1993-02-26,Yale School of Medicine,364676.5472647339
+Joshua Martinez,111,1977-10-02,2007-10-02,"University of California, San Francisco School of Medicine",335167.1774027518
+Ronald Taylor,112,1950-01-10,1980-01-10,Baylor College of Medicine,296975.31029444374
+Rebecca Mckinney,113,1964-01-12,1994-01-12,David Geffen School of Medicine at UCLA,344956.9451659524
+Crystal Wallace,114,1952-10-12,1982-10-12,Johns Hopkins University School of Medicine,350569.44904257497
+Katrina Torres,115,1956-01-03,1986-01-03,University of Michigan Medical School,286191.1366741846
+Michael Watson,116,1973-01-15,2003-01-15,University of Texas Southwestern Medical School,351966.45757456945
+Natalie Browning,117,1987-02-06,2017-02-06,Washington University in St. Louis School of Medicine,332252.4846310789
+Todd Mccormick,118,1989-09-25,2019-09-25,Stanford University School of Medicine,371056.77383937576
+Christopher Zhang,119,1961-05-21,1991-05-21,Columbia University Vagelos College of Physicians and Surgeons,287278.84254001506
+Maurice Lane,120,1969-01-31,1999-01-31,University of Chicago Pritzker School of Medicine,289397.1976879201
+Emily Lucas,121,1968-12-30,1998-12-30,University of Texas Southwestern Medical School,239200.1361076998
+Matthew Marks,122,1987-09-16,2017-09-16,Harvard Medical School,317135.81761703885
+Linda Morris,123,1978-04-28,2008-04-28,University of Chicago Pritzker School of Medicine,311257.53766856156
+Christy Huff,124,1969-11-23,1999-11-23,Stanford University School of Medicine,283110.18985393
+Anthony Lynch,125,1973-10-29,2003-10-29,University of Michigan Medical School,297544.4780553583
+Jessica Rodriguez,126,1951-01-20,1981-01-20,NYU Grossman Medical School,260663.36969474654
+Rick Herrera,127,1951-02-09,1981-02-09,University of Chicago Pritzker School of Medicine,335953.34858495055
+Kathleen Evans,128,1972-05-20,2002-05-20,NYU Grossman Medical School,285309.0157641507
+Dustin Perez,129,1991-07-03,2021-07-03,Johns Hopkins University School of Medicine,392821.47046862857
+Charles Kim,130,1984-12-11,2014-12-11,University of Michigan Medical School,294731.960978669
+Justin Anderson,131,1976-12-30,2006-12-30,"University of California, San Francisco School of Medicine",277211.4347685507
+Louis Sullivan,132,1966-05-26,1996-05-26,Baylor College of Medicine,287630.6064379541
+Samuel Hill,133,1991-05-12,2021-05-12,Harvard Medical School,257641.17070367245
+Rhonda Diaz,134,1959-12-16,1989-12-16,Mayo Clinic Alix School of Medicine,314468.1567210883
+Melissa Garrett,135,1979-11-21,2009-11-21,Stanford University School of Medicine,287403.0090066263
+Alexis Hutchinson,136,1963-03-03,1993-03-03,Perelman School of Medicine (University of Pennsylvania),333937.5837119321
+Samantha Barrett,137,1986-11-04,2016-11-04,Mayo Clinic Alix School of Medicine,291757.57514476747
+Melissa Paul,138,1992-04-14,2022-04-14,University of Chicago Pritzker School of Medicine,341533.2633505694
+Angelica Houston,139,1966-06-03,1996-06-03,University of Texas Southwestern Medical School,322723.67247951124
+Joseph Jones,140,1955-08-11,1985-08-11,Stanford University School of Medicine,300857.9033015503
+Miguel Stout,141,1983-10-13,2013-10-13,Baylor College of Medicine,347406.97762052465
+Andrew James,142,1962-06-11,1992-06-11,David Geffen School of Medicine at UCLA,328568.8038311163
+Russell Morris,143,1963-08-17,1993-08-17,Baylor College of Medicine,388386.38479989674
+David Hicks,144,1984-12-23,2014-12-23,Perelman School of Medicine (University of Pennsylvania),287716.34265065385
+Michael Miranda,145,1977-06-03,2007-06-03,Harvard Medical School,302298.4831637538
+Shawn Ellis,146,1959-05-13,1989-05-13,Baylor College of Medicine,347061.2703303279
+Lauren Williams,147,1989-07-05,2019-07-05,Columbia University Vagelos College of Physicians and Surgeons,253693.86564494664
+Jennifer Mccall,148,1969-10-27,1999-10-27,David Geffen School of Medicine at UCLA,339508.3068969769
+Erik Guerrero,149,1989-09-02,2019-09-02,Mayo Clinic Alix School of Medicine,313179.08273044415
+Kerry Hart,150,1978-05-11,2008-05-11,"University of California, San Francisco School of Medicine",273353.67733658256
+Kyle Campbell,151,1961-12-12,1991-12-12,Johns Hopkins University School of Medicine,259108.81024346635
+Tamara Potter,152,1977-11-11,2007-11-11,Columbia University Vagelos College of Physicians and Surgeons,279825.3158060915
+Tracy Garza,153,1973-01-27,2003-01-27,Yale School of Medicine,231455.41283023285
+Mr. Justin Bryant,154,1973-06-29,2003-06-29,David Geffen School of Medicine at UCLA,285313.8166892549
+Richard Miller,155,1963-04-21,1993-04-21,"University of California, San Francisco School of Medicine",318676.6900002775
+Melissa Conway,156,1977-06-28,2007-06-28,"University of California, San Francisco School of Medicine",285710.9807709352
+Jessica Cain,157,1991-10-07,2021-10-07,Stanford University School of Medicine,341649.38104301423
+Christopher Stanley,158,1981-05-28,2011-05-28,David Geffen School of Medicine at UCLA,349798.4280817586
+Roger Craig,159,1953-06-06,1983-06-06,Harvard Medical School,338269.33447877323
+Yvonne Jacobs,160,1969-02-26,1999-02-26,University of Chicago Pritzker School of Medicine,306919.22730793094
+Teresa Frost,161,1983-05-01,2013-05-01,Perelman School of Medicine (University of Pennsylvania),230259.62182540592
+Andrew Bates,162,1962-10-18,1992-10-18,Yale School of Medicine,278889.0752390218
+Eric Marquez,163,1993-03-17,2023-03-17,Perelman School of Medicine (University of Pennsylvania),295738.8441967684
+Michael Bates,164,1985-09-25,2015-09-25,Mayo Clinic Alix School of Medicine,273183.9705148557
+Jessica Anderson,165,1968-11-03,1998-11-03,Mayo Clinic Alix School of Medicine,295814.8357354029
+William Bailey,166,1969-01-10,1999-01-10,Perelman School of Medicine (University of Pennsylvania),348302.02406080137
+Johnny Morgan,167,1976-01-26,2006-01-26,Baylor College of Medicine,250626.70411454045
+Rachel Oneill,168,1971-12-14,2001-12-14,Harvard Medical School,354350.7616835708
+Crystal Cruz,169,1969-01-02,1999-01-02,NYU Grossman Medical School,326541.79265262414
+Tiffany Hodges,170,1977-12-14,2007-12-14,Baylor College of Medicine,308046.5042483309
+Sarah Gardner,171,1976-02-24,2006-02-24,University of Texas Southwestern Medical School,278591.5033277771
+Benjamin Stevens,172,1962-09-12,1992-09-12,Baylor College of Medicine,273781.4896352572
+Tony Mason,173,1963-04-17,1993-04-17,Johns Hopkins University School of Medicine,251213.4685623378
+Courtney Walton,174,1978-04-04,2008-04-04,Washington University in St. Louis School of Medicine,351502.9644094316
+Catherine Howard,175,1963-05-25,1993-05-25,University of Chicago Pritzker School of Medicine,346128.34680222126
+Scott Scott,176,1969-04-14,1999-04-14,Johns Hopkins University School of Medicine,257811.46114250153
+April Shea,177,1961-05-27,1991-05-27,Stanford University School of Medicine,283421.16015281394
+Derrick Krause,178,1971-09-29,2001-09-29,Washington University in St. Louis School of Medicine,312994.3430769573
+Elizabeth White,179,1989-05-24,2019-05-24,Washington University in St. Louis School of Medicine,291014.7258548338
+Patrick Williams,180,1965-04-01,1995-04-01,David Geffen School of Medicine at UCLA,242439.75728904546
+Kelsey Dillon,181,1961-10-10,1991-10-10,Harvard Medical School,280266.8171833294
+Jamie Fisher,182,1967-03-02,1997-03-02,Harvard Medical School,358531.0289406006
+Tamara Potter,183,1960-06-15,1990-06-15,Washington University in St. Louis School of Medicine,282300.6422875667
+Beth Hall,184,1982-11-24,2012-11-24,University of Texas Southwestern Medical School,295095.9798989338
+Derek Edwards,185,1983-07-01,2013-07-01,Baylor College of Medicine,265644.6772789386
+Tara Payne,186,1967-02-15,1997-02-15,David Geffen School of Medicine at UCLA,317632.8895585124
+Carla Miller,187,1970-02-15,2000-02-15,University of Chicago Pritzker School of Medicine,303454.5539707375
+Angela Vance,188,1991-07-28,2021-07-28,Washington University in St. Louis School of Medicine,277739.40775329067
+Jon Prince,189,1967-01-30,1997-01-30,Columbia University Vagelos College of Physicians and Surgeons,260860.33812577726
+Sally Jones,190,1966-09-04,1996-09-04,Mayo Clinic Alix School of Medicine,342136.3012203263
+Sean Best,191,1981-11-11,2011-11-11,Mayo Clinic Alix School of Medicine,251833.6978007676
+Lisa Esparza,192,1984-08-17,2014-08-17,Johns Hopkins University School of Medicine,315114.4708676867
+Kelly Scott MD,193,1977-02-19,2007-02-19,Stanford University School of Medicine,235383.6226586528
+Steven Rivera,194,1973-03-13,2003-03-13,University of Michigan Medical School,321216.35049037146
+John Novak,195,1958-12-11,1988-12-11,University of Michigan Medical School,329108.9666178018
+Connie Tucker,196,1951-10-29,1981-10-29,Mayo Clinic Alix School of Medicine,332843.5113491974
+Barbara Warner,197,1961-06-20,1991-06-20,NYU Grossman Medical School,295163.745942904
+Laura Garrett,198,1977-10-27,2007-10-27,"University of California, San Francisco School of Medicine",347520.1081669109
+Sarah Brewer,199,1980-12-23,2010-12-23,Johns Hopkins University School of Medicine,369233.750849882
+Kevin Warner,200,1985-04-18,2015-04-18,University of Michigan Medical School,290351.3059186211
+Heather Anderson,201,1963-01-30,1993-01-30,Mayo Clinic Alix School of Medicine,286469.8490961022
+Kyle Vasquez,202,1960-09-05,1990-09-05,Stanford University School of Medicine,304475.31781034806
+Robert Chen,203,1987-07-22,2017-07-22,University of Michigan Medical School,285669.5956231738
+Karen Klein,204,1969-02-11,1999-02-11,Baylor College of Medicine,281283.8941196964
+James Mckinney,205,1967-06-17,1997-06-17,Baylor College of Medicine,283897.8437927547
+Joe Mendoza,206,1977-10-26,2007-10-26,Harvard Medical School,351472.6802401873
+Sarah Lane,207,1988-09-02,2018-09-02,University of Texas Southwestern Medical School,323156.459851063
+Erica George,208,1994-07-31,2024-07-31,Harvard Medical School,285571.61618225725
+Katie Huber,209,1978-09-19,2008-09-19,University of Chicago Pritzker School of Medicine,226346.24922833144
+Steven Smith,210,1964-05-07,1994-05-07,Washington University in St. Louis School of Medicine,253666.06519180597
+Allison Steele,211,1978-08-15,2008-08-15,Columbia University Vagelos College of Physicians and Surgeons,315102.87247805635
+Erika Ingram,212,1978-09-09,2008-09-09,Harvard Medical School,236353.32175833549
+Ann Joseph,213,1983-12-08,2013-12-08,Yale School of Medicine,308789.80582355865
+Amy Daniels,214,1962-02-19,1992-02-19,University of Michigan Medical School,268033.08825404925
+Meagan Herrera,215,1987-02-24,2017-02-24,NYU Grossman Medical School,302754.1732374202
+David Lopez,216,1988-10-26,2018-10-26,David Geffen School of Medicine at UCLA,301915.6890400243
+Terry Short,217,1950-10-30,1980-10-30,Mayo Clinic Alix School of Medicine,303617.6980167213
+Patricia Stewart,218,1950-02-25,1980-02-25,David Geffen School of Medicine at UCLA,288167.3445876444
+Robert Davis,219,1985-08-18,2015-08-18,Yale School of Medicine,287181.43123176805
+Joy Yoder,220,1973-11-13,2003-11-13,Stanford University School of Medicine,278376.28743190685
+Julie Walker,221,1972-04-25,2002-04-25,Harvard Medical School,314516.7695172567
+Destiny Lloyd,222,1955-10-27,1985-10-27,Columbia University Vagelos College of Physicians and Surgeons,324155.7802434284
+Karen Smith,223,1981-06-06,2011-06-06,Stanford University School of Medicine,263430.8243239162
+Mary Mahoney,224,1993-02-09,2023-02-09,"University of California, San Francisco School of Medicine",298451.1458312319
+Kathy Smith,225,1968-08-23,1998-08-23,"University of California, San Francisco School of Medicine",305897.4622046321
+Kathryn Johnson,226,1962-08-27,1992-08-27,David Geffen School of Medicine at UCLA,305513.13403869123
+Chad Peterson,227,1991-03-01,2021-03-01,Washington University in St. Louis School of Medicine,305003.08858789556
+April Bailey,228,1987-04-20,2017-04-20,Johns Hopkins University School of Medicine,287938.9556896433
+Alisha Figueroa,229,1964-01-14,1994-01-14,Washington University in St. Louis School of Medicine,308370.9127638762
+Julia Hoffman,230,1964-01-10,1994-01-10,University of Michigan Medical School,318540.8613295086
+Virginia Robinson,231,1966-01-27,1996-01-27,Yale School of Medicine,304231.09967467695
+Dennis Edwards,232,1954-03-12,1984-03-12,Baylor College of Medicine,315178.19509601174
+William Hart,233,1972-05-17,2002-05-17,University of Chicago Pritzker School of Medicine,329710.60233112524
+Karen Klein,234,1971-01-04,2001-01-04,Washington University in St. Louis School of Medicine,244471.78926314195
+Ashley Jackson,235,1968-11-04,1998-11-04,University of Texas Southwestern Medical School,328303.915255961
+Danielle Herring,236,1955-03-22,1985-03-22,University of Chicago Pritzker School of Medicine,310272.83295663825
+Frederick Ellis,237,1958-06-14,1988-06-14,Yale School of Medicine,266651.2401678382
+Thomas Middleton,238,1986-12-21,2016-12-21,University of Chicago Pritzker School of Medicine,324074.12646959064
+Michael Robinson,239,1972-04-27,2002-04-27,Columbia University Vagelos College of Physicians and Surgeons,288050.3728192811
+David Foster,240,1965-09-29,1995-09-29,Harvard Medical School,292141.0069104434
+Samantha Mendez,241,1984-12-20,2014-12-20,Columbia University Vagelos College of Physicians and Surgeons,284769.6065260301
+Isabel Mason,242,1978-02-10,2008-02-10,University of Chicago Pritzker School of Medicine,309071.96532714675
+Leah Meadows,243,1952-11-28,1982-11-28,Stanford University School of Medicine,276439.40572463843
+Rebecca Hernandez,244,1967-01-21,1997-01-21,"University of California, San Francisco School of Medicine",327044.23889843357
+Victor Dean,245,1991-06-22,2021-06-22,University of Chicago Pritzker School of Medicine,295834.1223841598
+Miranda Meza,246,1962-09-07,1992-09-07,Columbia University Vagelos College of Physicians and Surgeons,289073.92549536185
+Toni Caldwell,247,1967-03-21,1997-03-21,NYU Grossman Medical School,322586.2703284191
+Joseph Gonzales,248,1959-11-06,1989-11-06,Yale School of Medicine,290413.29713042756
+Tammy Hart,249,1981-06-02,2011-06-02,Stanford University School of Medicine,328445.304760869
+Vicki Thornton,250,1966-11-21,1996-11-21,Columbia University Vagelos College of Physicians and Surgeons,329387.78852522594
+William Soto,251,1976-10-26,2006-10-26,Washington University in St. Louis School of Medicine,259955.88485343067
+Michael Bennett,252,1970-09-14,2000-09-14,Mayo Clinic Alix School of Medicine,333277.8060666877
+Joshua Brewer,253,1972-08-11,2002-08-11,David Geffen School of Medicine at UCLA,256138.92085494343
+Debra Crawford,254,1967-06-12,1997-06-12,Johns Hopkins University School of Medicine,335147.4158064753
+Natalie Mitchell,255,1989-05-05,2019-05-05,Baylor College of Medicine,360850.71576690715
+Timothy Riley,256,1985-05-07,2015-05-07,Columbia University Vagelos College of Physicians and Surgeons,326245.03314807394
+Kyle Campbell,257,1971-10-01,2001-10-01,University of Texas Southwestern Medical School,235290.5806590098
+Joseph Santiago,258,1983-05-27,2013-05-27,Johns Hopkins University School of Medicine,331906.9715815806
+Christine Perkins,259,1993-01-23,2023-01-23,Yale School of Medicine,367383.86897808034
+Kristine Watson,260,1968-06-13,1998-06-13,NYU Grossman Medical School,290909.0507700591
+Isaac Walker,261,1993-07-27,2023-07-27,Perelman School of Medicine (University of Pennsylvania),298958.9003991033
+Sean Williams,262,1956-10-08,1986-10-08,Columbia University Vagelos College of Physicians and Surgeons,264345.398342207
+Elizabeth Meyer,263,1992-12-05,2022-12-05,Mayo Clinic Alix School of Medicine,309362.3825645901
+John Henderson,264,1954-10-28,1984-10-28,Johns Hopkins University School of Medicine,338075.31547629385
+Tara Harris,265,1977-11-02,2007-11-02,Baylor College of Medicine,320932.1138444836
+Michael Delgado,266,1978-11-24,2008-11-24,University of Chicago Pritzker School of Medicine,394259.00931863394
+Michael Watson,267,1989-02-02,2019-02-02,Columbia University Vagelos College of Physicians and Surgeons,300990.8112889739
+Michael Gibbs,268,1960-06-09,1990-06-09,Harvard Medical School,251079.7989775421
+Angela Stein,269,1954-05-25,1984-05-25,NYU Grossman Medical School,305129.1291470466
+James Cooper,270,1965-05-24,1995-05-24,Yale School of Medicine,227506.4470436253
+Jennifer Quinn,271,1968-07-12,1998-07-12,David Geffen School of Medicine at UCLA,284006.8822540646
+Lance Gonzalez,272,1981-10-18,2011-10-18,Mayo Clinic Alix School of Medicine,348731.46175800636
+Jamie Wiley,273,1978-12-29,2008-12-29,University of Michigan Medical School,309754.00945895317
+Jeremy Arnold,274,1988-02-09,2018-02-09,University of Michigan Medical School,305382.50438493805
+Valerie Smith,275,1985-09-20,2015-09-20,University of Texas Southwestern Medical School,354623.4113014607
+Katherine Jones,276,1957-02-03,1987-02-03,Johns Hopkins University School of Medicine,291882.0032500989
+Steven Watson,277,1961-11-03,1991-11-03,Mayo Clinic Alix School of Medicine,337854.6123880233
+Daniel Martinez,278,1979-07-15,2009-07-15,Stanford University School of Medicine,303879.2092549902
+Julia Lam,279,1974-12-12,2004-12-12,Baylor College of Medicine,311401.4239037708
+Willie Gutierrez,280,1964-08-17,1994-08-17,David Geffen School of Medicine at UCLA,263480.8543241096
+Stephen Johnson,281,1994-11-15,2024-11-15,University of Chicago Pritzker School of Medicine,285538.5961551535
+Timothy Gibson,282,1973-09-16,2003-09-16,Columbia University Vagelos College of Physicians and Surgeons,258074.4530146838
+Edgar Harris,283,1988-06-13,2018-06-13,Columbia University Vagelos College of Physicians and Surgeons,297142.64765323966
+Erin Ramirez,284,1974-03-13,2004-03-13,University of Michigan Medical School,311712.070317488
+Robert Haynes,285,1950-04-28,1980-04-28,Columbia University Vagelos College of Physicians and Surgeons,266698.8568472564
+Anthony Miller,286,1988-02-08,2018-02-08,Yale School of Medicine,361475.3676805447
+Ryan Craig,287,1989-03-06,2019-03-06,David Geffen School of Medicine at UCLA,308343.18057275884
+Austin Alvarado,288,1986-03-27,2016-03-27,Harvard Medical School,301733.86756755656
+Sheri Howard,289,1965-03-23,1995-03-23,Perelman School of Medicine (University of Pennsylvania),323089.73254036874
+Ashley Le,290,1952-04-26,1982-04-26,University of Texas Southwestern Medical School,275132.15757402236
+Antonio Stark,291,1979-12-29,2009-12-29,"University of California, San Francisco School of Medicine",304904.3243750236
+Brandy Anderson,292,1987-07-09,2017-07-09,Washington University in St. Louis School of Medicine,278494.01338927227
+Jonathan Obrien DDS,293,1992-02-15,2022-02-15,University of Texas Southwestern Medical School,346760.3973026695
+Adrienne Johnson,294,1987-08-21,2017-08-21,Johns Hopkins University School of Medicine,268240.81951808755
+David Carter,295,1967-09-18,1997-09-18,Harvard Medical School,301894.96377921524
+Amber Parker MD,296,1975-07-22,2005-07-22,University of Texas Southwestern Medical School,309879.4735545533
+Amanda Rogers,297,1985-02-05,2015-02-05,University of Chicago Pritzker School of Medicine,311844.77233223105
+John Williams,298,1961-07-10,1991-07-10,University of Michigan Medical School,282562.944807515
+Anthony Lowery,299,1967-03-16,1997-03-16,NYU Grossman Medical School,273134.71793564706
+Vicki Foster,300,1955-08-11,1985-08-11,Johns Hopkins University School of Medicine,282996.144808617
+Mr. Adrian Pittman II,301,1967-01-25,1997-01-25,Columbia University Vagelos College of Physicians and Surgeons,315849.76302630844
+Mark Martin,302,1985-06-07,2015-06-07,Mayo Clinic Alix School of Medicine,295684.6268726411
+Matthew Ward,303,1984-07-08,2014-07-08,University of Chicago Pritzker School of Medicine,323886.26425357565
+James Jackson,304,1976-09-26,2006-09-26,Johns Hopkins University School of Medicine,314310.1115818522
+Barbara Warner,305,1955-01-03,1985-01-03,NYU Grossman Medical School,231692.61905701176
+Lacey Gomez,306,1955-04-02,1985-04-02,Baylor College of Medicine,307424.93390511634
+Jamie Marks,307,1969-02-18,1999-02-18,Columbia University Vagelos College of Physicians and Surgeons,367513.6430344881
+Melissa Brown,308,1989-12-16,2019-12-16,University of Texas Southwestern Medical School,339758.0715311499
+Leah Meadows,309,1985-07-13,2015-07-13,University of Texas Southwestern Medical School,312660.3948212091
+Ryan Kirk,310,1950-01-10,1980-01-10,Johns Hopkins University School of Medicine,268218.2360859017
+Paula Hall,311,1977-01-04,2007-01-04,Mayo Clinic Alix School of Medicine,314326.6114837694
+Krystal Webb,312,1956-01-29,1986-01-29,Baylor College of Medicine,322192.4981963478
+Mark Nichols,313,1969-04-12,1999-04-12,Columbia University Vagelos College of Physicians and Surgeons,292387.59957517247
+Michael Hodges,314,1964-06-23,1994-06-23,NYU Grossman Medical School,309502.2617641331
+Michelle Williams,315,1954-06-08,1984-06-08,Perelman School of Medicine (University of Pennsylvania),345289.8737518812
+Cody Olson,316,1973-04-22,2003-04-22,University of Texas Southwestern Medical School,274281.7674077482
+Veronica Moore,317,1953-09-04,1983-09-04,NYU Grossman Medical School,268251.0118512262
+Ryan Thomas,318,1978-12-08,2008-12-08,Harvard Medical School,320780.97977982636
+Daniel Morgan II,319,1988-12-18,2018-12-18,University of Texas Southwestern Medical School,313726.2790859424
+Carol Sanchez,320,1959-07-23,1989-07-23,NYU Grossman Medical School,330865.1488623844
+Carolyn Clark,321,1975-06-29,2005-06-29,Stanford University School of Medicine,317093.8143571131
+Cheryl Smith,322,1971-11-11,2001-11-11,University of Michigan Medical School,282967.3481047742
+Teresa Brown,323,1983-06-16,2013-06-16,Washington University in St. Louis School of Medicine,312965.77954396216
+Matthew Wyatt,324,1950-08-24,1980-08-24,David Geffen School of Medicine at UCLA,265736.2037011148
+William Mclaughlin,325,1977-10-27,2007-10-27,University of Michigan Medical School,292490.4386480102
+Mary Owens,326,1955-03-24,1985-03-24,Yale School of Medicine,315083.97692899214
+Christine Rogers,327,1973-06-16,2003-06-16,Washington University in St. Louis School of Medicine,289184.5734982833
+Greg Clark,328,1959-09-01,1989-09-01,University of Chicago Pritzker School of Medicine,374041.5654668948
+Dorothy Palmer,329,1964-05-23,1994-05-23,NYU Grossman Medical School,243234.47253529
+Luis Powell MD,330,1972-05-07,2002-05-07,Washington University in St. Louis School of Medicine,283575.28929003567
+Teresa Scott,331,1964-10-29,1994-10-29,Yale School of Medicine,271866.6049839027
+Erin Oliver,332,1959-04-15,1989-04-15,Columbia University Vagelos College of Physicians and Surgeons,278989.5357762614
+Mark Woods,333,1980-07-19,2010-07-19,Perelman School of Medicine (University of Pennsylvania),280710.0532955736
+Nicole Holland,334,1966-04-18,1996-04-18,Stanford University School of Medicine,260207.3793942302
+Wesley Davidson,335,1971-12-04,2001-12-04,Harvard Medical School,322581.0644571788
+Tanya Mccarty,336,1974-10-26,2004-10-26,NYU Grossman Medical School,283587.141078387
+Gary Swanson,337,1992-07-03,2022-07-03,Harvard Medical School,304907.20006765967
+Brittany Harris,338,1950-03-19,1980-03-19,Mayo Clinic Alix School of Medicine,286955.22714269266
+Kenneth Glass,339,1970-09-30,2000-09-30,University of Texas Southwestern Medical School,279273.5876314137
+Jacqueline Johnson,340,1988-06-30,2018-06-30,NYU Grossman Medical School,350168.3770826055
+Jason Martinez,341,1978-11-05,2008-11-05,David Geffen School of Medicine at UCLA,327687.9654662822
+Anthony Phillips,342,1976-01-15,2006-01-15,NYU Grossman Medical School,243953.98800134566
+Abigail Cummings,343,1969-01-04,1999-01-04,Johns Hopkins University School of Medicine,240775.87654992339
+Christina Miller,344,1982-09-24,2012-09-24,Perelman School of Medicine (University of Pennsylvania),331278.2650690946
+Lisa Anderson,345,1971-05-15,2001-05-15,Johns Hopkins University School of Medicine,284404.39825353737
+Jessica Wallace,346,1967-12-23,1997-12-23,NYU Grossman Medical School,250527.52998197332
+Kathy Watkins,347,1966-05-21,1996-05-21,Stanford University School of Medicine,331372.05397621024
+Jeffrey Williams,348,1962-10-15,1992-10-15,Washington University in St. Louis School of Medicine,305073.7215029727
+Lindsay Martinez,349,1975-02-23,2005-02-23,Harvard Medical School,307547.1325449696
+Kevin Hodges,350,1956-01-02,1986-01-02,Stanford University School of Medicine,324286.1781601772
+Robert Clements,351,1953-06-02,1983-06-02,NYU Grossman Medical School,260700.6852515282
+Samuel Martinez,352,1980-10-16,2010-10-16,Yale School of Medicine,251054.97535847506
+Amy Rios,353,1985-01-07,2015-01-07,Washington University in St. Louis School of Medicine,347428.62884709606
+Joanne Hernandez,354,1960-02-05,1990-02-05,Yale School of Medicine,256884.99717773122
+Nathan Parker,355,1961-01-01,1991-01-01,Harvard Medical School,263332.86608773307
+James Sparks,356,1980-12-11,2010-12-11,Washington University in St. Louis School of Medicine,269326.938613627
+Jennifer Johnson,357,1955-05-25,1985-05-25,David Geffen School of Medicine at UCLA,362398.37771071563
+Ashley Goodwin,358,1972-12-20,2002-12-20,Perelman School of Medicine (University of Pennsylvania),314801.4990123457
+Shannon Lam,359,1992-02-04,2022-02-04,University of Michigan Medical School,328962.2392330614
+Chase Mcpherson Jr.,360,1965-11-06,1995-11-06,Baylor College of Medicine,305885.02636736183
+Matthew Nelson,361,1964-10-22,1994-10-22,University of Chicago Pritzker School of Medicine,281943.383663963
+Dawn Haley,362,1975-11-12,2005-11-12,Stanford University School of Medicine,318938.738497805
+Karl Bruce,363,1952-07-11,1982-07-11,University of Texas Southwestern Medical School,253301.5208760959
+Molly Dean,364,1951-02-24,1981-02-24,Stanford University School of Medicine,267141.4964371052
+Michael Harris,365,1979-07-17,2009-07-17,Baylor College of Medicine,321989.25537784444
+Miss Valerie George,366,1953-01-25,1983-01-25,University of Michigan Medical School,259282.3430751966
+Chelsey Davis,367,1980-10-30,2010-10-30,"University of California, San Francisco School of Medicine",294327.5559251438
+Scott Rivera,368,1956-05-25,1986-05-25,Columbia University Vagelos College of Physicians and Surgeons,295694.62966933765
+Andrew Miller,369,1964-09-17,1994-09-17,David Geffen School of Medicine at UCLA,284140.13989988517
+David Perez,370,1956-02-22,1986-02-22,Yale School of Medicine,241466.44575453427
+Louis Chambers,371,1962-08-18,1992-08-18,NYU Grossman Medical School,281132.13326433924
+Richard Richmond,372,1988-03-08,2018-03-08,David Geffen School of Medicine at UCLA,275250.94869202544
+Elaine Page DVM,373,1980-05-27,2010-05-27,Baylor College of Medicine,304843.19589863095
+Laura Brown,374,1986-10-08,2016-10-08,NYU Grossman Medical School,303314.71616098407
+Michael Berger,375,1967-06-12,1997-06-12,University of Texas Southwestern Medical School,311338.84379810625
+Gabriela Garcia,376,1967-05-31,1997-05-31,Johns Hopkins University School of Medicine,279720.41181076807
+Dustin Griffin,377,1971-07-13,2001-07-13,Washington University in St. Louis School of Medicine,315683.3385139768
+Jo Beard,378,1958-11-03,1988-11-03,Columbia University Vagelos College of Physicians and Surgeons,253319.79801678951
+Jennifer Murray,379,1989-05-18,2019-05-18,Perelman School of Medicine (University of Pennsylvania),245342.85802042938
+Christopher Murphy,380,1957-12-01,1987-12-01,Perelman School of Medicine (University of Pennsylvania),229932.81827500116
+Nicole King,381,1960-04-14,1990-04-14,Baylor College of Medicine,285021.08281284006
+Alex Anderson,382,1993-03-06,2023-03-06,David Geffen School of Medicine at UCLA,277401.0532698433
+Robert Thomas,383,1957-04-28,1987-04-28,Perelman School of Medicine (University of Pennsylvania),323679.468355638
+Antonio Campbell,384,1968-11-20,1998-11-20,University of Texas Southwestern Medical School,280540.1223885339
+Jennifer Evans,385,1977-10-13,2007-10-13,Yale School of Medicine,308201.290438328
+Emily Anderson DDS,386,1952-03-04,1982-03-04,"University of California, San Francisco School of Medicine",324398.8972974923
+Jessica Matthews,387,1955-10-18,1985-10-18,Stanford University School of Medicine,279410.42773052654
+Steven Henry,388,1965-10-28,1995-10-28,Mayo Clinic Alix School of Medicine,308941.5663032153
+Jonathan Baker,389,1983-09-03,2013-09-03,University of Texas Southwestern Medical School,330057.82646865584
+Alyssa Watts,390,1988-10-01,2018-10-01,NYU Grossman Medical School,262855.116755833
+Edgar Harris,391,1980-06-03,2010-06-03,University of Chicago Pritzker School of Medicine,300745.5701473393
+Rebecca Hernandez,392,1979-07-17,2009-07-17,Baylor College of Medicine,279538.9685040206
+Nicole Keith,393,1981-03-16,2011-03-16,Johns Hopkins University School of Medicine,264765.3035252058
+Brent Brewer,394,1985-08-04,2015-08-04,Washington University in St. Louis School of Medicine,253906.44778529313
+Aaron Johnson,395,1952-03-25,1982-03-25,University of Chicago Pritzker School of Medicine,264280.54283463897
+Linda Johnson,396,1978-11-11,2008-11-11,Washington University in St. Louis School of Medicine,301800.8701725604
+Amy Daniels,397,1956-09-09,1986-09-09,Harvard Medical School,251674.66633314762
+Shaun Little,398,1978-08-19,2008-08-19,University of Chicago Pritzker School of Medicine,283478.1892773409
+Richard Garcia,399,1978-06-03,2008-06-03,Mayo Clinic Alix School of Medicine,324395.83220558695
+Michael Morales,400,1971-04-24,2001-04-24,David Geffen School of Medicine at UCLA,313470.3289025681
+Amanda James,401,1981-05-31,2011-05-31,"University of California, San Francisco School of Medicine",284084.7713118553
+Robin Rose,402,1991-12-20,2021-12-20,Stanford University School of Medicine,350690.7124007617
+Brittany Harris,403,1952-04-07,1982-04-07,Stanford University School of Medicine,356791.0924173498
+Monique Hall,404,1969-07-27,1999-07-27,"University of California, San Francisco School of Medicine",300783.6729461918
+Christopher Webster,405,1962-03-10,1992-03-10,Yale School of Medicine,225943.71252347075
+Logan Hansen,406,1992-01-04,2022-01-04,Columbia University Vagelos College of Physicians and Surgeons,326593.4459104878
+Donna Williams,407,1987-05-02,2017-05-02,Harvard Medical School,231180.70979899244
+Mr. Andrew Keller,408,1966-04-26,1996-04-26,Washington University in St. Louis School of Medicine,344284.383321602
+Lori Jackson,409,1950-05-07,1980-05-07,Mayo Clinic Alix School of Medicine,332507.547022269
+Richard Aguilar,410,1974-01-30,2004-01-30,Perelman School of Medicine (University of Pennsylvania),353226.37512414064
+Mario Kelly II,411,1981-11-15,2011-11-15,University of Chicago Pritzker School of Medicine,307807.9667510318
+Christina Anderson,412,1969-09-14,1999-09-14,Harvard Medical School,289158.42698454484
+Tina Wall,413,1981-08-25,2011-08-25,University of Texas Southwestern Medical School,286496.9659892933
+James Allen,414,1959-03-23,1989-03-23,Baylor College of Medicine,283612.1948690731
+Heidi Melton,415,1960-05-25,1990-05-25,University of Chicago Pritzker School of Medicine,329432.0596102411
+Andre Johnson,416,1991-05-20,2021-05-20,Mayo Clinic Alix School of Medicine,321368.1446851763
+Gary Baldwin,417,1987-07-24,2017-07-24,Johns Hopkins University School of Medicine,303606.76900302636
+Matthew Perez,418,1954-11-28,1984-11-28,Johns Hopkins University School of Medicine,278334.56076219084
+Jasmine Perkins,419,1980-04-06,2010-04-06,NYU Grossman Medical School,378876.37893900817
+Laura Hamilton,420,1959-07-09,1989-07-09,Harvard Medical School,327371.2384188861
+Kathleen Mitchell,421,1959-05-11,1989-05-11,David Geffen School of Medicine at UCLA,252068.64240679774
+Sandra Porter,422,1954-07-04,1984-07-04,Mayo Clinic Alix School of Medicine,284512.3195218862
+Cristina Ortega,423,1990-05-26,2020-05-26,Mayo Clinic Alix School of Medicine,327953.28292226116
+Kelly Massey,424,1958-05-31,1988-05-31,"University of California, San Francisco School of Medicine",276013.83236301946
+Renee Young,425,1955-01-29,1985-01-29,University of Texas Southwestern Medical School,310546.4387647767
+Vicki Foster,426,1962-10-07,1992-10-07,David Geffen School of Medicine at UCLA,328523.88901008444
+Jason Johnston,427,1967-11-02,1997-11-02,University of Texas Southwestern Medical School,198347.15752030822
+Alexis Nolan,428,1957-06-01,1987-06-01,Yale School of Medicine,296758.86900632246
+Brittany Mullen,429,1982-01-07,2012-01-07,Washington University in St. Louis School of Medicine,297936.27460695367
+Megan Guzman,430,1976-01-29,2006-01-29,Washington University in St. Louis School of Medicine,287637.8263294863
+Aaron Graves,431,1967-09-05,1997-09-05,Perelman School of Medicine (University of Pennsylvania),309050.8540483812
+Robert Schmidt,432,1961-07-14,1991-07-14,NYU Grossman Medical School,319725.58822487626
+Stephanie Ward,433,1986-03-17,2016-03-17,Stanford University School of Medicine,304261.5283297383
+Sara Lopez,434,1971-10-28,2001-10-28,Johns Hopkins University School of Medicine,288785.17817851703
+Miranda Hunt,435,1954-06-14,1984-06-14,Baylor College of Medicine,318978.6389935281
+Pamela Hendrix,436,1978-03-29,2008-03-29,Washington University in St. Louis School of Medicine,301471.6022782307
+Nathan Davis,437,1971-10-31,2001-10-31,David Geffen School of Medicine at UCLA,293078.98760413565
+Rhonda Wall,438,1973-06-26,2003-06-26,Mayo Clinic Alix School of Medicine,260631.6184398324
+Amy Payne,439,1972-02-05,2002-02-05,Baylor College of Medicine,253120.35644201766
+Jared Diaz,440,1973-09-23,2003-09-23,University of Michigan Medical School,260063.1062185779
+Ashley Torres,441,1959-11-10,1989-11-10,University of Texas Southwestern Medical School,308349.8718366065
+Joseph Jackson,442,1968-07-28,1998-07-28,Washington University in St. Louis School of Medicine,297627.63757180946
+Julie Long,443,1986-03-19,2016-03-19,Mayo Clinic Alix School of Medicine,255591.4770537761
+Ryan Gutierrez,444,1975-01-16,2005-01-16,Washington University in St. Louis School of Medicine,319377.5347738143
+Nathan Smith,445,1963-08-12,1993-08-12,Johns Hopkins University School of Medicine,341229.28539537283
+Amy Bryant,446,1986-12-08,2016-12-08,University of Michigan Medical School,282045.1914985099
+Joshua Guerrero,447,1985-06-17,2015-06-17,University of Chicago Pritzker School of Medicine,247770.54427894877
+Geoffrey Jacobson,448,1983-09-17,2013-09-17,Washington University in St. Louis School of Medicine,278726.2084529426
+Alyssa Thomas,449,1955-06-14,1985-06-14,Yale School of Medicine,325633.81880384084
+Lisa Wallace,450,1964-07-05,1994-07-05,David Geffen School of Medicine at UCLA,316455.8957560432
+Gerald Green,451,1985-08-02,2015-08-02,Washington University in St. Louis School of Medicine,272327.0194196556
+Christopher Esparza,452,1986-11-20,2016-11-20,Stanford University School of Medicine,345635.1641329423
+Rhonda Wolf,453,1961-12-29,1991-12-29,Baylor College of Medicine,340448.401977792
+Hannah Roberts,454,1963-01-10,1993-01-10,Baylor College of Medicine,278009.81810170074
+Ashley Young,455,1978-06-18,2008-06-18,Johns Hopkins University School of Medicine,277701.299911051
+Tasha Griffin,456,1994-06-20,2024-06-20,David Geffen School of Medicine at UCLA,282215.1618786153
+Mary Medina,457,1965-04-20,1995-04-20,University of Michigan Medical School,284780.01673834363
+Taylor Williams PhD,458,1963-07-16,1993-07-16,Yale School of Medicine,328516.14023785334
+Trevor Cook,459,1986-09-04,2016-09-04,"University of California, San Francisco School of Medicine",312759.8718142978
+Marissa Shepherd,460,1961-08-14,1991-08-14,David Geffen School of Medicine at UCLA,326312.3630805176
+Thomas Harrell,461,1977-02-24,2007-02-24,Baylor College of Medicine,320206.954295601
+Marc Romero,462,1977-05-03,2007-05-03,Stanford University School of Medicine,351435.81204581197
+David Fisher,463,1954-10-26,1984-10-26,University of Chicago Pritzker School of Medicine,268218.4336857258
+Ronald Chen,464,1975-02-20,2005-02-20,Johns Hopkins University School of Medicine,311410.7559115175
+Christie Kelly,465,1956-10-18,1986-10-18,"University of California, San Francisco School of Medicine",234785.36231295907
+Paige Morris,466,1952-08-09,1982-08-09,Stanford University School of Medicine,260491.33277709424
+Timothy Wilson,467,1955-09-11,1985-09-11,University of Michigan Medical School,297754.3984219546
+Bryan Smith,468,1957-06-10,1987-06-10,University of Texas Southwestern Medical School,312546.19838263607
+James Brown,469,1976-07-15,2006-07-15,University of Michigan Medical School,296945.5277391129
+Alexander Jimenez,470,1970-01-07,2000-01-07,Stanford University School of Medicine,282984.2274356196
+Vickie Collins,471,1952-02-08,1982-02-08,University of Texas Southwestern Medical School,288317.46367520886
+Ryan Jarvis,472,1965-01-12,1995-01-12,Harvard Medical School,341083.2292927231
+Alexander Rodriguez,473,1992-07-13,2022-07-13,Johns Hopkins University School of Medicine,288479.0346635958
+George Lee,474,1968-03-12,1998-03-12,David Geffen School of Medicine at UCLA,352477.2486613058
+Renee Brown,475,1964-04-29,1994-04-29,University of Texas Southwestern Medical School,323820.512206234
+Terry Chan,476,1981-06-12,2011-06-12,NYU Grossman Medical School,313726.1203844469
+Ivan Doyle,477,1965-11-15,1995-11-15,University of Texas Southwestern Medical School,264192.09269037016
+Drew Sanchez,478,1983-10-17,2013-10-17,Mayo Clinic Alix School of Medicine,328057.1448419888
+Richard Carter,479,1972-01-04,2002-01-04,University of Chicago Pritzker School of Medicine,285186.882667545
+Daniel Mack,480,1993-10-24,2023-10-24,Mayo Clinic Alix School of Medicine,264166.807259829
+Larry Campbell,481,1985-10-31,2015-10-31,David Geffen School of Medicine at UCLA,315385.3083923813
+Jennifer Roberts,482,1963-05-06,1993-05-06,David Geffen School of Medicine at UCLA,258361.6181830038
+Alan Johnson,483,1954-01-21,1984-01-21,Johns Hopkins University School of Medicine,277132.75613611256
+Victoria Chavez,484,1977-08-20,2007-08-20,David Geffen School of Medicine at UCLA,299696.52265593264
+Kevin Walls,485,1989-06-27,2019-06-27,Baylor College of Medicine,366552.6427234418
+Janet Williams,486,1970-12-05,2000-12-05,University of Texas Southwestern Medical School,279392.52732622536
+Carla Dougherty,487,1993-01-03,2023-01-03,University of Texas Southwestern Medical School,286253.50442098273
+Sara Newman,488,1980-11-10,2010-11-10,Harvard Medical School,321970.35163264937
+Shelby Mathews,489,1984-07-01,2014-07-01,"University of California, San Francisco School of Medicine",262851.1293487186
+Shawn Bryant,490,1980-02-11,2010-02-11,David Geffen School of Medicine at UCLA,313284.1914306275
+Heather Fisher,491,1989-02-20,2019-02-20,Mayo Clinic Alix School of Medicine,336177.80422849767
+Shelley Cobb,492,1979-04-01,2009-04-01,David Geffen School of Medicine at UCLA,290787.153458667
+Amy Watson,493,1994-11-06,2024-11-06,University of Michigan Medical School,330784.62844190595
+Eric Patton,494,1973-04-29,2003-04-29,Harvard Medical School,308743.49769635417
+James Johnson,495,1959-01-14,1989-01-14,Baylor College of Medicine,278079.5410858866
+Andrew Wallace,496,1968-05-28,1998-05-28,Baylor College of Medicine,294065.8594231048
+Phillip Weaver,497,1969-10-06,1999-10-06,Washington University in St. Louis School of Medicine,288607.27980059275
+Craig Brooks,498,1958-05-13,1988-05-13,University of Texas Southwestern Medical School,297370.8522655057
+Bernard Miller,499,1987-03-03,2017-03-03,Baylor College of Medicine,304581.5369765948
