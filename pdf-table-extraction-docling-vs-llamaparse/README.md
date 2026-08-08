@@ -1,6 +1,6 @@
 # PDF Table Extraction: Docling vs LlamaParse
 
-This folder contains the code examples for the Real Python tutorial [PDF Table Extraction: Docling vs LlamaParse](https://realpython.com/pdf-table-extraction-docling-vs-llamaparse/).
+This folder contains the code examples for the Real Python tutorial [PDF Table Extraction: Docling vs LlamaParse](https://realpython.com/extract-table-from-pdf-python/).
 
 The scripts parse `sample_report.pdf`, a short financial report with tables, and compare two approaches:
 
