@@ -1,6 +1,6 @@
 # Prompts Used in Cursor vs GitHub Copilot
 
-This file contains the prompts used in the **Cursor vs GitHub Copilot: Which AI Editor Is Better for Python?** comparison. The same prompts are used in both editors where applicable to compare how each editor handles the same development task.
+This file contains the prompts used in the **Cursor vs GitHub Copilot: Which AI Editor Is Better for Python?** comparison. The same prompts are used in both editors to compare how each editor handles the same development task.
 
 ## Project Setup
 
@@ -18,7 +18,7 @@ packaging conventions:
 
 ## Implementing the Application
 
-Use this prompt in **Agent** mode after setting up the project. It defines the requirements for the command-line Markdown note manager, including Markdown storage, YAML frontmatter, the note data model, SQLite persistence, and the command line interface. :contentReference[oaicite:1]{index=1}
+Use this prompt in **Agent** mode after setting up the project. It defines the requirements for the command-line Markdown note manager, including Markdown storage, YAML frontmatter, the note data model, SQLite persistence, and the command-line interface. :contentReference[oaicite:1]{index=1}
 
 ```text
 Build a command-line Markdown note manager for this project.
