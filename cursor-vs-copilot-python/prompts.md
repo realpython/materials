@@ -4,7 +4,7 @@ This file contains the prompts used in the **Cursor vs GitHub Copilot: Which AI 
 
 ## Project Setup
 
-Use this prompt in **Agent** mode to set up the Markdown note manager project. It asks the editor to create the Python environment, install the required dependencies, add the test directory, and follow standard Python packaging conventions. :contentReference[oaicite:0]{index=0}
+Use this prompt in **Agent** mode to set up the Markdown note manager project. It asks the editor to create the Python environment, install the required dependencies, add the test directory, and follow standard Python packaging conventions.
 
 ```text
 Set up a Python project in this directory, following standard Python
