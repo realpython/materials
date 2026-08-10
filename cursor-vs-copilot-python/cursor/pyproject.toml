@@ -1,0 +1,19 @@
+[build-system]
+requires = ["setuptools>=68.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "notes-manager-cursor-test"
+version = "0.1.0"
+description = ""
+requires-python = ">=3.9"
+dependencies = [
+    "pyyaml==6.0.2",
+    "pytest==9.0.3",
+]
+
+[project.scripts]
+notes = "notes_manager_cursor_test.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
