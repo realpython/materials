@@ -1,0 +1,20 @@
+## Cursor Project Rules
+
+This project includes a Cursor Project Rule that defines the coding conventions Cursor should follow when working with the Markdown note manager.
+
+The rule is stored in `.cursor/rules/markdown-note-manager-rules.mdc` and applies to Python files in the project.
+
+```markdown
+---
+globs: "**/*.py"
+alwaysApply: false
+---
+
+# Instructions
+
+- Use type hints for all functions, return values, and dataclass fields.
+- Parse YAML frontmatter with `yaml.safe_load()`. Do not manually parse YAML.
+- Use `pathlib.Path` for all file and directory operations.
+- Use parameterized SQL queries for every SQLite operation.
+- Represent notes as dataclasses rather than dictionaries.
+```
