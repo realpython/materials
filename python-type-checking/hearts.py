@@ -146,7 +146,7 @@ class HumanPlayer(Player):
             try:
                 card_num = int(input(f"  {self.name}, choose card: "))
                 card = playable[card_num]
-            except (ValueError, IndexError):
+            except ValueError, IndexError:
                 pass
             else:
                 break

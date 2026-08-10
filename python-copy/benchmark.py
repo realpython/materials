@@ -32,7 +32,7 @@ def benchmark(container, executions):
 def sliceable(instance):
     try:
         instance[0:1]
-    except (TypeError, KeyError):
+    except TypeError, KeyError:
         return False
     else:
         return True

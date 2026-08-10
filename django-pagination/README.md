@@ -67,7 +67,6 @@ Add the Python keywords to your database:
 >>> for kw in keyword.kwlist:
 ...     k = Keyword(name=kw)
 ...     k.save()
-...
 ```
 
 Verify that the keywords were added to your database:

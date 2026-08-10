@@ -1,7 +1,0 @@
-# Repository Instructions
-
-- Use type hints for all functions, return values, and dataclass fields.
-- Parse YAML frontmatter with `yaml.safe_load()`. Do not manually parse YAML.
-- Use `pathlib.Path` for all file and directory operations.
-- Use parameterized SQL queries for every SQLite operation.
-- Represent notes as dataclasses rather than dictionaries.

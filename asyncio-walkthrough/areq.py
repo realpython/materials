@@ -74,7 +74,7 @@ async def parse(url: str, session: ClientSession, **kwargs) -> set:
             try:
                 # Ensure we return an absolute path.
                 abslink = urllib.parse.urljoin(url, link)
-            except (urllib.error.URLError, ValueError):
+            except urllib.error.URLError, ValueError:
                 logger.exception("Error parsing URL: %s", link)
                 pass
             else:

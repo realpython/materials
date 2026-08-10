@@ -21,20 +21,18 @@ Inside each task file, create a class decorated with the `@task()` decorator:
 ```python
 from realpython import task
 
+
 @task(
     number=1,
     name="Run the wordcount Command",
     url="https://realpython.com/lessons/run-the-wordcount-command-task/",
 )
 class Test:
-    def test_one(self):
-        ...
-    
-    def test_two(self):
-        ... 
+    def test_one(self): ...
 
-    def test_three(self):
-        ...
+    def test_two(self): ...
+
+    def test_three(self): ...
 ```
 
 This class can be named anything, e.g., `Test`, and you can reuse this name across different files if you want to.
@@ -57,6 +55,7 @@ You can associate resources common to all test methods by placing the correspond
 ```python
 from realpython import task, tutorial, course, podcast
 
+
 @task(
     number=1,
     name="Run the wordcount Command",
@@ -64,8 +63,7 @@ from realpython import task, tutorial, course, podcast
 )
 @tutorial("python-comments-guide")
 @course("writing-comments-python", "Writing Comments in Python")
-class Test:
-    ...
+class Test: ...
 ```
 
 This will cascade down to the individual test methods, meaning that if one of them fails, then we'll include that resource on the list of hints. 
@@ -75,23 +73,20 @@ In contrast, decorating the individual test methods will let you associate resou
 ```python
 from realpython import task, tutorial, course, podcast
 
+
 @task(
     number=1,
     name="Run the wordcount Command",
     url="https://realpython.com/lessons/run-the-wordcount-command-task/",
 )
 class Test:
-    
-    def test_one(self):
-        ...
-    
+    def test_one(self): ...
+
     @course("writing-comments-python", "Writing Comments in Python")
-    def test_two(self):
-        ...
-    
+    def test_two(self): ...
+
     @tutorial("python-comments-guide")
-    def test_three(self):
-        ...
+    def test_three(self): ...
 ```
 
 These decorators expect the **slug** to identify a resource in the CMS. If you don't provide a title, which is an optional parameter, then the slug will be automatically prettified and used as a link label.
@@ -101,8 +96,7 @@ These decorators expect the **slug** to identify a resource in the CMS. If you d
 By default, the plugin will try to prettify the acceptance criteria shown in the report based on the name of the corresponding test method, e.g.:
 
 ```python
-def test_reports_zeros_on_an_empty_stream(self):
-    ...
+def test_reports_zeros_on_an_empty_stream(self): ...
 ```
 
 ...becomes "_Reports zeros on an empty stream_."
@@ -121,15 +115,18 @@ pytest allows you to run the same test method against different parameters (data
 ```python
 import pytest
 
-@pytest.mark.parametrize("flags", [
-    [],
-    ["-l"],
-    ["-w"],
-    ["-c"],
-    ["-l", "-w", "-c"],
-])
-def test_always_displays_counts_in_the_same_order(self, flags):
-    ...
+
+@pytest.mark.parametrize(
+    "flags",
+    [
+        [],
+        ["-l"],
+        ["-w"],
+        ["-c"],
+        ["-l", "-w", "-c"],
+    ],
+)
+def test_always_displays_counts_in_the_same_order(self, flags): ...
 ```
 
 The resulting report will append the values of the parameters to the name of the acceptance criteria. This will work regardless of whether you provde a docstring or not.  
@@ -141,11 +138,11 @@ By default, each test method will time out after a predefined number of seconds.
 ```python
 import pytest
 
+
 @task(...)
 class Test:
     @pytest.mark.timeout(3.5)
-    def test_one(self):
-        ...
+    def test_one(self): ...
 ```
 
 ## Running Tests in DEBUG Mode
@@ -187,13 +184,12 @@ However, it sill won't show the **expected vs. actual**. If you want to do that,
 ```python
 from realpython import task, assert_equals
 
+
 @task(...)
 class Test:
     def test_one(self):
         assert_equals(
-            "expected",
-            function(),
-            "Your function should return XYZ"
+            "expected", function(), "Your function should return XYZ"
         )
 ```
 
@@ -202,13 +198,14 @@ Note that the order of these arguments matters! The _expected_ value always come
 ```python
 from realpython import task, assert_equals
 
+
 @task(...)
 class Test:
     def test_one(self):
         assert_equals(
             expected="expected",
             actual=function(),
-            message="Your function should return XYZ"
+            message="Your function should return XYZ",
         )
 ```
 
@@ -216,6 +213,7 @@ If you just want to show the expected vs actual without any extra message, then 
 
 ```python
 from realpython import task, assert_equals
+
 
 @task(...)
 class Test:

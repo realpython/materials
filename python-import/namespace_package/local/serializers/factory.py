@@ -7,7 +7,7 @@ def get_serializer(format):
     try:
         module = importlib.import_module(f"serializers.{format}")
         serializer = getattr(module, f"{format.title()}Serializer")
-    except (ImportError, AttributeError):
+    except ImportError, AttributeError:
         raise ValueError(f"Unknown format {format!r}") from None
 
     return serializer()

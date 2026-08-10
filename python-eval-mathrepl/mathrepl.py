@@ -53,7 +53,7 @@ def main():
         # Read user's input
         try:
             expression = input(f"{PS1} ")
-        except (KeyboardInterrupt, EOFError):
+        except KeyboardInterrupt, EOFError:
             raise SystemExit()
 
         # Handle special commands

@@ -61,6 +61,6 @@ def bye():
 if __name__ == "__main__":
     try:
         main()
-    except (KeyboardInterrupt, EOFError):
+    except KeyboardInterrupt, EOFError:
         print()
         bye()
