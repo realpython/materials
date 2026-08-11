@@ -6,7 +6,7 @@ build-backend = "setuptools.build_meta"
 name = "notes-manager-cursor-test"
 version = "0.1.0"
 description = ""
-requires-python = ">=3.9"
+requires-python = ">=3.10"
 dependencies = [
     "pyyaml==6.0.2",
     "pytest==9.0.3",
