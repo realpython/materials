@@ -51,6 +51,7 @@ Navigate inside the `rp_flask_api/`, enter the [Python interactive shell](https:
 >>> for person_data in people:
 ...     insert_cmd = f"INSERT INTO person VALUES ({person_data})"
 ...     conn.execute(insert_cmd)
+...
 <sqlite3.Cursor object at 0x104ac4dc0>
 <sqlite3.Cursor object at 0x104ac4f40>
 <sqlite3.Cursor object at 0x104ac4fc0>

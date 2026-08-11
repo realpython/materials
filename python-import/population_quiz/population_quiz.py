@@ -46,7 +46,7 @@ def run_quiz(population, num_questions, num_countries):
             try:
                 guess_idx = int(guess_str) - 1
                 guess = countries[guess_idx]
-            except ValueError, IndexError:
+            except (ValueError, IndexError):
                 print(f"Please answer between 1 and {num_countries}")
             else:
                 break

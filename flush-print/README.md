@@ -42,7 +42,7 @@ SLIGHTLY_TOO_LARGE_FOR_BUFFER = 80_000
 # Script paused at 10919
 
 bufsize = 80_000 - 10919
-print(bufsize)  # 69081 <-- Your buffer size approximation
+print(bufsize) # 69081 <-- Your buffer size approximation
 ```
 
 You can divide the number you get by `1000` to get an estimation of your buffer size for stdout in kilobytes. In the example above, on a macOS system with a M1 chip, the buffer size of stdout when interacting with it through Python's `print()` would therefore be approximately 69 kilobytes.
