@@ -62,8 +62,6 @@ Type this into a file and let each editor complete it:
 @dataclass
 class RetryMetadata:
     attempts_made: int
-
-
 # ...
 ```
 
