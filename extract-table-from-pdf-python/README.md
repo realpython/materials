@@ -16,6 +16,7 @@ The scripts parse `sample_report.pdf`, a short financial report with tables, and
 | `docling_tables.py` | Inspect detected tables and print selected DataFrames |
 | `docling_formats.py` | Export Docling results to Markdown, JSON, HTML, and DataFrames |
 | `llamaparse_extraction.py` | Parse the PDF with LlamaParse and print Markdown output |
+| `llamaparse_tables.py` | Find HTML tables in the LlamaParse Markdown and print selected tables |
 | `llamaparse_formats.py` | Export LlamaParse results to Markdown, plain text, and JSON |
 | `requirements.txt` | Pinned dependencies for this folder |
 
@@ -50,6 +51,7 @@ The LlamaParse scripts require a [Llama Cloud API key](https://cloud.llamaindex.
 ```shell
 (venv) $ export LLAMA_CLOUD_API_KEY="your-api-key"
 (venv) $ python llamaparse_extraction.py
+(venv) $ python llamaparse_tables.py
 (venv) $ python llamaparse_formats.py
 ```
 

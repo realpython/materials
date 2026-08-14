@@ -11,8 +11,8 @@ PDF_PATH = Path("sample_report.pdf")
 
 
 class RevenueRow(BaseModel):
-    quarter: str = Field(
-        description="Fiscal quarter label, e.g. Q1 2024",
+    period: str = Field(
+        description="Fiscal period label, e.g. FY 2025 or September 27, 2025",
     )
     revenue_millions: float = Field(
         description="Revenue in millions of USD",
@@ -25,7 +25,7 @@ class RevenueRow(BaseModel):
 
 class RevenueTable(BaseModel):
     rows: list[RevenueRow] = Field(
-        description="One row per quarter in the table"
+        description="One row per fiscal period in the table"
     )
 
 
