@@ -1,7 +1,7 @@
 # Prompts
 
 These are the prompts used in the Real Python tutorial
-[How to Use Claude Code to Write and Refactor Python](https://realpython.com/how-to-use-claude-code/),
+[How to Use Claude Code to Write and Debug Python](https://realpython.com/how-to-use-claude-code/),
 in the order they appear.
 
 Claude Code is nondeterministic, so your results will differ in wording and
