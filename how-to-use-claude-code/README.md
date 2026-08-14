@@ -1,6 +1,6 @@
-# How to Use Claude Code to Write and Refactor Python
+# How to Use Claude Code to Write and Debug Python
 
-This folder contains code associated with the Real Python tutorial [How to Use Claude Code to Write and Refactor Python](https://realpython.com/how-to-use-claude-code/).
+This folder contains code associated with the Real Python tutorial [How to Use Claude Code to Write and Debug Python](https://realpython.com/how-to-use-claude-code/).
 
 The `mini-contacts/` project is the finished state of the command-line contact manager that you build with Claude Code in the tutorial. The prompts that produced it are collected in [`prompts.md`](prompts.md), in the order they appear.
 
