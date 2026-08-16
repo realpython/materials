@@ -10,3 +10,4 @@ args = parser.parse_args()
 words = args.file.read_text(encoding="utf-8").lower().split()
 for word, count in Counter(words).most_common(args.top):
     print(f"{word}: {count}")
+    
