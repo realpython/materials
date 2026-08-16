@@ -1,5 +1,4 @@
 import timeit
-from collections import Counter
 
 words = ["apple", "banana", "apple", "cherry", "banana", "apple"] * 1000
 
@@ -19,6 +18,7 @@ print(manual_count(words))
 manual_time = timeit.timeit(lambda: manual_count(words), number=1000)
 print(f"manual loop: {manual_time:.4f} seconds")
 
+from collections import Counter
 
 def counter_count(items):
     return Counter(items)
