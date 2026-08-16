@@ -1,36 +1,20 @@
 import timeit
 
+def calculate_order_total(items):
+    total = 0
+    for item in items:
+        total = total + item["price"] * item["quantity"]
+    return total
 
-def count_pairs_slow(numbers, target):
-    count = 0
-    for i in range(len(numbers)):
-        for j in range(i + 1, len(numbers)):
-            if numbers[i] + numbers[j] == target:
-                count += 1
-    return count
+order = [
+    {"price": 19.99, "quantity": 3},
+    {"price": 5.50, "quantity": 10},
+    {"price": 42.00, "quantity": 1},
+] * 100
 
+print(calculate_order_total(order))
 
-sample = list(range(5_000))
-target = 4_999
-
-print(count_pairs_slow(sample, target))
-
-slow_time = timeit.timeit(lambda: count_pairs_slow(sample, target), number=10)
-print(f"count_pairs_slow: {slow_time:.4f} seconds")
-
-
-def count_pairs_fast(numbers, target):
-    seen = set()
-    count = 0
-    for number in numbers:
-        complement = target - number
-        if complement in seen:
-            count += 1
-        seen.add(number)
-    return count
-
-
-print(count_pairs_fast(sample, target))
-
-fast_time = timeit.timeit(lambda: count_pairs_fast(sample, target), number=10)
-print(f"count_pairs_fast: {fast_time:.4f} seconds")
+order_time = timeit.timeit(
+    lambda: calculate_order_total(order), number=500_000
+)
+print(f"calculate_order_total: {order_time:.4f} seconds")
