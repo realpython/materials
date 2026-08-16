@@ -93,5 +93,5 @@ Run the tests and show me the results.
 ## 12. Commit the fixes
 
 ```text
-Create a commit with the message "Add input validation and fix crash bugs".
+Create a commit with the message "Add input validation and fix the crash bug".
 ```
