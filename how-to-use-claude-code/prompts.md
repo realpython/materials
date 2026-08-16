@@ -73,7 +73,7 @@ crashes or data loss. Be specific about each finding.
 ## 9. Plan the fixes (Plan Mode)
 
 ```text
-Fix the crash bugs and the edge case for empty-string validation.
+Fix the crash bug and the edge case for empty-string validation.
 For the crash on short CSV rows, handle rows with missing fields gracefully.
 For the empty-string fields, reject blank values for name, email, and phone.
 ```
