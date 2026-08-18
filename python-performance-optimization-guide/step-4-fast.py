@@ -5,6 +5,7 @@ target = 1_999_999
 
 from functools import cache
 
+
 @cache
 def find_index_cached(target):
     for i, value in enumerate(numbers):
@@ -12,9 +13,8 @@ def find_index_cached(target):
             return i
     return -1
 
+
 print(find_index_cached(target))
 
-fast_time = timeit.timeit(
-    lambda: find_index_cached(target), number=20
-)
+fast_time = timeit.timeit(lambda: find_index_cached(target), number=20)
 print(f"with cache: {fast_time:.8f} seconds")

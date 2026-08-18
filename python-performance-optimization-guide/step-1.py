@@ -1,10 +1,12 @@
 import timeit
 
+
 def calculate_order_total(items):
     total = 0
     for item in items:
         total = total + item["price"] * item["quantity"]
     return total
+
 
 order = [
     {"price": 19.99, "quantity": 3},

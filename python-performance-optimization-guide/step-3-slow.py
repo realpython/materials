@@ -1,8 +1,7 @@
 import timeit
 
-words = [
-    "apple", "pear", "apple", "cherry", "pear", "apple"
-] * 1000
+words = ["apple", "pear", "apple", "cherry", "pear", "apple"] * 1000
+
 
 def manual_count(items):
     counts = {}
@@ -12,6 +11,7 @@ def manual_count(items):
         else:
             counts[item] = 1
     return counts
+
 
 print(manual_count(words))
 
