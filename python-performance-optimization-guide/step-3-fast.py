@@ -1,9 +1,7 @@
+from collections import Counter
 import timeit
 
 words = ["apple", "pear", "apple", "cherry", "pear", "apple"] * 1000
-
-from collections import Counter
-
 
 def counter_count(items):
     return Counter(items)

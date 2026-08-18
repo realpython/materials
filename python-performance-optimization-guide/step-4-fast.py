@@ -1,10 +1,8 @@
+from functools import cache
 import timeit
 
 numbers = list(range(2_000_000))
 target = 1_999_999
-
-from functools import cache
-
 
 @cache
 def find_index_cached(target):
