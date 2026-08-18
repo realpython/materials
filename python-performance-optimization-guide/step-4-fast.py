@@ -4,6 +4,7 @@ import timeit
 numbers = list(range(2_000_000))
 target = 1_999_999
 
+
 @cache
 def find_index_cached(target):
     for i, value in enumerate(numbers):

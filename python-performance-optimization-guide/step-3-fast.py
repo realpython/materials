@@ -3,6 +3,7 @@ import timeit
 
 words = ["apple", "pear", "apple", "cherry", "pear", "apple"] * 1000
 
+
 def counter_count(items):
     return Counter(items)
 
