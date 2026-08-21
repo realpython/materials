@@ -42,6 +42,20 @@ Each subfolder of `circular/` is self-contained. Run `python main.py` from insid
 - `lazy/` — the same cycle with one import deferred, which fixes it.
 - `init_eager/` and `init_lazy/` — a cycle that needs a value during module initialization, which deferral does not fix. Both fail with the same `ImportError`.
 
+## Files That Fail on Purpose
+
+Three files here are meant to raise. If you run them and see a traceback, that's the point:
+
+- `badfunc.py` — `SyntaxError`, because `lazy` isn't allowed inside a function.
+- `fail.py` — a chained `ImportError` from a deferred import of a module that doesn't exist.
+- `type_checking_guard.py` — `NameError`, which is the problem the lazy version solves.
+
+The `circular/eager/`, `circular/init_eager/`, and `circular/init_lazy/` folders fail on purpose too.
+
+## Getting a 3.15 With tkinter
+
+`report_cli/cli_eager.py` imports `tkinter` at module level, because it's the heaviest import in the demo. A `uv`-managed 3.15 has it. If you build 3.15 with `pyenv` instead, install your platform's Tk development headers first, or the build produces an interpreter without `tkinter` and the CLI won't start.
+
 ## Note on Formatting
 
 These files follow the Real Python style guide's blank-line rules rather than PEP 8, so they're excluded from the repository's `ruff` checks. `ruff` also can't parse the `lazy` keyword yet.
