@@ -1,7 +1,7 @@
 EMAILS = [
     # Email 1
     """
-    Date: October 15, 2024
+    Date: May 15, 2026
     From: Occupational Safety and Health Administration (OSHA)
     To: Blue Ridge Construction, project 111232345 - Downtown Office Complex
     Location: Dallas, TX
@@ -21,7 +21,7 @@ EMAILS = [
     Conduct an inspection of all scaffolding structures and reinforce unstable
     sections. Ensure all workers on-site are provided with necessary PPE and conduct
     safety training on proper usage.
-    Deadline for Compliance: All violations must be rectified by November 10, 2024.
+    Deadline for Compliance: All violations must be rectified by June 10, 2026.
     Failure to comply may result in fines of up to $25,000 per violation.
 
     Contact: For questions or to confirm compliance, please reach out to the OSHA
@@ -44,7 +44,7 @@ EMAILS = [
     """,
     # Email 4
     """
-    Date: January 10, 2025
+    Date: June 10, 2026
     From: City of Los Angeles Building and Safety Department
     To: West Coast Development, project 345678123 - Sunset Luxury
     Condominiums
@@ -62,8 +62,8 @@ EMAILS = [
     standards. Install additional fire extinguishers in compliance with
     fire code requirements. Reinforce or replace temporary support beams
     to ensure structural stability. Deadline for Compliance: Violations
-    must be addressed no later than February 5,
-    2025. Failure to comply may result in
+    must be addressed no later than August 5,
+    2026. Failure to comply may result in
     a stop-work order and additional fines.
     Contact: For questions or to schedule a re-inspection, please contact
     the Building and Safety Department at
