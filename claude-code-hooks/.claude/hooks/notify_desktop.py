@@ -11,18 +11,18 @@ def notify(title, message):
         subprocess.run(["osascript", "-e", script], check=False)
     elif system == "Linux":
         subprocess.run(["notify-send", title, message], check=False)
-    elif system == "Windows":
-        toast = f"New-BurntToastNotification -Text '{title}', '{message}'"
-        subprocess.run(
-            ["powershell", "-NoProfile", "-Command", toast], check=False
-        )
+    else:
+        return False
+    return True
 
 
 def main():
     json.load(sys.stdin)
     try:
-        notify("Claude Code", "Claude just finished responding")
+        notified = notify("Claude Code", "Claude just finished responding")
     except FileNotFoundError:
+        notified = False
+    if not notified:
         print("Claude just finished responding")
     return 0
 

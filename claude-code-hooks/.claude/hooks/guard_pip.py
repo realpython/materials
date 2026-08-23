@@ -12,7 +12,7 @@ def main():
         if word not in {"pip", "pip3"} or words[i + 1] != "install":
             continue
         if i > 0 and words[i - 1] == "uv":
-            continue  # uv pip install is fine
+            continue
         print("Use 'uv add' instead of pip install.", file=sys.stderr)
         return 2
     return 0

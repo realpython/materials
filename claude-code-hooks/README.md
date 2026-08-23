@@ -4,7 +4,7 @@ Supporting materials for the Real Python tutorial **How to Automate Your Workflo
 
 This is a small [uv](https://docs.astral.sh/uv/)-managed project with three Claude Code hooks wired up in `.claude/`:
 
-- **`Stop` hook** (`notify_desktop.py`): a cross-platform desktop notification each time Claude finishes responding.
+- **`Stop` hook** (`notify_desktop.py`): a desktop notification each time Claude finishes responding (macOS and Linux; plain-text fallback on other systems).
 - **`PreToolUse` hook** (`guard_pip.py`): blocks `pip install` and steers Claude toward `uv`.
 - **`PostToolUse` hook** (`format_with_ruff.py`): formats the file Claude just edited with ruff.
 
@@ -22,12 +22,6 @@ Then sync the project:
 
 ```console
 $ uv sync
-```
-
-On Windows, the notification hook shows a toast through PowerShell's BurntToast module. Install it once:
-
-```console
-> Install-Module -Name BurntToast -Scope CurrentUser
 ```
 
 ## Try the hooks
