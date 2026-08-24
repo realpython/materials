@@ -14,9 +14,12 @@ order = [
     {"price": 42.00, "quantity": 1},
 ] * 100
 
-print(calculate_order_total(order))
+runs = 500_000
+
+print(f"{calculate_order_total(order):.2f}")
 
 order_time = timeit.timeit(
-    lambda: calculate_order_total(order), number=500_000
+    lambda: calculate_order_total(order), number=runs
 )
-print(f"calculate_order_total: {order_time:.4f} seconds")
+print(f"total for {runs:,} runs: {order_time:.4f} seconds")
+print(f"per call: {order_time / runs * 1_000_000:.1f} microseconds")
