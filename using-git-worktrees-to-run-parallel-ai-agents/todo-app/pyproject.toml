@@ -1,0 +1,15 @@
+# pyproject.toml
+
+[project]
+name = "todo-app"
+version = "0.1.0"
+description = "A minimal terminal to-do app for practicing Git worktrees"
+requires-python = ">=3.10"
+dependencies = ["textual>=8.0"]
+
+[project.scripts]
+todo = "todo_app.app:main"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
