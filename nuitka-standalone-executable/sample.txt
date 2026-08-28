@@ -1,5 +1,2 @@
-Python is a popular programming language. Python is easy to learn, and Python
-is also powerful enough for real projects. Many developers choose Python for
-web development, data science, and automation. Python code is often easy to
-read, which is one reason Python remains popular among beginners and
-experienced developers alike.
+﻿Python is popular because Python is easy to learn and easy to use.
+Python is also popular for data science and automation.
