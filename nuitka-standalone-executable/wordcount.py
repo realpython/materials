@@ -4,7 +4,9 @@ from pathlib import Path
 
 
 def main():
-    parser = ArgumentParser(description="Show the most common words in a text file.")
+    parser = ArgumentParser(
+        description="Show the most common words in a text file."
+    )
     parser.add_argument("file", type=Path)
     parser.add_argument("-n", "--top", type=int, default=5)
     args = parser.parse_args()
