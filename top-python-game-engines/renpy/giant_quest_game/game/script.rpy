@@ -12,7 +12,7 @@
 ## Declare characters used by this game. The color argument colorizes the
 ## name of the character.
 define player = Character("Me", color="#c8ffff")
-define smith = Character("Miranda, village blacksmith", color="#2a3236")
+define smith = Character("Miranda, village blacksmith", color="#99ff9c")
 define wizard = Character("Endeavor, cryptic wizard", color="#f4d3ff")
 define giant = Character("Maull, terrifying giant", color="#ff8c8c")
 
@@ -55,15 +55,22 @@ label start:
 
     # Begin narration
 
-    "Growing up in a small hamlet was boring, but reliable and safe. At least, it was until the neighbors began complaining of missing livestock. That's when the evening patrols began."
+    "Growing up in a small hamlet was boring, but reliable and safe. 
+    At least, it was until the neighbors began complaining of missing
+    livestock. That's when the evening patrols began."
 
-    "While on patrol just before dawn, your group noticed broken fence around a cattle paddock. Beyond the broken fence, a crude trail had been blazed to a road leading away from town."
+    "While on patrol just before dawn, your group noticed broken fence
+    around a cattle paddock. Beyond the broken fence,
+    a crude trail had been blazed to a road leading away from town."
 
     # Show the current weapon
     show expression current_weapon at left
     with moveinleft
 
-    "After reporting back to the town council, it was decided that you should follow the tracks to discover the fate of the livestock. You picked up your only weapon, a simple wooden practice sword, and set off."
+    "After reporting back to the town council, it was decided that you
+    should follow the tracks to discover the fate of the livestock.
+    You picked up your only weapon, a simple wooden practice sword,
+    and set off."
 
     scene crossroads
     with fade
@@ -71,8 +78,10 @@ label start:
     show expression current_weapon at left
 
     "Following the path, you come to a bridge across the river."
-    
-    "Crossing the bridge will take you to the county seat, where you may hear some news or get supplies. The tracks, however, continue straight on the path."
+
+    "Crossing the bridge will take you to the county seat,
+    where you may hear some news or get supplies.
+    The tracks, however, continue straight on the path."
 
     menu optional_name:
         "Which direction will you travel?"
@@ -82,7 +91,7 @@ label start:
             jump town
         "Continue on the path":
             jump path
-    
+
     "Your quest is ended!"
-    
+
     return
