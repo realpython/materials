@@ -25,9 +25,9 @@ The scripts parse `sample_report.pdf`, a short financial report with tables, and
 Create and activate a [virtual environment](https://realpython.com/python-virtual-environments-a-primer/), then install the dependencies:
 
 ```shell
-$ python3 -m venv venv/
-$ source venv/bin/activate
-(venv) $ python -m pip install -r requirements.txt
+$ python3 -m venv .venv/
+$ source .venv/bin/activate
+(.venv) $ python -m pip install -r requirements.txt
 ```
 
 Run the scripts from this folder so the relative path to `sample_report.pdf` resolves correctly.
@@ -37,9 +37,9 @@ Run the scripts from this folder so the relative path to `sample_report.pdf` res
 Docling runs on your machine and does not require an API key.
 
 ```shell
-(venv) $ python docling_extraction.py
-(venv) $ python docling_tables.py
-(venv) $ python docling_formats.py
+(.venv) $ python docling_extraction.py
+(.venv) $ python docling_tables.py
+(.venv) $ python docling_formats.py
 ```
 
 `docling_formats.py` writes `output_docling.md`, `output_docling.json`, and `output_docling.html` in the current directory.
@@ -49,10 +49,10 @@ Docling runs on your machine and does not require an API key.
 The LlamaParse scripts require a [Llama Cloud API key](https://cloud.llamaindex.ai/). Export it before running:
 
 ```shell
-(venv) $ export LLAMA_CLOUD_API_KEY="your-api-key"
-(venv) $ python llamaparse_extraction.py
-(venv) $ python llamaparse_tables.py
-(venv) $ python llamaparse_formats.py
+(.venv) $ export LLAMA_CLOUD_API_KEY="your-api-key"
+(.venv) $ python llamaparse_extraction.py
+(.venv) $ python llamaparse_tables.py
+(.venv) $ python llamaparse_formats.py
 ```
 
 `llamaparse_formats.py` writes `output_llamaparse.md`, `output_llamaparse.text`, and `output_llamaparse.json` in the current directory.
