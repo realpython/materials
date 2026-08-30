@@ -114,7 +114,7 @@ def main(argv: Sequence[str] | None = None) -> int:
             return 0
 
         if args.command == "search":
-            results = store.find_notes_by_title_and_body(args.query)
+            results = store.search_notes(args.query)
             if not results:
                 print("No notes found.")
                 return 0

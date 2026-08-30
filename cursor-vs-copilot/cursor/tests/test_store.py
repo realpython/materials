@@ -47,7 +47,7 @@ def test_search_notes_matches_title_and_body(store):
         Note(title="Unrelated", body="Nothing to see here", tags=[])
     )
 
-    results = store.find_notes_by_title_and_body("trip")
+    results = store.search_notes("trip")
     titles = {note.title for note in results}
     assert titles == {"Trip Plan", "Work Notes"}
 

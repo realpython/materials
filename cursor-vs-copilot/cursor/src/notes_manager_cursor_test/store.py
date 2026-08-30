@@ -98,16 +98,19 @@ class NoteStore:
             count += 1
         return count
 
-    def find_notes_by_title_and_body(self, query: str) -> list[Note]:
-        """Return notes whose title or body contains `query` (case-insensitive)."""
+    def search_notes(self, query: str) -> list[Note]:
+        """
+        Return notes whose title or body contains `query` (case-insensitive).
+        """
+        pattern = f"%{query}%"
         rows = self._conn.execute(
             """
             SELECT * FROM notes
             WHERE title LIKE ? COLLATE NOCASE
-            OR body LIKE ? COLLATE NOCASE
+               OR body LIKE ? COLLATE NOCASE
             ORDER BY created_at DESC
             """,
-            (f"%{query}%", f"%{query}%"),
+            (pattern, pattern),
         ).fetchall()
         return [self._row_to_note(row) for row in rows]
 
