@@ -1,12 +1,14 @@
+"""Find HTML tables in a LlamaParse Markdown response and print them."""
+
 import os
 import re
 from pathlib import Path
+
 from llama_cloud import LlamaCloud
 
 PDF_PATH = Path("sample_report.pdf")
-TABLE_PATTERN = re.compile(
-    r"<table\b.*?</table>", re.DOTALL | re.IGNORECASE
-)
+TABLE_PATTERN = re.compile(r"<table\b.*?</table>", re.DOTALL | re.IGNORECASE)
+
 
 def main() -> None:
     client = LlamaCloud(api_key=os.environ["LLAMA_CLOUD_API_KEY"])
@@ -33,6 +35,7 @@ def main() -> None:
 
     print("Table 1 (truncated):")
     print(tables[1][1][:700], "...")
+
 
 if __name__ == "__main__":
     main()

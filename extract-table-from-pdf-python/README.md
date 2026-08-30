@@ -1,11 +1,11 @@
-# PDF Table Extraction: Docling vs LlamaParse
+# Docling vs LlamaParse: How to Extract PDF Tables in Python
 
-This folder contains the code examples for the Real Python tutorial [PDF Table Extraction: Docling vs LlamaParse](https://realpython.com/extract-table-from-pdf-python/).
+This folder contains the code examples for the Real Python tutorial [Docling vs LlamaParse: How to Extract PDF Tables in Python](https://realpython.com/extract-table-from-pdf-python/).
 
 The scripts parse `sample_report.pdf`, a short financial report with tables, and compare two approaches:
 
 - **[Docling](https://github.com/docling-project/docling)** runs locally and exports structured document data, including tables as pandas DataFrames.
-- **[LlamaParse](https://docs.cloud.llamaindex.ai/llamaparse/getting_started)** uses the Llama Cloud API for parsing and schema-driven extraction.
+- **[LlamaParse](https://developers.llamaindex.ai/llamaparse/parse/getting_started/)** uses the Llama Cloud API for parsing and schema-driven extraction.
 
 ## Files
 
