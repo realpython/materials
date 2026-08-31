@@ -14,22 +14,14 @@ async def task(name, work_queue):
 
 
 async def main():
-    """
-    This is the main entry point for the program
-    """
-    # Create the queue of work
     work_queue = asyncio.Queue()
-
-    # Put some work in the queue
     for work in [15, 10, 5, 2]:
         await work_queue.put(work)
 
-    # Run the tasks
     with Timer(text="\nTotal elapsed time: {:.1f}"):
-        await asyncio.gather(
-            asyncio.create_task(task("One", work_queue)),
-            asyncio.create_task(task("Two", work_queue)),
-        )
+        async with asyncio.TaskGroup() as group:
+            group.create_task(task("One", work_queue))
+            group.create_task(task("Two", work_queue))
 
 
 if __name__ == "__main__":
