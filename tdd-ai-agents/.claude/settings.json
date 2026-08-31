@@ -1,15 +1,5 @@
 {
-  "hooks": {
-    "PreToolUse": [
-      {
-        "matcher": "Edit|Write",
-        "hooks": [
-          {
-            "type": "command",
-            "command": "jq -e '.tool_input.file_path | contains(\"/tests/\")' >/dev/null && echo 'tests/ is read-only during implementation' >&2 && exit 2 || exit 0"
-          }
-        ]
-      }
-    ]
+  "permissions": {
+    "deny": ["Edit(tests/**)"]
   }
 }

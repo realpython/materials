@@ -4,8 +4,8 @@ from functools import total_ordering
 _VERSION = re.compile(
     r"^\s*(?P<release>\d+(?:\.\d+)*)"
     r"(?:(?P<pre_label>a|b|rc)(?P<pre_num>\d+))?"
-    r"(?:\.dev(?P<dev>\d+))?"
-    r"(?:\.post(?P<post>\d+))?\s*$"
+    r"(?:\.post(?P<post>\d+))?"
+    r"(?:\.dev(?P<dev>\d+))?\s*$"
 )
 _PRE_ORDER = {"a": 0, "b": 1, "rc": 2}
 
@@ -23,11 +23,11 @@ class Version:
             self._pre = (_PRE_ORDER[match["pre_label"]], int(match["pre_num"]))
         else:
             self._pre = None
-        self._dev = int(match["dev"]) if match["dev"] else None
         self._post = int(match["post"]) if match["post"] else None
+        self._dev = int(match["dev"]) if match["dev"] else None
 
     def _key(self):
-        if self._dev is not None and self._pre is None and self._post is None:
+        if self._dev is not None and self._pre is None:
             phase = (0, self._dev)
         elif self._pre is not None:
             phase = (1, self._pre)
