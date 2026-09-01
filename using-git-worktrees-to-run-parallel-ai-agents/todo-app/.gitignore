@@ -1,7 +1,0 @@
-# .gitignore
-
-__pycache__/
-*.pyc
-.venv/
-tasks.json
-.claude/worktrees/
