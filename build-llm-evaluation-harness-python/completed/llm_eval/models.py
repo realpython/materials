@@ -34,6 +34,8 @@ class Criterion(StrictModel):
                 raise ValueError("categorical criteria cannot define a scale")
         else:
             scores = sorted(int(score) for score in self.scale)
+            if not scores:
+                raise ValueError("ordinal criteria need a scale")
             if scores != list(range(scores[0], scores[-1] + 1)):
                 raise ValueError("ordinal scales must be contiguous")
             if self.pass_threshold not in scores:

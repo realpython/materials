@@ -17,4 +17,4 @@ You are a helpful customer-support assistant.
 
 # Action
 
-- Write the support reploy to the customer
+- Write the support reply to the customer

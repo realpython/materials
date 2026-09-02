@@ -1,8 +1,8 @@
 import argparse
 import hashlib
 import json
-import logging
 import os
+import sys
 from pathlib import Path
 from statistics import fmean
 from typing import Any
@@ -18,7 +18,6 @@ from llm_eval.models import (
 )
 from pydantic import BaseModel, ValidationError
 
-LOGGER = logging.getLogger("llm_eval")
 DEFAULT_DATA = Path("data/support_eval.jsonl")
 DEFAULT_RUBRIC = Path("rubrics/support.json")
 DEFAULT_CALIBRATION = Path("data/judge_calibration.jsonl")
@@ -246,7 +245,8 @@ def render_comparison(
             "",
             f"New critical failures: {len(summary['new_critical_failures'])}",
             f"New blocker failures:  {len(summary['new_blocker_failures'])}",
-            f"Carryover failures: {len(summary['carried_blocker_failures'])}",
+            f"Carryover failures:    "
+            f"{len(summary['carried_blocker_failures'])}",
             f"Fixed failures:        {len(summary['fixed_blocker_failures'])}",
             f"Cases needing review:  {len(summary['review_cases'])}",
             "",
@@ -408,19 +408,16 @@ def command_validate(args: argparse.Namespace) -> int:
     counts = {
         name: sum(case.split == name for case in cases) for name in SPLITS
     }
-    LOGGER.info(
-        "%d valid cases | %d criteria | %d blockers",
-        len(cases),
-        len(rubric.criteria),
-        blockers,
+    print(
+        f"{len(cases)} valid cases | "
+        f"{len(rubric.criteria)} criteria | {blockers} blockers"
     )
-    LOGGER.info(
-        "Splits: dev=%d, release=%d, regression=%d",
-        counts["dev"],
-        counts["release"],
-        counts["regression"],
+    print(
+        f"Splits: dev={counts['dev']}, "
+        f"release={counts['release']}, "
+        f"regression={counts['regression']}"
     )
-    LOGGER.info("Critical cases: %d", sum(case.critical for case in cases))
+    print(f"Critical cases: {sum(case.critical for case in cases)}")
     return 0
 
 
@@ -439,9 +436,7 @@ def command_run(args: argparse.Namespace) -> int:
         deterministic_only=args.deterministic_only,
     )
     summary = aggregate(trials, rubric)
-    LOGGER.info(
-        render_run_summary(args.prompt.stem, mode, len(cases), summary)
-    )
+    print(render_run_summary(args.prompt.stem, mode, len(cases), summary))
     write_artifacts(
         result_dir=args.results / args.prompt.stem,
         trials=trials,
@@ -469,13 +464,12 @@ def command_calibrate(args: argparse.Namespace) -> int:
         rubric=rubric,
         judge_model=args.judge_model,
     )
-    LOGGER.info("Calibration records: %d", report["records"])
-    LOGGER.info("Exact agreement: %.1f%%", report["exact_agreement"] * 100)
-    LOGGER.info("Critical false passes: %d", report["critical_false_passes"])
-    LOGGER.info(
-        "Injection canaries detected: %d/%d",
-        report["canaries_detected"],
-        report["canaries_total"],
+    print(f"Calibration records: {report['records']}")
+    print(f"Exact agreement: {report['exact_agreement']:.1%}")
+    print(f"Critical false passes: {report['critical_false_passes']}")
+    print(
+        f"Injection canaries detected: "
+        f"{report['canaries_detected']}/{report['canaries_total']}"
     )
     args.results.mkdir(parents=True, exist_ok=True)
     (args.results / "calibration.json").write_text(
@@ -497,9 +491,7 @@ def command_compare(args: argparse.Namespace) -> int:
     baseline = evaluate_prompt(prompt_path=args.baseline, **common)
     candidate = evaluate_prompt(prompt_path=args.candidate, **common)
     summary = compare_trials(baseline, candidate, rubric, cases)
-    LOGGER.info(
-        render_comparison(args.baseline.stem, args.candidate.stem, summary)
-    )
+    print(render_comparison(args.baseline.stem, args.candidate.stem, summary))
     result_dir = (
         args.results / f"{args.baseline.stem}-vs-{args.candidate.stem}"
     )
@@ -530,7 +522,6 @@ COMMANDS = {
 
 def main(argv: list[str] | None = None) -> int:
     load_dotenv()
-    logging.basicConfig(level=logging.INFO, format="%(message)s")
     args = build_parser().parse_args(argv)
     try:
         return COMMANDS[args.command](args)
@@ -542,7 +533,7 @@ def main(argv: list[str] | None = None) -> int:
         ValidationError,
         ValueError,
     ) as exc:
-        LOGGER.error("error: %s", exc)
+        print(f"error: {exc}", file=sys.stderr)
         return 3
 
 

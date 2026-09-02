@@ -1,6 +1,6 @@
 # LLM Evaluation in Python: Build an Eval Harness From Scratch
 
-This repository accompanies the Real Python tutorial **"Evluation in Python: Build an Eval Harness From Scratch."** It evaluates an example support assistant with a small, framework-agnostic command-line harness.
+This repository accompanies the Real Python tutorial **"LLM Evaluation in Python: Build an Eval Harness From Scratch."** It evaluates an example support assistant with a small, framework-agnostic command-line harness.
 
 - `completed/` contains the finished evaluation harness.
 - `follow_along/` contains the prompts, replay corpus, and setup files that you should start with.

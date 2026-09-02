@@ -121,8 +121,10 @@ class OpenAIClient:
                 input=self._input(instructions, input_text),
                 text_format=response_model,
             )
-        except OpenAIError:
-            raise RuntimeError(f"structured request {request_id!r} failed")
+        except OpenAIError as exc:
+            raise RuntimeError(
+                f"structured request {request_id!r} failed"
+            ) from exc
         if response.output_parsed is None:
             raise RuntimeError(
                 f"structured request {request_id!r} returned no parsed output"

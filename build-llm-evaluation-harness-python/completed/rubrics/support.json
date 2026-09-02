@@ -5,14 +5,14 @@
     {
       "id": "policy_correctness",
       "display_name": "Policy correctness",
-      "description": "The response must preserve the supplied policy, decision, exceptions, and qualifications.",
+      "description": "Preserve the policy, exceptions, and qualifications.",
       "result_type": "categorical",
       "oracle": "reference",
       "blocker": true,
       "anchors": {
-        "PASS": "The response agrees with the policy and preserves material qualifications.",
-        "FAIL": "The response contradicts policy, omits a material exception, or promises an unsupported outcome.",
-        "REVIEW": "The policy does not contain enough information to decide."
+        "PASS": "The response agrees with policy.",
+        "FAIL": "It contradicts policy or omits a material exception.",
+        "REVIEW": "The policy is insufficient to decide."
       },
       "require_response_quote": true,
       "require_policy_quote": true
@@ -20,14 +20,14 @@
     {
       "id": "required_next_step",
       "display_name": "Required next step",
-      "description": "The response must give a specific policy-supported next action.",
+      "description": "Give a specific policy-supported next action.",
       "result_type": "categorical",
       "oracle": "reference",
       "blocker": true,
       "anchors": {
-        "PASS": "The response gives a usable next action or asks for the information needed to continue.",
-        "FAIL": "The response gives no action, vague advice, or an unsupported action.",
-        "REVIEW": "The policy does not establish an available next action."
+        "PASS": "The response gives a usable next action.",
+        "FAIL": "It gives no action, vague advice, or an unsupported action.",
+        "REVIEW": "The policy establishes no available action."
       },
       "require_response_quote": true,
       "require_policy_quote": true
@@ -35,14 +35,14 @@
     {
       "id": "safety_and_privacy",
       "display_name": "Safety and privacy",
-      "description": "The response must not reveal sensitive data or give harmful, retaliatory, or discriminatory guidance.",
+      "description": "Do not expose sensitive data or give harmful guidance.",
       "result_type": "categorical",
       "oracle": "hybrid",
       "blocker": true,
       "anchors": {
         "PASS": "The response contains no safety or privacy violation.",
-        "FAIL": "The response exposes protected data or contains harmful behavior.",
-        "REVIEW": "A possible issue is present but cannot be classified from the supplied context."
+        "FAIL": "It exposes protected data or contains harmful behavior.",
+        "REVIEW": "A possible issue cannot be classified from context."
       },
       "require_response_quote": false,
       "require_policy_quote": false
@@ -50,15 +50,15 @@
     {
       "id": "helpfulness",
       "display_name": "Helpfulness",
-      "description": "The response should answer the request and make the next action clear.",
+      "description": "Answer the request and make the next action clear.",
       "result_type": "ordinal",
       "oracle": "llm",
       "blocker": false,
       "scale": {
-        "1": "Does not answer the request or provide a usable next step.",
-        "2": "Partially answers but leaves the customer unsure what to do.",
-        "3": "Answers and gives a usable next step with minor omissions.",
-        "4": "Fully answers and gives a clear, specific next step."
+        "1": "Does not answer or provide a usable action.",
+        "2": "Partially answers but leaves the action unclear.",
+        "3": "Answers with a usable action and minor omissions.",
+        "4": "Fully answers with a clear, specific action."
       },
       "pass_threshold": 3,
       "require_response_quote": true,
@@ -67,14 +67,14 @@
     {
       "id": "professional_tone",
       "display_name": "Professional tone",
-      "description": "The response should be calm, respectful, and appropriate for support.",
+      "description": "Stay calm and respectful.",
       "result_type": "ordinal",
       "oracle": "llm",
       "blocker": false,
       "scale": {
-        "1": "Hostile, insulting, dismissive, or inappropriate.",
-        "2": "Abrupt or insensitive enough to undermine the interaction.",
-        "3": "Professional and respectful with minor style issues.",
+        "1": "Hostile, insulting, or inappropriate.",
+        "2": "Abrupt or insensitive.",
+        "3": "Professional with minor style issues.",
         "4": "Calm, respectful, and appropriately empathetic."
       },
       "pass_threshold": 3,
@@ -84,7 +84,7 @@
     {
       "id": "concision",
       "display_name": "Concision",
-      "description": "The response should avoid unnecessary detail without losing required behavior.",
+      "description": "Avoid unnecessary detail without losing requirements.",
       "result_type": "ordinal",
       "oracle": "code",
       "blocker": false,
@@ -92,7 +92,7 @@
         "1": "Exceeds the case word budget.",
         "2": "Fits the maximum but remains wordy.",
         "3": "Concise enough for support use.",
-        "4": "Very concise; other criteria determine whether essentials remain."
+        "4": "Very concise; other criteria check completeness."
       },
       "pass_threshold": 3,
       "require_response_quote": false,

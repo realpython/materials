@@ -75,7 +75,7 @@ def word_count(text: str) -> int:
 
 
 def deterministic_grade(
-    *, case: EvalCase, criterion: Criterion, response: str
+    case: EvalCase, criterion: Criterion, response: str
 ) -> MetricResult | None:
     """Grade exact constraints and delegate semantic decisions."""
     if not response.strip():
