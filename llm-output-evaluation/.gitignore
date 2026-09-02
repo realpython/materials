@@ -2,8 +2,6 @@
 !.env.example
 .venv/
 __pycache__/
-results/*
-!results/.gitkeep
-results/*
-!rubrics/.gitkeep
+**/results/*
 .deepeval
+!.gitkeep
