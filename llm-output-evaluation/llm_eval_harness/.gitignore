@@ -4,5 +4,6 @@
 __pycache__/
 results/*
 !results/.gitkeep
+results/*
 !rubrics/.gitkeep
 .deepeval

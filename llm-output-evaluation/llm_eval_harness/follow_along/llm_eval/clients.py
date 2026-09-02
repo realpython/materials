@@ -1,9 +1,7 @@
 import json
-import os
 from pathlib import Path
 from typing import Protocol, TypeVar
 
-from openai import OpenAI, OpenAIError
 from pydantic import BaseModel
 
 SchemaT = TypeVar("SchemaT", bound=BaseModel)

@@ -123,7 +123,7 @@ class OpenAIClient:
             )
         except OpenAIError as exc:
             raise RuntimeError(
-                f"structured request {request_id!r} failed"
+                f"structured request " f"{request_id!r} failed"
             ) from exc
         if response.output_parsed is None:
             raise RuntimeError(
@@ -147,4 +147,3 @@ if __name__ == "__main__":
     )
     if reply.strip():
         print("OpenAI client is functional.")
-        

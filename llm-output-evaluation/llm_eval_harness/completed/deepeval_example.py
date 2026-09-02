@@ -17,7 +17,8 @@ def test_defective_return_policy() -> None:
             SingleTurnParams.INPUT,
             SingleTurnParams.ACTUAL_OUTPUT,
             SingleTurnParams.EXPECTED_OUTPUT,
-        ], threshold=0.8,
+        ],
+        threshold=0.8,
     )
     test_case = LLMTestCase(
         input="I bought these boots 45 days ago, but the sole separated.",

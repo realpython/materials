@@ -128,4 +128,3 @@ class Trial(StrictModel):
     critical: bool
     response: str
     metrics: list[MetricResult]
-    

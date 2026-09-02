@@ -9,7 +9,7 @@ from typing import Any
 
 from dotenv import load_dotenv
 from llm_eval.clients import ModelClient, OpenAIClient, ReplayClient
-from llm_eval.graders import evaluate_response, grade_with_judge
+from llm_eval.graders import evaluate_response
 from llm_eval.models import (
     CalibrationCase,
     EvalCase,
@@ -64,7 +64,9 @@ def validate_project(rubric: Rubric, cases: list[EvalCase]) -> None:
 SPLITS = ("dev", "release", "regression")
 
 
-def select_splits(cases: list[EvalCase], requested: str | None) -> list[EvalCase]:
+def select_splits(
+    cases: list[EvalCase], requested: str | None
+) -> list[EvalCase]:
     """Keep only the cases belonging to the requested splits."""
     if not requested:
         return cases
@@ -129,7 +131,9 @@ def evaluate_prompt(
     return trials
 
 
-def aggregate(trials: list[Trial], rubric: Rubric) -> dict[str, dict[str, Any]]:
+def aggregate(
+    trials: list[Trial], rubric: Rubric
+) -> dict[str, dict[str, Any]]:
     """Summarize categorical pass rates and ordinal mean scores."""
     summary: dict[str, dict[str, Any]] = {}
     for criterion in rubric.criteria:
@@ -162,7 +166,9 @@ def aggregate(trials: list[Trial], rubric: Rubric) -> dict[str, dict[str, Any]]:
     return summary
 
 
-def blocker_cases(trials: list[Trial], rubric: Rubric, verdict: str) -> set[str]:
+def blocker_cases(
+    trials: list[Trial], rubric: Rubric, verdict: str
+) -> set[str]:
     """Return case IDs with a blocker matching the requested verdict."""
     blockers = {
         criterion.id for criterion in rubric.criteria if criterion.blocker
@@ -240,7 +246,7 @@ def render_comparison(
             "",
             f"New critical failures: {len(summary['new_critical_failures'])}",
             f"New blocker failures:  {len(summary['new_blocker_failures'])}",
-            f"Carried over failures: {len(summary['carried_blocker_failures'])}",
+            f"Carryover failures: {len(summary['carried_blocker_failures'])}",
             f"Fixed failures:        {len(summary['fixed_blocker_failures'])}",
             f"Cases needing review:  {len(summary['review_cases'])}",
             "",
@@ -271,7 +277,9 @@ def render_run_summary(
             value_text = f"{value:.2f}"
         counts = values["verdict_counts"]
         counts_text = f"{counts['PASS']}/{counts['FAIL']}/{counts['REVIEW']}"
-        lines.append(f"{criterion_id[:24]:24} {value_text:>8} {counts_text:>10}")
+        lines.append(
+            f"{criterion_id[:24]:24} {value_text:>8} {counts_text:>10}"
+        )
     return "\n".join(lines)
 
 
@@ -397,8 +405,9 @@ def load_inputs(args: argparse.Namespace) -> tuple[Rubric, list[EvalCase]]:
 def command_validate(args: argparse.Namespace) -> int:
     rubric, cases = load_inputs(args)
     blockers = sum(criterion.blocker for criterion in rubric.criteria)
-    counts = {name: sum(case.split == name for case in cases) 
-              for name in SPLITS}
+    counts = {
+        name: sum(case.split == name for case in cases) for name in SPLITS
+    }
     LOGGER.info(
         "%d valid cases | %d criteria | %d blockers",
         len(cases),
@@ -411,9 +420,7 @@ def command_validate(args: argparse.Namespace) -> int:
         counts["release"],
         counts["regression"],
     )
-    LOGGER.info(
-        "Critical cases: %d", sum(case.critical for case in cases)
-    )
+    LOGGER.info("Critical cases: %d", sum(case.critical for case in cases))
     return 0
 
 
@@ -493,7 +500,9 @@ def command_compare(args: argparse.Namespace) -> int:
     LOGGER.info(
         render_comparison(args.baseline.stem, args.candidate.stem, summary)
     )
-    result_dir = args.results / f"{args.baseline.stem}-vs-{args.candidate.stem}"
+    result_dir = (
+        args.results / f"{args.baseline.stem}-vs-{args.candidate.stem}"
+    )
     write_artifacts(
         result_dir=result_dir,
         trials=[*baseline, *candidate],

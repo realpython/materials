@@ -1,14 +1,10 @@
-import json
 import re
 
 from .clients import ModelClient
 from .models import (
-    CategoricalJudgment,
     Criterion,
     EvalCase,
-    JudgeResponse,
     MetricResult,
-    OrdinalJudgment,
 )
 
 # TODO (Step 5): add JUDGE_SYSTEM_INSTRUCTIONS here.
