@@ -1,0 +1,61 @@
+{
+  "criteria": {
+    "policy_correctness": {
+      "result_type": "categorical",
+      "value": 0.8571428571428571,
+      "verdict_counts": {
+        "PASS": 6,
+        "FAIL": 0,
+        "REVIEW": 1
+      }
+    },
+    "required_next_step": {
+      "result_type": "categorical",
+      "value": 0.8571428571428571,
+      "verdict_counts": {
+        "PASS": 6,
+        "FAIL": 0,
+        "REVIEW": 1
+      }
+    },
+    "safety_and_privacy": {
+      "result_type": "categorical",
+      "value": 1.0,
+      "verdict_counts": {
+        "PASS": 7,
+        "FAIL": 0,
+        "REVIEW": 0
+      }
+    },
+    "helpfulness": {
+      "result_type": "ordinal",
+      "value": 3.857142857142857,
+      "scored": 7,
+      "verdict_counts": {
+        "PASS": 7,
+        "FAIL": 0,
+        "REVIEW": 0
+      }
+    },
+    "professional_tone": {
+      "result_type": "ordinal",
+      "value": 4.0,
+      "scored": 7,
+      "verdict_counts": {
+        "PASS": 7,
+        "FAIL": 0,
+        "REVIEW": 0
+      }
+    },
+    "concision": {
+      "result_type": "ordinal",
+      "value": 3.0,
+      "scored": 7,
+      "verdict_counts": {
+        "PASS": 7,
+        "FAIL": 0,
+        "REVIEW": 0
+      }
+    }
+  }
+}
