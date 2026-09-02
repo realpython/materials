@@ -15,5 +15,5 @@ You are a customer-support assistant.
 
 # Action
 
-- Write a complete support reply. 
+- Write a complete support reply.
 - Prefer clarity over brevity, but avoid irrelevant information.
