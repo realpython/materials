@@ -122,7 +122,7 @@ class OpenAIClient:
                 text_format=response_model,
             )
         except OpenAIError:
-            raise RuntimeError(f"structured request " f"{request_id!r} failed")
+            raise RuntimeError(f"structured request {request_id!r} failed")
         if response.output_parsed is None:
             raise RuntimeError(
                 f"structured request {request_id!r} returned no parsed output"
