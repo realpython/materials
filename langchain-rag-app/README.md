@@ -15,18 +15,18 @@ NEO4J_URI=<YOUR_NEO4J_URI>
 NEO4J_USERNAME=<YOUR_NEO4J_USERNAME>
 NEO4J_PASSWORD=<YOUR_NEO4J_PASSWORD>
 
-HOSPITALS_CSV_PATH=https://raw.githubusercontent.com/hfhoffman1144/langchain_neo4j_rag_app/main/data/hospitals.csv
-PAYERS_CSV_PATH=https://raw.githubusercontent.com/hfhoffman1144/langchain_neo4j_rag_app/main/data/payers.csv
-PHYSICIANS_CSV_PATH=https://raw.githubusercontent.com/hfhoffman1144/langchain_neo4j_rag_app/main/data/physicians.csv
-PATIENTS_CSV_PATH=https://raw.githubusercontent.com/hfhoffman1144/langchain_neo4j_rag_app/main/data/patients.csv
-VISITS_CSV_PATH=https://raw.githubusercontent.com/hfhoffman1144/langchain_neo4j_rag_app/main/data/visits.csv
-REVIEWS_CSV_PATH=https://raw.githubusercontent.com/hfhoffman1144/langchain_neo4j_rag_app/main/data/reviews.csv
+HOSPITALS_CSV_PATH=https://raw.githubusercontent.com/realpython/materials/refs/heads/master/langchain-rag-app/data/hospitals.csv
+PAYERS_CSV_PATH=https://raw.githubusercontent.com/realpython/materials/refs/heads/master/langchain-rag-app/data/payers.csv
+PHYSICIANS_CSV_PATH=https://raw.githubusercontent.com/realpython/materials/refs/heads/master/langchain-rag-app/data/physicians.csv
+PATIENTS_CSV_PATH=https://raw.githubusercontent.com/realpython/materials/refs/heads/master/langchain-rag-app/data/patients.csv
+VISITS_CSV_PATH=https://raw.githubusercontent.com/realpython/materials/refs/heads/master/langchain-rag-app/data/visits.csv
+REVIEWS_CSV_PATH=https://raw.githubusercontent.com/realpython/materials/refs/heads/master/langchain-rag-app/data/reviews.csv
 
-HOSPITAL_AGENT_MODEL=gpt-3.5-turbo-1106
-HOSPITAL_CYPHER_MODEL=gpt-3.5-turbo-1106
-HOSPITAL_QA_MODEL=gpt-3.5-turbo-0125
+HOSPITAL_AGENT_MODEL=gpt-5.5
+HOSPITAL_CYPHER_MODEL=gpt-5.5
+HOSPITAL_QA_MODEL=gpt-5.5
 
-CHATBOT_URL=http://host.docker.internal:8000/hospital-rag-agent
+CHATBOT_URL=http://chatbot_api:8000/hospital-rag-agent
 ```
 
 The chatbot uses OpenAI LLMs, so you'll need to create an [OpenAI API key](https://realpython.com/generate-images-with-dalle-openai-api/#get-your-openai-api-key) and store it as `OPENAI_API_KEY`. 
@@ -38,7 +38,7 @@ Once you have a running Neo4j instance, and have filled out all the environment 
 Once you've filled in all of the environment variables, set up a Neo4j AuraDB instance, and installed Docker Compose, open a terminal and run:
 
 ```console
-$ docker-compose up --build
+$ docker compose up --build
 ```
 
 After each container finishes building, you'll be able to access the chatbot API at `http://localhost:8000/docs` and the Streamlit app at `http://localhost:8501/`.

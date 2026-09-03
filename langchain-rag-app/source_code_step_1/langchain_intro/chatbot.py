@@ -1,21 +1,23 @@
 import dotenv
-from langchain import hub
-from langchain.agents import AgentExecutor, Tool, create_openai_functions_agent
-from langchain.prompts import (
+from langchain.agents import create_agent
+from langchain_chroma import Chroma
+from langchain_core.output_parsers import StrOutputParser
+from langchain_core.prompts import (
     ChatPromptTemplate,
     HumanMessagePromptTemplate,
     PromptTemplate,
     SystemMessagePromptTemplate,
 )
-from langchain.schema.runnable import RunnablePassthrough
-from langchain_community.vectorstores import Chroma
-from langchain_core.output_parsers import StrOutputParser
-from langchain_intro.tools import get_current_wait_time
-from langchain_openai import ChatOpenAI, OpenAIEmbeddings
+from langchain_core.runnables import RunnablePassthrough
+from langchain_core.tools import Tool
+from langchain_openai import ChatOpenAI
+from langchain_openai import OpenAIEmbeddings
 
-REVIEWS_CHROMA_PATH = "chroma_data/"
+from langchain_intro.tools import get_current_wait_time
 
 dotenv.load_dotenv()
+
+REVIEWS_CHROMA_PATH = "chroma_data/"
 
 review_template_str = """Your job is to use patient
 reviews to answer questions about their experience at
@@ -23,34 +25,38 @@ a hospital. Use the following context to answer questions.
 Be as detailed as possible, but don't make up any information
 that's not from the context. If you don't know an answer, say
 you don't know.
+
 {context}
 """
 
 review_system_prompt = SystemMessagePromptTemplate(
     prompt=PromptTemplate(
-        input_variables=["context"], template=review_template_str
+        input_variables=["context"],
+        template=review_template_str,
     )
 )
 
 review_human_prompt = HumanMessagePromptTemplate(
-    prompt=PromptTemplate(input_variables=["question"], template="{question}")
+    prompt=PromptTemplate(
+        input_variables=["question"],
+        template="{question}",
+    )
 )
 messages = [review_system_prompt, review_human_prompt]
 
 review_prompt_template = ChatPromptTemplate(
-    input_variables=["context", "question"], messages=messages
+    input_variables=["context", "question"],
+    messages=messages,
 )
 
-chat_model = ChatOpenAI(model="gpt-3.5-turbo-0125", temperature=0)
-
-output_parser = StrOutputParser()
+chat_model = ChatOpenAI(model="gpt-5.5")
 
 reviews_vector_db = Chroma(
     persist_directory=REVIEWS_CHROMA_PATH,
     embedding_function=OpenAIEmbeddings(),
 )
 
-reviews_retriever = reviews_vector_db.as_retriever(k=10)
+reviews_retriever = reviews_vector_db.as_retriever(search_kwargs={"k": 10})
 
 review_chain = (
     {"context": reviews_retriever, "question": RunnablePassthrough()}
@@ -87,22 +93,10 @@ tools = [
     ),
 ]
 
-hospital_agent_prompt = hub.pull("hwchase17/openai-functions-agent")
+agent_chat_model = ChatOpenAI(model="gpt-5.5")
 
-agent_chat_model = ChatOpenAI(
-    model="gpt-3.5-turbo-1106",
-    temperature=0,
-)
-
-hospital_agent = create_openai_functions_agent(
-    llm=agent_chat_model,
-    prompt=hospital_agent_prompt,
+hospital_agent_executor = create_agent(
+    model=agent_chat_model,
     tools=tools,
-)
-
-hospital_agent_executor = AgentExecutor(
-    agent=hospital_agent,
-    tools=tools,
-    return_intermediate_steps=True,
-    verbose=True,
+    system_prompt="You're a helpful assistant.",
 )

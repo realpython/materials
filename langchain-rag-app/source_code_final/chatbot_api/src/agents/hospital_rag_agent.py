@@ -1,10 +1,11 @@
 import os
 
+from langchain.agents import create_agent
+from langchain_core.tools import Tool
+from langchain_openai import ChatOpenAI
+
 from chains.hospital_cypher_chain import hospital_cypher_chain
 from chains.hospital_review_chain import reviews_vector_chain
-from langchain import hub
-from langchain.agents import AgentExecutor, Tool, create_openai_functions_agent
-from langchain_openai import ChatOpenAI
 from tools.wait_times import (
     get_current_wait_times,
     get_most_available_hospital,
@@ -12,12 +13,28 @@ from tools.wait_times import (
 
 HOSPITAL_AGENT_MODEL = os.getenv("HOSPITAL_AGENT_MODEL")
 
-hospital_agent_prompt = hub.pull("hwchase17/openai-functions-agent")
+agent_system_prompt = (
+    "You are a helpful assistant for a hospital system. Use the tools "
+    "available to you to answer the user's questions about patients, "
+    "visits, physicians, hospitals, insurance payers, patient reviews, "
+    "and current wait times."
+)
+
+
+def query_reviews(query: str) -> str:
+    """Answer questions about patient experiences from their reviews."""
+    return reviews_vector_chain.invoke(query)
+
+
+def query_graph(query: str) -> str:
+    """Answer questions by querying the hospital graph database."""
+    return hospital_cypher_chain.invoke(query)["result"]
+
 
 tools = [
     Tool(
         name="Experiences",
-        func=reviews_vector_chain.invoke,
+        func=query_reviews,
         description="""Useful when you need to answer questions
         about patient experiences, feelings, or any other qualitative
         question that could be answered about a patient using semantic
@@ -30,7 +47,7 @@ tools = [
     ),
     Tool(
         name="Graph",
-        func=hospital_cypher_chain.invoke,
+        func=query_graph,
         description="""Useful for answering questions about patients,
         physicians, hospitals, insurance payers, patient review
         statistics, and hospital visit details. Use the entire prompt as
@@ -63,20 +80,10 @@ tools = [
     ),
 ]
 
-chat_model = ChatOpenAI(
-    model=HOSPITAL_AGENT_MODEL,
-    temperature=0,
-)
+chat_model = ChatOpenAI(model=HOSPITAL_AGENT_MODEL)
 
-hospital_rag_agent = create_openai_functions_agent(
-    llm=chat_model,
-    prompt=hospital_agent_prompt,
+hospital_rag_agent_executor = create_agent(
+    model=chat_model,
     tools=tools,
-)
-
-hospital_rag_agent_executor = AgentExecutor(
-    agent=hospital_rag_agent,
-    tools=tools,
-    return_intermediate_steps=True,
-    verbose=True,
+    system_prompt=agent_system_prompt,
 )

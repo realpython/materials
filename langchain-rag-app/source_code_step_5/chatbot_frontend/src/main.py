@@ -12,10 +12,10 @@ with st.sidebar:
     st.markdown(
         """
         This chatbot interfaces with a
-        [LangChain](https://python.langchain.com/docs/get_started/introduction)
+        [LangChain](https://docs.langchain.com/oss/python/langchain/overview)
         agent designed to answer questions about the hospitals, patients,
-        visits, physicians, and insurance payers in  a fake hospital system.
-        The agent uses  retrieval-augment generation (RAG) over both
+        visits, physicians, and insurance payers in a fake hospital system.
+        The agent uses retrieval-augmented generation (RAG) over both
         structured and unstructured data that has been synthetically generated.
         """
     )
@@ -23,18 +23,18 @@ with st.sidebar:
     st.header("Example Questions")
     st.markdown("- Which hospitals are in the hospital system?")
     st.markdown(
-        """- What is the current wait time at wallace-hamilton hospital?"""
+        "- What is the current wait time at wallace-hamilton hospital?"
     )
     st.markdown(
-        """- At which hospitals are patients complaining about billing and
-        insurance issues?"""
+        "- At which hospitals are patients complaining about billing and "
+        "insurance issues?"
     )
     st.markdown(
         "- What is the average duration in days for closed emergency visits?"
     )
     st.markdown(
-        """- What are patients saying about the nursing staff at
-        Castaneda-Hardy?"""
+        "- What are patients saying about the nursing staff at "
+        "Castaneda-Hardy?"
     )
     st.markdown(
         "- What was the total billing amount charged to each payer for 2023?"
@@ -45,39 +45,35 @@ with st.sidebar:
     )
     st.markdown("- How much was billed for patient 789's stay?")
     st.markdown(
-        """- Which state had the largest percent increase in medicaid visits
-        from 2022 to 2023?"""
+        "- Which state had the largest percent increase in medicaid visits "
+        "from 2022 to 2023?"
     )
     st.markdown(
         "- What is the average billing amount per day for Aetna patients?"
     )
     st.markdown(
-        """- How many reviews have been written from
-                patients in Florida?"""
+        "- How many reviews have been written from patients in Florida?"
     )
     st.markdown(
-        """- For visits that are not missing chief complaints,
-       what percentage have reviews?"""
+        "- For visits that are not missing chief complaints, "
+        "what percentage have reviews?"
     )
     st.markdown(
-        """- What is the percentage of visits that have reviews for
-        each hospital?"""
+        "- What is the percentage of visits that have reviews for each hospital?"
     )
     st.markdown(
-        """- Which physician has received the most reviews for this visits
-        they've attended?"""
+        "- Which physician has received the most reviews for the visits "
+        "they've attended?"
     )
     st.markdown("- What is the ID for physician James Cooper?")
     st.markdown(
-        """- List every review for visits treated by physician 270.
-        Don't leave any out."""
+        "- List every review for visits treated by physician 270. Don't leave any out."
     )
-
 
 st.title("Hospital System Chatbot")
 st.info(
-    """Ask me questions about patients, visits, insurance payers, hospitals,
-    physicians, reviews, and wait times!"""
+    "Ask me questions about patients, visits, insurance payers, hospitals, "
+    "physicians, reviews, and wait times!"
 )
 
 if "messages" not in st.session_state:
@@ -112,7 +108,7 @@ if prompt := st.chat_input("What do you want to know?"):
             explanation = output_text
 
     st.chat_message("assistant").markdown(output_text)
-    st.status("How was this generated?", state="complete").info(explanation)
+    st.status("How was this generated", state="complete").info(explanation)
 
     st.session_state.messages.append(
         {
