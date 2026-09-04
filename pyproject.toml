@@ -6,7 +6,8 @@ exclude = [
     ".github",
     "migrations",
     "how-to-indent-in-python/sample_code.py",
-    "agents-md/run1_main.py"
+    "agents-md/run1_main.py",
+    "ai-benchmark"
 ]
 
 [tool.ruff.lint]
