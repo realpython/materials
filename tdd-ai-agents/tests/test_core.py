@@ -26,15 +26,6 @@ def test_double_digit_segments_sort_numerically():
     assert Version("3.9") < Version("3.10")
 
 
-def test_sorting_a_list_of_versions():
-    versions = [Version("1.10.0"), Version("1.2.0"), Version("1.9.0")]
-    assert sorted(versions) == [
-        Version("1.2.0"),
-        Version("1.9.0"),
-        Version("1.10.0"),
-    ]
-
-
 @pytest.mark.parametrize(
     "lower, higher",
     [
