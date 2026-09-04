@@ -7,5 +7,6 @@ Each subfolder is one model's run, named after the model id without its vendor p
 | Folder | Write-up |
 |---|---|
 | [`gpt-6-astra/`](gpt-6-astra/) | [GPT-6 Astra Draws a Python Reading a Book](https://realpython.com/ai-benchmark-gpt-6-astra/) |
+| [`claude-fable-5.1/`](claude-fable-5.1/) | [Claude Fable 5.1 Draws a Python Reading a Book](https://realpython.com/ai-benchmark-claude-fable-5-1/) |
 
 The scripts are the models' output verbatim and are excluded from this repository's Ruff checks on purpose. Nothing was fixed up; that's the point.
