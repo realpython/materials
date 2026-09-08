@@ -1,0 +1,2 @@
+﻿Python is popular because Python is easy to learn and easy to use.
+Python is also popular for data science and automation.
