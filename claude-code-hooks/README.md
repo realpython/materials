@@ -1,6 +1,6 @@
 # Claude Code Hooks Demo
 
-Supporting materials for the Real Python tutorial **How to Automate Your Workflow With Claude Code Hooks**.
+This folder contains code associated with the Real Python tutorial [How to Automate Your Workflow With Claude Code Hooks](https://realpython.com/claude-code-hooks/).
 
 This is a small [uv](https://docs.astral.sh/uv/)-managed project with three Claude Code hooks wired up in `.claude/`:
 
@@ -38,4 +38,4 @@ Then:
 - Ask Claude to `pip install requests`. The hook blocks pip, and Claude uses `uv add` instead.
 - Ask Claude to edit a Python file. ruff reformats the file on save.
 
-Run `/hooks` inside Claude Code to list the wired hooks, or start with `claude --debug` to watch them fire.
+Run `/hooks` inside Claude Code to list the wired hooks, or start Claude Code with `claude --debug-file /tmp/hooks-debug.txt` and scan the log for `[DEBUG] Hook` lines to watch them fire.
