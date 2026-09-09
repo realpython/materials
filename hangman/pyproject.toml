@@ -1,0 +1,19 @@
+[tool.poetry]
+name = "hangman"
+version = "0.1.0"
+description = ""
+authors = ["Jon Fincher <jfincher42@gmail.com>"]
+
+[tool.poetry.dependencies]
+python = "^3.8"
+pysimplegui = "^4.20.0"
+
+[tool.poetry.dev-dependencies]
+pytest = "^5.2"
+black = "^19.10b0"
+flake8 = "^3.*"
+rope = "^0.17.0"
+
+[build-system]
+requires = ["poetry>=0.12"]
+build-backend = "poetry.masonry.api"
