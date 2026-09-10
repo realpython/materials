@@ -10,6 +10,6 @@ def producer():
 
 words_stream = producer()
 for word in words_stream:
-    if word == STOP:
+    if word is STOP:
         break
     print(f"Processing '{word}'...")
