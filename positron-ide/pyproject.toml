@@ -1,0 +1,9 @@
+[project]
+name = "positron-sales"
+version = "0.1.0"
+requires-python = ">=3.14,<3.15"
+dependencies = [
+    "pandas==3.0.5",
+    "matplotlib==3.11.1",
+    "nbformat==5.11.1",
+]
