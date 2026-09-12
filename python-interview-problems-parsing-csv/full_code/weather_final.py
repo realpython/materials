@@ -22,7 +22,7 @@ Write unit tests with Pytest to test your program.
 import csv_parser
 
 
-def get_name_and_avg(day_stats):
+def get_day_and_avg(day_stats):
     day_number = int(day_stats["Day"])
     avg = (int(day_stats["MxT"]) + int(day_stats["MnT"])) / 2
     return day_number, avg
@@ -31,6 +31,6 @@ def get_name_and_avg(day_stats):
 def get_max_avg(filename):
     with open(filename, "r", newline="") as csv_file:
         return max(
-            csv_parser.get_next_result(csv_file, get_name_and_avg),
+            csv_parser.get_next_result(csv_file, get_day_and_avg),
             key=lambda item: item[1],
         )
