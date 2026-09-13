@@ -13,7 +13,7 @@ Sample code for the Real Python tutorial on compiling Python applications with N
 Install Nuitka:
 
 ```console
-$ python -m pip install nuitka
+$ python -m pip install nuitka==4.2.1
 ```
 
 Compile `wordcount.py`:
@@ -25,5 +25,5 @@ $ python -m nuitka --mode=standalone wordcount.py
 Run the compiled executable against `sample.txt`:
 
 ```console
-$ ./wordcount.dist/wordcount sample.txt -n 5
+$ ./wordcount.dist/wordcount.bin sample.txt -n 5
 ```
