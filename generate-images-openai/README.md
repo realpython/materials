@@ -11,7 +11,7 @@ $ python --version
 Python 3.14.6
 $ python -m venv venv
 $ source venv/bin/activate
-(venv) $ python -m pip install openai
+(venv) $ python -m pip install openai==3.13.0
 ```
 
 You need to be on Python 3.10 or higher.
