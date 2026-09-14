@@ -1,0 +1,14 @@
+[project]
+name = "positron-bike-share"
+version = "0.1.0"
+description = "Starter materials for a Positron hands-on Python tutorial"
+requires-python = ">=3.14"
+dependencies = [
+    "matplotlib>=3.9",
+    "nbformat==5.11.1",
+    "pandas>=2.2",
+    "plotly==7.0.0",
+]
+
+[tool.uv]
+package = false
