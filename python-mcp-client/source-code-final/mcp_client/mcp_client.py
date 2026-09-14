@@ -1,3 +1,4 @@
+import os
 import sys
 from contextlib import AsyncExitStack
 from typing import Any, Awaitable, Callable, ClassVar, Self
@@ -36,13 +37,11 @@ class MCPClient:
             read, write = await self.exit_stack.enter_async_context(
                 stdio_client(
                     server=StdioServerParameters(
-                        command="sh",
-                        args=[
-                            "-c",
-                            f"{sys.executable} {self.server_path} 2>/dev/null",
-                        ],
+                        command=sys.executable,
+                        args=[self.server_path],
                         env=None,
-                    )
+                    ),
+                    errlog=open(os.devnull, "w"),
                 )
             )
             client_session = await self.exit_stack.enter_async_context(

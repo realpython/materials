@@ -1,6 +1,6 @@
-from mcp.server.fastmcp import FastMCP
+from mcp.server.mcpserver import MCPServer
 
-mcp = FastMCP("mcp_server")
+mcp = MCPServer("mcp_server")
 
 
 @mcp.tool()
@@ -12,7 +12,7 @@ async def echo(message: str) -> str:
 @mcp.prompt()
 async def greeting_prompt(name: str) -> str:
     """A simple greeting prompt."""
-    return f"Great {name} kindly."
+    return f"Greet {name} kindly."
 
 
 @mcp.resource("file://./greeting.txt")
