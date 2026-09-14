@@ -29,7 +29,7 @@ NODES = ["Hospital", "Payer", "Physician", "Patient", "Visit", "Review"]
 def _set_uniqueness_constraints(tx, node):
     query = f"""CREATE CONSTRAINT IF NOT EXISTS FOR (n:{node})
         REQUIRE n.id IS UNIQUE;"""
-    _ = tx.run(query, {})
+    tx.run(query, {})
 
 
 @retry(tries=100, delay=10)
@@ -55,7 +55,7 @@ def load_hospital_graph_from_csv() -> None:
                             name: hospitals.hospital_name,
                             state_name: hospitals.hospital_state}});
         """
-        _ = session.run(query, {})
+        session.run(query, {})
 
     LOGGER.info("Loading payer nodes")
     with driver.session(database="neo4j") as session:
@@ -65,7 +65,7 @@ def load_hospital_graph_from_csv() -> None:
         MERGE (p:Payer {{id: toInteger(payers.payer_id),
         name: payers.payer_name}});
         """
-        _ = session.run(query, {})
+        session.run(query, {})
 
     LOGGER.info("Loading physician nodes")
     with driver.session(database="neo4j") as session:
@@ -80,7 +80,7 @@ def load_hospital_graph_from_csv() -> None:
                             salary: toFloat(physicians.salary)
                             }});
         """
-        _ = session.run(query, {})
+        session.run(query, {})
 
     LOGGER.info("Loading visit nodes")
     with driver.session(database="neo4j") as session:
@@ -103,7 +103,7 @@ def load_hospital_graph_from_csv() -> None:
             ON CREATE SET v.discharge_date = visits.discharge_date
             ON MATCH SET v.discharge_date = visits.discharge_date
          """
-        _ = session.run(query, {})
+        session.run(query, {})
 
     LOGGER.info("Loading patient nodes")
     with driver.session(database="neo4j") as session:
@@ -117,7 +117,7 @@ def load_hospital_graph_from_csv() -> None:
                         blood_type: patients.patient_blood_type
                         }});
         """
-        _ = session.run(query, {})
+        session.run(query, {})
 
     LOGGER.info("Loading review nodes")
     with driver.session(database="neo4j") as session:
@@ -131,7 +131,7 @@ def load_hospital_graph_from_csv() -> None:
                          hospital_name: reviews.hospital_name
                         }});
         """
-        _ = session.run(query, {})
+        session.run(query, {})
 
     LOGGER.info("Loading 'AT' relationships")
     with driver.session(database="neo4j") as session:
@@ -142,7 +142,7 @@ def load_hospital_graph_from_csv() -> None:
         toInteger(trim(row.`hospital_id`))}})
         MERGE (source)-[r: `AT`]->(target)
         """
-        _ = session.run(query, {})
+        session.run(query, {})
 
     LOGGER.info("Loading 'WRITES' relationships")
     with driver.session(database="neo4j") as session:
@@ -152,7 +152,7 @@ def load_hospital_graph_from_csv() -> None:
             MATCH (r:Review {{id: toInteger(reviews.review_id)}})
             MERGE (v)-[writes:WRITES]->(r)
         """
-        _ = session.run(query, {})
+        session.run(query, {})
 
     LOGGER.info("Loading 'TREATS' relationships")
     with driver.session(database="neo4j") as session:
@@ -162,7 +162,7 @@ def load_hospital_graph_from_csv() -> None:
             MATCH (v:Visit {{id: toInteger(visits.visit_id)}})
             MERGE (p)-[treats:TREATS]->(v)
         """
-        _ = session.run(query, {})
+        session.run(query, {})
 
     LOGGER.info("Loading 'COVERED_BY' relationships")
     with driver.session(database="neo4j") as session:
@@ -175,7 +175,7 @@ def load_hospital_graph_from_csv() -> None:
                 covered_by.service_date = visits.discharge_date,
                 covered_by.billing_amount = toFloat(visits.billing_amount)
         """
-        _ = session.run(query, {})
+        session.run(query, {})
 
     LOGGER.info("Loading 'HAS' relationships")
     with driver.session(database="neo4j") as session:
@@ -185,7 +185,7 @@ def load_hospital_graph_from_csv() -> None:
             MATCH (v:Visit {{id: toInteger(visits.visit_id)}})
             MERGE (p)-[has:HAS]->(v)
         """
-        _ = session.run(query, {})
+        session.run(query, {})
 
     LOGGER.info("Loading 'EMPLOYS' relationships")
     with driver.session(database="neo4j") as session:
@@ -195,7 +195,7 @@ def load_hospital_graph_from_csv() -> None:
             MATCH (p:Physician {{id: toInteger(visits.physician_id)}})
             MERGE (h)-[employs:EMPLOYS]->(p)
         """
-        _ = session.run(query, {})
+        session.run(query, {})
 
 
 if __name__ == "__main__":

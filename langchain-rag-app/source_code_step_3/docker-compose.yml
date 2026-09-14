@@ -1,8 +1,24 @@
-version: '3'
-
 services:
+  neo4j:
+    image: neo4j:2026.05-community
+    ports:
+      - "7474:7474"
+      - "7687:7687"
+    environment:
+      - NEO4J_AUTH=neo4j/${NEO4J_PASSWORD}
+      - NEO4J_PLUGINS=["apoc"]
+    volumes:
+      - neo4j_data:/data
+
   hospital_neo4j_etl:
     build:
       context: ./hospital_neo4j_etl
     env_file:
       - .env
+    environment:
+      - NEO4J_URI=bolt://neo4j:7687
+    depends_on:
+      - neo4j
+
+volumes:
+  neo4j_data:

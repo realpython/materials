@@ -1,8 +1,8 @@
+from fastapi import FastAPI
+
 from agents.hospital_rag_agent import hospital_rag_agent_executor
 from models.hospital_rag_query import HospitalQueryInput, HospitalQueryOutput
 from utils.async_utils import async_retry
-
-from fastapi import FastAPI
 
 app = FastAPI(
     title="Hospital Chatbot",
@@ -12,12 +12,14 @@ app = FastAPI(
 
 @async_retry(max_retries=10, delay=1)
 async def invoke_agent_with_retry(query: str):
-    """
-    Retry the agent if a tool fails to run. This can help when there
-    are intermittent connection issues to external APIs.
-    """
+    """Retry the agent if a tool fails to run.
 
-    return await hospital_rag_agent_executor.ainvoke({"input": query})
+    This can help when there are intermittent connection issues
+    to external APIs.
+    """
+    return await hospital_rag_agent_executor.ainvoke(
+        {"messages": [{"role": "user", "content": query}]}
+    )
 
 
 @app.get("/")
@@ -30,8 +32,10 @@ async def query_hospital_agent(
     query: HospitalQueryInput,
 ) -> HospitalQueryOutput:
     query_response = await invoke_agent_with_retry(query.text)
-    query_response["intermediate_steps"] = [
-        str(s) for s in query_response["intermediate_steps"]
-    ]
+    messages = query_response["messages"]
 
-    return query_response
+    return HospitalQueryOutput(
+        input=query.text,
+        output=messages[-1].content,
+        intermediate_steps=[str(message) for message in messages],
+    )
