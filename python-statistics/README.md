@@ -11,10 +11,10 @@ Create and activate a virtual environment, then install the requirements:
 ```bash
 $ python -m venv venv
 $ source venv/bin/activate
-(venv) $ python -m pip install -r requirements.txt -c constraints.txt
+(venv) $ python -m pip install -r requirements.txt
 ```
 
-The tutorial's examples were verified against the versions pinned in `constraints.txt`. Newer releases will usually work too, but NumPy 2 changed how scalars are displayed, so output from older versions won't match the tutorial exactly.
+`requirements.txt` pins the versions the tutorial's examples were verified against. Newer releases will usually work too, but NumPy 2 changed how scalars are displayed, so output from older versions won't match the tutorial exactly.
 
 ## Usage
 
