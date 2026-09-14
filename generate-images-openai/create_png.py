@@ -7,7 +7,7 @@ client = OpenAI()
 PROMPT = "A vaporwave computer"
 
 response = client.images.generate(
-    model="gpt-image-2",
+    model="gpt-image-2.5-flare",
     prompt=PROMPT,
     n=1,
     size="1024x1024",

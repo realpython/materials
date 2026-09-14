@@ -11,7 +11,7 @@ DATA_DIR = Path.cwd() / "responses"
 DATA_DIR.mkdir(exist_ok=True)
 
 response = client.images.generate(
-    model="gpt-image-2",
+    model="gpt-image-2.5-flare",
     prompt=PROMPT,
     n=1,
     size="1024x1024",

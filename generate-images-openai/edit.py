@@ -7,7 +7,7 @@ from openai import OpenAI
 client = OpenAI()
 
 DATA_DIR = Path.cwd() / "responses"
-SOURCE_FILE = DATA_DIR / "An ec-1786009967.json"
+SOURCE_FILE = DATA_DIR / "An ec-1789379975.json"
 EDIT_PROMPT = "Add a large potted plant growing out of the computer"
 
 with open(SOURCE_FILE, mode="r", encoding="utf-8") as json_file:
@@ -15,7 +15,7 @@ with open(SOURCE_FILE, mode="r", encoding="utf-8") as json_file:
     image_data = b64decode(saved_response["data"][0]["b64_json"])
 
 response = client.images.edit(
-    model="gpt-image-2",
+    model="gpt-image-2.5-flare",
     image=("image.png", image_data),
     prompt=EDIT_PROMPT,
     n=3,
