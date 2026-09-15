@@ -30,14 +30,6 @@ Next, run the cells in `src/analyze_sales.py` to inspect descriptive statistics,
 
 Open `notebooks/explore_sales.ipynb` and run its cells in order. The notebook covers the same ground as both scripts, from loading the raw CSV through cleaning, describing, grouping, and charting the data. It creates its own variables independently of the Console session, so you can run it without running the scripts first.
 
-Before running the Plotly cell, add its dependency from this folder:
-
-```console
-uv add plotly==7.0.0
-```
-
-This updates the environment, `pyproject.toml`, and `uv.lock`. If you restart the notebook kernel afterward, rerun the preceding cells. Plotly is intentionally absent from the starting dependencies so you can follow the tutorial's package-management demonstration.
-
 Posit Assistant is optional. It requires connecting a supported model provider, and no AI account is needed to run the examples.
 
 ## Dataset
