@@ -17,10 +17,6 @@ print("Repeated order numbers:", sales["order_number"].duplicated().sum())
 print(sales.dtypes)
 
 # %%
-columns = ["order_type", "quantity", "unit_price", "sale_price"]
-print(sales.nlargest(5, "sale_price")[columns].to_string(index=False))
-
-# %%
 clean_sales = sales.rename(columns={"produce_name": "product_name"}).copy()
 clean_sales["order_date"] = pd.to_datetime(
     clean_sales["order_date"], format="%d/%m/%Y"
