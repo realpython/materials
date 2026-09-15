@@ -25,14 +25,15 @@ def build_chroma_collection(
     collection = chroma_client.create_collection(
         name=collection_name,
         embedding_function=embedding_func,
-        metadata={"hnsw:space": distance_func_name},
+        configuration={"hnsw": {"space": distance_func_name}},
     )
 
+    batch_size = chroma_client.get_max_batch_size()
     document_indices = list(range(len(documents)))
 
-    for batch in batched(document_indices, 166):
+    for batch in batched(document_indices, batch_size):
         start_idx = batch[0]
-        end_idx = batch[-1]
+        end_idx = batch[-1] + 1
 
         collection.add(
             ids=ids[start_idx:end_idx],

@@ -1,11 +1,18 @@
-# Embeddings and Vector Databases With ChromaDB
+# ChromaDB: Embeddings and Vector Databases in Python
 
-Supporting code for the Real Python tutorial [Embeddings and Vector Databases With ChromaDB](https://realpython.com/chromadb-vector-database/). 
+Supporting code for the Real Python tutorial [ChromaDB: Embeddings and Vector Databases in Python](https://realpython.com/chromadb-vector-database/).
 
-To run the code in this tutorial, you should have `numpy`, `spacy`, `sentence-transformers`, `chromadb`, `polars`, `more-itertools`,  and `openai` installed in your environment. 
+The code was tested with Python 3.14 and the pinned versions in `requirements.txt`. You need Python 3.12 or later.
 
-You can install the dependencies manually, or by running:
+You can install the dependencies by running:
 
 ```
 (venv) $ python -m pip install -r requirements.txt
+(venv) $ python -m spacy download en_core_web_lg
+```
+
+To run the LLM examples, store your OpenAI API key in a `.env` file in this directory:
+
+```
+OPENAI_API_KEY="<your-api-key>"
 ```
