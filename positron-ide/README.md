@@ -14,11 +14,14 @@ Select the project's `.venv` for both the Python Console and the notebook kernel
 
 ## Prepare and Analyze the Data
 
-Run `src/prepare_sales.py` cell by cell in Positron, or run it from this folder:
+Run `src/prepare_sales.py` cell by cell in Positron, or run it from the `src/` folder:
 
 ```console
-uv run src/prepare_sales.py
+cd src
+uv run prepare_sales.py
 ```
+
+The scripts and the notebook build their paths with `PROJECT_ROOT = Path.cwd().parent`, so run them from the folder that holds them.
 
 This creates `data/sales_clean.csv`. It checks for missing values, duplicates, and inconsistent totals, corrects a column name, parses dates, and normalizes category labels. It preserves all 5,130 source rows.
 

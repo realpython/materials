@@ -4,7 +4,7 @@ from pathlib import Path
 import matplotlib.pyplot as plt
 import pandas as pd
 
-PROJECT_ROOT = Path.cwd()
+PROJECT_ROOT = Path.cwd().parent
 
 sales = pd.read_csv(
     PROJECT_ROOT / "data/sales_clean.csv",
