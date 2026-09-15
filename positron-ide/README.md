@@ -14,14 +14,13 @@ Select the project's `.venv` for both the Python Console and the notebook kernel
 
 ## Prepare and Analyze the Data
 
-Run `src/prepare_sales.py` cell by cell in Positron, or run it from the `src/` folder:
+Run `src/prepare_sales.py` cell by cell in Positron, or run it from this folder:
 
 ```console
-cd src
-uv run prepare_sales.py
+uv run src/prepare_sales.py
 ```
 
-The scripts and the notebook build their paths with `PROJECT_ROOT = Path.cwd().parent`, so run them from the folder that holds them.
+Positron's Console starts at the project root, so the scripts set `PROJECT_ROOT = Path.cwd()`. A notebook kernel starts in the notebook's own folder instead, so `notebooks/explore_sales.ipynb` uses `Path.cwd().parent`.
 
 This creates `data/sales_clean.csv`. It checks for missing values, duplicates, and inconsistent totals, corrects a column name, parses dates, and normalizes category labels. It preserves all 5,130 source rows.
 

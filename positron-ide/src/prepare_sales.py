@@ -3,7 +3,7 @@ from pathlib import Path
 
 import pandas as pd
 
-PROJECT_ROOT = Path.cwd().parent
+PROJECT_ROOT = Path.cwd()
 
 sales = pd.read_csv(PROJECT_ROOT / "data/sales_data.csv")
 
