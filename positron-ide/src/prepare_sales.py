@@ -3,10 +3,10 @@ from pathlib import Path
 
 import pandas as pd
 
-project_root = Path.cwd()
-if not (project_root / "data").is_dir():
-    project_root = project_root.parent
-sales = pd.read_csv(project_root / "data/sales_data.csv")
+PROJECT_ROOT = Path.cwd()
+
+sales = pd.read_csv(PROJECT_ROOT / "data/sales_data.csv")
+
 print(sales.shape)
 print(sales.head())
 
@@ -33,4 +33,4 @@ clean_sales["product_category"] = (
 expected_total = clean_sales["quantity"] * clean_sales["unit_price"]
 mismatches = (clean_sales["sale_price"] - expected_total).abs() > 0.01
 print("Inconsistent totals:", mismatches.sum())
-clean_sales.to_csv(project_root / "data/sales_clean.csv", index=False)
+clean_sales.to_csv(PROJECT_ROOT / "data/sales_clean.csv", index=False)

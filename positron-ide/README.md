@@ -26,7 +26,7 @@ Next, run the cells in `src/analyze_sales.py` to inspect descriptive statistics,
 
 ## Run the Notebook
 
-Open `notebooks/explore_sales.ipynb` and run its cells in order. The notebook reads the prepared CSV and creates its own variables independently of the Console session.
+Open `notebooks/explore_sales.ipynb` and run its cells in order. The notebook covers the same ground as both scripts, from loading the raw CSV through cleaning, describing, grouping, and charting the data. It creates its own variables independently of the Console session, so you can run it without running the scripts first.
 
 Before running the Plotly cell, add its dependency from this folder:
 

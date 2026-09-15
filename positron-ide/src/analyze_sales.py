@@ -4,11 +4,11 @@ from pathlib import Path
 import matplotlib.pyplot as plt
 import pandas as pd
 
-project_root = Path.cwd()
-if not (project_root / "data").is_dir():
-    project_root = project_root.parent
+PROJECT_ROOT = Path.cwd()
+
 sales = pd.read_csv(
-    project_root / "data/sales_clean.csv", parse_dates=["order_date"]
+    PROJECT_ROOT / "data/sales_clean.csv",
+    parse_dates=["order_date"],
 )
 
 # %%
