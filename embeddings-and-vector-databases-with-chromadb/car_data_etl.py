@@ -20,7 +20,7 @@ def prepare_car_reviews_data(
     }
 
     # Scan the car reviews dataset(s)
-    car_reviews = pl.scan_csv(data_path, dtypes=dtypes)
+    car_reviews = pl.scan_csv(data_path, schema_overrides=dtypes)
 
     # Extract the vehicle title and year as new columns
     # Filter on selected years
@@ -48,7 +48,7 @@ def prepare_car_reviews_data(
                 "Vehicle_Model",
             ]
         )
-        .sort(["Vehicle_Model", "Rating"])
+        .sort(["Vehicle_Model", "Rating"], maintain_order=True)
         .collect()
     )
 
