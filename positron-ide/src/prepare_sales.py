@@ -26,7 +26,4 @@ clean_sales["product_category"] = (
 )
 
 # %%
-expected_total = clean_sales["quantity"] * clean_sales["unit_price"]
-mismatches = (clean_sales["sale_price"] - expected_total).abs() > 0.01
-print("Inconsistent totals:", mismatches.sum())
 clean_sales.to_csv(PROJECT_ROOT / "data/sales_clean.csv", index=False)
