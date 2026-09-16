@@ -8,7 +8,7 @@
 
 ;; Adds the Melpa archive to the list of available repositories
 (add-to-list 'package-archives
-             '("melpa" . "http://melpa.org/packages/") t)
+             '("melpa" . "https://melpa.org/packages/") t)
 
 ;; Initializes the package infrastructure
 (package-initialize)
@@ -45,7 +45,7 @@
 
 (setq inhibit-startup-message t)  ;; Hide the startup message
 (load-theme 'material t)          ;; Load material theme
-(global-linum-mode t)             ;; Enable line numbers globally
+(global-display-line-numbers-mode t) ;; Enable line numbers globally
 
 ;; ====================================
 ;; DEVELOPMENT SETUP
