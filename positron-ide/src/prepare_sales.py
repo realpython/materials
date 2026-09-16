@@ -19,7 +19,7 @@ print(sales.dtypes)
 # %%
 clean_sales = sales.rename(
     columns={"produce_name": "product_name"},
-).copy()
+)
 
 clean_sales["order_date"] = pd.to_datetime(
     clean_sales["order_date"], format="%d/%m/%Y"
