@@ -8,7 +8,7 @@ while attempts < MAX_RETRIES:
     attempts += 1
     print(f"Attempt {attempts}: Connecting to the server...")
     # Simulating a connection scenario
-    time.sleep(0.5)
+    time.sleep(0.3)
     if random.choice([False, False, False, True]):
         print("Connection successful!")
         break
