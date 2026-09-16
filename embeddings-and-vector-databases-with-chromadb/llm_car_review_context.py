@@ -2,7 +2,7 @@ import json
 import os
 
 import chromadb
-import openai
+from openai import OpenAI
 from chromadb.utils import embedding_functions
 
 os.environ["TOKENIZERS_PARALLELISM"] = "false"
@@ -15,7 +15,7 @@ COLLECTION_NAME = "car_reviews"
 with open("config.json", "r") as json_file:
     config_data = json.load(json_file)
 
-openai.api_key = config_data.get("openai-secret-key")
+openai_client = OpenAI(api_key=config_data.get("openai-secret-key"))
 
 client = chromadb.PersistentClient(CHROMA_PATH)
 embedding_func = embedding_functions.SentenceTransformerEmbeddingFunction(
@@ -46,7 +46,7 @@ good_reviews = collection.query(
 
 reviews_str = ",".join(good_reviews["documents"][0])
 
-good_review_summaries = openai.ChatCompletion.create(
+good_review_summaries = openai_client.chat.completions.create(
     model="gpt-3.5-turbo",
     messages=[
         {"role": "system", "content": context.format(reviews_str)},
@@ -62,7 +62,7 @@ print("Good reviews: ")
 print(reviews_str)
 print("###########################################")
 
-good_review_summaries = openai.ChatCompletion.create(
+good_review_summaries = openai_client.chat.completions.create(
     model="gpt-3.5-turbo",
     messages=[
         {"role": "system", "content": context.format(reviews_str)},
@@ -73,7 +73,7 @@ good_review_summaries = openai.ChatCompletion.create(
 )
 
 print("AI-Generated summary of good reviews: ")
-print(good_review_summaries["choices"][0]["message"]["content"])
+print(good_review_summaries.choices[0].message.content)
 print("###########################################")
 
 
@@ -99,7 +99,7 @@ print("Worst reviews: ")
 print(poor_reviews["documents"][0][0])
 print("###########################################")
 
-poor_review_analysis = openai.ChatCompletion.create(
+poor_review_analysis = openai_client.chat.completions.create(
     model="gpt-3.5-turbo",
     messages=[
         {"role": "system", "content": context.format(reviews_str)},
@@ -110,5 +110,5 @@ poor_review_analysis = openai.ChatCompletion.create(
 )
 
 print("AI-Generated summary of the single worst review: ")
-print(poor_review_analysis["choices"][0]["message"]["content"])
+print(poor_review_analysis.choices[0].message.content)
 print("###########################################")

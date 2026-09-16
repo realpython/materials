@@ -42,7 +42,7 @@ networkx==3.2
 nltk==3.8.1
 numpy==1.26.1
 onnxruntime==1.16.1
-openai==0.28.1
+openai>=1.0.0
 overrides==7.4.0
 packaging==23.2
 Pillow==10.1.0
