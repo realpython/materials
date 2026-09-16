@@ -17,19 +17,24 @@ print(sales["order_type"].value_counts())
 
 # %%
 order_summary = sales.groupby(
-    ["product_category", "order_type"], as_index=False
+    ["product_category", "order_type"],
+    as_index=False,
 ).agg(
     orders=("order_number", "size"),
     median_order_value=("sale_price", "median"),
     median_quantity=("quantity", "median"),
     median_unit_price=("unit_price", "median"),
 )
+
 print(order_summary.round(2).to_string(index=False))
 
 # %%
 chart_data = order_summary.pivot(
-    index="product_category", columns="order_type", values="median_order_value"
+    index="product_category",
+    columns="order_type",
+    values="median_order_value",
 )
+
 ax = chart_data.plot.bar(rot=0, figsize=(8, 4))
 ax.set(xlabel="Product category", ylabel="Median order value")
 ax.set_title("Retail and Wholesale Order Values")
