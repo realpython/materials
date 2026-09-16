@@ -1,6 +1,6 @@
 # MCP vs API Calls: Which Should You Use for Python LLM Apps?
 
-This folder contains the sample code for the Real Python tutorial [MCP vs API Calls: Which Should You Use for Python LLM Apps?](https://realpython.com/mcp-vs-api-calls/).
+This folder contains the sample code for the Real Python tutorial [MCP vs API Calls: Which Should You Use for Python LLM Apps?](https://realpython.com/mcp-vs-api/).
 
 ## Files
 
@@ -16,7 +16,7 @@ Create a virtual environment and install the dependencies:
 ```console
 $ python -m venv tools-venv
 $ source tools-venv/bin/activate
-(tools-venv) $ python -m pip install anthropic "mcp>=2,<3"
+(tools-venv) $ python -m pip install "anthropic>=1,<2" "mcp>=2,<3"
 ```
 
 The examples use the Anthropic client, which requires an API key. Create a key in the [Anthropic Console](https://console.anthropic.com/), scope it to a single workspace, and export it:
