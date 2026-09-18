@@ -7,7 +7,7 @@ exclude = [
     "migrations",
     "how-to-indent-in-python/sample_code.py",
     "agents-md/run1_main.py",
-    "python315-frozendict/"
+    "python315-frozendict/",
     "python315-lazy-imports",
     "ai-benchmark"
 ]
