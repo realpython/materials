@@ -32,7 +32,7 @@ Run one conversation through the baseline prompt:
 (venv) $ python try_prompt.py
 ```
 
-Evaluate a prompt against the six development cases:
+Evaluate a prompt against the seven development cases:
 
 ```bash
 (venv) $ python evaluate.py baseline.txt
