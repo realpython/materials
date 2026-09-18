@@ -1,4 +1,5 @@
-dlib==19.24.0
+dlib==20.0.1
 face-recognition==1.3.0
-numpy==1.24.2
-Pillow==9.4.0
+numpy==2.5.2
+Pillow==12.3.0
+setuptools==81.0.0
