@@ -3,9 +3,11 @@
 Each row that csv.DictReader yields is a dict, which is unhashable and so can't
 go in a set. Freezing each row makes the whole deduplication one expression.
 
-Watch the orders 1002 and 1003: they survive as two entries each, because their
-fetched_at timestamps differ. That's a lesson about picking the fields that
-define identity, not a bug.
+Watch orders 1002 and 1003: they survive as two entries each, but for different
+reasons. The 1002 rows differ only in fetched_at, while the 1003 rows also
+differ in amount. Ignoring fetched_at therefore merges 1002 and leaves 1003
+split. That's a lesson about picking the fields that define identity, not a
+bug.
 
 Run with Python 3.15 or later:
 
@@ -35,7 +37,10 @@ def main():
         f"Read {len(rows)} rows, kept {len(unique_rows)} after deduplication."
     )
     for row in sorted(unique_rows, key=itemgetter("order_id", "fetched_at")):
-        print(f"  {row['order_id']} {row['customer']:<6} {row['fetched_at']}")
+        print(
+            f"  {row['order_id']} {row['customer']:<6} "
+            f"{row['amount']:>7} {row['fetched_at']}"
+        )
 
     identity = itemgetter("order_id", "customer", "amount")
     by_order = {
