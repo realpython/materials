@@ -4,7 +4,7 @@ This is the source code for [Socket Programming in Python (Guide)](https://realp
 
 ## Requirements
 
-- [Python](https://www.python.org/) 3.6 or later.
+- [Python](https://www.python.org/) 3.14 or later.
 
 ## License
 
