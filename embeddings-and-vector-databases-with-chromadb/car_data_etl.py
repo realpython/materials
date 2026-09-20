@@ -22,7 +22,7 @@ def prepare_car_reviews_data(
     # Scan the car reviews dataset(s)
     car_reviews = pl.scan_csv(data_path, schema_overrides=dtypes)
 
-    # Extract the vehicle title and year as new columns
+    # Extract the vehicle year and make as new columns
     # Filter on selected years
     car_review_db_data = (
         car_reviews.with_columns(
@@ -34,7 +34,7 @@ def prepare_car_reviews_data(
                     .cast(pl.Int64)
                 ).alias("Vehicle_Year"),
                 (pl.col("Vehicle_Title").str.split(by=" ").list.get(1)).alias(
-                    "Vehicle_Model"
+                    "Vehicle_Make"
                 ),
             ]
         )
@@ -45,10 +45,10 @@ def prepare_car_reviews_data(
                 "Review",
                 "Rating",
                 "Vehicle_Year",
-                "Vehicle_Model",
+                "Vehicle_Make",
             ]
         )
-        .sort(["Vehicle_Model", "Rating"], maintain_order=True)
+        .sort(["Vehicle_Make", "Rating"], maintain_order=True)
         .collect()
     )
 

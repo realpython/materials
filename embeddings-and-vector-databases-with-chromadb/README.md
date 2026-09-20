@@ -7,8 +7,8 @@ The code was tested with Python 3.14 and the pinned versions in `requirements.tx
 You can install the dependencies by running:
 
 ```
-(venv) $ python -m pip install -r requirements.txt
-(venv) $ python -m spacy download en_core_web_lg
+(.venv) $ python -m pip install -r requirements.txt
+(.venv) $ python -m spacy download en_core_web_lg-3.8.0 --direct
 ```
 
 To run the LLM examples, store your OpenAI API key in a `.env` file in this directory:

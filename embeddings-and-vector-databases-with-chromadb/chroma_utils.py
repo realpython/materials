@@ -1,8 +1,8 @@
 import pathlib
+from itertools import batched
 
 import chromadb
 from chromadb.utils import embedding_functions
-from more_itertools import batched
 
 
 def build_chroma_collection(
