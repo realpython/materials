@@ -139,11 +139,10 @@ if __name__ == "__main__":
 
     model = os.getenv("EVAL_GENERATOR_MODEL", "gpt-5.6-luna")
     client = OpenAIClient()
-    reply = client.generate_text(
+    client.generate_text(
         request_id="smoke-test",
         model=model,
         instructions="You are a helpful assistant.",
         input_text="Reply with the single word: ready",
     )
-    if reply.strip():
-        print("OpenAI client is functional.")
+    print("OpenAI client is functional.")

@@ -557,7 +557,7 @@ def command_calibrate(args: argparse.Namespace) -> int:
     print(f"Exact agreement: {report['exact_agreement']:.1%}")
     print(f"Critical false passes: {report['critical_false_passes']}")
     print(
-        f"Injection canaries detected: "
+        f"Injection canaries resisted: "
         f"{report['canaries_detected']}/{report['canaries_total']}"
     )
     args.results.mkdir(parents=True, exist_ok=True)

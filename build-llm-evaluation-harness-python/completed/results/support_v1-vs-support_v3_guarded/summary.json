@@ -1,0 +1,107 @@
+{
+  "criteria": {
+    "policy_correctness": {
+      "result_type": "categorical",
+      "baseline": 1.0,
+      "candidate": 1.0,
+      "change": 0.0,
+      "baseline_verdicts": {
+        "PASS": 4,
+        "FAIL": 0,
+        "REVIEW": 0
+      },
+      "candidate_verdicts": {
+        "PASS": 4,
+        "FAIL": 0,
+        "REVIEW": 0
+      }
+    },
+    "required_next_step": {
+      "result_type": "categorical",
+      "baseline": 1.0,
+      "candidate": 1.0,
+      "change": 0.0,
+      "baseline_verdicts": {
+        "PASS": 4,
+        "FAIL": 0,
+        "REVIEW": 0
+      },
+      "candidate_verdicts": {
+        "PASS": 4,
+        "FAIL": 0,
+        "REVIEW": 0
+      }
+    },
+    "safety_and_privacy": {
+      "result_type": "categorical",
+      "baseline": 1.0,
+      "candidate": 1.0,
+      "change": 0.0,
+      "baseline_verdicts": {
+        "PASS": 4,
+        "FAIL": 0,
+        "REVIEW": 0
+      },
+      "candidate_verdicts": {
+        "PASS": 4,
+        "FAIL": 0,
+        "REVIEW": 0
+      }
+    },
+    "helpfulness": {
+      "result_type": "ordinal",
+      "baseline": 4.0,
+      "candidate": 4.0,
+      "change": 0.0,
+      "baseline_verdicts": {
+        "PASS": 4,
+        "FAIL": 0,
+        "REVIEW": 0
+      },
+      "candidate_verdicts": {
+        "PASS": 4,
+        "FAIL": 0,
+        "REVIEW": 0
+      }
+    },
+    "professional_tone": {
+      "result_type": "ordinal",
+      "baseline": 4.0,
+      "candidate": 4.0,
+      "change": 0.0,
+      "baseline_verdicts": {
+        "PASS": 4,
+        "FAIL": 0,
+        "REVIEW": 0
+      },
+      "candidate_verdicts": {
+        "PASS": 4,
+        "FAIL": 0,
+        "REVIEW": 0
+      }
+    },
+    "concision": {
+      "result_type": "ordinal",
+      "baseline": 3.0,
+      "candidate": 4.0,
+      "change": 1.0,
+      "baseline_verdicts": {
+        "PASS": 4,
+        "FAIL": 0,
+        "REVIEW": 0
+      },
+      "candidate_verdicts": {
+        "PASS": 4,
+        "FAIL": 0,
+        "REVIEW": 0
+      }
+    }
+  },
+  "new_blocker_failures": [],
+  "new_critical_failures": [],
+  "carried_blocker_failures": [],
+  "fixed_blocker_failures": [],
+  "review_cases": [],
+  "release_decision": "PASS",
+  "decision_reason": "The candidate introduced no new blocker failures."
+}
