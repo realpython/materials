@@ -20,5 +20,30 @@ services:
     depends_on:
       - neo4j
 
+  chatbot_api:
+    build:
+      context: ./chatbot_api
+    env_file:
+      - .env
+    environment:
+      - NEO4J_URI=bolt://neo4j:7687
+    depends_on:
+      neo4j:
+        condition: service_started
+      hospital_neo4j_etl:
+        condition: service_completed_successfully
+    ports:
+      - "8000:8000"
+
+  chatbot_frontend:
+    build:
+      context: ./chatbot_frontend
+    env_file:
+      - .env
+    depends_on:
+      - chatbot_api
+    ports:
+      - "8501:8501"
+
 volumes:
   neo4j_data:
