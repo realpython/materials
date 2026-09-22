@@ -5,14 +5,16 @@ import numpy as np
 from langchain_neo4j import Neo4jGraph
 
 
+graph = Neo4jGraph(
+    url=os.getenv("NEO4J_URI"),
+    username=os.getenv("NEO4J_USERNAME"),
+    password=os.getenv("NEO4J_PASSWORD"),
+    refresh_schema=False,
+)
+
+
 def _get_current_hospitals() -> list[str]:
     """Fetch a list of current hospital names from a Neo4j database."""
-    graph = Neo4jGraph(
-        url=os.getenv("NEO4J_URI"),
-        username=os.getenv("NEO4J_USERNAME"),
-        password=os.getenv("NEO4J_PASSWORD"),
-    )
-
     current_hospitals = graph.query(
         """
         MATCH (h:Hospital)
