@@ -40,6 +40,7 @@ REVIEWS_CSV_PATH=https://raw.githubusercontent.com/realpython/materials/refs/hea
 HOSPITAL_AGENT_MODEL=gpt-5.6-luna
 HOSPITAL_CYPHER_MODEL=gpt-5.6-luna
 HOSPITAL_QA_MODEL=gpt-5.6-luna
+HOSPITAL_EMBEDDING_MODEL=text-embedding-3-small
 
 CHATBOT_URL=http://chatbot_api:8000/hospital-rag-agent
 ```

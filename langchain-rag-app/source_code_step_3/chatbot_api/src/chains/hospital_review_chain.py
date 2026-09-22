@@ -17,9 +17,10 @@ from langchain_openai import OpenAIEmbeddings
 logging.getLogger("neo4j.notifications").setLevel(logging.ERROR)
 
 HOSPITAL_QA_MODEL = os.getenv("HOSPITAL_QA_MODEL")
+HOSPITAL_EMBEDDING_MODEL = os.getenv("HOSPITAL_EMBEDDING_MODEL")
 
 neo4j_vector_index = Neo4jVector.from_existing_graph(
-    embedding=OpenAIEmbeddings(),
+    embedding=OpenAIEmbeddings(model=HOSPITAL_EMBEDDING_MODEL),
     url=os.getenv("NEO4J_URI"),
     username=os.getenv("NEO4J_USERNAME"),
     password=os.getenv("NEO4J_PASSWORD"),
