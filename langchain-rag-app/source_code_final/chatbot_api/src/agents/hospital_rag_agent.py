@@ -86,7 +86,7 @@ tools = [
     ),
 ]
 
-chat_model = ChatOpenAI(model=HOSPITAL_AGENT_MODEL)
+chat_model = ChatOpenAI(model=HOSPITAL_AGENT_MODEL, use_responses_api=True)
 
 hospital_rag_agent_executor = create_agent(
     model=chat_model,

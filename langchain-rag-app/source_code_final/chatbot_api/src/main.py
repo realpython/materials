@@ -25,6 +25,6 @@ async def query_hospital_agent(
 
     return HospitalQueryOutput(
         input=query.text,
-        output=messages[-1].content,
+        output=messages[-1].text,
         intermediate_steps=[str(message) for message in messages],
     )
