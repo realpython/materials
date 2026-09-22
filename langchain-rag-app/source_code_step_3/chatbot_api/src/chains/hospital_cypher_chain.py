@@ -64,6 +64,7 @@ WITH h.state_name AS state, COUNT(v) AS visit_count,
      v.admission_date < '2023-01-01' THEN 1 ELSE 0 END) AS count_2022,
      SUM(CASE WHEN v.admission_date >= '2023-01-01' AND
      v.admission_date < '2024-01-01' THEN 1 ELSE 0 END) AS count_2023
+WHERE count_2022 > 0
 WITH state, visit_count, count_2022, count_2023,
      (toFloat(count_2023) - toFloat(count_2022)) / toFloat(count_2022) * 100
      AS percent_increase
