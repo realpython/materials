@@ -49,7 +49,8 @@ LIMIT 1
 # Which physician has billed the least to Cigna
 MATCH (p:Payer)<-[c:COVERED_BY]-(v:Visit)-[t:TREATS]-(phy:Physician)
 WHERE p.name = 'Cigna'
-RETURN phy.name AS physician_name, SUM(c.billing_amount) AS total_billed
+RETURN phy.id AS physician_id, phy.name AS physician_name,
+       SUM(c.billing_amount) AS total_billed
 ORDER BY total_billed
 LIMIT 1
 
@@ -70,7 +71,8 @@ RETURN state, percent_increase
 ORDER BY percent_increase DESC
 LIMIT 1
 
-# How many non-emergency patients in North Carolina have written reviews?
+# How many reviews are there for non-emergency visits at North Carolina
+# hospitals?
 MATCH (r:Review)<-[:WRITES]-(v:Visit)-[:AT]->(h:Hospital)
 WHERE h.state_name = 'NC' and v.admission_type <> 'Emergency'
 RETURN count(*)
@@ -90,6 +92,8 @@ filtering on hospital states (e.g. "Texas" is "TX",
 "Florida" is "FL", "Georgia" is "GA", etc.)
 
 Make sure to use IS NULL or IS NOT NULL when analyzing missing properties.
+Use duration.inDays(date1, date2).days when counting the number of days
+between two dates.
 Never return embedding properties in your queries. You must never include the
 statement "GROUP BY" in your query. Make sure to alias all statements that
 follow as with statement (e.g. WITH v as visit, c.billing_amount as
