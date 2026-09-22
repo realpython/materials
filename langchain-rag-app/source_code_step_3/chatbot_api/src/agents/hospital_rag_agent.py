@@ -3,6 +3,8 @@ import os
 from langchain.agents import create_agent
 from langchain_core.tools import Tool
 from langchain_openai import ChatOpenAI
+from neo4j.exceptions import ServiceUnavailable
+from retry import retry
 
 from chains.hospital_cypher_chain import hospital_cypher_chain
 from chains.hospital_review_chain import reviews_vector_chain
@@ -21,14 +23,30 @@ agent_system_prompt = (
 )
 
 
+@retry(ServiceUnavailable, tries=3, delay=1)
+def _run_reviews_query(query: str) -> str:
+    return reviews_vector_chain.invoke(query)
+
+
+@retry(ServiceUnavailable, tries=3, delay=1)
+def _run_graph_query(query: str) -> str:
+    return hospital_cypher_chain.invoke(query)["result"]
+
+
 def query_reviews(query: str) -> str:
     """Answer questions about patient experiences from their reviews."""
-    return reviews_vector_chain.invoke(query)
+    try:
+        return _run_reviews_query(query)
+    except Exception as e:
+        return f"The patient reviews are unavailable right now: {e}"
 
 
 def query_graph(query: str) -> str:
     """Answer questions by querying the hospital graph database."""
-    return hospital_cypher_chain.invoke(query)["result"]
+    try:
+        return _run_graph_query(query)
+    except Exception as e:
+        return f"The hospital database couldn't answer that: {e}"
 
 
 tools = [
