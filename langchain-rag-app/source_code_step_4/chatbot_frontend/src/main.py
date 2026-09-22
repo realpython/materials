@@ -96,13 +96,13 @@ if prompt := st.chat_input("What do you want to know?"):
     data = {"text": prompt}
 
     with st.spinner("Searching for an answer..."):
-        response = requests.post(CHATBOT_URL, json=data)
-
-        if response.status_code == 200:
+        try:
+            response = requests.post(CHATBOT_URL, json=data, timeout=120)
+            response.raise_for_status()
             output_text = response.json()["output"]
             explanation = response.json()["intermediate_steps"]
 
-        else:
+        except requests.RequestException:
             output_text = """An error occurred while processing your message.
             Please try again or rephrase your message."""
             explanation = output_text
