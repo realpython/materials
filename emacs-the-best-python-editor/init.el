@@ -3,7 +3,7 @@
 ;; ===================================
 ;; MELPA Package Support
 ;; ===================================
-;; Enables packaging support
+;; Enables basic packaging support
 (require 'package)
 
 ;; Adds the Melpa archive to the list of available repositories
@@ -21,7 +21,7 @@
 ;;
 ;; myPackages contains a list of package names
 (defvar myPackages
-  '(better-defaults                 ;; Setup some better Emacs defaults
+  '(better-defaults                 ;; Set up some better Emacs defaults
     elpy                            ;; Emacs Lisp Python Environment
     ein                             ;; Emacs iPython Notebook
     flycheck                        ;; On the fly syntax checking
@@ -48,7 +48,7 @@
 (global-display-line-numbers-mode t) ;; Enable line numbers globally
 
 ;; ====================================
-;; DEVELOPMENT SETUP
+;; Development Setup
 ;; ====================================
 ;; Enable elpy
 (elpy-enable)
@@ -59,13 +59,13 @@
 ;;       python-shell-prompt-detect-failure-warning nil)
 ;; (add-to-list 'python-shell-completion-native-disabled-interpreters
 ;;              "jupyter")
- 
+
 ;; Enable Flycheck
 (when (require 'flycheck nil t)
   (setq elpy-modules (delq 'elpy-module-flymake elpy-modules))
   (add-hook 'elpy-mode-hook 'flycheck-mode))
 
-;; Enable Autopep8
+;; Enable autopep8
 ;; (require 'py-autopep8)
 ;; (add-hook 'elpy-mode-hook 'py-autopep8-enable-on-save)
 
