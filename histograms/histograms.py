@@ -13,7 +13,6 @@ $ python3 -i ./histograms.py
 
 import random
 import sys
-import warnings
 from collections import Counter
 
 import matplotlib.pyplot as plt
@@ -86,14 +85,20 @@ print("hist:", hist)
 print("bin_edges:", bin_edges)
 
 bcounts = np.bincount(a)
-hist, _ = np.histogram(a, range=(0, max(a)), bins=max(a) + 1)
+hist, _ = np.histogram(a, range=(0, np.max(a)), bins=np.max(a) + 1)
 print(bcounts)
 assert np.array_equal(hist, bcounts), "Bincounts unequal."
 
 # Reproducing `collections.Counter`
 print(
     "Reproducing `collections.Counter`:",
-    dict(zip(np.unique(a), bcounts[bcounts.nonzero()], strict=False)),
+    dict(
+        zip(
+            np.unique(a).tolist(),
+            bcounts[bcounts.nonzero()].tolist(),
+            strict=False,
+        )
+    ),
 )
 
 
@@ -191,17 +196,17 @@ plt.show()
 # ---------------------------------------------------------------------
 
 sns.set_style("darkgrid")
-# Suppress the kwarg warning related to normed/density from Matplotlib.
-with warnings.catch_warnings():
-    warnings.simplefilter("ignore", category=UserWarning)
+sns.histplot(d, kde=True)
+plt.title("Seaborn's histplot()")
+plt.show()
 
-    sns.distplot(d)
-    plt.title("Seaborn's distplot()")
-    plt.show()
+params = stats.laplace.fit(d)
+x_laplace = np.linspace(d.min(), d.max(), num=250)
 
-    sns.distplot(d, fit=stats.laplace, kde=False)
-    plt.title("Histogram with Fitted Laplace Distribution")
-    plt.show()
+ax = sns.histplot(d, stat="density")
+ax.plot(x_laplace, stats.laplace.pdf(x_laplace, *params))
+plt.title("Histogram with Fitted Laplace Distribution")
+plt.show()
 
 
 data = np.random.choice(
