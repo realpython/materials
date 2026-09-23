@@ -9,6 +9,3 @@ name = "pypi"
 autopep8 = "*"
 black = "*"
 jedi = "*"
-
-[requires]
-python_version = "3.6"
