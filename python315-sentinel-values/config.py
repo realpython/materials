@@ -1,5 +1,5 @@
 UNSET = sentinel("UNSET")
-INHERIT = sentinel("INHERITED")  # Made a typo in the variable name
+INHERIT = sentinel("INHERITED")  # Name doesn't match the variable
 
 
 class Config:
