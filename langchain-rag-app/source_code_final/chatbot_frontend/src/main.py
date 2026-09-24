@@ -3,9 +3,7 @@ import os
 import requests
 import streamlit as st
 
-CHATBOT_URL = os.getenv(
-    "CHATBOT_URL", "http://localhost:8000/hospital-rag-agent"
-)
+CHATBOT_URL = os.environ["CHATBOT_URL"]
 
 EXAMPLE_QUESTIONS = (
     "Which hospitals are in the hospital system?",
