@@ -24,8 +24,6 @@ The LangChain basics that this tutorial builds on live in a separate tutorial, [
 Create a `.env` file in the root directory and add the following environment variables:
 
 ```.env
-OPENAI_API_KEY=<YOUR_OPENAI_API_KEY>
-
 NEO4J_URI=<YOUR_NEO4J_URI>
 NEO4J_USERNAME=<YOUR_NEO4J_USERNAME>
 NEO4J_PASSWORD=<YOUR_NEO4J_PASSWORD>
@@ -37,6 +35,7 @@ PATIENTS_CSV_PATH=https://raw.githubusercontent.com/realpython/materials/refs/he
 VISITS_CSV_PATH=https://raw.githubusercontent.com/realpython/materials/refs/heads/master/langchain-rag-app/data/visits.csv
 REVIEWS_CSV_PATH=https://raw.githubusercontent.com/realpython/materials/refs/heads/master/langchain-rag-app/data/reviews.csv
 
+OPENAI_API_KEY=<YOUR_OPENAI_API_KEY>
 HOSPITAL_AGENT_MODEL=gpt-5.6-luna
 HOSPITAL_CYPHER_MODEL=gpt-5.6-luna
 HOSPITAL_QA_MODEL=gpt-5.6-luna
