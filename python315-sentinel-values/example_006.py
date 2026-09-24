@@ -5,4 +5,4 @@ class MissingType(enum.Enum):
     MISSING = "MISSING"
 
 
-print(MissingType.MISSING)
+print(repr(MissingType.MISSING))
