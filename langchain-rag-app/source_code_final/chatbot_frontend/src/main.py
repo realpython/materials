@@ -7,6 +7,31 @@ CHATBOT_URL = os.getenv(
     "CHATBOT_URL", "http://localhost:8000/hospital-rag-agent"
 )
 
+EXAMPLE_QUESTIONS = (
+    "Which hospitals are in the hospital system?",
+    "What is the current wait time at wallace-hamilton hospital?",
+    "At which hospitals are patients complaining "
+    "about billing and insurance issues?",
+    "What is the average duration in days for closed emergency visits?",
+    "What are patients saying about the nursing staff at Castaneda-Hardy?",
+    "What was the total billing amount charged to each payer for 2023?",
+    "What is the average billing amount for medicaid visits?",
+    "Which physician has the lowest average visit duration in days?",
+    "How much was billed for patient 789's stay?",
+    "Which state had the largest percent increase "
+    "in medicaid visits from 2022 to 2023?",
+    "What is the average billing amount per day for Aetna patients?",
+    "How many reviews have been written from patients in Florida?",
+    "For visits that are not missing chief complaints, "
+    "what percentage have reviews?",
+    "What is the percentage of visits that have reviews for each hospital?",
+    "Which physician has received the most "
+    "reviews for the visits they've attended?",
+    "What is the ID for physician James Cooper?",
+    "List every review for visits treated "
+    "by physician 270. Don't leave any out.",
+)
+
 with st.sidebar:
     st.header("About")
     st.markdown(
@@ -21,54 +46,8 @@ with st.sidebar:
     )
 
     st.header("Example Questions")
-    st.markdown("- Which hospitals are in the hospital system?")
-    st.markdown(
-        "- What is the current wait time at wallace-hamilton hospital?"
-    )
-    st.markdown(
-        "- At which hospitals are patients complaining about billing and "
-        "insurance issues?"
-    )
-    st.markdown(
-        "- What is the average duration in days for closed emergency visits?"
-    )
-    st.markdown(
-        "- What are patients saying about the nursing staff at "
-        "Castaneda-Hardy?"
-    )
-    st.markdown(
-        "- What was the total billing amount charged to each payer for 2023?"
-    )
-    st.markdown("- What is the average billing amount for medicaid visits?")
-    st.markdown(
-        "- Which physician has the lowest average visit duration in days?"
-    )
-    st.markdown("- How much was billed for patient 789's stay?")
-    st.markdown(
-        "- Which state had the largest percent increase in medicaid visits "
-        "from 2022 to 2023?"
-    )
-    st.markdown(
-        "- What is the average billing amount per day for Aetna patients?"
-    )
-    st.markdown(
-        "- How many reviews have been written from patients in Florida?"
-    )
-    st.markdown(
-        "- For visits that are not missing chief complaints, "
-        "what percentage have reviews?"
-    )
-    st.markdown(
-        "- What is the percentage of visits that have reviews for each hospital?"
-    )
-    st.markdown(
-        "- Which physician has received the most reviews for the visits "
-        "they've attended?"
-    )
-    st.markdown("- What is the ID for physician James Cooper?")
-    st.markdown(
-        "- List every review for visits treated by physician 270. Don't leave any out."
-    )
+    for question in EXAMPLE_QUESTIONS:
+        st.markdown(f"- {question}")
 
 st.title("Hospital System Chatbot")
 st.info(
