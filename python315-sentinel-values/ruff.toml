@@ -1,0 +1,4 @@
+extend = "../pyproject.toml"
+
+# The repository's pinned Ruff predates Python 3.15's sentinel built-in.
+builtins = ["sentinel"]

@@ -6,4 +6,4 @@ todo_list = {
 }
 completed_tasks = {"Fix bug #123", "Improve performance"}
 todo_list.difference_update(completed_tasks)
-todo_list
+print(todo_list)
