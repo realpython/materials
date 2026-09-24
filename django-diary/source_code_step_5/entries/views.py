@@ -30,7 +30,7 @@ class EntryUpdateView(UpdateView):
     fields = ["title", "content"]
 
     def get_success_url(self):
-        return reverse_lazy("entry-detail", kwargs={"pk": self.entry.id})
+        return reverse_lazy("entry-detail", kwargs={"pk": self.object.pk})
 
 
 class EntryDeleteView(DeleteView):
