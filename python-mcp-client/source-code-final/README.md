@@ -50,7 +50,7 @@ $ uv run python -m mcp_client <path/to/mcp/server.py> --chat
 ```console
 $ uv run python -m mcp_client mcp_server/mcp_server.py --chat
 
-MCP Client Started!
+MCP Client's Chat Started!
 Type your queries or 'quit' to exit.
 
 You: Greet Pythonista
@@ -68,14 +68,14 @@ You:
 
 The project includes, `mcp_server.py`, which is a minimal MCP server that provides:
 
-- A sample tool that says hello
+- A sample `echo` tool that echoes back a message
 - Sample prompts and resources
 
 You can use this server to test the client's functionalities.
 
 ## Requirements
 
-- Python >= 3.13
+- Python >= 3.14
 - The MCP Python SDK and OpenAI Python SDK
 - An OpenAI API key
 - An MCP server to connect to
