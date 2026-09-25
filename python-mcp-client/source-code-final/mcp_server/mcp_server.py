@@ -1,3 +1,5 @@
+from pathlib import Path
+
 from mcp.server.mcpserver import MCPServer
 
 mcp = MCPServer("mcp_server")
@@ -18,7 +20,8 @@ async def greeting_prompt(name: str) -> str:
 @mcp.resource("file://./greeting.txt")
 def greeting_file() -> str:
     """The greeting text file."""
-    with open("greeting.txt", "r", encoding="utf-8") as file:
+    path = Path(__file__).parent / "greeting.txt"
+    with open(path, "r", encoding="utf-8") as file:
         return file.read()
 
 

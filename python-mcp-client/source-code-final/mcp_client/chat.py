@@ -11,6 +11,8 @@ async def run_chat(handler) -> None:
                 break
 
             print("\n" + await handler.process_query(query))
+        except EOFError:
+            break
         except Exception as e:
             print(f"\nError: {str(e)}")
 
