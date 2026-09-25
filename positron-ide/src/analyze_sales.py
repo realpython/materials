@@ -22,8 +22,6 @@ order_summary = sales.groupby(
 ).agg(
     orders=("order_number", "size"),
     median_order_value=("sale_price", "median"),
-    median_quantity=("quantity", "median"),
-    median_unit_price=("unit_price", "median"),
 )
 
 print(order_summary.round(2).to_string(index=False))
