@@ -4,29 +4,14 @@ This repo contains the source code for [Build an LLM RAG Chatbot With LangChain]
 
 To run the final application that you'll build in this tutorial, you can use the code provided in `source_code_final/`.
 
-## Project Layout
-
-Each folder holds the code as it stands at the end of the matching step in the tutorial:
-
-| Folder | Tutorial step |
-| --- | --- |
-| `data/` | The hospital system CSV files used throughout the tutorial |
-| `source_code_step_1/` | Step 1: Understand the Business Requirements and Data |
-| `source_code_step_2/` | Step 2: Set Up a Neo4j Graph Database |
-| `source_code_step_3/` | Step 3: Build a Graph RAG Chatbot in LangChain |
-| `source_code_step_4/` | Step 4: Deploy the LangChain Agent |
-| `source_code_final/` | The finished application |
-
-The LangChain basics that this tutorial builds on live in a separate tutorial, [LangChain Tutorial: Build Your First Chains and Agents](https://realpython.com/langchain-tutorial/), along with its own sample code.
-
 ## Setup
 
 Create a `.env` file in the root directory and add the following environment variables:
 
 ```.env
-NEO4J_URI=<YOUR_NEO4J_URI>
-NEO4J_USERNAME=<YOUR_NEO4J_USERNAME>
-NEO4J_PASSWORD=<YOUR_NEO4J_PASSWORD>
+NEO4J_URI=bolt://localhost:7687
+NEO4J_USERNAME=neo4j
+NEO4J_PASSWORD=neo4jpassword
 
 HOSPITALS_CSV_PATH=https://raw.githubusercontent.com/realpython/materials/refs/heads/master/langchain-rag-app/data/hospitals.csv
 PAYERS_CSV_PATH=https://raw.githubusercontent.com/realpython/materials/refs/heads/master/langchain-rag-app/data/payers.csv
