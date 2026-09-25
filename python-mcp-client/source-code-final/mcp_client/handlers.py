@@ -4,7 +4,7 @@ import os
 from mcp import ClientSession
 from openai import OpenAI
 
-MODEL = "gpt-4o-mini"
+MODEL = "gpt-5.4-mini"
 MAX_TOKENS = 1000
 
 
@@ -25,7 +25,7 @@ class OpenAIQueryHandler:
         messages = [{"role": "user", "content": query}]
         initial_response = self.openai.chat.completions.create(
             model=MODEL,
-            max_tokens=MAX_TOKENS,
+            max_completion_tokens=MAX_TOKENS,
             messages=messages,
             tools=await self._get_tools(),
         )
@@ -55,7 +55,7 @@ class OpenAIQueryHandler:
             # Get final Model's response after tool execution
             final_response = self.openai.chat.completions.create(
                 model=MODEL,
-                max_tokens=MAX_TOKENS,
+                max_completion_tokens=MAX_TOKENS,
                 messages=messages,
             )
 
@@ -75,7 +75,7 @@ class OpenAIQueryHandler:
                     "description": tool.description or "No description",
                     "parameters": getattr(
                         tool,
-                        "inputSchema",
+                        "input_schema",
                         {"type": "object", "properties": {}},
                     ),
                 },
