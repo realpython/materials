@@ -1,4 +1,5 @@
 import json
+import re
 
 import pytest
 
@@ -61,9 +62,11 @@ def test_catalog_missing_file_constructs_without_reading(tmp_path):
 
 
 def test_catalog_books_missing_file_raises_file_not_found(tmp_path):
-    catalog = Catalog(tmp_path / "missing.json")
+    path = tmp_path / "missing.json"
+    catalog = Catalog(path)
+    message = f"[Errno 2] No such file or directory: '{path}'"
 
-    with pytest.raises(FileNotFoundError):
+    with pytest.raises(FileNotFoundError, match=f"^{re.escape(message)}$"):
         catalog.books
 
 

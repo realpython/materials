@@ -49,3 +49,26 @@ they pass:
   least 95% branch coverage on the module under test.
 
 Then report the coverage number.
+
+## Behavior Tables
+
+Record intended behavior in `BEHAVIOR.md`, one section per public
+callable, using this template:
+
+    ## `<callable>(<parameters>)`
+
+    <One sentence on what the callable returns or does.>
+
+    Source: <docstring, comment, or requirement>.
+
+    | <parameter> | expected                         | note     |
+    | ----------- | -------------------------------- | -------- |
+    | <value>     | <exact return value>             | boundary |
+    | <value>     | raises <Error>: "<full message>" | error    |
+
+- Add one column per parameter. For stateful code, add a `given` column
+  first to record the starting state.
+- One row per case. Write boundaries as concrete rows on both sides,
+  never as ranges.
+- Start each note with happy, boundary, edge, or error.
+- Mark values inferred only from the implementation as NEEDS REVIEW.
