@@ -15,7 +15,7 @@ CLOSING_QUOTES = {
     "\N{LEFT SINGLE QUOTATION MARK}": "\N{RIGHT SINGLE QUOTATION MARK}",
 }
 
-# TODO (Step 4): Determnistic checks
+# TODO (Step 4): Deterministic checks
 
 # TODO (Step 5): Add judge helper functions
 
