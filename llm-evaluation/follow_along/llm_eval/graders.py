@@ -21,4 +21,7 @@ CLOSING_QUOTES = {
 
 # TODO (Step 5): Add grade_with_judge()
 
-# TODO (Step 4): evaluate_response()
+
+# TODO (Step 4): Replace this evaluate_response() stub
+def evaluate_response(*args, **kwargs):
+    raise NotImplementedError("Build evaluate_response() in Step 4.")

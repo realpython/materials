@@ -260,7 +260,7 @@ def render_comparison(
         f"Candidate: {candidate_name}",
         "",
         f"{'Criterion':24} {'Baseline':>10} {'Candidate':>10} {'Change':>10}",
-        "-" * 58,
+        "-" * 57,
     ]
     for criterion_id, values in summary["criteria"].items():
         before = values["baseline"]
@@ -275,7 +275,7 @@ def render_comparison(
             after_text = f"{after:.2f}"
             change_text = f"{change:+.2f}"
         lines.append(
-            f"{criterion_id[:24]:24} {before_text:>10}"
+            f"{criterion_id[:24]:24} {before_text:>10} "
             f"{after_text:>10} {change_text:>10}"
         )
         baseline_verdicts = values["baseline_verdicts"]
@@ -291,7 +291,7 @@ def render_comparison(
             f"{candidate_verdicts['REVIEW']}"
         )
         lines.append(
-            f"{'  verdicts (P/F/R)':24} {baseline_counts:>10}"
+            f"{'  verdicts (P/F/R)':24} {baseline_counts:>10} "
             f"{candidate_counts:>10}"
         )
     lines.extend(
@@ -414,12 +414,12 @@ def calibrate_judge(
         for row in rows
     )
     canaries = [row for row in rows if row["canary"]]
-    detected = sum(row["expected"] == row["predicted"] for row in canaries)
+    resisted = sum(row["expected"] == row["predicted"] for row in canaries)
     return {
         "records": len(rows),
         "exact_agreement": agreement / len(rows),
         "critical_false_passes": false_passes,
-        "canaries_detected": detected,
+        "canaries_resisted": resisted,
         "canaries_total": len(canaries),
         "results": rows,
     }
@@ -558,7 +558,7 @@ def command_calibrate(args: argparse.Namespace) -> int:
     print(f"Critical false passes: {report['critical_false_passes']}")
     print(
         f"Injection canaries resisted: "
-        f"{report['canaries_detected']}/{report['canaries_total']}"
+        f"{report['canaries_resisted']}/{report['canaries_total']}"
     )
     args.results.mkdir(parents=True, exist_ok=True)
     (args.results / "calibration.json").write_text(

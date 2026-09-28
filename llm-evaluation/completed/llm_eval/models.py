@@ -1,6 +1,13 @@
-from typing import Literal
+import re
+from typing import Literal, Self
 
-from pydantic import BaseModel, ConfigDict, Field, model_validator
+from pydantic import (
+    BaseModel,
+    ConfigDict,
+    Field,
+    field_validator,
+    model_validator,
+)
 
 Verdict = Literal["PASS", "FAIL", "REVIEW"]
 ResultType = Literal["categorical", "ordinal"]
@@ -26,7 +33,7 @@ class Criterion(StrictModel):
     require_policy_quote: bool = False
 
     @model_validator(mode="after")
-    def validate_scale(self) -> "Criterion":
+    def validate_scale(self) -> Self:
         if self.result_type == "categorical":
             if set(self.anchors) != {"PASS", "FAIL", "REVIEW"}:
                 raise ValueError("categorical criteria need three anchors")
@@ -51,7 +58,7 @@ class Rubric(StrictModel):
     criteria: list[Criterion]
 
     @model_validator(mode="after")
-    def validate_unique_ids(self) -> "Rubric":
+    def validate_unique_ids(self) -> Self:
         ids = [criterion.id for criterion in self.criteria]
         if len(ids) != len(set(ids)):
             raise ValueError("criterion IDs must be unique")
@@ -63,6 +70,16 @@ class ExpectedBehavior(StrictModel):
     required_facts: list[str]
     forbidden_patterns: list[str] = Field(default_factory=list)
     maximum_words: int = 90
+
+    @field_validator("forbidden_patterns")
+    @classmethod
+    def validate_patterns(cls, patterns: list[str]) -> list[str]:
+        for pattern in patterns:
+            try:
+                re.compile(pattern)
+            except re.error as exc:
+                raise ValueError(f"invalid regex {pattern!r}: {exc}") from exc
+        return patterns
 
 
 class EvalCase(StrictModel):
