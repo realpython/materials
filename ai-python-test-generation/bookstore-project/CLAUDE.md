@@ -1,7 +1,7 @@
 ## Testing Conventions
 
-Write tests with `pytest`. Put them in `tests/test_<module>.py`, mirroring the
-package layout.
+Write tests with `pytest`. Put them in `tests/test_<module>.py`, mirroring
+the package layout.
 
 ### Structure
 
@@ -14,17 +14,19 @@ package layout.
 
 - Assert exact values, never types: `assert total == Decimal("190.00")`,
   not `assert isinstance(total, Decimal)`.
-- Take expected values from `BEHAVIOR.md`. Never call the code under test to
-  produce an expected value, and never reimplement its arithmetic in the test.
+- Take expected values from `BEHAVIOR.md`. Never call the code under
+  test to produce an expected value, and never reimplement its
+  arithmetic in the test.
 - Match the full exception message, anchored with `^` and `$`:
   `pytest.raises(ValueError, match="^unknown tier: gold$")`.
   Never `pytest.raises(Exception)`.
-- Assert on returned values and raised errors, not on `assert_called_once_with`.
+- Assert on returned values and raised errors, not on
+  `assert_called_once_with`.
 
 ### Coverage
 
-- Parametrize both sides of every boundary in `BEHAVIOR.md`. For a threshold
-  at 10, test 9, 10, and 11.
+- Parametrize both sides of every boundary in `BEHAVIOR.md`. For a
+  threshold at 10, test 9, 10, and 11.
 - One test per error path.
 - Cover empty, missing, and zero inputs.
 
@@ -33,7 +35,8 @@ package layout.
 - Mock only what you can't control or can't afford: clocks, randomness,
   network calls, subprocesses, slow or destructive operations.
 - Never mock the module under test.
-- Never mock code we own just to avoid setting it up. Use a fixture instead.
+- Never mock code we own just to avoid setting it up. Use a
+  fixture instead.
 - For files, use `tmp_path` and real files rather than patching `open`.
 
 ### Quality Gates
