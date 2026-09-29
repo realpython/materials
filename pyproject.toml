@@ -9,6 +9,7 @@ exclude = [
     "agents-md/run1_main.py",
     "python315-frozendict/",
     "python315-lazy-imports",
+    "python315-new-features",
     "ai-benchmark"
 ]
 
