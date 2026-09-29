@@ -1,0 +1,2 @@
+httpx2[http2]==2.13.1
+requests==2.34.2
