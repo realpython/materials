@@ -1,0 +1,4 @@
+nicegui[plotly]==3.17.0
+plotly==6.9.0
+pandas==3.0.5
+pywebview==6.2.1
