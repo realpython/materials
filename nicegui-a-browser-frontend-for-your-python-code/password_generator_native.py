@@ -12,12 +12,7 @@ status = ui.label("Click Generate for a new password.")
 
 def generate() -> None:
     size = length.value
-    if (
-        size is None
-        or size != int(size)
-        or size < 8
-        or size > 64
-    ):
+    if size is None or size != int(size) or size < 8 or size > 64:
         password.set_value("")
         status.set_text("Choose a whole length from 8 to 64.")
         ui.notify("Length must be a whole number from 8 to 64", type="warning")
