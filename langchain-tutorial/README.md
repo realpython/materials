@@ -1,66 +1,44 @@
-# LangChain Tutorial: Build Your First Chains and Agents
+# LangChain Tutorial: From Prompts to RAG and AI Agents
 
-Sample code for the Real Python tutorial [LangChain Tutorial: Build Your First Chains and Agents](https://realpython.com/langchain-tutorial/).
+This folder provides the code examples for the Real Python tutorial [LangChain Tutorial: From Prompts to RAG and AI Agents](https://realpython.com/langchain-tutorial/).
 
-This is the `langchain_intro` project you build throughout the tutorial: a chat model, reusable prompt templates, an LCEL chain, a ChromaDB-backed review retriever (RAG), and a tool-calling agent that answers questions about patient reviews and hospital wait times.
+## Files
 
-## Project layout
-
-```
-langchain-tutorial/
-│
-├── data/
-│   └── reviews.csv
-│
-├── langchain_intro/
-│   ├── chatbot.py            # final chat model + prompt templates + RAG chain + agent
-│   ├── create_retriever.py   # builds the ChromaDB vector database from reviews.csv
-│   └── tools.py              # get_current_wait_time() tool
-│
-├── .env.example
-├── requirements.txt
-└── README.md
-```
+- `build_vector_db.py`: Loads `reviews.csv` into a ChromaDB vector database in `chroma_data/`
+- `rag.py`: Answers questions about the patient reviews with a RAG chain
+- `agents.py`: Answers exact lookup questions with a tool-calling agent
+- `reviews.csv`: Synthetic patient reviews used in the RAG and agent sections
 
 ## Setup
 
-1. Create and activate a virtual environment (Python 3.10 or later), then install the dependencies:
+Create and activate a virtual environment with Python 3.10 or later, and then install the dependencies:
 
-   ```console
-   (venv) $ python -m pip install -r requirements.txt
-   ```
+```console
+(venv) $ python -m pip install -r requirements.txt
+```
 
-2. Copy `.env.example` to `.env` and add your OpenAI API key:
+Copy `.env.example` to `.env` and add your OpenAI API key:
 
-   ```console
-   (venv) $ cp .env.example .env
-   ```
+```dotenv
+OPENAI_API_KEY=<YOUR_OPENAI_API_KEY>
+```
 
-   ```dotenv
-   OPENAI_API_KEY=<YOUR_OPENAI_API_KEY>
-   ```
+## Usage
 
-3. Build the ChromaDB vector database from the reviews. Run this from the project root; it creates a `chroma_data/` directory with the embedded reviews:
+Run the scripts from this folder. First, build the vector database:
 
-   ```console
-   (venv) $ python langchain_intro/create_retriever.py
-   ```
+```console
+(venv) $ python build_vector_db.py
+```
 
-## Try it out
+Then, ask the RAG app about the reviews:
 
-Start a Python REPL **from the project root** so the `langchain_intro` package is importable and `dotenv` finds your `.env`:
+```console
+(venv) $ python rag.py "Has anyone complained about communication with staff?"
+```
 
-```pycon
->>> from langchain_intro.chatbot import review_chain
->>> review_chain.invoke("Has anyone complained about communication with the hospital staff?")
+Or ask the agent a lookup question:
 
->>> from langchain_intro.chatbot import hospital_agent_executor
->>> response = hospital_agent_executor.invoke(
-...     {
-...         "messages": [
-...             {"role": "user", "content": "What is the current wait time at hospital C?"}
-...         ]
-...     }
-... )
->>> response["messages"][-1].text
+```console
+(venv) $ python agents.py "How many reviews does Laura Brown's hospital have?"
 ```
