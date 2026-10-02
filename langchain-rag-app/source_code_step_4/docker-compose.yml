@@ -1,8 +1,49 @@
-version: '3'
-
 services:
+  neo4j:
+    image: neo4j:2026.05-community
+    ports:
+      - "127.0.0.1:7474:7474"
+      - "127.0.0.1:7687:7687"
+    environment:
+      - NEO4J_AUTH=neo4j/${NEO4J_PASSWORD}
+      - NEO4J_PLUGINS=["apoc"]
+    volumes:
+      - neo4j_data:/data
+
   hospital_neo4j_etl:
     build:
       context: ./hospital_neo4j_etl
     env_file:
       - .env
+    environment:
+      - NEO4J_URI=bolt://neo4j:7687
+    depends_on:
+      - neo4j
+
+  chatbot_api:
+    build:
+      context: ./chatbot_api
+    env_file:
+      - .env
+    environment:
+      - NEO4J_URI=bolt://neo4j:7687
+    depends_on:
+      neo4j:
+        condition: service_started
+      hospital_neo4j_etl:
+        condition: service_completed_successfully
+    ports:
+      - "127.0.0.1:8000:8000"
+
+  chatbot_frontend:
+    build:
+      context: ./chatbot_frontend
+    env_file:
+      - .env
+    depends_on:
+      - chatbot_api
+    ports:
+      - "127.0.0.1:8501:8501"
+
+volumes:
+  neo4j_data:
