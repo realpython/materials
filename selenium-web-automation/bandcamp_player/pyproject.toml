@@ -1,0 +1,24 @@
+[build-system]
+requires = ["setuptools", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "bandcamp_player"
+version = "0.1.0"
+description = "A web player for Bandcamp using Selenium"
+authors = [
+    { name = "Martin Breuss", email = "martin@realpython.com" },
+    { name = "Bartosz Zaczyński", email = "bartosz@realpython.com" },
+]
+dependencies = [
+    "selenium",
+    "textual",
+]
+[project.scripts]
+bandcamp-player = "bandcamp.__main__:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+"*" = ["*.css"]
