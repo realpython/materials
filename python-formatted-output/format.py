@@ -110,6 +110,9 @@ print("{0:_d}".format(1234567))
 print("{0:,.2f}".format(1234567.89))
 print("{0:_.2f}".format(1234567.89))
 
+print(f"{1.23456789:.8_f}")
+print("{0:.8_f}".format(1.23456789))
+
 print(f"{0b111010100001:_b}")
 print(f"{0b111010100001:#_b}")
 print(f"{0xAE123FCC8AB2:_x}")
@@ -132,9 +135,11 @@ print(f"{'Pythonista':.6s}")
 print("{0:.6s}".format("Pythonista"))
 
 width = 10
-prec = 2
-print(f"{123.4567:{width}.{prec}f}")
-print("{2:{0}.{1}f}".format(width, prec, 123.4567))
+precision = 2
+print(f"{123.4567:{width}.{precision}f}")
+print("{2:{0}.{1}f}".format(width, precision, 123.4567))
 print(
-    "{number:{width}.{prec}f}".format(width=width, prec=prec, number=123.4567)
+    "{number:{width}.{precision}f}".format(
+        width=width, precision=precision, number=123.4567
+    )
 )
