@@ -39,7 +39,7 @@ Max loss: -20.47% on 1987-10-19
 Longest growth streak: 14 days (1971-03-26 to 1971-04-15)
 ```
 
-> **Note:** Depending on your installation, you may need to type `python3.6` or `python36` to run the examples. If you follow the [Python 3 Installation & Setup Guide](https://realpython.com/installing-python/), you should have no problem.
+> **Note:** Depending on your installation, you may need to type `python3.14` or `python314` to run the examples. If you follow the [Python 3 Installation & Setup Guide](https://realpython.com/installing-python/), you should have no problem.
 
 Similarly, for `swimmers.py`:
 
