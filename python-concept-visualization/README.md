@@ -1,0 +1,1 @@
+Note: This is a preliminary version of the cheathseet for the Python Concept Visualization tutorial.  I definitely would like feedback and thoughts on how it should be layed out and how to improve the content.
