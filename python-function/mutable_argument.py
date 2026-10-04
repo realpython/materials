@@ -1,7 +1,8 @@
-def add_product(item, inventory=[]):
-    inventory.append(item)
-    return inventory
+def append_to(item, target=[]):
+    target.append(item)
+    return target
 
 
-print(add_product("apple"))
-print(add_product("banana"))
+print(append_to(1))
+print(append_to(2))
+print(append_to(3))
