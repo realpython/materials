@@ -1,5 +1,5 @@
 {
   "permissions": {
-    "deny": ["Edit(tests/**)"]
+    "deny": ["Edit(/tests/**)"]
   }
 }
