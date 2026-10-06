@@ -22,8 +22,12 @@ class Pizza:
 
     @staticmethod
     def get_size_in_inches(size):
-        """Returns an approximate diameter in inches for common sizes."""
-        size_map = {"small": 8, "medium": 12, "large": 16}
+        """Returns the diameter in inches for common pizza sizes."""
+        size_map = {
+            "small": 8,
+            "medium": 12,
+            "large": 16,
+        }
         return size_map.get(size, "Unknown size")
 
 
