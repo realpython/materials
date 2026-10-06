@@ -27,6 +27,9 @@ class Version:
         self._dev = int(match["dev"]) if match["dev"] else None
 
     def _key(self):
+        release = self._release
+        while len(release) > 1 and release[-1] == 0:
+            release = release[:-1]
         if self._dev is not None and self._pre is None:
             phase = (0, self._dev)
         elif self._pre is not None:
@@ -35,7 +38,7 @@ class Version:
             phase = (3, self._post)
         else:
             phase = (2, 0)
-        return (self._release, phase)
+        return (release, phase)
 
     def __eq__(self, other):
         if not isinstance(other, Version):

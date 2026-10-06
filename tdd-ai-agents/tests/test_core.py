@@ -27,6 +27,18 @@ def test_double_digit_segments_sort_numerically():
 
 
 @pytest.mark.parametrize(
+    "shorter, longer",
+    [
+        ("1.2", "1.2.0"),
+        ("1", "1.0.0"),
+        ("1.0a1", "1.0.0a1"),
+    ],
+)
+def test_missing_segments_count_as_zero(shorter, longer):
+    assert Version(shorter) == Version(longer)
+
+
+@pytest.mark.parametrize(
     "lower, higher",
     [
         ("1.0.dev1", "1.0"),
