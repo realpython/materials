@@ -105,7 +105,7 @@ def test_shipping_cost_by_subtotal_returns_charge(subtotal, expected):
         (2, "20.00", "pro", "US", Decimal("36.00")),
         (2, "18.00", "plus", "US", Decimal("39.19")),
         (1, "20.00", "none", "GB", Decimal("29.99")),
-        (1, "39.99", "none", "DE", Decimal("47.59")),
+        (1, "35.50", "none", "DE", Decimal("42.25")),
         (50, "10.00", "pro", "GB", Decimal("475.20")),
     ],
 )

@@ -12,13 +12,14 @@ the package layout.
 
 ### Assertions
 
-- Assert exact values, never types: `assert total == Decimal("190.00")`,
+- Assert exact values, not just types: `assert total == Decimal("190.00")`,
   not `assert isinstance(total, Decimal)`.
 - Take expected values from `BEHAVIOR.md`. Never call the code under
   test to produce an expected value, and never reimplement its
   arithmetic in the test.
 - Match the full exception message, anchored with `^` and `$`:
   `pytest.raises(ValueError, match="^unknown tier: gold$")`.
+  Wrap messages that contain regex special characters in `re.escape()`.
   Never `pytest.raises(Exception)`.
 - Assert on returned values and raised errors, not on
   `assert_called_once_with`.

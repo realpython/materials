@@ -68,8 +68,10 @@ Source: docstring, `FREE_SHIPPING_THRESHOLD`, and `SHIPPING_FEE`.
 
 ## `quote_order(quantity, unit_price, member_tier="none", country="US")`
 
-Returns the total the customer pays: the discounted subtotal rounded to
-cents, plus shipping, plus tax on both, rounded half up.
+Returns the total the customer pays. Applies the volume and member
+discounts one after the other, rounds the subtotal to cents, adds
+shipping, then adds tax on the subtotal and shipping and rounds the
+total to cents. Both roundings go half up.
 
 Source: docstring and the callables above.
 
@@ -85,7 +87,7 @@ Source: docstring and the callables above.
 | 2        | "20.00"    | "pro"       | "US"      | Decimal("36.00")                                     | happy, member discount, ships free                |
 | 2        | "18.00"    | "plus"      | "US"      | Decimal("39.19")                                     | edge, discount drops subtotal below free shipping |
 | 1        | "20.00"    | "none"      | "GB"      | Decimal("29.99")                                     | happy, tax applies to shipping too                |
-| 1        | "39.99"    | "none"      | "DE"      | Decimal("47.59")                                     | edge, tax rounds half up                          |
+| 1        | "35.50"    | "none"      | "DE"      | Decimal("42.25")                                     | edge, tax rounds half up                          |
 | 50       | "10.00"    | "pro"       | "GB"      | Decimal("475.20")                                    | happy, every discount and tax combined            |
 | 0        | "10.00"    | "none"      | "US"      | raises ValueError: "quantity must be positive"       | error                                             |
 | 1        | "-0.01"    | "none"      | "US"      | raises ValueError: "unit price must not be negative" | error                                             |
@@ -129,7 +131,7 @@ Source: method docstring.
 
 | given                                 | expected                            | note  |
 | ------------------------------------- | ----------------------------------- | ----- |
-| any file                              | returns the same `Catalog` instance | happy |
+| a valid catalog file                  | returns the same `Catalog` instance | happy |
 | `.books` already read, file rewritten | `.books` has the new records        | happy |
 
 ## `Catalog.get(isbn)`

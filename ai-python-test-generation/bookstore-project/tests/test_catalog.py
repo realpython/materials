@@ -112,7 +112,7 @@ def test_catalog_load_file_rewritten_after_read_returns_new_records(
     assert catalog.books == {"978-1775093312": MANAGING_DEPENDENCIES}
 
 
-def test_catalog_load_any_file_returns_same_instance(catalog):
+def test_catalog_load_valid_file_returns_same_instance(catalog):
     result = catalog.load()
 
     assert result is catalog
