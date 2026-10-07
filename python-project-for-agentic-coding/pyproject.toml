@@ -12,15 +12,18 @@ build-backend = "uv_build"
 
 [dependency-groups]
 dev = [
-    "mypy>=2.3.1",
-    "pre-commit>=4.6.2",
-    "pytest>=9.1.1",
-    "pytest-cov>=7.1.0",
-    "ruff>=0.16.7",
+    "mypy==2.3.1",
+    "pre-commit==4.6.2",
+    "pytest==9.1.1",
+    "pytest-cov==7.1.0",
+    "ruff==0.16.7",
 ]
 
 [tool.ruff]
 line-length = 80
+
+[tool.ruff.lint]
+extend-select = ["I"]  # Sort imports
 
 [tool.mypy]
 strict = true
