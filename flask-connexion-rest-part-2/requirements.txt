@@ -5,7 +5,7 @@ click==8.1.3
 clickclick==20.10.2
 connexion==2.14.1
 Flask==2.2.2
-flask-marshmallow==0.14.0
+flask-marshmallow==1.5.0
 Flask-SQLAlchemy==3.0.2
 idna==3.4
 inflection==0.5.1
@@ -13,8 +13,8 @@ itsdangerous==2.1.2
 Jinja2==3.1.2
 jsonschema==4.16.0
 MarkupSafe==2.1.1
-marshmallow==3.18.0
-marshmallow-sqlalchemy==0.28.1
+marshmallow==4.3.1
+marshmallow-sqlalchemy==1.5.0
 packaging==21.3
 pyparsing==3.0.9
 pyrsistent==0.19.1
