@@ -1,7 +1,6 @@
 import chromadb
 from car_data_etl import prepare_car_reviews_data
 from chroma_utils import build_chroma_collection
-from chromadb.utils import embedding_functions
 
 DATA_PATH = "data/archive/*"
 CHROMA_PATH = "car_review_embeddings"
@@ -20,12 +19,9 @@ build_chroma_collection(
 )
 
 client = chromadb.PersistentClient(CHROMA_PATH)
-embedding_func = embedding_functions.SentenceTransformerEmbeddingFunction(
-    model_name=EMBEDDING_FUNC_NAME
-)
-collection = client.get_collection(
-    name=COLLECTION_NAME, embedding_function=embedding_func
-)
+collection = client.get_collection(name=COLLECTION_NAME)
+
+print(collection.count())
 
 great_reviews = collection.query(
     query_texts=[
