@@ -1,2 +1,2 @@
-openai==3.14.1
+openai==3.26.0
 pydantic==2.13.5

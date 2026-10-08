@@ -22,7 +22,7 @@ Create and activate a [virtual environment](https://realpython.com/python-virtua
 (venv) $ python -m pip install -r requirements.txt
 ```
 
-The examples were tested with Python 3.14.7.
+The examples were tested with Python 3.14.8.
 
 ## Usage
 
@@ -68,7 +68,7 @@ You can find more information about when and how to use the different files [in 
 
 ## Choosing a Model
 
-`classify.py` sets `MODEL = "gpt-5.6-luna"`, a cost-optimized model that supports structured output. To run the examples on OpenAI's most capable model instead, set `MODEL = "gpt-6-astra"`. The techniques are identical, but each request costs considerably more.
+`classify.py` sets `MODEL = "gpt-6-luna"`, a cost-optimized model that supports structured output. To run the examples on OpenAI's most capable model instead, set `MODEL = "gpt-6-astra"`. The techniques are identical, but each request costs considerably more.
 
 Model availability changes over time. Check the [model documentation](https://developers.openai.com/api/docs/models) and the [deprecations page](https://developers.openai.com/api/docs/deprecations) to confirm that your chosen model is still available.
 

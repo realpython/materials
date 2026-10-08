@@ -3,7 +3,7 @@ from typing import Literal, NamedTuple
 from openai import OpenAI
 from pydantic import BaseModel, ValidationError
 
-MODEL = "gpt-5.6-luna"
+MODEL = "gpt-6-luna"
 client = OpenAI(timeout=60.0, max_retries=0)
 
 
