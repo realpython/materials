@@ -1,4 +1,4 @@
-# How to Generate Images With the OpenAI API
+# Generate Images in Python With OpenAI's GPT Image API
 
 Learn to use the OpenAI Python library to create images with the GPT Image models. In the associated tutorial on [generating images with the OpenAI API](https://realpython.com/generate-images-openai/), you'll create images from text prompts, tune the size and quality of your results, and edit an image with a follow-up prompt. You'll learn how to interact with the Images API and incorporate this functionality into your Python scripts.
 
