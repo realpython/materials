@@ -14,9 +14,7 @@ def generate_password(
     symbols: bool = False,
 ) -> str:
     if not MIN_LENGTH <= length <= MAX_LENGTH:
-        raise ValueError(
-            f"length must be from {MIN_LENGTH} to {MAX_LENGTH}"
-        )
+        raise ValueError(f"length must be from {MIN_LENGTH} to {MAX_LENGTH}")
 
     alphabet = string.ascii_letters
     if digits:
@@ -27,9 +25,7 @@ def generate_password(
 
 
 def main() -> None:
-    parser = argparse.ArgumentParser(
-        description="Generate a random password."
-    )
+    parser = argparse.ArgumentParser(description="Generate a random password.")
     parser.add_argument(
         "-l",
         "--length",

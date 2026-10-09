@@ -36,8 +36,8 @@ with ui.card().classes("w-80 shadow-2"):
             amount *= 1.2
         total.set_text(f"Total: {amount:.2f}")
 
-    ui.button("Calculate", on_click=calculate).props(
-        "color=primary"
-    ).classes("w-full q-mt-md")
+    ui.button("Calculate", on_click=calculate).props("color=primary").classes(
+        "w-full q-mt-md"
+    )
 
 ui.run()

@@ -24,9 +24,7 @@ def generate() -> None:
         return
 
     password.set_value(result)
-    status.set_text(
-        f"Generated a new password with {int(size)} characters."
-    )
+    status.set_text(f"Generated a new password with {int(size)} characters.")
 
 
 def show_error(message: str) -> None:
