@@ -13,7 +13,7 @@ driver.get("https://bandcamp.com/discover/")
 try:
     cookie_accept_button = driver.find_element(
         By.CSS_SELECTOR,
-        "#cookie-control-dialog button.g-button.outline",
+        "div.cookie-control button.g-button.outline",
     )
     cookie_accept_button.click()
 except NoSuchElementException:
