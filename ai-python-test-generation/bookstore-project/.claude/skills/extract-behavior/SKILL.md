@@ -15,8 +15,8 @@ Extract the intended behavior of `$ARGUMENTS` into `BEHAVIOR.md`.
 1. Collect the target modules:
    - If `$ARGUMENTS` is a `.py` file, the target is that module.
    - If it's a directory, the targets are all `.py` files under it,
-     recursively, in path order. Skip tests, files whose names start
-     with an underscore, `_`.
+     recursively, in path order. Skip test files and files whose names
+     start with an underscore (`_`).
 2. Carefully read the package that contains the targets and map it: list
    each module's public callables, their parameters, branches, error
    paths, and external dependencies.

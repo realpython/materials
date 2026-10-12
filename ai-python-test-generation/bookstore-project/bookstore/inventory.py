@@ -36,7 +36,7 @@ class Inventory:
         return self.available(isbn)
 
     def release(self, isbn, quantity):
-        """Return held copies to the pool and report what is available."""
+        """Put held copies back in the pool and report what is available."""
         self._check(isbn, quantity)
         held = self.reserved(isbn)
         if quantity > held:

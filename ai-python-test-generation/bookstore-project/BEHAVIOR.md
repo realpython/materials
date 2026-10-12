@@ -232,7 +232,7 @@ Source: method docstring.
 
 ## `Inventory.release(isbn, quantity)`
 
-Returns held copies to the pool and returns what's available.
+Puts held copies back in the pool and returns what's available.
 
 Source: method docstring.
 
