@@ -1,0 +1,13 @@
+{
+  "hooks": {
+    "Stop": [
+      { "hooks": [ { "type": "command", "command": "uv run .claude/hooks/notify_desktop.py" } ] }
+    ],
+    "PreToolUse": [
+      { "matcher": "Bash", "hooks": [ { "type": "command", "command": "uv run .claude/hooks/guard_pip.py" } ] }
+    ],
+    "PostToolUse": [
+      { "matcher": "Write|Edit", "hooks": [ { "type": "command", "command": "uv run .claude/hooks/format_with_ruff.py" } ] }
+    ]
+  }
+}

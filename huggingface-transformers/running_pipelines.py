@@ -3,7 +3,7 @@ from transformers import pipeline
 model_name = "cardiffnlp/twitter-roberta-base-sentiment-latest"
 sentiment_classifier = pipeline(model=model_name)
 
-text_input = "I'm really excited about using HuggingFace to run AI models!"
+text_input = "I'm really excited about using Hugging Face to run AI models!"
 print(sentiment_classifier(text_input))
 
 text_input = "I'm having a horrible day today."

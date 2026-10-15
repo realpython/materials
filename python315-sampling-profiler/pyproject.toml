@@ -1,0 +1,14 @@
+[project]
+name = "pretzel"
+version = "0.1.0"
+description = "A tiny 3D model viewer with deliberately planted bottlenecks"
+readme = "README.md"
+requires-python = ">=3.15"
+dependencies = ["numpy>=2.5.1"]
+
+[project.scripts]
+pretzel = "pretzel.cli:main"
+
+[build-system]
+requires = ["uv_build>=0.11,<0.13"]
+build-backend = "uv_build"

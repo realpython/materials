@@ -1,0 +1,22 @@
+tbl: pointblank_atoms.csv
+df_library: polars
+tbl_name: "atoms"
+label: "Atom data validation"
+thresholds:
+  warning: 0.02
+  error: 0.05
+  critical: 0.07
+steps:
+  - col_vals_in_set:
+      columns: symbol
+      set: [Cu, Pt]
+  - col_vals_not_null:
+      columns: [x, y, z]
+  - col_vals_between:
+      columns: [x, y, z]
+      left: 0
+      right: 20
+  - col_vals_between:
+      columns: [fx, fy, fz]
+      left: -1000
+      right: 1000

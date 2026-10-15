@@ -1,0 +1,17 @@
+.venv/
+__pycache__/
+*.pyc
+*.egg-info/
+build/
+dist/
+.pytest_cache/
+
+notes.db
+notes.db-journal
+notes.db-wal
+notes.db-shm
+/notes/
+
+# Editor / OS
+.DS_Store
+*.swp

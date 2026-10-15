@@ -11,7 +11,7 @@ The first line of the CSV file will be column headers:
 Write unit tests with Pytest to test your program.
 """
 
-import csv_reader
+import csv_parser
 
 
 def get_name_and_diff(team_stats):
@@ -22,6 +22,6 @@ def get_name_and_diff(team_stats):
 def get_min_score_difference(filename):
     with open(filename, "r", newline="") as csv_data:
         return min(
-            csv_reader.get_next_result(csv_data, get_name_and_diff),
+            csv_parser.get_next_result(csv_data, get_name_and_diff),
             key=lambda item: item[1],
         )
