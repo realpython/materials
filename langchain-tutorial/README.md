@@ -14,7 +14,7 @@ This folder provides the code examples for the Real Python tutorial [LangChain T
 Create and activate a virtual environment with Python 3.10 or later, and then install the dependencies:
 
 ```console
-(venv) $ python -m pip install -r requirements.txt
+(.venv) $ python -m pip install -r requirements.txt
 ```
 
 Copy `.env.example` to `.env` and add your OpenAI API key:
@@ -28,17 +28,17 @@ OPENAI_API_KEY=<YOUR_OPENAI_API_KEY>
 Run the scripts from this folder. First, build the vector database:
 
 ```console
-(venv) $ python build_vector_db.py
+(.venv) $ python build_vector_db.py
 ```
 
 Then, ask the RAG app about the reviews:
 
 ```console
-(venv) $ python rag.py "Has anyone complained about communication with staff?"
+(.venv) $ python rag.py "Has anyone complained about communication with staff?"
 ```
 
 Or ask the agent a lookup question:
 
 ```console
-(venv) $ python agents.py "How many reviews does Laura Brown's hospital have?"
+(.venv) $ python agents.py "How many reviews does Laura Brown's hospital have?"
 ```
