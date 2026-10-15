@@ -1,6 +1,6 @@
-# Nuitka: Compile Your Python Code Into a Standalone Executable
+# Nuitka: Compile Python Into a Standalone Executable
 
-Sample code for the Real Python tutorial on compiling Python applications with Nuitka.
+Sample code for the Real Python tutorial on [compiling Python applications with Nuitka](https://realpython.com/nuitka/).
 
 ## Files
 
