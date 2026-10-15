@@ -1,0 +1,6 @@
+A = sentinel("A")
+B = sentinel("B")
+print(type(A) is type(B))
+print(isinstance(A, sentinel))
+print(isinstance(B, sentinel))
+print(A is B)

@@ -1,4 +1,6 @@
-transformers==4.42.4
-torch==2.3.1
-accelerate==0.32.1
-polars==1.2.0
+transformers==5.19.0
+torch==2.14.1
+accelerate==1.15.0
+pillow==12.3.0
+polars==2.0.0
+tqdm==4.70.1
