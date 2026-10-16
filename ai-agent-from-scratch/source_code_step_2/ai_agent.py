@@ -18,6 +18,6 @@ while True:
         messages=messages,
     )
     reply = response.choices[0].message
-    trace("model", "harness", f"text reply ({len(reply.content)}) characters")
+    trace("model", "harness", f"text reply ({len(reply.content)} characters)")
 
     print(f"harness -> you: {reply.content}")

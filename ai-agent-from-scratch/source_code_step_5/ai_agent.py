@@ -49,7 +49,7 @@ def ask_model(messages):
         )
     if reply.content:
         trace(
-            "model", "harness", f"text reply ({len(reply.content)}) characters"
+            "model", "harness", f"text reply ({len(reply.content)} characters)"
         )
 
     return reply
