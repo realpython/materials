@@ -1,6 +1,6 @@
 # Build an AI Agent From Scratch in Python: The Agentic Loop
 
-This folder contains sample code for the Real Python tutorial [Build an AI Agent From Scratch in Python: The Agentic Loop](https://realpython.com/ai-agent-from-scratch/).
+This folder contains sample code for the Real Python tutorial [Build an AI Agent From Scratch in Python: The Agentic Loop](https://realpython.com/agentic-loop/).
 
 - `ai_agent.py`: the finished agent
 - `source_code_step_1/` to `source_code_step_7/`: the script at the end of each step
