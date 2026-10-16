@@ -41,6 +41,7 @@ def ask_model(messages):
     )
     reply = response.choices[0].message
     messages.append(reply)
+
     for call in reply.tool_calls or []:
         trace(
             "model",
@@ -49,7 +50,9 @@ def ask_model(messages):
         )
     if reply.content:
         trace(
-            "model", "harness", f"text reply ({len(reply.content)} characters)"
+            "model",
+            "harness",
+            f"text reply ({len(reply.content)} characters)",
         )
 
     return reply
