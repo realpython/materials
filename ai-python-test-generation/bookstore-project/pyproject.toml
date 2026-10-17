@@ -1,0 +1,30 @@
+[project]
+name = "bookstore"
+version = "0.1.0"
+description = "A small bookstore backend with a REST API"
+requires-python = ">=3.10"
+dependencies = [
+    "fastapi[standard]>=0.115",
+]
+
+[dependency-groups]
+dev = [
+    "pytest==9.1.1",
+    "pytest-cov==7.1.0",
+    "coverage==7.15.4",
+    "mutmut==3.7.0",
+]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["."]
+
+[tool.coverage.run]
+branch = true
+source = ["bookstore"]
+
+[tool.coverage.report]
+show_missing = true
+
+[tool.mutmut]
+source_paths = ["bookstore"]
