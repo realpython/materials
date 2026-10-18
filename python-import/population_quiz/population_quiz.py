@@ -37,7 +37,7 @@ def run_quiz(population, num_questions, num_countries):
     num_correct = 0
     for q_num in range(num_questions):
         print(f"\n\nQuestion {q_num + 1}:")
-        countries = random.sample(population.keys(), num_countries)
+        countries = random.sample(list(population), num_countries)
         print("\n".join(f"{i}. {a}" for i, a in enumerate(countries, start=1)))
 
         # Get user input
