@@ -19,7 +19,10 @@ def get_spreadsheet_cols_google(file_loc, print_cols=False):
         list: a list of strings representing the header columns
     """
 
-    file_data = pd.read_excel(file_loc)
+    if file_loc.lower().endswith(".csv"):
+        file_data = pd.read_csv(file_loc)
+    else:
+        file_data = pd.read_excel(file_loc)
     col_headers = list(file_data.columns.values)
 
     if print_cols:
@@ -40,7 +43,10 @@ def get_spreadsheet_cols_rest(file_loc, print_cols=False):
     :rtype: list
     """
 
-    file_data = pd.read_excel(file_loc)
+    if file_loc.lower().endswith(".csv"):
+        file_data = pd.read_csv(file_loc)
+    else:
+        file_data = pd.read_excel(file_loc)
     col_headers = list(file_data.columns.values)
 
     if print_cols:
@@ -65,7 +71,10 @@ def get_spreadsheet_cols_numpy(file_loc, print_cols=False):
         a list of strings representing the header columns
     """
 
-    file_data = pd.read_excel(file_loc)
+    if file_loc.lower().endswith(".csv"):
+        file_data = pd.read_csv(file_loc)
+    else:
+        file_data = pd.read_excel(file_loc)
     col_headers = list(file_data.columns.values)
 
     if print_cols:
@@ -86,7 +95,10 @@ def get_spreadsheet_cols_epytext(file_loc, print_cols=False):
     @returns: a list of strings representing the header columns
     """
 
-    file_data = pd.read_excel(file_loc)
+    if file_loc.lower().endswith(".csv"):
+        file_data = pd.read_csv(file_loc)
+    else:
+        file_data = pd.read_excel(file_loc)
     col_headers = list(file_data.columns.values)
 
     if print_cols:

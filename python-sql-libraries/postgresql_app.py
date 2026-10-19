@@ -30,7 +30,7 @@ def create_database(connection, query):
     try:
         cursor.execute(query)
         print("Query executed successfully")
-    except OperationalError as e:
+    except psycopg2.Error as e:
         print(f"The error '{e}' occurred")
 
 
@@ -40,7 +40,7 @@ def execute_query(connection, query):
     try:
         cursor.execute(query)
         print("Query executed successfully")
-    except OperationalError as e:
+    except psycopg2.Error as e:
         print(f"The error '{e}' occurred")
 
 
@@ -51,7 +51,7 @@ def execute_read_query(connection, query):
         cursor.execute(query)
         result = cursor.fetchall()
         return result
-    except OperationalError as e:
+    except psycopg2.Error as e:
         print(f"The error '{e}' occurred")
 
 
@@ -180,7 +180,7 @@ if __name__ == "__main__":
     for user in users:
         print(user)
 
-    # Updating table records (PostgreSQL needs single quotes for strings)
+    # Updating table records
     update_post_description = """
     UPDATE
       posts
