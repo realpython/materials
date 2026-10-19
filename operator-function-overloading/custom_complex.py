@@ -1,12 +1,12 @@
-from math import hypot, atan, sin, cos
+from math import hypot, atan2, sin, cos
 
 
 class CustomComplex:
     """
     A class to represent a complex number, a+bj.
     Attributes:
-        real - int, representing the real part
-        imag - int, representing the imaginary part
+        real - int or float, representing the real part
+        imag - int or float, representing the imaginary part
 
     Implements the following:
 
@@ -41,17 +41,17 @@ class CustomComplex:
         Return:
             CustomComplex instance
         """
-        return CustomComplex(self.real, -self.imag)
+        return self.__class__(self.real, -self.imag)
 
     def argz(self):
         """
         Returns the argument of a complex number
         The argument is given by:
-            atan(imag_part/real_part)
+            atan2(imag_part, real_part)
         Return:
             float
         """
-        return atan(self.imag / self.real)
+        return atan2(self.imag, self.real)
 
     def __abs__(self):
         """
@@ -69,7 +69,7 @@ class CustomComplex:
         Return:
             str
         """
-        return f"CustomComplex({self.real}, {self.imag})"
+        return f"{self.__class__.__name__}({self.real}, {self.imag})"
 
     def __str__(self):
         """
@@ -87,15 +87,16 @@ class CustomComplex:
         Return:
             CustomComplex instance
         """
-        if isinstance(other, float) or isinstance(other, int):
+        if isinstance(other, (int, float)):
             real_part = self.real + other
             imag_part = self.imag
-
-        if isinstance(other, CustomComplex):
+        elif isinstance(other, CustomComplex):
             real_part = self.real + other.real
             imag_part = self.imag + other.imag
+        else:
+            return NotImplemented
 
-        return CustomComplex(real_part, imag_part)
+        return self.__class__(real_part, imag_part)
 
     def __sub__(self, other):
         """
@@ -104,15 +105,16 @@ class CustomComplex:
         Return:
             CustomComplex instance
         """
-        if isinstance(other, float) or isinstance(other, int):
+        if isinstance(other, (int, float)):
             real_part = self.real - other
             imag_part = self.imag
-
-        if isinstance(other, CustomComplex):
+        elif isinstance(other, CustomComplex):
             real_part = self.real - other.real
             imag_part = self.imag - other.imag
+        else:
+            return NotImplemented
 
-        return CustomComplex(real_part, imag_part)
+        return self.__class__(real_part, imag_part)
 
     def __mul__(self, other):
         """
@@ -121,26 +123,27 @@ class CustomComplex:
         Return:
             CustomComplex instance
         """
-        if isinstance(other, int) or isinstance(other, float):
+        if isinstance(other, (int, float)):
             real_part = self.real * other
             imag_part = self.imag * other
-
-        if isinstance(other, CustomComplex):
+        elif isinstance(other, CustomComplex):
             real_part = (self.real * other.real) - (self.imag * other.imag)
             imag_part = (self.real * other.imag) + (self.imag * other.real)
+        else:
+            return NotImplemented
 
-        return CustomComplex(real_part, imag_part)
+        return self.__class__(real_part, imag_part)
 
     def __radd__(self, other):
         """
-        Same as __add__; allows 1 + CustomComplex('x+yj')
+        Same as __add__; allows 1 + CustomComplex(x, y)
         x + y == y + x
         """
         return self.__add__(other)
 
     def __rmul__(self, other):
         """
-        Same as __mul__; allows 2 * CustomComplex('x+yj')
+        Same as __mul__; allows 2 * CustomComplex(x, y)
         x * y == y * x
         """
         return self.__mul__(other)
@@ -156,11 +159,13 @@ class CustomComplex:
         Return:
             CustomComplex instance
         """
-        if isinstance(other, float) or isinstance(other, int):
+        if isinstance(other, (int, float)):
             real_part = other - self.real
             imag_part = -self.imag
+        else:
+            return NotImplemented
 
-        return CustomComplex(real_part, imag_part)
+        return self.__class__(real_part, imag_part)
 
     def __eq__(self, other):
         """
@@ -171,6 +176,8 @@ class CustomComplex:
         Return:
             bool
         """
+        if not isinstance(other, (int, float, CustomComplex)):
+            return NotImplemented
         # Note: comparing floats directly is not a good idea in general
         # due to floating-point precision
         return (self.real == other.real) and (self.imag == other.imag)
@@ -184,6 +191,8 @@ class CustomComplex:
         Return:
             bool
         """
+        if not isinstance(other, (int, float, CustomComplex)):
+            return NotImplemented
         return (self.real != other.real) or (self.imag != other.imag)
 
     def __pow__(self, other):
@@ -204,4 +213,4 @@ class CustomComplex:
         real_part = round(r_raised * cos(argz_multiplied))
         imag_part = round(r_raised * sin(argz_multiplied))
 
-        return CustomComplex(real_part, imag_part)
+        return self.__class__(real_part, imag_part)
