@@ -32,7 +32,7 @@ class Animal:
         sound : str
             The sound the animal makes
         num_legs : int, optional
-            The number of legs the animal (default is 4)
+            The number of legs the animal has (default is 4)
         """
 
         self.name = name

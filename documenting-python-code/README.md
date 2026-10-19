@@ -40,7 +40,7 @@ say_hello(name)
 A dog says woof
 ```
 
-Print the column headers of an Excel spreadsheet:
+Print the column headers of a CSV or Excel spreadsheet:
 
 ```sh
 $ python spreadsheet_columns.py people.xlsx

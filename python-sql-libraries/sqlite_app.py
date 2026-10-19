@@ -69,7 +69,7 @@ if __name__ == "__main__":
       text TEXT NOT NULL,
       user_id INTEGER NOT NULL,
       post_id INTEGER NOT NULL,
-      FOREIGN KEY (user_id) REFERENCES users (id)
+      FOREIGN KEY (user_id) REFERENCES users (id),
       FOREIGN KEY (post_id) REFERENCES posts (id)
     );
     """
@@ -79,7 +79,7 @@ if __name__ == "__main__":
       id INTEGER PRIMARY KEY AUTOINCREMENT,
       user_id INTEGER NOT NULL,
       post_id integer NOT NULL,
-      FOREIGN KEY (user_id) REFERENCES users (id)
+      FOREIGN KEY (user_id) REFERENCES users (id),
       FOREIGN KEY (post_id) REFERENCES posts (id)
     );
     """
@@ -105,12 +105,12 @@ if __name__ == "__main__":
     INSERT INTO
       posts (title, description, user_id)
     VALUES
-      ("Happy", "I am feeling very happy today", 1),
-      ("Hot Weather", "The weather is very hot today", 2),
-      ("Help", "I need some help with my work", 2),
-      ("Great News", "I am getting married", 1),
-      ("Interesting Game", "It was a fantastic game of tennis", 5),
-      ("Party", "Anyone up for a late-night party today?", 3);
+      ('Happy', 'I am feeling very happy today', 1),
+      ('Hot Weather', 'The weather is very hot today', 2),
+      ('Help', 'I need some help with my work', 2),
+      ('Great News', 'I am getting married', 1),
+      ('Interesting Game', 'It was a fantastic game of tennis', 5),
+      ('Party', 'Anyone up for a late-night party today?', 3);
     """
 
     execute_query(connection, create_posts)
@@ -228,7 +228,7 @@ if __name__ == "__main__":
     UPDATE
       posts
     SET
-      description = "The weather has become pleasant now"
+      description = 'The weather has become pleasant now'
     WHERE
       id = 2
     """

@@ -210,7 +210,7 @@ if __name__ == "__main__":
     UPDATE
       posts
     SET
-      description = "The weather has become pleasant now"
+      description = 'The weather has become pleasant now'
     WHERE
       id = 2
     """

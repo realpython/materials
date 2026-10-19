@@ -98,4 +98,4 @@ Query executed successfully
 Query executed successfully
 ```
 
-The script stops with a `DuplicateDatabase` error if `sm_app` already exists, so drop it before running the script again with `sudo -u postgres psql -c "DROP DATABASE sm_app"`.
+If `sm_app` already exists, the script reports the error and carries on, so the records are inserted a second time. To start over, drop the database with `sudo -u postgres psql -c "DROP DATABASE sm_app"`.
