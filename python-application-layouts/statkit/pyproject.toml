@@ -1,0 +1,16 @@
+[build-system]
+requires = ["setuptools>=69"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "statkit"
+version = "1.0.0"
+description = "A small statistics helper library."
+readme = "README.md"
+requires-python = ">=3.10"
+
+[project.optional-dependencies]
+dev = ["pytest==9.1.1"]
+
+[tool.setuptools.packages.find]
+where = ["src"]
