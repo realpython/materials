@@ -1,6 +1,6 @@
 # Python Circular Imports: Why They Happen and How to Fix Them
 
-This folder provides the code examples for the Real Python tutorial [Python Circular Imports: Why They Happen and How to Fix Them](https://realpython.com/python-circular-imports/)
+This folder provides the code examples for the Real Python tutorial [Python Circular Imports: Why They Happen and How to Fix Them](https://realpython.com/python-circular-imports/).
 
 Everything here is standard library only. The examples target **Python 3.14**, which evaluates annotations lazily. Where a result differs on older versions, the table below says so.
 
@@ -15,13 +15,13 @@ $ python main.py
 
 | Path | Section | Result |
 | --- | --- | --- |
-| `broken/` | A Python Circular Imports Example | `ImportError` |
+| `broken/` | A Python Circular Import Example | `ImportError` |
 | `step1_remove_dependency/` | Step 1: Remove the Runtime Dependency | `2004.99` on 3.14, `NameError` on 3.13 and earlier |
 | `step2_guard_annotation/` | Step 2: Guard the Type-Only Import | `2004.99` |
-| `workaround1_defer_import/` | 1. Defer Imports to Inside Functions | `1004.99` |
-| `workaround2_bottom_import/` | 2. Move Imports to the Bottom | `1004.99` |
-| `workaround3_attribute_error/` | 3. Change How You Import the Module | `AttributeError` |
-| `workaround3_import_module/` | 3. Change How You Import the Module | `1004.99` |
+| `workaround1_defer_import/` | Defer Imports to Inside Functions | `1004.99` |
+| `workaround2_bottom_import/` | Move Imports to the Bottom | `1004.99` |
+| `workaround3_attribute_error/` | Change How You Import the Module | `AttributeError` |
+| `workaround3_import_module/` | Change How You Import the Module | `1004.99` |
 
 Two folders fail on purpose. `broken/` is the circular import the tutorial sets out to fix, and `workaround3_attribute_error/` shows what happens when a module-level line reaches for a class that isn't defined yet.
 
