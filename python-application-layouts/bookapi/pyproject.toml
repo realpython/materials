@@ -1,0 +1,14 @@
+[build-system]
+requires = ["setuptools>=69"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "bookapi"
+version = "1.0.0"
+description = "A book-catalog API built with FastAPI."
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = ["fastapi==0.149.0", "uvicorn==0.54.0"]
+
+[project.optional-dependencies]
+dev = ["httpx2==2.14.0", "pytest==9.1.1"]

@@ -1,0 +1,16 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>{{ title }} | Portfolio</title>
+</head>
+<body>
+  <nav>
+    <a href="{% url 'projects:index' %}">Projects</a>
+    <a href="{% url 'blog:index' %}">Blog</a>
+    <a href="{% url 'contact:index' %}">Contact</a>
+  </nav>
+  <h1>{{ title }}</h1>
+  {% block content %}{% endblock content %}
+</body>
+</html>
