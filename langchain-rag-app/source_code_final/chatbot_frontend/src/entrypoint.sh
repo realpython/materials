@@ -3,5 +3,5 @@
 # Run any setup steps or pre-processing tasks here
 echo "Starting hospital chatbot frontend..."
 
-# Run the ETL script
+# Start the Streamlit app
 streamlit run main.py
