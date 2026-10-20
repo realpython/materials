@@ -2,8 +2,9 @@
 # statement is compiled on its own, so the two 1001 literals below become two
 # separate objects and x is y is False. In a script, Python compiles the whole
 # module at once and reuses a single 1001 object for both names, so this file
-# prints True where the tutorial prints False. The equality results and the
-# string examples are the same either way.
+# prints True for x is y and False for x is not y, the opposite of the
+# tutorial. The equality results and the string examples are the same either
+# way.
 
 x = 1001
 y = 1001

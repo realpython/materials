@@ -7,7 +7,7 @@ This folder provides the code examples for the Real Python tutorial [Operators a
 The tutorial presents its examples in the interactive REPL. Here, each section
 of the tutorial has its own self-contained script that runs the same code in
 the same order and prints the results. The examples only use the standard
-library, so there's nothing to install. Run any of them with Python 3.14 or
+library, so there's nothing to install. Run any of them with Python 3.8 or
 later:
 
 ```sh
