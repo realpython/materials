@@ -1,6 +1,6 @@
 # MCP vs API Calls: Which Should You Use for Python LLM Apps?
 
-This folder contains the sample code for the Real Python tutorial [MCP vs API Calls: Which Should You Use for Python LLM Apps?](https://realpython.com/mcp-vs-api-calls/).
+This folder contains the sample code for the Real Python tutorial [MCP vs API Calls: Which Should You Use for Python LLM Apps?](https://realpython.com/mcp-vs-api/).
 
 ## Files
 
@@ -14,15 +14,15 @@ This folder contains the sample code for the Real Python tutorial [MCP vs API Ca
 Create a virtual environment and install the dependencies:
 
 ```console
-$ python -m venv tools-venv
-$ source tools-venv/bin/activate
-(tools-venv) $ python -m pip install anthropic "mcp>=2,<3"
+$ python -m venv .venv
+$ source .venv/bin/activate
+(.venv) $ python -m pip install anthropic==1.4.0 mcp==2.1.1
 ```
 
 The examples use the Anthropic client, which requires an API key. Create a key in the [Anthropic Console](https://console.anthropic.com/), scope it to a single workspace, and export it:
 
 ```console
-(tools-venv) $ export ANTHROPIC_API_KEY="your-api-key-here"
+(.venv) $ export ANTHROPIC_API_KEY="your-api-key-here"
 ```
 
 ## Running the examples
@@ -30,14 +30,14 @@ The examples use the Anthropic client, which requires an API key. Create a key i
 Run the direct API calls version:
 
 ```console
-(tools-venv) $ python client_api.py
+(.venv) $ python client_api.py
 The latest version of the Jinja2 package is 3.1.6.
 ```
 
 Run the MCP version:
 
 ```console
-(tools-venv) $ python client.py
+(.venv) $ python client.py
 The latest version of the Jinja2 package is 3.1.6.
 ```
 

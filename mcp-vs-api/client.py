@@ -32,7 +32,7 @@ def ask_model(
 ) -> Message:
     return client.messages.create(
         model=model,
-        max_tokens=1024,
+        max_tokens=2048,
         tools=tools,
         messages=messages,
     )
@@ -45,14 +45,9 @@ async def run_tool(client: Client, block: ToolUseBlock) -> str:
 
 def tool_result(block: ToolUseBlock, output: str) -> dict:
     return {
-        "role": "user",
-        "content": [
-            {
-                "type": "tool_result",
-                "tool_use_id": block.id,
-                "content": output,
-            },
-        ],
+        "type": "tool_result",
+        "tool_use_id": block.id,
+        "content": output,
     }
 
 
@@ -63,15 +58,17 @@ async def main(server: StdioServerParameters) -> None:
         client = anthropic.Anthropic()
         messages = [{"role": "user", "content": QUESTION}]
         response = ask_model(client, messages, tools)
-        for block in response.content:
-            if block.type == "tool_use":
-                messages.append(
-                    {"role": "assistant", "content": response.content}
-                )
-                output = await run_tool(mcp, block)
-                messages.append(tool_result(block, output))
+
+        tool_uses = [b for b in response.content if b.type == "tool_use"]
+        if tool_uses:
+            messages.append({"role": "assistant", "content": response.content})
+            results = [
+                tool_result(b, await run_tool(mcp, b)) for b in tool_uses
+            ]
+            messages.append({"role": "user", "content": results})
+
         final = ask_model(client, messages, tools)
-        print(final.content[0].text)
+        print(next(b.text for b in final.content if b.type == "text"))
 
 
 if __name__ == "__main__":
