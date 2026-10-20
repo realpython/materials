@@ -1,0 +1,2 @@
+mysql-connector-python==26.7.0
+psycopg2-binary==2.9.13
