@@ -1,5 +1,7 @@
 # Generate Images With DALL·E and the OpenAI API
 
+> **Note:** OpenAI [retired DALL·E 2 and DALL·E 3](https://developers.openai.com/api/docs/deprecations) on May 12, 2026, and removed the image variations endpoint along with them. The scripts in this folder no longer run against the OpenAI API. For working code that uses the GPT Image models, see [`generate-images-openai/`](../generate-images-openai/).
+
 Learn to use the OpenAI Python library to create images with DALL·E, a state-of-the-art latent diffusion model. In the associated tutorial on [generating images with DALL·E and the OpenAI API](https://realpython.com/generate-images-with-dalle-openai-api/), you'll explore image creation and generating image variations. You'll learn how to interact with DALL·E using API calls and incorporate this functionality into your Python scripts.
 
 ## Setup
