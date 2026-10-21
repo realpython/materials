@@ -4,7 +4,7 @@ from models import Note, Person, note_schema
 
 
 def read_one(note_id):
-    note = Note.query.get(note_id)
+    note = db.session.get(Note, note_id)
 
     if note is not None:
         return note_schema.dump(note)
@@ -13,7 +13,7 @@ def read_one(note_id):
 
 
 def update(note_id, note):
-    existing_note = Note.query.get(note_id)
+    existing_note = db.session.get(Note, note_id)
 
     if existing_note:
         update_note = note_schema.load(note, session=db.session)
@@ -26,7 +26,7 @@ def update(note_id, note):
 
 
 def delete(note_id):
-    existing_note = Note.query.get(note_id)
+    existing_note = db.session.get(Note, note_id)
 
     if existing_note:
         db.session.delete(existing_note)
@@ -38,7 +38,7 @@ def delete(note_id):
 
 def create(note):
     person_id = note.get("person_id")
-    person = Person.query.get(person_id)
+    person = db.session.get(Person, person_id)
 
     if person:
         new_note = note_schema.load(note, session=db.session)
