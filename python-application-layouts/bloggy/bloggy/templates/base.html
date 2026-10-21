@@ -1,0 +1,15 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>{% block title %}{% endblock %} | Bloggy</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <nav>
+    <a href="{{ url_for('posts.index') }}">Bloggy</a>
+    <a href="{{ url_for('auth.login') }}">Log In</a>
+  </nav>
+  <main>{% block content %}{% endblock %}</main>
+</body>
+</html>
