@@ -1,0 +1,8 @@
+[project]
+name = "hello-jev"
+version = "0.1.0"
+description = "Hello Jev: a train station info desk that routes visitors with a Choice, a Score, and a Noul."
+requires-python = ">=3.14"
+dependencies = [
+    "typesafe-sdk>=0.7.0",
+]
