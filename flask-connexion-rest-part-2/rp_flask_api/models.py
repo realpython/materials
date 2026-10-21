@@ -1,4 +1,4 @@
-from datetime import datetime
+from datetime import datetime, timezone
 
 from config import db, ma
 
@@ -9,7 +9,9 @@ class Person(db.Model):
     lname = db.Column(db.String(32), unique=True)
     fname = db.Column(db.String(32))
     timestamp = db.Column(
-        db.DateTime, default=datetime.utcnow, onupdate=datetime.utcnow
+        db.DateTime,
+        default=lambda: datetime.now(timezone.utc),
+        onupdate=lambda: datetime.now(timezone.utc),
     )
 
 

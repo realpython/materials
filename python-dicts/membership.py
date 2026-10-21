@@ -11,16 +11,16 @@ MLB_teams = {
 
 # Run timeit to compare the membership test
 time_in_dict = timeit.timeit(
-    '"Milwaukee" in MLB_teams', globals=globals(), number=1000000
+    '"Milwaukee" in MLB_teams', globals=globals(), number=1_000_000
 )
 time_in_keys = timeit.timeit(
-    '"Milwaukee" in MLB_teams.keys()', globals=globals(), number=1000000
+    '"Milwaukee" in MLB_teams.keys()', globals=globals(), number=1_000_000
 )
 time_not_in_dict = timeit.timeit(
-    '"Indianapolis" in MLB_teams', globals=globals(), number=1000000
+    '"Indianapolis" in MLB_teams', globals=globals(), number=1_000_000
 )
 time_not_in_keys = timeit.timeit(
-    '"Indianapolis" in MLB_teams.keys()', globals=globals(), number=1000000
+    '"Indianapolis" in MLB_teams.keys()', globals=globals(), number=1_000_000
 )
 
 print(
