@@ -1,0 +1,44 @@
+# MCP vs API Calls: Which Should You Use for Python LLM Apps?
+
+This folder contains the sample code for the Real Python tutorial [MCP vs API Calls: Which Should You Use for Python LLM Apps?](https://realpython.com/mcp-vs-api/).
+
+## Files
+
+- `tool.py`: the PyPI lookup function that both approaches share, written with the standard library only.
+- `client_api.py`: the direct API calls integration, which declares the tool schema by hand.
+- `server.py`: the MCP server, which exposes the tool through the `mcp` SDK.
+- `client.py`: the MCP client, which discovers and calls the tool through the server.
+
+## Setup
+
+Create a virtual environment and install the dependencies:
+
+```console
+$ python -m venv .venv
+$ source .venv/bin/activate
+(.venv) $ python -m pip install anthropic==1.4.0 mcp==2.1.1
+```
+
+The examples use the Anthropic client, which requires an API key. Create a key in the [Anthropic Console](https://console.anthropic.com/), scope it to a single workspace, and export it:
+
+```console
+(.venv) $ export ANTHROPIC_API_KEY="your-api-key-here"
+```
+
+## Running the examples
+
+Run the direct API calls version:
+
+```console
+(.venv) $ python client_api.py
+The latest version of the Jinja2 package is 3.1.6.
+```
+
+Run the MCP version:
+
+```console
+(.venv) $ python client.py
+The latest version of the Jinja2 package is 3.1.6.
+```
+
+You only run `client.py`. It launches `server.py` as a subprocess and talks to it over standard I/O, so you never start the server yourself.
