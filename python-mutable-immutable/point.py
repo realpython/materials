@@ -23,7 +23,7 @@ class Coordinate:
         return instance.__dict__[f"_{self._name}"]
 
     def __set__(self, instance, value):
-        raise AttributeError(f"can't set attribute {self._name}")
+        raise AttributeError(f"can't set attribute '{self._name}'")
 
 
 class Point:
