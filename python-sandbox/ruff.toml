@@ -1,0 +1,6 @@
+extend = "../pyproject.toml"
+
+[format]
+# Keep the tutorial's nested same-quote f-string (PEP 701) in compare.py
+# as published, instead of normalizing its inner quotes.
+quote-style = "preserve"
