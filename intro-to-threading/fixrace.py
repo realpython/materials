@@ -30,10 +30,8 @@ if __name__ == "__main__":
     # logging.getLogger().setLevel(logging.DEBUG)
 
     database = FakeDatabase()
-    logging.info(
-        "Testing locked update. Starting value is %d.", database.value
-    )
+    logging.info("Testing update. Starting value is %d.", database.value)
     with concurrent.futures.ThreadPoolExecutor(max_workers=2) as executor:
         for index in range(2):
             executor.submit(database.locked_update, index)
-    logging.info("Testing locked update. Ending value is %d.", database.value)
+    logging.info("Testing update. Ending value is %d.", database.value)
