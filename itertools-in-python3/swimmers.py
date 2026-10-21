@@ -16,15 +16,10 @@ def sort_and_group(iterable, key=None):
     return it.groupby(sorted(iterable, key=key), key=key)
 
 
-def grouper(iterable, n, fillvalue=None):
-    iters = [iter(iterable)] * n
-    return it.zip_longest(*iters, fillvalue=fillvalue)
-
-
 def read_events(csvfile, _strptime=datetime.datetime.strptime):
     def _median(times):
         return statistics.median(
-            (_strptime(time, "%M:%S:%f").time() for time in row["Times"])
+            (_strptime(time, "%M:%S:%f").time() for time in times)
         )
 
     fieldnames = ["Event", "Name", "Stroke"]
@@ -41,9 +36,7 @@ for stroke, evts in sort_and_group(events, key=lambda evt: evt.stroke):
     events_by_name = sort_and_group(evts, key=lambda evt: evt.name)
     best_times = (min(evt) for _, evt in events_by_name)
     sorted_by_time = sorted(best_times, key=lambda evt: evt.time)
-    teams = zip(
-        ("A", "B"), it.islice(grouper(sorted_by_time, 4), 2), strict=False
-    )
+    teams = zip(("A", "B"), it.batched(sorted_by_time, 4), strict=False)
     for team, swimmers in teams:
         print(
             "{stroke} {team}: {names}".format(
