@@ -24,7 +24,8 @@ except SyntaxError as error:
 
 print("3. Locked-down container:")
 result = run_untrusted(HOSTILE)
-if result["exit_code"] == 0:
-    print(result["stdout"].strip())
+exit_code, stdout, stderr = result.values()
+if exit_code == 0:
+    print(stdout.strip())
 else:
-    print(f"Sandbox failed ({result["exit_code"]}): {result["stderr"]}")
+    print(f"Sandbox failed ({exit_code}): {stderr}")
