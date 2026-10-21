@@ -17,7 +17,7 @@ authors = [
     { name = "Bartosz Zaczyński", email = "bartosz@realpython.com" },
 ]
 dependencies = [
-    "selenium",
+    "selenium==4.50.0",
 ]
 [project.scripts]
 discover = "bandcamp.__main__:main"
