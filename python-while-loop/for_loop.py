@@ -1,11 +1,11 @@
 requests = ["first request", "second request", "third request"]
 
-print("\nWith a for-loop")
+print("\nWith a for loop")
 for request in requests:
     print(f"Handling {request}")
 
 
-print("\nWith a while-loop")
+print("\nWith a while loop")
 it = iter(requests)
 while True:
     try:
