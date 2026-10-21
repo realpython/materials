@@ -1,0 +1,3 @@
+[db]
+host = "localhost"
+timeout = 30
