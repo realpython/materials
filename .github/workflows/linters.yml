@@ -21,16 +21,16 @@ jobs:
           - {name: Linux314, python: '3.14.0', os: ubuntu-latest}
     steps:
     - name: Check out repository
-      uses: actions/checkout@v2
+      uses: actions/checkout@v4
 
     - name: Set up Python
-      uses: actions/setup-python@v2
+      uses: actions/setup-python@v5
       with:
         python-version: ${{ matrix.python }}
 
     - name: Restore cache
       id: cache
-      uses: actions/cache@v3
+      uses: actions/cache@v4
       with:
         path: ./venv
         key: ${{ matrix.name }}-v1-pip-${{ hashFiles('requirements.txt') }}
