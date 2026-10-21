@@ -6,7 +6,8 @@ from codetiming import Timer
 
 async def task(name, work_queue):
     timer = Timer(text=f"Task {name} elapsed time: {{:.1f}}")
-    async with aiohttp.ClientSession() as session:
+    # default max_field_size=8190 is too low for Twitter's content-security-policy Header
+    async with aiohttp.ClientSession(max_field_size=16380) as session:
         while not work_queue.empty():
             url = await work_queue.get()
             print(f"Task {name} getting URL: {url}")
