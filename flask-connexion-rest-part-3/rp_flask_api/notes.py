@@ -20,7 +20,7 @@ def update(note_id, note):
         existing_note.content = update_note.content
         db.session.merge(existing_note)
         db.session.commit()
-        return note_schema.dump(existing_note), 201
+        return note_schema.dump(existing_note)
     else:
         abort(404, f"Note with ID {note_id} not found")
 
