@@ -10,7 +10,8 @@ exclude = [
     "python315-frozendict/",
     "python315-lazy-imports",
     "python315-new-features",
-    "ai-benchmark"
+    "ai-benchmark",
+    "python-debugging-pdb"
 ]
 
 [tool.ruff.lint]
