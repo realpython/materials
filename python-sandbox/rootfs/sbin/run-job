@@ -1,0 +1,10 @@
+#!/bin/sh
+mount -t proc proc /proc
+mount -t devtmpfs devtmpfs /dev 2>/dev/null
+mount -t tmpfs tmpfs /tmp
+mount -o ro /dev/vdb /job
+echo "===JOB-START==="
+setpriv --reuid=65534 --regid=65534 --clear-groups \
+    /usr/local/bin/python /job/main.py
+echo "===JOB-END=== $?"
+echo b > /proc/sysrq-trigger
