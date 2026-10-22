@@ -2,11 +2,7 @@
 
 import csv
 import random
-
-try:
-    from importlib import resources
-except ImportError:
-    import importlib_resources as resources
+from importlib import resources
 
 
 def read_population_file(year, variant="Medium"):
@@ -14,9 +10,8 @@ def read_population_file(year, variant="Medium"):
     population = {}
 
     print(f"Reading population data for {year}, {variant} scenario")
-    with resources.open_text(
-        "data", "WPP2019_TotalPopulationBySex.csv"
-    ) as fid:
+    csv_file = resources.files("data") / "WPP2024_TotalPopulationBySex.csv"
+    with csv_file.open() as fid:
         rows = csv.DictReader(fid)
 
         # Read data, filter the correct year
@@ -67,7 +62,7 @@ def run_quiz(population, num_questions, num_countries):
 
 def main():
     """Read population data and run quiz"""
-    population = read_population_file("2020")
+    population = read_population_file("2024")
     num_correct = run_quiz(population, num_questions=10, num_countries=3)
     print(f"\nYou answered {num_correct} questions correctly")
 
