@@ -38,7 +38,7 @@ def update(lname, person):
         existing_person.fname = update_person.fname
         db.session.merge(existing_person)
         db.session.commit()
-        return person_schema.dump(existing_person), 201
+        return person_schema.dump(existing_person)
     else:
         abort(404, f"Person with last name {lname} not found")
 
