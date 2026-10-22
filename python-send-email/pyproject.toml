@@ -5,8 +5,11 @@ description = "Source files supporting 'Sending Emails With Python' tutorial on 
 readme = "README.md"
 requires-python = ">=3.12"
 dependencies = [
-    "aiosmtpd>=1.4.6",
+    "aiosmtpd==1.4.6",
+    "proton-mail-bridge-client==1.0.1",
     "ruff>=0.15.9",
+    "sendgrid==6.12.5",
+    "yagmail[all]==0.16.0",
 ]
 
 [dependency-groups]
