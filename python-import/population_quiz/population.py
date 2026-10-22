@@ -8,21 +8,13 @@ import matplotlib.pyplot as plt
 
 class _Population:
     def __init__(self):
-        """Prepare to read the population file"""
-        self._data = {}
+        """Read the population file"""
+        self.data = {}
         self.variant = "Medium"
 
-    @property
-    def data(self):
-        """Read data from disk"""
-        if self._data:  # Data has already been read, return it directly
-            return self._data
-
-        # Read data and store it in self._data
         print(f"Reading population data for {self.variant} scenario")
-        with resources.open_text(
-            "data", "WPP2019_TotalPopulationBySex.csv"
-        ) as fid:
+        csv_file = resources.files("data") / "WPP2024_TotalPopulationBySex.csv"
+        with csv_file.open() as fid:
             rows = csv.DictReader(fid)
 
             # Read data, filter the correct variant
@@ -30,15 +22,14 @@ class _Population:
                 if int(row["LocID"]) >= 900 or row["Variant"] != self.variant:
                     continue
 
-                country = self._data.setdefault(row["Location"], {})
+                country = self.data.setdefault(row["Location"], {})
                 population = float(row["PopTotal"]) * 1000
                 country[int(row["Time"])] = round(population)
-        return self._data
 
     def get_country(self, country):
         """Get population data for one country"""
-        country = self.data[country]
-        years, population = zip(*country.items(), strict=False)
+        data = self.data[country]
+        years, population = zip(*data.items())
         return years, population
 
     def plot_country(self, country):
@@ -52,5 +43,5 @@ class _Population:
         return sorted(countries, key=lambda c: countries[c], reverse=True)
 
 
-# Instantiate the singleton
+# Instantiate the Singleton
 data = _Population()
