@@ -3,6 +3,7 @@
 # dependencies = ["openai==3.35.1"]
 # ///
 import json
+import re
 import sys
 from pathlib import Path
 
@@ -14,19 +15,56 @@ STORE = Path("memories.json")
 memories = json.loads(STORE.read_text()) if STORE.exists() else {}
 
 
-def save_memory(text):
-    memories[str(max(map(int, memories), default=0) + 1)] = text
+def save_memory(text, tags):
+    new_id = str(max(map(int, memories), default=0) + 1)
+    memories[new_id] = {"text": text, "tags": _parse_tags(tags)}
     return "saved"
 
 
+def _parse_tags(tags):
+    return sorted(
+        {tag.strip().lower() for tag in tags.split(",") if tag.strip()}
+    )
+
+
 def search_memory(query):
-    return json.dumps(memories)  # Tiny store: return everything
+    query_words = _words(query)
+    matches = {
+        id: memory
+        for id, memory in memories.items()
+        if query_words
+        & (_words(memory["text"]) | _words(" ".join(memory["tags"])))
+    }
+    return json.dumps(matches)
 
 
-def update_memory(id, text):
+STOP_WORDS = {
+    "a",
+    "an",
+    "and",
+    "are",
+    "do",
+    "i",
+    "is",
+    "me",
+    "my",
+    "of",
+    "the",
+    "to",
+    "user",
+    "what",
+    "where",
+}
+
+
+def _words(text):
+    return set(re.findall(r"[a-z0-9]+", text.lower())) - STOP_WORDS
+
+
+def update_memory(id, text, tags):
     if id not in memories:
         return "not found"
-    memories[id] = text
+    memories[id] = {"text": text, "tags": _parse_tags(tags)}
     return "updated"
 
 
@@ -61,21 +99,37 @@ TOOLS = {
     for f in (save_memory, search_memory, update_memory, delete_memory)
 }
 SPECS = [
-    spec(save_memory, "Store a durable fact about the user.", "text"),
-    spec(search_memory, "Read the stored memories.", "query"),
-    spec(update_memory, "Replace an outdated memory.", "id", "text"),
+    spec(
+        save_memory,
+        "Store a fact with comma-separated topic tags.",
+        "text",
+        "tags",
+    ),
+    spec(
+        search_memory,
+        "Search memories by topic or keywords, such as location or preferences.",
+        "query",
+    ),
+    spec(
+        update_memory,
+        "Replace a memory and its comma-separated tags.",
+        "id",
+        "text",
+        "tags",
+    ),
     spec(delete_memory, "Delete a wrong or unneeded memory.", "id"),
 ]
 
 if len(sys.argv) != 2:
-    sys.exit('Usage: uv run long_term.py "Your message"')
+    sys.exit('Usage: uv run managed_memory.py "Your message"')
 
 messages = [
     {
         "role": "system",
         "content": "You have long-term memory tools. Decide yourself "
-        "when to save, search, update, or delete memories. Search first to get "
-        "ids before you update or delete. Answer briefly.",
+        "when to save, search, update, or delete memories. Give each memory "
+        "topic tags, such as location or preferences. Search by topic first "
+        "to get ids before you update or delete. Answer briefly.",
     },
     {"role": "user", "content": sys.argv[1]},
 ]
