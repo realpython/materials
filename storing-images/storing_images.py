@@ -278,7 +278,7 @@ def plot_with_legend(
     x_label         x axis label
     y_label         y axis label
     """
-    plt.style.use("seaborn-whitegrid")
+    plt.style.use("seaborn-v0_8-whitegrid")
     plt.figure(figsize=(10, 7))
 
     if len(y_data) != len(legend_labels):
