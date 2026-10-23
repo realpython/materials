@@ -126,7 +126,7 @@ if len(sys.argv) != 2:
 messages = [
     {
         "role": "system",
-        "content": "You have long-term memory tools. Decide yourself "
+        "content": "You have tools to manage your own long-term memory. Decide "
         "when to save, search, update, or delete memories. Give each memory "
         "topic tags, such as location or preferences. Search by topic first "
         "to get ids before you update or delete. Answer briefly.",
