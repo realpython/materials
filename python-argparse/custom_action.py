@@ -7,10 +7,10 @@ class VerboseStore(argparse.Action):
         setattr(namespace, self.dest, values)
 
 
-arg_parser = argparse.ArgumentParser()
+parser = argparse.ArgumentParser()
 
-arg_parser.add_argument("-n", "--name", action=VerboseStore)
+parser.add_argument("-n", "--name", action=VerboseStore)
 
-args = arg_parser.parse_args()
+args = parser.parse_args()
 
 print(args)
