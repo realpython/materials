@@ -10,6 +10,7 @@ exclude = [
     "python315-frozendict/",
     "python315-lazy-imports",
     "python315-new-features",
+    "hashtable",
     "ai-benchmark",
     "python-debugging-pdb"
 ]

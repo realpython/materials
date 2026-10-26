@@ -1,5 +1,6 @@
 # hashtable.py
 
+import copy
 from typing import Any, NamedTuple
 
 
@@ -46,7 +47,7 @@ class HashTable:
 
     @property
     def pairs(self):
-        return [pair for pair in self._pairs if pair]
+        return copy.deepcopy([pair for pair in self._pairs if pair])
 
     def _index(self, key):
         return hash(key) % len(self)
