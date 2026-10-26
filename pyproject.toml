@@ -9,7 +9,10 @@ exclude = [
     "agents-md/run1_main.py",
     "python315-frozendict/",
     "python315-lazy-imports",
-    "ai-benchmark"
+    "python315-new-features",
+    "hashtable",
+    "ai-benchmark",
+    "python-debugging-pdb"
 ]
 
 [tool.ruff.lint]

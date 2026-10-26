@@ -80,7 +80,7 @@ String category values:
 Test results are one of: 'Inconclusive', 'Normal', 'Abnormal'
 Visit statuses are one of: 'OPEN', 'DISCHARGED'
 Admission Types are one of: 'Elective', 'Emergency', 'Urgent'
-Payer names are one of: 'Cigna', 'Blue Cross', 'UnitedHealthcare', 'Medicare',
+Payer names are one of: 'Cigna', 'Blue Cross', 'UnitedHealthcare', 'Medicaid',
 'Aetna'
 
 A visit is considered open if its status is 'OPEN' and the discharge date is

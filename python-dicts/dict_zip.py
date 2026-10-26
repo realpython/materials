@@ -1,4 +1,18 @@
-cities = ["Colorado", "Chicago", "Boston", "Minnesota", "Milwaukee", "Seattle"]
-teams = ["Rockies", "White Sox", "Red Sox", "Twins", "Brewers", "Mariners"]
+places = [
+    "Colorado",
+    "Chicago",
+    "Boston",
+    "Minnesota",
+    "Milwaukee",
+    "Seattle",
+]
+teams = [
+    "Rockies",
+    "White Sox",
+    "Red Sox",
+    "Twins",
+    "Brewers",
+    "Mariners",
+]
 
-print(dict(zip(cities, teams, strict=False)))
+print(dict(zip(places, teams)))
