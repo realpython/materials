@@ -1,0 +1,7 @@
+.env*
+!.env.example
+.venv/
+__pycache__/
+**/results/*
+.deepeval
+!.gitkeep
