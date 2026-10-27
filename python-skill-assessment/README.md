@@ -4,7 +4,7 @@ This folder contains the materials for the Real Python tutorial [Python Skill As
 
 - `python-skill-assessment-worksheet.md`: The blank worksheet to fill in
 - `python-skill-assessment-worksheet-example.md`: A filled-in example worksheet
-- `probes/`: One short code probe for each level of the Python Skill Test
+- `probes/`: One short code probe for each level, covering the topics that the Python Skill Test doesn't ask about
 
 To check a rating, predict a probe's output, and then run it:
 

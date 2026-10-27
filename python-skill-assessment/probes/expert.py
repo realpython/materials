@@ -1,22 +1,19 @@
-class Base:
-    def setup(self):
-        return ["base"]
+class Registry(type):
+    names = []
+
+    def __new__(mcs, name, bases, namespace):
+        cls = super().__new__(mcs, name, bases, namespace)
+        Registry.names.append(name)
+        return cls
 
 
-class Logging(Base):
-    def setup(self):
-        return super().setup() + ["logging"]
+class Plugin(metaclass=Registry):
+    pass
 
 
-class Metrics(Base):
-    def setup(self):
-        return super().setup() + ["metrics"]
+class CSVExport(Plugin):
+    pass
 
 
-class Service(Metrics, Logging):
-    def setup(self):
-        return super().setup() + ["service"]
-
-
-print(Service().setup())
-print([cls.__name__ for cls in Service.__mro__])
+print(Registry.names)
+print(type(CSVExport).__name__)

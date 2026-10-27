@@ -1,8 +1,14 @@
-def evens_below(n):
-    for number in range(n):
-        if number % 2 == 0:
-            yield number
+def shout(func):
+    def wrapper(name):
+        return func(name).upper() + "!"
+
+    return wrapper
 
 
-print(list(evens_below(7)))
-print(list(evens_below(0)))
+@shout
+def greet(name):
+    return f"hello, {name}"
+
+
+print(greet("ada"))
+print(greet.__name__)

@@ -1,9 +1,8 @@
-words = ["apple", "kiwi", "banana", "fig"]
+import json
+from collections import Counter
 
-long_words = []
-for word in words:
-    if len(word) > 3:
-        long_words.append(word.upper())
+words = "the cat and the hat and the bat".split()
+counts = Counter(words)
 
-print(long_words)
-print(long_words == [word.upper() for word in words if len(word) > 3])
+print(counts.most_common(2))
+print(json.dumps(counts.most_common(1)))
