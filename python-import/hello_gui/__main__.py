@@ -1,26 +1,23 @@
 # hello_gui/__main__.py
 
 import tkinter as tk
+from importlib import resources
 from tkinter import ttk
-
-try:
-    from importlib import resources
-except ImportError:
-    import importlib_resources as resources
 
 
 class Hello(tk.Tk):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         self.wm_title("Hello")
+        images = resources.files("hello_gui.gui_resources")
 
         # Read image, store a reference to it, and set it as an icon
-        with resources.path("hello_gui.gui_resources", "logo.png") as path:
+        with resources.as_file(images / "logo.png") as path:
             self._icon = tk.PhotoImage(file=path)
         self.iconphoto(True, self._icon)
 
         # Read image, create a button, and store a reference to the image
-        with resources.path("hello_gui.gui_resources", "hand.png") as path:
+        with resources.as_file(images / "hand.png") as path:
             hand = tk.PhotoImage(file=path)
         button = ttk.Button(
             self,

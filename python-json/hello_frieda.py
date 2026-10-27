@@ -35,5 +35,5 @@ dog_data = {
     ],
 }
 
-with open("hello_frieda.json", mode="w") as write_file:
+with open("hello_frieda.json", mode="w", encoding="utf-8") as write_file:
     json.dump(dog_data, write_file)

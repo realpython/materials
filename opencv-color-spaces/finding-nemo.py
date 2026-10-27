@@ -15,7 +15,7 @@ from mpl_toolkits.mplot3d import Axes3D  # noqa
 flags = [i for i in dir(cv2) if i.startswith("COLOR_")]
 print(len(flags), "flags total:")
 
-print(flags[40])
+print(flags[84])
 
 # Let's look at our fish image
 

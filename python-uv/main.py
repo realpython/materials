@@ -1,11 +1,15 @@
 import argparse
+import os
 import sys
 
 import requests
 
 
 def get_breeds_info():
-    response = requests.get("https://api.thecatapi.com/v1/breeds")
+    response = requests.get(
+        "https://api.thecatapi.com/v1/breeds",
+        headers={"x-api-key": os.environ.get("CAT_API_KEY", "")},
+    )
     response.raise_for_status()
     return response.json()
 

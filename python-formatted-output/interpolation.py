@@ -1,5 +1,5 @@
-# print(f'Hello, Pythonista!')
 # print(f"Hello, Pythonista!")
+# print(F"Hello, Pythonista!")
 
 # print(f'Single-line f-string with single quotes')
 # print(f"Single-line f-string with double quotes")
@@ -22,8 +22,8 @@ print(f"{quantity} {item} cost ${price * quantity}")
 
 fruits = ["apple", "mango", "grape"]
 numbers = {"one": 1, "two": 2}
-print(f"First fruit in list is '{fruits[0]}'")
-print(f"Last two fruits in list are {fruits[-2:]}")
+print(f"First fruit in the list is '{fruits[0]}'")
+print(f"Last two fruits in the list are {fruits[-2:]}")
 print(f"Dict value for key 'one' is {numbers['one']}")
 
 lang = "Python"
@@ -43,4 +43,10 @@ print(
 
 print("{x} {y} {z}".format(x="foo", y="bar", z="baz"))
 
-print("{x} {y} {z}".format(x="foo", y="bar", z="baz"))
+print("{x} {y} {z}".format(y="bar", z="baz", x="foo"))
+print("{y} {z} {x}".format(x="foo", y="bar", z="baz"))
+
+x = "foo"
+y = "bar"
+z = "baz"
+print("{0} {1} {s}".format(x, y, s=z))

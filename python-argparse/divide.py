@@ -1,10 +1,10 @@
 import argparse
 
-arg_parser = argparse.ArgumentParser()
+parser = argparse.ArgumentParser()
 
-arg_parser.add_argument("--dividend", type=float)
-arg_parser.add_argument("--divisor", type=float)
+parser.add_argument("--dividend", type=int)
+parser.add_argument("--divisor", type=int)
 
-args = arg_parser.parse_args()
+args = parser.parse_args()
 
 print(args.dividend / args.divisor)

@@ -1,36 +1,30 @@
-#!/usr/bin/env python3
-# rand.py
-
 import asyncio
 import random
 
-# colors
-c = (
-    "\033[0m",  # end of color
-    "\033[36m",  # cyan
-    "\033[91m",  # red
-    "\033[35m",  # magenta
+COLORS = (
+    "\033[0m",  # End of color
+    "\033[36m",  # Cyan
+    "\033[91m",  # Red
+    "\033[35m",  # Magenta
 )
 
 
-async def randint(a: int, b: int) -> int:
-    return random.randint(a, b)
-
-
-async def makerandom(idx: int, threshold: int = 6) -> int:
-    print(c[idx + 1] + f"Initiated makerandom({idx}).")
-    i = await randint(0, 10)
-    while i <= threshold:
-        print(c[idx + 1] + f"makerandom({idx}) == {i} too low; retrying.")
-        await asyncio.sleep(idx + 1)
-        i = await randint(0, 10)
-    print(c[idx + 1] + f"---> Finished: makerandom({idx}) == {i}" + c[0])
-    return i
-
-
 async def main():
-    res = await asyncio.gather(*(makerandom(i, 10 - i - 1) for i in range(3)))
-    return res
+    return await asyncio.gather(
+        makerandom(1, 9),
+        makerandom(2, 8),
+        makerandom(3, 8),
+    )
+
+
+async def makerandom(delay, threshold=6):
+    color = COLORS[delay]
+    print(f"{color}Initiated makerandom({delay}).")
+    while (number := random.randint(0, 10)) <= threshold:
+        print(f"{color}makerandom({delay}) == {number} too low; retrying.")
+        await asyncio.sleep(delay)
+    print(f"{color}---> Finished: makerandom({delay}) == {number}" + COLORS[0])
+    return number
 
 
 if __name__ == "__main__":

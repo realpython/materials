@@ -1,0 +1,26 @@
+[
+  {
+    "isbn": "978-1775093329",
+    "title": "Python Basics: A Practical Introduction to Python 3",
+    "author": "Real Python",
+    "price": "39.99"
+  },
+  {
+    "isbn": "978-1775093305",
+    "title": "Python Tricks: A Buffet of Awesome Python Features",
+    "author": "Dan Bader",
+    "price": "29.99"
+  },
+  {
+    "isbn": "978-1775093312",
+    "title": "Managing Python Dependencies",
+    "author": "Dan Bader",
+    "price": "24.99"
+  },
+  {
+    "isbn": "978-1775093350",
+    "title": "CPython Internals: Your Guide to the Python 3 Interpreter",
+    "author": "Anthony Shaw",
+    "price": "54.99"
+  }
+]

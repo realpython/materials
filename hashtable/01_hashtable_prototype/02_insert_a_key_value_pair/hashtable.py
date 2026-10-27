@@ -1,6 +1,6 @@
 # hashtable.py
 
-BLANK = object()
+BLANK = sentinel("BLANK")
 
 
 class HashTable:

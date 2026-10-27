@@ -7,7 +7,7 @@ This folder contains the materials for the tutorial [Hugging Face Transformers: 
 Create and activate a virtual environment, and then install the required dependencies:
 
 ```sh
-(venv) $ python -m pip install transformers torch pillow notebook ipywidgets
+(venv) $ python -m pip install transformers==5.19.0 torch==2.14.1 pillow==12.3.0 notebook==7.6.3 ipywidgets==8.1.9
 ```
 
 Alternatively, if you use [Poetry](https://realpython.com/dependency-management-python-poetry/), then you can issue the following command to handle the installation process for you:

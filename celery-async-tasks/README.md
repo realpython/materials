@@ -3,9 +3,11 @@
 Example project for integrating Celery and Redis into a Django application.
 This repository holds the code for the Real Python [Asynchronous Tasks With Django and Celery](https://realpython.com/asynchronous-tasks-with-django-and-celery/) tutorial.
 
-## Setup (macOS)
+## Setup
 
-To try the project, set up a virtual environment and install the listed dependencies:
+The project targets Linux and macOS. Celery doesn't support Windows.
+
+To try the project, set up a virtual environment with Python 3.12 or newer and install the listed dependencies:
 
 ```sh
 $ python -m venv venv
@@ -13,7 +15,16 @@ $ source venv/bin/activate
 (venv) $ python -m pip install -r requirements.txt
 ```
 
-You'll also need to install Redis on your system:
+You'll also need to install Redis on your system.
+
+On Linux (Debian or Ubuntu):
+
+```sh
+$ sudo apt update
+$ sudo apt install redis
+```
+
+On macOS with [Homebrew](https://brew.sh/):
 
 ```sh
 $ brew install redis
@@ -46,4 +57,4 @@ $ redis-server
 (venv) $ python -m celery -A django_celery worker -l info
 ```
 
-When all three processes are running, you can go to `localhost:8000/` and submit a feedback response. Celery will simulate a work-intensive process and send an email at the end of it. You'll see the email message show up in the log stream on the terminal window where the Celery worker is running.
+When all three processes are running, you can go to `http://localhost:8000/` and submit a feedback response. Celery will simulate a work-intensive process and send an email at the end of it. You'll see the email message show up in the log stream on the terminal window where the Celery worker is running.

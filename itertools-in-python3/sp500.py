@@ -44,12 +44,12 @@ def read_prices(csvfile, _strptime=datetime.strptime):
 prices = tuple(read_prices("SP500.csv"))
 gains = tuple(
     DataPoint(day.date, 100 * (day.value / prev_day.value - 1.0))
-    for day, prev_day in zip(prices[1:], prices, strict=False)
+    for prev_day, day in it.pairwise(prices)
 )
 
 # Find maximum daily gain/loss.
 zdp = DataPoint(None, 0)  # zero DataPoint
-max_gain = ft.reduce(max, it.filterfalse(lambda p: p <= zdp, gains))
+max_gain = ft.reduce(max, it.filterfalse(lambda p: p <= zdp, gains), zdp)
 max_loss = ft.reduce(min, it.filterfalse(lambda p: p > zdp, gains), zdp)
 
 

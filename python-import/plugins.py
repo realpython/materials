@@ -45,7 +45,7 @@ def _import(package, plugin):
 
 def _import_all(package):
     """Import all plugins in a package"""
-    files = resources.contents(package)
+    files = [path.name for path in resources.files(package).iterdir()]
     plugins = [f[:-3] for f in files if f.endswith(".py") and f[0] != "_"]
     for plugin in plugins:
         _import(package, plugin)

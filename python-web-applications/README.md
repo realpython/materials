@@ -22,15 +22,14 @@ Start the Flask server:
 
 ```shell
 (venv) $ python main.py
- * Serving Flask app "main" (lazy loading)
- * Environment: production
-   WARNING: This is a development server. Do not use it in a production deployment.
-   Use a production WSGI server instead.
+ * Serving Flask app 'main'
  * Debug mode: on
- * Running on http://127.0.0.1:8080/ (Press CTRL+C to quit)
+WARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.
+ * Running on http://127.0.0.1:8080
+Press CTRL+C to quit
  * Restarting with stat
  * Debugger is active!
- * Debugger PIN: 339-986-221
+ * Debugger PIN: 936-229-353
 ```
 
 Navigate your web browser to this address: <http://127.0.0.1:8080/>

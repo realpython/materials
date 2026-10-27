@@ -1,0 +1,5 @@
+h5py==3.16.0
+lmdb==3.0.0
+matplotlib==3.11.2
+numpy==2.5.3
+Pillow==12.3.0
