@@ -1,22 +1,22 @@
-class BaseView:
-    def handle(self):
+class Base:
+    def setup(self):
         return ["base"]
 
 
-class AuthMixin(BaseView):
-    def handle(self):
-        return ["auth"] + super().handle()
+class Logging(Base):
+    def setup(self):
+        return super().setup() + ["logging"]
 
 
-class CacheMixin(BaseView):
-    def handle(self):
-        return ["cache"] + super().handle()
+class Metrics(Base):
+    def setup(self):
+        return super().setup() + ["metrics"]
 
 
-class ReportView(AuthMixin, CacheMixin):
-    def handle(self):
-        return ["report"] + super().handle()
+class Service(Metrics, Logging):
+    def setup(self):
+        return super().setup() + ["service"]
 
 
-print(ReportView().handle())
-print([cls.__name__ for cls in ReportView.__mro__])
+print(Service().setup())
+print([cls.__name__ for cls in Service.__mro__])

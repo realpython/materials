@@ -1,8 +1,9 @@
-numbers = range(5)
+words = ["apple", "kiwi", "banana", "fig"]
 
-squares = []
-for n in numbers:
-    squares.append(n * n)
+long_words = []
+for word in words:
+    if len(word) > 3:
+        long_words.append(word.upper())
 
-assert squares == [n * n for n in numbers]
-print(squares)
+print(long_words)
+print(long_words == [word.upper() for word in words if len(word) > 3])

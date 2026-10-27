@@ -1,6 +1,8 @@
-def count_up_to(n):
-    yield from range(1, n + 1)
+def evens_below(n):
+    for number in range(n):
+        if number % 2 == 0:
+            yield number
 
 
-print(list(count_up_to(3)))
-print(list(count_up_to(0)))
+print(list(evens_below(7)))
+print(list(evens_below(0)))

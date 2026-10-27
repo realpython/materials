@@ -32,7 +32,7 @@ The "Quiz question" column names the question in the Real Python [Python Skill T
 | tell mutable types (`list`) from immutable ones (`tuple`, `str`, `frozenset`). |  | Mutable Objects |  |
 | explain that dictionary keys must be hashable and that insertion order is kept since Python 3.7. |  | Dictionary Facts |  |
 | read and write list comprehensions, including an `if` filter, and rewrite them as a `for` loop. |  | Understanding List Comprehensions |  |
-| use the standard library's common modules, such as `pathlib`, `collections`, and `json`, before reaching for third-party packages. |  | Beyond the quiz |  |
+| use the standard library's common modules, such as `pathlib`, `collections`, `itertools`, and `json`, before reaching for third-party packages. |  | Beyond the quiz |  |
 
 ### Proficient (Quiz score 8-11)
 
