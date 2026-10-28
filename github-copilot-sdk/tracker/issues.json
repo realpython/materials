@@ -1,0 +1,12 @@
+[
+  {"id": 1, "title": "Crash when config file is missing",
+   "status": "open", "labels": ["bug"], "assignee": "ana"},
+  {"id": 2, "title": "Add --verbose flag",
+   "status": "open", "labels": ["enhancement"], "assignee": null},
+  {"id": 3, "title": "Typo in README",
+   "status": "closed", "labels": ["docs"], "assignee": "ben"},
+  {"id": 4, "title": "Slow startup on Windows",
+   "status": "open", "labels": ["bug", "performance"], "assignee": "ana"},
+  {"id": 5, "title": "Wrong exit code after a failed sync",
+   "status": "open", "labels": ["bug"], "assignee": "ben"}
+]
