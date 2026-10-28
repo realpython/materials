@@ -18,7 +18,7 @@ print(len(tracks))
 print(tracks[0].text)
 
 track_1 = tracks[0]
-album = track_1.find_element(By.CSS_SELECTOR, "div.meta a strong")
+album = track_1.find_element(By.CSS_SELECTOR, "div.title")
 print(album.text)
 
 driver.quit()

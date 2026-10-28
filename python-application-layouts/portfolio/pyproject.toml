@@ -1,0 +1,7 @@
+[project]
+name = "portfolio"
+version = "1.0.0"
+description = "A personal portfolio site built with Django."
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = ["django==6.1.2"]

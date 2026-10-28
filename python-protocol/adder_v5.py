@@ -1,8 +1,8 @@
 from typing import Protocol
 
 
-class Adder(Protocol):
-    def add[T: int | float | str](self, x: T, y: T) -> T: ...
+class Adder[T: int | float | str](Protocol):
+    def add(self, x: T, y: T) -> T: ...
 
 
 class IntAdder:

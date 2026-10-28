@@ -1,0 +1,14 @@
+schema: spec-driven
+
+context: |
+  Small personal CLI tool, standard library only.
+  Tests use pytest with injected dates.
+  Check-in and streak rules are product decisions,
+  not implementation details.
+
+rules:
+  proposal:
+    - Keep proposals under 300 words
+    - Call out any existing behavior that the change modifies or removes
+  specs:
+    - Prefer two or three scenarios per requirement

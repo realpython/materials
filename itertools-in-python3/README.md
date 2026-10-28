@@ -28,7 +28,7 @@ Alternatively, you can download the entire repository as a `.zip` file from the 
 
 ## Running the Code Examples
 
-To run the code examples, first make sure you have Python 3 installed on your machine. **The code examples WILL NOT work with Python 2.** If you need help installing Python 3, check out Real Python's [Python 3 Installation & Setup Guide](https://realpython.com/installing-python/).
+To run the code examples, first make sure you have Python 3.12 or later installed on your machine, since `swimmers.py` uses `itertools.batched()`. If you need help installing Python 3, check out Real Python's [Python 3 Installation & Setup Guide](https://realpython.com/installing-python/).
 
 To run the `sp500.py` file, type `python3 sp500.py` into your terminal. Here's how that looks, with output:
 
@@ -39,7 +39,7 @@ Max loss: -20.47% on 1987-10-19
 Longest growth streak: 14 days (1971-03-26 to 1971-04-15)
 ```
 
-> **Note:** Depending on your installation, you may need to type `python3.6` or `python36` to run the examples. If you follow the [Python 3 Installation & Setup Guide](https://realpython.com/installing-python/), you should have no problem.
+> **Note:** Depending on your installation, you may need to type `python3.15` or `python315` to run the examples. If you follow the [Python 3 Installation & Setup Guide](https://realpython.com/installing-python/), you should have no problem.
 
 Similarly, for `swimmers.py`:
 

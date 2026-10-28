@@ -18,16 +18,19 @@ print(len(tracks))
 try:
     cookie_accept_button = driver.find_element(
         By.CSS_SELECTOR,
-        "#cookie-control-dialog button.g-button.outline",
+        "div.cookie-control button.g-button.outline",
     )
     cookie_accept_button.click()
 except NoSuchElementException:
     pass
 
-pagination_button = driver.find_element(By.ID, "view-more")
+wait = WebDriverWait(driver, 10)
+
+pagination_button = wait.until(
+    EC.element_to_be_clickable((By.ID, "view-more"))
+)
 pagination_button.click()
 
-wait = WebDriverWait(driver, 10)
 wait.until(EC.element_to_be_clickable((By.ID, "view-more")))
 
 tracks = driver.find_elements(By.CLASS_NAME, "results-grid-item")

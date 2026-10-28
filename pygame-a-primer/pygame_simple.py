@@ -5,10 +5,10 @@ import pygame
 
 pygame.init()
 
-# Setup the window we'll use for drawing
+# Set up the drawing window
 screen = pygame.display.set_mode([500, 500])
 
-# Run until the user asks us to quit
+# Run until the user asks to quit
 running = True
 while running:
     # Did the user click the window close button?
@@ -19,11 +19,11 @@ while running:
     # Fill the background with white
     screen.fill((255, 255, 255))
 
-    # Draw a solid circle in the center
+    # Draw a solid blue circle in the center
     pygame.draw.circle(screen, (0, 0, 255), (250, 250), 75)
 
     # Flip the display
     pygame.display.flip()
 
-# We're done, so we can quit now.
+# Done! Time to quit.
 pygame.quit()
