@@ -1,0 +1,39 @@
+name: quality-gates
+on:
+  pull_request:
+  push:
+    branches: [main]
+permissions:
+  contents: read
+jobs:
+  gates:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - uses: astral-sh/setup-uv@v10
+        with:
+          version: "0.13.3"
+          enable-cache: true
+      - run: uv sync --locked
+      - run: uv run pre-commit run check-yaml --all-files
+      - run: uv run pre-commit run detect-private-key --all-files
+      - run: uv run ruff check .
+      - run: uv run ruff format --check .
+      - run: uv run mypy src tests
+      - run: uv run bandit -q -c pyproject.toml -r src
+      - run: uv export --no-dev --no-hashes --no-emit-project -o requirements.txt
+      - run: uv run pip-audit -r requirements.txt --no-deps --disable-pip
+      - run: uv run pytest
+  diff-check:
+    if: github.event_name == 'pull_request'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          fetch-depth: 0
+      - env:
+          BASE: ${{ github.event.pull_request.base.sha }}
+        run: |
+          # Run the base branch's copy, so the PR can't weaken it.
+          git show "$BASE:scripts/agent_diff_check.py" > "$RUNNER_TEMP/check.py"
+          python3 "$RUNNER_TEMP/check.py" --base "$BASE"
