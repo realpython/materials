@@ -1,0 +1,33 @@
+.horizontal {
+    layout: horizontal;
+    margin: 1;
+}
+
+.hidden {
+    display: none;
+}
+
+Playlist {
+    height: 80%;
+}
+
+DataTable {
+    margin-right: 1;
+    height: 100%;
+}
+
+#current_track {
+    content-align: center middle;
+    height: 3;
+    margin-left: 2;
+}
+
+#pager-buttons {
+    width: 20;
+}
+
+#pager-buttons Button {
+    width: 20;
+    height: 3;
+    margin-bottom: 1;
+}
