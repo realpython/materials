@@ -7,6 +7,16 @@ import types
 
 sel = selectors.DefaultSelector()
 
+pending_messages = []
+#
+# Capture pending messages: (fd,message)
+#     where fd is the socket fd, a numeric integer value. For example:
+#
+# The rest of the code can add items here to send messages.
+#
+#     pending_messages.append( (key.fd, message) )
+#
+
 
 def accept_wrapper(sock):
     conn, addr = sock.accept()  # Should be ready to read
@@ -33,6 +43,9 @@ def service_connection(key, mask):
             print(f"Echoing {data.outb!r} to {data.addr}")
             sent = sock.send(data.outb)  # Should be ready to write
             data.outb = data.outb[sent:]
+        elif len(pending_messages) > 0 and pending_messages[0][0] == key.fd:
+            data.outb = pending_messages[0][1]
+            pending_messages.pop(0)
 
 
 if len(sys.argv) != 3:
