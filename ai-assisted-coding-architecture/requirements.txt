@@ -1,0 +1,5 @@
+import-linter==2.15
+pylint==4.1.3
+pytest==9.1.1
+ruff==0.17.2
+vulture==2.16
