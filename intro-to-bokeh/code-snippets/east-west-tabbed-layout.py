@@ -1,6 +1,6 @@
 # Bokeh Library
 from bokeh.io import output_file
-from bokeh.models.widgets import Panel, Tabs
+from bokeh.models import TabPanel, Tabs
 
 # Output to file
 output_file(
@@ -9,11 +9,11 @@ output_file(
 )
 
 # Increase the plot widths
-east_fig.plot_width = west_fig.plot_width = 800  # noqa
+east_fig.width = west_fig.width = 800  # noqa
 
 # Create two panels, one for each conference
-east_panel = Panel(child=east_fig, title="Eastern Conference")  # noqa
-west_panel = Panel(child=west_fig, title="Western Conference")  # noqa
+east_panel = TabPanel(child=east_fig, title="Eastern Conference")  # noqa
+west_panel = TabPanel(child=west_fig, title="Western Conference")  # noqa
 
 # Assign the panels to Tabs
 tabs = Tabs(tabs=[west_panel, east_panel])
