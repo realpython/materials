@@ -11,7 +11,7 @@ class PayrollSystem:
     def get_policy(self, employee_id):
         policy = self._employee_policies.get(employee_id)
         if not policy:
-            return ValueError(employee_id)
+            raise ValueError(employee_id)
         return policy
 
     def calculate_payroll(self, employees):
