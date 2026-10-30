@@ -20,7 +20,7 @@ DEV_CASES = [
     (
         "suggestion",
         "unclear",
-        "Customer: The app crashed earlier.\n" "Agent: Try restarting it.",
+        "Customer: The app crashed earlier.\nAgent: Try restarting it.",
     ),
     (
         "confirmed",

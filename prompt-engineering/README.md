@@ -1,4 +1,4 @@
-# Prompt Engineering: A Practical Example
+# Prompt Engineering for Python Developers
 
 This folder contains the code for the Real Python tutorial on [practical prompt engineering](https://realpython.com/practical-prompt-engineering/).
 
@@ -22,7 +22,7 @@ Create and activate a [virtual environment](https://realpython.com/python-virtua
 (venv) $ python -m pip install -r requirements.txt
 ```
 
-The examples were tested with Python 3.14.8.
+The examples were tested with Python 3.14.9.
 
 ## Usage
 
