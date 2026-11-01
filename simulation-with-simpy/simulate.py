@@ -1,9 +1,9 @@
-"""Companion code to https://realpython.com/simulation-with-simpy/
+"""Companion code to https://realpython.com/simpy-simulating-with-python/
 
-'Simulating Real-World Processes With SimPy'
+'SimPy: Simulating Real-World Processes With Python'
 
-Python version: 3.7.3
-SimPy version: 3.0.11
+Python version: 3.15
+SimPy version: 4.1.2
 """
 
 import random
@@ -82,7 +82,7 @@ def get_user_input():
         params = [int(x) for x in params]
     else:
         print(
-            "Could not parse input. Simulation will use default values:",
+            "Could not parse input. The simulation will use default values:",
             "\n1 cashier, 1 server, 1 usher.",
         )
         params = [1, 1, 1]
