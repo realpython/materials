@@ -1,0 +1,32 @@
+name: Security
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  bandit-and-ruff:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
+        with:
+          python-version: "3.14"
+      - name: Install scanners
+        run: python -m pip install "bandit[toml]==1.9.4" ruff==0.17.3
+      - name: Ruff
+        run: ruff check .
+      - name: Bandit
+        if: success() || failure()
+        run: bandit -r . -c pyproject.toml
+      - name: Bandit on tests
+        if: success() || failure()
+        run: bandit -r tests -s B101
+      - name: Reject blanket suppressions
+        if: success() || failure()
+        run: |
+          ! git grep -nE '#[[:space:]]*(nosec|noqa)[[:space:]]*(#|$)' -- '*.py'
