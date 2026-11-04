@@ -1,0 +1,49 @@
+[tool.ruff]
+line-length = 79
+target-version = "py311"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "PTH", "UP", "TID"]
+
+[tool.ruff.lint.flake8-tidy-imports]
+ban-relative-imports = "all"
+
+[tool.ruff.lint.flake8-tidy-imports.banned-api]
+"datetime.datetime.utcnow".msg = "Deprecated and naive. Use datetime.now(UTC)."
+"datetime.datetime.utcfromtimestamp".msg = "Deprecated and naive. Use datetime.fromtimestamp(ts, timezone.utc)."
+"random.seed".msg = "Inject a random.Random instance instead of seeding global state."
+
+[tool.importlinter]
+root_package = "orders"
+include_external_packages = true
+
+[[tool.importlinter.contracts]]
+name = "Layers: adapters -> services -> domain"
+type = "layers"
+layers = ["orders.adapters", "orders.services", "orders.domain"]
+broken_contract_guidance = """
+Imports must point down the stack. Pass data into domain code instead of
+fetching it there, and make services depend on a Protocol in
+orders/services/ports.py, not on an adapter. Do not add an ignore_imports
+entry without a new ADR.
+See docs/adr/0001-layered-architecture.md.
+"""
+
+[[tool.importlinter.contracts]]
+name = "Domain stays free of I/O libraries"
+type = "forbidden"
+source_modules = ["orders.domain"]
+forbidden_modules = ["sqlite3", "json", "requests", "httpx"]
+allow_indirect_imports = true
+broken_contract_guidance = """
+Domain code is pure business logic. Move the I/O into an adapter, and have
+a service pass the data in.
+See docs/adr/0001-layered-architecture.md.
+"""
+
+[tool.vulture]
+paths = ["orders", "tests"]
+min_confidence = 60
+
+[tool.pytest.ini_options]
+pythonpath = ["."]
