@@ -13,6 +13,15 @@ Due to time constraints, we cannot provide 1:1 support via GitHub. See you on Sl
 
 ## Adding Source Code & Sample Projects to This Repo (RP Contributors)
 
+> **Note for new contributors:**  
+> If you are new to contributing to this repository, consider starting with
+> small documentation improvements or minor clarifications before submitting
+> code changes. This helps you become familiar with the project structure and
+> contribution workflow.
+
+Before submitting code, make sure it is formatted correctly by running:
+
+
 ### Running Code Style Checks
 
 We use [Ruff](https://realpython.com/ruff-python/) to ensure a consistent code style and formatting for all of our sample code in this repository.
