@@ -1,6 +1,14 @@
 # Simulating Real-World Processes With SimPy
 
-Corresponding code for ["Simulating Real-World Processes With SimPy."](https://realpython.com/simulation-with-simpy/)
+Corresponding code for ["SimPy: Simulating Real-World Processes With Python."](https://realpython.com/simpy-simulating-with-python/)
+
+## Requirements
+
+The script runs on Python 3.8 or later. Install SimPy from `requirements.txt`:
+
+```console
+$ python -m pip install -r requirements.txt
+```
 
 ## Running the Script
 
@@ -14,5 +22,5 @@ Input # of cashiers working: 1
 Input # of servers working: 1
 Input # of ushers working: 1
 Running simulation...
-The average wait time is 42 minutes and 26 seconds.
+The average wait time is 42 minutes and 53 seconds.
 ```
