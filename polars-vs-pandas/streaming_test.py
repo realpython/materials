@@ -13,7 +13,7 @@ def create_polars_lazyframe(test_data):
 def analyze_polars_lazyframe(polars_lf):
     polars_lf.group_by(["region", "product", "sales_person"]).agg(
         total_sales=pl.col("sales_income").sum()
-    ).collect()
+    ).collect(engine="in-memory")
 
 
 def analyze_polars_streaming(polars_lf):
