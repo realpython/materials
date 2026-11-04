@@ -26,6 +26,7 @@ Deploy the code to Heroku:
 ```shell
 $ heroku login
 $ heroku create
+$ heroku addons:create heroku-postgresql:essential-0
 $ heroku config:set DEBUG=True SECRET_KEY=$(head -c 32 /dev/urandom | base64)
 $ git push heroku master
 $ heroku open
