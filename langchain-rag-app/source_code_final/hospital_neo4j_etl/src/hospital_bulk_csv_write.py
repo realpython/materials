@@ -42,12 +42,13 @@ def load_hospital_graph_from_csv() -> None:
     )
 
     LOGGER.info("Setting uniqueness constraints on nodes")
-    with driver.session(database="neo4j") as session:
+
+    with driver.session() as session:
         for node in NODES:
             session.execute_write(_set_uniqueness_constraints, node)
 
     LOGGER.info("Loading hospital nodes")
-    with driver.session(database="neo4j") as session:
+    with driver.session() as session:
         query = f"""
         LOAD CSV WITH HEADERS
         FROM '{HOSPITALS_CSV_PATH}' AS hospitals
@@ -58,7 +59,7 @@ def load_hospital_graph_from_csv() -> None:
         _ = session.run(query, {})
 
     LOGGER.info("Loading payer nodes")
-    with driver.session(database="neo4j") as session:
+    with driver.session() as session:
         query = f"""
         LOAD CSV WITH HEADERS
         FROM '{PAYERS_CSV_PATH}' AS payers
@@ -68,7 +69,7 @@ def load_hospital_graph_from_csv() -> None:
         _ = session.run(query, {})
 
     LOGGER.info("Loading physician nodes")
-    with driver.session(database="neo4j") as session:
+    with driver.session() as session:
         query = f"""
         LOAD CSV WITH HEADERS
         FROM '{PHYSICIANS_CSV_PATH}' AS physicians
@@ -83,7 +84,7 @@ def load_hospital_graph_from_csv() -> None:
         _ = session.run(query, {})
 
     LOGGER.info("Loading visit nodes")
-    with driver.session(database="neo4j") as session:
+    with driver.session() as session:
         query = f"""
         LOAD CSV WITH HEADERS FROM '{VISITS_CSV_PATH}' AS visits
         MERGE (v:Visit {{id: toInteger(visits.visit_id),
@@ -106,7 +107,7 @@ def load_hospital_graph_from_csv() -> None:
         _ = session.run(query, {})
 
     LOGGER.info("Loading patient nodes")
-    with driver.session(database="neo4j") as session:
+    with driver.session() as session:
         query = f"""
         LOAD CSV WITH HEADERS
         FROM '{PATIENTS_CSV_PATH}' AS patients
@@ -120,7 +121,7 @@ def load_hospital_graph_from_csv() -> None:
         _ = session.run(query, {})
 
     LOGGER.info("Loading review nodes")
-    with driver.session(database="neo4j") as session:
+    with driver.session() as session:
         query = f"""
         LOAD CSV WITH HEADERS
         FROM '{REVIEWS_CSV_PATH}' AS reviews
@@ -134,7 +135,7 @@ def load_hospital_graph_from_csv() -> None:
         _ = session.run(query, {})
 
     LOGGER.info("Loading 'AT' relationships")
-    with driver.session(database="neo4j") as session:
+    with driver.session() as session:
         query = f"""
         LOAD CSV WITH HEADERS FROM '{VISITS_CSV_PATH}' AS row
         MATCH (source: `Visit` {{ `id`: toInteger(trim(row.`visit_id`)) }})
@@ -145,7 +146,7 @@ def load_hospital_graph_from_csv() -> None:
         _ = session.run(query, {})
 
     LOGGER.info("Loading 'WRITES' relationships")
-    with driver.session(database="neo4j") as session:
+    with driver.session() as session:
         query = f"""
         LOAD CSV WITH HEADERS FROM '{REVIEWS_CSV_PATH}' AS reviews
             MATCH (v:Visit {{id: toInteger(reviews.visit_id)}})
@@ -155,7 +156,7 @@ def load_hospital_graph_from_csv() -> None:
         _ = session.run(query, {})
 
     LOGGER.info("Loading 'TREATS' relationships")
-    with driver.session(database="neo4j") as session:
+    with driver.session() as session:
         query = f"""
         LOAD CSV WITH HEADERS FROM '{VISITS_CSV_PATH}' AS visits
             MATCH (p:Physician {{id: toInteger(visits.physician_id)}})
@@ -165,7 +166,7 @@ def load_hospital_graph_from_csv() -> None:
         _ = session.run(query, {})
 
     LOGGER.info("Loading 'COVERED_BY' relationships")
-    with driver.session(database="neo4j") as session:
+    with driver.session() as session:
         query = f"""
         LOAD CSV WITH HEADERS FROM '{VISITS_CSV_PATH}' AS visits
             MATCH (v:Visit {{id: toInteger(visits.visit_id)}})
@@ -178,7 +179,7 @@ def load_hospital_graph_from_csv() -> None:
         _ = session.run(query, {})
 
     LOGGER.info("Loading 'HAS' relationships")
-    with driver.session(database="neo4j") as session:
+    with driver.session() as session:
         query = f"""
         LOAD CSV WITH HEADERS FROM '{VISITS_CSV_PATH}' AS visits
             MATCH (p:Patient {{id: toInteger(visits.patient_id)}})
@@ -188,7 +189,7 @@ def load_hospital_graph_from_csv() -> None:
         _ = session.run(query, {})
 
     LOGGER.info("Loading 'EMPLOYS' relationships")
-    with driver.session(database="neo4j") as session:
+    with driver.session() as session:
         query = f"""
         LOAD CSV WITH HEADERS FROM '{VISITS_CSV_PATH}' AS visits
             MATCH (h:Hospital {{id: toInteger(visits.hospital_id)}})
