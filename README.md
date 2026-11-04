@@ -15,6 +15,10 @@ Due to time constraints, we cannot provide 1:1 support via GitHub. See you on Sl
 
 ### Running Code Style Checks
 
+Before running the linting commands, install Ruff:
+
+pip install ruff
+
 We use [Ruff](https://realpython.com/ruff-python/) to ensure a consistent code style and formatting for all of our sample code in this repository.
 
 Run the following commands to validate your code against the linters:
