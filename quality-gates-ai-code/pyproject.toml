@@ -1,0 +1,47 @@
+[project]
+name = "demo"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "requests==2.34.2",
+]
+
+[project.scripts]
+demo = "demo:main"
+
+[build-system]
+requires = ["uv_build>=0.13.3,<0.14"]
+build-backend = "uv_build"
+
+[dependency-groups]
+dev = [
+    "bandit==1.9.4",
+    "mypy==2.4.0",
+    "pip-audit==2.10.1",
+    "pre-commit==4.7.0",
+    "pytest==9.1.1",
+    "pytest-cov==7.1.0",
+    "ruff==0.17.1",
+]
+
+[tool.ruff]
+extend-exclude = ["examples"]
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B", "S"]
+
+[tool.ruff.lint.per-file-ignores]
+"tests/**" = ["S101"]
+"scripts/**" = ["S603", "S607"]
+
+[tool.mypy]
+strict = true
+
+[tool.pytest.ini_options]
+addopts = "--cov=demo --cov-report=term-missing --cov-fail-under=90"
+testpaths = ["tests"]
+
+[tool.bandit]
+exclude_dirs = ["tests", ".venv"]

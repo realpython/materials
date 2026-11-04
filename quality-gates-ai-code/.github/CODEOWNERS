@@ -1,0 +1,6 @@
+# Changes to the quality gates need a code owner's review.
+# Replace @your-username with your GitHub user or team.
+/.github/ @your-username
+/.pre-commit-config.yaml @your-username
+/pyproject.toml @your-username
+/scripts/agent_diff_check.py @your-username
