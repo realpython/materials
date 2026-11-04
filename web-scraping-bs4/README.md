@@ -15,7 +15,7 @@ $ source venv/bin/activate
 2. Install the requirements
 
 ```sh
-(venv) $ pip install -r requirements.txt
+(venv) $ python -m pip install -r requirements.txt
 ```
 
 ## Run the Scraper
