@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Skills</title>
+  </head>
+  <body>
+    <h1>Full stack skills</h1>
+    <ul id="skills"></ul>
+    <script>
+      fetch("/api/skills")
+        .then((response) => response.json())
+        .then((skills) => {
+          const list = document.querySelector("#skills");
+          for (const skill of skills) {
+            const item = document.createElement("li");
+            item.textContent = `${skill.name} (stage ${skill.stage})`;
+            list.append(item);
+          }
+        });
+    </script>
+  </body>
+</html>
