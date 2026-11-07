@@ -11,7 +11,7 @@ $ python --version
 Python 3.14.6
 $ python -m venv venv
 $ source venv/bin/activate
-(venv) $ python -m pip install openai==3.13.0
+(venv) $ python -m pip install openai==3.46.0
 ```
 
 You need to be on Python 3.10 or higher.
@@ -39,6 +39,6 @@ Note that `convert.py` and `edit.py` read a saved response from the `responses/`
 
 ## A Note on Models
 
-The GPT Image models replaced DALL·E, which OpenAI [retired on May 12, 2026](https://developers.openai.com/api/docs/deprecations) along with the image variations endpoint. These scripts call `gpt-image-2.5-flare`.
+The GPT Image models replaced DALL·E, which OpenAI [retired on May 12, 2026](https://developers.openai.com/api/docs/deprecations) along with the image variations endpoint. These scripts call `gpt-image-2.6-flare`.
 
-OpenAI retires image models on a regular schedule, so if a script starts failing with a message like `The model 'gpt-image-2.5-flare' does not exist`, then check the deprecations page and swap the model name.
+OpenAI retires image models on a regular schedule, so if a script starts failing with a message like `The model 'gpt-image-2.6-flare' does not exist`, then check the deprecations page and swap the model name.
