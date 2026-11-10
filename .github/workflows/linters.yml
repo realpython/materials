@@ -21,21 +21,24 @@ jobs:
           - {name: Linux314, python: '3.14', os: ubuntu-latest}
     steps:
     - name: Check out repository
-      uses: actions/checkout@v2
+      uses: actions/checkout@v4
 
     - name: Set up Python
-      uses: actions/setup-python@v2
+      id: setup-python
+      uses: actions/setup-python@v5
       with:
         python-version: ${{ matrix.python }}
 
+    # The cached venv links to the exact interpreter it was built with,
+    # so the key includes the resolved patch version (for example, 3.14.10).
     - name: Restore cache
       id: cache
-      uses: actions/cache@v3
+      uses: actions/cache@v4
       with:
         path: ./venv
-        key: ${{ matrix.name }}-v2-pip-${{ hashFiles('requirements.txt') }}
+        key: ${{ matrix.name }}-${{ steps.setup-python.outputs.python-version }}-pip-${{ hashFiles('requirements.txt') }}
         restore-keys: |
-          ${{ matrix.name }}-v2-pip-
+          ${{ matrix.name }}-${{ steps.setup-python.outputs.python-version }}-pip-
 
     - name: Install dependencies
       if: steps.cache.outputs.cache-hit != 'true'
