@@ -15,7 +15,7 @@ with open(SOURCE_FILE, mode="r", encoding="utf-8") as json_file:
     image_data = b64decode(saved_response["data"][0]["b64_json"])
 
 response = client.images.edit(
-    model="gpt-image-2.5-flare",
+    model="gpt-image-2.6-flare",
     image=("image.png", image_data),
     prompt=EDIT_PROMPT,
     n=3,
