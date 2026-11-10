@@ -26,8 +26,8 @@ class Window(QMainWindow):
 
     def _createToolBar(self):
         tools = QToolBar()
-        self.addToolBar(tools)
         tools.addAction("Exit", self.close)
+        self.addToolBar(tools)
 
     def _createStatusBar(self):
         status = QStatusBar()
