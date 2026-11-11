@@ -28,7 +28,7 @@ class Welcome(arcade.Window):
         """Called whenever we need to draw our window"""
 
         # Clear the screen and start drawing
-        arcade.start_render()
+        self.clear()
 
         # Draw a blue arc
         arcade.draw_arc_filled(100, 100, 40, 40, arcade.color.BLUE, 0, 125)
@@ -62,11 +62,13 @@ class Welcome(arcade.Window):
         )
 
         # Draw some rectangles
-        arcade.draw_rectangle_filled(100, 500, 150, 75, arcade.color.AZURE)
-        arcade.draw_lrtb_rectangle_filled(
-            150, 250, 575, 525, arcade.color.AMARANTH_PINK
+        arcade.draw_rect_filled(
+            arcade.XYWH(100, 500, 150, 75), arcade.color.AZURE
         )
-        arcade.draw_xywh_rectangle_filled(
+        arcade.draw_lrbt_rectangle_filled(
+            150, 250, 525, 575, arcade.color.AMARANTH_PINK
+        )
+        arcade.draw_lbwh_rectangle_filled(
             200, 550, 150, 75, arcade.color.ASPARAGUS
         )
 
