@@ -20,13 +20,13 @@ class FlyingSprite(arcade.Sprite):
     Flying sprites include enemies and clouds
     """
 
-    def update(self):
+    def update(self, delta_time: float = 1 / 60):
         """Update the position of the sprite
         When it moves off screen to the left, remove it
         """
 
         # Move the sprite
-        super().update()
+        super().update(delta_time)
 
         # Remove us if we're off screen
         if self.right < 0:
@@ -237,7 +237,7 @@ class SpaceShooter(arcade.Window):
     def on_draw(self):
         """Draw all game objects"""
 
-        arcade.start_render()
+        self.clear()
         self.all_sprites.draw()
 
 

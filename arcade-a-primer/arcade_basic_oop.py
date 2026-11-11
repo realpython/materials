@@ -29,7 +29,7 @@ class Welcome(arcade.Window):
         """Called whenever we need to draw our window"""
 
         # Clear the screen and start drawing
-        arcade.start_render()
+        self.clear()
 
         # Draw a blue circle
         arcade.draw_circle_filled(
