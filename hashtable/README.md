@@ -4,10 +4,12 @@ Code supplementing the [tutorial on the hash table](https://realpython.com/pytho
 
 ## Installation
 
+The code requires Python 3.15 or later. It uses the built-in `sentinel()` and unpacking in comprehensions, which are new in Python 3.15.
+
 To get started, create and activate a new virtual environment, and then install the required dependencies into it:
 
 ```shell
-$ python3 -m venv venv --prompt=hashtable
+$ python3.15 -m venv venv --prompt=hashtable
 $ source venv/bin/activate
 (hashtable) $ python -m pip install -r requirements.txt
 ```

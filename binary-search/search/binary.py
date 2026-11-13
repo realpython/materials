@@ -68,7 +68,7 @@ def find_all_indices(
     left = find_leftmost_index(elements, value, key)
     right = find_rightmost_index(elements, value, key)
 
-    if left and right:
+    if left is not None and right is not None:
         return set(range(left, right + 1))
 
     return set()

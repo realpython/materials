@@ -1,4 +1,4 @@
-# http://flask.pocoo.org/docs/1.0/tutorial/database/
+# https://flask.palletsprojects.com/en/stable/tutorial/database/
 import sqlite3
 
 import click

@@ -2,7 +2,7 @@
 
 from typing import Any, NamedTuple
 
-DELETED = object()
+DELETED = sentinel("DELETED")
 
 
 class Pair(NamedTuple):

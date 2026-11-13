@@ -91,7 +91,7 @@ class HashTable:
 
     @property
     def pairs(self):
-        return {pair for bucket in self._buckets for pair in bucket}
+        return {*bucket for bucket in self._buckets}
 
     @property
     def values(self):
