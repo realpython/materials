@@ -26,18 +26,19 @@ async def main():
         workdir = Path(tmp) / "project"
         shutil.copytree(PROJECT, workdir)
         print(f"Working in {workdir}")
-        async with CopilotClient(
-            github_token=os.environ["COPILOT_GITHUB_TOKEN"]
-        ) as client:
+        token = os.environ["COPILOT_GITHUB_TOKEN"]
+        async with CopilotClient(github_token=token) as client:
             session = await client.create_session(
                 streaming=True,
                 working_directory=str(workdir),
                 on_permission_request=PermissionHandler.approve_all,
+                model="claude-haiku-5.5",
             )
             session.on(on_event)
             await session.send_and_wait(
-                "In shopping.py, make total() use sum() and make average() "
-                "return 0 for an empty list. Don't touch the tests."
+                "In shopping.py, make compute_total() use sum() and make "
+                "compute_average() return 0 for an empty list. "
+                "Don't touch the tests."
             )
             await session.disconnect()
         print((workdir / "shopping.py").read_text())

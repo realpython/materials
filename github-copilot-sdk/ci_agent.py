@@ -4,7 +4,10 @@ import sys
 from pathlib import Path
 
 from copilot import CopilotClient
-from copilot.rpc import PermissionDecisionApproveOnce, PermissionDecisionReject
+from copilot.rpc import (
+    PermissionDecisionApproveOnce,
+    PermissionDecisionReject,
+)
 
 TARGET = sys.argv[1] if len(sys.argv) > 1 else "project/shopping.py"
 ALLOWED = Path(TARGET).resolve()
@@ -24,10 +27,12 @@ def policy(request, invocation):
 
 
 async def main() -> int:
-    async with CopilotClient(
-        github_token=os.environ["COPILOT_GITHUB_TOKEN"]
-    ) as client:
-        session = await client.create_session(on_permission_request=policy)
+    token = os.environ["COPILOT_GITHUB_TOKEN"]
+    async with CopilotClient(github_token=token) as client:
+        session = await client.create_session(
+            on_permission_request=policy,
+            model="claude-haiku-5.5",
+        )
         reply = await session.send_and_wait(
             f"Review {TARGET} for bugs. Reply with only PASS if it is fine, "
             "or FAIL followed by the problems."

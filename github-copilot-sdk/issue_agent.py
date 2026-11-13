@@ -5,25 +5,17 @@ from pathlib import Path
 from typing import Literal
 
 from copilot import CopilotClient, PermissionHandler, define_tool
-from pydantic import BaseModel, Field
+from pydantic import BaseModel
 
-ISSUES = json.loads(
-    Path(__file__).with_name("tracker").joinpath("issues.json").read_text()
-)
+ISSUES = json.loads(Path("tracker/issues.json").read_text())
 
 
 class ListIssuesParams(BaseModel):
-    status: Literal["open", "closed"] = Field(
-        description="Filter by status: 'open' or 'closed'"
-    )
-    label: str | None = Field(
-        default=None, description="Optional label to filter by"
-    )
+    status: Literal["open", "closed"]
+    label: str | None = None
 
 
-@define_tool(
-    description="List issues from the tracker", params_type=ListIssuesParams
-)
+@define_tool(description="List issues from the tracker")
 async def list_issues(params: ListIssuesParams):
     return [
         issue
@@ -34,15 +26,15 @@ async def list_issues(params: ListIssuesParams):
 
 
 async def main():
-    async with CopilotClient(
-        github_token=os.environ["COPILOT_GITHUB_TOKEN"]
-    ) as client:
+    token = os.environ["COPILOT_GITHUB_TOKEN"]
+    async with CopilotClient(github_token=token) as client:
         session = await client.create_session(
             tools=[list_issues],
             on_permission_request=PermissionHandler.approve_all,
+            model="claude-haiku-5.5",
         )
         reply = await session.send_and_wait(
-            "Which open bugs are assigned to ana? Use the tracker tool."
+            "Which open bugs are assigned to Ana? Use the tracker tool."
         )
         print(reply.data.content)
         await session.disconnect()

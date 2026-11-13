@@ -1,9 +1,9 @@
-def total(prices):
-    t = 0
-    for p in prices:
-        t = t + p
-    return t
+def compute_total(prices):
+    total = 0
+    for price in prices:
+        total = total + price
+    return total
 
 
-def average(prices):
-    return total(prices) / len(prices)
+def compute_average(prices):
+    return compute_total(prices) / len(prices)
