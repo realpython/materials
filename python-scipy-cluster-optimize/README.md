@@ -10,4 +10,4 @@ Gómez Hidalgo, J.M., Almeida, T.A., Yamakami, A. On the Validity of a New SMS S
 
 Almeida, T.A., Gómez Hidalgo, J.M., Silva, T.P. Towards SMS Spam Filtering: Results under a New Dataset. International Journal of Information Security Science (IJISS), 2(1), 1-18, 2013\. [Invited paper - [full version](http://www.dt.fee.unicamp.br/~tiago/smsspamcollection/IJISS13.pdf)]
 
-The original data is available from the [author's website](http://www.dt.fee.unicamp.br/~tiago/smsspamcollection/).
+The original data is available from the [author's website](https://web.archive.org/web/20220810124955/https://www.dt.fee.unicamp.br/~tiago/smsspamcollection/).
