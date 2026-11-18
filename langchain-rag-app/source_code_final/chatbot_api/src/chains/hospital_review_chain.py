@@ -7,16 +7,38 @@ from langchain.prompts import (
     PromptTemplate,
     SystemMessagePromptTemplate,
 )
-from langchain.vectorstores.neo4j_vector import Neo4jVector
+from langchain_community.vectorstores import Neo4jVector
 from langchain_openai import ChatOpenAI, OpenAIEmbeddings
+from neo4j import GraphDatabase
 
 HOSPITAL_QA_MODEL = os.getenv("HOSPITAL_QA_MODEL")
+
+# langchain-community's create_new_index uses the deprecated
+# db.index.vector.createNodeIndex procedure removed in Neo4j 5.27.
+# Pre-create the index with the current syntax so from_existing_graph
+# detects it and skips create_new_index.
+_driver = GraphDatabase.driver(
+    os.getenv("NEO4J_URI"),
+    auth=(os.getenv("NEO4J_USERNAME"), os.getenv("NEO4J_PASSWORD")),
+)
+with _driver.session(
+    database=os.getenv("NEO4J_DATABASE", "neo4j")
+) as _session:
+    _session.run(
+        "CREATE VECTOR INDEX reviews IF NOT EXISTS "
+        "FOR (n:Review) ON (n.embedding) "
+        "OPTIONS {indexConfig: {`vector.dimensions`: 1536, "
+        "`vector.similarity_function`: 'cosine'}}"
+    )
+_driver.close()
+del _driver
 
 neo4j_vector_index = Neo4jVector.from_existing_graph(
     embedding=OpenAIEmbeddings(),
     url=os.getenv("NEO4J_URI"),
     username=os.getenv("NEO4J_USERNAME"),
     password=os.getenv("NEO4J_PASSWORD"),
+    database=os.getenv("NEO4J_DATABASE", "neo4j"),
     index_name="reviews",
     node_label="Review",
     text_node_properties=[
