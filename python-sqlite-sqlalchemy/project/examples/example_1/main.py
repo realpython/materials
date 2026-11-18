@@ -66,13 +66,20 @@ def add_new_book(data, author_name, book_title, publisher_name):
     ):
         return data
     # Add the new book
-    return data.append(
-        {
-            "first_name": first_name,
-            "last_name": last_name,
-            "title": book_title,
-            "publisher": publisher_name,
-        },
+    return pd.concat(
+        [
+            data,
+            pd.DataFrame(
+                [
+                    {
+                        "first_name": first_name,
+                        "last_name": last_name,
+                        "title": book_title,
+                        "publisher": publisher_name,
+                    }
+                ]
+            ),
+        ],
         ignore_index=True,
     )
 
