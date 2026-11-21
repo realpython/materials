@@ -40,7 +40,7 @@ class ArcadeBasic(arcade.Window):
         """Called once per frame to render everything on the screen"""
 
         # Start rendering
-        arcade.start_render()
+        self.clear()
 
         # Draw a blue circle with a radius of 50 in the center of the screen
         arcade.draw_circle_filled(
@@ -52,7 +52,7 @@ class ArcadeBasic(arcade.Window):
         )
 
         # Draw a red-outlined square in the top-left corner of the screen
-        arcade.draw_lrtb_rectangle_outline(
+        arcade.draw_lrbt_rectangle_outline(
             left=50,
             top=HEIGHT - 50,
             bottom=HEIGHT - 100,
@@ -64,8 +64,8 @@ class ArcadeBasic(arcade.Window):
         # Draw an orange caption along the bottom in 60-point font
         arcade.draw_text(
             text="Hello, World! From Arcade!",
-            start_x=100,
-            start_y=50,
+            x=100,
+            y=50,
             font_size=28,
             color=arcade.color.ORANGE,
         )

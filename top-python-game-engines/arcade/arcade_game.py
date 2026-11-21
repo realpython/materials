@@ -72,7 +72,7 @@ class ArcadeGame(arcade.Window):
         # Set up the player
         sprite_image = ASSETS_PATH / "images" / "alien_green_stand.png"
         self.player = arcade.Sprite(
-            filename=sprite_image, center_x=WIDTH // 2, center_y=HEIGHT // 2
+            sprite_image, center_x=WIDTH // 2, center_y=HEIGHT // 2
         )
 
         # Spawn a new coin
@@ -95,7 +95,7 @@ class ArcadeGame(arcade.Window):
         # Create a new coin
         coin_image = ASSETS_PATH / "images" / "coin_gold.png"
         new_coin = arcade.Sprite(
-            filename=coin_image,
+            coin_image,
             center_x=randint(20, WIDTH - 20),
             center_y=randint(20, HEIGHT - 20),
         )
@@ -131,8 +131,8 @@ class ArcadeGame(arcade.Window):
         """
 
         # Ensure the player doesn't move off-screen
-        self.player.center_x = arcade.clamp(x, 0, WIDTH)
-        self.player.center_y = arcade.clamp(y, 0, HEIGHT)
+        self.player.center_x = arcade.math.clamp(x, 0, WIDTH)
+        self.player.center_y = arcade.math.clamp(y, 0, HEIGHT)
 
     def on_update(self, delta_time: float):
         """Update all the game objects
@@ -172,19 +172,19 @@ class ArcadeGame(arcade.Window):
         """Draw everything"""
 
         # Start the rendering pass
-        arcade.start_render()
+        self.clear()
 
         # Draw the coins
         self.coins.draw()
 
         # Draw the player
-        self.player.draw()
+        arcade.draw_sprite(self.player)
 
         # Draw the score in the lower-left corner
         arcade.draw_text(
             text=f"Score: {self.score}",
-            start_x=50,
-            start_y=50,
+            x=50,
+            y=50,
             font_size=32,
             color=arcade.color.BLACK,
         )
