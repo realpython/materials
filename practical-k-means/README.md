@@ -11,8 +11,10 @@ Follow the instructions below to get up and running with a Jupyter notebook and 
 These notebooks have dependencies. One way to install these dependencies is to use the Anaconda Python distribution.
 
 ```bash
-(base) $ conda install jupyter matplotlib numpy pandas seaborn scikit-learn
-(base) $ conda install -c conda-forge kneed
+(base) $ conda install -c conda-forge \
+    jupyter "matplotlib=3.11" "numpy=2.5" "pandas=3.1" \
+    "seaborn=0.13" "scikit-learn=1.9"
+(base) $ conda install -c conda-forge "kneed=0.9"
 ```
 
 You can also install all the requirements using `pip` and the `requirements.txt` file included in this directory.
@@ -26,7 +28,7 @@ $ python3 -m pip install -r requirements.txt
 Open the notebook that accompanies the sections of the article that work with synthetic data:
 
 ```bash
-(base) $ jupyter notebook practical-kmeans-synthetic.ipynb
+(base) $ jupyter notebook practical-k-means-syntethic.ipynb
 ```
 
 ### Cancer Gene Expression Data Notebook
@@ -34,5 +36,5 @@ Open the notebook that accompanies the sections of the article that work with sy
 Open the notebook that accompanies the sections of the article that work with TCGA cancer gene expression data:
 
 ```bash
-(base) $ jupyter notebook practical-kmeans-cancer-gene-expression.ipynb
+(base) $ jupyter notebook practical-k-means-cancer-gene-expression.ipynb
 ```
