@@ -1,7 +1,9 @@
-# AI Red Teaming: A Deliberately Vulnerable Agent
+# AI Red Teaming in Python: Attack Your LLM Agent With PyRIT
 
-A small, deliberately vulnerable LLM support agent, plus a PyRIT script that
-attacks it. Don't deploy this agent. It exists to be attacked.
+This folder provides the code examples for the Real Python tutorial [AI Red Teaming in Python: Attack Your LLM Agent With PyRIT](https://realpython.com/ai-red-teaming/).
+
+The agent in `agent.py` is deliberately vulnerable, so don't deploy it. It
+exists to be attacked.
 
 ## Setup
 
