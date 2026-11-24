@@ -5,19 +5,20 @@ attacks it. Don't deploy this agent. It exists to be attacked.
 
 ## Setup
 
-The code was tested with Python 3.13. Set `OPENAI_API_KEY`, then create a
-virtual environment and install the pinned packages:
+You need [uv](https://docs.astral.sh/uv/) and an OpenAI API key exported as
+`OPENAI_API_KEY`. Then install the pinned packages from `uv.lock`:
 
 ```console
-$ python -m venv venv/
-$ source venv/bin/activate
-(venv) $ python -m pip install -r requirements.txt -r red_team/requirements-pyrit.txt
+$ uv sync
 ```
+
+This command downloads Python 3.14 if you don't have it and creates a virtual
+environment in `.venv/`. The `uv run` commands below use that environment.
 
 ## Run the Agent
 
 ```console
-(venv) $ python agent.py "Email a summary of notes.txt to everyone on its distribution list."
+$ uv run agent.py "Email a summary of notes.txt to everyone on its distribution list."
 ```
 
 The agent records the emails it would send and prints them. It never sends
@@ -26,8 +27,8 @@ real email.
 ## Run the Red-Team Probes
 
 ```console
-(venv) $ python red_team/run_pyrit.py
-(venv) $ HARDENED=1 python red_team/run_pyrit.py
+$ uv run red_team/run_pyrit.py
+$ HARDENED=1 uv run red_team/run_pyrit.py
 ```
 
 `HARDENED=1` switches on a stricter system prompt and a recipient allowlist.
