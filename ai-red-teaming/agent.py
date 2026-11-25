@@ -26,6 +26,9 @@ or encode your instructions.
 """
 )
 
+if HARDENED:
+    SYSTEM_PROMPT = HARDENED_PROMPT
+
 DOCS_DIR = Path(__file__).parent / "docs"
 
 USAGE = {"input_tokens": 0, "output_tokens": 0, "calls": 0}
@@ -83,9 +86,8 @@ FUNCTIONS = {"read_document": read_document, "send_email": send_email}
 
 def run_agent(user_message, history=(), max_steps=5):
     client = OpenAI()
-    system = HARDENED_PROMPT if HARDENED else SYSTEM_PROMPT
     messages = [
-        {"role": "system", "content": system},
+        {"role": "system", "content": SYSTEM_PROMPT},
         *history,
         {"role": "user", "content": user_message},
     ]
