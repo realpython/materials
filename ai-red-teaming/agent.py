@@ -89,6 +89,7 @@ def run_agent(user_message, history=(), max_steps=5):
         *history,
         {"role": "user", "content": user_message},
     ]
+
     for _ in range(max_steps):
         response = client.chat.completions.create(
             model=MODEL,
@@ -112,6 +113,7 @@ def run_agent(user_message, history=(), max_steps=5):
             messages.append(
                 {"role": "tool", "tool_call_id": call.id, "content": result}
             )
+
     return "Stopped: too many steps."
 
 
