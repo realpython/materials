@@ -51,7 +51,9 @@ class AgentTarget(PromptTarget):
         request = current.get_piece()
         sent_before = len(agent.SENT_EMAILS)
         reply = await asyncio.to_thread(
-            agent.run_agent, request.converted_value, history
+            agent.run_agent,
+            request.converted_value,
+            history,
         )
         for email in agent.SENT_EMAILS[sent_before:]:
             for address in EMAIL_PATTERN.findall(email["to"]):
