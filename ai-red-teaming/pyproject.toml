@@ -1,7 +1,7 @@
 [project]
 name = "ai-red-teaming"
 version = "0.1.0"
-description = "Source files supporting the 'AI Red Teaming in Python: Attack Your LLM Agent With PyRIT' tutorial on Real Python"
+description = "Code for Real Python's AI red teaming tutorial with PyRIT"
 readme = "README.md"
 requires-python = ">=3.14,<3.15"
 dependencies = [
