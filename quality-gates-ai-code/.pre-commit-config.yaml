@@ -1,0 +1,31 @@
+repos:
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v6.0.0
+    hooks:
+      - id: check-yaml
+      - id: detect-private-key
+  - repo: https://github.com/astral-sh/ruff-pre-commit
+    rev: v0.17.1
+    hooks:
+      - id: ruff-check
+      - id: ruff-format
+  - repo: local
+    hooks:
+      - id: mypy
+        name: mypy
+        entry: uv run mypy src tests
+        language: unsupported
+        pass_filenames: false
+        types: [python]
+      - id: bandit
+        name: bandit
+        entry: uv run bandit -q -c pyproject.toml -r src
+        language: unsupported
+        pass_filenames: false
+        types: [python]
+      - id: agent-diff-check
+        name: agent diff sanity
+        entry: uv run python scripts/agent_diff_check.py
+        language: unsupported
+        pass_filenames: false
+        always_run: true
