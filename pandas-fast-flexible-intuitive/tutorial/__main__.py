@@ -12,7 +12,7 @@ import pandas as pd
 from .timer import timeit
 
 
-# Two functions for conversion of object dtype to datetime
+# Two functions for conversion of str dtype to datetime
 # Note that you could also specify `parse_dates` within `pd.read_csv()`
 @timeit(repeat=3, number=10)
 def convert(df, column_name):
