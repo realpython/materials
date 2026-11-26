@@ -1,0 +1,40 @@
+/* todo_app/app.tcss */
+
+Screen {
+    background: #1e1e2e;
+    color: #cdd6f4;
+}
+
+#title {
+    width: 100%;
+    height: 1;
+    background: #45475a;
+    color: #f5e0dc;
+    text-style: bold;
+}
+
+#new-task {
+    border: round #6c7086;
+    background: #181825;
+    color: #cdd6f4;
+}
+
+#tasks {
+    height: 1fr;
+    border: round #6c7086;
+    background: #1e1e2e;
+}
+
+#tasks > ListItem {
+    padding: 0 1;
+}
+
+#tasks > ListItem.done {
+    color: #6c7086;
+    text-style: strike;
+}
+
+Footer {
+    background: #45475a;
+    color: #cdd6f4;
+}
