@@ -12,15 +12,15 @@ output_file("first_glyphs.html", title="First Glyphs")
 # Create a figure with no toolbar and axis ranges of [0,3]
 fig = figure(
     title="My Coordinates",
-    plot_height=300,
-    plot_width=300,
+    height=300,
+    width=300,
     x_range=(0, 3),
     y_range=(0, 3),
     toolbar_location=None,
 )
 
 # Draw the coordinates as circles
-fig.circle(x=x, y=y, color="green", size=10, alpha=0.5)
+fig.scatter(x=x, y=y, color="green", size=10, alpha=0.5)
 
 # Show plot
 show(fig)

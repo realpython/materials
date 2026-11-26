@@ -12,8 +12,7 @@ import pandas as pd  # noqa
 # Bokeh libraries
 from bokeh.io import output_file, output_notebook
 from bokeh.layouts import column, gridplot, row  # noqa
-from bokeh.models import ColumnDataSource  # noqa
-from bokeh.models.widgets import Panel, Tabs  # noqa
+from bokeh.models import ColumnDataSource, TabPanel, Tabs  # noqa
 from bokeh.plotting import figure, show
 
 # Prepare the data
