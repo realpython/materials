@@ -15,7 +15,7 @@ def greet():
     if msgLabel.text():
         msgLabel.setText("")
     else:
-        msgLabel.setText("Hello World!")
+        msgLabel.setText("Hello, World!")
 
 
 app = QApplication([])

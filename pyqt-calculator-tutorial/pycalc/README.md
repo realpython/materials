@@ -10,12 +10,12 @@ PyCalc is intended to be a demonstrative example of how to build a Python + PyQt
 
 ## Requirements
 
-For PyCalc to work, you need to have [Python](https://www.python.org) >= 3.6.1. Then you need to install the PyQt6 library. You can do this by using `pip` in a Python virtual environment:
+For PyCalc to work, you need to have [Python](https://www.python.org) 3.10 or later. Then you need to install the PyQt6 library. You can do this by using `pip` in a Python virtual environment:
 
 ```console
 $ python -m venv venv
 $ source venv/bin/activate
-$ python -m pip install pyqt6
+$ python -m pip install pyqt6==6.12.0
 ```
 
 After these commands have finished, you can run PyCalc as described in the next section.
