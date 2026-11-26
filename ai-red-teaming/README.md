@@ -34,9 +34,10 @@ real email.
 
 ```console
 $ uv run red_team/run_pyrit.py
-$ HARDENED=1 uv run red_team/run_pyrit.py
 ```
 
-`HARDENED=1` switches on a stricter system prompt and a recipient allowlist.
-Model replies vary between runs, so run each command a few times before you
-trust a result.
+The agent ships unhardened, so the direct and indirect injection probes should
+succeed. To harden it, follow Step 4 of the tutorial: add the extra lines to
+`SYSTEM_PROMPT` and the recipient allowlist to `send_email()` in `agent.py`,
+then rerun the script. Model replies vary between runs, so run the script a
+few times before you trust a result.

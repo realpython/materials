@@ -105,7 +105,7 @@ async def main():
         await output_attack_async(result)
         summary.append((name, result.outcome.name))
 
-    print(f"\nHARDENED={int(agent.HARDENED)}")
+    print()
     for name, outcome in summary:
         print(f"{name:<20}{outcome}")
     print("Agent token usage:", agent.USAGE)
