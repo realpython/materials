@@ -22,7 +22,7 @@ def run_report(filename):
 
 
 def ping_host(host):
-    return subprocess.check_output(["ping", "-c", "1", host])  # nosec B603 B607 # noqa: S603, S607
+    return subprocess.check_output(["ping", "-c", "1", "--", host])  # nosec B603 B607 # noqa: S603, S607
 
 
 def make_token():
@@ -30,8 +30,9 @@ def make_token():
 
 
 def hash_password(password, salt):
+    # OWASP's cost settings need 128 MiB, above OpenSSL's 32 MiB default.
     return hashlib.scrypt(
-        password.encode(), salt=salt, n=2**14, r=8, p=1
+        password.encode(), salt=salt, n=2**17, r=8, p=1, maxmem=2**28
     ).hex()
 
 
