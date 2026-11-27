@@ -137,9 +137,9 @@ STATICFILES_DIRS = [BASE_DIR / "static"]
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 # Additional header-related settings
-SECURE_REFERRER_POLICY = "no-referrer-when-downgrade"
+SECURE_REFERRER_POLICY = "strict-origin-when-cross-origin"
 
-SECURE_HSTS_SECONDS = 31536000  # == 1 year; *USE A SMALL VALUE FOR TESTING!*
+SECURE_HSTS_SECONDS = 2_592_000  # 30 days; *USE A SMALL VALUE FOR TESTING!*
 SECURE_HSTS_PRELOAD = True
 SECURE_HSTS_INCLUDE_SUBDOMAINS = True
 SECURE_PROXY_SSL_HEADER = ("HTTP_X_FORWARDED_PROTO", "https")
