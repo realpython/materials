@@ -16,13 +16,13 @@ Most of the examples are found in the article and others are extras that did not
 
 * Demonstrates the usage of `browser.aio`, the substitute to `asyncio` in Brython
 * This example is in the tutorial: https://realpython.com/brython-python-in-browser/#async-io-in-brython
-* https://www.brython.info/static_doc/en/aio.html
+* https://brython.info/static_doc/3.15/en/browser.aio.html
 
 ### ajax
 
 * Demonstrates the usage of `browser.ajax`
 * This example is in the tutorial: https://realpython.com/brython-python-in-browser/#ajax-in-brython
-* https://www.brython.info/static_doc/en/ajax.html
+* https://brython.info/static_doc/3.15/en/browser.ajax.html
 
 ### fetch
 
@@ -101,7 +101,7 @@ Examples demonstrating how to access the DOM API starting from an app that takes
 ## import_js
 
 * Expands on the `import` example by allowing the creation of `brython_module.js` generated with `brython-cli --modules`.
-* This requires a Python virtual environment with Brython installed (`pip install brython`) to have `brython-cli` available in the PATH. The generated files are available in the sub-directory `dist_example`.
+* This requires a Python virtual environment with Brython installed (`python -m pip install brython==3.9.1`) to have `brython-cli` available in the PATH. The generated files are available in the sub-directory `dist_example`.
 * You can open `dist_example/index.html` with a browser, without the need for a webserver to run locally, because the dependencies are only JS files (`brython.js` and `brython_modules.js`).
 * You can read more about this approach in the tutorial at https://realpython.com/brython-python-in-browser/#reduce-import-size
 
